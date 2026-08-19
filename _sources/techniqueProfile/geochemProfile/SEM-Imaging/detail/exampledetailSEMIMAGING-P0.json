@@ -1,0 +1,240 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#"
+  },
+  "@id": "ex:detailSEMIMAGING-P0",
+  "@type": [
+    "schema:Dataset",
+    "schema:Product"
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "example samplePreparationMethod"
+          },
+          {
+            "schema:name": "Data reduction",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabase",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabase"
+                  }
+                ],
+                "schema:name": "Crystal Structure Database",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsed",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsed"
+                  }
+                ],
+                "schema:name": "Constants and Reference Values Used",
+                "schema:value": "example value"
+              }
+            ]
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "example sampleName",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/samplePersistentIdentifier",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/samplePersistentIdentifier"
+                }
+              ],
+              "schema:name": "Sample Persistent Identifier",
+              "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "example value"
+            }
+          ]
+        }
+      ],
+      "prov:used": [
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataReductionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "ada:acceleratingVoltage": 1.0,
+              "ada:workingDistance": 1.0,
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "example instrumentName"
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semImagingTAPP/chamberPressure",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/chamberPressure"
+            }
+          ],
+          "schema:name": "Chamber Pressure",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semImagingTAPP/imagePixelSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/imagePixelSize"
+            }
+          ],
+          "schema:name": "Image Pixel Size",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semImagingTAPP/dwellTimePerPixel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
+            }
+          ],
+          "schema:name": "Dwell Time per Pixel",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+            }
+          ],
+          "schema:name": "CL Wavelength Calibration Reference",
+          "schema:value": "example value"
+        }
+      ],
+      "ada:clIntegrationTime": 1.0,
+      "schema:description": "example additionalNotes"
+    }
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example procedureDoi"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
+  "schema:funding": [],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA; NanoSIMS",
+        "schema:description": "example couplingDescription"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledProcedure",
+      "schema:target": {
+        "schema:url": "example coupledProcedureDoi"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
+    }
+  ],
+  "ada:clWavelengthRange": "example clGrating",
+  "ada:stepSize": 1.0,
+  "ada:frameTime": 1.0,
+  "ada:phaseList": "example ebsdPhaseList",
+  "ada:indexingMethod": "Hough transform",
+  "ada:patternQualityThreshold": "example ebsdPatternQualityThreshold",
+  "ada:meanAngularDeviation": 1.0,
+  "ada:indexingRate": 1.0
+}

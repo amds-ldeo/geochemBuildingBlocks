@@ -44,7 +44,7 @@ from ruamel.yaml import YAML
 from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-GP = REPO_ROOT / "_sources" / "geochemProperties"
+GP = REPO_ROOT / "_sources" / "BaseSchema"
 DEFAULT_CACHE = REPO_ROOT / "tools" / "componentType_enum_cache.json"
 DEFAULT_XLSX = REPO_ROOT.parent.parent / "amds-ldeo" / "metadata" / "ADA-AnalyticalMethodsAndAttributes.xlsx"
 DESC = "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping (see tools/apply_componentType_enums.py)."
@@ -88,7 +88,7 @@ def derive_from_xlsx(xlsx_path: Path) -> dict:
         elif ft == "document | tabularData":
             bb["document"].add(pfx)
             bb["tabularData"].add(pfx)
-        elif ft == "video":
+        elif ft in ("video", "otherFile"):
             bb["otherFile"].add(pfx)
         else:
             print(f"  WARN: unhandled fileType={ft!r} for componentType={ct!r}", file=sys.stderr)

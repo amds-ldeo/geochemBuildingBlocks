@@ -1,0 +1,232 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:laicpmsTAPP-Mittlefehldt2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Mittlefehldt (2024) Pallasite Olivine Spot v1",
+  "schema:description": "laicpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot analysis ns-LA-SF-ICP-MS Johnson Space Center (column Q of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-SF-ICP-MS",
+      "schema:name": "LA-SF-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA"
+  },
+  "schema:object": [
+    "Pallasite olivine ([Mg,Fe]₂SiO₄)"
+  ],
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)",
+      "ada:toolRole": "dataReduction"
+    }
+  ],
+  "ada:guardElectrode": "missing",
+  "ada:massResolutionSettingDefault": "Medium resolution (m/Δm ≈ 4000)",
+  "ada:detectorConfiguration": "missing",
+  "ada:laserWavelengthAndType": "193 nm solid-state (New Wave UP-193)",
+  "ada:spotGeometryDefault": "75 µm circular",
+  "ada:laserFluenceDefault": -9999,
+  "ada:laserRepetitionRateDefault": -9999,
+  "ada:ablationSpotDurationDefault": -9999,
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:carrierGasFlowRateDefault": "missing",
+  "ada:coolantGasFlowRateDefault": -9999,
+  "ada:rfPowerDefault": -9999,
+  "ada:plasmaThermalMode": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:analysisSequenceDefault": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control",
+  "ada:dwellTimeDefault": "missing",
+  "ada:backgroundCountTimeDefault": -9999,
+  "ada:internalStandardApproach": "Single element from EPMA: ²⁵Mg; the EMPA data used as the standardizing values",
+  "ada:internalStandardElement": "²⁵Mg (indexing element; Mg concentration from EMPA)",
+  "ada:elementalFractionationCorrection": "External calibration using BCR-2g, BHVO-2g, BIR-1g; ²⁵Mg IS from EPMA corrects for ablation yield variation; no explicit downhole fractionation correction described",
+  "ada:signalIntegrationIntervalMethod": "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each analysis (laser shutter closed); time steps with background-level signals excluded during data reduction",
+  "ada:isobaricInterferenceCorrection": "missing",
+  "ada:interferingSpecies": "missing",
+  "ada:isobaricInterferenceCorrectionMethod": "Medium mass resolution (M/ΔM ≈ 4000) separates many polyatomic interferences from analyte peaks (e.g., resolves ⁵⁴Fe⁺ from ⁵⁴Cr⁺)",
+  "ada:secondaryReferenceMaterialDefault": "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "postAcquisitionNormalizationDefault",
+      "schema:name": "Normalization / Standards-Based Correction",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "No post-acquisition normalization; BCR-2g, BHVO-2g, BIR-1g used for calibration; Marjalahti as in-session control"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+        }
+      ],
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot per location (75 µm circular)"
+    }
+  ],
+  "ada:analyteTemplate": {
+    "ada:analyteColumns": [
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Analyzed constituent",
+        "schema:valueName": "analyte",
+        "schema:description": "Analyzed constituent (isotope) identified by the analyte row.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      }
+    ],
+    "ada:defaultAnalytes": [
+      {
+        "analyte": "25Mg"
+      },
+      {
+        "analyte": "27Al"
+      },
+      {
+        "analyte": "31P"
+      },
+      {
+        "analyte": "43Ca"
+      },
+      {
+        "analyte": "44Ca"
+      },
+      {
+        "analyte": "45Sc"
+      },
+      {
+        "analyte": "47Ti"
+      },
+      {
+        "analyte": "49Ti"
+      },
+      {
+        "analyte": "51V"
+      },
+      {
+        "analyte": "52Cr"
+      },
+      {
+        "analyte": "53Cr"
+      },
+      {
+        "analyte": "59Co"
+      },
+      {
+        "analyte": "60Ni"
+      },
+      {
+        "analyte": "61Ni"
+      },
+      {
+        "analyte": "62Ni"
+      },
+      {
+        "analyte": "64Zn"
+      },
+      {
+        "analyte": "66Zn"
+      },
+      {
+        "analyte": "69Ga"
+      },
+      {
+        "analyte": "71Ga"
+      }
+    ]
+  },
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:position": 1,
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ]
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:position": 3,
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "outlierFilteringDefault",
+            "schema:name": "Spike / Outlier Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Time steps with enhanced P, Ca, Co, Ni, Zn excluded (inclusions and heterogeneities); Grubb's test applied to EPMA data for outlier detection"
+          }
+        ]
+      }
+    ]
+  },
+  "ada:primaryStandardNameDefault": "USGS standard glasses BCR-2g, BHVO-2g, and BIR-1g; preferred values from GeoReM website",
+  "ada:calibrationMeasurementFrequency": "missing",
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
+  "schema:datePublished": "2026-08-16",
+  "ada:signalCollectionMode": "missing"
+}

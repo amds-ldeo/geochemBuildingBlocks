@@ -1,0 +1,50 @@
+name: Validate Building Blocks (branch CI)
+
+# Runs the OGC bblocks postprocess (validate + annotate + build register/tests) on
+# feature branches and pull requests, WITHOUT the GitHub Pages deploy. The main
+# process-bblocks.yml workflow declares an `environment: github-pages` on its job,
+# which is protected to `main` and rejects any other branch before validation runs —
+# so this is the pre-merge CI signal for feature work. No Pages environment, no deploy
+# steps, contents:read only.
+
+on:
+  push:
+    branches-ignore:
+      - main            # main is validated + deployed by process-bblocks.yml
+      - gh-pages
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate and annotate (no pages)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: OGC bblocks postprocess (validate + annotate)
+        uses: opengeospatial/bblocks-postprocess/full@v1
+        with:
+          register_file: build/register.json
+          items_dir: _sources
+          generated_docs_path: build/generateddocs
+          annotated_path: build/annotated
+          test_outputs_path: build/tests
+          config_file: bblocks-config.yaml
+          base_url: https://usgin.github.io/geochemBuildingBlocks/
+          fail_on_error: 'true'
+          clean: 'true'
+          deploy_viewer: false
+          skip_permissions: 'true'
+
+      - name: Upload build/tests report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: bblocks-tests-report
+          path: build/tests/
+          if-no-files-found: ignore

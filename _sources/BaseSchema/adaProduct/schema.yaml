@@ -1,0 +1,256 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://w3id.org/adaJSONLD/schema/3.0
+title: Astromat Archive Product Metadata
+description: >-
+  Schema for JSON metadata documenting products in Astromat Data Archive (ADA).
+  Extends the domain-neutral geochemProduct base with the ADA/SAMIS submission and
+  delivery layer: the ADA product-type vocabulary, the SAMIS submissionType, the
+  ada:componentType file-classification scheme (on monolithic distributions and on
+  each bundle member), and the adaProduct profile conformance. All of the generic
+  analytical surface -- analysis events (prov:wasGeneratedBy), variables measured,
+  distributions, spatial / temporal / quality coverage -- is inherited unchanged
+  from geochemProduct. Version 3.0 aligned with CDIF 2026.
+type: object
+allOf:
+  # Inherit the entire generic geochem analytical product (which itself composes
+  # cdifCore + cdifDataDescription + cdifManifest + cdifProvenance).
+  - $ref: ../geochemProduct/schema.yaml
+  # ADA / SAMIS submission + delivery layer.
+  - type: object
+    properties:
+      "schema:additionalType":
+        type: array
+        description: >-
+          Should have the ada product type and 'ada:DataDeliveryPackage'
+        items:
+          type: string
+        contains:
+          enum:
+            # ARGT
+            - "40Ar/39Ar Geochronology and Thermochronology (ARGT)"
+            - "40Ar/39Ar geochronology and thermochronology"
+            # AMS
+            - "Accelerator Mass Spectrometry (AMS)"
+            - "Accelerator Mass Spectrometry"
+            # AIVA
+            - "Advanced Imaging and Visualization of Astromaterials (AIVA)"
+            - "Analysis Advanced Imaging and Visualization of Astromaterials (AIVA)"
+            - "Advanced Imaging & Visualization of Astromaterials"
+            # VLM Basemap
+            - "Basemap"
+            # DSC
+            - "Differential Scanning Calorimetry (DSC)"
+            - "Differential Scanning Calorimetry"
+            # EMPA
+            - "Electron Microprobe Analysis (EMPA) Collection"
+            - "Electron Microprobe Analysis Image (EMPA)"
+            - "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)"
+            - "Electron Microprobe Analysis (EMPA)"
+            - "Electron microprobe analysis"
+            # EA-IRMS
+            - "Elemental Analysis-Isotope Ratio Mass Spectrometry (EA-IRMS)"
+            - "Elemental analysis - isotope ratio mass spectrometry"
+            # UVFM
+            - "Fluorescence Microscopy (UVFM) Image"
+            - "UV Fluorescence Microscopy"
+            # FTICRMS
+            - "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry (FTICRMS) Cube"
+            - "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry (FTICRMS) Tabular"
+            - "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry"
+            # GCMS
+            - "Gas Chromatography-Mass Spectrometry (GCMS)"
+            - "Gas Chromatography-Mass Spectrometry"
+            # GPYC
+            - "Gas Pycnometry (GPYC) Processed"
+            - "Gas Pycnometry (GPYC) Raw"
+            - "Gas pycnometry"
+            # ICPMS (HR)
+            - "High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Processed"
+            - "High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Raw"
+            - "High-resolution inductively coupled plasma mass spectrometry"
+            # LA-ICPMS
+            - "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed"
+            - "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Raw"
+            - "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed"
+            - "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Raw"
+            - "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"
+            - "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"
+            # ICPOES
+            - "Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Intermediate"
+            - "Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Processed"
+            - "Inductively Coupled Plasma - Optical Emission Spectroscopy (ICPOES) Raw"
+            - "Inductively coupled plasma - optical emission spectrometry"
+            # IC
+            - "Ion Chromatography (IC)"
+            - "Ion Chromatography"
+            # LAF
+            - "Laser Assisted Fluorination (LAF) Processed"
+            - "Laser Assisted Fluorination (LAF) Raw"
+            - "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements"
+            # LCMS
+            - "Liquid Chromatography - Mass Spectrometry (LCMS) Collection"
+            - "Liquid Chromatography-Mass Spectrometry"
+            # LIT
+            - "Lock-In Thermography (LIT) Collection"
+            - "Lock-In Thermography (LIT) image"
+            - "Lock-In Thermography"
+            # L2MS
+            - "Microprobe Two-Step Laser Mass Spectrometry (L2MS)"
+            - "Microprobe Two-Step Laser Mass Spectrometry"
+            # ICPMS (MC)
+            - "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed"
+            - "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) Raw"
+            - "Multi-Collector Inductively Coupled Plasma Mass Spectrometry"
+            # NanoIR
+            - "Nanoscale Infrared Mapping (NanoIR) Background"
+            - "Nanoscale Infrared Mapping (NanoIR) MapCollection"
+            - "Nanoscale Infrared Mapping (NanoIR) Point Data"
+            - "Nanoscale Infrared Mapping"
+            # NanoSIMS
+            - "Nanoscale Secondary Ion Mass Spectrometry (NanoSIMS) Image"
+            - "Nanoscale Secondary Ion Mass Spectrometry (NanoSIMS) Raw"
+            - "Nanoscale Secondary Ion Mass Spectrometry (NanoSIMS) Tabular"
+            - "Nanoscale secondary ion mass spectrometry"
+            # NGNSMS
+            - "Noble Gas and Nitrogen Static Mass Spectrometry (NGNSMS) Raw"
+            - "Noble Gas and Nitrogen Static Mass Spectrometry (NGNSMS) Processed"
+            - "Noble gas and Nitrogen Static Mass Spectrometry"
+            # PSFD
+            - "Particle Size Frequency Distribution (PSFD)"
+            - "Particle Size Frequency Distribution"
+            # ICPMS (Q)
+            - "Quadrupole Inductively Coupled Plasma Mass Spectrometry (QICPMS) Processed"
+            - "Quadrupole Inductively Coupled Plasma Mass Spectrometry (QICPMS) Raw"
+            - "Quadrupole Inductively Coupled Plasma Mass Spectrometry"
+            # QRIS
+            - "Quantitative Reflective Imaging System (QRIS)"
+            - "Quantitative Reflective Imaging System (QRIS) Calibrated"
+            - "Quantitative Reflectance Imaging System"
+            # RAMAN
+            - "Raman vibrational spectroscopy"
+            # RITOFNGMS
+            - "Resonance ionization time of flight noble gas mass spectrometry (RITOFNGMS) Processed"
+            - "Resonance ionization time of flight noble gas mass spectrometry (RITOFNGMS) Spectra"
+            - "Resonance ionization time of flight noble gas mass spectrometry"
+            # SEM
+            - "Scanning Electron Microscopy (SEM) Image"
+            - "Scanning Electron Microscopy Electron Backscatter Diffraction (SEMEBSD) Grain Image"
+            - "Scanning Electron Microscopy Energy Dispersive X-ray Spectroscopy (SEMEDS) Point Data"
+            - "Scanning Electron Microscopy Energy Dispersive X-ray Spectroscopy (SEMEDS) image"
+            - "Scanning Electron Microscopy High Resolution Cathodoluminescence (SEMHRCL) image"
+            - "Scanning electron microscopy"
+            - "Focused ion beam-scanning electron microscopy"
+            # STEM (TEM)
+            - "Scanning Transmission Electron Microscopy (STEM) Image"
+            - "Scanning Transmission Electron Microscopy Electron Energy-loss Spectra (STEMEELS) Cube"
+            - "Scanning Transmission Electron Microscopy Electron Energy-loss Spectra (STEMEELS) Tabular"
+            - "Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy (STEMEDS) Cube"
+            - "Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy (STEMEDS) Tabular"
+            - "Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy (STEMEDS) Tomography"
+            # SIMS
+            - "Secondary Ion Mass Spectrometry (SIMS) Tabular"
+            - "Secondary ion mass spectrometry"
+            # SVRUEC
+            - "Seismic Velocities and Rock Ultrasonic Elastic Constants (SVRUEC)"
+            - "Seismic Velocities and Rock Ultrasonic Elastic Constants"
+            # SLS
+            - "Structured Light Scanning (SLS) Individual Scan Collection"
+            - "Structured Light Scanning (SLS) Shape Model"
+            - "Structured Light Scanning"
+            # ToFSIMS
+            - "Time-of-flight secondary ion mass spectrometry (TOFSIMS)"
+            - "Time-of-Flight Secondary Ion Mass Spectrometer"
+            # TEM
+            - "Transmission Electron Microscopy (TEM) Image"
+            - "Transmission Electron Microscopy (TEM) Patterns Image"
+            - "Transmission Electron Microscopy"
+            # VLM
+            - "Visible Light Microscopy (VLM) Image"
+            - "Visible Light Microscopy"
+            - "Visible Light Microscopy Basemap"
+            # VNMIR
+            - "Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Point"
+            - "Visible, near-, and mid-infrared spectroscopy"
+            # XANES
+            - "X-ray Absorption Near Edge Structure Hyperspectral Image Stack (XANES)"
+            - "X-ray absorption near edge structure (XANES) spectroscopy"
+            # XCT
+            - "X-ray Computed Tomography (XCT) Image Collection"
+            - "X-ray computed tomography"
+            # XRD
+            - "X-ray Diffraction (XRD) Tabular"
+            - "X-ray diffraction"
+        minItems: 2
+      submissionType:
+        type: string
+      "schema:distribution":
+        description: >-
+          ADA delivery view: adds the ada:componentType file-classification to the
+          generic distribution structure inherited from geochemProduct. A
+          distribution is EITHER a MONOLITHIC single-file dataset -- a
+          schema:DataDownload that carries its own ada:componentType (and, when its
+          structure is described, cdi:isStructuredBy from the base), with NO
+          schema:hasPart -- OR a BUNDLE/archive -- a schema:DataDownload whose
+          schema:hasPart lists member files, each a schema:MediaObject carrying its
+          own ada:componentType (the ADA SAMIS delivery pattern).
+        type: array
+        items:
+          type: object
+          properties:
+            "ada:componentType":
+              type: string
+              schema:inDefinedTermSet: "ada:vocab/componentType"
+              description: >-
+                ADA file-type classification for a MONOLITHIC single-file
+                distribution -- it classifies the file that IS the dataset. On a
+                bundle this sits on each schema:hasPart member instead, not here.
+                Values are drawn from the componentType vocabulary
+                (ada:vocab/componentType); conformance is advisory (annotated via
+                schema:inDefinedTermSet), not hard-enumerated in JSON Schema.
+            "schema:hasPart":
+              items:
+                allOf:
+                  - $ref: ../files/schema.yaml
+                  - type: object
+                    properties:
+                      "ada:componentType":
+                        type: string
+                        description: >-
+                          ADA file-type classification, expressed as a single
+                          string drawn from a universal set or a technique-specific
+                          set. Technique profiles add an anyOf at the hasPart level:
+                          one branch declares the universal componentType enum;
+                          other branches $ref technique-specific detail schemas
+                          (e.g. detailEMPA) that enumerate technique componentType
+                          values and contribute detail-specific sibling properties
+                          (e.g. ada:spectrometersUsed).
+      "schema:subjectOf":
+        properties:
+          "dcterms:conformsTo":
+            contains:
+              type: object
+              required: ['@id']
+              additionalProperties: false
+              properties:
+                "@id":
+                  const: "https://w3id.org/geochem/metadata/profiles/adaProduct"
+$defs:
+  # --- ADA-specific: the ada:componentType file-classification scheme ---------
+  universalComponentTypeBranch:
+    description: >-
+      Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf.
+      Constrains ada:componentType to the universal enum and marks it required.
+      Factored out of every profile to eliminate the inline boilerplate.
+    properties:
+      'ada:componentType':
+        $ref: '#/$defs/universalComponentType'
+    required:
+      - 'ada:componentType'
+  universalComponentType:
+    description: >-
+      A componentType value drawn from the shared componentType vocabulary
+      (ada:vocab/componentType). Not hard-enumerated here: conformance to the
+      vocabulary is advisory (annotated via schema:inDefinedTermSet, SHACL-checkable)
+      rather than enforced by JSON Schema, so techniques may extend the term set.
+    type: string
+    schema:inDefinedTermSet: "ada:vocab/componentType"

@@ -1,0 +1,121 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:laicpmsTAPP-Liu2016phosphate",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Liu et al. 2016 (M&PS 51) Tissint martian meteorite Phosphate (merrillite) Spot analysis LA-Q-ICP-MS Virginia Tech",
+  "schema:description": "laicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite Phosphate (merrillite) Spot analysis LA-Q-ICP-MS Virginia Tech (column Y of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS",
+      "schema:name": "LA-ICP-MS (same as silicate protocol)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Department of Geosciences, Virginia Tech"
+  },
+  "schema:object": [
+    "Martian meteorite (Tissint) phosphate: sodium-merrillite"
+  ],
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)",
+      "ada:toolRole": "dataReduction"
+    }
+  ],
+  "ada:guardElectrode": "missing",
+  "ada:massResolutionSettingDefault": "missing",
+  "ada:detectorConfiguration": "missing",
+  "ada:laserWavelengthAndType": "193 nm Excimer (ArF excimer)",
+  "ada:spotGeometryDefault": "~24 µm diameter",
+  "ada:laserFluenceDefault": "7–10 J/m² (same as silicate protocol)",
+  "ada:laserRepetitionRateDefault": "5 Hz",
+  "ada:ablationSpotDurationDefault": -9999,
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:carrierGasFlowRateDefault": "missing",
+  "ada:coolantGasFlowRateDefault": -9999,
+  "ada:rfPowerDefault": -9999,
+  "ada:plasmaThermalMode": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:analysisSequenceDefault": "Same as silicate protocol",
+  "ada:dwellTimeDefault": "missing",
+  "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
+  "ada:internalStandardApproach": "Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot",
+  "ada:internalStandardElement": "40Ca; CaO wt% from EMP at the analysis spot",
+  "ada:elementalFractionationCorrection": "External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described",
+  "ada:signalIntegrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
+  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
+  "ada:isobaricInterferenceCorrection": "missing",
+  "ada:interferingSpecies": "missing",
+  "ada:isobaricInterferenceCorrectionMethod": "missing",
+  "ada:secondaryReferenceMaterialDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laicpmsTAPP/laserEnergyDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "laserEnergyDefault",
+      "schema:name": "Laser Energy",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "150 mJ output energy",
+      "schema:unitText": "mJ"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "postAcquisitionNormalizationDefault",
+      "schema:name": "Normalization / Standards-Based Correction",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "No post-acquisition normalization; EMP CaO applied directly as IS; NIST 610 for external calibration"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+        }
+      ],
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot analysis per location"
+    }
+  ],
+  "ada:primaryStandardNameDefault": "NIST 610 glass standard",
+  "ada:calibrationMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
+  "schema:datePublished": "2026-08-16",
+  "ada:signalCollectionMode": "missing"
+}

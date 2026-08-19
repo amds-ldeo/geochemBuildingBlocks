@@ -1,0 +1,137 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA LA-ICP-MS Product Profile",
+    "description": "Technique-specific profile for Laser-Ablation Inductively Coupled Plasma Mass Spectrometry (LA-ICP-MS) products. Covers LA-Q-ICP-MS and LA-SF-ICP-MS variants. Extends the base ADA product profile with constraints on valid LA-ICP-MS component types and the laicpmsTAPP protocol.",
+    "allOf": [
+        {
+            "$ref": "../../../../BaseSchema/adaProduct/adaProductSchema.json"
+        },
+        {
+            "$ref": "../detail/detailSchema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "prov:wasGeneratedBy": {
+                    "description": "Narrow the base prov:used to the laicpmsTAPP definition — inline, or by node @id — alongside the instrument. (Base adaProduct accepts the generic tappDefinition; this profile requires the technique-specific one.)",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "prov:used": {
+                                "type": "array",
+                                "items": {
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "required": [
+                                                    "schema:instrument"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:instrument": {
+                                                        "type": "array",
+                                                        "minItems": 1,
+                                                        "items": {
+                                                            "$ref": "../../../../BaseSchema/instrument/instrumentSchema.json"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "@type": {
+                                                        "contains": {
+                                                            "const": "ada:TAPPDefinition"
+                                                        }
+                                                    }
+                                                },
+                                                "required": [
+                                                    "@type"
+                                                ]
+                                            },
+                                            "then": {
+                                                "$ref": "../tapp/tappSchema.json"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "schema:additionalType": {
+                    "description": "Must include an LA-ICP-MS product type identifier.",
+                    "contains": {
+                        "enum": [
+                            "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed",
+                            "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Raw",
+                            "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed",
+                            "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Raw",
+                            "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry",
+                            "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"
+                        ]
+                    }
+                },
+                "schema:distribution": {
+                    "description": "Distribution items for adaLAICPMS. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "schema:hasPart": {
+                                "items": {
+                                    "type": "object",
+                                    "anyOf": [
+                                        {
+                                            "$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"
+                                        },
+                                        {
+                                            "properties": {
+                                                "ada:componentType": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "ada:LAICPMSTabular",
+                                                        "ada:LAICPMSMap",
+                                                        "ada:LAICPMSImage",
+                                                        "ada:LAICPMSTransect"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "ada:componentType"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "schema:subjectOf": {
+                    "properties": {
+                        "dcterms:conformsTo": {
+                            "contains": {
+                                "type": "object",
+                                "required": [
+                                    "@id"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "@id": {
+                                        "const": "https://w3id.org/geochem/metadata/profiles/adaLAICPMS"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

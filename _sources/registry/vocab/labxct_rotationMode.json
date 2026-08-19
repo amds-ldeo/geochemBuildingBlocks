@@ -1,0 +1,48 @@
+{
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ada:vocab/labxctTAPP/rotationMode",
+  "@type": [
+    "skos:ConceptScheme"
+  ],
+  "skos:prefLabel": "Rotation Mode",
+  "skos:definition": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous rotation has been associated w",
+  "schema:identifier": "ada:vocab/labxctTAPP/rotationMode",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
+    {
+      "@id": "ada:vocab/labxctTAPP/rotationMode/Step_rotation_stop-and-shoot",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "Step rotation (stop-and-shoot)",
+      "skos:notation": "Step rotation (stop-and-shoot)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/rotationMode"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/labxctTAPP/rotationMode/Continuous_rotation",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "Continuous rotation",
+      "skos:notation": "Continuous rotation",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/rotationMode"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+- title: Group1 composed into a procedure (ProcedureIdentification)
+  content: The procedure half of the Group1 module, with every property populated. Generated from the
+    schema, so it tracks the sidecar.
+  prefixes:
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "schema:name": "example value",
+        "schema:measurementTechnique": [
+          {
+            "schema:termCode": "example value"
+          }
+        ],
+        "schema:creator": {
+          "schema:name": "example value"
+        },
+        "schema:location": {
+          "schema:name": "example value",
+          "schema:identifier": "example value"
+        },
+        "schema:datePublished": "example value",
+        "schema:funding": [
+          {
+            "schema:name": "example value"
+          }
+        ],
+        "schema:relatedLink": [
+          {
+            "schema:linkRelationship": "techniquePublication",
+            "schema:target": {
+              "schema:name": "example value"
+            }
+          },
+          {
+            "schema:linkRelationship": "coupledTechnique",
+            "schema:target": {
+              "schema:name": "example value",
+              "schema:description": "example value"
+            }
+          }
+        ]
+      }
+- title: Group1 composed into an analysis (AnalysisIdentification)
+  content: The analysis half of the Group1 module, with every property populated. Generated from the schema,
+    so it tracks the sidecar.
+  prefixes:
+    prov: http://www.w3.org/ns/prov#
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "prov:wasGeneratedBy": [
+          {
+            "schema:location": {
+              "schema:name": "example value",
+              "schema:identifier": "example value"
+            },
+            "schema:identifier": "example value",
+            "schema:startDate": "example value",
+            "schema:endDate": "example value"
+          }
+        ],
+        "schema:measurementTechnique": [
+          {
+            "schema:identifier": "example value"
+          }
+        ],
+        "schema:contributor": [
+          {
+            "schema:roleName": "analyst",
+            "schema:name": "example value"
+          }
+        ],
+        "schema:funding": [],
+        "schema:relatedLink": [
+          {
+            "schema:linkRelationship": "coupledTechnique",
+            "schema:target": {
+              "schema:name": "example value",
+              "schema:description": "example value"
+            }
+          },
+          {
+            "schema:linkRelationship": "coupledProcedure",
+            "schema:target": {
+              "schema:url": "example value"
+            }
+          },
+          {
+            "schema:linkRelationship": "coupledDataset",
+            "schema:target": "example value"
+          }
+        ]
+      }

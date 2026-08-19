@@ -1,0 +1,454 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:laQicpmsUPbTAPP-Liu2025-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Liu et al. (2025) Experimental Sulfide LA-ICP-MS Spot v1",
+  "schema:description": "Analysis of quenched experimental pyrrhotite (Fe₁₋ₓS) from same piston-cylinder experiments; 20 µm spot required due to small grain size (5–50 µm); same instrument and analytical session as glass protocol",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS",
+      "schema:name": "LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Liu, Li, Xu, Xiong et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Experimental pyrrhotite (Fe₁₋ₓS) sulfide (quench product)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
+          "schema:name": "Sample Form / Analytical Substrate",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "In situ — polished epoxy mount (same capsule section as glass protocol)"
+        }
+      ]
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Same capsule section as silicate glass; sulfide grains ≥20 µm selected by SEM-BSE",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "spikeOutlierFilteringApproachDefault",
+            "schema:name": "Spike / Outlier Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Same approach as glass; Au spike identification critical for determining solubility vs. nugget contribution"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
+      "schema:name": "Cetac Analyte HE system (same as silicate glass protocol)",
+      "ada:laserSpotGeometryDefault": "20 µm circular (sulfide; grain sizes >20 µm selected)",
+      "ada:laserFluenceDefault": "~2.5 J cm⁻²",
+      "ada:laserRepetitionRateDefault": "7 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ]
+    },
+    {
+      "schema:additionalType": [
+        "ICPMS",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Agilent 7900 (Q-ICP-MS)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/laQicpmsUPbTAPP/massResolutionSetting",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "massResolutionSetting",
+          "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Unit resolution (quadrupole fixed)"
+        }
+      ],
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:ablationSpotDurationDefault": "~40 s (same protocol; grain size >20 µm selected)",
+  "ada:carrierGasFlowRateDefault": "He (flow rate not stated; same system as glass protocol)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAdditionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
+      "schema:name": "Plasma / Make-up Gas Addition",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N₂ or Ar mixed (same protocol as glass)"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign"
+        }
+      ],
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot per location (sulfides; same acquisition parameters as glass but 20 µm spot)"
+    }
+  ],
+  "ada:analysisSequenceDefault": "Same bracketing as silicate glass protocol",
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "¹⁹⁷Au",
+      "⁶³Cu (primary targets; Si and Fe from EMP as internal standards)"
+    ],
+    "ada:analyteColumns": [
+      {
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/monitoredIsotopes",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredIsotopes",
+        "schema:name": "Monitored Isotopes",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "boolean",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "normalizationStandardsBasedCorrection",
+        "schema:name": "Normalization / Standards-Based Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/detectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimit",
+        "schema:name": "Detection Limit",
+        "ada:dataType": "number"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/detectionLimitMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimitMethod",
+        "schema:name": "Detection Limit Method",
+        "ada:dataType": "uri",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/limitOfQuantificationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "limitOfQuantificationMethod",
+        "schema:name": "Limit of Quantification (LOQ) Method",
+        "ada:dataType": "uri"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/massResolutionPerAnalyte",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionPerAnalyte",
+        "schema:name": "Mass Resolution per Analyte",
+        "ada:dataType": "string"
+      }
+    ]
+  },
+  "ada:internalStandardApproach": "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard",
+  "ada:internalStandardElement": "Fe from EMP (FeOT wt% for sulfide)",
+  "ada:elementalFractionationCorrection": [
+    "Femtosecond laser reduces LIEF; NIST 610 external standard; Fe IS from EMP corrects for ablation yield; micronuggets identified from Au signal spikes and excluded from integration"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Same approach as glass; micronugget identification from Au signal spikes critical for sulfide analyses",
+  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard); Fe from EMP as IS",
+  "ada:calibrationMeasurementFrequency": "Same bracketing as silicate glass protocol",
+  "ada:secondaryReferenceMaterialDefault": [
+    "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)"
+  ],
+  "ada:ablationPitDepthRateDefault": "missing",
+  "ada:ageModelDefault": "missing",
+  "ada:backgroundCountTimeDefault": -9999,
+  "ada:blankBackgroundCorrectionMethod": "missing",
+  "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
+  "ada:massBiasCorrectionStrategy": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:sampleIntroduction": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:signalCollectionMode": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:uncertaintyLevel": "missing",
+  "schema:datePublished": "missing"
+}

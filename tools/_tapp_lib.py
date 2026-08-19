@@ -3,7 +3,7 @@
 Reads docs/TAPP_EPMA_filled.xlsx (sheet 'TAPP') and emits, into
 _sources/techniqueProtocols/empaTAPP/:
 
-- vocab/<name>.json          one schema:DefinedTermSet per enum-typed row
+- vocab/<name>.json          one CDIF-codelist skos:ConceptScheme per enum-typed row
 - parameterTemplates/schema.yaml  registered collection BB: one $def per
                               readOnly:true method-parameter template
 - analyteColumns/schema.yaml      registered collection BB: one $def per
@@ -29,15 +29,28 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
+# group-by-technique layout: each TAPP lives at techniqueProfile/<tech>/{tapp,detail,profile};
+# catalogs+vocab under registry/; base schemas under BaseSchema/.
+TECH_DIR = {
+    "empaTAPP": "EMPA", "geochronTAPP": "Geochron", "laicpmsTAPP": "LA-ICPMS", "labxctTAPP": "XCT",
+    "semTAPP": "SEM", "semImagingTAPP": "SEM-Imaging", "semFibsemTAPP": "SEM-FIBSEM",
+    "semCompositionTAPP": "SEM-Composition", "solutionQicpmsTAPP": "Solution-Q-ICPMS",
+    "solutionSficpmsTAPP": "Solution-SF-ICPMS", "temTAPP": "TEM",
+}
+
+
+def _tech(tapp_name):
+    return TECH_DIR.get(tapp_name, tapp_name.replace("TAPP", ""))
+
+
 # Module-level configuration set by configure(). Defaults target empaTAPP for
 # backward-compat — new TAPP profiles call configure(tapp_name, xlsx_path)
 # before invoking build_tapp_artifacts() or build_detail_artifacts().
 TAPP_NAME = "empaTAPP"
 DETAIL_NAME = "detailEMPA"
 XLSX = REPO_ROOT / "docs" / "TAPP_EPMA_filled.xlsx"
-BB = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
-# Detail BBs were relocated from geochemProperties/ to analysisSpecificDetails/.
-DETAIL_EMPA = REPO_ROOT / "_sources" / "analysisSpecificDetails" / DETAIL_NAME
+BB = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "tapp"
+DETAIL_EMPA = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "detail"
 
 
 # ---------- per-TAPP configuration ----------
@@ -79,7 +92,7 @@ TAPP_PROFILES: dict[str, dict] = {
         "schema_description": (
             "EMPA-specific extension of the base TAPP definition. Adds top-level EPMA "
             "properties (beam mode, accelerating voltage default, matrix correction "
-            "method, etc.), a parameter vocabulary in ada:methodParameters, and an "
+            "method, etc.), Advanced-protocol parameter specifications in schema:additionalProperty, and an "
             "analyte-column template covering EPMA per-element acquisition and "
             "reporting fields. Each ada:analyteColumns[] entry must match one of the "
             "catalog files in analyteColumns/ (or the inherited identifier column from "
@@ -119,7 +132,7 @@ TAPP_PROFILES: dict[str, dict] = {
         "schema_title": "LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)",
         "schema_description": (
             "LA-ICPMS-specific extension of the base TAPP definition. Adds top-level "
-            "LA-ICPMS properties, a parameter vocabulary in ada:methodParameters, and "
+            "LA-ICPMS properties, Advanced-protocol parameters in schema:additionalProperty, and "
             "an analyte-column template covering LA-ICPMS per-element acquisition and "
             "reporting fields. Each ada:analyteColumns[] entry must match one of the "
             "catalog files in analyteColumns/ (or the inherited identifier column from "
@@ -176,8 +189,8 @@ def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
     if xlsx_path is not None:
         p = Path(xlsx_path)
         XLSX = p if p.is_absolute() else REPO_ROOT / p
-    BB = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
-    DETAIL_EMPA = REPO_ROOT / "_sources" / "analysisSpecificDetails" / DETAIL_NAME
+    BB = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "tapp"
+    DETAIL_EMPA = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "detail"
     if tapp_name not in TAPP_PROFILES:
         raise ValueError(
             f"Unknown TAPP {tapp_name!r}. Add an entry to TAPP_PROFILES in "
@@ -189,7 +202,7 @@ def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
 # live at the techniqueProtocols root so multiple TAPPs can reference the same catalog
 # entries by $ref. The generator writes catalog files here; per-TAPP schema.yaml files
 # point at them with relative paths (e.g. ../analyteColumns/<name>.json from a TAPP folder).
-TECH_PROTOCOLS = REPO_ROOT / "_sources" / "techniqueProtocols"
+TECH_PROTOCOLS = REPO_ROOT / "_sources" / "registry"
 ANALYTE_COLUMNS_DIR = TECH_PROTOCOLS / "analyteColumns"
 PARAMETER_TEMPLATES_DIR = TECH_PROTOCOLS / "parameterTemplates"
 PARAMETER_VALUES_DIR = TECH_PROTOCOLS / "parameterValues"
@@ -209,6 +222,49 @@ COL = {
     "p_start": 10,  # column K = index 10 (first publication / mode column)
     # p_end is per-TAPP; read from CFG["p_end_col"] (26 for empaTAPP, 12 for laicpmsTAPP).
 }
+
+
+def _detect_columns(header_row) -> dict:
+    """Resolve logical column -> 0-based index BY HEADER NAME, so a single reader
+    handles both the empa-filled(-noInterp) layout (A-F, G=Level, H=schema path,
+    I=matchComment, J=implementation notes, K+=pubs) and the newer Ruolin workbook
+    layout (…Spot/Transect/Mapping, schema path/matchComment/implementation notes,
+    Literature Assessment, then pubs). Publication columns are everything after the
+    'Literature Assessment' separator when present, else everything after
+    'implementation notes'."""
+    def norm(v):
+        return " ".join(str(v).split()).lower() if v is not None else ""
+    H = [norm(v) for v in header_row]
+
+    def find(pred, label, required=True):
+        for i, h in enumerate(H):
+            if pred(h):
+                return i
+        if required:
+            raise ValueError(
+                f"TAPP sheet header missing column for {label}. Headers seen: "
+                f"{[h for h in H if h]}"
+            )
+        return None
+
+    cols = {
+        "item": find(lambda h: h == "metadata item", "Metadata Item"),
+        "desc": find(lambda h: h.startswith("description"), "Description"),
+        # Protocol-Level Tier: the empa prototype labels it "Basic/Advanced";
+        # the newer Ruolin workbooks label it "Protocol-Level Tier".
+        "protocol_tier": find(lambda h: h in ("basic/advanced", "protocol-level tier"),
+                              "Protocol-Level Tier", required=False),
+        "analysis_tier": find(lambda h: h == "analysis-level tier", "Analysis-Level Tier",
+                              required=False),
+        "dtype": find(lambda h: h == "data type", "Data Type"),
+        "example": find(lambda h: h.startswith("example"), "Example/Allowed Content"),
+        "schema_path": find(lambda h: h == "schema path", "schema path", required=False),
+        "matchComment": find(lambda h: h.replace(" ", "") == "matchcomment", "matchComment", required=False),
+        "impl": find(lambda h: h.startswith("implementation note"), "implementation notes"),
+    }
+    lit = find(lambda h: h == "literature assessment", "Literature Assessment", required=False)
+    cols["p_start"] = (lit + 1) if lit is not None else (cols["impl"] + 1)
+    return cols
 
 
 def _pubs() -> list[tuple[str, str]]:
@@ -296,21 +352,34 @@ def read_rows() -> list[dict]:
     import openpyxl
     wb = openpyxl.load_workbook(XLSX, data_only=True)
     ws = wb["TAPP"]
+    all_rows = list(ws.iter_rows(min_row=1, values_only=True))
+    C = _detect_columns(all_rows[0])
+    p_start = C["p_start"]
+    p_end = p_start + len(_pubs())  # exclusive; one column per CFG["pubs"] entry
+
+    def cell(r, key):
+        idx = C.get(key)
+        if idx is None or idx >= len(r) or r[idx] is None:
+            return None
+        return str(r[idx]).strip()
+
     rows = []
-    for r in ws.iter_rows(min_row=2, values_only=True):
-        item = r[COL["item"]]
-        impl = r[COL["impl"]]
+    for r in all_rows[1:]:
+        item = cell(r, "item")
+        impl = cell(r, "impl")
         if item is None and impl is None:
             continue
         rec = {
-            "item": str(item).strip() if item is not None else None,
-            "desc": str(r[COL["desc"]]).strip() if r[COL["desc"]] is not None else None,
-            "dtype_col": str(r[COL["dtype"]]).strip() if r[COL["dtype"]] is not None else None,
-            "example": str(r[COL["example"]]).strip() if r[COL["example"]] is not None else None,
-            "schema_path": str(r[COL["schema_path"]]).strip() if r[COL["schema_path"]] is not None else None,
-            "matchComment": str(r[COL["matchComment"]]).strip() if r[COL["matchComment"]] is not None else None,
-            "impl": str(r[COL["impl"]]).strip() if r[COL["impl"]] is not None else None,
-            "pubs": [r[i] for i in range(COL["p_start"], _p_end() + 1)],
+            "item": item,
+            "desc": cell(r, "desc"),
+            "P": cell(r, "protocol_tier"),
+            "A": cell(r, "analysis_tier"),
+            "dtype_col": cell(r, "dtype"),
+            "example": cell(r, "example"),
+            "schema_path": cell(r, "schema_path"),
+            "matchComment": cell(r, "matchComment"),
+            "impl": impl,
+            "pubs": [r[i] if i < len(r) else None for i in range(p_start, p_end)],
         }
         rec["parsed"] = parse_impl(rec["impl"])
         rows.append(rec)
@@ -403,11 +472,6 @@ def share_or_write_catalog(path: Path, data: dict) -> None:
     )
 
 
-DEFINED_TERM_SET_SCHEMA_URI = (
-    "https://cross-domain-interoperability-framework.github.io/"
-    "metadataBuildingBlocks/_sources/schemaorgProperties/definedTermSet/schema.yaml"
-)
-
 _ADA_CONTEXT = OrderedDict([
     ("schema", "http://schema.org/"),
     ("ada", "https://ada.astromat.org/metadata/"),
@@ -427,39 +491,76 @@ def slugify_term_code(t: str) -> str:
     return s.strip('_')
 
 
-def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
-    """Canonical schema:DefinedTermSet instance, declaring conformance to the
-    upstream CDIF schemaorgProperties/definedTermSet schema via $schema.
+# CDIF Codelist profile: vocabularies are published as skos:ConceptScheme documents
+# conformant to the CDIF codelist profile (skos:hasTopConcept / skos:Concept with
+# skos:notation + skos:prefLabel + skos:inScheme). $schema points at the mbb cdifCodelist
+# profile schema. dateModified is a fixed constant (not "today") so regeneration is
+# deterministic; bump it when a vocabulary's content actually changes.
+CODELIST_SCHEMA_URI = ("https://cross-domain-interoperability-framework.github.io/"
+                       "metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml")
+CODELIST_LICENSE = "https://creativecommons.org/licenses/by/4.0/"
+CODELIST_DATE_MODIFIED = "2026-07-31"
+CODELIST_CONTEXT = {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ada": "https://ada.astromat.org/metadata/",
+}
 
-    Each term is a schema:DefinedTerm with its own @id of the form
-    `ada:{slugify(termCode)}` (placeholder until the project adopts a real
-    IRI scheme), schema:termCode (preserving the original spelling, including
-    any special characters), and schema:name. Data producers supplement
-    schema:name (human-readable label) and schema:description per term.
 
-    @type fields use the array form to match the upstream schema's contains
-    constraint on schema:DefinedTermSet / schema:DefinedTerm.
-    """
+def concept_scheme_obj(scheme_id: str, label: str, desc: str, concepts: list[dict]) -> "OrderedDict":
+    """A CDIF-codelist-profile-conformant skos:ConceptScheme.
+
+    Required by the profile: @id, skos:prefLabel, schema:identifier,
+    schema:dateModified, skos:hasTopConcept, and license (CHOICE with
+    conditionsOfAccess). `concepts` are the skos:Concept objects (already
+    carrying skos:inScheme back-references)."""
     return OrderedDict([
-        ("$schema", DEFINED_TERM_SET_SCHEMA_URI),
-        ("@context", {
-            "schema": "http://schema.org/",
-            "ada": "https://ada.astromat.org/metadata/",
-        }),
-        ("@id", f"ada:vocab/{TAPP_NAME}/{vname}"),
-        ("@type", ["schema:DefinedTermSet"]),
-        ("schema:name", label),
-        ("schema:description", desc or f"Allowed values for {label}."),
-        ("schema:hasDefinedTerm", [
-            OrderedDict([
-                ("@type", ["schema:DefinedTerm"]),
-                ("@id", f"ada:{slugify_term_code(t)}"),
-                ("schema:termCode", t),
-                ("schema:name", t),
-            ])
-            for t in terms
-        ]),
+        ("$schema", CODELIST_SCHEMA_URI),
+        ("@context", CODELIST_CONTEXT),
+        ("@id", scheme_id),
+        ("@type", ["skos:ConceptScheme"]),
+        ("skos:prefLabel", label),
+        ("skos:definition", desc or f"Controlled vocabulary: {label}."),
+        ("schema:identifier", scheme_id),
+        ("schema:dateModified", CODELIST_DATE_MODIFIED),
+        ("schema:license", [CODELIST_LICENSE]),
+        ("skos:hasTopConcept", concepts),
     ])
+
+
+def concept_obj(scheme_id: str, notation: str, pref_label: str, definition: str | None = None) -> "OrderedDict":
+    """A CDIF-codelist skos:Concept. Required: @id, skos:inScheme,
+    skos:prefLabel, skos:notation. The concept @id is scheme-scoped
+    (`<scheme_id>/<slug(notation)>`) so codes are globally unique even when
+    a label like "Standard" recurs across vocabularies."""
+    c = OrderedDict([
+        ("@id", f"{scheme_id}/{slugify_term_code(notation)}"),
+        ("@type", ["skos:Concept"]),
+        ("skos:prefLabel", pref_label),
+        ("skos:notation", notation),
+        ("skos:inScheme", [{"@id": scheme_id}]),
+    ])
+    if definition:
+        c["skos:definition"] = definition
+    return c
+
+
+def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
+    """Canonical CDIF-codelist skos:ConceptScheme for one enum-typed field.
+
+    Each allowed value becomes a skos:Concept whose skos:notation preserves the
+    original spelling (including special characters) and whose skos:prefLabel is
+    the same label. Sentinel non-values (`N/A`, `None`, `missing`) are dropped: a schema enum
+    admits `missing` so a transcriber can say the source did not report the field, but it is the
+    absence of a value rather than one of them, so it is not published as a concept. This shape
+    replaces the earlier schema:DefinedTermSet form; `schema:inDefinedTermSet`
+    references elsewhere still resolve because the scheme @id is unchanged
+    (`ada:vocab/<tapp>/<name>`)."""
+    scheme_id = f"ada:vocab/{TAPP_NAME}/{vname}"
+    concepts = [concept_obj(scheme_id, t, t)
+                for t in terms if t not in ("N/A", "None", "missing")]
+    return concept_scheme_obj(scheme_id, label, desc or f"Allowed values for {label}.", concepts)
 
 
 def map_dtype(dtype: str | None) -> str:
@@ -514,7 +615,6 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
         canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
 
     properties = OrderedDict([
-        ("@context", {"const": _ADA_CONTEXT}),
         ("@id", {"const": f"ada:parameter/{TAPP_NAME}/{name}"}),
         ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
@@ -554,6 +654,8 @@ def _value_type_for(dtype_col: str | None) -> tuple[str | list[str], str | None]
     m = re.search(r"\(([^)]+)\)", s)
     if m:
         unit = m.group(1).strip()
+        if unit.lower() == "free":   # "Text (free)" is free text, not a unit
+            unit = None
     low = s.lower()
     if "numeric" in low or "number" in low or "decimal" in low or "float" in low:
         return "number", unit
@@ -596,7 +698,7 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
         }),
         ("@id", parameter_uri),
         ("@type", ["schema:PropertyValue"]),
-        ("schema:propertyID", parameter_uri),
+        ("schema:propertyID", [{"@id": parameter_uri}]),
         ("schema:name", label),
         ("schema:description", desc or label),
         ("schema:value", canonical_value),
@@ -621,10 +723,9 @@ def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | N
         value_schema = {"type": "string"}
 
     properties = OrderedDict([
-        ("@context", {"const": _ADA_CONTEXT}),
         ("@id", {"const": parameter_uri}),
         ("@type", {"const": ["schema:PropertyValue"]}),
-        ("schema:propertyID", {"const": parameter_uri}),
+        ("schema:propertyID", {"const": [{"@id": parameter_uri}]}),
         ("schema:name", {"const": label}),
         ("schema:value", value_schema),
     ])
@@ -682,7 +783,6 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
         canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
 
     properties = OrderedDict([
-        ("@context", {"const": _ADA_CONTEXT}),
         ("@id", {"const": f"ada:analyteColumn/{TAPP_NAME}/{name}"}),
         ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
@@ -1188,7 +1288,7 @@ def scaffold_detail_bb_if_missing() -> None:
         ref_branch["properties"] = ref_props
         ref_branch["required"] = CommentedSeq(["@id"])
         mt_anyof.append(ref_branch)
-        mt_anyof.append({"$ref": f"../../techniqueProtocols/{TAPP_NAME}/schema.yaml"})
+        mt_anyof.append({"$ref": "../tapp/schema.yaml"})
         mt["anyOf"] = mt_anyof
         props["schema:measurementTechnique"] = mt
         hand["properties"] = props
@@ -1271,10 +1371,15 @@ def cleanup_orphan_param_files(empa_param_names: list[str], detail_param_names: 
 def build_schema_yaml(properties: list[tuple[str, dict]],
                       analyte_column_names: list[str],
                       parameter_names: list[str],
-                      instrument_haspart: dict | None) -> None:
-    """Rebuild empaTAPP/schema.yaml with the new property set in allOf[1].properties
-    and oneOf constraints on ada:analyteColumns[] and ada:methodParameters[]
-    referencing the catalog files."""
+                      instrument_haspart: dict | None,
+                      required_props: list[str] | None = None,
+                      value_param_names: list[str] | None = None) -> None:
+    """Rebuild <TAPP>/schema.yaml with the new property set in allOf[1].properties
+    and uniqueness constraints on ada:analyteColumns[] and schema:additionalProperty[]
+    referencing the catalog files. Basic-protocol (property:) fields are listed in
+    overlay.required (canonical dual-home model); Advanced-protocol (readOnly:true
+    parameter:) fields are schema:additionalProperty[] PropertyValueSpecification entries
+    (replacing the former ada:methodParameters)."""
     yaml = YAML()
     yaml.preserve_quotes = True
     yaml.width = 4096
@@ -1285,17 +1390,25 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
     doc["title"] = CFG["schema_title"]
     doc["description"] = CFG["schema_description"]
     allof = CommentedSeq()
-    allof.append({"$ref": "../tappDefinition/schema.yaml"})
+    allof.append({"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"})
     overlay = CommentedMap()
     overlay["type"] = "object"
+    req_set = set(required_props or [])
     props = CommentedMap()
     for ada_prop, schema_block in properties:
         # convert OrderedDict (or any dict) to CommentedMap so ruamel.yaml emits plain mapping
         cm = CommentedMap()
         for k, v in schema_block.items():
             if isinstance(v, list):
+                vals = list(v)
+                # any enum prop may be sentinel-filled with "missing" when a publication
+                # doesn't report it -> the sentinel must be a valid term. Not restricted to
+                # REQUIRED props: an optional controlled field is just as likely to be
+                # transcribed as unreported, and "missing" says more than omission does.
+                if k == "enum" and "missing" not in vals:
+                    vals.append("missing")
                 seq = CommentedSeq()
-                for x in v:
+                for x in vals:
                     seq.append(x)
                 cm[k] = seq
             else:
@@ -1304,9 +1417,9 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
 
     if analyte_column_names:
         anyof = CommentedSeq()
-        anyof.append({"$ref": "../tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
+        anyof.append({"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
         for col_name in sorted(analyte_column_names):
-            anyof.append({"$ref": f"../analyteColumns/schema.yaml#/$defs/{col_name}"})
+            anyof.append({"$ref": f"../../../../registry/analyteColumns/schema.yaml#/$defs/{col_name}"})
 
         ac_items = CommentedMap()
         ac_items["anyOf"] = anyof
@@ -1317,7 +1430,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         ac_unique = CommentedSeq()
         for col_name in sorted(analyte_column_names):
             cm = CommentedMap()
-            cm["contains"] = {"$ref": f"../analyteColumns/schema.yaml#/$defs/{col_name}"}
+            cm["contains"] = {"$ref": f"../../../../registry/analyteColumns/schema.yaml#/$defs/{col_name}"}
             cm["minContains"] = 0
             cm["maxContains"] = 1
             ac_unique.append(cm)
@@ -1336,18 +1449,25 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
 
         props["ada:analyteTemplate"] = ac_template
 
-    if parameter_names:
-        mp_anyof = CommentedSeq()
-        for param_name in sorted(parameter_names):
-            mp_anyof.append({"$ref": f"../parameterTemplates/schema.yaml#/$defs/{param_name}"})
+    # schema:additionalProperty: editable params -> parameterTemplates (PropertyValueSpecification);
+    # read-only params -> parameterValues (PropertyValue carrying the fixed protocol value).
+    value_param_names = value_param_names or []
+    if parameter_names or value_param_names:
+        def _pt(n):
+            return f"../../../../registry/parameterTemplates/schema.yaml#/$defs/{n}"
 
+        def _pv(n):
+            return f"../../../../registry/parameterValues/schema.yaml#/$defs/{n}"
+
+        refs = [{"$ref": _pt(n)} for n in sorted(parameter_names)] + \
+               [{"$ref": _pv(n)} for n in sorted(value_param_names)]
         mp_items = CommentedMap()
-        mp_items["anyOf"] = mp_anyof
+        mp_items["anyOf"] = CommentedSeq(refs)
 
         mp_unique = CommentedSeq()
-        for param_name in sorted(parameter_names):
+        for ref in [_pt(n) for n in sorted(parameter_names)] + [_pv(n) for n in sorted(value_param_names)]:
             cm = CommentedMap()
-            cm["contains"] = {"$ref": f"../parameterTemplates/schema.yaml#/$defs/{param_name}"}
+            cm["contains"] = {"$ref": ref}
             cm["minContains"] = 0
             cm["maxContains"] = 1
             mp_unique.append(cm)
@@ -1357,12 +1477,17 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         mp_array["items"] = mp_items
         mp_array["allOf"] = mp_unique
 
-        props["ada:methodParameters"] = mp_array
+        props["schema:additionalProperty"] = mp_array
 
     if instrument_haspart:
         props["schema:instrument"] = _to_commented(instrument_haspart)
 
     overlay["properties"] = props
+    if required_props:
+        rq = CommentedSeq()
+        for k in sorted(required_props):
+            rq.append(k)
+        overlay["required"] = rq
     allof.append(overlay)
     doc["allOf"] = allof
 
@@ -1408,11 +1533,12 @@ def _coerce_value(val, dtype_col: str | None):
     return s
 
 
-def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[dict, dict]:
+def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
+                    route_map: dict | None = None) -> tuple[dict, dict]:
     """Build a paired (empaTAPP, detailEMPA) example from one publication column.
 
     empaTAPP carries the protocol definition (top-level ada:* properties from
-    `property:` tags + readOnly:true ada:methodParameters templates).
+    `property:` tags + readOnly:true schema:additionalProperty templates).
     detailEMPA carries the per-dataset values (schema:additionalProperty entries
     for readOnly:false parameters with a value in this publication's column),
     pointing back at the empaTAPP via schema:measurementTechnique by @id.
@@ -1427,25 +1553,26 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
         "ada": "https://ada.astromat.org/metadata/",
         "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
         "bios": "https://bioschemas.org/",
+        "prov": "http://www.w3.org/ns/prov#",
     }
     parts["@id"] = empa_id
     parts["@type"] = [
-        "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol",
+        "prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol",
     ]
     parts["schema:name"] = ""
     parts["schema:description"] = CFG["example_description_template"].format(pub_label=pub_label)
-    parts["schema:measurementTechnique"] = {
+    parts["schema:measurementTechnique"] = [{
         "@type": ["schema:DefinedTerm"],
         "schema:termCode": CFG["termcode"],
         "schema:name": CFG["termname"],
-    }
+    }]
 
     detail = OrderedDict()
     detail["@context"] = dict(_ADA_CONTEXT)
     detail["@id"] = detail_id
     detail["@type"] = ["schema:Thing"]
     detail["ada:componentType"] = CFG["detail_componenttype_default"]
-    detail["schema:measurementTechnique"] = {"@id": empa_id}
+    detail["schema:measurementTechnique"] = [{"@id": empa_id}]
     detail["schema:additionalProperty"] = []
 
     method_params = []
@@ -1475,6 +1602,11 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
         if item == "Instrument Manufacturer" or item == "Instrument Model":
             inst = parts.setdefault("schema:instrument", {
                 "@type": ["schema:Thing", "schema:Product", "https://w3id.org/nfdi4ing/metadata4ing#Instrument"],
+                # NOTE: kept as bare strings until the CDIF instrument BB @id-form
+                # for additionalType is published to gh-pages (local CDIF source has
+                # the anyOf; gh-pages still serves items:{type:string}). The geochem
+                # instrument BB + tappDefinition already accept {@id} objects, so this
+                # flips to [{"@id": t} for t in ...] once gh-pages catches up.
                 "schema:additionalType": list(CFG["instrument_addl_type"]),
                 "schema:name": CFG["instrument_name_default"],
             })
@@ -1550,6 +1682,61 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
                 })
             continue
 
+        # Matrix placement (build_tapp.route_empa): a route_map keyed by item carries
+        # the canonical home(s). Basic-protocol -> top-level ada: prop (…Default if
+        # editable at analysis); Advanced-protocol -> schema:additionalProperty
+        # PropertyValueSpecification (defaultValue); Analysis Editable/Advanced -> a
+        # per-dataset PropertyValue in the detail. Falls back to impl-tag placement
+        # when no route_map is given (legacy callers).
+        if route_map is not None:
+            r = route_map.get(item)
+            if r and r.get("role") == "field":
+                v = str(val).strip()
+                if r["P"] == "Basic":
+                    if not (r.get("enum") and v not in r["enum"]):
+                        parts[r["tapp_key"]] = v
+                elif r["P"] == "Advanced":
+                    if r.get("ro_value"):
+                        # read-only -> PropertyValue (fixed protocol value, coerced to the
+                        # parameter's data type so it matches the parameterValues $def)
+                        coerced = _coerce_value(val, row.get("dtype_col"))
+                        method_params.append(OrderedDict([
+                            ("@id", f"ada:parameter/{TAPP_NAME}/{r['mdname']}"),
+                            ("@type", ["schema:PropertyValue"]),
+                            ("schema:propertyID", [{"@id": f"ada:parameter/{TAPP_NAME}/{r['mdname']}"}]),
+                            ("schema:name", item),
+                            ("schema:value", coerced if coerced is not None else v),
+                        ]))
+                    else:
+                        # editable -> PropertyValueSpecification (defaultValue)
+                        method_params.append(OrderedDict([
+                            ("@id", f"ada:parameter/{TAPP_NAME}/{r['mdname']}"),
+                            ("@type", ["schema:PropertyValueSpecification"]),
+                            ("schema:name", item),
+                            ("schema:valueName", r["mdname"]),
+                            ("schema:description", row["desc"] or item),
+                            ("ada:dataType", map_dtype(r.get("dtype"))),
+                            ("ada:fieldScope", "session"),
+                            ("schema:readonlyValue", False),
+                            ("ada:tier", "R"),
+                            ("schema:defaultValue", v),
+                        ]))
+                if r.get("detail"):
+                    coerced = _coerce_value(val, row.get("dtype_col"))
+                    if coerced is not None:
+                        _vt, unit = _value_type_for(row.get("dtype_col"))
+                        entry = OrderedDict([
+                            ("@id", f"ada:parameter/{TAPP_NAME}/{r['name']}"),
+                            ("@type", ["schema:PropertyValue"]),
+                            ("schema:propertyID", [{"@id": f"ada:parameter/{TAPP_NAME}/{r['name']}"}]),
+                            ("schema:name", item),
+                            ("schema:value", coerced),
+                        ])
+                        if unit:
+                            entry["schema:unitText"] = unit
+                        detail["schema:additionalProperty"].append(entry)
+            continue
+
         # Use per-tag records so a row's property: and parameter: tags get the right readOnly each.
         for tr in row["parsed"]["tag_records"]:
             kind = tr["kind"]
@@ -1569,7 +1756,6 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
             elif kind == "parameter":
                 if ro:
                     method_params.append(OrderedDict([
-                        ("@context", dict(_ADA_CONTEXT)),
                         ("@id", f"ada:parameter/{TAPP_NAME}/{name}"),
                         ("@type", ["schema:PropertyValueSpecification"]),
                         ("schema:name", item),
@@ -1589,7 +1775,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
                     entry = OrderedDict([
                         ("@id", f"ada:parameter/{TAPP_NAME}/{name}"),
                         ("@type", ["schema:PropertyValue"]),
-                        ("schema:propertyID", f"ada:parameter/{TAPP_NAME}/{name}"),
+                        ("schema:propertyID", [{"@id": f"ada:parameter/{TAPP_NAME}/{name}"}]),
                         ("schema:name", item),
                         ("schema:value", coerced),
                     ])
@@ -1598,7 +1784,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict]) -> tuple[d
                     detail["schema:additionalProperty"].append(entry)
 
     if method_params:
-        parts["ada:methodParameters"] = method_params
+        parts["schema:additionalProperty"] = method_params
     if not parts["schema:name"]:
         parts["schema:name"] = CFG["example_name_template"].format(code=_pubs()[pub_index][0])
 
@@ -1725,7 +1911,7 @@ def variable_measured_from_default_analytes(pub_label: str, default_analytes: li
             ("@type", ["schema:PropertyValue", "cdi:InstanceVariable"]),
             ("schema:name", analyte),
             ("schema:description", desc),
-            ("schema:propertyID", [f"https://ada.astromat.org/vocabulary/analytes/{analyte}"]),
+            ("schema:propertyID", [{"@id": f"https://ada.astromat.org/vocabulary/analytes/{analyte}"}]),
             ("schema:unitText", unit_text),
             ("cdi:intendedDataType", "https://www.w3.org/TR/xmlschema-2/#decimal"),
             ("cdif:physicalDataType", "https://www.w3.org/TR/xmlschema-2/#double"),
@@ -1793,11 +1979,11 @@ def _sample_for_provused(tapp_object_first: dict | None, pub_label: str) -> dict
 
 
 _REQUIRED_CONFORMS_TO = [
-    "https://w3id.org/cdif/core/1.0",
-    "https://w3id.org/cdif/discovery/1.0",
-    "https://w3id.org/cdif/data_description/1.0",
-    "https://w3id.org/cdif/provenance/1.0",
-    "https://w3id.org/cdif/manifest/1.0",
+    "https://w3id.org/cdif/core/1.1",
+    "https://w3id.org/cdif/discovery/1.1",
+    "https://w3id.org/cdif/data_description/1.1",
+    "https://w3id.org/cdif/provenance/1.1",
+    "https://w3id.org/cdif/manifest/1.1",
     "https://w3id.org/geochem/metadata/profiles/adaEMPA",
     "https://w3id.org/geochem/metadata/profiles/adaProduct",
 ]
@@ -1833,7 +2019,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
 
     haspart = OrderedDict([
         ("@id", f"ex:adaEMPA-{pub_label}-data-001"),
-        ("@type", ["ada:tabularData", "cdi:TabularTextDataSet", "schema:Thing"]),
+        ("@type", ["schema:MediaObject", "ada:tabularData", "cdi:TabularTextDataSet", "schema:Thing"]),
         ("schema:name", f"adaEMPA-{pub_label}-data.csv"),
         ("schema:description", f"Per-point quantitative EMPA analyses ({pub_citation})."),
         ("schema:additionalType", ["ada:EMPAQEATabular"]),
@@ -1842,10 +2028,13 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
         ("cdi:isFixedWidth", False),
         ("csvw:delimiter", ","),
         ("csvw:header", True),
+        ("cdif:hasPhysicalMapping", [
+            {"cdif:index": 0, "cdif:physicalDataType": "String", "cdi:nullSequence": "NA"},
+        ]),
         ("ada:componentType", detail_componenttype),
         ("ada:spectrometersUsed", detail_spectrometers),
         ("ada:signalUsed", detail_signal),
-        ("schema:measurementTechnique", {"@id": tapp_id}),
+        ("schema:measurementTechnique", [{"@id": tapp_id}]),
         ("schema:additionalProperty", detail_addprops),
     ])
 
@@ -1858,7 +2047,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
         ("csvw", "http://www.w3.org/ns/csvw#"),
         ("prov", "http://www.w3.org/ns/prov#"),
         ("spdx", "http://spdx.org/rdf/terms#"),
-        ("nxs", "http://purl.org/nexusformat/definitions/"),
+        ("nxs", "https://manual.nexusformat.org/classes/"),
         ("dcterms", "http://purl.org/dc/terms/"),
         ("ex", "https://example.org/"),
         ("dcat", "http://www.w3.org/ns/dcat#"),
@@ -1879,6 +2068,9 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     ]
     out["schema:identifier"] = OrderedDict([
         ("@type", ["schema:PropertyValue"]),
+        # bare string until the CDIF identifier BB @id-form for propertyID is published to
+        # gh-pages (local CDIF source has the anyOf; gh-pages still serves type:string) —
+        # same publish-lag as instrument additionalType; flip to {"@id": ...} once gh-pages catches up.
         ("schema:propertyID", "https://registry.identifiers.org/registry/doi"),
         ("schema:value", f"10.PLACEHOLDER/adaempa-{pub_label.lower()}"),
     ])
@@ -1887,11 +2079,11 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     out["schema:version"] = "0.1"
     out["schema:license"] = ["https://creativecommons.org/licenses/by/4.0/"]
     out["schema:creativeWorkStatus"] = "Draft"
-    out["schema:measurementTechnique"] = OrderedDict([
+    out["schema:measurementTechnique"] = [OrderedDict([
         ("@type", ["schema:DefinedTerm"]),
         ("schema:name", "Electron Microprobe Analysis (EMPA)"),
         ("schema:identifier", "https://ada.astromat.org/vocabulary/techniques/EMPA"),
-    ])
+    ])]
     tapp_object_first = (tapp_ex.get("schema:object") or [None])[0]
     out["prov:wasGeneratedBy"] = [OrderedDict([
         ("@type", ["prov:Activity", "schema:Action"]),
@@ -1922,7 +2114,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     ])]
     out["schema:subjectOf"] = OrderedDict([
         ("@type", ["schema:Dataset"]),
-        ("schema:additionalType", ["dcat:CatalogRecord"]),
+        ("schema:additionalType", [{"@id": "dcat:CatalogRecord"}]),
         ("@id", f"ex:adaEMPA-{pub_label}-metadata"),
         ("schema:about", {"@id": f"ex:adaEMPA-{pub_label}"}),
         ("schema:dateModified", "2026-04-29"),
@@ -1945,10 +2137,10 @@ def build_profile_examples(pub_filter: list[str] | None = None) -> dict:
     (e.g. for laicpmsTAPP)."""
     if not CFG.get("emit_profile_examples", False):
         return {"written": 0, "skipped": 0}
-    profile_dir = REPO_ROOT / "_sources" / "profiles" / "adaProfiles" / "adaEMPA"
+    profile_dir = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "profile-ada"
     profile_dir.mkdir(parents=True, exist_ok=True)
-    tapp_dir = REPO_ROOT / "_sources" / "techniqueProtocols" / TAPP_NAME
-    detail_dir = REPO_ROOT / "_sources" / "geochemProperties" / DETAIL_NAME
+    tapp_dir = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "tapp"
+    detail_dir = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "detail"
 
     written, skipped = 0, 0
     for pub_code, pub_citation in _pubs():
@@ -2194,6 +2386,7 @@ def _write_examples_yaml(examples_yaml: list[tuple[str, str]]) -> None:
             "schema": "http://schema.org/",
             "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
             "bios": "https://bioschemas.org/",
+        "prov": "http://www.w3.org/ns/prov#",
         }
         snip = CommentedMap()
         snip["language"] = "json"
@@ -2203,6 +2396,28 @@ def _write_examples_yaml(examples_yaml: list[tuple[str, str]]) -> None:
     with open(BB / "examples.yaml", "w", encoding="utf-8") as f:
         yaml.dump(ex_doc, f)
     print(f"  wrote examples.yaml with {len(examples_yaml)} entries")
+
+
+def _pub_meaningful(v) -> bool:
+    """True if a publication cell carries real content, not 'N'/'N/A'/'N (explanation)'."""
+    if v is None:
+        return False
+    v = re.sub(r"\s*\[P[^\]]*\]", "", str(v).strip()).strip()
+    if v in ("", "N", "N/A"):
+        return False
+    m = re.match(r"^(N/A|N)\b\s*", v)
+    if m:
+        rest = v[m.end():]
+        if rest.startswith("("):
+            depth = 0
+            for i, ch in enumerate(rest):
+                depth += (ch == "(") - (ch == ")")
+                if ch == ")" and depth == 0:
+                    rest = rest[i + 1:]
+                    break
+        if re.fullmatch(r"[/;,\-\s]*", rest.strip()):
+            return False
+    return True
 
 
 def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
@@ -2221,10 +2436,24 @@ def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
 
     cls = _classify_rows(rows, emit_tapp=True, emit_detail=False)
 
+    # Canonical dual-home model: Basic (property:) fields are required EXCEPT those no
+    # publication reports (coverage 0) -> optional. Coverage from the publication columns.
+    prop_type = {k: (b.get("type") if isinstance(b, dict) else None)
+                 for k, b in cls["schema_properties"]}
+    prop_cov = {}
+    for row in rows:
+        cov = sum(1 for v in (row.get("pubs") or []) if _pub_meaningful(v))
+        for tr in row["parsed"]["tag_records"]:
+            if tr["kind"] == "property" and tr["name"] not in ("analyteTemplate", "description"):
+                key = "ada:" + tr["name"]
+                prop_cov[key] = max(prop_cov.get(key, 0), cov)
+    required_props = [k for k, _ in cls["schema_properties"] if prop_cov.get(k, 0) > 0]
+    required_set = set(required_props)
+
     instrument_haspart = build_haspart_constraint(rows)
     build_schema_yaml(
         cls["schema_properties"], cls["analyte_column_names"],
-        cls["parameter_names"], instrument_haspart,
+        cls["parameter_names"], instrument_haspart, required_props=required_props,
     )
 
     # Write the registered analyteColumns + parameterTemplates collection BBs
@@ -2249,6 +2478,17 @@ def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
             examples_yaml.append((pcode, plabel))
             continue
         empa_ex, _ = example_for_pub(i, plabel, rows)
+        # canonical model: required props get a real value or a sentinel; non-meaningful
+        # values ("N") are cleaned (sentinel if required, dropped if optional).
+        for key, _b in cls["schema_properties"]:
+            present = key in empa_ex
+            ok = present and _pub_meaningful(empa_ex[key])
+            if key in required_set:
+                if not ok:
+                    empa_ex[key] = (-9999 if prop_type.get(key) in ("number", "integer")
+                                    else "missing")
+            elif present and not ok:
+                del empa_ex[key]
         write_json(BB / f"example{TAPP_NAME}-{pcode}.json", empa_ex)
         examples_yaml.append((pcode, plabel))
         written += 1
@@ -2323,7 +2563,7 @@ def build_profile_BB() -> None:
       - schema:distribution[*].schema:hasPart[*] anyOf includes detailXXX
     """
     short = TAPP_NAME.replace("TAPP", "")  # e.g. "empa", "xrd"
-    profile_dir = REPO_ROOT / "_sources" / "profiles" / "geochemProfiles" / f"{short}Profile"
+    profile_dir = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "profile"
     profile_dir.mkdir(parents=True, exist_ok=True)
 
     schema_path = profile_dir / "schema.yaml"
@@ -2341,7 +2581,7 @@ def build_profile_BB() -> None:
             f"that points at a {TAPP_NAME} TAPP definition."
         )
         allof = CommentedSeq()
-        allof.append({"$ref": "../../adaProfiles/adaProduct/schema.yaml"})
+        allof.append({"$ref": "../../../../BaseSchema/adaProduct/schema.yaml"})
         overlay = CommentedMap()
         overlay["type"] = "object"
         ovprops = CommentedMap()
@@ -2354,7 +2594,7 @@ def build_profile_BB() -> None:
         ref_branch["properties"] = CommentedMap([("@id", {"type": "string", "format": "uri"})])
         ref_branch["required"] = CommentedSeq(["@id"])
         mt_anyof.append(ref_branch)
-        mt_anyof.append({"$ref": f"../../../techniqueProtocols/{TAPP_NAME}/schema.yaml"})
+        mt_anyof.append({"$ref": "../tapp/schema.yaml"})
         mt["anyOf"] = mt_anyof
         ovprops["schema:measurementTechnique"] = mt
         # distribution.hasPart includes the detail BB
@@ -2365,8 +2605,8 @@ def build_profile_BB() -> None:
         dist_props = CommentedMap()
         hp = CommentedMap()
         hp["items"] = CommentedMap([("anyOf", CommentedSeq([
-            {"$ref": "../../adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
-            {"$ref": f"../../../geochemProperties/{DETAIL_NAME}/schema.yaml"},
+            {"$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
+            {"$ref": "../detail/schema.yaml"},
         ]))])
         dist_props["schema:hasPart"] = hp
         dist_items["properties"] = dist_props

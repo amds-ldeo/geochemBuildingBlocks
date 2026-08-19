@@ -4,6 +4,22 @@ bblocks-config-local.yml
 bblocks-config-local.yaml
 .volumes
 *.bak
+# Excel/Word lock files, created while a docs/*.xlsx workbook is open
+~$*
 __pycache__/
 .claude/settings.local.json
 build/_tmp/
+
+# macOS metadata
+.DS_Store
+
+# xlsx archive of the 2026-08-11 delivery; its contents are already in commit 4f04fe98
+TAPPS20260811/TAPP-xlsx.zip
+
+# sidecar backup archive; the sidecars themselves are versioned here
+archive/schemapaths-BKU20260810.zip
+
+# Superseded local working material — old deliveries' sidecars, the workbooks they described, and
+# finished worklogs. Kept on disk because it is the record the current sidecars were derived from,
+# untracked because it is bulky and settled. Git history still has every version.
+docs/archive/

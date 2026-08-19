@@ -1,0 +1,112 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Tabular Data Type",
+    "description": "Tabular data type aligned with CDIF 2026 schema using DDI-CDI and CSVW properties. Typed as cdi:TabularTextDataSet and ada:tabularData.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "@type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 2,
+                    "allOf": [
+                        {
+                            "contains": {
+                                "const": "cdi:TabularTextDataSet"
+                            }
+                        },
+                        {
+                            "contains": {
+                                "const": "ada:tabularData"
+                            }
+                        }
+                    ]
+                },
+                "ada:componentType": {
+                    "type": "string",
+                    "enum": [
+                        "ada:AMSProcessedData",
+                        "ada:AMSRawData",
+                        "ada:ARGTCaptionData",
+                        "ada:ARGTRawData",
+                        "ada:ARGTSummaryData",
+                        "ada:DSCHeatFlow",
+                        "ada:DSCHeatTabular",
+                        "ada:DSCIndividualMeasurements",
+                        "ada:DSCProcessedHeatFlux",
+                        "ada:DSCRawHeatFlux",
+                        "ada:DSCResultsTabular",
+                        "ada:EAIRMSProcessedData",
+                        "ada:EAIRMSRawData",
+                        "ada:EMPAESPCTabular",
+                        "ada:EMPAQEATabular",
+                        "ada:FTICRMSTabular",
+                        "ada:GPYCProcessedTabular",
+                        "ada:GPYCRawTabular",
+                        "ada:HRICPMSProcessed",
+                        "ada:HRICPMSRaw",
+                        "ada:ICPOESIntermediateTabular",
+                        "ada:ICPOESProcessedTabular",
+                        "ada:ICPOESRawTabular",
+                        "ada:ICTabular",
+                        "ada:LAFProcessed",
+                        "ada:LAFRaw",
+                        "ada:LAICPMSGeochronTabular",
+                        "ada:LAICPMSTabular",
+                        "ada:LITPolarPlotData",
+                        "ada:LITTabularData",
+                        "ada:MCICPMSTabular",
+                        "ada:NGNSMSProcessed",
+                        "ada:NGNSMSRaw",
+                        "ada:NanoIRPointData",
+                        "ada:NanoSIMSRaw",
+                        "ada:NanoSIMSTabular",
+                        "ada:PSFDTabular",
+                        "ada:QICPMSProcessedTabular",
+                        "ada:QICPMSRawTabular",
+                        "ada:RAMANRawTabular",
+                        "ada:RITOFNGMSSpectra",
+                        "ada:RITOFNGMSTabular",
+                        "ada:SEMEDSPointData",
+                        "ada:SEMEDSPointSpectraData",
+                        "ada:SIMSTabular",
+                        "ada:STEMEDSTabular",
+                        "ada:STEMEELSTabular",
+                        "ada:SVRUECTabular",
+                        "ada:SVRUECWaveformData",
+                        "ada:TOFSIMSMassSpectrumData",
+                        "ada:VNMIRSpectralPoint",
+                        "ada:XRDTabular"
+                    ],
+                    "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level."
+                },
+                "ada:xCoordCol": {
+                    "description": "The column names are redundant, they are lists in the hasPhysicalMapping array. Include here for convenience.",
+                    "type": "string"
+                },
+                "ada:yCoordCol": {
+                    "type": "string"
+                },
+                "ada:zCoordCol": {
+                    "type": "string"
+                },
+                "ada:coordUnits": {
+                    "type": "string"
+                },
+                "ada:spatialRegistration": {
+                    "$ref": "../spatialRegistration/spatialRegistrationSchema.json"
+                }
+            },
+            "required": [
+                "@type",
+                "ada:componentType"
+            ]
+        },
+        {
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/cdifTabularDataSchema.json"
+        }
+    ]
+}

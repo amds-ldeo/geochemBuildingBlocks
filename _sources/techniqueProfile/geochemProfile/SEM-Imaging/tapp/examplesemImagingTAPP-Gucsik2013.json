@@ -1,0 +1,181 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:semImagingTAPP-Gucsik2013",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "semImaging protocol — Gucsik2013",
+  "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point.",
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "JEOL",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "JSM-5410LV",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:description": "Standard SEM",
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "BSEDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Electron source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "SEDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
+        }
+      ],
+      "schema:name": "CL Detector Configuration",
+      "schema:value": "Mini-CL (Gatan, multialkali PMT) for scanning CL images; Oxford MonoCL2 grating monochromator with Hamamatsu R2228 PMT and parabolic mirror (75% efficiency) for spectral CL"
+    }
+  ],
+  "ada:analyticalMode": [
+    "CL"
+  ],
+  "ada:clAcquisitionMode": "Spectral point",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "semImaging",
+      "schema:termCode": "SEM"
+    }
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "ada:clIntegrationTimeDefault": -9999,
+  "ada:clWavelengthRange": -9999,
+  "ada:dwellTimePerPixelDefault": -9999,
+  "ada:ebsdDetectorConfiguration": "missing",
+  "ada:sampleTiltAngle": -9999,
+  "ada:samplingUnit": "missing",
+  "schema:datePublished": "missing"
+}

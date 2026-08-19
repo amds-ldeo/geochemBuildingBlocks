@@ -1,0 +1,182 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:semTAPP-Zhou2017",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "sem protocol — Zhou2017",
+  "schema:description": "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Geosciences, Beijing, China"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "Unknown",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "Helios NanoLab 650",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:acceleratingVoltageDefault": "2 kV (SEM imaging)",
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "EDSDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Electron source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "WDSSpectrometer",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "xrayLine",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "N/A"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "sem",
+      "schema:termCode": "SEM"
+    }
+  ],
+  "ada:dwellTimePerPixelDefault": -9999,
+  "ada:edsAcquisitionMode": "missing",
+  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
+  "ada:massAbsorptionCoefficients": "missing",
+  "ada:matrixCorrectionMethod": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:wdsDeadTimeCorrection": "missing",
+  "schema:datePublished": "missing"
+}

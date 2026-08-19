@@ -1,0 +1,712 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://w3id.org/geochem/schema/geochemProduct/1.0",
+    "title": "Geochemistry Analytical Product Metadata",
+    "description": "Generic schema for JSON-LD metadata documenting an analytical product from a geochemistry (or related analytical) laboratory workflow. It describes the dataset and its distributions, the analysis events that produced it (instruments, computational tools, reagents, laboratory, samples analysed), the variables measured, and spatial / temporal / quality coverage. It composes the CDIF core, data-description, manifest (bundle), and provenance profiles.\nThis is the domain-neutral base. Archive-specific submission/delivery layers (e.g. ADA/SAMIS via adaProduct) extend it with their product-type vocabulary, file-classification (componentType) scheme, and delivery-packaging rules.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/cdifCoreSchema.json"
+        },
+        {
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/cdifDataDescriptionSchema.json"
+        },
+        {
+            "if": {
+                "properties": {
+                    "schema:distribution": {
+                        "type": "array",
+                        "contains": {
+                            "type": "object",
+                            "properties": {
+                                "@type": {
+                                    "type": "array",
+                                    "contains": {
+                                        "const": "schema:Collection"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "@type"
+                            ]
+                        }
+                    }
+                }
+            },
+            "then": {
+                "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/cdifManifestSchema.json"
+            }
+        },
+        {
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/cdifProvenanceSchema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "@type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "schema:Dataset",
+                            "schema:Product"
+                        ]
+                    }
+                },
+                "schema:license": {
+                    "description": "Legal statement of conditions for use and access",
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "$ref": "../creativeWork/creativeWorkSchema.json"
+                            }
+                        ]
+                    }
+                },
+                "schema:relatedLink": {
+                    "type": "array",
+                    "description": "Links to related resources at the product level",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@type": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "contains": {
+                                    "const": "schema:LinkRole"
+                                },
+                                "minItems": 1
+                            },
+                            "schema:linkRelationship": {
+                                "type": "string"
+                            },
+                            "schema:target": {
+                                "type": "object",
+                                "properties": {
+                                    "@type": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "contains": {
+                                            "const": "schema:EntryPoint"
+                                        },
+                                        "minItems": 1
+                                    },
+                                    "schema:encodingFormat": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "schema:name": {
+                                        "type": "string"
+                                    },
+                                    "schema:url": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "schema:creativeWorkStatus": {
+                    "type": "string"
+                },
+                "schema:measurementTechnique": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "description": "Text description of the measurement method",
+                        "properties": {
+                            "@type": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "contains": {
+                                    "const": "schema:DefinedTerm"
+                                },
+                                "minItems": 1
+                            },
+                            "schema:name": {
+                                "type": "string"
+                            },
+                            "schema:identifier": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "prov:wasGeneratedBy": {
+                    "description": "Analysis events. Extends cdifProvActivity (from cdifProvenance) with the generic geochem analysis-event surface: the instruments, computational tools and reagents actually used; the laboratory; the samples analysed; and the session identifier and timing.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "prov:used": {
+                                "type": "array",
+                                "description": "Resources used in the analysis. Each item is one of: an instrument BB instance; a computational tool actually used (schema:SoftwareApplication); a reagent / reference material actually used; a tappDefinition BB instance (inlined); or an @id reference to a TAPP definition node defined elsewhere. The TAPP plan (prov:Plan / bios:LabProtocol) prescribes the generic instrument / computationalTool / reagent list; these prov:used entries record the ACTUALS used in this specific run.",
+                                "items": {
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "required": [
+                                                    "schema:instrument"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:instrument": {
+                                                        "type": "array",
+                                                        "minItems": 1,
+                                                        "items": {
+                                                            "$ref": "../instrument/instrumentSchema.json"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "required": [
+                                                    "bios:computationalTool"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "bios:computationalTool": {
+                                                        "type": "array",
+                                                        "minItems": 1,
+                                                        "items": {
+                                                            "$ref": "#/$defs/UsedComputationalTool"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "required": [
+                                                    "prov:reagent"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "prov:reagent": {
+                                                        "type": "array",
+                                                        "minItems": 1,
+                                                        "items": {
+                                                            "$ref": "#/$defs/UsedReagent"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "@type": {
+                                                        "contains": {
+                                                            "const": "ada:TAPPDefinition"
+                                                        }
+                                                    }
+                                                },
+                                                "required": [
+                                                    "@type"
+                                                ]
+                                            },
+                                            "then": {
+                                                "$ref": "../tappDefinition/tappDefinitionSchema.json"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            "schema:location": {
+                                "$ref": "../laboratory/laboratorySchema.json"
+                            },
+                            "schema:object": {
+                                "type": "array",
+                                "description": "Samples analyzed",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "@type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "allOf": [
+                                                {
+                                                    "contains": {
+                                                        "const": "schema:Thing"
+                                                    }
+                                                },
+                                                {
+                                                    "contains": {
+                                                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                                    }
+                                                }
+                                            ],
+                                            "minItems": 2
+                                        },
+                                        "schema:additionalType": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema:identifier": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema:name": {
+                                            "description": "Sample name/identifier as used in the lab.",
+                                            "type": "string"
+                                        },
+                                        "schema:additionalProperty": {
+                                            "description": "Per-sample PropertyValue entries (e.g. analysis location); technique profiles constrain these.",
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "schema:identifier": {
+                                "description": "The analytical session's own identifier -- the laboratory's run, sequence or batch identifier as generated by the instrument or acquisition software. Sits on the activity rather than the dataset because the session IS the activity.",
+                                "type": "string"
+                            },
+                            "schema:startDate": {
+                                "type": "string"
+                            },
+                            "schema:endDate": {
+                                "type": "string"
+                            },
+                            "schema:additionalProperty": {
+                                "description": "Per-analysis PropertyValue entries (replicates, transect length, ...); technique profiles constrain these.",
+                                "type": "array",
+                                "items": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "required": [
+                            "prov:used"
+                        ]
+                    }
+                },
+                "schema:variableMeasured": {
+                    "description": "Variable definitions. Extends cdifInstanceVariable (from cdifDataDescription) with additional generic properties. Requires a description with minLength 3.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "schema:description": {
+                                "type": "string",
+                                "minLength": 3
+                            },
+                            "schema:alternateName": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "description": "Human intelligible name for variable that conveys semantics"
+                                }
+                            },
+                            "schema:measurementTechnique": {
+                                "type": "array",
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "required": [
+                                                "@id"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "@type": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "contains": {
+                                                        "const": "schema:DefinedTerm"
+                                                    },
+                                                    "minItems": 1
+                                                },
+                                                "schema:name": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@type",
+                                                "schema:name"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "schema:unitText": {
+                                "type": "string"
+                            },
+                            "schema:unitCode": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "object",
+                                        "required": [
+                                            "@id"
+                                        ],
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "@id": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "@type": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "contains": {
+                                                    "const": "schema:DefinedTerm"
+                                                },
+                                                "minItems": 1
+                                            },
+                                            "schema:name": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@type",
+                                            "schema:name"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "schema:minValue": {
+                                "type": "number"
+                            },
+                            "schema:maxValue": {
+                                "type": "number"
+                            },
+                            "schema:url": {
+                                "type": "string",
+                                "format": "uri"
+                            }
+                        },
+                        "required": [
+                            "schema:description"
+                        ]
+                    }
+                },
+                "schema:spatialCoverage": {
+                    "description": "Geographic extent of resource content.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/SpatialExtent"
+                    }
+                },
+                "schema:temporalCoverage": {
+                    "description": "Temporal extent of resource content.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/TemporalExtent"
+                    }
+                },
+                "dqv:hasQualityMeasurement": {
+                    "description": "Quality measurements reported to assess the resource.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/QualityMeasure"
+                    }
+                },
+                "schema:additionalProperty": {
+                    "description": "PropertyValue entries describing the DELIVERED DATA rather than the analysis that produced it (extent, dimensions, ...). Distinct from the per-analysis prov:wasGeneratedBy.schema:additionalProperty. Technique profiles constrain these.",
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "schema:distribution": {
+                    "description": "Generic distribution structure. A distribution is a schema:DataDownload (or schema:WebAPI, inherited from cdifCore) that MAY carry a cdi:isStructuredBy data-structure description (for a monolithic single file that IS the dataset, or a structure shared across bundle parts), and MAY be a bundle whose schema:hasPart lists member files (typed via cdifManifest). The domain file-classification of a distribution / member (e.g. ADA ada:componentType) is added by the extending profile.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "cdi:isStructuredBy": {
+                                "description": "Data-structure description of a monolithic single-file distribution (the file is the dataset), or a structure shared across bundle parts and referenced from them by @id. One of the four CDIF DataStructure variants inline, or an @id reference. Optional.",
+                                "anyOf": [
+                                    {
+                                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure"
+                                    },
+                                    {
+                                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure"
+                                    },
+                                    {
+                                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure"
+                                    },
+                                    {
+                                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure"
+                                    },
+                                    {
+                                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/id-reference"
+                                    }
+                                ]
+                            },
+                            "schema:additionalType": {
+                                "description": "Optional file-classification of this distribution (or, on a bundle, of the whole archive) drawn from the componentType vocabulary (ada:vocab/componentType) -- e.g. \"ada:report\", \"ada:calibrationFile\". Generic and OPTIONAL here; the ADA product layer (adaProduct) instead carries the required ada:componentType. Advisory (annotated via schema:inDefinedTermSet), not hard-enumerated in JSON Schema.",
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/componentType"
+                            }
+                        },
+                        "allOf": [
+                            {
+                                "if": {
+                                    "properties": {
+                                        "@type": {
+                                            "type": "array",
+                                            "contains": {
+                                                "const": "cdi:TabularTextDataSet"
+                                            }
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "$ref": "../tabularData/tabularDataSchema.json"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "schema:subjectOf": {
+                    "properties": {
+                        "dcterms:conformsTo": {
+                            "contains": {
+                                "type": "object",
+                                "required": [
+                                    "@id"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "@id": {
+                                        "const": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "$defs": {
+        "universalComponentTypeBranch": {
+            "description": "Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf. Constrains ada:componentType to the universal enum and marks it required. Factored out of every profile to eliminate the inline boilerplate.",
+            "properties": {
+                "ada:componentType": {
+                    "$ref": "#/$defs/universalComponentType"
+                }
+            },
+            "required": [
+                "ada:componentType"
+            ]
+        },
+        "universalComponentType": {
+            "description": "A componentType value drawn from the shared componentType vocabulary (ada:vocab/componentType). Not hard-enumerated here: conformance to the vocabulary is advisory (annotated via schema:inDefinedTermSet, SHACL-checkable) rather than enforced by JSON Schema, so techniques may extend the term set.",
+            "type": "string",
+            "schema:inDefinedTermSet": "ada:vocab/componentType"
+        },
+        "UsedComputationalTool": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Computational tool actually used (acquisition, data reduction, or processing).",
+            "properties": {
+                "@type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "contains": {
+                        "const": "schema:SoftwareApplication"
+                    }
+                },
+                "@id": {
+                    "type": "string"
+                },
+                "schema:name": {
+                    "type": "string"
+                },
+                "schema:version": {
+                    "type": "string"
+                },
+                "schema:url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "schema:description": {
+                    "type": "string"
+                },
+                "ada:toolRole": {
+                    "type": "string",
+                    "enum": [
+                        "acquisition",
+                        "dataReduction",
+                        "processing",
+                        "visualization"
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "schema:name"
+            ]
+        },
+        "UsedReagent": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Reference material, calibration standard, or chemical reagent actually used.",
+            "properties": {
+                "@type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "description": "What the material IS, independent of the role it plays in this run (that is ada:reagentRole). schema:DefinedTerm for a material identified by a registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen or purchased lot; schema:ChemicalSubstance for a bulk chemical or coating stock.",
+                    "contains": {
+                        "enum": [
+                            "schema:DefinedTerm",
+                            "schema:Product",
+                            "schema:ChemicalSubstance"
+                        ]
+                    }
+                },
+                "@id": {
+                    "type": "string"
+                },
+                "schema:name": {
+                    "type": "string"
+                },
+                "schema:description": {
+                    "type": "string"
+                },
+                "schema:identifier": {
+                    "description": "Formal identifier (IGSN, catalog number, GeoReM ID).",
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "@type": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "minItems": 1
+                                },
+                                "schema:propertyID": {
+                                    "type": "string"
+                                },
+                                "schema:value": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "schema:termCode": {
+                    "type": "string",
+                    "description": "Registry code for the material on the schema:DefinedTerm path."
+                },
+                "schema:inDefinedTermSet": {
+                    "description": "The registry the schema:termCode belongs to.",
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "@id": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "schema:name": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "ada:reagentRole": {
+                    "type": "string",
+                    "enum": [
+                        "primaryStandard",
+                        "secondaryStandard",
+                        "interferenceStandard",
+                        "blankMaterial",
+                        "coatingMaterial",
+                        "referenceMaterial",
+                        "reagent"
+                    ]
+                }
+            },
+            "required": [
+                "@type",
+                "schema:name"
+            ]
+        },
+        "SpatialExtent": {
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/spatialExtentSchema.json"
+        },
+        "TemporalExtent": {
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/temporalExtentSchema.json"
+        },
+        "QualityMeasure": {
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/qualityMeasureSchema.json"
+        }
+    }
+}

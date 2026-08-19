@@ -1,6 +1,53 @@
-# geochemBuildingBlocks — project notes for Claude Code
+# CLAUDE.md
 
-This repo is the ADA (Astromat Data Archive) building-blocks repo. It is one node in a larger CDIF-rooted ecosystem; sibling repos and the propagation pipeline are documented in auto-memory.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JSON-Schema building blocks (OGC Building Blocks pattern) for geochemistry analytical-technique metadata, extending shared CDIF base schemas. It is one node in a larger CDIF-rooted ecosystem; sibling repos and the propagation pipeline are documented in auto-memory.
+
+## Deeper references
+
+- **`AGENTS.md`** — the authoritative, detailed agent guide (directory layout, every tool, the TAPP/detail/profile pipeline internals, the full componentType architecture). Read it when this file's summary isn't enough.
+- **`README.md`** — human-facing overview; its generation-pipeline section is a good orientation.
+- **`docs/TAPP-schema-generation-workflow.md`** — end-to-end walkthrough of workbook → validated schema.
+- **`docs/SCHEMA_PATH_GRAMMAR.md`** — the canonical grammar for the schema-path sidecars.
+
+## Commands
+
+All tooling is `python tools/<name>.py`. There is **no** package manifest, build system, or pytest suite — the validation tools *are* the test suite.
+
+Regenerate after any `_sources/**/schema.yaml` edit:
+
+```
+python tools/regenerate_schema_json.py        # *Schema.json from schema.yaml (--dry-run to preview)
+python tools/resolve_schema.py --all          # resolvedSchema.json everywhere (downstream validators read this)
+```
+
+`resolve_schema.py` also accepts a single `<profile>` name or `--file <schema.yaml> -o <out>` to resolve just one — far faster than `--all` after a localized edit.
+
+> ⚠ 2026-08: `resolve_schema.py --all` is temporarily degraded — it fetches upstream CDIF `$ref`s from a **stale** published mbb gh-pages, leaving temp-dir `$comment` stamps and dropping defs. **Do not commit its output** until mbb gh-pages is republished. Details + local-mbb workaround: `AGENTS.md` and auto-memory `resolvedschema_regen_deferred_2026_08`.
+
+Validate ("run the tests"):
+
+```
+python tools/validate_examples.py                 # validate all example*.json vs resolvedSchema.json
+python tools/validate_examples.py --filter <name> # single BB/example — the "run one test" form
+python tools/validate_instance.py --dir <dir>     # profile-aware (auto-detects dcterms:conformsTo)
+python tools/audit_building_blocks.py             # completeness, schema<->JSON consistency, resolvedSchema freshness, SHACL
+python tools/check_componentType.py               # componentType vocab/enum drift (annotation-only base layer, so JSON Schema alone misses it)
+```
+
+Local green ≠ CI green: `validate_examples.py` cannot catch the OGC bblocks-annotate dependency-resolution / dangling-`$ref` failures — only CI (or the branch `.github/workflows/validate-branch.yml`) runs the full postprocess.
+
+Regenerate a TAPP technique from its workbook (`docs/<Technique>_TAPP_v#.xlsx`, worksheet `TAPP`) — never hand-edit generated output; fix the workbook, the sidecar, or a tool and regenerate:
+
+```
+python tools/bootstrap_schemapaths.py <XLSX>    # 1. seed/refresh docs/<wb>.schemapaths.csv (hand-authored source of truth)
+python tools/build_tapp.py         <TAPP_NAME>  # 2. registry catalogs + vocab
+python tools/build_pathdriven.py   <TAPP_NAME>  # 3. tapp/ + detail/ schemas from the sidecar
+python tools/build_profile.py      <TAPP_NAME>  # 4. profile/ schema
+python tools/resolve_schema.py --all            # 5. resolve
+python tools/validate_examples.py               # 6. verify
+```
 
 ## Source vs generated
 
@@ -13,15 +60,15 @@ When fixing a bug that surfaces in a generated artifact, **trace to the source g
 
 `ada:componentType` is a **string** on each archive `hasPart` item, classifying the file (e.g. `ada:EMPAImageMap`). Two layers of constraint apply via `allOf`:
 
-1. **Base BB enums.** Each file-type BB (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of allowed componentType strings — derived from the **Components worksheet** of `~/OneDrive/Documents/GithubC/amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx`. This enforces that `ada:EMPAImageMap` only validates on parts whose `@type` includes `ada:imageMap`. The cached mapping lives at `tools/componentType_enum_cache.json` and is applied via `python tools/apply_componentType_enums.py`. Run with `--refresh --xlsx PATH` after editing the spreadsheet.
+1. **Base BB enums.** Each file-type BB (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of allowed componentType strings — derived from the **Components worksheet** of `C:\GithubC\amds-ldeo\metadata\ADA-AnalyticalMethodsAndAttributes.xlsx`. This enforces that `ada:EMPAImageMap` only validates on parts whose `@type` includes `ada:imageMap`. The cached mapping lives at `tools/componentType_enum_cache.json` and is applied via `python tools/apply_componentType_enums.py`. Run with `--refresh --xlsx PATH` after editing the spreadsheet.
 
-2. **Profile/detail layer.** A technique profile's `schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref: '../adaProduct/schema.yaml#/$defs/universalComponentTypeBranch'` for universal componentTypes (factored from per-profile boilerplate); (b) inline `properties.ada:componentType: {type: string, enum: [...]}` for technique-specific componentTypes that have no detail block; (c) `$ref: '../../../geochemProperties/detailXxx/schema.yaml'` for detail-bearing componentTypes. Detail schemas pin `ada:componentType` via `anyOf: [{const: "..."}]` consts AND contribute detail-specific sibling properties (e.g. `ada:spectrometersUsed`, `ada:signalUsed`) — flat on the hasPart item, NOT nested inside componentType.
+2. **Profile/detail layer.** A technique profile's `schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref: '../adaProduct/schema.yaml#/$defs/universalComponentTypeBranch'` for universal componentTypes (factored from per-profile boilerplate); (b) inline `properties.ada:componentType: {type: string, enum: [...]}` for technique-specific componentTypes that have no detail block; (c) `$ref: '../detail/schema.yaml'` (the technique's own detail block) for detail-bearing componentTypes. Detail schemas pin `ada:componentType` via `anyOf: [{const: "..."}]` consts AND contribute detail-specific sibling properties (e.g. `ada:spectrometersUsed`, `ada:signalUsed`) — flat on the hasPart item, NOT nested inside componentType.
 
 ## adaProduct extension over cdifProvActivity
 
 `adaProduct` redefines `prov:wasGeneratedBy.items.properties` with ADA-specific keys; via `allOf` merge, the upstream `cdifProvActivity` constraints still apply. Recent renames/extensions:
 
-- `prov:used` accepts `anyOf [instrument | tappDefinition]` (used to be just instrument; tappDefinition was previously named methodDefinition and lived under geochemProperties/, now moved to `_sources/techniqueProtocols/tappDefinition/`; JSON-LD class is `ada:TAPPDefinition`).
+- `prov:used` accepts `anyOf [instrument | tappDefinition]` (used to be just instrument; tappDefinition was previously named methodDefinition and lived under geochemProperties/, now at `_sources/BaseSchema/tappDefinition/`; JSON-LD class is `ada:TAPPDefinition`).
 - `schema:location` (was `ada:laboratory`) — laboratory $ref.
 - `schema:object` (was `schema:mainEntity`) — array of MaterialSample objects (samples analyzed). Required CDIF mbb to extend `cdifProvActivity.schema:object` to also accept arrays of `schema:Thing` per schema.org range; `schema:result` extended symmetrically. Both extensions landed via the propagate-schema run on 2026-04-26.
 
@@ -39,11 +86,11 @@ When a request crosses repo boundaries, prefer invoking that command over hand-r
 
 ## Where the related repos live
 
-See auto-memory `reference_related_repos.md` for the full list with absolute paths. Summary:
-- CDIF upstream (`metadataBuildingBlocks`) and four release repos under `~/OneDrive/Documents/GithubC/CDIF/`
-- DDE sibling (`ddeBuildingBlocks`) under `~/OneDrive/Documents/GithubC/USGIN/`
-- w3id.org redirects under `~/OneDrive/Documents/GithubC/smrgeoinfo/w3id.org/`
-- ada_metadata_forms (Django app, no git tracking, monolithic schema not yet derived from BBs)
+See auto-memory `reference_related_repos.md` / `ecosystem_ci_and_w3id.md` for the full list with absolute paths (real tree is `C:\GithubC`, **not** OneDrive — the propagate-schema registry table is stale on this). Summary:
+- CDIF upstream (`metadataBuildingBlocks`) and the CDIF profile release repos (named `profile-*`) under `C:\GithubC\CDIF\`
+- DDE sibling (`ddeBuildingBlocks`) under `C:\GithubC\USGIN\`
+- w3id.org redirects under `C:\GithubC\smrgeoinfo\w3id.org\`
+- amds-ldeo / ada_metadata_forms (Django app under `C:\GithubC\amds-ldeo\`; `amds-ldeo/metadata` is itself a git repo, the parent is not; monolithic schema not yet derived from BBs)
 
 ## Recurring consistency-bug patterns to watch for
 

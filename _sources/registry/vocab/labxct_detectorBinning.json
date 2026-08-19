@@ -1,0 +1,61 @@
+{
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ada:vocab/labxctTAPP/detectorBinning",
+  "@type": [
+    "skos:ConceptScheme"
+  ],
+  "skos:prefLabel": "Detector Binning",
+  "skos:definition": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR and reducing file size. 1×1 indicates no binning.",
+  "schema:identifier": "ada:vocab/labxctTAPP/detectorBinning",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
+    {
+      "@id": "ada:vocab/labxctTAPP/detectorBinning/1_1_no_binning",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "1×1 (no binning)",
+      "skos:notation": "1×1 (no binning)",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/detectorBinning"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/labxctTAPP/detectorBinning/2_2",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "2×2",
+      "skos:notation": "2×2",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/detectorBinning"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/labxctTAPP/detectorBinning/4_4",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "4×4",
+      "skos:notation": "4×4",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/detectorBinning"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+@prefix rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:        <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:          <http://www.w3.org/ns/shacl#> .
+@prefix xsd:         <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema:      <http://schema.org/> .
+@prefix ada:         <https://ada.astromat.org/metadata/> .
+@prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .
+@prefix dcterms:     <http://purl.org/dc/terms/> .
+@base <https://www.ogc.org/rules/template/> .
+
+# LA-ICP-MS technique profile SHACL rules.
+# Base product validation (creator, distribution, wasGeneratedBy, etc.)
+# is inherited from adaProduct rules.shacl.
+# This shape constrains schema:additionalType to valid LA-ICP-MS values.
+# Covers LA-Q-ICP-MS and LA-SF-ICP-MS sub-techniques.
+
+cdifd:laicpmsProductShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            PREFIX schema: <http://schema.org/>
+            PREFIX dcterms: <http://purl.org/dc/terms/>
+            SELECT ?this
+            WHERE {
+                ?this a schema:Dataset .
+                ?this a schema:Product .
+                ?this schema:subjectOf ?meta .
+                ?meta schema:additionalType "dcat:CatalogRecord" .
+                ?meta dcterms:conformsTo <https://w3id.org/geochem/metadata/profiles/adaLAICPMS> .
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path schema:additionalType ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [
+            sh:or (
+        [sh:hasValue "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed"]
+        [sh:hasValue "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Raw"]
+        [sh:hasValue "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed"]
+        [sh:hasValue "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Raw"]
+        [sh:hasValue "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"]
+        [sh:hasValue "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"]
+            )
+        ] ;
+        sh:message "LA-ICP-MS products must have at least one schema:additionalType matching a valid LA-ICP-MS type." ;
+    ] ;
+    sh:message "LA-ICP-MS technique profile: additionalType must identify a valid LA-ICP-MS product type." ;
+    .

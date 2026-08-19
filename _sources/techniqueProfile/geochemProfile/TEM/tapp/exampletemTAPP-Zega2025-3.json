@@ -1,0 +1,135 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:temTAPP-Zega2025-3",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "ThermoScientific Talos F200-X G2 S/TEM",
+  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v17.xlsx).",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt"
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
+    }
+  ],
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:acceleratingVoltageDefault": "200 kV",
+  "ada:analyticalMode": [
+    "TEM Imaging",
+    "STEM Imaging",
+    "Electron Diffraction"
+  ],
+  "ada:convergenceSemiAngle": "10.5 mrad",
+  "ada:stemDwellTimePerPixelDefault": -9999,
+  "ada:cameraLengthDefault": -9999,
+  "ada:edsAcquisitionModeDefault": "missing",
+  "ada:edsQuantificationMethod": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
+  "ada:eelsAcquisitionModeDefault": "missing",
+  "ada:eelsEdgesDefault": "missing",
+  "ada:eelsCollectionSemiAngle": -9999,
+  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
+  "ada:eelsEnergyLossRangeDefault": "missing",
+  "ada:phaseIdentificationMethod": "Manual d-spacing comparison (SAED patterns; camera constant calibrated with AGAR S106 cross grating)",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:edsCalibrationStandardDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/haadfCollectionAnglesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "haadfCollectionAnglesDefault",
+      "schema:name": "HAADF Collection Angles",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Inner 58 mrad (HAADF)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "diffractionCameraLengthCalibrationMethodDefault",
+      "schema:name": "Diffraction Camera Length Calibration Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "External standard (AGAR S106 cross grating, 3 mm)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/diffractionCalibrationReferenceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "diffractionCalibrationReferenceDefault",
+      "schema:name": "Diffraction Calibration Reference",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "External standard (AGAR S106 cross grating, 3 mm)"
+    }
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
+}

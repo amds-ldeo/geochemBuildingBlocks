@@ -192,7 +192,7 @@ def main():
         print(f"Updated {bb_path}: added {len(new_shapes)} shapes")
 
     # Fix otherFile componentType severity: Warning -> Violation
-    other_shacl = BB_ROOT / "geochemProperties/otherFile/rules.shacl"
+    other_shacl = BB_ROOT / "BaseSchema/otherFile/rules.shacl"
     if other_shacl.exists():
         content = other_shacl.read_text(encoding="utf-8")
         # The componentType shape currently has no explicit severity (defaults to Violation)

@@ -1,0 +1,360 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#"
+  },
+  "@id": "ex:geochronTAPP-P0",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "example procedureName",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "example laboratory",
+    "schema:identifier": "example laboratoryId"
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS U-(Th-)Pb Geochronology"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "example procedureAuthor",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:datePublished": "example procedureStartDate",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForProcedureDevelopment"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/geochronTAPP/imagingDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "imagingDefault",
+      "schema:name": "Imaging",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/faradayCupArrayConfiguration",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/faradayCupArrayConfiguration"
+        }
+      ],
+      "schema:name": "Faraday Cup Array Configuration",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/faradayCupAmplifierResistorValues",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/faradayCupAmplifierResistorValues"
+        }
+      ],
+      "schema:name": "Faraday Cup Amplifier Resistor Values",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/faradayCupGainCalibrationMethod",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/faradayCupGainCalibrationMethod"
+        }
+      ],
+      "schema:name": "Faraday Cup Gain Calibration Method",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/ablationPitDepthAblationRateDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ablationPitDepthAblationRateDefault",
+      "schema:name": "Ablation Pit Depth/Ablation Rate",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/makeUpGasFlowDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "makeUpGasFlowDefault",
+      "schema:name": "Make-up Gas Flow (L min⁻¹)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/collectorConfiguration",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/collectorConfiguration"
+        }
+      ],
+      "schema:name": "Collector Configuration",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/numberOfBlocksPerMeasurementDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfBlocksPerMeasurementDefault",
+      "schema:name": "Number of Blocks per Measurement",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/numberOfCyclesPerBlockDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfCyclesPerBlockDefault",
+      "schema:name": "Number of Cycles per Block",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/integrationTimePerCycleDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "integrationTimePerCycleDefault",
+      "schema:name": "Integration Time per Cycle",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/icDeadTimeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "icDeadTimeDefault",
+      "schema:name": "IC Dead Time (ns)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/instrumentWarmUpSessionDurationLimit",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/instrumentWarmUpSessionDurationLimit"
+        }
+      ],
+      "schema:name": "Instrument Warm-up / Session Duration Limit",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/analysisSequenceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "analysisSequenceDefault",
+      "schema:name": "Analysis Sequence",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/baselineMeasurementApproach",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/baselineMeasurementApproach"
+        }
+      ],
+      "schema:name": "Baseline Measurement Approach",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/multiRunSequentialAnalysisDesign"
+        }
+      ],
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/eScanRange",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/eScanRange"
+        }
+      ],
+      "schema:name": "E-scan Range",
+      "schema:value": 1,
+      "schema:unitText": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/tripleScanningMode",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/tripleScanningMode"
+        }
+      ],
+      "schema:name": "Triple Scanning Mode",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/otherInformationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "otherInformationDefault",
+      "schema:name": "Other Information",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/massFractionationLaw",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/massFractionationLaw"
+        }
+      ],
+      "schema:name": "Mass Fractionation Law",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/uncertaintyLevelAndPropagationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "uncertaintyLevelAndPropagationDefault",
+      "schema:name": "Uncertainty Level and Propagation",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/matrixOffsetCorrection",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/matrixOffsetCorrection"
+        }
+      ],
+      "schema:name": "Matrix Offset Correction (LIEF)",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/doubleSpikeIsotopePair",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/doubleSpikeIsotopePair"
+        }
+      ],
+      "schema:name": "Double-Spike Isotope Pair",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/doubleSpikeMixingRatioDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeMixingRatioDefault",
+      "schema:name": "Double-Spike Mixing Ratio",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/geochronTAPP/doubleSpikeInversionAlgorithm",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/geochronTAPP/doubleSpikeInversionAlgorithm"
+        }
+      ],
+      "schema:name": "Double-Spike Inversion Algorithm",
+      "schema:value": "example value"
+    }
+  ],
+  "ada:sampleIntroduction": "example sampleIntroduction",
+  "ada:analyticalMode": [
+    "Spot Analysis"
+  ],
+  "ada:ablationSamplingMode": "Spot (stationary)",
+  "ada:spotDiameterDefault": "example spotDiameter",
+  "ada:ablationSpotDurationDefault": 1.0,
+  "ada:carrierGasFlowRateDefault": "example carrierGasAndFlowRate",
+  "ada:massesMeasuredDefault": "example massesMeasured",
+  "ada:dwellTimesDefault": "example integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": 1.0,
+  "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
+  "ada:signalCollectionMode": "Peak hopping",
+  "ada:gasBlank": "example gasBlank",
+  "ada:elementalFractionationCorrection": [
+    "example elementalFractionationCorrection"
+  ],
+  "ada:massBiasCorrectionStrategy": "Internal normalization",
+  "ada:internalNormalizationElementAndIsotopeRatio": "example internalNormalizationElementAndIsotopeRatio",
+  "ada:commonPbCorrectionCompositionAndUncertainty": "example commonPbCorrectionCompositionAndUncertainty",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Single strategy: matrix-matched primary reference material for all analytes"
+  ],
+  "ada:signalIntegrationIntervalMethod": "example signalIntegrationIntervalMethod",
+  "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName",
+  "ada:secondaryReferenceMaterialDefault": [
+    "example secondaryReferenceMaterials"
+  ],
+  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency"
+}

@@ -1,0 +1,39 @@
+- title: MCICPMS composed into a procedure (ProcedureIdentification)
+  content: The procedure half of the MCICPMS module, with every property populated. Generated from the
+    schema, so it tracks the sidecar.
+  prefixes:
+    ada: https://ada.astromat.org/metadata/
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "schema:instrument": [
+          {
+            "schema:additionalType": "example value",
+            "schema:hasPart": [
+              {
+                "schema:additionalType": "example value",
+                "schema:description": "example value"
+              }
+            ]
+          }
+        ],
+        "ada:internalNormalizationElementAndIsotopeRatio": "example value"
+      }
+- title: MCICPMS composed into an analysis (AnalysisIdentification)
+  content: The analysis half of the MCICPMS module, with every property populated. Generated from the
+    schema, so it tracks the sidecar.
+  prefixes:
+    dqv: http://www.w3.org/ns/dqv#
+  snippets:
+  - language: json
+    code: |-
+      {
+        "dqv:hasQualityMeasurement": [
+          {
+            "dqv:isMeasurementOf": "Peak Flatness",
+            "dqv:value": "example value"
+          }
+        ]
+      }

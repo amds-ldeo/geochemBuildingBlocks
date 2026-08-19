@@ -8,74 +8,93 @@ The scheme involves three components:
 
 2. A building block JSON schema specific to the protocol. This protocol definition object is registered in a protocol registry and accessible via its URI. The TAPP definition is referenced as a measurementTechnique in dataset metadata. 
 
-3. A technique-specific 'detail' building block JSON schema that defines the parameters that may be assigned values at the individual dataset level. There is one detail block per technique under `_sources/analysisSpecificDetails/` (e.g. `detailEMPA`), not a single 'details' file. The content of this schema is included in the schema for dataset instances to create a metadata schema for Datasets conforming to the profile. Session-level and per-analyte parameters are defined once in a registered parameter registry (`parameterValues`) and referenced from the detail blocks by URI, so a parameter can be reused across detail definitions; the references are resolved inline into the published resolved schema.
+3. A technique-specific 'detail' building block JSON schema that defines the parameters that may be assigned values at the individual dataset level. There is one detail block per technique, at `_sources/techniqueProfile/geochemProfile/<TECH>/detail/`, not a single 'details' file. The content of this schema is included in the schema for dataset instances to create a metadata schema for Datasets conforming to the profile. Session-level and per-analyte parameters are defined once in a registered parameter registry (`parameterValues`) and referenced from the detail blocks by URI, so a parameter can be reused across detail definitions; the references are resolved inline into the published resolved schema.
 
 ## Structure
 
-### techniqueProtocols (TAPP definitions + shared catalogs)
+`_sources/` has three top-level areas: the shared base schemas, the shared registries, and one directory per analytical technique.
 
 ```
-_sources/techniqueProtocols/
-  analyteColumns/        ← registered BB: schema:PropertyValueSpecification $defs per analyte column
-  parameterTemplates/    ← registered BB: PropertyValueSpecification $defs (readOnly:true params)
-  parameterValues/       ← registered BB: schema:PropertyValue $defs (readOnly:false params)
-  vocab/                 ← catalog: schema:DefinedTermSet files (referenced by @id, not $ref)
-  tappDefinition/        ← base TAPP definition (JSON-LD class ada:TAPPDefinition)
-  empaTAPP/              ← concrete TAPP profile (EMPA)
-  laicpmsTAPP/           ← concrete TAPP profile (LA-ICP-MS)
-  <future>TAPP/          ← additional TAPPs `$ref` the catalogs above
+_sources/
+  BaseSchema/           18 shared BBs: geochemProduct (domain-neutral base),
+                        adaProduct (extends it), tappDefinition, instrument,
+                        laboratory, the file-type blocks (image, imageMap,
+                        tabularData, dataCube, collection, document,
+                        supDocImage, otherFile, files), structuredData,
+                        spatialRegistration, creativeWork, stringArray
+  registry/
+    analyteColumns/     registered BB: PropertyValueSpecification $defs per analyte column (34)
+    parameterTemplates/ registered BB: PropertyValueSpecification $defs, editable params (178)
+    parameterValues/    registered BB: schema:PropertyValue $defs, fixed values (432)
+    vocab/              catalog: schema:DefinedTermSet files, by @id not $ref (162)
+  techniqueProfile/     one directory per technique (44), under two roots:
+    geochemProfile/     the 12 TAPP-aware techniques
+      <TECH>/tapp/      the TAPP definition for that technique      (12 techniques)
+      <TECH>/detail/    per-dataset analysis-instance detail        (12 techniques)
+      <TECH>/profile/   path-driven product profile: adaProduct +
+                        detail + TAPP linkage                        (10 techniques)
+      <TECH>/profile-ada/ generic product profile, written by the
+                        TAPP tooling                                  (4 techniques)
+    adaProfile/         the other 32 techniques, untouched by the TAPP work
+      <TECH>/profile-ada/ generic product profile: adaProduct +
+                        componentType constraints only               (31 techniques)
+      <TECH>/detail/    instrument-detail stub                       (14 techniques)
 ```
+
+**Profile directory names are not profile names.** `EMPA/profile-ada` publishes `adaEMPA`; `SEM/profile` publishes `adaSEMFull`. A profile's canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside its own schema — read it from there rather than inferring from the path.
+
+### BaseSchema
+
+Shared building blocks. The product profile is split into two layers:
+
+- **`geochemProduct`** is the domain-neutral base product profile, composing the **CDIF v1.1** profile schemas via `allOf`. It carries no ADA-specific requirements: its distribution has an *optional* `schema:additionalType` (drawn from the componentType vocabulary), not a required `ada:componentType`.
+- **`adaProduct`** extends `geochemProduct` (via `allOf: [$ref geochemProduct, …]`) with the ADA/SAMIS overlays: technique types, instrument/lab/sample, and a *required* `ada:componentType` on each distribution. Everything ADA-specific lives here, so `geochemProduct` stays reusable outside ADA.
+
+The composed CDIF v1.1 profiles (via `geochemProduct`):
+
+- `cdifCore` — core metadata properties
+- `cdifDataDescription` — variableMeasured with DDI-CDI extensions, `@id` requirement
+- `cdifProvenance` — `prov:wasGeneratedBy` provenance activities
+- `cdifManifest` — archive distribution with `hasPart` component files (was `cdifArchiveDistribution` in CDIF ≤1.0). Applied **conditionally**: the `if/then` fires only when a `schema:distribution` item carries `schema:Collection` in its `@type`, so a monolithic single-file distribution isn't held to the manifest rules.
+
+Two BBs extend CDIF core BBs:
+- **instrument** — extends core CDIF instrument; requires `schema:additionalType` (at least one entry, e.g. `nxs:BaseClass/NXinstrument` or a technique term like `ada:EPMAInstrument`)
+- **laboratory** — extends core CDIF spatialExtent (`schema:Place` with `nxs:BaseClass/NXsource` in `additionalType`)
+
+`tappDefinition` is documented in [its own section below](#tapp-definition-building-block).
+
+### registry (shared catalogs)
 
 `analyteColumns`, `parameterTemplates`, and `parameterValues` are each a **registered type-library building block** (`bblock.json` with `isTypeLibrary: true`): every entry lives as a named `$def` in the catalog's `schema.yaml`, and TAPP / detail blocks reference them by URI fragment (`$ref: …/<catalog>/schema.yaml#/$defs/<name>`). Because they are registered, the OGC bblocks `annotate` step resolves those refs **locally via the register** and inlines them into `resolvedSchema.json`. This matters: a *loose* helper file (a plain `<name>.json` not inside a registered BB) is instead fetched from the published gh-pages URL, which 404s on moved or unpublished paths (`process-bblocks.yml` sets `skip-pages: true`, so gh-pages never auto-updates) — that fragility is why the catalogs were promoted to registered BBs. `vocab/` is the exception: it stays a plain catalog of `schema:DefinedTermSet` files because it is referenced only by JSON-LD `@id` (`schema:inDefinedTermSet`), never by `$ref`, so the `annotate` step never fetches it.
 
-The catalog dirs are **shared dictionary resources** — multiple TAPP profiles `$ref` the same files when their definitions match. The tooling's `share_or_write_catalog` helper lets a TAPP regen overwrite its own entries (matched by `$id` ownership) but errors out on a collision with an entry originated by a different TAPP, so a new TAPP either reuses identical catalog entries or surfaces a renaming requirement.
+The catalogs are **shared dictionary resources** — multiple TAPPs `$ref` the same `$defs` when their definitions match. `share_or_write_catalog` lets a TAPP regen overwrite its own entries (matched by `$id` ownership) but errors out on a collision with an entry originated by a different TAPP, so a new TAPP either reuses identical catalog entries or surfaces a renaming requirement.
 
-- `tappDefinition` — base TAPP. Defines the `WorkflowHowTo` / `WorkflowStep` / `MethodParameter` / `AnalyteColumn` / `AnalyteIdentifierColumn` `$defs` that concrete TAPP profiles extend.
-- `empaTAPP` — Electron Microprobe Analysis. Extends `tappDefinition` via `allOf` with EPMA top-level properties + `ada:methodParameters` / `ada:analyteTemplate.ada:analyteColumns` constraints referencing the shared catalogs. Generated from `docs/TAPP_EPMA_filled.xlsx` (the canonical TAPP template). 11 examples ship with the BB (10 publication-derived instances + a comprehensive synthetic example).
-- `laicpmsTAPP` — LA-ICP-MS. Built from `docs/TAPP_LAICPMS_filled.xlsx` (reshaped from the `LA-ICPMS_TAPP_v8.xlsx` source workbook).
+`parameterTemplates` holds editable parameters (a `PropertyValueSpecification` with a default the analyst may override); `parameterValues` holds fixed protocol values (a `schema:PropertyValue`). That split — specification vs value — is how read-only-ness is expressed; `ada:methodParameters` was retired repo-wide in favour of `schema:additionalProperty`.
 
-### analysisSpecificDetails detail blocks (per-dataset values)
+### techniqueProfile/geochemProfile/&lt;TECH&gt;
 
-The 16 technique-specific detail blocks live under `_sources/analysisSpecificDetails/` (`detailEMPA`, `detailXRD`, `detailARGT`, …). Each pairs with a TAPP definition and carries the per-instance values. (The old `details` umbrella BB — an `anyOf` over the detail blocks — was unused and has been removed.)
+Eleven techniques have a `tapp/`: EMPA, Geochron, LA-ICPMS, SEM, SEM-Composition, SEM-FIBSEM, SEM-Imaging, Solution-Q-ICPMS, Solution-SF-ICPMS, TEM, XCT. Ten of those also publish a path-driven `profile/` (all but TEM).
 
-- `detailEMPA` — paired with `empaTAPP`. Carries `readOnly:false` parameter values as `schema:additionalProperty[]` PropertyValue entries. The `schema:additionalProperty` constraint is inline in detailEMPA's `allOf` (no separate `parametersConstraint.yaml`), with `anyOf` branches `$ref`ing the `parameterValues` registry `$defs`. References the empaTAPP definition via `schema:measurementTechnique` `anyOf` (by `@id` ref or inline). 11 paired examples (`exampledetailEMPA-P1.json` … `-P10.json` + `-all.json`).
+- **`tapp/`** — the protocol definition. Extends `tappDefinition` via `allOf` with technique-specific top-level `ada:` properties, `schema:additionalProperty[]` entries, and `ada:analyteTemplate.ada:analyteColumns` constraints referencing the registry catalogs.
+- **`detail/`** — the per-dataset analysis instance. **Placement is not uniform, and does not track whether the technique is path-driven.** Seven overlay the `schema:Dataset` **root** (analyst contributor, session dates, sample, funding, per-analysis parameter values): Basemap, EMPA, Geochron, SEM, SEM-Composition, Solution-Q-ICPMS, Solution-SF-ICPMS. The other eighteen pin `ada:componentType` and overlay a `schema:distribution.hasPart` item: ARGT, DSC, EAIRMS, ICPOES, L2MS, LA-ICPMS, LAF, NanoIR, NanoSIMS, PSFD, QRIS, SEM-FIBSEM, SEM-Imaging, SLS, TEM, VNMIR, XCT, XRD. Consumers cannot assume one placement.
+- **`profile/`** — path-driven product profile: bases on the domain-neutral **`geochemProduct`** + the `detail` block + `prov:used` narrowed to that technique's TAPP + the technique's `ada:componentType` enum on `hasPart` (the profile layers the ADA componentType constraint on top of the ADA-agnostic base).
+- **`profile-ada/`** — the generic product profile: bases on **`adaProduct`** + `ada:componentType` constraints only, no TAPP linkage or detail block.
 
-The split was made on 2026-04-28: parameters in the TAPP spreadsheet route to `empaTAPP/methodParameters[]` (readOnly:true) or `detailEMPA/schema:additionalProperty[]` (readOnly:false). Method-level constants (the `ada:xxxDefault` top-level properties) stay on the TAPP.
+> **Base-selection rule.** `geochemProfile/<TECH>/profile/` (generic, path-driven) → `geochemProduct`; `geochemProfile/<TECH>/profile-ada/` (the 4 ADA variants) and all `adaProfile/<TECH>/profile-ada/` → `adaProduct`. Principle: geochem→geochemProduct, ada→adaProduct.
 
-### profiles/geochemProfiles (technique-specific dataset profiles)
-
-`profiles/geochemProfiles/` (alongside `profiles/adaProfiles/`) holds technique profiles that compose a TAPP definition + detail block on top of `adaProduct`:
-
-- `empaProfile` — extends `adaProduct` with `schema:measurementTechnique` `anyOf` pointing at empaTAPP and a `schema:distribution.schema:hasPart` branch that lets `detailEMPA` appear.
-- `LA-ICPMS` — extends `adaProduct` with `schema:measurementTechnique` wired to laicpmsTAPP.
-
-### geochemProperties (property building blocks)
-
-Property building blocks that define ADA-specific metadata elements: file types, instrument details, technique-specific data structures, spatial registration, and more. (The technique-specific `detail<XXX>` blocks that previously lived here now reside under `analysisSpecificDetails/`.)
-
-Key building blocks that extend CDIF core BBs:
-- **instrument** — extends core CDIF instrument (`schema:Product` with `nxs:BaseClass/NXinstrument` in `additionalType`)
-- **laboratory** — extends core CDIF spatialExtent (`schema:Place` with `nxs:BaseClass/NXsource` in `additionalType`)
-
-### adaProfiles (36 resource type profiles)
-
-Metadata profiles that compose property building blocks with CDIF base schemas:
-
-- **adaProduct** — base ADA product profile, composes via `allOf`:
-  - `cdifCore` — core metadata properties
-  - `cdifDataDescription` — variableMeasured with DDI-CDI extensions, `@id` requirement
-  - `cdifManifest` — archive distribution with `hasPart` component files (was `cdifArchiveDistribution` in CDIF ≤1.0)
-  - `cdifProvenance` — `prov:wasGeneratedBy` provenance activities
-  - ADA-specific: technique types, instrument/lab/sample overlays, `ada:componentType`
-- **35 technique profiles** — technique-specific constraints on `ada:componentType` values (e.g., adaSEM, adaXRD, adaICPMS, adaTEM)
+A dataset instance selects between the two profile variants by how it references its protocol: a bare `{"@id": …}` node reference in `schema:measurementTechnique` targets the path-driven profile, an inline `schema:DefinedTerm` targets the generic one.
 
 ## componentType architecture
 
-Each archive `hasPart` item carries an `ada:componentType` (a single string like `ada:EMPAImageMap`) that classifies the file. The architecture enforces a two-level constraint:
+Each archive `hasPart` item carries an `ada:componentType` (a single string like `ada:EMPAImageMap`) that classifies the file. The term list is governed by a **vocabulary**, and two schema layers add per-context constraints:
 
-1. **File type ↔ componentType mapping** — each file-type building block (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of valid componentType values. The enum is derived from the **Components worksheet** of `amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx` (the canonical mapping). E.g. `ada:EMPAImageMap` is valid only on parts whose `@type` includes `ada:imageMap`.
+**Governing vocabulary.** `registry/vocab/componentType.json` is a SKOS ConceptScheme (`@id: ada:vocab/componentType`, the ~22 universal cross-technique terms). The base products reference it by **annotation only** — the `universalComponentType` `$def` in `geochemProduct` (and duplicated in `adaProduct`) is `{type: string, schema:inDefinedTermSet: "ada:vocab/componentType"}` with **no inline enum**, so at the base layer any string validates and conformance to the vocabulary is advisory (SHACL-checkable), not hard-enforced by JSON Schema. `geochemProduct` exposes the vocab as an optional `schema:additionalType`; `adaProduct` requires it as `ada:componentType`.
 
-2. **Profile-level constraint** — a technique profile's `schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref` to `adaProduct/$defs/universalComponentTypeBranch` (factored once, used everywhere) for universal componentTypes; (b) inline string-enum for technique-specific componentTypes that have no detail block; (c) `$ref` to a technique-specific *detail* schema (e.g. `detailEMPA`) which pins `ada:componentType` to its technique consts and contributes detail-specific sibling properties (e.g. `ada:spectrometersUsed`, `ada:signalUsed`) flat on the hasPart item — not nested inside componentType.
+1. **File type ↔ componentType mapping** — each file-type building block (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of valid componentType values. The enum is derived from the **Components worksheet** of `amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx` (the canonical mapping; columns `componentType` / `FileType` / `isSupplement`). E.g. `ada:EMPAImageMap` is valid only on parts whose `@type` includes `ada:imageMap`.
+
+2. **Profile-level constraint** — a technique profile's `schema:distribution.items.schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref` to `geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch` (factored once, used everywhere) for universal componentTypes; (b) inline string-enum for technique-specific componentTypes; (c) for techniques whose `detail/` block is the older *hasPart-item* kind (XRD, ARGT, DSC, …), a `$ref` to that detail schema, which pins `ada:componentType` to its technique consts and contributes detail-specific sibling properties (e.g. `ada:geometry`) flat on the hasPart item — not nested inside componentType. Path-driven profiles do **not** use branch (c): their detail block overlays the dataset root instead, and `hasPart` gets only branches (a) and (b).
+
+**Keeping the layers in sync.** Because the base layer is annotation-only, JSON-Schema validation no longer catches componentType drift on its own. `python tools/check_componentType.py` restores that check: it fails if a universal vocab term is missing from the enum cache, if a base schema stops annotating the vocab `@id`, or if any `ada:componentType` used in an example is not a known term (universal vocab ∪ enum cache ∪ per-technique profile enums). Run it after touching the worksheet, the vocab, or example componentTypes.
 
 ### Refreshing the mapping
 
@@ -87,9 +106,10 @@ python tools/apply_componentType_enums.py --refresh \
 python tools/regenerate_schema_json.py
 python tools/resolve_schema.py --all
 python tools/validate_examples.py
+python tools/check_componentType.py    # confirm vocab / cache / schemas / examples agree
 ```
 
-The cached mapping at `tools/componentType_enum_cache.json` is committed so the apply step works on a fresh clone without spreadsheet access.
+The cached mapping at `tools/componentType_enum_cache.json` is committed so the apply step works on a fresh clone without spreadsheet access. Worksheet `FileType` values map to file-type BBs as: `image`→image (or supDocImage when `isSupplement`=supplement), `imageMap`→imageMap, `tabularData`→tabularData, `archive`→collection, `dataCube`→dataCube, `document`→document, `video`/`otherFile`→otherFile, plus the `document | image` and `document | tabularData` splits.
 
 ## Cross-repo imports
 
@@ -101,21 +121,28 @@ Browse the building blocks at: https://usgin.github.io/geochemBuildingBlocks/
 
 ## Tools
 
-### TAPP / detail / profile generation pipeline (4 scripts)
+### TAPP / detail / profile generation pipeline
 
-The end-to-end pipeline for adding a new technique profile from a filled-in TAPP template spreadsheet. See [docs/TAPP_TEMPLATE_GUIDE.md](docs/TAPP_TEMPLATE_GUIDE.md) for what to put in the spreadsheet.
+**[docs/TAPP-schema-generation-workflow.md](docs/TAPP-schema-generation-workflow.md) is the authoritative walkthrough** — written for three audiences (workbook author, pipeline maintainer, form builder) with a flowchart of the whole path from spreadsheet to validated schema. Read it first; the summary here is orientation only.
+
+One hand-authored TAPP workbook per technique (`docs/<Technique>_TAPP_v#.xlsx`, worksheet `TAPP`) drives everything downstream. Nothing generated should ever be hand-edited — fix the workbook or a tool and regenerate.
 
 ```
-python tools/build_TAPP_from_spreadsheet.py [TAPP_NAME]  [XLSX_PATH] [--pub Pn]…  # 1. TAPP BB + catalogs
-python tools/build_detail_BB.py             [TAPP_NAME]  [XLSX_PATH] [--pub Pn]…  # 2. detail BB + parameterValues
-python tools/build_profile_BB.py            [TAPP_NAME]                            # 3. profile BB scaffold
-python tools/build_dataset_template.py      <tapp-instance.json>                   # 4. xlsx data-entry template
-                                            [<out.xlsx>]
+python tools/bootstrap_schemapaths.py  <XLSX>        # 1. seed/refresh the schema-path sidecar
+python tools/build_tapp.py             <TAPP_NAME>   # 2. registry catalogs + vocab
+python tools/build_pathdriven.py       <TAPP_NAME>   # 3. tapp/ + detail/ schemas from the sidecar
+python tools/build_profile.py          <TAPP_NAME>   # 4. profile/ schema
+python tools/resolve_schema.py --all                 # 5. resolvedSchema.json everywhere
+python tools/validate_examples.py                    # 6. check the examples still pass
 ```
 
-All four scripts default to `empaTAPP` / `docs/TAPP_EPMA_filled.xlsx` for back-compat. The shared library at `tools/_tapp_lib.py` does the heavy lifting (parser, catalog emit helpers, scaffolders); the four drivers are thin wrappers. The library is parameterized for multiple TAPPs via a `TAPP_PROFILES` / `CFG` mechanism, so `empaTAPP` and `laicpmsTAPP` share the same generator (it was previously EMPA-hardcoded).
+> **⚠ Step 5 is temporarily degraded (2026-08) — don't commit `resolve_schema.py --all` output.** The resolver fetches upstream CDIF `$ref`s from the **published** mbb gh-pages, which is currently stale (its `cdifDataStructure` has a dangling `$ref: '#/$defs/id-reference'` that current mbb source no longer has). Re-resolving against it leaves temp-dir `$comment` stamps and drops `cdifConceptOrTermOrString` defs, regressing the resolvedSchemas. Root cause is being fixed in metadataBuildingBlocks (republish gh-pages). Steps 1–4 and 6 are unaffected; `resolvedSchema.json` regen is deferred until gh-pages is refreshed. Details + the local-mbb decouple workaround: see [AGENTS.md](AGENTS.md) and auto-memory `resolvedschema_regen_deferred_2026_08`.
 
-`--pub <code>` (repeatable) on scripts 1 and 2 limits which publication-derived examples get regenerated — useful when migrating pub columns one at a time.
+The **schema-path sidecar** `docs/<workbook>.schemapaths.csv` is the hand-authored source of truth for the workbook → schema mapping: one row per (Metadata Item → canonical schema path), with a `Source` column marking each path `authored` (human-set, preserved verbatim across re-seeds), `inferred` (bootstrap's best guess), or `flagged` (needs a path). A dual-homed editable parameter is two rows — its TAPP default and its detail value. `tools/schemapath_io.py` reads and writes it; `tools/normalize_schema_paths.py` canonicalises selector names; the grammar is specified in [docs/SCHEMA_PATH_GRAMMAR.md](docs/SCHEMA_PATH_GRAMMAR.md).
+
+`tools/build_dataset_template.py <tapp-instance.json> [out.xlsx]` generates an xlsx data-entry template from a TAPP instance — columns from `analyteColumns`, one row per default analyte.
+
+> **Superseded drivers.** `build_TAPP_from_spreadsheet.py` and `build_detail_BB.py` were the earlier impl-tag/tier-matrix route and now delegate to `build_tapp.py` for empa; `build_profile_BB.py` scaffolded the old `profiles/geochemProfiles/` layout. `generate_profiles.py` is **deprecated and refuses to run** without `--force-deprecated` — its template emits the old object-form `ada:componentType`. Use the path-driven pipeline above for new work.
 
 ### Publication migration helper
 
@@ -134,9 +161,10 @@ Detection-limit values keep their full text per element (e.g. `"SiO2: 0.02 wt%"`
 
 ### Schema generation and resolution
 
-- `tools/generate_profiles.py` — generates technique-specific profile building blocks from configuration data
-- `tools/resolve_schema.py` — resolve all `$ref` into a structured `resolvedSchema.json` (`$defs` + internal `$ref`, recursion-safe and ~88–90% smaller than the old fully-inlined form, which is no longer emitted; `--structured` is now a no-op)
+- `tools/resolve_schema.py` — resolve all `$ref` into a structured `resolvedSchema.json` (`$defs` + internal `$ref`, recursion-safe and ~88–90% smaller than the old fully-inlined form, which is no longer emitted; `--structured` is now a no-op). This is the file downstream validators read — the old `*StructuredSchema.json` output is gone.
 - `tools/regenerate_schema_json.py` — generate *Schema.json from schema.yaml sources (YAML→JSON + ref rewrite)
+- `tools/schema_path_parser.py` / `schema_path_emitter.py` / `normalize_schema_paths.py` / `bootstrap_schemapaths.py` / `schemapath_io.py` — the schema-path layer (parse a canonical path, materialise the nested structure it implies, canonicalise selector names, seed and read the CSV sidecar)
+- `tools/generate_profiles.py` — **deprecated**, refuses to run without `--force-deprecated`; its template emits the old object-form `ada:componentType`. `--list` still works for reference.
 
 ### Validation and auditing
 
@@ -162,15 +190,27 @@ Detection-limit values keep their full text per element (e.g. `"SiO2: 0.02 wt%"`
 
 ## TAPP Definition Building Block
 
-The `tappDefinition` building block at `techniqueProtocols/tappDefinition/` defines a registry-backed Technique-Aligned Protocol Profile (TAPP) definition schema (v3). Was previously `methodDefinition`. A TAPP definition is modeled as a `cdi:Activity` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol`.
+The `tappDefinition` building block at `_sources/BaseSchema/tappDefinition/` defines a registry-backed Technique-Aligned Protocol Profile (TAPP) definition schema (v3). Was previously `methodDefinition`. A TAPP definition is modeled as a `prov:Plan` + `cdi:Activity` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol` — all five required in `@type`.
+
+### The TAPP is a plan, not an occurrence (PROV alignment)
+
+A TAPP definition is a **plan** — a reusable procedure that *prescribes* an analysis — **not** the analysis event itself. This distinction resolves an apparent conflict with the CDIF provenance model and drives how instrument/tool/reagent fields are placed.
+
+- **Two PROV roles.** The analysis *occurrence* is a `prov:Activity` — it lives in `adaProduct.prov:wasGeneratedBy[]` (a `prov:Activity` + `schema:Action`, following `cdifDataType/cdifProvActivity`). That activity references the TAPP as one of its **`prov:used`** entities (`prov:wasGeneratedBy[].prov:used[] → tappDefinition`, alongside the actual instrument). The TAPP is therefore a **used entity**, and in PROV terms a plan used by an activity is a **`prov:Plan`** — hence `prov:Plan` in the TAPP `@type`.
+- **`cdi:Activity` vs `prov:Activity`.** `prov:Activity` (W3C PROV) is an *occurrence* — something that happened, that `prov:used`/`prov:generated` entities. `cdi:Activity` (DDI-CDI process model) is a *design-level description* of a process/method — reusable, plan-like. The TAPP uses `cdi:Activity` (which aligns with `prov:Plan`) because it describes a method; it is **not** typed `prov:Activity`. The TAPP's `schema:actionProcess` (a `schema:HowTo` of `cdi:Activity` steps) is likewise a plan.
+- **Why instrument/tool/reagent are direct properties (no `prov:used` on the TAPP).** In `cdifProvActivity`, an *activity's* instruments are `prov:used[].schema:instrument` entities — because an occurrence uses them. A *plan* does not "use" entities in the provenance sense; it *specifies* resources. So the TAPP carries `schema:instrument`, `bios:computationalTool`, `bios:reagent` as **direct properties** (the Bioschemas `LabProtocol` convention), and has **no `prov:used`**. The `prov:used` pattern operates one level up, on the `prov:Activity` in `adaProduct.prov:wasGeneratedBy`, which uses both the actual instrument and this plan.
+- **Division of labour.** The TAPP (plan) fixes the reproducible aspects of the method; the analysis instance leaves the rest to `adaProduct.prov:wasGeneratedBy` and the technique's `techniqueProfile/geochemProfile/<TECH>/detail/` block (per-dataset values). Instrument-type terms populate `schema:category` (a controlled-vocabulary `schema:DefinedTerm`); standalone-vs-`schema:hasPart` placement of sub-components is a per-field decision recorded in the schema-path sidecar.
 
 ### Structure
 
-- **TAPP identity** (top level) — name, DOI, version, `schema:measurementTechnique`, `schema:object` (target materials), instrument, `schema:location` (laboratory/facility), software (`bios:computationalTool`), reagents (`bios:reagent`), agent
-- **Standard workflow** (`schema:actionProcess`) — a `schema:HowTo` containing ordered `cdi:Activity` + `schema:Action` steps: sample preparation, calibration, data acquisition, data processing, quality control
-- **Parameters** — typed as `schema:PropertyValueSpecification` with `schema:readonlyValue`, `schema:valueRequired`, `schema:defaultValue`, `schema:minValue`/`maxValue`, `schema:inDefinedTermSet` (SKOS vocabulary link), and `ada:fieldScope` (method/session/element)
-- **Analyte template** (`ada:analyteTemplate`) — per-element column definitions (also `PropertyValueSpecification`) and default analyte rows
+- **TAPP identity** (top level) — `schema:name`, `schema:identifier` (DOI), `schema:version`, `schema:measurementTechnique` (an **array** of `schema:DefinedTerm`), `schema:object` (target materials), `schema:instrument` (one instrument or an **array** when the method uses several, e.g. LA-ICP-MS = ablation system + ICP-MS), `schema:location` (laboratory/facility — was `ada:laboratory`), `bios:computationalTool`, `bios:reagent`, `schema:creator` (was `schema:agent`), `schema:relatedLink`, `schema:funding`
+- **Standard workflow** (`schema:actionProcess`) — a `schema:HowTo` containing ordered `cdi:Activity` + `schema:Action` steps: sample preparation, calibration, data acquisition, data processing, quality control. Exactly one step must be named `Sample preparation` and carry `bios:LabProcess` in `schema:additionalType`.
+- **Parameters** (`schema:additionalProperty`, top level and per step — **replaces the retired `ada:methodParameters`**) — each entry is one of two shapes:
+  - `MethodParameter`, a `schema:PropertyValueSpecification` for an **editable** parameter: `schema:defaultValue` plus `schema:valueRequired`, `schema:minValue`/`maxValue`, `schema:inDefinedTermSet`, and the required `ada:fieldScope` (method/session/element) and `ada:dataType` (string/number/integer/boolean/date/uri)
+  - `MethodParameterValue`, a `schema:PropertyValue` for a **read-only** parameter, carrying the fixed protocol value in `schema:value`
+- **Analyte template** (`ada:analyteTemplate`) — per-element column definitions (also `PropertyValueSpecification`) and default analyte rows. Exactly one column must be the `AnalyteIdentifierColumn`: `schema:valueName` = `analyte`, pinned to `ada:dataType: string`, `readonlyValue: true`, `valueRequired: true`, `ada:tier: M`.
 - **Quality metrics** (`dqv:hasQualityMeasurement`) — at method level and on workflow steps
+- **`@context`** — required, and the `schema` / `ada` / `cdi` prefixes are pinned to exact values (note `schema` is `http://schema.org/`, not https)
 
 ### Examples
 
@@ -180,12 +220,13 @@ Example files use the sibling `example<bbName>-<variant>.json` pattern (validate
 - `exampletappDefinition-nmnh-spinel-oxybar-v1.json` — EPMA WDS spinel oxybarometry (Smithsonian NMNH)
 - `exampletappDefinition-uoc-laicpms-glass-v1.json` — LA-ICP-MS volcanic glass trace elements (University of Cologne)
 
-For the empaTAPP profile: 10 publication-derived examples (`exampleempaTAPP-P1.json` … `exampleempaTAPP-P10.json`) plus `exampleempaTAPP-all.json`, a hand-authored comprehensive synthetic instance that exercises every property allowed by the resolved schema. Use the latter as a structural reference when authoring new TAPP profiles or onboarding new authors.
+Each technique's `tapp/`, `detail/`, and `profile/` directories carry their own paired publication-derived examples (`exampleempaTAPP-P0.json`, `exampledetailEMPA-P0.json`, `exampleempaProfile.json`, …).
 
 ### Vocabularies used
 
+- [W3C PROV-O](https://www.w3.org/TR/prov-o/) — `prov:Plan` (the TAPP is a plan; the analysis occurrence is a `prov:Activity` in `adaProduct.prov:wasGeneratedBy` that references the plan via `prov:used`)
 - [Bioschemas](https://bioschemas.org/) — `bios:LabProtocol`, `bios:LabProcess`, `bios:computationalTool`, `bios:reagent`
-- [DDI-CDI](https://ddialliance.org/Specification/DDI-CDI/1.0/) — `cdi:Activity` for workflow steps
+- [DDI-CDI](https://ddialliance.org/Specification/DDI-CDI/1.0/) — `cdi:Activity` (design-level process description) for workflow steps
 - [W3C DQV](https://www.w3.org/TR/vocab-dqv/) — `dqv:hasQualityMeasurement` for quality metrics
 - [schema.org](https://schema.org/) — `PropertyValueSpecification` for parameter definitions, `Action`/`HowTo`/`HowToStep` for workflow
 

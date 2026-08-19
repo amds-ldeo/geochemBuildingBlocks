@@ -1,0 +1,569 @@
+#!/usr/bin/env python3
+"""Mark which schema-path sidecar rows are shared boilerplate, so a review can skip them.
+
+Most Metadata Items in the Procedure Identification, Samples and Instrument & Software sections
+are not technique-specific — `Analyst`, `Laboratory`, `Technique`, `Analysis Start Date` and the
+like map the same way in every TAPP. Reviewing them once per sidecar is wasted effort.
+
+This fills the derived `Scope` column in every docs/*.schemapaths.csv:
+
+    shared      the item appears in 2+ sidecars and they ALL agree on the same canonical path
+                -> already settled elsewhere; skip it
+    divergent   the item appears in 2+ sidecars with DIFFERENT paths
+                -> either a real technique difference or an inconsistency; worth a look
+    (blank)     the item appears in only one sidecar -> technique-specific, review normally
+
+Comparison is on the CANONICAL path (normalize_schema_paths.mechanical), so `$.` shorthand and
+stray whitespace do not make two identical mappings look different.
+
+Scope is derived, never authored. bootstrap_schemapaths rebuilds rows from the workbook and drops
+it, so re-run this after any re-seed.
+
+Usage:
+    python tools/mark_shared_mappings.py --dry-run     # summary + the divergent list, writes nothing
+    python tools/mark_shared_mappings.py               # fill the Scope column in every sidecar
+    python tools/mark_shared_mappings.py --list-shared # print the shared items and their path
+"""
+import argparse
+import collections
+import csv
+import re
+import glob
+import os
+import sys
+
+import openpyxl
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import normalize_schema_paths as norm  # noqa: E402
+import schemapath_io  # noqa: E402
+import build_tapp  # noqa: E402  (camel(), for synthesising a proposed property name)
+import bootstrap_schemapaths  # noqa: E402  (is_analyte_template)
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+SHARED = "shared"
+DIVERGENT = "divergent"
+
+
+def _canon(path):
+    return norm.mechanical(norm.preclean(path))
+
+
+def classify(sidecars):
+    """{item: (scope, {canonical path: {sidecar, ...}})} across every sidecar.
+
+    Agreement is compared per sidecar as a SET of paths, not path-by-path: an item that is
+    dual-homed (a TAPP `…schema:defaultValue` plus the matching `$Dataset…schema:value`) has two
+    paths in every sidecar that carries it, and that is agreement, not divergence. Only a
+    difference in the set itself counts as divergent.
+    """
+    per_file = collections.defaultdict(dict)     # item -> {sidecar: frozenset(paths)}
+    seen = collections.defaultdict(lambda: collections.defaultdict(set))
+    for path in sidecars:
+        name = os.path.basename(path)
+        rows = collections.defaultdict(set)
+        for row in schemapath_io.read(path):
+            item = (row.get("Metadata Item") or "").strip()
+            sp = (row.get("Schema Path") or "").strip()
+            if not item or not sp:
+                continue          # flagged rows carry no mapping to compare
+            canon = _canon(sp)
+            rows[item].add(canon)
+            seen[item][canon].add(name)
+        for item, paths in rows.items():
+            per_file[item][name] = frozenset(paths)
+
+    out = {}
+    for item, by_file in per_file.items():
+        paths = seen[item]
+        if len(by_file) < 2:
+            out[item] = ("", paths)                      # one sidecar -> technique-specific
+        elif len(set(by_file.values())) == 1:
+            out[item] = (SHARED, paths)                  # every sidecar maps it identically
+        else:
+            out[item] = (DIVERGENT, paths)               # the mapping genuinely differs
+    return out
+
+
+def tiers_by_item(sidecars):
+    """{item: {sidecar: (Protocol Tier, Analysis Tier)}} — a tier disagreement often EXPLAINS a
+    path disagreement, so the divergence report shows both side by side."""
+    out = collections.defaultdict(dict)
+    for path in sidecars:
+        name = os.path.basename(path)
+        for row in schemapath_io.read(path):
+            item = (row.get("Metadata Item") or "").strip()
+            if item and item not in out.get(name, {}):
+                out[item].setdefault(name, ((row.get("Protocol Tier") or "").strip(),
+                                            (row.get("Analysis Tier") or "").strip()))
+    return out
+
+
+# The workbook Comments column marks some properties `Analyte-Specific`: the value varies per
+# analyte, so the property belongs in the analyte column template rather than being a scalar. That
+# governs the SHAPE of the path, which is exactly what a divergence decision settles — and two
+# sidecars can disagree about the marker for one item, which is itself a likely cause of divergence.
+_ANALYTE_SPECIFIC_RE = re.compile(r"analyte-specific", re.I)
+
+
+def analyte_specific_by_item(sidecars):
+    """{sidecar short name: {item, ...}} — items the workbook Comments column marks Analyte-Specific.
+
+    Read from the WORKBOOK, not the sidecar: the sidecar carries no Comments column, so this is the
+    only place the marker exists. A sidecar whose workbook is missing simply contributes nothing.
+    """
+    out = {}
+    for path in sidecars:
+        short = os.path.basename(path).replace(".schemapaths.csv", "")
+        xlsx = os.path.join(os.path.dirname(path), short + ".xlsx")
+        marked = set()
+        out[short] = marked
+        if not os.path.exists(xlsx):
+            continue
+        wb = openpyxl.load_workbook(xlsx, read_only=True, data_only=True)
+        if "TAPP" not in wb.sheetnames:
+            wb.close()
+            continue
+        rows = list(wb["TAPP"].iter_rows(values_only=True))
+        wb.close()
+        if not rows:
+            continue
+        hdr = [(str(c).strip() if c is not None else "") for c in rows[0]]
+        ci = next((i for i, h in enumerate(hdr) if h.lower().startswith("comment")), None)
+        if ci is None:
+            continue
+        for r in rows[1:]:
+            item = (str(r[0]).strip() if r[0] else "")
+            note = str(r[ci]) if ci < len(r) and r[ci] else ""
+            if item and _ANALYTE_SPECIFIC_RE.search(note):
+                marked.add(item)
+    return out
+
+
+def write_divergent_report(sidecars, scopes, out_path):
+    """Markdown listing every divergent item and each variant with the sidecars that use it."""
+    tiers = tiers_by_item(sidecars)
+    divergent = sorted(i for i, (s, _) in scopes.items() if s == DIVERGENT)
+
+    lines = [
+        "# Divergent schema paths",
+        "",
+        "Metadata Items mapped **differently** in different TAPP sidecars. Generated by",
+        "`tools/mark_shared_mappings.py --divergent-report`; regenerate rather than hand-edit.",
+        "",
+        "Paths are shown canonicalised (`normalize_schema_paths.mechanical`), so `$.` shorthand and",
+        "stray whitespace are not counted as differences. An item is divergent only when the SET of",
+        "paths differs between sidecars — an item that is dual-homed everywhere is agreement, not",
+        "divergence.",
+        "",
+        "Variants are ordered most-used first, so the majority mapping is at the top of each entry",
+        "and the outlier is what to look at. The tier columns are worth checking before treating a",
+        "difference as a defect: if two sidecars assign different Protocol/Analysis tiers, the matrix",
+        "requires different paths and the divergence is correct.",
+        "",
+        f"**{len(divergent)} divergent items** across {len(sidecars)} sidecars.",
+        "",
+        "---",
+        "",
+    ]
+
+    for item in divergent:
+        variants = sorted(scopes[item][1].items(), key=lambda kv: (-len(kv[1]), kv[0]))
+        analyte = any(bootstrap_schemapaths.is_analyte_template(p) for p, _ in variants)
+        lines.append(f"## {item}" + ("  *(analyte template)*" if analyte else ""))
+        lines.append("")
+        if analyte:
+            lines.append("> Some sidecars model this as a per-analyte COLUMN and others as a "
+                         "per-session property. That is a real modelling difference, not "
+                         "necessarily an inconsistency — decide which the measurement actually is. "
+                         "An analyte column has no analysis-tier path: its values are the "
+                         "`ada:defaultAnalytes` rows, surfacing on the dataset as "
+                         "`schema:variableMeasured`.")
+            lines.append("")
+        for path, files in variants:
+            lines.append(f"- **`{path}`**")
+            for f in sorted(files):
+                short = f.replace(".schemapaths.csv", "")
+                p, a = tiers.get(item, {}).get(f, ("", ""))
+                tier = f" — tiers: {p or '-'} / {a or '-'}" if (p or a) else ""
+                lines.append(f"    - `{short}`{tier}")
+        # flag the case where the tiers themselves disagree
+        seen_tiers = {tiers.get(item, {}).get(f) for _, fs in variants for f in fs}
+        if len(seen_tiers) > 1:
+            lines.append("")
+            lines.append("    > Tier assignments differ between sidecars — the paths may be "
+                         "correctly different. Reconcile the tiers first.")
+        lines.append("")
+
+    with open(out_path, "w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(lines))
+    return len(divergent)
+
+
+DECISION_FIELDS = ["Metadata Item", "sidecar", "Protocol Tier", "Analysis Tier",
+                   "Analyte-Specific", "current Schema Path", "proposed Schema Path", "note"]
+
+_CONFORMING = re.compile(r"(\.schema:defaultValue$)|(Default$)")
+_INSTRUMENT_SEL = re.compile(r"(schema:instrument|prov:used)\[schema:additionalType='([^']+)'\]")
+
+
+_STEP_SEL = re.compile(r"schema:actionProcess\.schema:step\[[^\]]*\]")
+
+# hasPart carries a per-technique token too (['EPMA'] vs ['SEM'] on the same component)
+_ANY_TYPE_SEL = re.compile(r"(schema:instrument|prov:used|schema:hasPart)\[schema:additionalType="
+                           r"'[^']+'\]")
+
+
+def _token_equivalent(variants):
+    """True when every sidecar maps the item the same way once instrument/component tokens are blanked.
+
+    Compared per sidecar as a SET, matching classify(): a dual-homed item has TWO paths in every
+    sidecar (the TAPP default plus its $Dataset counterpart), and that is agreement, not two
+    competing shapes. Flattening the variants would see two shapes and wrongly report divergence.
+    """
+    per_file = collections.defaultdict(set)
+    for path, files in variants.items():
+        blanked = _ANY_TYPE_SEL.sub(r"\1[T]", path)
+        for f in files:
+            per_file[f].add(blanked)
+    return len({frozenset(s) for s in per_file.values()}) == 1
+
+
+def _propose(item, variants, tiers_seen):
+    """Pick a target path for a divergent item, or (None, why).
+
+    If some sidecar already expresses a DEFAULT, that variant wins — where one sidecar has been
+    reworked and the others have not, the reworked one is the pattern to propagate.
+
+    Otherwise the target is SYNTHESISED for the tier: Basic/Editable takes '{prop}Default' in the
+    TAPP (the matrix rule). The nesting is taken from whatever the item's existing variants already
+    use — instrument-nested if any variant is, else step-nested, else flat — so existing modelling
+    decisions are respected rather than flattened. Without that, every parameter would be proposed
+    as instrument-nested, which is wrong for e.g. Sample Preparation Method.
+
+    The instrument token becomes {?}: it is genuinely per-sidecar and NOT derivable — four sidecars
+    declare no instrument selector at all and three declare two, so nothing can know whether a
+    parameter hangs off the SEM or the FIBSEM, the laser or the ICP-MS.
+    """
+    if any(bootstrap_schemapaths.is_analyte_template(p) for p in variants):
+        return None, ("analyte template — per-analyte column, no analysis-tier path; "
+                      "read-only vs editable is carried on the column")
+
+    conforming = [p for p in variants if _CONFORMING.search(p)]
+    if conforming:
+        target = sorted(conforming, key=lambda p: (-len(variants[p]), -len(p)))[0]
+        generic = _INSTRUMENT_SEL.sub(
+            lambda m: f"{m.group(1)}[schema:additionalType='{{?}}']", target)
+        return generic, ("fill in {?} with this sidecar's instrument" if generic != target else "")
+
+    if ("Basic", "Editable") not in tiers_seen:
+        return None, "not Basic/Editable — decide the shape from the matrix"
+
+    name = build_tapp.camel(item)
+    if any(_INSTRUMENT_SEL.search(p) for p in variants):
+        return (f"$MethodDefinition.schema:instrument[schema:additionalType='{{?}}']"
+                f".ada:{name}Default"), "synthesised; fill in {?} with this sidecar's instrument"
+    step = next((_STEP_SEL.search(p).group(0) for p in variants if _STEP_SEL.search(p)), None)
+    if step:
+        return f"$MethodDefinition.{step}.ada:{name}Default", "synthesised from the existing step"
+    return f"$MethodDefinition.ada:{name}Default", "synthesised (flat — no nesting in use)"
+
+
+def _load_existing_proposals(path):
+    """Hand-filled proposals from a previous decisions CSV, indexed for re-matching.
+
+    Two keys per row: the exact (item, sidecar, current path) triple, and the looser
+    (item, sidecar) pair used only when it is unambiguous. The looser key matters because the
+    CURRENT path is what changes when a sidecar is edited — keying on the triple alone would
+    silently lose a hand-filled proposal the moment its row's current path moved.
+    """
+    if not os.path.exists(path):
+        return {}, {}
+    exact, loose, seen_twice = {}, {}, set()
+    for r in csv.DictReader(open(path, encoding="utf-8-sig")):
+        proposed = (r.get("proposed Schema Path") or "").strip()
+        if not proposed:
+            continue
+        item = (r.get("Metadata Item") or "").strip()
+        car = (r.get("sidecar") or "").strip()
+        exact[(item, car, (r.get("current Schema Path") or "").strip())] = proposed
+        if (item, car) in loose and loose[(item, car)] != proposed:
+            seen_twice.add((item, car))     # ambiguous: same item+sidecar, different proposals
+        loose[(item, car)] = proposed
+    for k in seen_twice:
+        loose.pop(k, None)
+    return exact, loose
+
+
+def write_decision_csv(sidecars, scopes, out_path, merge=True):
+    """Pre-filled worklist: one row per (divergent item, sidecar) for a human to complete.
+
+    MERGES by default: a non-empty `proposed Schema Path` from an existing file is carried over, so
+    regenerating never discards hand-filled work — notably the instrument tokens, which are the one
+    thing a tool cannot derive. Everything else (tiers, current path, note) is refreshed, and rows
+    whose item is no longer divergent are reported rather than silently dropped.
+
+    `Analyte-Specific` is read from the source workbook's Comments column — context for deciding
+    the shape, since a per-analyte property cannot take a scalar path.
+    """
+    exact, loose = _load_existing_proposals(out_path) if merge else ({}, {})
+    carried_keys = set()
+
+    tiers = tiers_by_item(sidecars)
+    analyte_specific = analyte_specific_by_item(sidecars)
+    divergent = sorted(i for i, (s, _) in scopes.items() if s == DIVERGENT)
+    # An item whose variants agree once the instrument token is blanked is RESOLVED: the same
+    # mapping instantiated per technique ([…='EPMA'] vs […='SEM']) is the intended outcome, not a
+    # disagreement. classify() compares literal paths so it still calls these divergent; the
+    # worklist should not, or the decided rows never leave it.
+    resolved = sorted(i for i in divergent if _token_equivalent(scopes[i][1]))
+    divergent = [i for i in divergent if i not in set(resolved)]
+    rows = []
+    for item in divergent:
+        variants = scopes[item][1]
+        tiers_seen = set(tiers.get(item, {}).values())
+        proposed, note = _propose(item, variants, tiers_seen)
+        for path, files in sorted(variants.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+            for f in sorted(files):
+                short = f.replace(".schemapaths.csv", "")
+                p, a = tiers.get(item, {}).get(f, ("", ""))
+                already = proposed is not None and path == proposed
+                spec = "yes" if item in analyte_specific.get(short, ()) else ""
+                kept = exact.get((item, short, path)) or loose.get((item, short))
+                if kept:
+                    carried_keys.add((item, short))
+                    rows.append({
+                        "Metadata Item": item, "sidecar": short,
+                        "Protocol Tier": p, "Analysis Tier": a,
+                        "Analyte-Specific": spec,
+                        "current Schema Path": path,
+                        "proposed Schema Path": kept,
+                        "note": "kept from previous file",
+                    })
+                    continue
+                rows.append({
+                    "Metadata Item": item, "sidecar": short,
+                    "Protocol Tier": p, "Analysis Tier": a,
+                    "Analyte-Specific": spec,
+                    "current Schema Path": path,
+                    "proposed Schema Path": "" if already else (proposed or ""),
+                    "note": "already conforms" if already else note,
+                })
+    # a hand-filled row whose item is no longer divergent has nowhere to go — say so, never drop it
+    # silently, since it represents a decision someone made.
+    orphaned = sorted({(i, c) for (i, c) in loose} - carried_keys)
+
+    with open(out_path, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=DECISION_FIELDS)
+        w.writeheader()
+        w.writerows(rows)
+    blank = sum(1 for r in rows if not r["proposed Schema Path"]
+                and r["note"] != "already conforms")
+    # An item whose sidecars disagree about Analyte-Specific is a prime divergence suspect: one
+    # workbook wants a per-analyte column and another a scalar, so the paths CANNOT match.
+    per_item = collections.defaultdict(lambda: (set(), set()))
+    for r in rows:
+        yes, no = per_item[r["Metadata Item"]]
+        (yes if r["Analyte-Specific"] else no).add(r["sidecar"])
+    disagree = sorted((i, sorted(y), sorted(n)) for i, (y, n) in per_item.items() if y and n)
+    n_spec = sum(1 for r in rows if r["Analyte-Specific"])
+    return (len(divergent), len(rows), blank, len(carried_keys), orphaned, n_spec, disagree,
+            resolved)
+
+
+def declared_instrument_tokens(sidecars):
+    """{sidecar short name: {token, ...}} — instrument selectors a sidecar already uses."""
+    out = {}
+    for path in sidecars:
+        short = os.path.basename(path).replace(".schemapaths.csv", "")
+        toks = set()
+        for row in schemapath_io.read(path):
+            for m in _INSTRUMENT_SEL.finditer(row.get("Schema Path") or ""):
+                toks.add(m.group(2))
+        out[short] = toks
+    return out
+
+
+def check_decisions(decisions_path, sidecars):
+    """Cross-check each filled-in instrument token against what that sidecar actually declares.
+
+    The token is the one thing a human supplies per row, so it is the one thing worth checking. A
+    token that sidecar has never used is usually a copy-paste slip from the row above — but not
+    always: four sidecars declare no instrument selector at all, so there the token is genuinely
+    new and NEW is the right verdict, not an error.
+    """
+    declared = declared_instrument_tokens(sidecars)
+    rows = list(csv.DictReader(open(decisions_path, encoding="utf-8-sig")))
+    buckets = collections.defaultdict(list)
+
+    for r in rows:
+        proposed = (r.get("proposed Schema Path") or "").strip()
+        if not proposed:
+            continue
+        toks = [m.group(2) for m in _INSTRUMENT_SEL.finditer(proposed)]
+        if not toks:
+            continue
+        short = (r.get("sidecar") or "").strip()
+        known = declared.get(short, set())
+        for tok in toks:
+            if tok == "{?}":
+                buckets["unfilled"].append((r, tok, known))
+            elif tok in known:
+                buckets["ok"].append((r, tok, known))
+            elif not known:
+                buckets["new"].append((r, tok, known))
+            else:
+                buckets["suspect"].append((r, tok, known))
+
+    print(f"instrument tokens in {os.path.basename(decisions_path)}")
+    print(f"  {len(buckets['ok']):>4d}  match a selector the sidecar already uses")
+    print(f"  {len(buckets['new']):>4d}  new token — that sidecar declares no instrument yet")
+    print(f"  {len(buckets['unfilled']):>4d}  still {{?}}")
+    print(f"  {len(buckets['suspect']):>4d}  SUSPECT — token not used anywhere in that sidecar")
+
+    for label, key in (("SUSPECT", "suspect"), ("new", "new"), ("still {?}", "unfilled")):
+        if not buckets[key]:
+            continue
+        print(f"\n{label}:")
+        for r, tok, known in buckets[key]:
+            print(f"  {r['Metadata Item']:<38s} {r['sidecar']}")
+            print(f"      token '{tok}'"
+                  + (f"   — that sidecar uses: {', '.join(sorted(known))}" if known else
+                     "   — that sidecar declares no instrument selectors"))
+    return len(buckets["suspect"])
+
+
+def apply_scope(sidecars, scopes, dry_run=False):
+    changed = 0
+    for path in sidecars:
+        rows = schemapath_io.read(path)
+        dirty = False
+        for row in rows:
+            item = (row.get("Metadata Item") or "").strip()
+            want = scopes.get(item, ("", None))[0] if item else ""
+            if (row.get("Scope") or "") != want:
+                row["Scope"] = want
+                dirty = True
+        if dirty:
+            changed += 1
+            if not dry_run:
+                schemapath_io.write(path, rows)
+    return changed
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--dry-run", action="store_true", help="report only; write nothing")
+    ap.add_argument("--list-shared", action="store_true", help="also list the shared items")
+    ap.add_argument("--exclude", action="append", default=[], metavar="NAME",
+                    help="skip the sidecar for this workbook, matched on the EXACT stem, e.g. "
+                         "SEM_TAPP_v4 (repeatable) — for a TAPP that has been retired but whose "
+                         "sidecar is still in docs/")
+    ap.add_argument("--decisions-overwrite", action="store_true",
+                    help="with --decisions, discard hand-filled proposals instead of merging")
+    ap.add_argument("--check-decisions", nargs="?", const="docs/divergent-decisions.csv",
+                    metavar="PATH",
+                    help="validate the instrument tokens filled into a decisions CSV against the "
+                         "selectors each sidecar actually declares; writes nothing")
+    ap.add_argument("--decisions", nargs="?", const="docs/divergent-decisions.csv", metavar="PATH",
+                    help="write a pre-filled decision worklist for the divergent items "
+                         "(default docs/divergent-decisions.csv); does not touch the sidecars")
+    ap.add_argument("--divergent-report", nargs="?", const="docs/divergent-schemapaths.md",
+                    metavar="PATH",
+                    help="write the divergent items and their variants to a markdown file "
+                         "(default docs/divergent-schemapaths.md); does not touch the sidecars")
+    args = ap.parse_args()
+
+    sidecars = sorted(glob.glob(os.path.join(ROOT, "docs", "*.schemapaths.csv")))
+    if args.exclude:
+        want = {x.replace(".schemapaths.csv", "").replace(".xlsx", "") for x in args.exclude}
+        dropped = [f for f in sidecars
+                   if os.path.basename(f).replace(".schemapaths.csv", "") in want]
+        missing = want - {os.path.basename(f).replace(".schemapaths.csv", "") for f in dropped}
+        for x in sorted(missing):
+            print(f"--exclude {x!r}: no such sidecar")
+        sidecars = [f for f in sidecars if f not in dropped]
+        for f in dropped:
+            print(f"excluding {os.path.basename(f)}")
+    if not sidecars:
+        raise SystemExit("no docs/*.schemapaths.csv found")
+    # --check-decisions validates a hand-edited file; the classification summary is just noise there
+    if args.check_decisions:
+        out = args.check_decisions
+        out = out if os.path.isabs(out) else os.path.join(ROOT, out)
+        return 1 if check_decisions(out, sidecars) else 0
+
+    scopes = classify(sidecars)
+
+    shared = sorted(i for i, (s, _) in scopes.items() if s == SHARED)
+    divergent = sorted(i for i, (s, _) in scopes.items() if s == DIVERGENT)
+    specific = sorted(i for i, (s, _) in scopes.items() if s == "")
+
+    print(f"{len(sidecars)} sidecars, {len(scopes)} distinct Metadata Items")
+    print(f"  shared     {len(shared):>4d}  (2+ sidecars agree — skip these)")
+    print(f"  divergent  {len(divergent):>4d}  (2+ sidecars disagree — worth a look)")
+    print(f"  (blank)    {len(specific):>4d}  (single sidecar — technique-specific)")
+
+    if args.list_shared:
+        print("\nshared:")
+        for item in shared:
+            path = next(iter(scopes[item][1]))
+            print(f"  {item}\n      {path}")
+
+    if divergent:
+        print("\ndivergent — same item, different mappings:")
+        for item in divergent:
+            print(f"  {item}")
+            for path, files in sorted(scopes[item][1].items(), key=lambda kv: -len(kv[1])):
+                tags = ", ".join(sorted(f.replace(".schemapaths.csv", "") for f in files))
+                print(f"      [{len(files)}] {path}")
+                print(f"           {tags}")
+
+    if args.decisions:
+        out = args.decisions
+        out = out if os.path.isabs(out) else os.path.join(ROOT, out)
+        (n_items, n_rows, n_blank, n_kept, orphaned, n_spec, disagree,
+         resolved) = write_decision_csv(sidecars, scopes, out,
+                                        merge=not args.decisions_overwrite)
+        print(f"\nwrote {n_items} items / {n_rows} rows -> {os.path.relpath(out, ROOT)}")
+        if resolved:
+            print(f"  {len(resolved)} item(s) DROPPED as resolved — variants differ only by "
+                  f"instrument token:")
+            for item in resolved:
+                print(f"      {item}")
+        print(f"  {n_kept} hand-filled proposal(s) carried over")
+        print(f"  {n_blank} row(s) have no proposal and need the shape decided")
+        print(f"  {n_spec} row(s) marked Analyte-Specific in the workbook Comments")
+        if disagree:
+            print(f"  {len(disagree)} item(s) where sidecars DISAGREE on Analyte-Specific "
+                  f"— likely the cause of the divergence:")
+            for item, yes, no in disagree:
+                print(f"      {item}")
+                print(f"          marked: {', '.join(yes)}")
+                print(f"          not:    {', '.join(no)}")
+        if orphaned:
+            print(f"  {len(orphaned)} hand-filled row(s) DROPPED — item no longer divergent:")
+            for item, car in orphaned:
+                print(f"      {item}  [{car}]")
+        return 0     # reporting only; leave the sidecars alone
+
+    if args.divergent_report:
+        out = args.divergent_report
+        out = out if os.path.isabs(out) else os.path.join(ROOT, out)
+        n = write_divergent_report(sidecars, scopes, out)
+        print(f"\nwrote {n} divergent items -> {os.path.relpath(out, ROOT)}")
+        return 0     # reporting only; leave the sidecars alone
+
+    changed = apply_scope(sidecars, scopes, dry_run=args.dry_run)
+    print()
+    if args.dry_run:
+        print(f"dry run: {changed} sidecar(s) would gain/change a Scope value")
+    else:
+        print(f"wrote Scope into {changed} sidecar(s)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

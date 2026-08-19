@@ -1,0 +1,48 @@
+{
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ada:vocab/semTAPP/stageScanVsBeamScan",
+  "@type": [
+    "skos:ConceptScheme"
+  ],
+  "skos:prefLabel": "Stage Scan vs. Beam Scan",
+  "skos:definition": "For mapping modes, records whether the map was acquired by moving the stage while the beam is held fixed (stage scan) or by deflecting the beam across the field while the stage is stationary (beam scan). Stage scan is preferred for large areas or high-accuracy geometric fidelity; beam scan is faster",
+  "schema:identifier": "ada:vocab/semTAPP/stageScanVsBeamScan",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
+    {
+      "@id": "ada:vocab/semTAPP/stageScanVsBeamScan/Stage_scan",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "Stage scan",
+      "skos:notation": "Stage scan",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semTAPP/stageScanVsBeamScan"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/semTAPP/stageScanVsBeamScan/Beam_scan",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "Beam scan",
+      "skos:notation": "Beam scan",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semTAPP/stageScanVsBeamScan"
+        }
+      ]
+    }
+  ]
+}

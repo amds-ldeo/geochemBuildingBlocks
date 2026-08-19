@@ -30,6 +30,15 @@ You are the orchestrator. Follow the phases below in order. **Never skip the gat
 
 **Out of scope:** `ada_metadata_forms` (no git, monolithic schema not yet derived from BBs).
 
+**`mbb` gh-pages publish.** Downstream repos resolve CDIF `$ref`s against the **published gh-pages**
+copy of `mbb`'s `_sources/`, not any local checkout. Pages is published by the `deploy-viewer.yml`
+workflow (it uploads the whole tree via `upload-pages-artifact`, `path: '.'`), and `process-bblocks.yml`
+sets `skip-pages: true` so `deploy-viewer` is the sole publisher. `deploy-viewer` auto-runs only when
+`process-bblocks` concludes **success** on `main`; if that CI is red the auto-run is **skipped** and
+gh-pages freezes at the last good deploy. Publish lever (bypasses the success gate):
+`gh workflow run deploy-viewer.yml -R Cross-Domain-Interoperability-Framework/metadataBuildingBlocks --ref main`.
+See Phase 0c and Phase 6.5.
+
 ---
 
 ## Phase 0a — parse flags
@@ -90,10 +99,49 @@ Do not proceed without explicit confirmation.
 
 ---
 
+## Phase 0c — classify gh-pages dependency (two-wave detection)
+
+Downstream repos (`geochem`, `dde`, `ecrr`, the `profile-*` repos) resolve CDIF `$ref`s against the
+**published gh-pages** URL
+(`https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/...`),
+not the local `mbb` checkout. Because `deploy-viewer.yml` is gated on `process-bblocks` success (see the
+registry note above), an `mbb` `_sources/` edit is **invisible to downstream validation until Pages is
+republished**. A downstream subagent that regenerates/validates against stale gh-pages will report a
+false **red** even though the change is correct.
+
+> Worked case (the motivating instance): `mbb` `_sources/schemaorgProperties/instrument/schema.yaml`
+> changed `additionalType.items` to `anyOf: [string, {@id}]` and the commit was on `main`, but gh-pages
+> still served `items: {type: string}`. Every `geochem` example that emitted `additionalType: [{"@id": …}]`
+> failed JSON-Schema validation against the resolved (gh-pages-sourced) schema — not a geochem bug, a
+> publish lag.
+
+Set **`GHPAGES_DEPENDENT=true`** when the run edits any `mbb` `_sources/**/schema.yaml` that a
+downstream repo `$ref`s by gh-pages URL — in practice, whenever the Phase 0b line-72 rule unioned the
+downstream repos into scope because of an `mbb` `_sources/` change. Otherwise `GHPAGES_DEPENDENT=false`.
+
+When `GHPAGES_DEPENDENT=true`, the propagation is **two-wave** and the waves span **two invocations**
+(draft PRs never auto-merge, so the `mbb` merge happens out-of-band between waves):
+
+- **Wave 1 — this run — `mbb` (+ `w3id` if in scope) only.** Apply, validate, PR. Then, once the
+  operator merges the `mbb` PR, run Phase 6.5 to **publish + round-trip-verify** gh-pages. Do **not**
+  spawn downstream subagents this run — they cannot pass their gate against stale gh-pages.
+- **Wave 2 — a follow-up `/propagate-schema` invocation — the downstream repos.** Runs only after
+  Phase 6.5 confirms the changed files round-trip current on gh-pages. Phase 7 prints the exact
+  follow-up command.
+
+State the wave plan explicitly and get confirmation before Phase 1. For `GHPAGES_DEPENDENT=false`
+runs, ignore waves and proceed normally.
+
+---
+
 ## Phase 1 — create worktrees
 
+If `GHPAGES_DEPENDENT=true`, the **affected repo set for this run is Wave 1 only** (`mbb`, plus
+`w3id` if in scope). The downstream repos are handled in the Wave-2 follow-up invocation (Phase 0c),
+so do not create worktrees or subagents for them now.
+
 Pick a timestamp slug: `TS=$(date -u +%Y%m%dT%H%M%SZ)`.
-For each affected repo, in parallel:
+For each affected repo (of the current wave), in parallel:
 
 ```bash
 WT="/c/Users/smrTu/.claude-worktrees/propagate-${TS}/<key>"
@@ -160,6 +208,11 @@ If **any** subagent reports `status: "red"` or any `remaining_issues` or any `un
 - Surface the failures to the user. Offer (via `AskUserQuestion`): re-spawn just the failing subagents with corrective guidance, abandon the run (worktrees stay for inspection), or drop into manual mode.
 
 Only when **every** subagent is green do you proceed to Phase 4.5.
+
+**Wave note (`GHPAGES_DEPENDENT=true`).** This gate applies to the current wave's repos only. In
+Wave 1 that is `mbb` (+ `w3id`); downstream repos are not in this run at all (Phase 1), so their
+absence is expected, not a failure. Never let a Wave-1 run proceed to downstream work — downstream
+validation is only meaningful after Phase 6.5 republishes gh-pages.
 
 ---
 
@@ -234,9 +287,59 @@ After all PRs are open, edit each PR body to replace `<list of {repo: PR URL}>` 
 
 ---
 
+## Phase 6.5 — publish + verify `mbb` gh-pages (LIVE, `GHPAGES_DEPENDENT=true` only)
+
+Skip this phase entirely when `GHPAGES_DEPENDENT=false`.
+
+Downstream `$ref` resolution reads gh-pages, so Wave 2 cannot validate until the merged `mbb` change
+is republished there. Draft PRs never auto-merge (guardrail), so this phase runs **after the operator
+confirms the `mbb` PR is merged to `main`** — pause and ask via `AskUserQuestion` ("mbb PR merged?
+publish Pages now" / "not yet — stop here"). Do not dispatch against an unmerged branch: `deploy-viewer`
+uploads `main`, so publishing before merge would ship the old tree.
+
+1. **Trigger the publisher** (manual dispatch bypasses the `process-bblocks`-success gate that skips
+   the auto-run):
+   ```bash
+   gh workflow run deploy-viewer.yml \
+     -R Cross-Domain-Interoperability-Framework/metadataBuildingBlocks --ref main
+   ```
+   If `process-bblocks` is currently red, the normal `workflow_run` auto-deploy is **skipped**
+   (its `if` requires `workflow_run.conclusion == 'success'`); the manual dispatch above runs anyway.
+   Flag the red CI to the operator — Pages will publish, but the underlying failure still needs fixing.
+
+2. **Wait for it to finish:**
+   ```bash
+   RID=$(gh run list --workflow=deploy-viewer.yml -L1 \
+     -R Cross-Domain-Interoperability-Framework/metadataBuildingBlocks --json databaseId --jq '.[0].databaseId')
+   gh run watch "$RID" -R Cross-Domain-Interoperability-Framework/metadataBuildingBlocks
+   ```
+
+3. **Round-trip verify every changed source file on gh-pages** (Pages/CDN can lag a minute or two —
+   poll, don't assume). For each `mbb` `_sources/**/schema.yaml` touched this run, fetch the gh-pages
+   URL and grep for the new content. Worked example (instrument `additionalType` `@id`-form):
+   ```bash
+   curl -s "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/schema.yaml" \
+     | grep -A6 "'schema:additionalType'" | grep -q '@id' && echo "PAGES OK" || echo "PAGES STALE — wait + re-check"
+   ```
+   Do not declare Wave 1 done until every touched file round-trips its new content.
+
+Only after all touched files verify current is the ecosystem ready for **Wave 2** (the downstream
+follow-up invocation).
+
+---
+
 ## Phase 7 — report to user
 
 Print a final table: repo | branch | PR URL | status. Tell the user the worktrees remain at `~/.claude-worktrees/propagate-<TS>/` for inspection until they ask to clean up. **Do not delete worktrees automatically.**
+
+**If `GHPAGES_DEPENDENT=true`,** also print the Wave-1 → Wave-2 handoff:
+- Whether Phase 6.5 ran and the round-trip result per touched file (`PAGES OK` / `PAGES STALE`), or
+  `pending` if the `mbb` PR isn't merged yet.
+- The exact **Wave-2 follow-up command** to run once the `mbb` PR is merged and Pages verifies:
+  `/propagate-schema <same change description>` — note that on the re-run, Phase 0c will re-classify,
+  but with `mbb` already landed the downstream repos now resolve the updated gh-pages and pass. If the
+  downstream change also has a generator flag staged behind the publish (e.g. geochem's instrument
+  `additionalType` `@id`-form emitter), name it so the operator flips it in Wave 2.
 
 ---
 

@@ -1,0 +1,30 @@
+- title: Structured Data File Type Example
+  content: |-
+    An HDF5 container part in an ADA bundle whose layout is described by a CDIF
+    DimensionalDataStructure via cdi:isStructuredBy (chosen because the file is a
+    container, not tabular text).
+  prefixes:
+    schema: http://schema.org/
+    ada: https://ada.astromat.org/metadata/
+    cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+    cdif: https://cdif.org/0.1/
+  snippets:
+    - language: json
+      code: |
+        {
+          "@id": "ex:file-map-cube-001",
+          "@type": ["schema:MediaObject", "ada:structuredData", "cdi:PhysicalDataSet"],
+          "schema:name": "elemental_map_cube.h5",
+          "schema:encodingFormat": ["application/x-hdf5"],
+          "ada:componentType": "ada:other",
+          "cdi:isStructuredBy": {
+            "@id": "ex:struct-map-cube-001",
+            "@type": ["cdi:DimensionalDataStructure"],
+            "schema:name": "Elemental map cube structure",
+            "cdi:has_DataStructureComponent": [
+              {"@type": ["cdi:MeasureComponent"], "cdif:name": ["intensity"]},
+              {"@type": ["cdi:DimensionComponent"], "cdif:name": ["x"]},
+              {"@type": ["cdi:DimensionComponent"], "cdif:name": ["y"]}
+            ]
+          }
+        }

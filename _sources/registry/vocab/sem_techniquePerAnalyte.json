@@ -1,0 +1,48 @@
+{
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ada:vocab/semTAPP/techniquePerAnalyte",
+  "@type": [
+    "skos:ConceptScheme"
+  ],
+  "skos:prefLabel": "Technique per Analyte",
+  "skos:definition": "For each analyte, records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a procedure employs both EDS and WDS simultaneously, assigning each element to the detector appropriate to its concentration range, line overlap situation, or required precision.",
+  "schema:identifier": "ada:vocab/semTAPP/techniquePerAnalyte",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
+    {
+      "@id": "ada:vocab/semTAPP/techniquePerAnalyte/WDS",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "WDS",
+      "skos:notation": "WDS",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semTAPP/techniquePerAnalyte"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/semTAPP/techniquePerAnalyte/EDS",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "EDS",
+      "skos:notation": "EDS",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/semTAPP/techniquePerAnalyte"
+        }
+      ]
+    }
+  ]
+}

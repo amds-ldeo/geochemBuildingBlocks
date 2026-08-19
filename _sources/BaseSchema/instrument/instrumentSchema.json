@@ -1,0 +1,121 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA Analysis Instrument",
+    "description": "ADA analytical instrument building block. Extends the core CDIF instrument building block with NeXus NXinstrument classification via additionalType. Instruments are typed as schema:Thing + schema:Product (from core) with domain-specific types (e.g. nxs:BaseClass/NXinstrument, ada:AMSInstrument) in additionalType.",
+    "allOf": [
+        {
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/instrumentSchema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "schema:additionalType": {
+                    "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                    "@id"
+                                ],
+                                "properties": {
+                                    "@id": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "minItems": 1,
+                    "contains": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "https://www.wikidata.org/wiki/Q3099911"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "schema:hasPart": {
+                    "description": "Sub-components of this instrument system (a torch, an ICP source, a collision/reaction cell, a spectrometer). A component IS an instrument -- same @type (schema:Product + schema:Thing), same Wikidata term, and its own schema:additionalType token saying which kind of component it is. The shape is restated rather than written as `$ref: '#'`, because resolve_schema replaces a circular ref with an empty stub -- it would read as \"a part is an instrument\" and enforce nothing. Upstream types a component more loosely (schema:Thing alone, no Wikidata); this narrows it, and the two compose because allOf intersects.",
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "object",
+                                "required": [
+                                    "@type",
+                                    "schema:name",
+                                    "schema:additionalType"
+                                ],
+                                "properties": {
+                                    "@type": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "minItems": 2,
+                                        "allOf": [
+                                            {
+                                                "contains": {
+                                                    "const": "schema:Product"
+                                                }
+                                            },
+                                            {
+                                                "contains": {
+                                                    "const": "schema:Thing"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "schema:name": {
+                                        "type": "string"
+                                    },
+                                    "schema:additionalType": {
+                                        "type": "array",
+                                        "minItems": 1,
+                                        "contains": {
+                                            "type": "object",
+                                            "required": [
+                                                "@id"
+                                            ],
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "https://www.wikidata.org/wiki/Q3099911"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Reference by node @id to a component described elsewhere.",
+                                "required": [
+                                    "@id"
+                                ],
+                                "properties": {
+                                    "@id": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "schema:additionalType"
+            ]
+        }
+    ]
+}

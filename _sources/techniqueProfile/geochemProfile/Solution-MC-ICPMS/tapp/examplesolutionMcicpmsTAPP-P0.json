@@ -1,0 +1,121 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#"
+  },
+  "@id": "ex:solutionMcicpmsTAPP-P0",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "example procedureName",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution MC-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "example procedureAuthor",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "example laboratory",
+    "schema:identifier": "example laboratoryId"
+  },
+  "schema:datePublished": "example procedureStartDate",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForProcedureDevelopment"
+    }
+  ],
+  "ada:finalSolutionMatrix": "example finalSolutionMatrix",
+  "ada:chromatographicSeparationApplied": "Anion exchange resin AG1-X8 (HCl)",
+  "ada:isotopeDilutionSpike": "example isotopeDilutionSpike",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionMcicpmsTAPP/desolvationSystem",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionMcicpmsTAPP/desolvationSystem"
+        }
+      ],
+      "schema:name": "Desolvation System",
+      "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration"
+        }
+      ],
+      "schema:name": "Internal Standard Concentration",
+      "schema:value": 1,
+      "schema:unitText": "example value"
+    },
+    {
+      "@id": "ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproachDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spikeOutlierFilteringApproachDefault",
+      "schema:name": "Spike / Outlier Filtering Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "uncertaintyPropagationMethodDefault",
+      "schema:name": "Uncertainty Propagation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    }
+  ],
+  "ada:sampleSequenceDesign": "example analysisSequence",
+  "ada:washTimeBetweenSamples": 1.0,
+  "ada:internalStandardElement": "example internalStandardElement",
+  "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Not applicable (isotope ratios only)"
+  ],
+  "ada:signalIntegrationIntervalMethod": "All cycles included unless signal instability detected",
+  "ada:blankBackgroundCorrectionMethod": "On-peak zero (acid blank)",
+  "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName",
+  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
+  "ada:secondaryReferenceMaterialDefault": [
+    "example secondaryReferenceMaterials"
+  ],
+  "schema:description": "example additionalNotes",
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:internalNormalizationElementAndIsotopeRatio": "example internalNormalizationElementAndIsotopeRatio",
+  "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria"
+}

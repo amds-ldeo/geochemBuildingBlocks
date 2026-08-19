@@ -2394,6 +2394,223 @@
       }
     },
     {
+      "itemIdentifier": "ogch.BaseSchema.geochemProduct",
+      "$schema": "metaschema.yaml",
+      "name": "Geochem Analytical Product",
+      "abstract": "Generic geochemistry analytical product metadata base: composes the CDIF core, data-description, manifest, and provenance profiles with the analytical surface (analysis events, variables measured, distributions, coverage). Extended by archive-specific delivery profiles such as adaProduct.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-08-16T00:00:00Z",
+      "itemClass": "schema",
+      "register": "cdif-building-block-register",
+      "version": "0.1",
+      "dateOfLastChange": "2026-08-16",
+      "link": "https://github.com/usgin/geochemBuildingBlocks",
+      "maturity": "draft",
+      "scope": "unstable",
+      "tags": [
+        "geochem",
+        "product",
+        "base",
+        "profile"
+      ],
+      "sources": [
+        {
+          "title": "ADA Metadata Schema v3 (adaProduct, from which this base was factored)",
+          "link": "https://github.com/amds-ldeo/metadata"
+        }
+      ],
+      "shaclShapes": {
+        "ogch.BaseSchema.geochemProduct": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/rules.shacl"
+        ],
+        "ogch.geochemProperties.instrument": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.instrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifReference": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        ],
+        "ogch.geochemProperties.dataCube": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/dataCube/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        ],
+        "ogch.geochemProperties.stringArray": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/stringArray/rules.shacl"
+        ],
+        "ogch.geochemProperties.image": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/image/rules.shacl"
+        ],
+        "ogch.geochemProperties.collection": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/collection/rules.shacl"
+        ],
+        "ogch.geochemProperties.document": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/document/rules.shacl"
+        ],
+        "ogch.geochemProperties.imageMap": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/imageMap/rules.shacl"
+        ],
+        "ogch.geochemProperties.spatialRegistration": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/spatialRegistration/rules.shacl"
+        ],
+        "ogch.geochemProperties.tabularData": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/tabularData/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+        ],
+        "ogch.geochemProperties.otherFile": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/otherFile/rules.shacl"
+        ],
+        "ogch.geochemProperties.supDocImage": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/supDocImage/rules.shacl"
+        ],
+        "ogch.geochemProperties.creativeWork": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/creativeWork/rules.shacl"
+        ],
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+        ],
+        "ogch.techniqueProtocols.tappDefinition": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/techniqueProtocols/tappDefinition/rules.shacl"
+        ],
+        "ogch.geochemProperties.laboratory": [
+          "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.generatedBy": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+        ],
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.webAPI": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.action": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ]
+      },
+      "dependsOn": [
+        "ogch.geochemProperties.instrument",
+        "ogch.geochemProperties.creativeWork",
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure",
+        "cdif.bbr.metadata.schemaorgProperties.temporalExtent",
+        "ogch.techniqueProtocols.tappDefinition",
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance",
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent",
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription",
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest",
+        "ogch.geochemProperties.laboratory",
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCore"
+      ],
+      "ldContext": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/context.jsonld",
+      "schema": {
+        "application/yaml": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml",
+        "application/json": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.json"
+      },
+      "sourceSchema": "https://usgin.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/schema.yaml",
+      "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/context.jsonld",
+      "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/resolvedProperties.json",
+      "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/geochemProduct/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/generateddocs/markdown/BaseSchema/geochemProduct/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://usgin.github.io/geochemBuildingBlocks/build/generateddocs/json-full/BaseSchema/geochemProduct/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://usgin.github.io/geochemBuildingBlocks/bblock/ogch.BaseSchema.geochemProduct"
+        }
+      }
+    },
+    {
       "itemIdentifier": "ogch.techniqueProtocols.empaTAPP",
       "$schema": "metaschema.yaml",
       "name": "EMPA Technique-Aligned Protocol Profile (empaTAPP)",

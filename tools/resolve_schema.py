@@ -661,10 +661,19 @@ def _scan_inline_refs(node: Any, base_dir: Path, file_to_def: dict,
                 ref_path = (base_dir / ref_file).resolve()
                 if ref_path not in file_to_def and ref_path.exists():
                     def_name = _derive_def_name(ref_path)
-                    # Avoid name collisions
+                    # Avoid name collisions with a different source file. The old
+                    # parent-dir scheme could recompute an identical name (since
+                    # _derive_def_name keys off the parent dir), silently
+                    # overwriting the earlier mapping — e.g. a $def named
+                    # CdifProvActivity pointing at xasGeneratedBy being clobbered
+                    # by the real cdifProvActivity reached transitively. Append a
+                    # numeric suffix until the name is unused.
                     if def_name in global_defs and global_defs[def_name] != ref_path:
-                        # Append parent dir for disambiguation
-                        def_name = _derive_def_name(ref_path.parent.parent / ref_path.parent.name / ref_path.name)
+                        base = def_name
+                        i = 2
+                        while f"{base}_{i}" in global_defs:
+                            i += 1
+                        def_name = f"{base}_{i}"
                     global_defs[def_name] = ref_path
                     file_to_def[ref_path] = def_name
                     _collect_defs_from_bb(ref_path, global_defs, file_to_def, visited)
@@ -1069,6 +1078,18 @@ def _merge_non_profile_structured(schema_path: Path, global_defs: dict,
         resolved_defs[def_name] = resolve_def_aware(def_path, file_to_def,
                                                     inline_def_map, seen=set())
 
+    # The document's OWN $defs. resolve_def_aware drops them deliberately — a normal BB's local defs
+    # are hoisted into global_defs by collect_global_defs, which scans REFERENCED files and so never
+    # picks up the root's own. That is invisible until a schema's $defs are its whole point: every
+    # composition module under BaseSchema/modules/ resolved to nothing but $schema, title and
+    # description, because all nine of ReportingCore's defs went out this way. Added with setdefault
+    # so a global of the same name still wins, leaving existing behaviour alone.
+    own = load_schema_file(schema_path.resolve()).get("$defs") or {}
+    for def_name, def_body in own.items():
+        resolved_defs.setdefault(def_name, _resolve_node_structured(
+            def_body, schema_path.parent, own, file_to_def, inline_def_map,
+            current_file=schema_path.resolve(), seen=set()))
+
     if resolved_defs:
         resolved["$defs"] = resolved_defs
 
@@ -1130,6 +1151,18 @@ def _is_in_cycle(name: str, defs: dict) -> bool:
                 reachable.add(other)
                 stack.append(other)
     return name in reachable
+
+
+_DEFS_ONLY_META = {"$schema", "$id", "title", "description", "$comment", "$defs"}
+
+
+def _has_structure_outside_defs(schema: dict) -> bool:
+    """True unless the document is nothing but metadata and `$defs`.
+
+    A defs-only schema is a library of named shapes for other files to reference, not a schema that
+    constrains anything itself — the composition modules are the case in hand.
+    """
+    return bool(set(schema) - _DEFS_ONLY_META)
 
 
 def inline_low_use_defs(schema: dict, threshold: int = 2) -> dict:
@@ -1233,8 +1266,16 @@ def resolve_structured(schema_path: Path) -> dict:
         print(f"  Promoted {len(promoted_resolved)} inline $defs ({', '.join(sorted(promoted_resolved.keys()))})",
               file=sys.stderr)
 
-    # Phase 4-5: inline low-use defs (skips cyclic ones automatically)
-    result = inline_low_use_defs(result, threshold=2)
+    # Phase 4-5: inline low-use defs (skips cyclic ones automatically).
+    #
+    # NOT for a defs-only document. Inlining prunes a $def the document itself barely references,
+    # which is right for a local helper and wrong for a schema whose $defs ARE its public surface:
+    # the composition modules under BaseSchema/modules/ exist to be $ref'd from other files, so
+    # every one of their defs has zero internal references and all of them were being dropped —
+    # leaving a resolvedSchema.json holding nothing but $schema, title and description. A document
+    # with no structure outside $defs has nothing to inline INTO, so the pass has no work there.
+    if _has_structure_outside_defs(result):
+        result = inline_low_use_defs(result, threshold=2)
 
     # Phase 6: strip metadata
     result = strip_metadata_keys(result, is_root=True)
@@ -1256,19 +1297,19 @@ def resolve_and_write_structured(schema_path: Path) -> Path:
 # ---------------------------------------------------------------------------
 
 def _find_profile_dir(name: str) -> Path:
-    """Find the profile directory by searching subdirectories of profiles/."""
-    profiles_root = SOURCES_DIR / "profiles"
-    # Search subdirectories (adaProfiles/, cdifProfiles/)
-    for subdir in profiles_root.iterdir():
-        if subdir.is_dir():
-            candidate = subdir / name
-            if candidate.is_dir():
-                return candidate
-    # Fall back to direct child (legacy flat layout)
-    direct = profiles_root / name
-    if direct.is_dir():
-        return direct
-    raise FileNotFoundError(f"Profile directory not found: {name}")
+    """Find a BB directory by its (pre-reorg) identity name under the group-by-technique layout —
+    including the role-renamed dirs (<x>TAPP, detail<X>, ada<X>, geochem profiles). Falls back to
+    the legacy flat profiles/ layout."""
+    import bb_locate
+    hit = bb_locate.find_bb_dir(name, SOURCES_DIR)
+    if hit is not None:
+        return hit
+    legacy = SOURCES_DIR / "profiles"
+    if legacy.exists():
+        for subdir in legacy.iterdir():
+            if subdir.is_dir() and (subdir / name).is_dir():
+                return subdir / name
+    raise FileNotFoundError(f"Profile/BB directory not found: {name}")
 
 
 def find_profile_schema(name: str) -> Path:

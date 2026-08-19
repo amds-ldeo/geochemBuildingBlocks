@@ -1,0 +1,346 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:laicpmsTAPP-Chernonozhkin2021phosphate",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Chernonozhkin et al. (2021) Pallasite Phosphate Spot v1",
+  "schema:description": "laicpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite phosphate Spot analysis ns-LA-SF-ICP-MS Ghent University (column P of LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-SF-ICP-MS",
+      "schema:name": "LA-SF-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium"
+  },
+  "schema:object": [
+    "Pallasite Ca-phosphate (merrillite, stanfieldite, farringtonite)"
+  ],
+  "bios:computationalTool": [
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "In-house MatLab script (Appendix C3)",
+      "ada:toolRole": "dataReduction"
+    }
+  ],
+  "ada:guardElectrode": "missing",
+  "ada:massResolutionSettingDefault": "Low resolution (M/ΔM = 300)",
+  "ada:detectorConfiguration": "Triple mode detection",
+  "ada:laserWavelengthAndType": "193 nm ArF excimer; pulse duration ~5 ns",
+  "ada:spotGeometryDefault": "110 µm circular (spot mode)",
+  "ada:laserFluenceDefault": "3.5 J cm⁻²",
+  "ada:laserRepetitionRateDefault": "20 Hz",
+  "ada:ablationSpotDurationDefault": "20 s spot ablation (plus 10 s washout); 25 cycles acquisition",
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:carrierGasFlowRateDefault": "He: MFC-1 0.270 l min⁻¹; MFC-2 0.250 l min⁻¹",
+  "ada:coolantGasFlowRateDefault": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.85 l min⁻¹",
+  "ada:rfPowerDefault": "1000 W",
+  "ada:plasmaThermalMode": "Normal plasma (1000 W RF)",
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:analysisSequenceDefault": "MPI-DING and USGS GRMs at beginning → unknowns → repeated GRM at end",
+  "ada:dwellTimeDefault": "0.01 s per nuclide; samples per peak: 5; duty cycle: 1.813 s; mass window 150% for ²³Na–⁴⁷Ti, 100% for all other nuclides",
+  "ada:backgroundCountTimeDefault": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)",
+  "ada:internalStandardApproach": "Sum-of-major-oxide normalization to 100 wt% (Liu et al. 2008; Appendix C3)",
+  "ada:internalStandardElement": "No single IS; oxide sum normalization to 100 wt%",
+  "ada:elementalFractionationCorrection": "Oxide sum normalization to 100 wt% corrects for ablation yield and matrix effects; external calibration with MPI-DING and USGS glass GRMs",
+  "ada:signalIntegrationIntervalMethod": "Anomalous time steps excluded (inclusions, cracks, heterogeneity); manual inspection",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot analysis (8 scans); average background subtracted",
+  "ada:isobaricInterferenceCorrection": "Yes — same instrument settings; interference corrections as per Table C1",
+  "ada:interferingSpecies": "Same interference list (Table C1)",
+  "ada:isobaricInterferenceCorrectionMethod": "Same approach as mapping; oxide sum normalization partially corrects for matrix-dependent interferences",
+  "ada:secondaryReferenceMaterialDefault": "Same MPI-DING and USGS glasses measured as unknowns for accuracy assessment",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
+      "schema:name": "Plasma / Make-up Gas Addition",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Ar make-up: 0.96 l min⁻¹; N₂ not added"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/icPlasmaTuningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "icPlasmaTuningDefault",
+      "schema:name": "ICP Tuning",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Same instrument as olivine runs; tuned for normal plasma conditions"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/memoryEffectMitigationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "memoryEffectMitigationDefault",
+      "schema:name": "Memory Effect Mitigation",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "10 s washout time after 20 s spot ablation (specified in acquisition protocol)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/postAcquisitionNormalizationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "postAcquisitionNormalizationDefault",
+      "schema:name": "Normalization / Standards-Based Correction",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "100% oxide sum normalization to 100 wt% for phosphate minerals (Appendix C3)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laicpmsTAPP/laserPulseDuration"
+        }
+      ],
+      "schema:name": "Laser Pulse Duration",
+      "schema:value": "~5 ns (ArF excimer)"
+    },
+    {
+      "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laicpmsTAPP/multiRunSequentialAnalysisDesign"
+        }
+      ],
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot analysis run per location (25 cycles: 15 s blank + 20 s ablation + 10 s washout); 3 replicates"
+    }
+  ],
+  "ada:analyteTemplate": {
+    "ada:analyteColumns": [
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Analyzed constituent",
+        "schema:valueName": "analyte",
+        "schema:description": "Analyzed constituent (isotope) identified by the analyte row.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      }
+    ],
+    "ada:defaultAnalytes": [
+      {
+        "analyte": "23Na"
+      },
+      {
+        "analyte": "25Mg"
+      },
+      {
+        "analyte": "27Al"
+      },
+      {
+        "analyte": "29Si"
+      },
+      {
+        "analyte": "31P"
+      },
+      {
+        "analyte": "39K"
+      },
+      {
+        "analyte": "44Ca"
+      },
+      {
+        "analyte": "45Sc"
+      },
+      {
+        "analyte": "47Ti"
+      },
+      {
+        "analyte": "51V"
+      },
+      {
+        "analyte": "53Cr"
+      },
+      {
+        "analyte": "55Mn"
+      },
+      {
+        "analyte": "57Fe"
+      },
+      {
+        "analyte": "59Co"
+      },
+      {
+        "analyte": "60Ni"
+      },
+      {
+        "analyte": "63Cu"
+      },
+      {
+        "analyte": "66Zn"
+      },
+      {
+        "analyte": "85Rb"
+      },
+      {
+        "analyte": "88Sr"
+      },
+      {
+        "analyte": "89Y"
+      },
+      {
+        "analyte": "90Zr"
+      },
+      {
+        "analyte": "93Nb"
+      },
+      {
+        "analyte": "133Cs"
+      },
+      {
+        "analyte": "137Ba"
+      },
+      {
+        "analyte": "139La"
+      },
+      {
+        "analyte": "175Lu"
+      },
+      {
+        "analyte": "180Hf"
+      },
+      {
+        "analyte": "181Ta"
+      },
+      {
+        "analyte": "208Pb"
+      },
+      {
+        "analyte": "232Th"
+      },
+      {
+        "analyte": "238U"
+      }
+    ]
+  },
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:position": 1,
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ]
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:position": 3,
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laicpmsTAPP/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "None"
+          },
+          {
+            "@id": "ada:parameter/laicpmsTAPP/outlierFilteringDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "outlierFilteringDefault",
+            "schema:name": "Spike / Outlier Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Anomalous time steps excluded during manual inspection"
+          },
+          {
+            "@id": "ada:parameter/laicpmsTAPP/nonlinearResponseCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "nonlinearResponseCorrectionDefault",
+            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:readonlyValue": false,
+            "ada:tier": "R",
+            "schema:defaultValue": "Applied: triple mode detection"
+          }
+        ]
+      }
+    ]
+  },
+  "ada:primaryStandardNameDefault": "MPI-DING and USGS glass GRMs (measured at beginning and repeatedly at end of each session; multipoint calibration)",
+  "ada:calibrationMeasurementFrequency": "MPI-DING and USGS GRMs measured at beginning and repeatedly at end of each session",
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
+  "schema:datePublished": "2026-08-16",
+  "ada:signalCollectionMode": "missing"
+}

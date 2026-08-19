@@ -1,0 +1,349 @@
+"""Phase 0 of the nested-interpreter work: normalize TAPP workbook `schema path` values to the
+canonical grammar in docs/SCHEMA_PATH_GRAMMAR.md.
+
+Auto-fixes the mechanical cases (scheme:->schema:, dot->colon, selector unification, relatedLink
+restructure, known typos) and emits a per-workbook machine-readable placement spec
+`docs/<workbook>.schemapaths.json` ({Metadata Item -> {path, family}}). Everything it cannot
+confidently normalize is FLAGGED (never guessed) and printed for human review.
+
+    python tools/normalize_schema_paths.py           # write specs + review report
+    python tools/normalize_schema_paths.py --dry-run # report only
+"""
+import json, os, re, sys
+import openpyxl
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import build_tapp as b
+import schema_path_parser as spp
+from extract_tapp_overrides import TIER_TAPPS
+
+
+def _parses(canon):
+    """A path is only truly canonical if the Phase-1 parser accepts it (keeps the normalizer's
+    'canonical' verdict honest — a loose family recognizer can't smuggle a malformed path through)."""
+    try:
+        spp.parse(canon); return True
+    except spp.SchemaPathError:
+        return False
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+NAME_TYPOS = {"measuremnttechnique": "measurementTechnique",
+              "phaseidentificatonmethod": "phaseIdentificationMethod",
+              "meanangulardeviaton": "meanAngularDeviation",
+              "laserflueence": "laserFluence"}
+FIELDS = "(name|value|defaultValue|description|identifier|termCode|url|object)"
+
+
+def preclean(s):
+    s = " ".join(str(s).split())
+    s = s.replace("scheme:", "schema:").replace("additiional", "additional").replace("Schema:", "schema:")
+    # $cdif<Module> roots (cdifCore, cdifDiscovery, cdifProvenance, ...) all denote the product
+    # document root -> alias to $Dataset so the dataset-side family recognizers apply (confirmed
+    # with the author: cdifCore/cdifDiscovery/Dataset are the same technique-product-document root).
+    s = re.sub(r"^\$cdif[A-Za-z]+\b", "$Dataset", s)
+    # a doubled separator is always a typo (`$MethodDefinition..schema:actionProcess`); collapse it
+    # OUTSIDE quoted selector values, where a literal `..` could be part of a name
+    s = "'".join(re.sub(r"\.{2,}", ".", part) if i % 2 == 0 else part
+                 for i, part in enumerate(s.split("'")))
+    # `prov:used[sel]` -> `prov:used.<kind>[sel]`. This rule used to run the other way: a prov:used
+    # item WAS the entity, so the kind was shorthand and got stripped. Since the 2026-08 CDIF
+    # wrapper model an item is a role-keyed envelope (schema:instrument / bios:computationalTool /
+    # prov:reagent) whose value is an array of entities, so the kind is a real navigation step and
+    # the selector key is what tells us which envelope. Authors may still write either form.
+    s = re.sub(r"(prov:used)\[(schema:additionalType)=", r"\1.schema:instrument[\2=", s)
+    s = re.sub(r"(prov:used)\[(ada:toolRole)=", r"\1.bios:computationalTool[\2=", s)
+    s = re.sub(r"(prov:used)\[(ada:reagentRole)=", r"\1.prov:reagent[\2=", s)
+    # the plan side spells the reagent relation bios:reagent; on a dataset the base names it
+    # prov:reagent, so an explicitly-written bios:reagent under prov:used is the same envelope
+    s = s.replace("prov:used.bios:reagent[", "prov:used.prov:reagent[")
+    for bad, good in NAME_TYPOS.items():
+        s = re.sub(bad, good, s, flags=re.I)
+    return s
+
+
+def has_multitarget(s):
+    # a top-level , | or " and " (outside [...] and '...') means the row sets several targets
+    depth = 0; inq = False; i = 0
+    while i < len(s):
+        c = s[i]
+        if c == "'": inq = not inq
+        elif not inq and c == "[": depth += 1
+        elif not inq and c == "]": depth -= 1
+        elif not inq and depth == 0:
+            if c == "," or c == "|": return True
+            if s[i:i+5].lower() == " and ": return True
+        i += 1
+    return False
+
+
+def malformed(s):
+    if "special handling" in s.lower(): return "free-text"
+    if s.count("[") != s.count("]"): return "unbalanced brackets"
+    if s.rstrip().endswith(".") or s.rstrip().endswith("]."): return "trailing '.' / missing terminal"
+    if "$type" in s or "@type =" in s or '@type ="' in s: return "@type selector (needs manual mapping)"
+    return None
+
+
+def mechanical(s):
+    if s.startswith("$."):
+        s = "$MethodDefinition" + s[1:]
+    s = re.sub(r"\s+\.", ".", s)     # spaces around the '.' navigation separator
+    s = re.sub(r"\.\s+", ".", s)
+    s = re.sub(r"\s+\[", "[", s)     # space before a selector bracket
+    s = s.replace("schema.additionalProperty", "schema:additionalProperty")  # dot -> colon before container
+    s = re.sub(r"schema[.:]defaultvalue\b", "schema:defaultValue", s, flags=re.I)  # field-name case
+    s = re.sub(r"schema\.(?=" + FIELDS + r"\b)", "schema:", s)   # dot -> colon before a field
+    # additionalProperty comma-value shorthand: [].schema:name:'X' , schema:value -> [schema:name='X'].schema:value
+    s = re.sub(r"\[\]\.schema:name[:=]'([^']*)'\s*,\s*schema:value", r"[schema:name='\1'].schema:value", s)
+    s = re.sub(r"\[\s*", "[", s)
+    s = re.sub(r"\s*\]", "]", s)
+    # selector colon -> equals: [curie:'value'] -> [curie='value'] (e.g. [schema:roleName:'analyst'])
+    s = re.sub(r"\[([a-z][A-Za-z]*:[A-Za-z]+):'", r"[\1='", s)
+    s = re.sub(r"\s*=\s*", "=", s)
+    # selector unification -> [schema:name='X']
+    s = re.sub(r"\[\]\.schema:name[:=]'([^']*)'", r"[schema:name='\1']", s)
+    s = re.sub(r"bios:computationalTool\[\]\.schema:name='([^']*)'", r"bios:computationalTool[schema:name='\1']", s)
+    s = re.sub(r"schema:relatedLink\[\]\.schema:linkRelationship\[(?:schema:)?name='([^']*)'\]",
+               r"schema:relatedLink[schema:linkRelationship='\1']", s)
+    s = re.sub(r"schema:step\[\]\[(schema:(?:name|additionalType)='[^']*')\]", r"schema:step[\1]", s)
+    s = re.sub(r"schema:additionalProperty\['([^']*)'\]", r"schema:additionalProperty[schema:name='\1']", s)
+    s = re.sub(r"schema:additionalProperty\[name='([^']*)'\]", r"schema:additionalProperty[schema:name='\1']", s)
+    s = re.sub(r"schema:additionalProperty\[([A-Za-z][A-Za-z0-9]*)\]", r"schema:additionalProperty[schema:name='\1']", s)
+    # dqv inline selector -> array selector
+    s = re.sub(r"dqv:hasQualityMeasurement\.dqv:isMeasurementOf='([^']*)'",
+               r"dqv:hasQualityMeasurement[dqv:isMeasurementOf='\1']", s)
+    # schema:object @type-list selector (the iSample MaterialSample) -> canonical @type selector
+    # (a material sample's identity is in @type, as the iSample URI — not additionalType).
+    s = re.sub(r"schema:object\[@type[^\]]*materialsample[^\]]*\]",
+               r"schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample']", s)
+    # space-before-terminal: "...] schema:description" -> "...].schema:description"
+    s = re.sub(r"\]\s+(schema:(?:description|value|name))\b", r"].\1", s)
+    # #3: additionalProperty terminal convention -> .schema:value (name-terminal or missing terminal)
+    s = re.sub(r"(schema:additionalProperty\[schema:name='[^']*'\])\.schema:name$", r"\1.schema:value", s)
+    s = re.sub(r"(schema:additionalProperty\[schema:name='[^']*'\])$", r"\1.schema:value", s)
+    return s
+
+
+# canonical-form family recognizers (return (canonical, family) or None)
+SEL = r"\[(?:[a-z]+:[A-Za-z]+='[^']*')?\]|\[[a-z]+:[A-Za-z]+='[^']*'\]"
+def recognize(s):
+    root = "Dataset" if s.startswith("$Dataset") else ("MethodDefinition" if s.startswith("$MethodDefinition") else None)
+    if root is None and s.startswith("$."):
+        s = "$MethodDefinition" + s[1:]; root = "MethodDefinition"
+    if root is None:
+        return None, "no recognizable root"
+    fams = [
+        (r"^\$MethodDefinition\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "direct-ada"),
+        (r"^\$Dataset\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "dataset-scalar"),
+        (r"^\$MethodDefinition\.ada:analyteTemplate\.ada:analyteColumns\[\]$", "analyte-template"),
+        # the analyte-identifier column; special_resolve() already emits this for the `Analyte` row
+        (r"^\$MethodDefinition\.ada:analyteTemplate\.ada:defaultAnalytes\[\]$", "analyte-identifier"),
+        # the reported-property table: what the procedure REPORTS, as against what it acquires.
+        # Same shape as the analyte template — one row per member, one column per keyed field.
+        (r"^\$MethodDefinition\.ada:reportedPropertyTemplate\.ada:reportedPropertyColumns\[\]$", "reported-property-template"),
+        (r"^\$MethodDefinition\.ada:reportedPropertyTemplate\.ada:defaultReportedProperties\[\]$", "reported-property-identifier"),
+        # the channel table: instrument selection positions (a mass, a cup, an energy-loss edge)
+        (r"^\$MethodDefinition\.ada:channelTemplate\.ada:channelColumns\[\]$", "channel-template"),
+        (r"^\$MethodDefinition\.ada:channelTemplate\.ada:defaultChannels\[\]$", "channel-identifier"),
+        # the shared logical variable registry every table part references. Bare-[] identity form
+        # (registering a reported variable and its name/units), plus the reported-VALUE form: a
+        # reported property is dual-homed like any parameter. On $MethodDefinition it takes .value
+        # when the procedure fixes it (Read-Only) or .defaultValue when editable — exactly like
+        # method-parameter; on $Dataset it is .value only (the analysis records what it reported,
+        # never a default).
+        (r"^\$MethodDefinition\.schema:variableMeasured\[(schema:name='[^']*')?\](\.schema:(name|description|unitText|propertyID|value|defaultValue))?$", "method-variable-measured"),
+        (r"^\$Dataset\.schema:variableMeasured\[(schema:name='[^']*')?\](\.schema:(name|description|unitText|propertyID|value))?$", "dataset-variable-measured"),
+        (r"^\$MethodDefinition\.schema:description$", "protocol-description"),
+        (r"^\$MethodDefinition\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "method-parameter"),
+        # selected either by name or by ada:toolRole ('acquisition' / 'dataReduction'); the role
+        # selector is what every sidecar actually uses, since the tool's NAME is the value being
+        # recorded and so cannot also be the selector.
+        (r"^\$MethodDefinition\.bios:computationalTool\[(schema:name|ada:toolRole)='[^']*'\](\.schema:(name|description))?$", "computational-tool"),
+        (r"^\$MethodDefinition\.bios:computationalTool\[\]$", "computational-tool-list"),
+        (r"^\$MethodDefinition\.schema:relatedLink\[schema:linkRelationship='[^']*'\]\.schema:target(\.schema:(name|description|url))?$", "related-link"),
+        (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\](\.schema:(name|description))?$", "workflow-step"),
+        # A step parameter dual-homes exactly like an instrument parameter: `defaultValue` on the
+        # TAPP side, `value` per analysis. This previously allowed `value` only, so a dual-homed
+        # step parameter had no legal TAPP-side path at all.
+        # A Basic-tier field ON a workflow step: the matrix gives Basic a direct property, and a
+        # step is a container like an instrument, so this is the exact analogue of
+        # instrument-direct-ada. The emitter already places it correctly; only the grammar
+        # lacked the family, so the path validated nowhere and was reported as unrecognised.
+        (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "workflow-step-ada"),
+        (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "workflow-step-parameter"),
+        # a step's reagent list (sample digestion acids); the reagent is named, not parameterised
+        (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.bios:reagent\[\](\.schema:(name|identifier))?$", "workflow-step-reagent"),
+        (r"^\$MethodDefinition\.schema:(name|identifier|datePublished)$", "inherited-identity"),
+        # the procedure this one was derived from (Procedure Reference(s)) -> a prov:wasDerivedFrom
+        # string. A plan-identity field, so it groups with schema:name / identifier / datePublished.
+        (r"^\$MethodDefinition\.prov:wasDerivedFrom$", "protocol-derived-from"),
+        (r"^\$MethodDefinition\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)(\[\])?$", "protocol-sample-parameter"),
+        # instrument: a typed instrument array (selector=additionalType), optional component hasPart
+        # (also selector=additionalType), carrying identity fields, direct ada: props, or parameters.
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:(model|manufacturer)(\.schema:[A-Z][A-Za-z]*)?\.schema:name$", "instrument-identity"),
+        # `description` carries the free-text instrument variant ('FIB-SEM dual-beam + VP'), which
+        # is neither an identifier nor a parameter; likewise on a component.
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:(name|identifier|additionalType|description)$", "instrument-identity"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "instrument-direct-ada"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-parameter"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:(name|identifier|description)$", "instrument-component"),
+        # a direct ada: property ON an instrument COMPONENT (hasPart): an ICP-MS Collector's
+        # ada:collectorConfiguration channel table or its ada:defaultChannels list. The hasPart-level
+        # analogue of instrument-direct-ada — the emitter already nests it; only the grammar lacked it.
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "instrument-component-ada"),
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-component-parameter"),
+        (r"^\$MethodDefinition\.schema:(creator|location|measurementTechnique|object|funding)\b.*", "inherited-identity"),
+        # dataset side (belongs on the analysis session / detail, not the reusable protocol)
+        (r"^\$Dataset\.schema:contributor\[schema:roleName='[^']*'\](\.schema:(name|identifier))?$", "dataset-contributor"),
+        (r"^\$Dataset\.schema:measurementTechnique(\.schema:DefinedTerm)?\.schema:identifier$", "dataset-measurement-technique"),
+        # identifier joins the dates: all three are the session's own, and the session is the
+        # activity. Group1's Session Identifier lands here rather than in a parameter bag, which is
+        # the module's whole character — every one of its fields maps to a property that already
+        # exists rather than inventing one.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:(startDate|endDate|identifier)$",
+         "dataset-provenance"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-prov-parameter"),
+        # A property of the DELIVERED DATA, not of the session that produced it — map area, volume
+        # dimensions, sub-volume count. These sit on the dataset root precisely because they are not
+        # activity parameters: one session can yield products of differing extent, and the property
+        # holds whether or not the provenance is described. Contrast dataset-prov-parameter above,
+        # which says how the instrument was configured. Both spellings are legal and they mean
+        # different things, so nothing here can auto-correct one into the other.
+        (r"^\$Dataset\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-parameter"),
+        # analysis-tier half of a dual-homed STEP parameter. `value` only, deliberately: a dataset
+        # records what was used, never a default — that lives on the TAPP side.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-step-parameter"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\](\.schema:(name|description))?$", "dataset-step"),
+        # the provenance ACTIVITY's own fields: a direct ada: property, or its description. The
+        # analysis-tier partners of $MethodDefinition.ada:<name>Default and .schema:description.
+        # `(?<!Default)` deliberately: the Default suffix marks the PROCEDURE's default, so a
+        # dataset property can never carry it — the dataset records what was actually used.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-activity-ada"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:description$", "dataset-activity-description"),
+        # where the analysis actually happened — partner of $MethodDefinition.schema:location.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:location\.schema:Place\[schema:additionalType='[^']*'\]\.schema:(name|identifier)$", "dataset-location"),
+        # prov:used items are entities, selected by whichever key discriminates them:
+        # schema:additionalType for an instrument, ada:toolRole for a computational tool,
+        # ada:reagentRole for a reagent. Identity fields only; parameters have their own families.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.(?:schema:instrument|bios:computationalTool|prov:reagent)\[(schema:additionalType|ada:[a-z][A-Za-z0-9]*)='[^']*'\]\.schema:(name|identifier|description)$", "dataset-used-identity"),
+        # schema:distribution is an array of DataDownload objects and schema:encodingFormat is an
+        # array of MIME-type strings on each (per the upstream CDIF dataDownload), so both segments
+        # carry []: a scalar navigation here would emit a single distribution object and reject the
+        # base's array shape.
+        (r"^\$Dataset\.schema:distribution\[\]\.schema:encodingFormat\[\]$", "dataset-distribution"),
+        # dataset-side instrument mirrors. On the protocol the instrument is schema:instrument; on
+        # the dataset the provenance activity carries it as prov:used, so these are the analysis-tier
+        # partners of instrument-direct-ada / instrument-parameter / instrument-component-parameter.
+        # `value` only — the default lives on the TAPP side.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-ada"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-parameter"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-component-parameter"),
+        # analysis-tier partner of instrument-component-ada: a direct ada: property on a component of
+        # the instrument the session used. `value`-scoped, never Default (the default lives on the plan).
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-component-ada"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier|description)$", "dataset-sample"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
+        (r"^\$Dataset\.schema:funding$", "dataset-funding"),
+        (r"^\$Dataset\.schema:relatedLink\[schema:linkRelationship='[^']*'\]\.schema:target(\.schema:(name|url|description))?$", "dataset-related-link"),
+        (r"^\$Dataset\.dqv:hasQualityMeasurement\[dqv:isMeasurementOf='[^']*'\]\.dqv:value$", "dataset-quality"),
+    ]
+    for pat, fam in fams:
+        if re.match(pat, s):
+            return s, fam
+    return None, "unrecognized after normalization"
+
+
+# #2: multi-target rows resolved to a single primary canonical target (per user direction).
+# The row's one value populates the primary; genuinely-secondary targets (e.g. ada:ablationMode,
+# ada:sliceCount, an agent identifier) would need a separate workbook row and are not invented here.
+MULTI_RESOLVE = {
+    "Protocol Author": "$MethodDefinition.schema:creator.schema:name",
+    "Analyst": "$Dataset.prov:wasGeneratedBy.schema:agent.schema:name",
+    "Protocol DOI": "$Dataset.schema:measurementTechnique.schema:identifier",
+    "Laser Spot Path / Ablation Mode": "$MethodDefinition.ada:spotPath",
+    "Voxel Size and Image Stack Dimensions": "$Dataset.ada:voxelSize",
+}
+
+
+def special_resolve(item, s, reason):
+    """Item-aware resolutions for #2/#3/#5. Returns (canonical, family) or (None, None)."""
+    il = item.strip().lower()
+    if il == "analyte":                                            # #5
+        return "$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]", "analyte-identifier"
+    if reason == "multi-target (split into separate rows)" and item in MULTI_RESOLVE:  # #2
+        return MULTI_RESOLVE[item], "multi-target-primary"
+    # #3: workflow-step additionalProperty with no selector -> the parameter is named for the row
+    m = re.match(r"^(\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(?:name|additionalType)='[^']*'\])"
+                 r"\.schema:additionalProperty\.schema:name$", s)
+    if m:
+        return f"{m.group(1)}.schema:additionalProperty[schema:name='{item}'].schema:value", "workflow-step-parameter"
+    return None, None
+
+
+def normalize(sp):
+    s = mechanical(preclean(sp))
+    if s.count("$MethodDefinition") + s.count("$Dataset") > 1:   # two roots => two targets
+        return None, None, "multi-target (split into separate rows)"
+    if has_multitarget(s):
+        return None, None, "multi-target (split into separate rows)"
+    m = malformed(s)
+    if m:
+        return None, None, m
+    canon, fam = recognize(s)
+    if canon and not _parses(canon):
+        return None, None, "parser rejected after normalization"
+    if canon:
+        return canon, fam, None
+    return None, None, fam  # fam holds the reason string here
+
+
+def main():
+    dry = "--dry-run" in sys.argv
+    total_ok = total_flag = 0
+    flagged = []
+    for tapp in TIER_TAPPS:
+        b.configure(tapp)
+        ws = openpyxl.load_workbook(b.XLSX, data_only=True, read_only=True)["TAPP"]
+        rows = list(ws.iter_rows(values_only=True))
+        H = [b.norm(v).lower() for v in rows[0]]
+        spc = next((i for i, v in enumerate(H) if v == "schema path"), None)
+        spec = {}
+        ok = flag = 0
+        for r in rows[1:]:
+            item = b.norm(r[0])
+            if not item or re.match(r"^\d+\.\s", item):
+                continue
+            sp = b.norm(r[spc]) if spc is not None and spc < len(r) else ""
+            if not sp:
+                continue
+            canon, fam, reason = normalize(sp)
+            if not canon:
+                canon, fam = special_resolve(item, mechanical(preclean(sp)), reason)
+                if canon and not _parses(canon):
+                    canon, fam = None, None
+            if canon:
+                spec[item] = {"path": canon, "family": fam}
+                ok += 1
+            else:
+                flag += 1
+                flagged.append((tapp, item, sp, reason))
+        out = os.path.join(ROOT, "docs", os.path.splitext(os.path.basename(b.XLSX))[0] + ".schemapaths.json")
+        if not dry:
+            with open(out, "w", encoding="utf-8") as f:
+                json.dump(spec, f, indent=2, ensure_ascii=False); f.write("\n")
+        print(f"{tapp:16} canonical={ok:3}  flagged={flag:3}" + ("" if dry else f"  -> {os.path.relpath(out, ROOT)}"))
+        total_ok += ok; total_flag += flag
+    print(f"\nTOTAL canonical={total_ok}  flagged={total_flag}\n")
+    print("=== FLAGGED FOR REVIEW (grouped by reason) ===")
+    from collections import defaultdict
+    byreason = defaultdict(list)
+    for tapp, item, sp, reason in flagged:
+        byreason[reason].append(f"[{tapp}] {item}: {sp}")
+    for reason in sorted(byreason):
+        print(f"\n-- {reason} ({len(byreason[reason])}) --")
+        for line in byreason[reason][:40]:
+            print(f"   {line}")
+
+
+if __name__ == "__main__":
+    main()

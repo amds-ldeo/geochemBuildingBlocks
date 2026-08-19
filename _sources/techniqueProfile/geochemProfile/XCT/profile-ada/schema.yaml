@@ -1,0 +1,35 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ADA XCT Product Profile
+description: Technique-specific profile for X-ray Computed Tomography (XCT) products. Extends the base ADA product profile with constraints on valid XCT component types and detailXCT requirements.
+allOf:
+  - $ref: ../../../../BaseSchema/adaProduct/schema.yaml
+  - type: object
+    properties:
+      schema:additionalType:
+        description: Must include a XCT product type identifier.
+        contains:
+          enum:
+            - X-ray Computed Tomography (XCT) Image Collection
+            - X-ray computed tomography
+      schema:distribution:
+        description: Distribution items for adaXCT. Archive hasPart items must have ada:componentType from technique-specific or universal values.
+        type: array
+        items:
+          type: object
+          properties:
+            schema:hasPart:
+              items:
+                type: object
+                anyOf:
+                  - $ref: ../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+                  - $ref: ../detail-legacy/schema.yaml
+      schema:subjectOf:
+        properties:
+          dcterms:conformsTo:
+            contains:
+              type: object
+              required: ['@id']
+              additionalProperties: false
+              properties:
+                '@id':
+                  const: 'https://w3id.org/geochem/metadata/profiles/adaXCT'
