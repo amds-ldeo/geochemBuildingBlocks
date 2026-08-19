@@ -50,14 +50,15 @@ def load_rows(path):
     def col(*pfx):
         return next((i for i, h in enumerate(hdr) for p in pfx if h.lower().startswith(p)), None)
     ci = {"P": col("procedure-level", "protocol-level", "procedure", "protocol"),
-          "A": col("analysis-level", "analysis"), "dt": col("data type")}
+          "A": col("analysis-level", "analysis"), "dt": col("data type"),
+          "kb": col("keyed by", "keyed")}
     out = []
     for r in rs[1:]:
         it = (str(r[0]).strip() if r[0] else "")
         if not it or re.match(r"^\d+\.\s", it):
             continue
         g = lambda k: (str(r[ci[k]]).strip() if ci[k] is not None and ci[k] < len(r) and r[ci[k]] else "")
-        out.append({"item": it, "P": g("P"), "A": g("A"), "dt": g("dt")})
+        out.append({"item": it, "P": g("P"), "A": g("A"), "dt": g("dt"), "kb": g("kb")})
     return out
 
 
@@ -186,6 +187,34 @@ def _dualize(paths, row):
     return out
 
 
+_ISAMPLE = "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+
+
+def keyed_path(row):
+    """The canonical schema path(s) implied by the workbook's 'Keyed By' column, or None to fall
+    through to content inference. `defines: X` rows are the template's list ROOT; the plain values
+    are its per-member COLUMN family. Technique-scoped keys (channel — which needs a specific
+    instrument component to host it — and the standard/combination keys) are left to inference or
+    hand-authoring, so this only routes the technique-agnostic families."""
+    kb = (row.get("kb") or "").strip().lower()
+    it = row["item"]
+    if not kb or kb == "(none)":
+        return None
+    routes = {
+        "defines: analyte": ["$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes"],
+        "analyte": ["$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]"],
+        "defines: reported property": ["$MethodDefinition.ada:reportedProperties[]"],
+        "reported property": [f"$MethodDefinition.schema:variableMeasured[schema:name='{it}'].schema:defaultValue",
+                              f"$Dataset.schema:variableMeasured[schema:name='{it}'].schema:value"],
+        "defines: sampling unit": ["$MethodDefinition.ada:samplingUnit"],
+        "defines: sample": [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}'].schema:name"],
+        "sample": [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}']"
+                   f".schema:additionalProperty[schema:name='{it}'].schema:value"],
+    }
+    p = routes.get(kb)
+    return (p, "keyed:" + kb.replace(" ", "-")) if p else None
+
+
 def infer(row, lib, lib_norm, sidecar):
     """Return (paths_list, source) or (None, reason). paths_list is usually length 1, but 2 for a
     dual-homed editable protocol parameter (TAPP defaultValue + detail value)."""
@@ -197,6 +226,10 @@ def infer(row, lib, lib_norm, sidecar):
             return [ov["path"]], "sidecar"
         if ov.get("name"):  # a curated dataset-scalar name for an analysis-instance row
             return [f"$Dataset.ada:{ov['name']}"], "sidecar:name"
+    # 0b. the workbook's Keyed By column routes template families to their canonical structure
+    kp = keyed_path(row)
+    if kp:
+        return kp
     # 1. exact reference match (identity, instrument, params — path is exactly right for the same item)
     if it in lib:
         return _dualize(_aslist(lib[it]["path"]), row), "reuse"
@@ -238,8 +271,10 @@ def infer(row, lib, lib_norm, sidecar):
 
 
 def _base(row):
+    kb = (row.get("kb") or "").strip()
     return {"Metadata Item": row["item"], "Protocol Tier": row["P"],
-            "Analysis Tier": row["A"], "Data Type": row["dt"]}
+            "Analysis Tier": row["A"], "Data Type": row["dt"],
+            "Key by": "" if kb.lower() in ("", "(none)") else kb}
 
 
 def main():
@@ -252,7 +287,9 @@ def main():
               "  --reseed-all  drop ALL existing rows and re-infer (destroys hand modelling)")
         return 1
     wb = args[0] if os.path.isabs(args[0]) else os.path.join(ROOT, args[0])
-    lib = schemapath_io.load_spec(LIB_SPEC)
+    # The reference library is optional: when it is absent, rows fall through to the Keyed By routing
+    # and content inference (identity/instrument reuse is simply unavailable).
+    lib = schemapath_io.load_spec(LIB_SPEC) if os.path.exists(LIB_SPEC) else {}
     lib_norm = {_norm(k): v for k, v in lib.items()}
     # legacy overrides sidecar is folded in on first seed (rows become Source=authored); optional
     sc_path = os.path.splitext(wb)[0] + ".overrides.json"

@@ -618,6 +618,8 @@ def sentinel_for(sub):
         return -9999
     if t == "string":
         return "missing"
+    if t == "boolean":
+        return False        # a required boolean with no reported value defaults to false (not applied)
     if t == "object":
         return None
     for branch in (sub.get("anyOf") or sub.get("oneOf") or []):
