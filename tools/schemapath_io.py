@@ -17,7 +17,12 @@ import csv
 import os
 
 FIELDS = ["Metadata Item", "Protocol Tier", "Analysis Tier", "Data Type", "Schema Path", "Source",
-          "Scope", "Notes"]
+          "Scope", "Notes", "Key by"]
+# `Key by` mirrors the workbook's `Keyed By` declaration, which routes a template-family row to its
+# canonical Schema Path (bootstrap_schemapaths.keyed_path). It was missing from this list, so every
+# write through here SILENTLY DROPPED it — which is why bootstrap builds the value and it never
+# reaches disk, why 13 of 16 sidecars carry an empty column against source tables that declare 348
+# values, and why backfill_keyby.py had to append the field line-by-line instead of writing rows.
 # `Scope` is DERIVED, not authored: mark_shared_mappings.py computes it across ALL sidecars at once
 # (shared / divergent / blank = technique-specific) so a reviewer can skip the boilerplate rows.
 # It is listed here so write() preserves it, but bootstrap_schemapaths rebuilds rows from the

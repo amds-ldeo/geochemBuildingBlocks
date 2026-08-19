@@ -58,6 +58,61 @@ ALIASES = {
     # tiers and the same analyte-column placement as the old per-analyte field. Not to be confused
     # with `Mass Resolution Setting`, which is Basic/Editable and states the procedure's mode.
     "Mass Resolution per Analyte": "Mass Resolution Assignment",
+
+    # --- 2026-08 delivery (amds-ldeo/tapp @ baf33dc). Each confirmed against the new table's own
+    # Description column; see the intake report for the per-technique counts. ---
+
+    # "All software applied to the data after acquisition in order to produce the reported
+    # quantities, including version numbers." Explicitly distinguished there from Acquisition
+    # Software. The single most widespread rename in this delivery: 15 of 16 tables.
+    "Data Reduction Software": "Data Processing Software(s)",
+
+    # "Specific masses monitored in this procedure, grouped by the analyte element they serve where
+    # they serve one. Covers atomic isotopes and, where a reaction cell shifts an analyte onto a
+    # different mass, the product mass actually measured." Two olds, one new — the generalisation
+    # from isotope to mass is exactly what the reaction-cell clause is for.
+    "Monitored Isotopes": "Monitored Masses",
+    "Masses Measured": "Monitored Masses",
+
+    # "Supplementary gas added to the sample-carrying stream between the sample introduction system
+    # and the plasma, with its identity and the procedure-registered target flow rate." One new
+    # field absorbs the old identity/addition field and the two flow-rate spellings.
+    "Plasma / Make-up Gas Addition": "Make-up Gas and Flow Rate",
+    "Make-up Gas Flow Rate": "Make-up Gas and Flow Rate",
+    "Make-up Gas Flow (L min⁻¹)": "Make-up Gas and Flow Rate",
+
+    # "Instrument sensitivity achieved in the session, with the isotope or channel it was measured
+    # on and the conditions it applies to." Drops the 'useful yield' framing but measures the same
+    # quantity; both old spellings map on.
+    "Sensitivity as Useful Yield": "Instrument Sensitivity",
+    "'Sensitivity' as Useful Yield (%, element)": "Instrument Sensitivity",
+
+    # "Dead time of each ion-counting detector channel, used in the dead-time correction applied to
+    # high count rates." Same field, units moved out of the label.
+    "IC Dead Time (ns)": "Ion Counter Dead Time",
+
+    # The delivery splits reproducibility into a within-measurement and a between-session field,
+    # each naming its assessment method. "Precision of a single measurement, derived from the
+    # scatter of the cycles, sweeps or integrations that make it up" / "Reproducibility of
+    # measurements across multiple analytical sessions over weeks to months".
+    "In-Run Isotope Ratio Reproducibility and Assessment Method":
+        "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+    "Between-Session Reproducibility and Assessment Method":
+        "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+
+    # "Number of replicate analyses performed on the same sample (or same nominal location for spot
+    # analysis) in this session" — the per-sample qualifier moved into the description.
+    "Number of Replicates per Sample": "Number of Replicates",
+
+    # PARTIAL: the delivery splits one make-and-model field into two. ALIASES is 1->1, so only the
+    # model side carries here — which is the right half, because every authored path for these olds
+    # targets `schema:instrument[...].schema:model.schema:name`. `Instrument Manufacturer` arrives
+    # as a new flagged row; author it as the sibling `...schema:manufacturer.schema:name`, the form
+    # the EPMA/SEM/TEM sidecars already use. `CT System Manufacturer and Model` is deliberately NOT
+    # aliased: its path is `inferred`, not authored, and names a placeholder ada: property, so
+    # carrying it would preserve a guess rather than curation. Let it drop and author both XCT rows.
+    "ICP-MS Manufacturer & Model": "Instrument Model",
+    "Instrument Make and Model": "Instrument Model",
 }
 
 
@@ -107,6 +162,27 @@ def source_items(path):
             continue
         g = lambda k: (b.norm(r[ci[k]]) if ci[k] is not None and ci[k] < len(r) else "")
         out.append((it, g("P"), g("A"), g("dt")))
+    return out
+
+
+def source_keyedby(path):
+    """{item -> the table's `Keyed By` declaration}, or {} when the table has no such column.
+
+    Separate from source_items() on purpose: five call sites in the module tooling unpack that as a
+    4-tuple, and widening it for one caller would break all of them.
+    """
+    rows = tapp_source.rows(path)
+    hdr = [b.norm(v).lower() if v is not None else "" for v in rows[0]]
+    ki = next((i for i, h in enumerate(hdr) if h.startswith("keyed")), None)
+    if ki is None:
+        return {}
+    out = {}
+    for r in rows[1:]:
+        it = b.norm(r[0]) if r and r[0] else ""
+        if not it or re.match(r"^\d+\.\s", it) or len(r) <= ki:
+            continue
+        kb = b.norm(r[ki]) or ""
+        out[it] = "" if kb.strip().lower() in ("", "(none)") else kb.strip()
     return out
 
 
@@ -176,6 +252,8 @@ def migrate(tapp, new_source, write=False, seed=None):
 
     rows = schemapath_io.read(old_csv)
     new_rows_src = source_items(new_source)
+    new_kb = source_keyedby(new_source)
+    drift = {"fill": [], "loss": [], "conflict": []}
     new_meta = {i: (p, a, dt) for i, p, a, dt in new_rows_src}
     new_order = [i for i, _, _, _ in new_rows_src]
 
@@ -203,9 +281,26 @@ def migrate(tapp, new_source, write=False, seed=None):
         p, k = rewrite_selectors((r.get("Schema Path") or "").strip(), by_norm)
         row["Schema Path"] = p
         sel_hits += k
-        if new_it in new_meta:                       # refresh the context columns
+        if new_it in new_meta:
+            # Refresh every column that MIRRORS the source table, and record what changed. These
+            # used to be overwritten in silence, which hides the drift this tool exists to surface:
+            # a re-tier changes requiredness in the generated schema, and a Keyed By change re-routes
+            # a template family to a different canonical path. Both are as consequential as a rename.
             tp, ta, tdt = new_meta[new_it]
-            row["Protocol Tier"], row["Analysis Tier"], row["Data Type"] = tp, ta, tdt
+            for col, was, now in (("Protocol Tier", row.get("Protocol Tier"), tp),
+                                  ("Analysis Tier", row.get("Analysis Tier"), ta),
+                                  ("Data Type", row.get("Data Type"), tdt),
+                                  ("Key by", row.get("Key by"), new_kb.get(new_it, ""))):
+                was = (was or "").strip()
+                now = (now or "").strip()
+                if _norm(was) == _norm(now):
+                    continue
+                # A fill is the table supplying something the sidecar never carried — routine, and
+                # the whole point of re-reading the table. The other two directions are a CONFLICT:
+                # curation and table disagree, and only a human knows which is right.
+                drift["fill" if not was else "loss" if not now else "conflict"].append(
+                    (col, new_it, was, now))
+                row[col] = now
         out.append(row)
 
     # Two items merging onto one produce the same row twice, once their selectors are rewritten to
@@ -227,17 +322,30 @@ def migrate(tapp, new_source, write=False, seed=None):
         tp, ta, tdt = new_meta[i]
         out.append({"Metadata Item": i, "Protocol Tier": tp, "Analysis Tier": ta, "Data Type": tdt,
                     "Schema Path": "", "Source": "flagged", "Scope": "",
-                    "Notes": "new in this revision (needs mapping)"})
+                    "Notes": "new in this revision (needs mapping)",
+                    "Key by": new_kb.get(i, "")})
 
     print(f"=== {tapp}: {os.path.basename(b.XLSX)} -> {os.path.basename(new_source)} ===")
     print(f"  rows        {len(rows)} -> {len(out)}")
     print(f"  items       {len(old_items)} carried, {len(renamed)} renamed, "
           f"{len(dropped)} dropped, {len(added)} new (flagged)")
     print(f"  selectors   {sel_hits} literal(s) rewritten")
+    if any(drift.values()):
+        from collections import Counter
+        fills = Counter(c for c, _, _, _ in drift["fill"])
+        print(f"  columns     {len(drift['fill'])} filled from the table "
+              f"({', '.join(f'{n} {c}' for c, n in sorted(fills.items())) or 'none'}), "
+              f"{len(drift['conflict'])} conflict(s), {len(drift['loss'])} loss(es)")
     if merged:
         print(f"  merged      {merged} duplicate row(s) collapsed by an alias merge")
     for o in sorted(renamed):
         print(f"      rename  {o!r} -> {renamed[o]!r}")
+    # Conflicts and losses are itemised; plain fills are only counted. A fill is the table telling
+    # us something we never recorded, and at 348 of them across the delivery an itemised list would
+    # bury the handful of rows where curation and table actually disagree.
+    for col, item, was, now in drift["conflict"] + drift["loss"]:
+        print(f"      {col:<14s} {item!r}: {was!r} -> {now!r}"
+              f"{'  (table clears it — confirm)' if not now else ''}")
     for d in dropped:
         # In seed mode these are simply fields the neighbour has and this technique does not, which
         # is expected and not a loss. Saying "confirm this item really is gone" there would send a
