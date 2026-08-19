@@ -1145,14 +1145,14 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
@@ -1170,6 +1170,18 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
             schema1:name "JSPS KAKENHI; Tokyo Institute of Technology" ] ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)" ] ;
+            schema1:name "example instrumentName" ;
+            ada:laserFluenceDefault "12 J cm⁻²" ;
+            ada:laserRepetitionRateDefault "20 Hz" ;
+            ada:laserSpotGeometryDefault "30 µm circular" ;
+            ada:laserType "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)" ],
+        [ a schema1:Product,
+                schema1:Thing ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "ICPMS",
@@ -1177,7 +1189,13 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
+                        "Torch" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interfaceConeConfiguration> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Interface Cone" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -1189,29 +1207,11 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interfaceConeConfiguration> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
+                        "Collision Reaction Cell" ;
                     schema1:name "missing" ] ;
             schema1:model [ a schema1:ProductModel ;
                     schema1:name "Thermo Scientific X-series 2 (Q-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserFluenceDefault "12 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "20 Hz" ;
-            ada:laserSpotGeometryDefault "30 µm circular" ;
-            ada:laserType "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)" ] ;
+            schema1:name "example instrumentName" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1225,13 +1225,13 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
                     schema1:value "CR chondrite metal grains (interior, margin, and isolated types)" ],
                 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
@@ -2692,18 +2692,6 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
             schema1:name "NSFC; Chinese Academy of Sciences" ] ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserFluenceDefault "6.79 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "1 Hz" ;
-            ada:laserSpotGeometryDefault "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)" ;
-            ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" ],
-        [ a schema1:Product,
-                schema1:Thing ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration>,
                 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/icpTuningDefault>,
                 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting>,
@@ -2722,19 +2710,31 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/coolantGasFlowRateDefault>,
                         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/rfPowerDefault> ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "ICP Source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Collision Reaction Cell" ;
                     schema1:name "missing" ] ;
             schema1:model [ a schema1:ProductModel ;
                     schema1:name "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)" ] ;
-            schema1:name "example instrumentName" ] ;
+            schema1:name "example instrumentName" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)" ] ;
+            schema1:name "example instrumentName" ;
+            ada:laserFluenceDefault "6.79 J cm⁻²" ;
+            ada:laserRepetitionRateDefault "1 Hz" ;
+            ada:laserSpotGeometryDefault "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)" ;
+            ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3947,16 +3947,16 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -3978,17 +3978,17 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ICP Source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Torch" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Collision Reaction Cell" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -5132,6 +5132,12 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Same capsule section as silicate glass; sulfide grains ≥20 µm selected by SEM-BSE" ;
                     schema1:name "Sample preparation" ;
@@ -5140,13 +5146,7 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -5157,26 +5157,10 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
             schema1:name "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ] ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)" ] ;
-            schema1:name "Cetac Analyte HE system (same as silicate glass protocol)" ;
-            ada:laserFluenceDefault "~2.5 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "7 Hz" ;
-            ada:laserSpotGeometryDefault "20 µm circular (sulfide; grain sizes >20 µm selected)" ;
-            ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" ],
-        [ a schema1:Product,
-                schema1:Thing ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "ICPMS" ;
             schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Collision Reaction Cell" ;
@@ -5190,10 +5174,26 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "ICP Source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Torch" ;
                     schema1:name "missing" ] ;
             schema1:model [ a schema1:ProductModel ;
                     schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ] ;
+            schema1:name "example instrumentName" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)" ] ;
+            schema1:name "Cetac Analyte HE system (same as silicate glass protocol)" ;
+            ada:laserFluenceDefault "~2.5 J cm⁻²" ;
+            ada:laserRepetitionRateDefault "7 Hz" ;
+            ada:laserSpotGeometryDefault "20 µm circular (sulfide; grain sizes >20 µm selected)" ;
+            ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5985,8 +5985,8 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -5995,8 +5995,8 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:datePublished "missing" ;
     schema1:description "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume" ;
@@ -6007,12 +6007,12 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
+                        "Collision Reaction Cell" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
+                        "Interface Cone" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -6022,7 +6022,7 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
+                        "ICP Source" ;
                     schema1:name "missing" ] ;
             schema1:model [ a schema1:ProductModel ;
                     schema1:name "Agilent 7500ce ICP-MS" ] ;
@@ -6052,13 +6052,13 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
                     schema1:value "Martian meteorite (Tissint) silicates, oxides, and glass: olivine, low-Ca pyroxene, augite, maskelynite, Fe-Ti-Cr oxides, shock melt glass, fusion crust" ],
                 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA provides major element concentrations for comparison with LA-ICP-MS oxide-sum normalization results; agreement within <10% verified" ;
                     schema1:name "EPMA (EMP)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
@@ -6745,29 +6745,17 @@ ex:laQicpmsTAPP-Liu2016-2 a cdi:Activity,
     schema1:description "N/A — see silicate column for general notes" ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserEnergyDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserFluenceDefault "7–10 J/m² (same as silicate protocol)" ;
-            ada:laserRepetitionRateDefault "5 Hz" ;
-            ada:laserSpotGeometryDefault "~24 µm diameter" ;
-            ada:laserType "193 nm Excimer (ArF excimer)" ],
-        [ a schema1:Product,
-                schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "ICPMS" ;
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
+                        "Collision Reaction Cell" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
+                        "ICP Source" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -6781,7 +6769,19 @@ ex:laQicpmsTAPP-Liu2016-2 a cdi:Activity,
                     schema1:name "missing" ] ;
             schema1:model [ a schema1:ProductModel ;
                     schema1:name "Agilent 7500ce ICP-MS" ] ;
-            schema1:name "example instrumentName" ] ;
+            schema1:name "example instrumentName" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserEnergyDefault> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)" ] ;
+            schema1:name "example instrumentName" ;
+            ada:laserFluenceDefault "7–10 J/m² (same as silicate protocol)" ;
+            ada:laserRepetitionRateDefault "5 Hz" ;
+            ada:laserSpotGeometryDefault "~24 µm diameter" ;
+            ada:laserType "193 nm Excimer (ArF excimer)" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;

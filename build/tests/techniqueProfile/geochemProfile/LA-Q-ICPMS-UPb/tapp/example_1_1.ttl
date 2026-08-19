@@ -14,15 +14,15 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -64,15 +64,15 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/coolantGasFlowRateDefault>,
                         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/rfPowerDefault> ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "ICP Source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Collision Reaction Cell" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -95,13 +95,13 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
                     schema1:value "CR chondrite metal grains (interior, margin, and isolated types)" ],
                 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;

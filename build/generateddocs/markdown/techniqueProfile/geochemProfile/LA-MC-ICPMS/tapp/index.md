@@ -1344,9 +1344,11 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                 "Multi-collector sector-field (MC-ICP-MS)" ;
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interfaceConeConfiguration> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/auxiliaryGasFlowRateDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/coolantGasFlowRateDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/rfPowerDefault> ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
+                        "ICP Source" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -1372,11 +1374,9 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/auxiliaryGasFlowRateDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/coolantGasFlowRateDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/rfPowerDefault> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interfaceConeConfiguration> ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
+                        "Interface Cone" ;
                     schema1:name "missing" ] ;
             schema1:model [ a schema1:ProductModel ;
                     schema1:name "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)" ] ;
@@ -1399,11 +1399,11 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
             schema1:name "fs-LA-MC-ICP-MS" ;
             schema1:termCode "LA-MC-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1" ;
-    schema1:object [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ],
-        [ a schema1:DefinedTerm,
+    schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ],
+        [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ] ;
     prov:wasDerivedFrom "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)" ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Transect (continuous line scan)" ;

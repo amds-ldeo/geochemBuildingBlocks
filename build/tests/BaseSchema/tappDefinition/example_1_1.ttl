@@ -15,16 +15,6 @@
             schema1:name "EPMA WDS tephra glass analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Tephra glass grains mounted, polished, and carbon coated for EPMA." ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    schema1:result <file:///github/workspace/#preparedMount> ;
-                    bios:reagent [ a schema1:ChemicalSubstance ;
-                            schema1:name "Carbon" ;
-                            ada:reagentRole "coatingMaterial" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "Armstrong/Packwood-Brown 1981 MAS Phi(pz) with CITZMU MACs" ;
                             schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/matrix-correction-models> ;
@@ -48,23 +38,25 @@
                             ada:toolRole "dataReduction" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "Primary reference materials at start/end of session; calibration interpolated" ;
-                            schema1:name "Drift Correction" ;
-                            schema1:readonlyValue false ;
-                            schema1:valueName "driftCorrection" ;
-                            schema1:valueRequired false ;
-                            ada:category "Quality Control" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "R" ] ;
-                    schema1:description "Secondary standards analysed at start and end of every session. Drift correction by interpolation of primary standard calibrations." ;
-                    schema1:name "Quality control" ;
-                    schema1:object <file:///github/workspace/#quantifiedResults> ;
-                    schema1:position 5 ;
-                    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
-                            dqv:isMeasurementOf "analytical precision (1-sigma)" ;
-                            dqv:value "Reported per element on secondary standards; see relatedLink publications" ] ],
+                    schema1:description "Calibrate WDS spectrometers on primary standards. Verify on secondary standards at start and end of session." ;
+                    schema1:name "Instrument calibration" ;
+                    schema1:object <file:///github/workspace/#preparedMount> ;
+                    schema1:position 2 ;
+                    bios:reagent [ a schema1:ChemicalSubstance ;
+                            schema1:name "Kaersutite amphibole" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:ChemicalSubstance ;
+                            schema1:name "Albite" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:name "Lipari obsidian ID3506" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:name "USGS BHVO-2g" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:name "USGS NKT-1g" ;
+                            ada:reagentRole "secondaryStandard" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
@@ -121,25 +113,33 @@
                     schema1:result <file:///github/workspace/#rawAnalyses> ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:description "Calibrate WDS spectrometers on primary standards. Verify on secondary standards at start and end of session." ;
-                    schema1:name "Instrument calibration" ;
-                    schema1:object <file:///github/workspace/#preparedMount> ;
-                    schema1:position 2 ;
+                    schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "Primary reference materials at start/end of session; calibration interpolated" ;
+                            schema1:name "Drift Correction" ;
+                            schema1:readonlyValue false ;
+                            schema1:valueName "driftCorrection" ;
+                            schema1:valueRequired false ;
+                            ada:category "Quality Control" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "R" ] ;
+                    schema1:description "Secondary standards analysed at start and end of every session. Drift correction by interpolation of primary standard calibrations." ;
+                    schema1:name "Quality control" ;
+                    schema1:object <file:///github/workspace/#quantifiedResults> ;
+                    schema1:position 5 ;
+                    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
+                            dqv:isMeasurementOf "analytical precision (1-sigma)" ;
+                            dqv:value "Reported per element on secondary standards; see relatedLink publications" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Tephra glass grains mounted, polished, and carbon coated for EPMA." ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    schema1:result <file:///github/workspace/#preparedMount> ;
                     bios:reagent [ a schema1:ChemicalSubstance ;
-                            schema1:name "Albite" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:name "USGS BHVO-2g" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:ChemicalSubstance ;
-                            schema1:name "Kaersutite amphibole" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:name "USGS NKT-1g" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:name "Lipari obsidian ID3506" ;
-                            ada:reagentRole "secondaryStandard" ] ] ] ;
+                            schema1:name "Carbon" ;
+                            ada:reagentRole "coatingMaterial" ] ] ] ;
     schema1:agent [ a schema1:Organization ;
             schema1:name "Concord University" ] ;
     schema1:datePublished "2011-10-20" ;
@@ -169,8 +169,27 @@
             schema1:name "silicate glass" ] ;
     schema1:version "1.0.6" ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Detection Limit Unit" ;
-                    schema1:valueName "detectionLimitUnit" ;
+                    schema1:name "Normalization Method" ;
+                    schema1:valueName "normalizationMethod" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "O" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/diffracting-crystals> ;
+                    schema1:name "Diffracting Crystal" ;
+                    schema1:valueName "diffractingCrystal" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Detection Limit" ;
+                    schema1:valueName "detectionLimit" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "number" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Detection Limit Method" ;
+                    schema1:valueName "detectionLimitMethod" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ],
@@ -181,10 +200,24 @@
                     ada:dataType "string" ;
                     ada:tier "O" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/xray-lines> ;
-                    schema1:name "X-ray Line" ;
-                    schema1:valueName "xrayLine" ;
+                    schema1:name "Sequence" ;
+                    schema1:valueName "sequence" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "integer" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Calibration Standard Name" ;
+                    schema1:valueName "calibrationStandardName" ;
                     schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings." ;
+                    schema1:name "Analysed Oxide/Element" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
@@ -199,37 +232,24 @@
                     ada:dataType "string" ;
                     ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:minValue 1 ;
-                    schema1:name "Background Counting Time (s)" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "backgroundCountingTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
-                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                                    schema1:termCode "P-10" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "SDD" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "Si(Li)" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "Other" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "xenon" ] ] ;
-                    schema1:name "Detector Type" ;
-                    schema1:valueName "detectorType" ;
+                    schema1:name "Spectrometer" ;
+                    schema1:valueName "spectrometer" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:description "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings." ;
-                    schema1:name "Analysed Oxide/Element" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
+                    schema1:minValue 1 ;
+                    schema1:name "Peak Counting Time (s)" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "peakCountingTime" ;
                     schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/xray-lines> ;
+                    schema1:name "X-ray Line" ;
+                    schema1:valueName "xrayLine" ;
+                    schema1:valueRequired true ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
@@ -238,6 +258,31 @@
                     schema1:valueName "backgroundMethod" ;
                     schema1:valueRequired true ;
                     ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
+                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
+                                    schema1:termCode "Other" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "SDD" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "P-10" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "Si(Li)" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "xenon" ] ] ;
+                    schema1:name "Detector Type" ;
+                    schema1:valueName "detectorType" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:minValue 1 ;
+                    schema1:name "Background Counting Time (s)" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "backgroundCountingTime" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:maxValue 200 ;
@@ -249,56 +294,11 @@
                     ada:dataType "number" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Detection Limit" ;
-                    schema1:valueName "detectionLimit" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "number" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Sequence" ;
-                    schema1:valueName "sequence" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "integer" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Normalization Method" ;
-                    schema1:valueName "normalizationMethod" ;
+                    schema1:name "Detection Limit Unit" ;
+                    schema1:valueName "detectionLimitUnit" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
-                    ada:tier "O" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Detection Limit Method" ;
-                    schema1:valueName "detectionLimitMethod" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/diffracting-crystals> ;
-                    schema1:name "Diffracting Crystal" ;
-                    schema1:valueName "diffractingCrystal" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Spectrometer" ;
-                    schema1:valueName "spectrometer" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Calibration Standard Name" ;
-                    schema1:valueName "calibrationStandardName" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:minValue 1 ;
-                    schema1:name "Peak Counting Time (s)" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "peakCountingTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ] ;
+                    ada:tier "R" ] ;
             ada:defaultAnalytes [ ],
                 [ ] ] ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;

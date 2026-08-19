@@ -15,14 +15,14 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
@@ -40,6 +40,18 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
             schema1:name "JSPS KAKENHI; Tokyo Institute of Technology" ] ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)" ] ;
+            schema1:name "example instrumentName" ;
+            ada:laserFluenceDefault "12 J cm⁻²" ;
+            ada:laserRepetitionRateDefault "20 Hz" ;
+            ada:laserSpotGeometryDefault "30 µm circular" ;
+            ada:laserType "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)" ],
+        [ a schema1:Product,
+                schema1:Thing ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "ICPMS",
@@ -47,7 +59,13 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
+                        "Torch" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interfaceConeConfiguration> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Interface Cone" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -59,29 +77,11 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interfaceConeConfiguration> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
+                        "Collision Reaction Cell" ;
                     schema1:name "missing" ] ;
             schema1:model [ a schema1:ProductModel ;
                     schema1:name "Thermo Scientific X-series 2 (Q-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserFluenceDefault "12 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "20 Hz" ;
-            ada:laserSpotGeometryDefault "30 µm circular" ;
-            ada:laserType "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)" ] ;
+            schema1:name "example instrumentName" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -95,13 +95,13 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
                     schema1:value "CR chondrite metal grains (interior, margin, and isolated types)" ],
                 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;

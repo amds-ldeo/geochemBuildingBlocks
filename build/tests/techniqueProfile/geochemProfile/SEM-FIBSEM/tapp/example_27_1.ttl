@@ -15,9 +15,8 @@ ex:semFibsemTAPP-Zega2025-5 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -26,11 +25,22 @@ ex:semFibsemTAPP-Zega2025-5 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:analyticalMode = EDS mapping." ;
     schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "FIBSEM" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Ion Beam Source" ;
+                    schema1:name "missing" ] ;
+            schema1:name "missing" ],
+        [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "SEM" ;
@@ -54,17 +64,7 @@ ex:semFibsemTAPP-Zega2025-5 a cdi:Activity,
                     schema1:name "Hitachi" ] ;
             schema1:model [ a schema1:ProductModel ;
                     schema1:name "S-4800" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "FIBSEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Ion Beam Source" ;
-                    schema1:name "missing" ] ;
-            schema1:name "missing" ] ;
+            schema1:name "example instrumentName" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -85,8 +85,8 @@ ex:semFibsemTAPP-Zega2025-5 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ] .
 
