@@ -1,9 +1,19 @@
 # TAPP workbook → JSON guide
 
-How to annotate a TAPP (Technique-Aligned Protocol Profile) Excel workbook so that
-`tools/build_tapp.py` can generate the building-block JSON **reproducibly**. This is the
-authoritative spec for the guidance fields. `docs/LA-Q_SF-ICPMS_TAPP_v3.xlsx` is the
-reference model.
+> **⚠ Superseded (2026-08) — for the current pipeline read
+> [`TAPP-schema-generation-workflow.md`](TAPP-schema-generation-workflow.md) (authoritative
+> walkthrough) and [`README_TAPP_for_Schema_Generation_v2.md`](README_TAPP_for_Schema_Generation_v2.md) §10.**
+> This guide describes the earlier generation route: the in-workbook `implementation notes` tag
+> format (§4) and `TierImplementationPatterns.xlsx` matrix routing. Per-field placement is now
+> driven by the hand-authored schema-path sidecar `docs/<workbook>.schemapaths.csv`, and TAPP
+> tables ship as **CSV** in the dated `TAPPS<date>/Current TAPPs/` delivery (resolved by
+> `tapp_source.current_delivery()`), not as an xlsx in `docs/`. **What is still accurate here:**
+> `build_tapp.py` continues to generate the shared registry catalogs (`analyteColumns`,
+> `parameterTemplates`, `parameterValues`, `vocab`) and the analyte columns from the workbook, and
+> the routing matrix (§2) still describes how tiers map to home/cardinality.
+
+How a TAPP (Technique-Aligned Protocol Profile) table drives `tools/build_tapp.py` to generate the
+shared registry catalogs and vocabularies **reproducibly**.
 
 Generator: `python tools/build_tapp.py <tappName>` (one CLI for all techniques) +
 `tools/build_<tapp>_examples.py` for the publication/synthetic examples. Routing follows the

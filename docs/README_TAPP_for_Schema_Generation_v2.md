@@ -349,7 +349,7 @@ $Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Drift Correc
 $Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Goodness-of-Fit'].dqv:value
 ```
 
-**45 grammar families** are recognised (`tools/normalize_schema_paths.py`). Anything unrecognised is
+**49 grammar families** are recognised (`tools/normalize_schema_paths.py`). Anything unrecognised is
 reported, never guessed. Current state: **1406 technique paths + 105 module paths, 0 unrecognised,
 102 rows still flagged**, 12 TAPPs generating and validating GREEN.
 
@@ -453,7 +453,7 @@ On this side:
 
 - `tools/intake_delivery.py` — what a new delivery would change. Read-only.
 - `tools/module_conflict_check.py` — what composing a module would do to its consumers.
-- `tools/normalize_schema_paths.py` — the 45 path families, each with the reason it exists.
+- `tools/normalize_schema_paths.py` — the 49 path families, each with the reason it exists.
 - `docs/SCHEMA_PATH_GRAMMAR.md`, `docs/KEYED_BY_GRAMMAR.md` — the path and cardinality grammars.
 
 A good first sanity check remains v1's: parse one TAPP, count content rows, confirm the number

@@ -6,8 +6,13 @@ domains are implemented — `analyte`, `channel`, `reported property`; the rest 
 guessed at.
 Every field name, tier, count and example is taken from those CSVs.
 
-**Status: design proposal.** One part is already implemented — the tier rules on analyte columns
-(§2.1). Everything else is unbuilt. §12 logs what has been decided and what is still open.
+**Status: partly implemented (updated 2026-08-19).** Beyond the analyte-column tier rules (§2.1),
+the three keyed-table domains — `analyte`, `channel`, `reported property` — now generate as keyed
+tables (a `…Columns[]` template plus a `…defaults[]` array, with registry catalogs under
+`_sources/registry/`), and `bootstrap_schemapaths.py:keyed_path()` routes the `defines: analyte`,
+`analyte`, `defines: reported property`, `reported property`, and `sample` declarations to their
+canonical paths. The remaining domains and the compound forms (§5–§9) are still unbuilt — rows
+carrying them are flagged, not guessed. §12 logs what has been decided and what is still open.
 
 Column I (`Keyed By`) states what a field's value repeats over. It decides schema *shape*, and we
 currently model one of its six domains. Companion reading:

@@ -26,7 +26,7 @@ kinds of JSON‑Schema **building block (BB)**:
 
 ```mermaid
 flowchart TD
-    XLSX["TAPP workbook<br/>docs/&lt;Technique&gt;_TAPP_v#.xlsx<br/>(worksheet: TAPP)"]
+    XLSX["TAPP table (Ruolin's source, read-only)<br/>TAPPS&lt;date&gt;/Current TAPPs/&lt;Technique&gt;_TAPP_v#.csv<br/>(xlsx is a generated mirror)"]
     OV["overrides sidecar<br/>docs/&lt;wb&gt;.overrides.json"]
     LIB["reference library<br/>LA-Q_SF-ICPMS…schemapaths.json"]
     SP["schemapaths<br/>docs/&lt;wb&gt;.schemapaths.csv<br/>(1 row → 1+ canonical paths)"]
@@ -378,7 +378,7 @@ python tools/build_profile.py <tapp>          # optional: product profile
 
 **Key files**
 
-- Workbook: `docs/<Technique>_TAPP_v#.xlsx` (worksheet `TAPP`) — Ruolin's source, never annotated
+- Source table: `TAPPS<date>/Current TAPPs/<Technique>_TAPP_v#.csv` — Ruolin's read-only source (newest `TAPPS<date>/` delivery, resolved by `tapp_source.current_delivery()`); the xlsx is a generated mirror, never annotated
 - Path mapping (source of truth): `docs/<wb>.schemapaths.csv` — hand‑authored, keyed by Metadata Item
 - Generated BBs: `_sources/techniqueProfile/geochemProfile/<Tech>/{tapp,detail,profile}/`
 - Shared catalogs: `_sources/registry/{parameterTemplates,parameterValues,analyteColumns,vocab}/`
