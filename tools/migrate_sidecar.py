@@ -58,6 +58,61 @@ ALIASES = {
     # tiers and the same analyte-column placement as the old per-analyte field. Not to be confused
     # with `Mass Resolution Setting`, which is Basic/Editable and states the procedure's mode.
     "Mass Resolution per Analyte": "Mass Resolution Assignment",
+
+    # --- 2026-08 delivery (amds-ldeo/tapp @ baf33dc). Each confirmed against the new table's own
+    # Description column; see the intake report for the per-technique counts. ---
+
+    # "All software applied to the data after acquisition in order to produce the reported
+    # quantities, including version numbers." Explicitly distinguished there from Acquisition
+    # Software. The single most widespread rename in this delivery: 15 of 16 tables.
+    "Data Reduction Software": "Data Processing Software(s)",
+
+    # "Specific masses monitored in this procedure, grouped by the analyte element they serve where
+    # they serve one. Covers atomic isotopes and, where a reaction cell shifts an analyte onto a
+    # different mass, the product mass actually measured." Two olds, one new — the generalisation
+    # from isotope to mass is exactly what the reaction-cell clause is for.
+    "Monitored Isotopes": "Monitored Masses",
+    "Masses Measured": "Monitored Masses",
+
+    # "Supplementary gas added to the sample-carrying stream between the sample introduction system
+    # and the plasma, with its identity and the procedure-registered target flow rate." One new
+    # field absorbs the old identity/addition field and the two flow-rate spellings.
+    "Plasma / Make-up Gas Addition": "Make-up Gas and Flow Rate",
+    "Make-up Gas Flow Rate": "Make-up Gas and Flow Rate",
+    "Make-up Gas Flow (L min⁻¹)": "Make-up Gas and Flow Rate",
+
+    # "Instrument sensitivity achieved in the session, with the isotope or channel it was measured
+    # on and the conditions it applies to." Drops the 'useful yield' framing but measures the same
+    # quantity; both old spellings map on.
+    "Sensitivity as Useful Yield": "Instrument Sensitivity",
+    "'Sensitivity' as Useful Yield (%, element)": "Instrument Sensitivity",
+
+    # "Dead time of each ion-counting detector channel, used in the dead-time correction applied to
+    # high count rates." Same field, units moved out of the label.
+    "IC Dead Time (ns)": "Ion Counter Dead Time",
+
+    # The delivery splits reproducibility into a within-measurement and a between-session field,
+    # each naming its assessment method. "Precision of a single measurement, derived from the
+    # scatter of the cycles, sweeps or integrations that make it up" / "Reproducibility of
+    # measurements across multiple analytical sessions over weeks to months".
+    "In-Run Isotope Ratio Reproducibility and Assessment Method":
+        "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+    "Between-Session Reproducibility and Assessment Method":
+        "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+
+    # "Number of replicate analyses performed on the same sample (or same nominal location for spot
+    # analysis) in this session" — the per-sample qualifier moved into the description.
+    "Number of Replicates per Sample": "Number of Replicates",
+
+    # PARTIAL: the delivery splits one make-and-model field into two. ALIASES is 1->1, so only the
+    # model side carries here — which is the right half, because every authored path for these olds
+    # targets `schema:instrument[...].schema:model.schema:name`. `Instrument Manufacturer` arrives
+    # as a new flagged row; author it as the sibling `...schema:manufacturer.schema:name`, the form
+    # the EPMA/SEM/TEM sidecars already use. `CT System Manufacturer and Model` is deliberately NOT
+    # aliased: its path is `inferred`, not authored, and names a placeholder ada: property, so
+    # carrying it would preserve a guess rather than curation. Let it drop and author both XCT rows.
+    "ICP-MS Manufacturer & Model": "Instrument Model",
+    "Instrument Make and Model": "Instrument Model",
 }
 
 
