@@ -38,7 +38,7 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 
 <!-- BEGIN generated: families -->
 
-*47 patterns across 45 families — two families are recognised by more than one shape. Generated from `tools/normalize_schema_paths.py` by `tools/gen_grammar_doc.py`; edit the recognizer, not this table.*
+*51 patterns across 49 families — two families are recognised by more than one shape. Generated from `tools/normalize_schema_paths.py` by `tools/gen_grammar_doc.py`; edit the recognizer, not this table.*
 
 | family | canonical shape |
 |---|---|
@@ -50,7 +50,8 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `reported-property-identifier` | `$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[]` |
 | `channel-template` | `$MethodDefinition.ada:channelTemplate.ada:channelColumns[]` |
 | `channel-identifier` | `$MethodDefinition.ada:channelTemplate.ada:defaultChannels[]` |
-| `dataset-variable-measured` | `$Dataset.schema:variableMeasured[](.schema:(name|description|unitText|propertyID))?` |
+| `method-variable-measured` | `$MethodDefinition.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|defaultValue))?` |
+| `dataset-variable-measured` | `$Dataset.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|value))?` |
 | `protocol-description` | `$MethodDefinition.schema:description` |
 | `method-parameter` | `$MethodDefinition.schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
 | `computational-tool` | `$MethodDefinition.bios:computationalTool[(schema:name|ada:toolRole)='<value>'](.schema:(name|description))?` |
@@ -61,12 +62,14 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `workflow-step-parameter` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
 | `workflow-step-reagent` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].bios:reagent[](.schema:(name|identifier))?` |
 | `inherited-identity` | `$MethodDefinition.schema:(name|identifier|datePublished)` |
+| `protocol-derived-from` | `$MethodDefinition.prov:wasDerivedFrom` |
 | `protocol-sample-parameter` | `$MethodDefinition.schema:object[@type='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)[]?` |
 | `instrument-identity` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:(model|manufacturer)(.schema:[A-Z][A-Za-z]*)?.schema:name` |
 | `instrument-identity` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:(name|identifier|additionalType|description)` |
 | `instrument-direct-ada` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].ada:<name>[]?` |
 | `instrument-parameter` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
 | `instrument-component` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:(name|identifier|description)` |
+| `instrument-component-ada` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].ada:<name>[]?` |
 | `instrument-component-parameter` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
 | `inherited-identity` | `$MethodDefinition.schema:(creator|location|measurementTechnique|object|funding)\b.*` |
 | `dataset-contributor` | `$Dataset.schema:contributor[schema:roleName='<value>'](.schema:(name|identifier))?` |
@@ -79,11 +82,12 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `dataset-activity-ada` | `$Dataset.prov:wasGeneratedBy.ada:<name>[]?` |
 | `dataset-activity-description` | `$Dataset.prov:wasGeneratedBy.schema:description` |
 | `dataset-location` | `$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='<value>'].schema:(name|identifier)` |
-| `dataset-used-identity` | `$Dataset.prov:wasGeneratedBy.prov:used[(schema:additionalType|ada:<name>)='<value>'].schema:(name|identifier|description)` |
+| `dataset-used-identity` | `$Dataset.prov:wasGeneratedBy.prov:used.(?:schema:instrument|bios:computationalTool|prov:reagent)[(schema:additionalType|ada:<name>)='<value>'].schema:(name|identifier|description)` |
 | `dataset-distribution` | `$Dataset.schema:distribution.schema:encodingFormat` |
-| `dataset-instrument-ada` | `$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='<value>'].ada:<name>[]?` |
-| `dataset-instrument-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
-| `dataset-instrument-component-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-instrument-ada` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].ada:<name>[]?` |
+| `dataset-instrument-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-instrument-component-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-instrument-component-ada` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].ada:<name>[]?` |
 | `dataset-sample` | `$Dataset.prov:wasGeneratedBy.schema:object[@type='<value>'].schema:(name|identifier|description)` |
 | `dataset-sample-parameter` | `$Dataset.prov:wasGeneratedBy.schema:object[@type='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
 | `dataset-funding` | `$Dataset.schema:funding` |
@@ -114,7 +118,7 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
    tool or reagent, discriminated by their own selector key — there is no property to navigate into.
    Authors write the kind because it mirrors the `$MethodDefinition` path and reads better.
 
-## Two distinctions the grammar enforces, and why
+## Distinctions the grammar enforces, and why
 
 **An `ada:` segment must be lowerCamel.** UpperCamel is the parser's `@type`-assertion syntax — it
 is how `schema:DefinedTerm` and `schema:Place` work — so `ada:ReportedDateType` parses as a *type*
@@ -131,8 +135,23 @@ keeps its dimensions whether or not its provenance is described, so both spellin
 **nothing normalizes one into the other**.
 
 Related: a `$Dataset` path never carries a `Default`. The analysis records what was used; the
-default lives on the procedure. Two families encode that with a negative lookbehind rather than
+default lives on the procedure. Several families encode that with a negative lookbehind rather than
 trusting authors to remember.
+
+**A reported property (`schema:variableMeasured`) is dual-homed like a parameter, not like an
+identity field.** `schema:variableMeasured[]` with no selector (or with identity terminals
+`schema:name`/`description`/`unitText`/`propertyID`) *registers* a reported variable. But the
+variable's value is dual-homed exactly as a `schema:additionalProperty` parameter is:
+`variableMeasured[schema:name='X'].defaultValue` on `$MethodDefinition` is the procedure's registered
+default, and `variableMeasured[schema:name='X'].value` on `$Dataset` is the value the analysis
+reported. `method-variable-measured` and `dataset-variable-measured` carry the two homes; the
+`value`/`defaultValue` split follows the same rule as every other parameter.
+
+**A direct `ada:` property can sit on an instrument COMPONENT, not just the instrument.** An ICP-MS
+Collector's `ada:collectorConfiguration` (its channel table) or `ada:defaultChannels` hangs off
+`schema:instrument[…].schema:hasPart[…].ada:<name>[]` — the hasPart-level analogue of
+`instrument-direct-ada`. `instrument-component-ada` (and its `$Dataset` partner
+`dataset-instrument-component-ada`) recognize it.
 
 ## What the normalizer FLAGS for human review (does not guess)
 

@@ -145,8 +145,14 @@ def recognize(s):
         # the channel table: instrument selection positions (a mass, a cup, an energy-loss edge)
         (r"^\$MethodDefinition\.ada:channelTemplate\.ada:channelColumns\[\]$", "channel-template"),
         (r"^\$MethodDefinition\.ada:channelTemplate\.ada:defaultChannels\[\]$", "channel-identifier"),
-        # the shared logical variable registry every table part references
-        (r"^\$Dataset\.schema:variableMeasured\[\](\.schema:(name|description|unitText|propertyID))?$", "dataset-variable-measured"),
+        # the shared logical variable registry every table part references. Bare-[] identity form
+        # (registering a reported variable and its name/units), plus the reported-VALUE form: a
+        # reported property is dual-homed like any parameter — the procedure registers its default
+        # (variableMeasured[schema:name='X'].defaultValue on $MethodDefinition), the analysis records
+        # the value used (variableMeasured[schema:name='X'].value on $Dataset). $MethodDefinition
+        # carries defaultValue, $Dataset carries value — never the reverse (see the Default note below).
+        (r"^\$MethodDefinition\.schema:variableMeasured\[(schema:name='[^']*')?\](\.schema:(name|description|unitText|propertyID|defaultValue))?$", "method-variable-measured"),
+        (r"^\$Dataset\.schema:variableMeasured\[(schema:name='[^']*')?\](\.schema:(name|description|unitText|propertyID|value))?$", "dataset-variable-measured"),
         (r"^\$MethodDefinition\.schema:description$", "protocol-description"),
         (r"^\$MethodDefinition\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "method-parameter"),
         # selected either by name or by ada:toolRole ('acquisition' / 'dataReduction'); the role
@@ -168,6 +174,9 @@ def recognize(s):
         # a step's reagent list (sample digestion acids); the reagent is named, not parameterised
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.bios:reagent\[\](\.schema:(name|identifier))?$", "workflow-step-reagent"),
         (r"^\$MethodDefinition\.schema:(name|identifier|datePublished)$", "inherited-identity"),
+        # the procedure this one was derived from (Procedure Reference(s)) -> a prov:wasDerivedFrom
+        # string. A plan-identity field, so it groups with schema:name / identifier / datePublished.
+        (r"^\$MethodDefinition\.prov:wasDerivedFrom$", "protocol-derived-from"),
         (r"^\$MethodDefinition\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)(\[\])?$", "protocol-sample-parameter"),
         # instrument: a typed instrument array (selector=additionalType), optional component hasPart
         # (also selector=additionalType), carrying identity fields, direct ada: props, or parameters.
@@ -178,6 +187,10 @@ def recognize(s):
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "instrument-direct-ada"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-parameter"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:(name|identifier|description)$", "instrument-component"),
+        # a direct ada: property ON an instrument COMPONENT (hasPart): an ICP-MS Collector's
+        # ada:collectorConfiguration channel table or its ada:defaultChannels list. The hasPart-level
+        # analogue of instrument-direct-ada — the emitter already nests it; only the grammar lacked it.
+        (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "instrument-component-ada"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-component-parameter"),
         (r"^\$MethodDefinition\.schema:(creator|location|measurementTechnique|object|funding)\b.*", "inherited-identity"),
         # dataset side (belongs on the analysis session / detail, not the reusable protocol)
@@ -221,6 +234,9 @@ def recognize(s):
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-ada"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-parameter"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-component-parameter"),
+        # analysis-tier partner of instrument-component-ada: a direct ada: property on a component of
+        # the instrument the session used. `value`-scoped, never Default (the default lives on the plan).
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-component-ada"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier|description)$", "dataset-sample"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
         (r"^\$Dataset\.schema:funding$", "dataset-funding"),
