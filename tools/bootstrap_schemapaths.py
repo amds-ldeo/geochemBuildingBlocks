@@ -317,10 +317,24 @@ def main():
     out_rows, flagged, sources = [], [], {}
     for row in rows:
         it = row["item"]
-        if it in keep:                                  # keep the existing paths; refresh context columns
-            for r in keep[it]:
-                out_rows.append({**r, **_base(row)})
-            sources["kept"] = sources.get("kept", 0) + 1
+        if it in keep:
+            kp = keyed_path(row)
+            if kp:
+                # the workbook Keyed By is authoritative for template families: re-route this row to
+                # its canonical path (overriding whatever the sidecar had), preserving Scope. Rows
+                # with no structured Keyed By keep their existing paths verbatim, so hand-modelled
+                # instrument / step nesting survives.
+                paths, _src = kp
+                scope = (keep[it][0].get("Scope") or "") if keep[it] else ""
+                for p in paths:
+                    c = norm.mechanical(norm.preclean(p))
+                    spp.parse(c)
+                    out_rows.append({**_base(row), "Schema Path": c, "Source": "keyed", "Scope": scope, "Notes": ""})
+                sources["keyed"] = sources.get("keyed", 0) + 1
+            else:
+                for r in keep[it]:                      # keep the existing paths; refresh context columns
+                    out_rows.append({**r, **_base(row)})
+                sources["kept"] = sources.get("kept", 0) + 1
             continue
         paths, src = infer(row, lib, lib_norm, sidecar)
         canon = []
