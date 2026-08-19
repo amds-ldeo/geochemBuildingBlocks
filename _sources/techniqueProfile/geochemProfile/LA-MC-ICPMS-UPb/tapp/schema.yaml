@@ -86,15 +86,17 @@ allOf:
                       — providing calibration inputs, complementary spatial context, or required companion
                       measurements. Use the same controlled vocabulary as the Technique field. Enter "None"
                       if no coupling is intended.
-                    type: string
-                    enum:
-                    - EPMA
-                    - SIMS
-                    - ICP-MS (solution)
-                    - Noble Gas MS
-                    - None
-                    - N/A
-                    - missing
+                    anyOf:
+                    - type: string
+                      enum:
+                      - EPMA
+                      - SIMS
+                      - ICP-MS (solution)
+                      - Noble Gas MS
+                      - None
+                      - N/A
+                      - missing
+                    - type: string
                   schema:description:
                     description: 'Description of how this procedure is coupled with the technique(s) listed
                       above. Include: (1) the functional relationship — what data or context flows between
@@ -135,24 +137,26 @@ allOf:
                           items:
                             description: General description of the material type(s) this procedure is
                               designed to analyse. Used for discoverability and procedure matching.
-                            type: string
-                            enum:
-                            - Silicate glass
-                            - Feldspar
-                            - Pyroxene
-                            - Olivine
-                            - Oxide
-                            - Sulfide
-                            - Carbonate
-                            - Phosphate
-                            - Native metal
-                            - Iron meteorite
-                            - Fluid inclusion
-                            - Melt inclusion
-                            - Whole rock
-                            - N/A
-                            - None
-                            - missing
+                            anyOf:
+                            - type: string
+                              enum:
+                              - Silicate glass
+                              - Feldspar
+                              - Pyroxene
+                              - Olivine
+                              - Oxide
+                              - Sulfide
+                              - Carbonate
+                              - Phosphate
+                              - Native metal
+                              - Iron meteorite
+                              - Fluid inclusion
+                              - Melt inclusion
+                              - Whole rock
+                              - N/A
+                              - None
+                              - missing
+                            - type: string
                             readOnly: true
                 allOf:
                 - contains:
@@ -207,19 +211,21 @@ allOf:
         — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit
         type at procedure level and the units actually analysed at analysis level. Where units nest (e.g.
         confined tracks within grains), state both levels.
-      type: string
-      enum:
-      - Whole sample
-      - Aliquot
-      - Grain
-      - Spot
-      - Analysis point
-      - Phase
-      - Sub-volume
-      - Region of interest
-      - N/A
-      - None
-      - missing
+      anyOf:
+      - type: string
+        enum:
+        - Whole sample
+        - Aliquot
+        - Grain
+        - Spot
+        - Analysis point
+        - Phase
+        - Sub-volume
+        - Region of interest
+        - N/A
+        - None
+        - missing
+      - type: string
     schema:actionProcess:
       type: object
       properties:
@@ -3770,8 +3776,9 @@ allOf:
         ada:defaultAnalytes:
           type: array
           items:
-            type: object
-            properties: {}
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
         ada:analyteColumns:
           type: array
           items:
@@ -4304,16 +4311,18 @@ allOf:
         reported under this procedure, and state each separately where different reported quantities use
         different conventions. Distinct from Uncertainty Propagation Method, which addresses how component
         uncertainties are combined rather than how the result is quoted.'
-      type: string
-      enum:
-      - 2σ (95% confidence)
-      - 1σ (68% confidence)
-      - 95% confidence interval
-      - 2 standard errors (2SE)
-      - 1 standard deviation (1SD)
-      - N/A
-      - None
-      - missing
+      anyOf:
+      - type: string
+        enum:
+        - 2σ (95% confidence)
+        - 1σ (68% confidence)
+        - 95% confidence interval
+        - 2 standard errors (2SE)
+        - 1 standard deviation (1SD)
+        - N/A
+        - None
+        - missing
+      - type: string
       readOnly: true
     ada:signalIntegrationIntervalMethod:
       description: 'Approach used to select the stable signal interval for integration during data reduction,

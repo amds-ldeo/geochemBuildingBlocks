@@ -147,11 +147,11 @@ def recognize(s):
         (r"^\$MethodDefinition\.ada:channelTemplate\.ada:defaultChannels\[\]$", "channel-identifier"),
         # the shared logical variable registry every table part references. Bare-[] identity form
         # (registering a reported variable and its name/units), plus the reported-VALUE form: a
-        # reported property is dual-homed like any parameter — the procedure registers its default
-        # (variableMeasured[schema:name='X'].defaultValue on $MethodDefinition), the analysis records
-        # the value used (variableMeasured[schema:name='X'].value on $Dataset). $MethodDefinition
-        # carries defaultValue, $Dataset carries value — never the reverse (see the Default note below).
-        (r"^\$MethodDefinition\.schema:variableMeasured\[(schema:name='[^']*')?\](\.schema:(name|description|unitText|propertyID|defaultValue))?$", "method-variable-measured"),
+        # reported property is dual-homed like any parameter. On $MethodDefinition it takes .value
+        # when the procedure fixes it (Read-Only) or .defaultValue when editable — exactly like
+        # method-parameter; on $Dataset it is .value only (the analysis records what it reported,
+        # never a default).
+        (r"^\$MethodDefinition\.schema:variableMeasured\[(schema:name='[^']*')?\](\.schema:(name|description|unitText|propertyID|value|defaultValue))?$", "method-variable-measured"),
         (r"^\$Dataset\.schema:variableMeasured\[(schema:name='[^']*')?\](\.schema:(name|description|unitText|propertyID|value))?$", "dataset-variable-measured"),
         (r"^\$MethodDefinition\.schema:description$", "protocol-description"),
         (r"^\$MethodDefinition\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "method-parameter"),

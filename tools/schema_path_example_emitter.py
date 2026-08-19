@@ -448,6 +448,25 @@ def fill_structural_gaps(inst, resolved_schema, max_passes=6):
                         node.append(plain)
                         added += 1
                         break
+                    # a COMPONENT the array must contain, pinned by an additionalType token: a hasPart
+                    # the sidecar routes a property onto (e.g. an ICP-MS Collector carrying
+                    # ada:collectorConfiguration). The contains targets
+                    # schema:additionalType.contains rather than an @id, so neither branch above fires
+                    # -- append a minimal component carrying that type; later passes fill its required
+                    # schema:name / @id the same way they do for any other node.
+                    at = (((sub.get("properties") or {}).get("schema:additionalType") or {})
+                          .get("contains") or {}).get("const")
+                    if isinstance(at, str) and not any(
+                            isinstance(x, dict) and at in (x.get("schema:additionalType") or []) for x in node):
+                        stub = {"schema:additionalType": [at]}
+                        # borrow @type from a sibling component so the stub is a valid instrument part
+                        # in this same pass (fill_required_types may already have run).
+                        sib = next((x for x in node if isinstance(x, dict) and "@type" in x), None)
+                        if sib:
+                            stub["@type"] = list(sib["@type"]) if isinstance(sib["@type"], list) else sib["@type"]
+                        node.append(stub)
+                        added += 1
+                        break
         filled += added
         if not added:
             break

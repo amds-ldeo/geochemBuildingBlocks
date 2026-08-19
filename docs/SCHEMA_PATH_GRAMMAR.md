@@ -50,7 +50,7 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `reported-property-identifier` | `$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[]` |
 | `channel-template` | `$MethodDefinition.ada:channelTemplate.ada:channelColumns[]` |
 | `channel-identifier` | `$MethodDefinition.ada:channelTemplate.ada:defaultChannels[]` |
-| `method-variable-measured` | `$MethodDefinition.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|defaultValue))?` |
+| `method-variable-measured` | `$MethodDefinition.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|value|defaultValue))?` |
 | `dataset-variable-measured` | `$Dataset.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|value))?` |
 | `protocol-description` | `$MethodDefinition.schema:description` |
 | `method-parameter` | `$MethodDefinition.schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |

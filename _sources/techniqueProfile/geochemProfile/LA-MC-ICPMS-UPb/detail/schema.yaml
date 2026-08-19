@@ -1996,15 +1996,17 @@ properties:
                     calibration inputs, complementary spatial context, or required companion measurements.
                     Use the same controlled vocabulary as the Technique field. Enter "None" if no coupling
                     is intended.
-                  type: string
-                  enum:
-                  - EPMA
-                  - SIMS
-                  - ICP-MS (solution)
-                  - Noble Gas MS
-                  - None
-                  - N/A
-                  - missing
+                  anyOf:
+                  - type: string
+                    enum:
+                    - EPMA
+                    - SIMS
+                    - ICP-MS (solution)
+                    - Noble Gas MS
+                    - None
+                    - N/A
+                    - missing
+                  - type: string
                 schema:description:
                   description: 'Description of how this procedure is coupled with the technique(s) listed
                     above. Include: (1) the functional relationship — what data or context flows between

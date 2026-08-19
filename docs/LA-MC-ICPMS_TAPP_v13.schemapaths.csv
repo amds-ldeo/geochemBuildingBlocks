@@ -15,7 +15,7 @@ Analysis Sequence,Basic,Editable,Text (free),$MethodDefinition.ada:analysisSeque
 Analysis Sequence,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.ada:analysisSequence,authored,divergent,dual-home decision: analysis-tier value,
 Analysis Start Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:startDate,authored,shared,path from owning module,
 Analyst,N/A,Basic,Text (free),$Dataset.schema:contributor[schema:roleName='analyst'].schema:name,authored,shared,path from owning module,
-Analyte,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes,authored,shared,,
+Analyte,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[],authored,shared,,
 Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyticalAccuracy,authored,shared,,
 Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],authored,shared,,
 Auxiliary Gas Flow Rate,Basic,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Auxiliary Gas Flow Rate'].schema:defaultValue,authored,shared,,
@@ -55,8 +55,8 @@ Data Reduction Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.
 Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,
 Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$Dataset.schema:variableMeasured[schema:name='Detection Limit'].schema:value,authored,,,reported property
 Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.schema:variableMeasured[schema:name='Detection Limit'].schema:defaultValue,authored,,,reported property
-Detection Limit Method,Basic,Read-Only,Text / URI,$MethodDefinition.ada:analyteTemplate.ada:reportedPropertyColumns[],authored,shared,,
-Detection Limit Method,Basic,Read-Only,Text / URI,$MethodDefinition.schema:variableMeasured[schema:name='Detection Limit Method'].schema:defaultValue,authored,,,reported property
+Detection Limit Method,Basic,Read-Only,Text / URI,$MethodDefinition.ada:detectionLimitMethod,authored,shared,,
+Detection Limit Method,Basic,Read-Only,Text / URI,$MethodDefinition.schema:variableMeasured[schema:name='Detection Limit Method'].schema:value,authored,,,reported property
 Detector Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Detector Configuration'].schema:value,authored,shared,,
 Double-Spike Inversion Algorithm,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Double-Spike Inversion Algorithm'].schema:value,inferred,,path from owning module,
 Double-Spike Isotope Pair,Basic,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Double Spike Isotope Pair'].schema:value,inferred,,path from owning module,
@@ -89,7 +89,7 @@ ICP-MS Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[
 Instrument Serial Number or Lab Identifier,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Instrument Serial Number or Lab Identifier'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
 Instrument Serial Number or Lab Identifier,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:identifier,authored,shared,dual-home decision: analysis-tier value,
 Instrument Warm-up / Session Duration Limit,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Instrument Warm up Session Duration Limit'].schema:value,authored,shared,,
-Integration Time per Cycle,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],authored,,path from owning module,channel
+Integration Time per Cycle,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],authored,,path from owning module,channel
 Integration Time per Cycle,Basic,Editable,Numeric (s),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],inferred,,path from owning module,channel
 Interface Cone Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Interface Cone'].schema:additionalProperty[schema:name='Configuration'].schema:value,authored,shared,,
 Interference Correction Method,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],authored,shared,,channel
@@ -98,7 +98,7 @@ Internal Normalization Element and Isotope Ratio,Basic,Read-Only,Text (free),$Me
 Internal Standard Approach,Basic,Read-Only,Text (free),$MethodDefinition.ada:internalStandardApproach,authored,shared,,
 Internal Standard Element,Basic,Read-Only,Text (free),$MethodDefinition.ada:internalStandardElement,authored,shared,,
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],authored,,,channel
-Ion Counter Dead Time,Basic,Editable,Numeric (ns),$Dataset.prov:wasGeneratedBy.schema:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],authored,,,channel
+Ion Counter Dead Time,Basic,Editable,Numeric (ns),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],authored,,,channel
 Isobaric Interference Corrections Applied,Basic,Read-Only,Boolean,$MethodDefinition.ada:isobaricInterferenceCorrectionsApplied,authored,shared,,
 Isotope Dilution Data Reduction Method,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Isotope Dilution Data Reduction Method'].schema:value,authored,shared,divergence decision applied,
 Laboratory,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:name,authored,shared,dual-home decision: protocol default | path from owning module,
@@ -173,7 +173,7 @@ Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),$MethodDefinition.
 Reaction Gas Flow Rate,Advanced,Editable,Numeric (mL/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
 Reaction Gas Flow Rate,Advanced,Editable,Numeric (mL/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:value,authored,shared,dual-home decision: analysis-tier value,
 Reaction Gas Type,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Type'].schema:value,authored,shared,,
-Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.schema:variableMeasured.ada:reportedProperties[],inferred,,,
+Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],inferred,,,
 RF Power,Basic,Editable,Numeric (W),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='RF Power'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
 RF Power,Basic,Editable,Numeric (W),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='RF Power'].schema:value,authored,shared,dual-home decision: analysis-tier value,
 Sample Form / Analytical Substrate,Basic,Editable,Controlled list,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Form Analytical Substrate'].schema:defaultValue,authored,,dual-home decision: protocol default,

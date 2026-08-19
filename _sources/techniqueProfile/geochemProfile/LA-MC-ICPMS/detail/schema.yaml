@@ -349,6 +349,107 @@ properties:
                                       properties:
                                         schema:additionalType:
                                           contains:
+                                            const: Collector
+                                      required:
+                                      - schema:additionalType
+                                    then:
+                                      properties:
+                                        ada:collectorConfiguration:
+                                          type: array
+                                          items:
+                                            anyOf:
+                                            - &id009
+                                              title: Integration Time per Cycle
+                                              description: Duration of signal integration per measurement
+                                                cycle (seconds). Determines counting statistics per cycle.
+                                                Longer integration times improve shot-noise precision
+                                                but increase the impact of signal drift within the integration
+                                                window. For high-gain (10¹² or 10¹³ Ω) amplifier channels,
+                                                longer integration times are often required to accumulate
+                                                sufficient charge. Procedure specifies the standard integration
+                                                time; analyst may confirm or adjust within procedure bounds.
+                                                Where different isotope channels use different integration
+                                                schemes, record the time for each channel.
+                                              type: object
+                                              properties:
+                                                '@id':
+                                                  const: ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
+                                                '@type':
+                                                  const:
+                                                  - schema:PropertyValue
+                                                schema:propertyID:
+                                                  const:
+                                                  - '@id': ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
+                                                schema:name:
+                                                  const: Integration Time per Cycle
+                                                ada:dataType:
+                                                  const: number
+                                                ada:tier:
+                                                  const: M
+                                                schema:value:
+                                                  anyOf:
+                                                  - &id007
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  - type: array
+                                                    items: *id007
+                                              required:
+                                              - '@id'
+                                              - '@type'
+                                              - schema:propertyID
+                                              - schema:name
+                                              - ada:dataType
+                                              - schema:value
+                                            - &id010
+                                              title: Ion Counter Dead Time
+                                              description: Dead time of each ion-counting detector channel,
+                                                used in the dead-time correction applied to high count
+                                                rates. Distinct from pulse/analog cross-calibration, which
+                                                relates the two detector modes rather than correcting
+                                                counting losses within the pulse-counting mode.
+                                              type: object
+                                              properties:
+                                                '@id':
+                                                  const: ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                '@type':
+                                                  const:
+                                                  - schema:PropertyValue
+                                                schema:propertyID:
+                                                  const:
+                                                  - '@id': ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                schema:name:
+                                                  const: Ion Counter Dead Time
+                                                ada:dataType:
+                                                  const: number
+                                                ada:tier:
+                                                  const: M
+                                                schema:value:
+                                                  anyOf:
+                                                  - &id008
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  - type: array
+                                                    items: *id008
+                                              required:
+                                              - '@id'
+                                              - '@type'
+                                              - schema:propertyID
+                                              - schema:name
+                                              - ada:dataType
+                                              - schema:value
+                                          allOf:
+                                          - contains: *id009
+                                            minContains: 0
+                                            maxContains: 1
+                                          - contains: *id010
+                                            minContains: 0
+                                            maxContains: 1
+                                  - if:
+                                      properties:
+                                        schema:additionalType:
+                                          contains:
                                             const: Torch
                                       required:
                                       - schema:additionalType
@@ -356,7 +457,7 @@ properties:
                                       properties:
                                         schema:additionalProperty:
                                           type: array
-                                          items: &id007
+                                          items: &id011
                                             title: Torch Depth
                                             description: Distance between the load coil and the sampling
                                               cone tip (mm), also called injector depth or torch position
@@ -386,7 +487,7 @@ properties:
                                             - schema:name
                                             - schema:value
                                           allOf:
-                                          - contains: *id007
+                                          - contains: *id011
                                             minContains: 0
                                             maxContains: 1
                                 allOf:
@@ -404,11 +505,18 @@ properties:
                                           const: Collision Reaction Cell
                                     required:
                                     - schema:additionalType
+                                - contains:
+                                    properties:
+                                      schema:additionalType:
+                                        contains:
+                                          const: Collector
+                                    required:
+                                    - schema:additionalType
                               schema:additionalProperty:
                                 type: array
                                 items:
                                   anyOf:
-                                  - &id008
+                                  - &id012
                                     title: Doubly-Charged Species Monitor
                                     description: The mass ratio monitored to estimate doubly-charged ion
                                       (M²⁺) formation during instrument tuning. Doubly-charged ions appear
@@ -436,7 +544,7 @@ properties:
                                     - schema:propertyID
                                     - schema:name
                                     - schema:value
-                                  - &id009
+                                  - &id013
                                     title: Doubly-Charged Species Production
                                     description: Measured percentage of doubly-charged ion production
                                       for the monitored species at the time of instrument tuning. The
@@ -463,7 +571,7 @@ properties:
                                     - schema:propertyID
                                     - schema:name
                                     - schema:value
-                                  - &id010
+                                  - &id014
                                     title: ICP Tuning
                                     description: Description of the approach used to optimise ICP plasma
                                       conditions prior to analysis, including the reference material used
@@ -489,7 +597,7 @@ properties:
                                     - schema:propertyID
                                     - schema:name
                                     - schema:value
-                                  - &id011
+                                  - &id015
                                     title: Mass Resolution Setting
                                     description: Operating mass resolution of the mass analyser. For quadrupole
                                       instruments this is fixed at unit resolution by instrument design.
@@ -516,7 +624,7 @@ properties:
                                     - schema:propertyID
                                     - schema:name
                                     - schema:value
-                                  - &id012
+                                  - &id016
                                     title: Memory Effect Mitigation
                                     description: Procedure applied to identify and minimise memory effects
                                       from high-concentration elements in the previous sample or standard
@@ -546,19 +654,19 @@ properties:
                                     - schema:name
                                     - schema:value
                                 allOf:
-                                - contains: *id008
-                                  minContains: 0
-                                  maxContains: 1
-                                - contains: *id009
-                                  minContains: 0
-                                  maxContains: 1
-                                - contains: *id010
-                                  minContains: 0
-                                  maxContains: 1
-                                - contains: *id011
-                                  minContains: 0
-                                  maxContains: 1
                                 - contains: *id012
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains: *id013
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains: *id014
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains: *id015
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains: *id016
                                   minContains: 0
                                   maxContains: 1
                               schema:identifier:
@@ -580,7 +688,7 @@ properties:
                             properties:
                               schema:additionalProperty:
                                 type: array
-                                items: &id013
+                                items: &id017
                                   title: Laser Energy
                                   description: Laser pulse energy in millijoules as set at the laser output
                                     or measured at the sample surface. Less commonly reported than fluence
@@ -613,7 +721,7 @@ properties:
                                   - schema:value
                                   - schema:unitText
                                 allOf:
-                                - contains: *id013
+                                - contains: *id017
                                   minContains: 0
                                   maxContains: 1
                               ada:laserFluence:
@@ -739,7 +847,7 @@ properties:
                     type: array
                     items:
                       anyOf:
-                      - &id014
+                      - &id018
                         title: Analysis Location/Spot Coordinates
                         description: 'Location of the analysis on the sample surface. For spot and transect
                           analysis: stage coordinates (X, Y in µm) or a description relative to a named
@@ -766,7 +874,7 @@ properties:
                         - schema:propertyID
                         - schema:name
                         - schema:value
-                      - &id015
+                      - &id019
                         title: Sample Form / Analytical Substrate
                         description: Physical form of the material as it enters the ablation cell. Editable
                           to accommodate legitimate variations (e.g., thin section vs. mount) that do
@@ -792,10 +900,10 @@ properties:
                         - schema:name
                         - schema:value
                     allOf:
-                    - contains: *id014
+                    - contains: *id018
                       minContains: 0
                       maxContains: 1
-                    - contains: *id015
+                    - contains: *id019
                       minContains: 0
                       maxContains: 1
                   schema:name:
@@ -867,7 +975,7 @@ properties:
                         type: array
                         items:
                           anyOf:
-                          - &id016
+                          - &id020
                             title: Calibration Factor and Determination Method
                             description: 'An externally-calibrated factor that converts the measured quantity
                               into the reported quantity, how it was determined, and its uncertainty.
@@ -896,7 +1004,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id017
+                          - &id021
                             title: Pulse/Analog Detector Nonlinearity Correction
                             description: ''
                             type: object
@@ -919,7 +1027,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id018
+                          - &id022
                             title: Signal Smoothing
                             description: 'Description of any signal smoothing device or approach installed
                               between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal
@@ -947,7 +1055,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id019
+                          - &id023
                             title: Spike / Outlier Filtering Approach
                             description: Method used to identify and remove anomalous signal spikes arising
                               from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
@@ -973,7 +1081,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id020
+                          - &id024
                             title: Uncertainty Propagation Method
                             description: 'The approach used to propagate analytical uncertainty through
                               the data reduction chain to the final reported value. State which sources
@@ -1002,19 +1110,19 @@ properties:
                             - schema:name
                             - schema:value
                         allOf:
-                        - contains: *id016
-                          minContains: 0
-                          maxContains: 1
-                        - contains: *id017
-                          minContains: 0
-                          maxContains: 1
-                        - contains: *id018
-                          minContains: 0
-                          maxContains: 1
-                        - contains: *id019
-                          minContains: 0
-                          maxContains: 1
                         - contains: *id020
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id021
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id022
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id023
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id024
                           minContains: 0
                           maxContains: 1
                 - if:
@@ -1029,7 +1137,7 @@ properties:
                         type: array
                         items:
                           anyOf:
-                          - &id021
+                          - &id025
                             title: Fusion Flux and Dilution Ratio
                             description: For procedures using fused glass, the flux type and sample:flux
                               dilution ratio used to prepare the analytical glass.
@@ -1053,7 +1161,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id022
+                          - &id026
                             title: Pre-Ablation Surface Treatment
                             description: Procedure applied immediately before each analysis to remove
                               surface contamination or condition the sample surface. Distinct from general
@@ -1081,10 +1189,10 @@ properties:
                             - schema:name
                             - schema:value
                         allOf:
-                        - contains: *id021
+                        - contains: *id025
                           minContains: 0
                           maxContains: 1
-                        - contains: *id022
+                        - contains: *id026
                           minContains: 0
                           maxContains: 1
                       schema:description:
@@ -1118,7 +1226,7 @@ properties:
           type: array
           items:
             anyOf:
-            - &id023
+            - &id027
               title: Constants and Reference Values Used
               description: Physical constants and reference values used in data reduction to calculate
                 the final reported quantity (e.g., decay constants for age calculation, standard isotope
@@ -1147,7 +1255,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id024
+            - &id028
               title: Double-Spike Mixing Ratio
               description: Target proportion of double-spike signal relative to total analyte signal in
                 the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal
@@ -1177,7 +1285,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id025
+            - &id029
               title: Mapping Area
               description: Total area covered by the 2D raster map, expressed as width × height in µm
                 or as total area in µm² or mm². This is an analysis-level parameter because it depends
@@ -1203,7 +1311,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id026
+            - &id030
               title: Number of Blocks per Measurement
               description: Number of measurement blocks acquired per sample or standard solution introduction.
                 In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with
@@ -1233,7 +1341,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id027
+            - &id031
               title: Number of Cycles per Block
               description: Number of measurement cycles acquired per block. One cycle corresponds to a
                 single set of simultaneous Faraday cup readings integrated for the duration specified
@@ -1262,7 +1370,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id028
+            - &id032
               title: Number of Replicates
               description: 'Number of replicate analyses performed on the same sample (or same nominal
                 location for spot analysis) in this session. For spot analysis: number of individual spot
@@ -1290,7 +1398,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id029
+            - &id033
               title: Plasma / Make-up Gas Addition
               description: Additional gas(es) mixed into the carrier stream downstream of the ablation
                 cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small
@@ -1316,7 +1424,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id030
+            - &id034
               title: Pre-Analysis Imaging and Screening
               description: Imaging or other characterisation performed before the measurement in order
                 to select or locate the analysed target, including the technique, instrument and settings
@@ -1343,7 +1451,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id031
+            - &id035
               title: Procedural Blank Level
               description: 'The measured level of the analytical blank in the session, and — where the
                 reported quantity is a ratio — its composition, since a blank subtracted from a ratio
@@ -1371,7 +1479,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id032
+            - &id036
               title: Signal Integration Time
               description: 'Actual integration time used for the ablation signal in this analysis, in
                 seconds. This is an analysis-level outcome determined during data reduction by applying
@@ -1405,7 +1513,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id033
+            - &id037
               title: Target Selection Criteria
               description: 'The rules governing which part of the sample is analysed, and why. Covers
                 the criteria applied when choosing grains, aliquots, spots, or a region of interest —
@@ -1433,7 +1541,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id034
+            - &id038
               title: Transect Length
               description: Total length of the transect line analysed in micrometres. This is an analysis-level
                 parameter because it depends on the size of the feature of interest rather than being
@@ -1465,7 +1573,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id035
+            - &id039
               title: Transect Rate, Mapping Rate or Step Size
               description: 'For continuous line scan (transect) and raster mapping: the stage translation
                 speed in µm s⁻¹. This is the procedure-level parameter that, together with spot size and
@@ -1493,18 +1601,6 @@ properties:
               - schema:name
               - schema:value
           allOf:
-          - contains: *id023
-            minContains: 0
-            maxContains: 1
-          - contains: *id024
-            minContains: 0
-            maxContains: 1
-          - contains: *id025
-            minContains: 0
-            maxContains: 1
-          - contains: *id026
-            minContains: 0
-            maxContains: 1
           - contains: *id027
             minContains: 0
             maxContains: 1
@@ -1532,144 +1628,18 @@ properties:
           - contains: *id035
             minContains: 0
             maxContains: 1
-        schema:used:
-          type: object
-          properties:
-            schema:instrument:
-              type: array
-              items:
-                type: object
-                allOf:
-                - if:
-                    properties:
-                      schema:additionalType:
-                        contains:
-                          const: ICPMS
-                    required:
-                    - schema:additionalType
-                  then:
-                    properties:
-                      schema:hasPart:
-                        type: array
-                        items:
-                          type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: Collector
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                ada:collectorConfiguration:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - &id038
-                                      title: Integration Time per Cycle
-                                      description: Duration of signal integration per measurement cycle
-                                        (seconds). Determines counting statistics per cycle. Longer integration
-                                        times improve shot-noise precision but increase the impact of
-                                        signal drift within the integration window. For high-gain (10¹²
-                                        or 10¹³ Ω) amplifier channels, longer integration times are often
-                                        required to accumulate sufficient charge. Procedure specifies
-                                        the standard integration time; analyst may confirm or adjust within
-                                        procedure bounds. Where different isotope channels use different
-                                        integration schemes, record the time for each channel.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                        schema:name:
-                                          const: Integration Time per Cycle
-                                        ada:dataType:
-                                          const: number
-                                        ada:tier:
-                                          const: M
-                                        schema:value:
-                                          anyOf:
-                                          - &id036
-                                            anyOf:
-                                            - type: number
-                                            - type: string
-                                          - type: array
-                                            items: *id036
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - ada:dataType
-                                      - schema:value
-                                    - &id039
-                                      title: Ion Counter Dead Time
-                                      description: Dead time of each ion-counting detector channel, used
-                                        in the dead-time correction applied to high count rates. Distinct
-                                        from pulse/analog cross-calibration, which relates the two detector
-                                        modes rather than correcting counting losses within the pulse-counting
-                                        mode.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
-                                        schema:name:
-                                          const: Ion Counter Dead Time
-                                        ada:dataType:
-                                          const: number
-                                        ada:tier:
-                                          const: M
-                                        schema:value:
-                                          anyOf:
-                                          - &id037
-                                            anyOf:
-                                            - type: number
-                                            - type: string
-                                          - type: array
-                                            items: *id037
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - ada:dataType
-                                      - schema:value
-                                  allOf:
-                                  - contains: *id038
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains: *id039
-                                    minContains: 0
-                                    maxContains: 1
-                        allOf:
-                        - contains:
-                            properties:
-                              schema:additionalType:
-                                contains:
-                                  const: Collector
-                            required:
-                            - schema:additionalType
-              allOf:
-              - contains:
-                  properties:
-                    schema:additionalType:
-                      contains:
-                        const: ICPMS
-                  required:
-                  - schema:additionalType
+          - contains: *id036
+            minContains: 0
+            maxContains: 1
+          - contains: *id037
+            minContains: 0
+            maxContains: 1
+          - contains: *id038
+            minContains: 0
+            maxContains: 1
+          - contains: *id039
+            minContains: 0
+            maxContains: 1
         schema:location:
           type: object
           properties:
@@ -1724,7 +1694,7 @@ properties:
     type: array
     items:
       anyOf:
-      - *id016
+      - *id020
       - &id040
         title: Detection Limit
         description: Session detection limit, one per reported concentration variable (one per analyte,
@@ -1834,9 +1804,9 @@ properties:
         - schema:propertyID
         - schema:name
         - schema:value
-      - *id020
+      - *id024
     allOf:
-    - contains: *id016
+    - contains: *id020
       minContains: 0
       maxContains: 1
     - contains: *id040
@@ -1851,7 +1821,7 @@ properties:
     - contains: *id043
       minContains: 0
       maxContains: 1
-    - contains: *id020
+    - contains: *id024
       minContains: 0
       maxContains: 1
   schema:relatedLink:

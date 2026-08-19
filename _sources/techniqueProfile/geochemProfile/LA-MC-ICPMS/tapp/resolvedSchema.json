@@ -7702,97 +7702,6 @@
                   "maxContains": 1
                 }
               ]
-            },
-            "ada:reportedPropertyColumns": {
-              "type": "array",
-              "items": {
-                "title": "Detection Limit Method",
-                "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:reportedPropertyColumn/laMcicpmsTAPP/detectionLimitMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitMethod"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit Method"
-                  },
-                  "ada:dataType": {
-                    "const": "uri"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "M"
-                  },
-                  "schema:defaultValue": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "schema:defaultValue"
-                ]
-              },
-              "allOf": [
-                {
-                  "contains": {
-                    "title": "Detection Limit Method",
-                    "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:reportedPropertyColumn/laMcicpmsTAPP/detectionLimitMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimitMethod"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit Method"
-                      },
-                      "ada:dataType": {
-                        "const": "uri"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                }
-              ]
             }
           }
         },
@@ -9058,47 +8967,563 @@
         "schema:variableMeasured": {
           "type": "array",
           "items": {
-            "title": "Uncertainty Propagation Method",
-            "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValueSpecification"
+            "anyOf": [
+              {
+                "title": "Calibration Factor and Determination Method",
+                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
                 ]
               },
-              "schema:valueName": {
-                "const": "uncertaintyPropagationMethodDefault"
+              {
+                "title": "Detection Limit",
+                "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "const": "ppm or wt%"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
-              "schema:name": {
-                "const": "Uncertainty Propagation Method"
+              {
+                "title": "Detection Limit Method",
+                "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit Method"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ],
+                "readOnly": true
               },
-              "ada:dataType": {
-                "const": "string"
+              {
+                "title": "Goodness-of-Fit or Dispersion Statistic",
+                "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatisticDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "goodnessOfFitOrDispersionStatisticDefault"
+                  },
+                  "schema:name": {
+                    "const": "Goodness-of-Fit or Dispersion Statistic"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
-              "ada:fieldScope": {
-                "const": "session"
+              {
+                "title": "Limit of Quantification (LOQ) Method",
+                "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "limitOfQuantificationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Limit of Quantification (LOQ) Method"
+                  },
+                  "ada:dataType": {
+                    "const": "uri"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
-              "schema:readonlyValue": {
-                "const": false
+              {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
-              "ada:tier": {
-                "const": "R"
+              {
+                "title": "Uncertainty Propagation Method",
+                "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "uncertaintyPropagationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Uncertainty Propagation Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:valueName",
-              "schema:name",
-              "ada:dataType",
-              "ada:fieldScope"
             ]
           },
           "allOf": [
+            {
+              "contains": {
+                "title": "Calibration Factor and Determination Method",
+                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detection Limit",
+                "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "const": "ppm or wt%"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detection Limit Method",
+                "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit Method"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ],
+                "readOnly": true
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Goodness-of-Fit or Dispersion Statistic",
+                "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatisticDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "goodnessOfFitOrDispersionStatisticDefault"
+                  },
+                  "schema:name": {
+                    "const": "Goodness-of-Fit or Dispersion Statistic"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Limit of Quantification (LOQ) Method",
+                "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "limitOfQuantificationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Limit of Quantification (LOQ) Method"
+                  },
+                  "ada:dataType": {
+                    "const": "uri"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
             {
               "contains": {
                 "title": "Uncertainty Propagation Method",
@@ -9237,6 +9662,11 @@
             ]
           }
         },
+        "ada:detectionLimitMethod": {
+          "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
+          "type": "string",
+          "readOnly": true
+        },
         "ada:elementalFractionationCorrection": {
           "type": "array",
           "items": {
@@ -9346,6 +9776,19 @@
         "ada:rasterLineSpacingDefault": {
           "description": "Distance between adjacent raster lines in a 2D elemental map, measured perpendicular to the scan direction, in micrometres. Together with spot size, this determines whether adjacent lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have gaps (line spacing > spot size). Applies to raster mapping only.",
           "type": "string"
+        },
+        "ada:reportedPropertyTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultReportedProperties": {
+              "type": "array",
+              "items": {
+                "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+                "type": "string",
+                "readOnly": true
+              }
+            }
+          }
         },
         "schema:object": {
           "type": "array",
@@ -9586,6 +10029,7 @@
         "ada:calibrationMeasurementFrequency",
         "ada:carrierGasFlowRateDefault",
         "ada:constantsAndReferenceValuesUsedDefault",
+        "ada:detectionLimitMethod",
         "ada:internalNormalizationElementAndIsotopeRatio",
         "ada:internalStandardApproach",
         "ada:internalStandardElement",

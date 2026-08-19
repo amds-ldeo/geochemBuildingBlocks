@@ -2444,43 +2444,6 @@ allOf:
           - contains: *id042
             minContains: 0
             maxContains: 1
-        ada:reportedPropertyColumns:
-          type: array
-          items: &id043
-            title: Detection Limit Method
-            description: Reference or description of the method used to calculate session detection limits.
-              Mandatory at analysis level. Must be consistent with the method applied to generate the
-              Detection Limit values reported above.
-            type: object
-            properties:
-              '@id':
-                const: ada:reportedPropertyColumn/laMcicpmsTAPP/detectionLimitMethod
-              '@type':
-                const:
-                - schema:PropertyValueSpecification
-              schema:valueName:
-                const: detectionLimitMethod
-              schema:name:
-                const: Detection Limit Method
-              ada:dataType:
-                const: uri
-              schema:readonlyValue:
-                const: true
-              ada:tier:
-                const: M
-              schema:defaultValue:
-                type: string
-            required:
-            - '@id'
-            - '@type'
-            - schema:valueName
-            - schema:name
-            - ada:dataType
-            - schema:defaultValue
-          allOf:
-          - contains: *id043
-            minContains: 0
-            maxContains: 1
     ada:analyticalAccuracy:
       description: 'Offset between measured and accepted reference values for secondary reference materials,
         expressed as % relative bias. Report both the assessment method and the accuracy values. Specify:
@@ -2571,7 +2534,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id044
+        - &id043
           title: Double-Spike Mixing Ratio
           description: Target proportion of double-spike signal relative to total analyte signal in the
             spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal mixing
@@ -2734,7 +2697,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id045
+        - &id044
           title: Number of Blocks per Measurement
           description: Number of measurement blocks acquired per sample or standard solution introduction.
             In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a
@@ -2767,7 +2730,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id046
+        - &id045
           title: Number of Cycles per Block
           description: Number of measurement cycles acquired per block. One cycle corresponds to a single
             set of simultaneous Faraday cup readings integrated for the duration specified in Integration
@@ -2800,7 +2763,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id047
+        - &id046
           title: Plasma / Make-up Gas Addition
           description: Additional gas(es) mixed into the carrier stream downstream of the ablation cell,
             with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions
@@ -2832,7 +2795,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id048
+        - &id047
           title: Pre-Analysis Imaging and Screening
           description: Imaging or other characterisation performed before the measurement in order to
             select or locate the analysed target, including the technique, instrument and settings used,
@@ -2865,7 +2828,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id049
+        - &id048
           title: Transect Rate, Mapping Rate or Step Size
           description: 'For continuous line scan (transect) and raster mapping: the stage translation
             speed in µm s⁻¹. This is the procedure-level parameter that, together with spot size and repetition
@@ -2921,7 +2884,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id050
+        - &id049
           title: Uncertainty Propagation Method
           description: 'The approach used to propagate analytical uncertainty through the data reduction
             chain to the final reported value. State which sources are included in the propagation: counting
@@ -3016,7 +2979,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id044
+      - contains: *id043
         minContains: 0
         maxContains: 1
       - contains:
@@ -3162,6 +3125,9 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
+      - contains: *id044
+        minContains: 0
+        maxContains: 1
       - contains: *id045
         minContains: 0
         maxContains: 1
@@ -3172,9 +3138,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id048
-        minContains: 0
-        maxContains: 1
-      - contains: *id049
         minContains: 0
         maxContains: 1
       - contains:
@@ -3203,7 +3166,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id050
+      - contains: *id049
         minContains: 0
         maxContains: 1
     ada:betweenSessionPrecision:
@@ -3222,9 +3185,210 @@ allOf:
       readOnly: true
     schema:variableMeasured:
       type: array
-      items: *id050
+      items:
+        anyOf:
+        - *id030
+        - &id050
+          title: Detection Limit
+          description: Session detection limit, one per reported concentration variable (one per analyte,
+            these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at
+            analysis level to demonstrate the reliability of reported near-detection-limit concentrations.
+            The calculation method is captured separately in Detection Limit Method.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: ppm or wt%
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Detection Limit Method
+          description: Reference or description of the method used to calculate session detection limits.
+            Mandatory at analysis level. Must be consistent with the method applied to generate the Detection
+            Limit values reported above.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        - &id051
+          title: Goodness-of-Fit or Dispersion Statistic
+          description: The statistic reported to show whether scatter among the contributing analyses
+            exceeds what analytical uncertainty alone predicts, together with its value. Answers whether
+            a reported aggregate is defensible as a single population. Procedure-level tier is N/A because
+            the value cannot be known before the analysis; the procedure may still state an acceptance
+            threshold, which belongs with the inclusion criteria.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatisticDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: goodnessOfFitOrDispersionStatisticDefault
+            schema:name:
+              const: Goodness-of-Fit or Dispersion Statistic
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id052
+          title: Limit of Quantification (LOQ) Method
+          description: 'Reference or description of the method used to calculate the limit of quantification
+            (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
+            Mandatory at analysis level when concentrations near the LOD are reported. Concentrations
+            between LOD and LOQ are detectable but not reliably quantifiable.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: limitOfQuantificationMethodDefault
+            schema:name:
+              const: Limit of Quantification (LOQ) Method
+            ada:dataType:
+              const: uri
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id053
+          title: Normalization / Standards-Based Correction
+          description: Any post-acquisition normalization applied to correct for systematic biases identified
+            from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
+            Distinct from the primary internal standard approach captured in Internal Standard Approach.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: normalizationStandardsBasedCorrectionDefault
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - *id049
       allOf:
+      - contains: *id030
+        minContains: 0
+        maxContains: 1
       - contains: *id050
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit Method
+          description: Reference or description of the method used to calculate session detection limits.
+            Mandatory at analysis level. Must be consistent with the method applied to generate the Detection
+            Limit values reported above.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains: *id051
+        minContains: 0
+        maxContains: 1
+      - contains: *id052
+        minContains: 0
+        maxContains: 1
+      - contains: *id053
+        minContains: 0
+        maxContains: 1
+      - contains: *id049
         minContains: 0
         maxContains: 1
     ada:calibrationMeasurementFrequency:
@@ -3303,6 +3467,12 @@ allOf:
                   schema:name:
                     type: string
                     readOnly: true
+    ada:detectionLimitMethod:
+      description: Reference or description of the method used to calculate session detection limits.
+        Mandatory at analysis level. Must be consistent with the method applied to generate the Detection
+        Limit values reported above.
+      type: string
+      readOnly: true
     ada:elementalFractionationCorrection:
       type: array
       items:
@@ -3414,6 +3584,21 @@ allOf:
         lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have
         gaps (line spacing > spot size). Applies to raster mapping only.
       type: string
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            description: The final variable(s) this procedure reports and their units — distinct from
+              the fields recording what was *acquired* rather than what is reported. A procedure may acquire
+              many channels and report a small number of derived quantities; without this field a data
+              consumer cannot tell which. Record every reported variable, including intermediate quantities
+              reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date).
+              Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification),
+              record the variable and give the unit as 'N/A — nominal property'.
+            type: string
+            readOnly: true
     schema:object:
       type: array
       items:
@@ -3430,7 +3615,7 @@ allOf:
             properties:
               schema:additionalProperty:
                 type: array
-                items: &id051
+                items: &id054
                   title: Sample Form / Analytical Substrate
                   description: Physical form of the material as it enters the ablation cell. Editable
                     to accommodate legitimate variations (e.g., thin section vs. mount) that do not alter
@@ -3462,7 +3647,7 @@ allOf:
                   - ada:dataType
                   - ada:fieldScope
                 allOf:
-                - contains: *id051
+                - contains: *id054
                   minContains: 0
                   maxContains: 1
       allOf:
@@ -3580,6 +3765,7 @@ allOf:
   - ada:calibrationMeasurementFrequency
   - ada:carrierGasFlowRateDefault
   - ada:constantsAndReferenceValuesUsedDefault
+  - ada:detectionLimitMethod
   - ada:internalNormalizationElementAndIsotopeRatio
   - ada:internalStandardApproach
   - ada:internalStandardElement

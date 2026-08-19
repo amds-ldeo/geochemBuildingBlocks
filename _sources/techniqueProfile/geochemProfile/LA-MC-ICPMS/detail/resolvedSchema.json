@@ -2411,6 +2411,305 @@
                                                 "properties": {
                                                   "schema:additionalType": {
                                                     "contains": {
+                                                      "const": "Collector"
+                                                    }
+                                                  }
+                                                },
+                                                "required": [
+                                                  "schema:additionalType"
+                                                ]
+                                              },
+                                              "then": {
+                                                "properties": {
+                                                  "ada:collectorConfiguration": {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "anyOf": [
+                                                        {
+                                                          "title": "Integration Time per Cycle",
+                                                          "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "@id": {
+                                                              "const": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                                                            },
+                                                            "@type": {
+                                                              "const": [
+                                                                "schema:PropertyValue"
+                                                              ]
+                                                            },
+                                                            "schema:propertyID": {
+                                                              "const": [
+                                                                {
+                                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                                                                }
+                                                              ]
+                                                            },
+                                                            "schema:name": {
+                                                              "const": "Integration Time per Cycle"
+                                                            },
+                                                            "ada:dataType": {
+                                                              "const": "number"
+                                                            },
+                                                            "ada:tier": {
+                                                              "const": "M"
+                                                            },
+                                                            "schema:value": {
+                                                              "anyOf": [
+                                                                {
+                                                                  "anyOf": [
+                                                                    {
+                                                                      "type": "number"
+                                                                    },
+                                                                    {
+                                                                      "type": "string"
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                    "anyOf": [
+                                                                      {
+                                                                        "type": "number"
+                                                                      },
+                                                                      {
+                                                                        "type": "string"
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:propertyID",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "schema:value"
+                                                          ]
+                                                        },
+                                                        {
+                                                          "title": "Ion Counter Dead Time",
+                                                          "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "@id": {
+                                                              "const": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                            },
+                                                            "@type": {
+                                                              "const": [
+                                                                "schema:PropertyValue"
+                                                              ]
+                                                            },
+                                                            "schema:propertyID": {
+                                                              "const": [
+                                                                {
+                                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                }
+                                                              ]
+                                                            },
+                                                            "schema:name": {
+                                                              "const": "Ion Counter Dead Time"
+                                                            },
+                                                            "ada:dataType": {
+                                                              "const": "number"
+                                                            },
+                                                            "ada:tier": {
+                                                              "const": "M"
+                                                            },
+                                                            "schema:value": {
+                                                              "anyOf": [
+                                                                {
+                                                                  "anyOf": [
+                                                                    {
+                                                                      "type": "number"
+                                                                    },
+                                                                    {
+                                                                      "type": "string"
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                    "anyOf": [
+                                                                      {
+                                                                        "type": "number"
+                                                                      },
+                                                                      {
+                                                                        "type": "string"
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:propertyID",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "schema:value"
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    "allOf": [
+                                                      {
+                                                        "contains": {
+                                                          "title": "Integration Time per Cycle",
+                                                          "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "@id": {
+                                                              "const": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                                                            },
+                                                            "@type": {
+                                                              "const": [
+                                                                "schema:PropertyValue"
+                                                              ]
+                                                            },
+                                                            "schema:propertyID": {
+                                                              "const": [
+                                                                {
+                                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                                                                }
+                                                              ]
+                                                            },
+                                                            "schema:name": {
+                                                              "const": "Integration Time per Cycle"
+                                                            },
+                                                            "ada:dataType": {
+                                                              "const": "number"
+                                                            },
+                                                            "ada:tier": {
+                                                              "const": "M"
+                                                            },
+                                                            "schema:value": {
+                                                              "anyOf": [
+                                                                {
+                                                                  "anyOf": [
+                                                                    {
+                                                                      "type": "number"
+                                                                    },
+                                                                    {
+                                                                      "type": "string"
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                    "anyOf": [
+                                                                      {
+                                                                        "type": "number"
+                                                                      },
+                                                                      {
+                                                                        "type": "string"
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:propertyID",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "schema:value"
+                                                          ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                      },
+                                                      {
+                                                        "contains": {
+                                                          "title": "Ion Counter Dead Time",
+                                                          "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "@id": {
+                                                              "const": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                            },
+                                                            "@type": {
+                                                              "const": [
+                                                                "schema:PropertyValue"
+                                                              ]
+                                                            },
+                                                            "schema:propertyID": {
+                                                              "const": [
+                                                                {
+                                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                }
+                                                              ]
+                                                            },
+                                                            "schema:name": {
+                                                              "const": "Ion Counter Dead Time"
+                                                            },
+                                                            "ada:dataType": {
+                                                              "const": "number"
+                                                            },
+                                                            "ada:tier": {
+                                                              "const": "M"
+                                                            },
+                                                            "schema:value": {
+                                                              "anyOf": [
+                                                                {
+                                                                  "anyOf": [
+                                                                    {
+                                                                      "type": "number"
+                                                                    },
+                                                                    {
+                                                                      "type": "string"
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                    "anyOf": [
+                                                                      {
+                                                                        "type": "number"
+                                                                      },
+                                                                      {
+                                                                        "type": "string"
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:propertyID",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "schema:value"
+                                                          ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "if": {
+                                                "properties": {
+                                                  "schema:additionalType": {
+                                                    "contains": {
                                                       "const": "Torch"
                                                     }
                                                   }
@@ -2526,6 +2825,20 @@
                                                 "schema:additionalType": {
                                                   "contains": {
                                                     "const": "Collision Reaction Cell"
+                                                  }
+                                                }
+                                              },
+                                              "required": [
+                                                "schema:additionalType"
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "contains": {
+                                              "properties": {
+                                                "schema:additionalType": {
+                                                  "contains": {
+                                                    "const": "Collector"
                                                   }
                                                 }
                                               },
@@ -5249,376 +5562,6 @@
                 "maxContains": 1
               }
             ]
-          },
-          "schema:used": {
-            "type": "object",
-            "properties": {
-              "schema:instrument": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "if": {
-                        "properties": {
-                          "schema:additionalType": {
-                            "contains": {
-                              "const": "ICPMS"
-                            }
-                          }
-                        },
-                        "required": [
-                          "schema:additionalType"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "schema:hasPart": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "allOf": [
-                                {
-                                  "if": {
-                                    "properties": {
-                                      "schema:additionalType": {
-                                        "contains": {
-                                          "const": "Collector"
-                                        }
-                                      }
-                                    },
-                                    "required": [
-                                      "schema:additionalType"
-                                    ]
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "ada:collectorConfiguration": {
-                                        "type": "array",
-                                        "items": {
-                                          "anyOf": [
-                                            {
-                                              "title": "Integration Time per Cycle",
-                                              "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
-                                              "type": "object",
-                                              "properties": {
-                                                "@id": {
-                                                  "const": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                },
-                                                "@type": {
-                                                  "const": [
-                                                    "schema:PropertyValue"
-                                                  ]
-                                                },
-                                                "schema:propertyID": {
-                                                  "const": [
-                                                    {
-                                                      "@id": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                    }
-                                                  ]
-                                                },
-                                                "schema:name": {
-                                                  "const": "Integration Time per Cycle"
-                                                },
-                                                "ada:dataType": {
-                                                  "const": "number"
-                                                },
-                                                "ada:tier": {
-                                                  "const": "M"
-                                                },
-                                                "schema:value": {
-                                                  "anyOf": [
-                                                    {
-                                                      "anyOf": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "string"
-                                                        }
-                                                      ]
-                                                    },
-                                                    {
-                                                      "type": "array",
-                                                      "items": {
-                                                        "anyOf": [
-                                                          {
-                                                            "type": "number"
-                                                          },
-                                                          {
-                                                            "type": "string"
-                                                          }
-                                                        ]
-                                                      }
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "required": [
-                                                "@id",
-                                                "@type",
-                                                "schema:propertyID",
-                                                "schema:name",
-                                                "ada:dataType",
-                                                "schema:value"
-                                              ]
-                                            },
-                                            {
-                                              "title": "Ion Counter Dead Time",
-                                              "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-                                              "type": "object",
-                                              "properties": {
-                                                "@id": {
-                                                  "const": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                },
-                                                "@type": {
-                                                  "const": [
-                                                    "schema:PropertyValue"
-                                                  ]
-                                                },
-                                                "schema:propertyID": {
-                                                  "const": [
-                                                    {
-                                                      "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                    }
-                                                  ]
-                                                },
-                                                "schema:name": {
-                                                  "const": "Ion Counter Dead Time"
-                                                },
-                                                "ada:dataType": {
-                                                  "const": "number"
-                                                },
-                                                "ada:tier": {
-                                                  "const": "M"
-                                                },
-                                                "schema:value": {
-                                                  "anyOf": [
-                                                    {
-                                                      "anyOf": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "string"
-                                                        }
-                                                      ]
-                                                    },
-                                                    {
-                                                      "type": "array",
-                                                      "items": {
-                                                        "anyOf": [
-                                                          {
-                                                            "type": "number"
-                                                          },
-                                                          {
-                                                            "type": "string"
-                                                          }
-                                                        ]
-                                                      }
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "required": [
-                                                "@id",
-                                                "@type",
-                                                "schema:propertyID",
-                                                "schema:name",
-                                                "ada:dataType",
-                                                "schema:value"
-                                              ]
-                                            }
-                                          ]
-                                        },
-                                        "allOf": [
-                                          {
-                                            "contains": {
-                                              "title": "Integration Time per Cycle",
-                                              "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
-                                              "type": "object",
-                                              "properties": {
-                                                "@id": {
-                                                  "const": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                },
-                                                "@type": {
-                                                  "const": [
-                                                    "schema:PropertyValue"
-                                                  ]
-                                                },
-                                                "schema:propertyID": {
-                                                  "const": [
-                                                    {
-                                                      "@id": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                    }
-                                                  ]
-                                                },
-                                                "schema:name": {
-                                                  "const": "Integration Time per Cycle"
-                                                },
-                                                "ada:dataType": {
-                                                  "const": "number"
-                                                },
-                                                "ada:tier": {
-                                                  "const": "M"
-                                                },
-                                                "schema:value": {
-                                                  "anyOf": [
-                                                    {
-                                                      "anyOf": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "string"
-                                                        }
-                                                      ]
-                                                    },
-                                                    {
-                                                      "type": "array",
-                                                      "items": {
-                                                        "anyOf": [
-                                                          {
-                                                            "type": "number"
-                                                          },
-                                                          {
-                                                            "type": "string"
-                                                          }
-                                                        ]
-                                                      }
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "required": [
-                                                "@id",
-                                                "@type",
-                                                "schema:propertyID",
-                                                "schema:name",
-                                                "ada:dataType",
-                                                "schema:value"
-                                              ]
-                                            },
-                                            "minContains": 0,
-                                            "maxContains": 1
-                                          },
-                                          {
-                                            "contains": {
-                                              "title": "Ion Counter Dead Time",
-                                              "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-                                              "type": "object",
-                                              "properties": {
-                                                "@id": {
-                                                  "const": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                },
-                                                "@type": {
-                                                  "const": [
-                                                    "schema:PropertyValue"
-                                                  ]
-                                                },
-                                                "schema:propertyID": {
-                                                  "const": [
-                                                    {
-                                                      "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                    }
-                                                  ]
-                                                },
-                                                "schema:name": {
-                                                  "const": "Ion Counter Dead Time"
-                                                },
-                                                "ada:dataType": {
-                                                  "const": "number"
-                                                },
-                                                "ada:tier": {
-                                                  "const": "M"
-                                                },
-                                                "schema:value": {
-                                                  "anyOf": [
-                                                    {
-                                                      "anyOf": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "string"
-                                                        }
-                                                      ]
-                                                    },
-                                                    {
-                                                      "type": "array",
-                                                      "items": {
-                                                        "anyOf": [
-                                                          {
-                                                            "type": "number"
-                                                          },
-                                                          {
-                                                            "type": "string"
-                                                          }
-                                                        ]
-                                                      }
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "required": [
-                                                "@id",
-                                                "@type",
-                                                "schema:propertyID",
-                                                "schema:name",
-                                                "ada:dataType",
-                                                "schema:value"
-                                              ]
-                                            },
-                                            "minContains": 0,
-                                            "maxContains": 1
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            "allOf": [
-                              {
-                                "contains": {
-                                  "properties": {
-                                    "schema:additionalType": {
-                                      "contains": {
-                                        "const": "Collector"
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:additionalType"
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  ]
-                },
-                "allOf": [
-                  {
-                    "contains": {
-                      "properties": {
-                        "schema:additionalType": {
-                          "contains": {
-                            "const": "ICPMS"
-                          }
-                        }
-                      },
-                      "required": [
-                        "schema:additionalType"
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
           },
           "schema:location": {
             "type": "object",
