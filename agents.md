@@ -93,6 +93,8 @@ Profiles additionally compose base schemas via `allOf` references.
 
 `files/schema.yaml`'s outer `anyOf` over base BBs has no permissive `schema:MediaObject` fallback — without it, parts whose `@type` doesn't match a specific BB will (correctly) fail validation.
 
+**`schema:encodingFormat` shape.** At distribution/member sites — `geochemProduct` distribution items, `collection` filelist entries, `files` top-level, `otherFile` — `schema:encodingFormat` is an **array of strings** (`{type: array, items: {type: string}}`), matching upstream CDIF `dataDownload`. The **one exception** is `schema:relatedLink[].schema:target.schema:encodingFormat` (the `schema:LinkRole` → `schema:EntryPoint` target), which is a **scalar string** — a link target names one resource with one registered MIME type. Aligned 2026-08 (`51556aaf`; scalar-target revert `98a3d04e`).
+
 ## adaProduct → cdifProvActivity composition
 
 `adaProduct.allOf` includes `cdifProvenance` (which $refs `cdifProvActivity`). adaProduct redefines `prov:wasGeneratedBy.items.properties` to add ADA-specific keys; via `allOf` merge the cdifProvActivity constraints still apply.
@@ -110,6 +112,9 @@ Profiles additionally compose base schemas via `allOf` references.
 | `generate_profiles.py` | Generate technique profile building blocks from config data. Run with `--list` to see all profiles, or pass a profile name to regenerate one. |
 | `regenerate_schema_json.py` | Sync `*Schema.json` from `schema.yaml` sources. Use `--dry-run` to preview. |
 | `resolve_schema.py` | Resolve all `$ref` into a structured `resolvedSchema.json` (`$defs` + internal `$ref`, recursion-safe, ~88–90% smaller). The old fully-inlined output and separate `*StructuredSchema.json` files are gone; `--structured` is now a no-op. Supports `--all`, `--flatten-allof`. Canonical copy from metadataBuildingBlocks. |
+
+> **⚠ Known blocker (2026-08): `resolve_schema.py --all` currently DEGRADES output — do not commit its result.**
+> The resolver fetches upstream CDIF `$ref`s over HTTP from the **published gh-pages** copy of metadataBuildingBlocks (not a local checkout). That published copy is stale: its `cdifDataStructure` still carries a dangling `$ref: '#/$defs/id-reference'` (removed in current mbb source). Resolving against it stamps temp-dir paths into `$comment`s ("could not resolve fragment /$defs/id-reference in …\Temp\resolve_schema_XXXX\…") and drops `cdifConceptOrTermOrString` defs — regressing ~64 resolvedSchemas. Root cause: mbb `process-bblocks` CI is red → `deploy-viewer` never republishes gh-pages. **Fix is being done in mbb** (republish gh-pages / land id-reference-clean source). Until then, `resolvedSchema.json` regen is deferred (e.g. the `schema:encodingFormat` array alignment lives in source + `*Schema.json` but not yet in `resolvedSchema.json`). Decouple lever if you need clean local artifacts sooner: seed `resolve_schema.py`'s `_URL_CACHE` to a local mbb checkout (see auto-memory `targeted_resolve_acceleration` / `resolvedschema_regen_deferred_2026_08`).
 
 ### Validation and auditing
 

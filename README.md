@@ -136,6 +136,8 @@ python tools/resolve_schema.py --all                 # 5. resolvedSchema.json ev
 python tools/validate_examples.py                    # 6. check the examples still pass
 ```
 
+> **⚠ Step 5 is temporarily degraded (2026-08) — don't commit `resolve_schema.py --all` output.** The resolver fetches upstream CDIF `$ref`s from the **published** mbb gh-pages, which is currently stale (its `cdifDataStructure` has a dangling `$ref: '#/$defs/id-reference'` that current mbb source no longer has). Re-resolving against it leaves temp-dir `$comment` stamps and drops `cdifConceptOrTermOrString` defs, regressing the resolvedSchemas. Root cause is being fixed in metadataBuildingBlocks (republish gh-pages). Steps 1–4 and 6 are unaffected; `resolvedSchema.json` regen is deferred until gh-pages is refreshed. Details + the local-mbb decouple workaround: see [AGENTS.md](AGENTS.md) and auto-memory `resolvedschema_regen_deferred_2026_08`.
+
 The **schema-path sidecar** `docs/<workbook>.schemapaths.csv` is the hand-authored source of truth for the workbook → schema mapping: one row per (Metadata Item → canonical schema path), with a `Source` column marking each path `authored` (human-set, preserved verbatim across re-seeds), `inferred` (bootstrap's best guess), or `flagged` (needs a path). A dual-homed editable parameter is two rows — its TAPP default and its detail value. `tools/schemapath_io.py` reads and writes it; `tools/normalize_schema_paths.py` canonicalises selector names; the grammar is specified in [docs/SCHEMA_PATH_GRAMMAR.md](docs/SCHEMA_PATH_GRAMMAR.md).
 
 `tools/build_dataset_template.py <tapp-instance.json> [out.xlsx]` generates an xlsx data-entry template from a TAPP instance — columns from `analyteColumns`, one row per default analyte.
