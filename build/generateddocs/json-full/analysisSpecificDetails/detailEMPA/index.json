@@ -11,7 +11,7 @@
   "register": "cdif-building-block-register",
   "version": "0.1",
   "dateOfLastChange": "2026-06-04",
-  "link": "https://github.com/usgin/geochemBuildingBlocks",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
   "tags": [
@@ -28,23 +28,23 @@
   ],
   "shaclShapes": {
     "ogch.analysisSpecificDetails.detailEMPA": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailEMPA/rules.shacl"
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailEMPA/rules.shacl"
     ]
   },
   "dependsOn": [
     "ogch.techniqueProtocols.parameterValues"
   ],
-  "ldContext": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/context.jsonld",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/context.jsonld",
   "schema": {
-    "application/yaml": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.yaml",
-    "application/json": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.json"
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.json"
   },
-  "sourceSchema": "https://usgin.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailEMPA/schema.yaml",
-  "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailEMPA/context.jsonld",
-  "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/resolvedProperties.json",
-  "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailEMPA/",
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailEMPA/schema.yaml",
+  "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailEMPA/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailEMPA/",
   "validationPassed": false,
-  "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/analysisSpecificDetails/detailEMPA/",
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/analysisSpecificDetails/detailEMPA/",
   "description": "# EMPA Instrument Detail\n\nElectron Microprobe Analysis with spectrometer and signal details.\n",
   "examples": [
     {
@@ -56,23 +56,23 @@
       "snippets": [
         {
           "language": "json",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailEMPA/example_1_1.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailEMPA/example_1_1.json",
           "code": "{\n  \"@type\": [\"ada:EMPAQEATabular\"],\n  \"ada:spectrometersUsed\": \"WDS 1-5\",\n  \"ada:signalUsed\": \"characteristic X-rays\"\n}\n"
         },
         {
           "language": "jsonld",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailEMPA/example_1_1.jsonld",
-          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:EMPAQEATabular\"\n  ],\n  \"ada:spectrometersUsed\": \"WDS 1-5\",\n  \"ada:signalUsed\": \"characteristic X-rays\"\n}"
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailEMPA/example_1_1.jsonld",
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:EMPAQEATabular\"\n  ],\n  \"ada:spectrometersUsed\": \"WDS 1-5\",\n  \"ada:signalUsed\": \"characteristic X-rays\"\n}"
         },
         {
           "language": "ttl",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailEMPA/example_1_1.ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailEMPA/example_1_1.ttl",
           "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:EMPAQEATabular ;\n    ada:signalUsed \"characteristic X-rays\" ;\n    ada:spectrometersUsed \"WDS 1-5\" .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: EMPA Instrument Detail\ndescription: Detail block for Electron Microprobe Analysis hasPart items. Discriminates\n  on ada:componentType (string) and contributes ada:spectrometersUsed and ada:signalUsed\n  as sibling properties on the hasPart item. Per-dataset schema:additionalProperty\n  entries are constrained inline via $refs to the parameterValues registry (one schema:PropertyValue\n  branch per readOnly:false empaTAPP parameter, plus a catch-all). schema:measurementTechnique\n  is an @id reference to a registered empaTAPP TAPP definition.\nallOf:\n- type: object\n  properties:\n    ada:componentType:\n      anyOf:\n      - const: ada:EMPAImage\n      - const: ada:EMPAImageMap\n      - const: ada:EMPAQEATabular\n      - const: ada:EMPAImageCollection\n      - const: ada:EMPAESPCTabular\n      - const: ada:EMPAESPCPlot\n      x-jsonld-id: https://ada.astromat.org/metadata/componentType\n    ada:spectrometersUsed:\n      type: string\n      description: Spectrometers used in analysis\n      x-jsonld-id: https://ada.astromat.org/metadata/spectrometersUsed\n    ada:signalUsed:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/signalUsed\n    schema:measurementTechnique:\n      type: object\n      description: '@id reference to a registered empaTAPP TAPP definition.'\n      properties:\n        '@id':\n          type: string\n          format: uri\n      required:\n      - '@id'\n      x-jsonld-id: http://schema.org/measurementTechnique\n  required:\n  - ada:componentType\n- type: object\n  properties:\n    schema:additionalProperty:\n      type: array\n      description: \"Per-dataset schema:PropertyValue entries for this EMPA dataset.\n        Each item is any of the empaTAPP-derived parameter types or (via the catch-all\n        branch) any other PropertyValue. All entries are optional \\u2014 include only\n        the parameters you have values for.\"\n      items:\n        anyOf:\n        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/acceleratingVoltage\n        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/beamDiameter\n        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/BeamRasterDimension\n        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/reportedAnalyte\n        - type: object\n          description: Catch-all for additional schema:PropertyValue entries beyond\n            those enumerated in the empaTAPP-derived catalog above.\n          properties:\n            '@type':\n              type: array\n              items:\n                type: string\n              contains:\n                const: schema:PropertyValue\n            schema:propertyID:\n              type: string\n              not:\n                enum:\n                - ada:parameter/empaTAPP/BeamRasterDimension\n                - ada:parameter/empaTAPP/acceleratingVoltage\n                - ada:parameter/empaTAPP/beamDiameter\n                - ada:parameter/empaTAPP/reportedAnalyte\n              x-jsonld-id: http://schema.org/propertyID\n          required:\n          - '@type'\n          - schema:propertyID\n      x-jsonld-id: http://schema.org/additionalProperty\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
-  "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: EMPA Instrument Detail\ndescription: Detail block for Electron Microprobe Analysis hasPart items. Discriminates\n  on ada:componentType (string) and contributes ada:spectrometersUsed and ada:signalUsed\n  as sibling properties on the hasPart item. Per-dataset schema:additionalProperty\n  entries are constrained inline via $refs to the parameterValues registry (one schema:PropertyValue\n  branch per readOnly:false empaTAPP parameter, plus a catch-all). schema:measurementTechnique\n  is an @id reference to a registered empaTAPP TAPP definition.\nallOf:\n- type: object\n  properties:\n    ada:componentType:\n      anyOf:\n      - const: ada:EMPAImage\n      - const: ada:EMPAImageMap\n      - const: ada:EMPAQEATabular\n      - const: ada:EMPAImageCollection\n      - const: ada:EMPAESPCTabular\n      - const: ada:EMPAESPCPlot\n      x-jsonld-id: https://ada.astromat.org/metadata/componentType\n    ada:spectrometersUsed:\n      type: string\n      description: Spectrometers used in analysis\n      x-jsonld-id: https://ada.astromat.org/metadata/spectrometersUsed\n    ada:signalUsed:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/signalUsed\n    schema:measurementTechnique:\n      type: object\n      description: '@id reference to a registered empaTAPP TAPP definition.'\n      properties:\n        '@id':\n          type: string\n          format: uri\n      required:\n      - '@id'\n      x-jsonld-id: http://schema.org/measurementTechnique\n  required:\n  - ada:componentType\n- type: object\n  properties:\n    schema:additionalProperty:\n      type: array\n      description: \"Per-dataset schema:PropertyValue entries for this EMPA dataset.\n        Each item is any of the empaTAPP-derived parameter types or (via the catch-all\n        branch) any other PropertyValue. All entries are optional \\u2014 include only\n        the parameters you have values for.\"\n      items:\n        anyOf:\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/acceleratingVoltage\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/beamDiameter\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/BeamRasterDimension\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/reportedAnalyte\n        - type: object\n          description: Catch-all for additional schema:PropertyValue entries beyond\n            those enumerated in the empaTAPP-derived catalog above.\n          properties:\n            '@type':\n              type: array\n              items:\n                type: string\n              contains:\n                const: schema:PropertyValue\n            schema:propertyID:\n              type: string\n              not:\n                enum:\n                - ada:parameter/empaTAPP/BeamRasterDimension\n                - ada:parameter/empaTAPP/acceleratingVoltage\n                - ada:parameter/empaTAPP/beamDiameter\n                - ada:parameter/empaTAPP/reportedAnalyte\n              x-jsonld-id: http://schema.org/propertyID\n          required:\n          - '@type'\n          - schema:propertyID\n      x-jsonld-id: http://schema.org/additionalProperty\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/analysisSpecificDetails/detailEMPA"
 }

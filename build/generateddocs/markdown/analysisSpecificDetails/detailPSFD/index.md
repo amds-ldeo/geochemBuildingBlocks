@@ -34,7 +34,7 @@ Point Spread Function Data detail with image names and viewing conditions.
     {
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailPSFD/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailPSFD/context.jsonld"
   ],
   "@type": [
     "ada:PSFDTabular"
@@ -71,7 +71,7 @@ properties:
     const: ada:PSFDTabular
     x-jsonld-id: https://ada.astromat.org/metadata/componentType
   ada:imageName:
-    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
+    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
     x-jsonld-id: https://ada.astromat.org/metadata/imageName
   ada:imageViewingConditions:
     type: string
@@ -86,8 +86,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailPSFD/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailPSFD/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailPSFD/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailPSFD/schema.yaml)
 
 
 # JSON-LD Context
@@ -103,7 +103,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailPSFD/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailPSFD/context.jsonld)
 
 ## Sources
 
@@ -113,6 +113,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/analysisSpecificDetails/detailPSFD`
 

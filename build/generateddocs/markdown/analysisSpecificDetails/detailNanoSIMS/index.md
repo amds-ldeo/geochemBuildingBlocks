@@ -34,7 +34,7 @@ NanoSIMS detail with isotope and phase tracking for presolar grain analysis.
     {
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailNanoSIMS/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailNanoSIMS/context.jsonld"
   ],
   "@type": [
     "ada:NanoSIMSTabular"
@@ -83,10 +83,10 @@ properties:
     - const: ada:NanoSIMSMap
     x-jsonld-id: https://ada.astromat.org/metadata/componentType
   ada:phaseAnalyzed:
-    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
+    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
     x-jsonld-id: https://ada.astromat.org/metadata/phaseAnalyzed
   ada:isotopeAnalyzed:
-    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
+    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
     x-jsonld-id: https://ada.astromat.org/metadata/isotopeAnalyzed
 required:
 - ada:componentType
@@ -98,8 +98,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailNanoSIMS/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailNanoSIMS/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailNanoSIMS/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailNanoSIMS/schema.yaml)
 
 
 # JSON-LD Context
@@ -115,7 +115,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailNanoSIMS/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailNanoSIMS/context.jsonld)
 
 ## Sources
 
@@ -125,6 +125,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/analysisSpecificDetails/detailNanoSIMS`
 

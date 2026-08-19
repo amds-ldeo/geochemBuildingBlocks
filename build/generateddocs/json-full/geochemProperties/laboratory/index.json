@@ -11,7 +11,7 @@
   "register": "cdif-building-block-register",
   "version": "0.1",
   "dateOfLastChange": "2026-06-04",
-  "link": "https://github.com/usgin/geochemBuildingBlocks",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
   "tags": [
@@ -27,7 +27,7 @@
   ],
   "shaclShapes": {
     "ogch.geochemProperties.laboratory": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/rules.shacl"
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
@@ -42,17 +42,17 @@
   "dependsOn": [
     "cdif.bbr.metadata.schemaorgProperties.spatialExtent"
   ],
-  "ldContext": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/context.jsonld",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/context.jsonld",
   "schema": {
-    "application/yaml": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.yaml",
-    "application/json": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.json"
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.json"
   },
-  "sourceSchema": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/schema.yaml",
-  "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/context.jsonld",
-  "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/resolvedProperties.json",
-  "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/",
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/schema.yaml",
+  "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/geochemProperties/laboratory/",
   "validationPassed": false,
-  "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/geochemProperties/laboratory/",
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/geochemProperties/laboratory/",
   "description": "# ADA Analysis Laboratory\n\nExtends the core CDIF [spatialExtent](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/) building block for ADA laboratory/facility descriptions. Adds `nxs:BaseClass/NXsource` classification via `schema:additionalType`. Inherits place name, identifier, alternateName, geo coordinates, and GeoSPARQL geometry from core spatialExtent.\n",
   "examples": [
     {
@@ -65,23 +65,23 @@
       "snippets": [
         {
           "language": "json",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/laboratory/example_1_1.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/geochemProperties/laboratory/example_1_1.json",
           "code": "{\n  \"@type\": [\"schema:Place\"],\n  \"schema:additionalType\": [\"nxs:BaseClass/NXsource\"],\n  \"schema:name\": [\"Lunar and Planetary Laboratory Electron Microprobe Facility\"],\n  \"schema:alternateName\": \"LPL EMPA Lab\",\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}\n"
         },
         {
           "language": "jsonld",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/laboratory/example_1_1.jsonld",
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"http://purl.org/nexusformat/definitions/\"\n    },\n    \"https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Place\"\n  ],\n  \"schema:additionalType\": [\n    \"nxs:BaseClass/NXsource\"\n  ],\n  \"schema:name\": [\n    \"Lunar and Planetary Laboratory Electron Microprobe Facility\"\n  ],\n  \"schema:alternateName\": \"LPL EMPA Lab\",\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}"
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/geochemProperties/laboratory/example_1_1.jsonld",
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"http://purl.org/nexusformat/definitions/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Place\"\n  ],\n  \"schema:additionalType\": [\n    \"nxs:BaseClass/NXsource\"\n  ],\n  \"schema:name\": [\n    \"Lunar and Planetary Laboratory Electron Microprobe Facility\"\n  ],\n  \"schema:alternateName\": \"LPL EMPA Lab\",\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}"
         },
         {
           "language": "ttl",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/laboratory/example_1_1.ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/geochemProperties/laboratory/example_1_1.ttl",
           "code": "@prefix schema1: <http://schema.org/> .\n\n[] a schema1:Place ;\n    schema1:additionalType \"nxs:BaseClass/NXsource\" ;\n    schema1:alternateName \"LPL EMPA Lab\" ;\n    schema1:identifier \"https://ror.org/03m2x1q45\" ;\n    schema1:name \"Lunar and Planetary Laboratory Electron Microprobe Facility\" .\n\n"
         }
       ]
     }
   ],
   "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA Analysis Laboratory\ndescription: ADA laboratory or facility building block. Extends the core CDIF spatialExtent\n  (schema:Place) with NeXus NXsource classification via additionalType. Inherits place\n  name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.\nallOf:\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml\n- type: object\n  properties:\n    schema:additionalType:\n      type: array\n      items:\n        type: string\n      contains:\n        const: nxs:BaseClass/NXsource\n      description: Must include nxs:BaseClass/NXsource for NeXus facility classification.\n      x-jsonld-id: http://schema.org/additionalType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  nxs: http://purl.org/nexusformat/definitions/\n",
-  "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/geochemProperties/laboratory"
 }

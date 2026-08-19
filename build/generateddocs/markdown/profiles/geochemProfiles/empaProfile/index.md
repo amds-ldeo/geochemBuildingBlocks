@@ -179,7 +179,7 @@ adaProduct fields plus the empaProfile-specific empaTAPP measurement-technique
       "prov": "http://www.w3.org/ns/prov#",
       "dcterms": "http://purl.org/dc/terms/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/geochemProfiles/empaProfile/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/geochemProfiles/empaProfile/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -998,7 +998,7 @@ methodDescription document. Mock data for validation and testing.
       "dcterms": "http://purl.org/dc/terms/",
       "dcat": "http://www.w3.org/ns/dcat#"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/geochemProfiles/empaProfile/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/geochemProfiles/empaProfile/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -1861,7 +1861,7 @@ title: EMPA Geochem Profile
 description: Geochem dataset profile for EMPA. Extends adaProduct with a detailEMPA
   detail block and a schema:measurementTechnique that points at a empaTAPP TAPP definition.
 allOf:
-- $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml
 - type: object
   properties:
     schema:measurementTechnique:
@@ -1874,7 +1874,7 @@ allOf:
             format: uri
         required:
         - '@id'
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/schema.yaml
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/schema.yaml
     schema:distribution:
       type: array
       items:
@@ -1883,15 +1883,15 @@ allOf:
           schema:hasPart:
             items:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.yaml
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.yaml
 
 ```
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/geochemProfiles/empaProfile/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/geochemProfiles/empaProfile/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/geochemProfiles/empaProfile/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/geochemProfiles/empaProfile/schema.yaml)
 
 
 # JSON-LD Context
@@ -1923,7 +1923,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/geochemProfiles/empaProfile/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/geochemProfiles/empaProfile/context.jsonld)
 
 ## Sources
 
@@ -1933,6 +1933,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/profiles/geochemProfiles/empaProfile`
 

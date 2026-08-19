@@ -33,7 +33,7 @@ Differential Scanning Calorimetry heat flow data detail.
     {
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailDSC/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailDSC/context.jsonld"
   ],
   "@type": [
     "ada:DSCHeatTabular"
@@ -76,8 +76,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailDSC/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailDSC/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailDSC/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailDSC/schema.yaml)
 
 
 # JSON-LD Context
@@ -93,7 +93,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailDSC/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailDSC/context.jsonld)
 
 ## Sources
 
@@ -103,6 +103,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/analysisSpecificDetails/detailDSC`
 

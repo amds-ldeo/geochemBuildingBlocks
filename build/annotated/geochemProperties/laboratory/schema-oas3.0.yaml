@@ -21,20 +21,20 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
         x-jsonld-id: http://schema.org/additionalType
       schema:name:
         description: A place name for the location, either as a string or a DefinedTerm
           from a gazetteer.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
         x-jsonld-id: http://schema.org/name
       schema:identifier:
         description: Formal identifier for this place (e.g. ROR identifier for a facility).
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/Identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/Identifier
         x-jsonld-id: http://schema.org/identifier
       schema:alternateName:
         description: Alternate or abbreviated name(s) for this place.
@@ -42,7 +42,7 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
         x-jsonld-id: http://schema.org/alternateName
       schema:geo:
         description: Either a bounding box or a point location.
@@ -179,9 +179,9 @@ x-defs:
       - geosparql:hasGeometry
     $defs:
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       Identifier:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml
@@ -215,7 +215,7 @@ x-defs:
       schema:identifier:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
         x-jsonld-id: http://schema.org/identifier
       schema:inDefinedTermSet:
         type: string
@@ -301,7 +301,7 @@ description: ADA laboratory or facility building block. Extends the core CDIF sp
   (schema:Place) with NeXus NXsource classification via additionalType. Inherits place
   name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.
 allOf:
-- $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
 - type: object
   properties:
     schema:additionalType:

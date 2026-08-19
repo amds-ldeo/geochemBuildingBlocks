@@ -502,10 +502,10 @@ def write_bblock_if_missing(bb_dir, name, abstract, tags, register="cdif-buildin
         "status": "under-development", "dateTimeAddition": "2026-06-07T00:00:00Z",
         "itemClass": "schema", "register": register, "version": "0.1",
         "dateOfLastChange": "2026-06-07",
-        "link": "https://github.com/usgin/geochemBuildingBlocks",
+        "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
         "maturity": "draft", "scope": "unstable", "tags": tags,
         "sources": [{"title": os.path.basename(CFG["xlsx"]) + " (TAPP worksheet)",
-                     "link": "https://github.com/usgin/geochemBuildingBlocks/tree/main/docs"}],
+                     "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"}],
     }
     write(p, json.dumps(bb, indent=2, ensure_ascii=False) + "\n")
 

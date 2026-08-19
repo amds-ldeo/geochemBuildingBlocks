@@ -8,10 +8,10 @@ x-defs:
       for DDI-CDI variable types and CSVW tabular data properties.
     type: object
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifManifest
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifManifest
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance
     - type: object
       properties:
         '@type':
@@ -167,7 +167,7 @@ x-defs:
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.creativeWork
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.creativeWork
           x-jsonld-id: http://schema.org/license
         schema:relatedLink:
           type: array
@@ -244,13 +244,13 @@ x-defs:
                   instrument BB instance or a tappDefinition BB instance.
                 items:
                   anyOf:
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.instrument
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.instrument
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition
                 x-jsonld-id: http://www.w3.org/ns/prov#used
               schema:location:
                 x-jsonld-id: http://schema.org/location
                 allOf:
-                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.laboratory
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.laboratory
               schema:object:
                 type: array
                 description: Samples analyzed
@@ -372,19 +372,19 @@ x-defs:
           description: Geographic extent of resource content.
           type: array
           items:
-            $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct/$defs/SpatialExtent
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct/$defs/SpatialExtent
           x-jsonld-id: http://schema.org/spatialCoverage
         schema:temporalCoverage:
           description: Temporal extent of resource content.
           type: array
           items:
-            $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct/$defs/TemporalExtent
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct/$defs/TemporalExtent
           x-jsonld-id: http://schema.org/temporalCoverage
         dqv:hasQualityMeasurement:
           description: Quality measurements reported to assess the resource.
           type: array
           items:
-            $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct/$defs/QualityMeasure
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct/$defs/QualityMeasure
         schema:distribution:
           description: Distribution inherits from cdifCore (DataDownload, WebAPI)
             and cdifArchiveDistribution (archive with hasPart). ADA file-type classification
@@ -396,7 +396,7 @@ x-defs:
               schema:hasPart:
                 items:
                   allOf:
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.files
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.files
                   - type: object
                     properties:
                       ada:componentType:
@@ -423,11 +423,11 @@ x-defs:
           x-jsonld-id: http://schema.org/subjectOf
     $defs:
       SpatialExtent:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
       TemporalExtent:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.temporalExtent
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.temporalExtent
       QualityMeasure:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
       universalComponentTypeBranch:
         description: Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf.
           Constrains ada:componentType to the universal enum and marks it required.
@@ -436,7 +436,7 @@ x-defs:
           ada:componentType:
             x-jsonld-id: https://ada.astromat.org/metadata/componentType
             allOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct/$defs/universalComponentType
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct/$defs/universalComponentType
         required:
         - ada:componentType
       universalComponentType:
@@ -478,7 +478,7 @@ x-defs:
       nxs: http://purl.org/nexusformat/definitions/
       dcterms: http://purl.org/dc/terms/
       geosparql: http://www.opengis.net/ont/geosparql#
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml
     x-schema-id: https://w3id.org/adaJSONLD/schema/3.0
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.profiles.cdifProfile.cdifCore:
@@ -566,7 +566,7 @@ x-defs:
           for any given data provided they would provide identifiers either all as
           strings or all as identifier_type.
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Identifier
         - type: string
         x-jsonld-id: http://schema.org/identifier
       schema:additionalType:
@@ -577,7 +577,7 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/cdifConceptOrTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/cdifConceptOrTerm
         x-jsonld-id: http://schema.org/additionalType
       schema:sameAs:
         description: Other identifiers for the dataset, as IRI references, literal
@@ -592,7 +592,7 @@ x-defs:
               '@id':
                 type: string
                 description: IRI for an equivalent resource or alternate identifier
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Identifier
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Identifier
         x-jsonld-id: http://schema.org/sameAs
       schema:version:
         description: The version number or identifier for this dataset (text or numeric).
@@ -631,7 +631,7 @@ x-defs:
               '@id':
                 type: string
                 description: a reference to a resource defining conditions of Access
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Reference
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Reference
         x-jsonld-id: http://schema.org/conditionsOfAccess
       schema:license:
         description: 'legal statement of conditions for use and access; recommend
@@ -650,7 +650,7 @@ x-defs:
               '@id':
                 type: string
                 description: a reference to a license defintion
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Reference
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Reference
         x-jsonld-id: http://schema.org/license
       schema:url:
         type: string
@@ -669,8 +669,8 @@ x-defs:
         type: array
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/DataDownload
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/WebAPI
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/DataDownload
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/WebAPI
         x-jsonld-id: http://schema.org/distribution
       schema:relatedLink:
         type: array
@@ -689,7 +689,7 @@ x-defs:
               minItems: 1
             schema:linkRelationship:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/cdifConceptOrTerm
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/cdifConceptOrTerm
               - type: string
               x-jsonld-id: http://schema.org/linkRelationship
             schema:target:
@@ -732,7 +732,7 @@ x-defs:
               '@id':
                 type: string
                 description: a reference to a publishing principles statement
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Reference
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Reference
         x-jsonld-id: http://schema.org/publishingPrinciples
       schema:keywords:
         description: Keywords are an array of strings, an array of schema:DefinedTerms,
@@ -744,7 +744,7 @@ x-defs:
         type: array
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/cdifConceptOrTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/cdifConceptOrTerm
           - type: string
         x-jsonld-id: http://schema.org/keywords
       schema:creator:
@@ -766,8 +766,8 @@ x-defs:
                       or externally; must be dereferenceable
                 required:
                 - '@id'
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Person
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Organization
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Person
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Organization
         x-jsonld-id: http://schema.org/creator
       schema:contributor:
         description: other parties who played a role in production of dataset
@@ -782,9 +782,9 @@ x-defs:
                   externally; must be dereferenceable
             required:
             - '@id'
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Person
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Organization
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Contributor
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Person
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Organization
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Contributor
         x-jsonld-id: http://schema.org/contributor
       schema:publisher:
         description: Party who made the dataset publicly available
@@ -797,8 +797,8 @@ x-defs:
                 externally; must be dereferenceable
           required:
           - '@id'
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Person
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Person
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Organization
         x-jsonld-id: http://schema.org/publisher
       schema:provider:
         description: Party who maintains the distribution options for the dataset.
@@ -815,29 +815,29 @@ x-defs:
                   externally; must be dereferenceable
             required:
             - '@id'
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Person
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Organization
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Person
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/Organization
         x-jsonld-id: http://schema.org/provider
       schema:funding:
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/MonetaryGrant
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/MonetaryGrant
         x-jsonld-id: http://schema.org/funding
       prov:wasGeneratedBy:
         description: Brief information about instruments, software or experimental
           protocols used
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/GeneratedBy
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/GeneratedBy
       prov:wasDerivedFrom:
         description: Brief information about sources of data used in aggregate datasets
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/DerivedFrom
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/DerivedFrom
       schema:subjectOf:
         x-jsonld-id: http://schema.org/subjectOf
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/CdifCatalogRecord
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/CdifCatalogRecord
     allOf:
     - properties:
         schema:subjectOf:
@@ -870,9 +870,9 @@ x-defs:
         - schema:distribution
     $defs:
       Reference:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
       Identifier:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
       cdifConceptOrTerm:
         anyOf:
         - type: object
@@ -880,26 +880,26 @@ x-defs:
             '@id':
               type: string
               description: reference to a skos concept for the data type
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
       DataDownload:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.dataDownload
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.dataDownload
       WebAPI:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.webAPI
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.webAPI
       Person:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
       Organization:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
       Contributor:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole
       MonetaryGrant:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant
       GeneratedBy:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.provProperties.generatedBy
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.provProperties.generatedBy
       DerivedFrom:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.provProperties.derivedFrom
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.provProperties.derivedFrom
       CdifCatalogRecord:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifCatalogRecord
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifCatalogRecord
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifCore/schema.yaml
@@ -927,7 +927,7 @@ x-defs:
             - http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
       cdif:hasPrimaryKey:
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifKey
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifKey
         - type: object
           description: object reference via URI or URI fragment to a cdif:Key defined
             elsewhere in the same document
@@ -950,7 +950,7 @@ x-defs:
           no `statistics` association from a dataset; this is a CDIF attachment property."
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics
           - type: object
             properties:
               '@id':
@@ -990,7 +990,7 @@ x-defs:
                   of cdif:formats_InstanceVariable references in physical mappings.
             required:
             - '@id'
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
           - type: object
             description: At the Data Description profile level, InstanceVariables
               may also carry substantive and sentinel value domains directly (in profiles
@@ -1002,7 +1002,7 @@ x-defs:
                 type: array
                 items:
                   anyOf:
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SentinelValueDomain
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SentinelValueDomain
                   - type: object
                     properties:
                       '@id':
@@ -1013,7 +1013,7 @@ x-defs:
                   this variable (RepresentedVariable.takesSentinelValuesFrom).
               cdi:takesSubstantiveValuesFrom:
                 anyOf:
-                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SubstantiveValueDomain
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SubstantiveValueDomain
                 - type: object
                   properties:
                     '@id':
@@ -1050,9 +1050,9 @@ x-defs:
                     data); the dataset-type branches below tighten the item type.
                   items:
                     anyOf:
-                    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
-                    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTextMapping
-                    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifLocatorMapping
+                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
+                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTextMapping
+                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifLocatorMapping
                 cdi:characterSet:
                   type: string
                   description: The character set used in the distribution (e.g., UTF-8,
@@ -1061,7 +1061,7 @@ x-defs:
                   description: Integrity fingerprint (checksum/hash) of this distribution's
                     bytes (DDI-CDI DataFingerprint).
                   allOf:
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataFingerprint
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataFingerprint
           - if:
               properties:
                 '@type':
@@ -1069,7 +1069,7 @@ x-defs:
                     enum:
                     - cdi:TabularTextDataSet
             then:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularTextDataSet
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularTextDataSet
           - if:
               properties:
                 '@type':
@@ -1077,7 +1077,7 @@ x-defs:
                     enum:
                     - cdi:StructuredDataSet
             then:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStructuredDataSet
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStructuredDataSet
           - if:
               properties:
                 '@type':
@@ -1099,9 +1099,9 @@ x-defs:
                               or one of its specializations (cdifTextMapping / cdifLocatorMapping).
                             items:
                               anyOf:
-                              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
-                              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTextMapping
-                              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifLocatorMapping
+                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
+                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTextMapping
+                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifLocatorMapping
                           cdi:characterSet:
                             type: string
                             description: The character set used in the API response
@@ -1150,7 +1150,7 @@ x-defs:
                   extensions (cdifTabularData, cdifDataCube) to describe its internal
                   structure.
                 allOf:
-                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifManifest/$defs/archivePartArray
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifManifest/$defs/archivePartArray
           - if:
               properties:
                 schema:encodingFormat:
@@ -1170,7 +1170,7 @@ x-defs:
           represents a component file that is part of the archive and is not independently
           accessible.
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifManifest/$defs/archivePartItem
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifManifest/$defs/archivePartItem
       archivePartItem:
         allOf:
         - type: object
@@ -1258,8 +1258,8 @@ x-defs:
           - schema:name
           - schema:encodingFormat
         - anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataCube
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularData
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataCube
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularData
           - {}
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifManifest/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
@@ -1294,7 +1294,7 @@ x-defs:
           chaining.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifProvenance/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.creativeWork:
@@ -1322,7 +1322,7 @@ x-defs:
     - '@type'
     x-jsonld-prefixes:
       schema: http://schema.org/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.instrument:
     title: ADA Analysis Instrument
@@ -1331,7 +1331,7 @@ x-defs:
       are typed as schema:Thing + schema:Product (from core) with domain-specific
       types (e.g. nxs:BaseClass/NXinstrument, ada:AMSInstrument) in additionalType.
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
     - type: object
       properties:
         schema:additionalType:
@@ -1348,7 +1348,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       nxs: http://purl.org/nexusformat/definitions/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.techniqueProtocols.tappDefinition:
     title: Technique-Aligned Protocol Profile (TAPP) Definition v3
@@ -1430,7 +1430,7 @@ x-defs:
         description: DOI or other persistent ID for this method definition.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
         x-jsonld-id: http://schema.org/identifier
       schema:description:
         type: string
@@ -1463,14 +1463,14 @@ x-defs:
           from a controlled vocabulary of techniques.
         x-jsonld-id: http://schema.org/measurementTechnique
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       schema:object:
         description: Target material(s) this method is designed to analyse (e.g. silicate
           glass, olivine, spinel). Modeled as DefinedTerm(s) or free text.
         type: array
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/DefinedTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/DefinedTerm
           - type: string
         x-jsonld-id: http://schema.org/object
       schema:instrument:
@@ -1478,13 +1478,13 @@ x-defs:
           for instrument sub-components (spectrometers, detectors).
         x-jsonld-id: http://schema.org/instrument
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.instrument
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.instrument
       bios:computationalTool:
         description: Software tools used for data acquisition, reduction, and processing.
           Each tool carries name, version, and optional URL.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/ComputationalTool
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/ComputationalTool
         x-jsonld-id: https://bioschemas.org/computationalTool
       bios:reagent:
         description: Reference materials, calibration standards, and chemical reagents
@@ -1492,7 +1492,7 @@ x-defs:
           be placed on that step instead.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/Reagent
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/Reagent
         x-jsonld-id: https://bioschemas.org/reagent
       schema:location:
         title: Laboratory
@@ -1500,14 +1500,14 @@ x-defs:
           methods that are instrument-generic.
         x-jsonld-id: http://schema.org/location
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.laboratory
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.laboratory
       schema:creator:
         title: Method Author
         description: Person or organisation who defined or is responsible for this
           method.
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
         - type: object
           properties:
             '@id':
@@ -1521,14 +1521,14 @@ x-defs:
           reagents, instruments, and sub-steps.
         x-jsonld-id: http://schema.org/actionProcess
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/WorkflowHowTo
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/WorkflowHowTo
       ada:methodParameters:
         type: array
         description: Method-level parameters that apply across all workflow steps
           (e.g. method-scoped constants like matrix correction model). Step-specific
           parameters should be placed on the appropriate workflow step instead.
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/MethodParameter
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/MethodParameter
         x-jsonld-id: https://ada.astromat.org/metadata/methodParameters
       ada:analyteTemplate:
         description: Template for per-analyte (element-specific) parameters. Defines
@@ -1544,9 +1544,9 @@ x-defs:
               analyzed constituent named in each row.
             minItems: 1
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/AnalyteColumn
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/AnalyteColumn
             contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/AnalyteIdentifierColumn
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/AnalyteIdentifierColumn
             maxContains: 1
             x-jsonld-id: https://ada.astromat.org/metadata/analyteColumns
           ada:defaultAnalytes:
@@ -1566,7 +1566,7 @@ x-defs:
           Uses the CDIF qualityMeasure building block.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/QualityMeasure
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/QualityMeasure
         x-jsonld-id: http://www.w3.org/ns/dqv#hasQualityMeasurement
       schema:relatedLink:
         title: Method References
@@ -1574,13 +1574,13 @@ x-defs:
         description: Publications, Zenodo records, or other references reports describing
           or evaluating this method.
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
         x-jsonld-id: http://schema.org/relatedLink
       schema:funding:
         title: Funding Source
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant
         x-jsonld-id: http://schema.org/funding
     required:
     - '@context'
@@ -1625,7 +1625,7 @@ x-defs:
               preparation" with schema:additionalType containing "bios:LabProcess");
               its schema:position is left to the protocol author.
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/WorkflowStep
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/WorkflowStep
             contains:
               type: object
               description: a sample preparation step is required.
@@ -1692,7 +1692,7 @@ x-defs:
           schema:instrument:
             description: Instrument or equipment used in this step.
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.instrument
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.instrument
             - type: object
               properties:
                 '@id':
@@ -1704,14 +1704,14 @@ x-defs:
             description: Software tools used in this step.
             type: array
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/ComputationalTool
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/ComputationalTool
             x-jsonld-id: https://bioschemas.org/computationalTool
           bios:reagent:
             description: Reference materials, standards, or reagents used in this
               step.
             type: array
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/Reagent
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/Reagent
             x-jsonld-id: https://bioschemas.org/reagent
           prov:used:
             description: Input entities consumed or referenced by this step (e.g.
@@ -1750,7 +1750,7 @@ x-defs:
               step, matrix correction settings for the data processing step).
             type: array
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/MethodParameter
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/MethodParameter
             x-jsonld-id: http://schema.org/additionalProperty
           schema:actionProcess:
             description: Sub-workflow for this step, expressed as a nested schema:HowTo
@@ -1758,12 +1758,12 @@ x-defs:
               procedure (e.g. sample preparation with mount, grind, polish, coat).
             x-jsonld-id: http://schema.org/actionProcess
             allOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/WorkflowHowTo
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/WorkflowHowTo
           dqv:hasQualityMeasurement:
             description: Quality measurements specific to this workflow step.
             type: array
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/QualityMeasure
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/QualityMeasure
             x-jsonld-id: http://www.w3.org/ns/dqv#hasQualityMeasurement
         required:
         - '@type'
@@ -1803,7 +1803,7 @@ x-defs:
             anyOf:
             - type: string
               format: uri
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/DefinedTerm
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/DefinedTerm
             x-jsonld-id: http://schema.org/propertyID
           schema:inDefinedTermSet:
             description: "Controlled vocabulary providing allowed values for this
@@ -1824,7 +1824,7 @@ x-defs:
                   format: uri
               required:
               - '@id'
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
             - type: object
               description: Inline schema:DefinedTermSet listing the allowed values
                 as schema:DefinedTerm objects. Use when no external vocabulary URI
@@ -1910,7 +1910,7 @@ x-defs:
               to link to a controlled vocabulary of parameter categories.
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/DefinedTerm
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/DefinedTerm
             x-jsonld-id: https://ada.astromat.org/metadata/category
           ada:dataType:
             type: string
@@ -1931,7 +1931,7 @@ x-defs:
             description: URI for unit of measure (QUDT preferred).
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/DefinedTerm
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/DefinedTerm
             x-jsonld-id: http://schema.org/unitCode
           ada:cdifPropertyPath:
             type: string
@@ -1984,7 +1984,7 @@ x-defs:
             anyOf:
             - type: string
               format: uri
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/DefinedTerm
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/DefinedTerm
             x-jsonld-id: http://schema.org/propertyID
           schema:inDefinedTermSet:
             description: "Controlled vocabulary providing allowed values for this
@@ -2004,7 +2004,7 @@ x-defs:
                   format: uri
               required:
               - '@id'
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
             - type: object
               description: Inline schema:DefinedTermSet listing the allowed values
                 as schema:DefinedTerm objects. Use when no external vocabulary URI
@@ -2092,7 +2092,7 @@ x-defs:
           tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term
           the value space should be a DefinedTermSet; for now a string.'
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/AnalyteColumn
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.techniqueProtocols.tappDefinition/$defs/AnalyteColumn
         - type: object
           properties:
             schema:valueName:
@@ -2239,9 +2239,9 @@ x-defs:
         required:
         - schema:name
       QualityMeasure:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
@@ -2250,7 +2250,7 @@ x-defs:
       bios: https://bioschemas.org/
       dqv: http://www.w3.org/ns/dqv#
       skos: http://www.w3.org/2004/02/skos/core#
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.laboratory:
     title: ADA Analysis Laboratory
@@ -2259,7 +2259,7 @@ x-defs:
       Inherits place name, identifier, alternateName, geo coordinates, and geosparql
       geometry from spatialExtent.
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
     - type: object
       properties:
         schema:additionalType:
@@ -2274,7 +2274,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       nxs: http://purl.org/nexusformat/definitions/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.files:
     title: Files Type
@@ -2347,7 +2347,7 @@ x-defs:
         ada:resultTarget:
           x-jsonld-id: https://ada.astromat.org/metadata/resultTarget
           allOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.stringArray
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.stringArray
         schema:relatedLink:
           type: array
           description: 'Links between files in the product. Use schema:name for path
@@ -2386,14 +2386,14 @@ x-defs:
                 x-jsonld-id: http://schema.org/target
           x-jsonld-id: http://schema.org/relatedLink
     - anyOf:
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.image
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.imageMap
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.tabularData
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.collection
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.dataCube
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.document
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.supDocImage
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.otherFile
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.image
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.imageMap
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.tabularData
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.collection
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.dataCube
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.document
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.supDocImage
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.otherFile
       - type: object
         properties:
           '@type':
@@ -2407,7 +2407,7 @@ x-defs:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
       spdx: http://spdx.org/rdf/terms#
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.spatialExtent:
     description: 'Spatial Extent description for CDIF discovery profile.  Note required
@@ -2431,20 +2431,20 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
         x-jsonld-id: http://schema.org/additionalType
       schema:name:
         description: A place name for the location, either as a string or a DefinedTerm
           from a gazetteer.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
         x-jsonld-id: http://schema.org/name
       schema:identifier:
         description: Formal identifier for this place (e.g. ROR identifier for a facility).
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/Identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/Identifier
         x-jsonld-id: http://schema.org/identifier
       schema:alternateName:
         description: Alternate or abbreviated name(s) for this place.
@@ -2452,7 +2452,7 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
         x-jsonld-id: http://schema.org/alternateName
       schema:geo:
         description: Either a bounding box or a point location.
@@ -2589,9 +2589,9 @@ x-defs:
       - geosparql:hasGeometry
     $defs:
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       Identifier:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml
@@ -2684,7 +2684,7 @@ x-defs:
             time:inTimePosition:
               x-jsonld-id: http://www.w3.org/2006/time#inTimePosition
               allOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.temporalExtent/$defs/timePosition_type
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.temporalExtent/$defs/timePosition_type
           x-jsonld-id: http://www.w3.org/2006/time#hasBeginning
         time:hasEnd:
           type: object
@@ -2700,7 +2700,7 @@ x-defs:
             time:inTimePosition:
               x-jsonld-id: http://www.w3.org/2006/time#inTimePosition
               allOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.temporalExtent/$defs/timePosition_type
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.temporalExtent/$defs/timePosition_type
           x-jsonld-id: http://www.w3.org/2006/time#hasEnd
       anyOf:
       - required:
@@ -2764,19 +2764,19 @@ x-defs:
               type: string
               description: a resolvable reference to a representation of a quality
                 measure
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure/$defs/DefinedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure/$defs/DefinedTerm
       dqv:value:
         description: the reported result of the quality measure, either as a string
           or a defined term from a vocabulary
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure/$defs/DefinedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure/$defs/DefinedTerm
     required:
     - dqv:isMeasurementOf
     - dqv:value
     $defs:
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml
@@ -2786,8 +2786,8 @@ x-defs:
     description: Building block to implement relations to other resources using a
       URL and some semantics.
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference/$defs/Relation
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference/$defs/Relation
     $defs:
       cdifConceptOrTerm:
         anyOf:
@@ -2796,8 +2796,8 @@ x-defs:
             '@id':
               type: string
               description: reference to a skos concept for the data type
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
       Relation:
         type: object
         description: DCAT Relationship surface added on top of the schema.org labeled
@@ -2816,7 +2816,7 @@ x-defs:
               role slot).
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference/$defs/cdifConceptOrTerm
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference/$defs/cdifConceptOrTerm
             x-jsonld-id: http://www.w3.org/ns/dcat#hadRole
           dcterms:relation:
             type: string
@@ -2921,7 +2921,7 @@ x-defs:
       schema:identifier:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
         x-jsonld-id: http://schema.org/identifier
       schema:inDefinedTermSet:
         type: string
@@ -2980,32 +2980,32 @@ x-defs:
           language should appear at most once.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
-            $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:altLabel:
         description: Alternative lexical labels (acronyms, abbreviations, spelling
           variants).
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:definition:
         description: Formal explanation of the meaning or purpose of this concept
           scheme.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:notation:
         description: Classification code or notation for this concept scheme.
         type: array
@@ -3015,12 +3015,12 @@ x-defs:
         description: General note about the concept scheme.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:hasTopConcept:
         description: Top-level concepts in this scheme. Each item is a skos:Concept
           (inline or @id reference).
@@ -3028,7 +3028,7 @@ x-defs:
         minItems: 1
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
           - type: object
             properties:
               '@id':
@@ -3130,10 +3130,10 @@ x-defs:
               Each language should appear at most once.
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
             - type: array
               items:
-                $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
           skos:notation:
             description: Classification code for this concept within a scheme.
             type: array
@@ -3143,22 +3143,22 @@ x-defs:
             description: Formal explanation of the meaning of this concept.
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
           skos:note:
             description: General note about this concept.
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
           skos:inScheme:
             description: Concept scheme(s) this concept belongs to.
             anyOf:
@@ -3182,16 +3182,16 @@ x-defs:
             type: array
             items:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme
           skos:narrower:
             description: Narrower (child) concepts in the hierarchy. Items are inline
               concept objects or @id references.
             type: array
             items:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme
         required:
         - '@type'
         - skos:prefLabel
@@ -3310,8 +3310,8 @@ x-defs:
                   externally; must be dereferenceable
             required:
             - '@id'
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
         x-jsonld-id: http://schema.org/provider
     required:
     - schema:contentUrl
@@ -3340,7 +3340,7 @@ x-defs:
       schema:serviceType:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.webAPI/$defs/DefinedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.webAPI/$defs/DefinedTerm
         description: specify the kind of service. Ideally this should be a resolvable
           identifier. Currently there is no widely adopted registry for serviceType
           identifiers, in large part because services might be defined at different
@@ -3358,7 +3358,7 @@ x-defs:
         oneOf:
         - type: string
           default: not specified
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.webAPI/$defs/Reference
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.webAPI/$defs/Reference
         x-jsonld-id: http://schema.org/termsOfService
       schema:documentation:
         description: a document that provides a machine-actionable description of
@@ -3370,13 +3370,13 @@ x-defs:
           metadata.
         oneOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.webAPI/$defs/Reference
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.webAPI/$defs/Reference
         x-jsonld-id: http://schema.org/documentation
       schema:potentialAction:
         type: array
         description: actions that can be invoked via the API
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.webAPI/$defs/Action
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.webAPI/$defs/Action
         x-jsonld-id: http://schema.org/potentialAction
     required:
     - schema:serviceType
@@ -3384,11 +3384,11 @@ x-defs:
     - schema:termsOfService
     $defs:
       Reference:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       Action:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.action
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.action
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/webAPI/schema.yaml
@@ -3418,7 +3418,7 @@ x-defs:
       schema:identifier:
         description: identifier for person, recommend ORCID
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
         - type: string
         x-jsonld-id: http://schema.org/identifier
       schema:alternateName:
@@ -3429,7 +3429,7 @@ x-defs:
         description: if affiliation is present, value must be a schema:Organization.
         x-jsonld-id: http://schema.org/affiliation
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
       schema:contactPoint:
         type: object
         description: restrict to email only. Schema.org allows telephone and postal
@@ -3503,7 +3503,7 @@ x-defs:
         type: array
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
           - type: string
         x-jsonld-id: http://schema.org/additionalType
       schema:name:
@@ -3520,7 +3520,7 @@ x-defs:
       schema:identifier:
         description: identifier for organization
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
         - type: string
         x-jsonld-id: http://schema.org/identifier
       schema:sameAs:
@@ -3566,7 +3566,7 @@ x-defs:
       schema:roleName:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
         x-jsonld-id: http://schema.org/roleName
       schema:contributor:
         anyOf:
@@ -3577,8 +3577,8 @@ x-defs:
               description: IRI reference to a Person or Organization defined elsewhere
           required:
           - '@id'
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
         x-jsonld-id: http://schema.org/contributor
     required:
     - '@type'
@@ -3608,7 +3608,7 @@ x-defs:
         description: identifier for a particular grant
         x-jsonld-id: http://schema.org/identifier
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Identifier
       schema:description:
         type: string
         description: description of the funding or grant
@@ -3627,8 +3627,8 @@ x-defs:
                 externally; must be dereferenceable
           required:
           - '@id'
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Person
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Person
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Organization
         x-jsonld-id: http://schema.org/funder
     anyOf:
     - required:
@@ -3639,11 +3639,11 @@ x-defs:
       - schema:name
     $defs:
       Person:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
       Organization:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
       Identifier:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/monetaryGrant/schema.yaml
@@ -3689,7 +3689,7 @@ x-defs:
           type: string
           description: a resolvable reference to a representation of the software
             or instrument used
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
     x-jsonld-prefixes:
       schema: http://schema.org/
       prov: http://www.w3.org/ns/prov#
@@ -3750,8 +3750,8 @@ x-defs:
           name and affiliation, or just organization name. e-mail address is preferred
           contact information.
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifCatalogRecord/$defs/Person
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifCatalogRecord/$defs/Organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifCatalogRecord/$defs/Person
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifCatalogRecord/$defs/Organization
         x-jsonld-id: http://schema.org/maintainer
       schema:sdDatePublished:
         description: date of most recent update to the metadata content
@@ -3787,7 +3787,7 @@ x-defs:
               to provide information on identifier scheme and context for identifier
             x-jsonld-id: http://schema.org/identifier
             allOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifCatalogRecord/$defs/Identifier
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifCatalogRecord/$defs/Identifier
         x-jsonld-id: http://schema.org/includedInDataCatalog
     required:
     - schema:about
@@ -3797,11 +3797,11 @@ x-defs:
     - '@id'
     $defs:
       Identifier:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
       Person:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
       Organization:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
     x-jsonld-prefixes:
       schema: http://schema.org/
       ex: https://example.org/
@@ -3855,7 +3855,7 @@ x-defs:
               description: Identifier for this ComponentPosition node.
             cdi:indexes:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
               - type: object
                 description: object reference via @id to a cdifInstanceVariable declared
                   elsewhere
@@ -3898,9 +3898,9 @@ x-defs:
       link statistics to the InstanceVariable(s) they describe.'
     type: object
     anyOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/Statistics
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/CategoryStatistics
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/StatisticsCollection
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/Statistics
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/CategoryStatistics
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/StatisticsCollection
     $defs:
       cdifConceptOrTerm:
         anyOf:
@@ -3909,8 +3909,8 @@ x-defs:
             '@id':
               type: string
               description: reference to a skos concept for the data type
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
       Statistic:
         title: Statistic
         description: "DDI-CDI Statistic dataType \u2014 a single computed value (mean,
@@ -3964,14 +3964,14 @@ x-defs:
               \u2014 e.g. mean, median, count, sum, stdDev."
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/cdifConceptOrTerm
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/cdifConceptOrTerm
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/typeOfStatistic
           cdi:statistic:
             type: array
             description: "Ordered list of Statistic value objects carried by this
               bundle. Order is significant \u2014 consumers MAY rely on array position."
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/Statistic
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/Statistic
             minItems: 1
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/statistic
           cdi:hasWeight:
@@ -3979,7 +3979,7 @@ x-defs:
               computing the Statistic entries (inline cdifInstanceVariable node or
               an @id-reference).
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
             - type: object
               properties:
                 '@id':
@@ -3996,7 +3996,7 @@ x-defs:
               variable each bundle describes."
             items:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
               - type: object
                 properties:
                   '@id':
@@ -4011,7 +4011,7 @@ x-defs:
               down by Category. cdif: namespaced and target-suffixed because the DDI-CDI
               cdi:has association is polymorphic.'
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/CategoryStatistics
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/CategoryStatistics
             x-jsonld-id: https://cdif.org/0.1/has_CategoryStatistics
         required:
         - '@type'
@@ -4037,7 +4037,7 @@ x-defs:
             description: The Category this CategoryStatistics is for (inline Category
               node or an @id-reference).
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/Category
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/Category
             - type: object
               properties:
                 '@id':
@@ -4049,20 +4049,20 @@ x-defs:
             description: Controlled-vocabulary entry naming the kind of statistic.
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/cdifConceptOrTerm
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/cdifConceptOrTerm
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/typeOfStatistic
           cdi:statistic:
             type: array
             description: Per-category Statistic value objects.
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/Statistic
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/Statistic
             minItems: 1
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/statistic
           cdi:hasWeight:
             description: The InstanceVariable whose values were used as weights (inline
               cdifInstanceVariable node or an @id-reference).
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
             - type: object
               properties:
                 '@id':
@@ -4096,7 +4096,7 @@ x-defs:
             description: The InstanceVariable whose values were used as weights (inline
               cdifInstanceVariable node or an @id-reference).
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
             - type: object
               properties:
                 '@id':
@@ -4111,7 +4111,7 @@ x-defs:
               is polymorphic.'
             items:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/Statistics
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/Statistics
               - type: object
                 properties:
                   '@id':
@@ -4127,7 +4127,7 @@ x-defs:
               space."
             items:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
               - type: object
                 properties:
                   '@id':
@@ -4198,8 +4198,8 @@ x-defs:
               type: string
           required:
           - '@id'
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
     x-jsonld-prefixes:
       schema: http://schema.org/
       cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
@@ -4222,7 +4222,7 @@ x-defs:
       cdif:physicalDataType:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm
         description: identifier or name for the data type concept.
         x-jsonld-id: https://cdif.org/0.1/physicalDataType
       cdif:role:
@@ -4253,7 +4253,7 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm
         description: Essentially the same as schema:propertyID. References to concepts
           that this variable measures or represents. When the dataset's distribution
           carries cdi:isStructuredBy (CDIF Data Structure profile), cdif:uses references
@@ -4265,14 +4265,14 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm
         description: Immutable characteristic of the variable such as geographic designator,
           weight, temporal designation, etc. (InstanceVariable.function).
         x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/function
       cdi:platformType:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm
         description: The application or technical system context in which the variable
           has been realized - typically a statistical processing package or processing
           environment (InstanceVariable.platformType).
@@ -4292,7 +4292,7 @@ x-defs:
           for this InstanceVariable (InstanceVariable.isDescribedBy). cdif: namespaced
           and target-suffixed because the DDI-CDI isDescribedBy association is polymorphic.'
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/StatisticsCollection
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/StatisticsCollection
         - type: object
           properties:
             '@id':
@@ -4306,7 +4306,7 @@ x-defs:
           For a plain-string unit, use cdif:simpleUnitOfMeasure instead.
         x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/describedUnitOfMeasure
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm
       cdi:qualifies:
         type: object
         properties:
@@ -4317,7 +4317,7 @@ x-defs:
     allOf:
     - required:
       - '@type'
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured
     $defs:
       cdifConceptOrTerm:
         anyOf:
@@ -4326,8 +4326,8 @@ x-defs:
             '@id':
               type: string
               description: reference to a skos concept for the data type
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
     x-jsonld-prefixes:
       cdif: https://cdif.org/0.1/
       schema: http://schema.org/
@@ -4347,8 +4347,8 @@ x-defs:
       (subject-matter values) or a cdif:SentinelValueDomain (processing/missing-value
       codes)."
     oneOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SubstantiveValueDomain
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SentinelValueDomain
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SubstantiveValueDomain
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SentinelValueDomain
     $defs:
       SubstantiveValueDomain:
         type: object
@@ -4368,7 +4368,7 @@ x-defs:
             description: Identifier for this SubstantiveValueDomain node
           cdif:takesValuesFrom:
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain
             - type: object
               description: JSON-LD @id reference to a node defined elsewhere in the
                 graph
@@ -4387,7 +4387,7 @@ x-defs:
             type: array
             description: The data types that are recommended for use with this domain.
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/xsdDataType
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/xsdDataType
             minItems: 1
             x-jsonld-id: https://cdif.org/0.1/recommendedDataType
           cdi:isDescribedBy:
@@ -4395,7 +4395,7 @@ x-defs:
               (ranges, patterns, classification level, expressions) of the values
               this domain admits.
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/ValueAndConceptDescription
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/ValueAndConceptDescription
             - type: object
               description: JSON-LD @id reference to a node defined elsewhere in the
                 graph
@@ -4432,7 +4432,7 @@ x-defs:
             description: Identifier for this SentinelValueDomain node
           cdif:takesValuesFrom:
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain
             - type: object
               description: JSON-LD @id reference to a node defined elsewhere in the
                 graph
@@ -4453,7 +4453,7 @@ x-defs:
             type: array
             description: The data types that are recommended for use with this domain.
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/xsdDataType
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/xsdDataType
             minItems: 1
             x-jsonld-id: https://cdif.org/0.1/recommendedDataType
           cdi:isDescribedBy:
@@ -4461,7 +4461,7 @@ x-defs:
               (ranges, patterns, classification level, expressions) of the values
               this domain admits.
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/ValueAndConceptDescription
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/ValueAndConceptDescription
             - type: object
               description: JSON-LD @id reference to a node defined elsewhere in the
                 graph
@@ -4657,7 +4657,7 @@ x-defs:
             '@id':
               type: string
               description: reference to a skos concept for the data type
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping/$defs/cdifConceptOrTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping/$defs/cdifConceptOrTerm
         description: identifier or name for the data type concept.
         x-jsonld-id: https://cdif.org/0.1/physicalDataType
       cdi:numberPattern:
@@ -4709,8 +4709,8 @@ x-defs:
             '@id':
               type: string
               description: reference to a skos concept for the data type
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
     x-jsonld-prefixes:
       cdif: https://cdif.org/0.1/
       schema: http://schema.org/
@@ -4724,7 +4724,7 @@ x-defs:
       dataset. Extends cdifPhysicalMapping with text-format properties (column width
       and number formatting). DDI-CDI TextMapping.
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
     - type: object
       properties:
         '@type':
@@ -4772,7 +4772,7 @@ x-defs:
       DDI-CDI LocatorMapping. Used in place of column-index/text mappings for cdi:StructuredDataSet
       distributions.
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
     - type: object
       properties:
         '@type':
@@ -4990,7 +4990,7 @@ x-defs:
         description: Links variables to their physical representation in this dataset.
         items:
           allOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
           - type: object
             properties:
               cdi:locator:
@@ -5130,7 +5130,7 @@ x-defs:
         type: array
         description: Links variables to their physical representation in this dataset.
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
         x-jsonld-id: https://cdif.org/0.1/hasPhysicalMapping
       countRows:
         type: integer
@@ -5173,7 +5173,7 @@ x-defs:
       bounds, action chaining, and more.
     type: object
     allOf:
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.provProperties.generatedBy
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.provProperties.generatedBy
     - type: object
       properties:
         '@type':
@@ -5204,7 +5204,7 @@ x-defs:
                 schema:instrument:
                   x-jsonld-id: http://schema.org/instrument
                   allOf:
-                  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Instrument
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Instrument
               required:
               - schema:instrument
           x-jsonld-id: http://www.w3.org/ns/prov#used
@@ -5219,15 +5219,15 @@ x-defs:
         schema:identifier:
           description: Formal identifier for this activity
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Identifier
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Identifier
           - type: string
           x-jsonld-id: http://schema.org/identifier
         schema:agent:
           description: Primary responsible agent for this activity (maps to PROV wasAssociatedWith)
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Person
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Organization
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/AgentInRole
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Person
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Organization
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/AgentInRole
           - type: object
             properties:
               '@id':
@@ -5241,9 +5241,9 @@ x-defs:
           type: array
           items:
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Person
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Organization
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/AgentInRole
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Person
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/Organization
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/AgentInRole
             - type: object
               properties:
                 '@id':
@@ -5339,7 +5339,7 @@ x-defs:
         schema:location:
           description: Where the activity occurred
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/SpatialExtent
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/SpatialExtent
           - type: string
           - type: object
             properties:
@@ -5350,7 +5350,7 @@ x-defs:
         schema:actionProcess:
           description: Methodology or protocol for this activity
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/HowTo
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/HowTo
           - type: string
           - type: object
             properties:
@@ -5366,23 +5366,23 @@ x-defs:
           description: Domain-specific extension properties
           type: array
           items:
-            $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/AdditionalProperty
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/AdditionalProperty
           x-jsonld-id: http://schema.org/additionalProperty
     $defs:
       Person:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
       Organization:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
       AgentInRole:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole
       Identifier:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
       Instrument:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
       SpatialExtent:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
       AdditionalProperty:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty
       HowTo:
         type: object
         description: A methodology or protocol described as a HowTo with optional
@@ -5415,7 +5415,7 @@ x-defs:
             type: array
             description: Ordered steps in this methodology
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/HowToStep
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifProvActivity/$defs/HowToStep
             x-jsonld-id: http://schema.org/step
         required:
         - '@type'
@@ -5529,7 +5529,7 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
         x-jsonld-id: http://schema.org/identifier
       schema:url:
         type: string
@@ -5540,7 +5540,7 @@ x-defs:
         description: Organization that manufactured this instrument.
         x-jsonld-id: http://schema.org/manufacturer
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
       schema:model:
         type: object
         description: Product model information for this instrument.
@@ -5561,7 +5561,7 @@ x-defs:
             description: Model identifier.
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
             x-jsonld-id: http://schema.org/identifier
         required:
         - schema:name
@@ -5570,27 +5570,27 @@ x-defs:
         description: Instrument type classification(s) from a controlled vocabulary.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/DefinedTerm
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/DefinedTerm
         x-jsonld-id: http://schema.org/category
       schema:owner:
         description: Organization that owns this instrument.
         x-jsonld-id: http://schema.org/owner
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
       schema:contributor:
         description: Agents associated with this instrument in specific roles (e.g.
           operator, custodian, principal investigator). Use schema:owner for the owning
           organization.
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AgentInRole
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AgentInRole
         x-jsonld-id: http://schema.org/contributor
       schema:additionalProperty:
         type: array
         description: Instrument-specific properties (measured variables, detection
           limits, calibration information, operating parameters, etc.).
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalProperty
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalProperty
         x-jsonld-id: http://schema.org/additionalProperty
       schema:validFrom:
         type: string
@@ -5607,7 +5607,7 @@ x-defs:
           an inline instrument description or an @id reference.
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/InstrumentComponent
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/InstrumentComponent
           - type: object
             properties:
               '@id':
@@ -5621,7 +5621,7 @@ x-defs:
         description: Links to related resources (manuals, datasheets, calibration
           records, related instruments).
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Reference
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Reference
         x-jsonld-id: http://schema.org/relatedLink
       schema:subjectOf:
         description: Catalog record metadata-about-metadata for this instrument description.
@@ -5660,19 +5660,19 @@ x-defs:
     - schema:name
     $defs:
       Identifier:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
       Organization:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
       Person:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       AgentInRole:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole
       AdditionalProperty:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty
       Reference:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
       InstrumentComponent:
         type: object
         description: A sub-component of an instrument system. Uses the same structure
@@ -5703,7 +5703,7 @@ x-defs:
           schema:identifier:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
             x-jsonld-id: http://schema.org/identifier
           schema:additionalType:
             description: Component type classification.
@@ -5714,12 +5714,12 @@ x-defs:
           schema:additionalProperty:
             type: array
             items:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalProperty
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalProperty
             x-jsonld-id: http://schema.org/additionalProperty
           schema:manufacturer:
             x-jsonld-id: http://schema.org/manufacturer
             allOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
           schema:model:
             type: object
             properties:
@@ -5737,7 +5737,7 @@ x-defs:
               schema:identifier:
                 anyOf:
                 - type: string
-                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
                 x-jsonld-id: http://schema.org/identifier
             x-jsonld-id: http://schema.org/model
         required:
@@ -5783,7 +5783,7 @@ x-defs:
     minItems: 0
     items:
       type: string
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.image:
     title: Image Type
@@ -5841,7 +5841,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/image/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/image/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.imageMap:
     title: Image Map Type
@@ -5895,14 +5895,14 @@ x-defs:
       ada:spatialRegistration:
         x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.spatialRegistration
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.spatialRegistration
     required:
     - '@type'
     - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/imageMap/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/imageMap/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.tabularData:
     title: Tabular Data Type
@@ -5945,16 +5945,16 @@ x-defs:
         ada:spatialRegistration:
           x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
           allOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.spatialRegistration
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.spatialRegistration
       required:
       - '@type'
       - ada:componentType
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularData
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularData
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
       cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.collection:
     title: Collection Type
@@ -5989,7 +5989,7 @@ x-defs:
         description: List of the component types in the collection
         x-jsonld-id: https://ada.astromat.org/metadata/memberTypes
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.stringArray
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.stringArray
       ada:nFiles:
         type: integer
         description: Number of files in the collection, including metadata files
@@ -6027,7 +6027,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/collection/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/collection/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.dataCube:
     title: Data Cube Type
@@ -6056,12 +6056,12 @@ x-defs:
         ada:dataComponentResource:
           type: string
           x-jsonld-id: https://ada.astromat.org/metadata/dataComponentResource
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataCube
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataCube
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
       cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.document:
     title: Document Type
@@ -6100,7 +6100,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/document/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/document/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.supDocImage:
     title: Supplemental Document Image Type
@@ -6142,7 +6142,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/supDocImage/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/supDocImage/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.otherFile:
     title: Other File Type
@@ -6192,7 +6192,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/otherFile/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/otherFile/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.action:
     title: 'Action '
@@ -6301,7 +6301,7 @@ x-defs:
           block.
         x-jsonld-id: http://schema.org/result
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.actionResult
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.actionResult
       schema:object:
         type: object
         description: The entity upon which the action is carried out, whose state
@@ -6414,10 +6414,10 @@ x-defs:
           language should appear at most once.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         - type: array
           items:
-            $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         x-jsonld-id: http://www.w3.org/2004/02/skos/core#prefLabel
       skos:notation:
         description: Classification code for this concept within a scheme.
@@ -6429,67 +6429,67 @@ x-defs:
         description: Formal explanation of the meaning of this concept.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         x-jsonld-id: http://www.w3.org/2004/02/skos/core#definition
       skos:scopeNote:
         description: Note clarifying meaning and/or intended use.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         x-jsonld-id: http://www.w3.org/2004/02/skos/core#scopeNote
       skos:note:
         description: General note about this concept.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         x-jsonld-id: http://www.w3.org/2004/02/skos/core#note
       skos:historyNote:
         description: Note about past state or use.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         x-jsonld-id: http://www.w3.org/2004/02/skos/core#historyNote
       skos:changeNote:
         description: Note documenting a change.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         x-jsonld-id: http://www.w3.org/2004/02/skos/core#changeNote
       skos:editorialNote:
         description: Note for editors and maintainers.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
         x-jsonld-id: http://www.w3.org/2004/02/skos/core#editorialNote
       skos:inScheme:
         description: Concept scheme(s) this concept belongs to.
@@ -6533,8 +6533,8 @@ x-defs:
         type: array
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/ConceptRef
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/ConceptRef
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
         x-jsonld-id: http://www.w3.org/2004/02/skos/core#broader
       skos:narrower:
         description: Narrower (child) concepts in the hierarchy. Items are inline
@@ -6542,8 +6542,8 @@ x-defs:
         type: array
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/ConceptRef
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/ConceptRef
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
         x-jsonld-id: http://www.w3.org/2004/02/skos/core#narrower
     required:
     - '@type'
@@ -6615,7 +6615,7 @@ x-defs:
             '@id':
               type: string
               description: reference to a skos concept
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured/$defs/DefinedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured/$defs/DefinedTerm
         description: Text description or URI specifying how values for the variable
           were obtained.
         x-jsonld-id: http://schema.org/measurementTechnique
@@ -6628,7 +6628,7 @@ x-defs:
             properties:
               '@id':
                 type: string
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured/$defs/DefinedTerm
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured/$defs/DefinedTerm
         description: identifier or name for the property concept
         x-jsonld-id: http://schema.org/propertyID
       schema:unitText:
@@ -6642,7 +6642,7 @@ x-defs:
           properties:
             '@id':
               type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured/$defs/DefinedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured/$defs/DefinedTerm
         description: URI or code identifying the unit of measure
         x-jsonld-id: http://schema.org/unitCode
       schema:minValue:
@@ -6658,16 +6658,16 @@ x-defs:
         - type: string
           format: uri
           description: link to a web page useful for interpreting the variable
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured/$defs/Reference
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured/$defs/Reference
         x-jsonld-id: http://schema.org/url
     required:
     - '@type'
     - schema:name
     $defs:
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       Reference:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/variableMeasured/schema.yaml
@@ -6693,7 +6693,7 @@ x-defs:
         description: Identifier for this enumerated (categorical) domain.
         x-jsonld-id: https://cdif.org/0.1/identifier
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
       schema:name:
         type: string
         description: Human understandable name (liguistic signifier, word, phrase,
@@ -6703,7 +6703,7 @@ x-defs:
         description: CDIF codelist (skos:ConceptScheme) whose concepts define the
           allowed values of this enumeration domain.
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist
         - type: object
           description: object reference via URI or URI fragment referencing an @id
             in the same document
@@ -6742,7 +6742,7 @@ x-defs:
       schema:propertyID:
         type: array
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/propertyID_item
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/propertyID_item
         minItems: 1
         description: identifier or name for the property concept quantified by the
           values in this variable slot. Multiple values can specify the property at
@@ -6761,7 +6761,7 @@ x-defs:
       schema:unitCode:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
         x-jsonld-id: http://schema.org/unitCode
       schema:unitText:
         type: string
@@ -6771,7 +6771,7 @@ x-defs:
     - schema:value
     $defs:
       DefinedTerm:
-        $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       propertyID_item:
         anyOf:
         - type: string
@@ -6779,7 +6779,7 @@ x-defs:
           properties:
             '@id':
               type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
     x-jsonld-prefixes:
       schema: http://schema.org/
       nxs: http://purl.org/nexusformat/definitions/
@@ -6837,7 +6837,7 @@ x-defs:
     - ada:coordDef
     x-jsonld-prefixes:
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.actionResult:
     title: Action result
@@ -6994,7 +6994,7 @@ x-defs:
         type: array
         minItems: 1
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist/$defs/CdifCodelistConcept
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist/$defs/CdifCodelistConcept
         x-jsonld-id: http://www.w3.org/2004/02/skos/core#hasTopConcept
       schema:subjectOf:
         description: Catalog record describing this codelist as CDIF-conformant metadata.
@@ -7115,7 +7115,7 @@ x-defs:
                 required:
                 - '@id'
               - allOf:
-                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist/$defs/CdifCodelistConcept
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist/$defs/CdifCodelistConcept
                 - required:
                   - skos:broader
             x-jsonld-id: http://www.w3.org/2004/02/skos/core#narrower
@@ -7148,7 +7148,7 @@ description: Technique-specific profile for X-ray Absorption Near Edge Structure
   products. Extends the base ADA product profile with constraints on valid XANES component
   types.
 allOf:
-- $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct
 - type: object
   properties:
     schema:additionalType:
@@ -7169,7 +7169,7 @@ allOf:
             items:
               type: object
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct/$defs/universalComponentTypeBranch
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaXANES/schema-oas3.0.yaml#/x-defs/ogch.profiles.adaProfiles.adaProduct/$defs/universalComponentTypeBranch
               - properties:
                   ada:componentType:
                     type: string

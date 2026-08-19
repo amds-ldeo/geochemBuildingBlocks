@@ -38,7 +38,7 @@ A multi-dimensional data cube for SEM-EDS elemental map cube data.
       "ada": "https://ada.astromat.org/metadata/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/context.jsonld"
   ],
   "@type": [
     "ada:dataCube",
@@ -102,8 +102,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/schema.yaml)
 
 
 # JSON-LD Context
@@ -121,7 +121,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/context.jsonld)
 
 ## Sources
 
@@ -131,6 +131,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/geochemProperties/dataCube`
 

@@ -6,7 +6,7 @@ x-defs:
     minItems: 0
     items:
       type: string
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.image:
     title: Image Type
@@ -64,7 +64,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/image/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/image/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.imageMap:
     title: Image Map Type
@@ -118,14 +118,14 @@ x-defs:
       ada:spatialRegistration:
         x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.spatialRegistration
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.spatialRegistration
     required:
     - '@type'
     - ada:componentType
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/imageMap/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/imageMap/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.tabularData:
     title: Tabular Data Type
@@ -168,16 +168,16 @@ x-defs:
         ada:spatialRegistration:
           x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
           allOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.spatialRegistration
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.spatialRegistration
       required:
       - '@type'
       - ada:componentType
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularData
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularData
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
       cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.collection:
     title: Collection Type
@@ -212,7 +212,7 @@ x-defs:
         description: List of the component types in the collection
         x-jsonld-id: https://ada.astromat.org/metadata/memberTypes
         allOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.stringArray
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.stringArray
       ada:nFiles:
         type: integer
         description: Number of files in the collection, including metadata files
@@ -250,7 +250,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/collection/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/collection/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.dataCube:
     title: Data Cube Type
@@ -279,12 +279,12 @@ x-defs:
         ada:dataComponentResource:
           type: string
           x-jsonld-id: https://ada.astromat.org/metadata/dataComponentResource
-    - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataCube
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataCube
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
       cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.document:
     title: Document Type
@@ -323,7 +323,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/document/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/document/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.supDocImage:
     title: Supplemental Document Image Type
@@ -365,7 +365,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/supDocImage/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/supDocImage/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.otherFile:
     title: Other File Type
@@ -415,7 +415,7 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/otherFile/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/otherFile/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.geochemProperties.spatialRegistration:
     title: Spatial Registration Type
@@ -469,7 +469,7 @@ x-defs:
     - ada:coordDef
     x-jsonld-prefixes:
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifTabularData:
     type: object
@@ -595,7 +595,7 @@ x-defs:
         type: array
         description: Links variables to their physical representation in this dataset.
         items:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
         x-jsonld-id: https://cdif.org/0.1/hasPhysicalMapping
       countRows:
         type: integer
@@ -649,7 +649,7 @@ x-defs:
         description: Links variables to their physical representation in this dataset.
         items:
           allOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
           - type: object
             properties:
               cdi:locator:
@@ -706,7 +706,7 @@ x-defs:
             '@id':
               type: string
               description: reference to a skos concept for the data type
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping/$defs/cdifConceptOrTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping/$defs/cdifConceptOrTerm
         description: identifier or name for the data type concept.
         x-jsonld-id: https://cdif.org/0.1/physicalDataType
       cdi:numberPattern:
@@ -758,8 +758,8 @@ x-defs:
             '@id':
               type: string
               description: reference to a skos concept for the data type
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
     x-jsonld-prefixes:
       cdif: https://cdif.org/0.1/
       schema: http://schema.org/
@@ -796,7 +796,7 @@ x-defs:
       schema:identifier:
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
         x-jsonld-id: http://schema.org/identifier
       schema:inDefinedTermSet:
         type: string
@@ -855,32 +855,32 @@ x-defs:
           language should appear at most once.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
-            $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:altLabel:
         description: Alternative lexical labels (acronyms, abbreviations, spelling
           variants).
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:definition:
         description: Formal explanation of the meaning or purpose of this concept
           scheme.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:notation:
         description: Classification code or notation for this concept scheme.
         type: array
@@ -890,12 +890,12 @@ x-defs:
         description: General note about the concept scheme.
         anyOf:
         - type: string
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:hasTopConcept:
         description: Top-level concepts in this scheme. Each item is a skos:Concept
           (inline or @id reference).
@@ -903,7 +903,7 @@ x-defs:
         minItems: 1
         items:
           anyOf:
-          - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
           - type: object
             properties:
               '@id':
@@ -1005,10 +1005,10 @@ x-defs:
               Each language should appear at most once.
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
             - type: array
               items:
-                $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
           skos:notation:
             description: Classification code for this concept within a scheme.
             type: array
@@ -1018,22 +1018,22 @@ x-defs:
             description: Formal explanation of the meaning of this concept.
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
           skos:note:
             description: General note about this concept.
             anyOf:
             - type: string
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
           skos:inScheme:
             description: Concept scheme(s) this concept belongs to.
             anyOf:
@@ -1057,16 +1057,16 @@ x-defs:
             type: array
             items:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme
           skos:narrower:
             description: Narrower (child) concepts in the hierarchy. Items are inline
               concept objects or @id references.
             type: array
             items:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme
         required:
         - '@type'
         - skos:prefLabel
@@ -1224,7 +1224,7 @@ allOf:
     ada:resultTarget:
       x-jsonld-id: https://ada.astromat.org/metadata/resultTarget
       allOf:
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.stringArray
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.stringArray
     schema:relatedLink:
       type: array
       description: 'Links between files in the product. Use schema:name for path to
@@ -1263,14 +1263,14 @@ allOf:
             x-jsonld-id: http://schema.org/target
       x-jsonld-id: http://schema.org/relatedLink
 - anyOf:
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.image
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.imageMap
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.tabularData
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.collection
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.dataCube
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.document
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.supDocImage
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.otherFile
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.image
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.imageMap
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.tabularData
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.collection
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.dataCube
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.document
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.supDocImage
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema-oas3.0.yaml#/x-defs/ogch.geochemProperties.otherFile
   - type: object
     properties:
       '@type':

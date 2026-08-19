@@ -35,7 +35,7 @@ A labeled link to an external resource typed as schema:CreativeWork.
     {
       "schema": "http://schema.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/context.jsonld"
   ],
   "@type": [
     "schema:CreativeWork"
@@ -90,8 +90,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/schema.yaml)
 
 
 # JSON-LD Context
@@ -106,7 +106,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/creativeWork/context.jsonld)
 
 ## Sources
 
@@ -116,6 +116,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/geochemProperties/creativeWork`
 

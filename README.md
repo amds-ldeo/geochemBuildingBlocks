@@ -117,7 +117,7 @@ This repository imports shared schema.org and CDIF property building blocks from
 
 ## Viewer
 
-Browse the building blocks at: https://usgin.github.io/geochemBuildingBlocks/
+Browse the building blocks at: https://amds-ldeo.github.io/geochemBuildingBlocks/
 
 ## Tools
 
@@ -125,7 +125,9 @@ Browse the building blocks at: https://usgin.github.io/geochemBuildingBlocks/
 
 **[docs/TAPP-schema-generation-workflow.md](docs/TAPP-schema-generation-workflow.md) is the authoritative walkthrough** — written for three audiences (workbook author, pipeline maintainer, form builder) with a flowchart of the whole path from spreadsheet to validated schema. Read it first; the summary here is orientation only.
 
-One hand-authored TAPP workbook per technique (`docs/<Technique>_TAPP_v#.xlsx`, worksheet `TAPP`) drives everything downstream. Nothing generated should ever be hand-edited — fix the workbook or a tool and regenerate.
+> **TAPP source = the `tapp/` git submodule ([amds-ldeo/tapp](https://github.com/amds-ldeo/tapp)).** The TAPP tables and modules live in that submodule, not in this repo; `tools/tapp_source.py:current_delivery()` resolves to `tapp/` (falling back to any inline `TAPPS<date>/` drop). Clone with `git clone --recursive`, or run `git submodule update --init` in an existing checkout, before regenerating. Pin/bump the delivery by updating the submodule commit.
+
+One hand-authored TAPP table per technique (a CSV in the `tapp/` submodule's `Current TAPPs/`) drives everything downstream. Nothing generated should ever be hand-edited — fix the table (upstream, in `amds-ldeo/tapp`) or a tool and regenerate.
 
 ```
 python tools/bootstrap_schemapaths.py  <XLSX>        # 1. seed/refresh the schema-path sidecar

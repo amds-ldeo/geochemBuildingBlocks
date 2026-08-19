@@ -717,7 +717,7 @@ parameters, reagents, and quality measurements.
       "dqv": "http://www.w3.org/ns/dqv#",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -2385,7 +2385,7 @@ catalog identifiers and citations. Multiple target materials
 ```jsonld
 {
   "@context": [
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -4206,7 +4206,7 @@ template, and TAPP-level funding/references.
 ```jsonld
 {
   "@context": [
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -5444,7 +5444,7 @@ properties:
   schema:instrument:
     description: Primary instrument specification for this method. Use schema:hasPart
       for instrument sub-components (spectrometers, detectors).
-    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.yaml
+    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.yaml
     x-jsonld-id: http://schema.org/instrument
   bios:computationalTool:
     description: Software tools used for data acquisition, reduction, and processing.
@@ -5465,7 +5465,7 @@ properties:
     title: Laboratory
     description: Laboratory where this method was developed. Optional; omit for methods
       that are instrument-generic.
-    $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.yaml
+    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/laboratory/schema.yaml
     x-jsonld-id: http://schema.org/location
   schema:creator:
     title: Method Author
@@ -5651,7 +5651,7 @@ $defs:
       schema:instrument:
         description: Instrument or equipment used in this step.
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.yaml
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.yaml
         - type: object
           properties:
             '@id':
@@ -6197,8 +6197,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml)
 
 
 # JSON-LD Context
@@ -6225,12 +6225,12 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/context.jsonld)
 
 ## Sources
 
 * [ADA Metadata Schema v3](https://github.com/amds-ldeo/metadata)
-* [OneGeochemistry EPMA Metadata Profile v1.0](https://github.com/usgin/geochemBuildingBlocks)
+* [OneGeochemistry EPMA Metadata Profile v1.0](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * [Bioschemas LabProtocol Profile](https://bioschemas.org/profiles/LabProtocol)
 * [DDI-CDI 1.0 Process Model](https://ddialliance.org/Specification/DDI-CDI/1.0/)
 * [W3C Data Quality Vocabulary (DQV)](https://www.w3.org/TR/vocab-dqv/)
@@ -6239,6 +6239,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/techniqueProtocols/tappDefinition`
 
