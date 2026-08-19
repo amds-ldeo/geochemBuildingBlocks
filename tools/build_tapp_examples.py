@@ -471,6 +471,9 @@ def type_instrument_tree(inst):
         m = node.get("schema:model")
         if isinstance(m, dict):
             m.setdefault("@type", ["schema:ProductModel"])
+        mf = node.get("schema:manufacturer")
+        if isinstance(mf, dict):
+            mf.setdefault("@type", ["schema:Organization"])
         for p in node.get("schema:hasPart", []) or []:
             walk(p, True)
     for ins in inst.get("schema:instrument", []) or []:
@@ -930,6 +933,8 @@ def main():
     os.makedirs(DETAIL_DIR, exist_ok=True)
     _res_path = os.path.join(TAPP_DIR, "resolvedSchema.json")
     tapp_res = json.load(open(_res_path, encoding="utf-8")) if os.path.exists(_res_path) else None
+    _dres_path = os.path.join(DETAIL_DIR, "resolvedSchema.json")
+    detail_res = json.load(open(_dres_path, encoding="utf-8")) if os.path.exists(_dres_path) else None
     written, detail_written = [], []
     for idx, pc in enumerate(pub_cols):
         hdr_txt = norm(hdr[pc])
@@ -979,8 +984,15 @@ def main():
             json.dump(inst, f, indent=2, ensure_ascii=False)
             f.write("\n")
         written.append((code, hdr_txt))
-        # paired analysis-level detail-block example
+        # paired analysis-level detail-block example — apply the same structural completion the TAPP
+        # example gets: type the instrument tree, fill @type/structural gaps, then sentinel every
+        # still-absent required analysis field (ada:stepSize et al.).
         dinst = build_detail(tapp, code, pc, R, pubval, PARAM_BASE, detail_name, component_types, canon_sp)
+        type_instrument_tree(dinst)
+        if detail_res is not None:
+            ex.fill_required_types(dinst, detail_res)
+            ex.fill_structural_gaps(dinst, detail_res)
+        fill_required_sentinels(dinst, DETAIL_DIR)
         with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),
                   "w", encoding="utf-8", newline="\n") as f:
             json.dump(dinst, f, indent=2, ensure_ascii=False)
