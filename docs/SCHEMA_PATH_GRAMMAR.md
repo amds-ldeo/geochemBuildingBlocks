@@ -83,7 +83,7 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `dataset-activity-description` | `$Dataset.prov:wasGeneratedBy.schema:description` |
 | `dataset-location` | `$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='<value>'].schema:(name|identifier)` |
 | `dataset-used-identity` | `$Dataset.prov:wasGeneratedBy.prov:used.(?:schema:instrument|bios:computationalTool|prov:reagent)[(schema:additionalType|ada:<name>)='<value>'].schema:(name|identifier|description)` |
-| `dataset-distribution` | `$Dataset.schema:distribution.schema:encodingFormat` |
+| `dataset-distribution` | `$Dataset.schema:distribution[].schema:encodingFormat[]` |
 | `dataset-instrument-ada` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].ada:<name>[]?` |
 | `dataset-instrument-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
 | `dataset-instrument-component-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |

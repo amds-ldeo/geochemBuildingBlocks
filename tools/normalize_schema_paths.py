@@ -226,7 +226,11 @@ def recognize(s):
         # schema:additionalType for an instrument, ada:toolRole for a computational tool,
         # ada:reagentRole for a reagent. Identity fields only; parameters have their own families.
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.(?:schema:instrument|bios:computationalTool|prov:reagent)\[(schema:additionalType|ada:[a-z][A-Za-z0-9]*)='[^']*'\]\.schema:(name|identifier|description)$", "dataset-used-identity"),
-        (r"^\$Dataset\.schema:distribution\.schema:encodingFormat$", "dataset-distribution"),
+        # schema:distribution is an array of DataDownload objects and schema:encodingFormat is an
+        # array of MIME-type strings on each (per the upstream CDIF dataDownload), so both segments
+        # carry []: a scalar navigation here would emit a single distribution object and reject the
+        # base's array shape.
+        (r"^\$Dataset\.schema:distribution\[\]\.schema:encodingFormat\[\]$", "dataset-distribution"),
         # dataset-side instrument mirrors. On the protocol the instrument is schema:instrument; on
         # the dataset the provenance activity carries it as prov:used, so these are the analysis-tier
         # partners of instrument-direct-ada / instrument-parameter / instrument-component-parameter.

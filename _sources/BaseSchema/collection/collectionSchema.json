@@ -67,7 +67,10 @@
                         "description": "componentType of an individual file within the collection. Not constrained to the collection-level enum, since a collection holds heterogeneous files (each carrying its own file-type componentType)."
                     },
                     "schema:encodingFormat": {
-                        "type": "string",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
                         "description": "MIME type with extension"
                     }
                 },
