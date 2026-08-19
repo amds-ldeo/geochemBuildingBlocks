@@ -151,7 +151,7 @@ def build_schema(name, only=None):
             used.update(re.findall(r"\b([a-z]+):", path))
     out = {}
     for r, node in roots.items():
-        sch = e.to_schema(node)
+        sch = _reref_module_depth(e.to_schema(node))
         if sch.get("properties"):
             if required[r]:
                 sch = {**sch, "required": sorted(required[r])}
@@ -159,6 +159,27 @@ def build_schema(name, only=None):
     return out, {"fields": len(meta), "placed": placed, "unplaced": unplaced,
                  "prefixes": sorted(used & set(PREFIX_IRI)),
                  "shacl_top": {r: sorted(v) for r, v in shacl_top.items()}}
+
+
+def _reref_module_depth(obj):
+    """Rewrite emitter $refs from technique-schema depth to module depth.
+
+    `schema_path_emitter`'s REF_MAP writes BaseSchema $refs at technique-schema depth
+    (`_sources/techniqueProfile/geochemProfile/<T>/tapp/` — four hops up to `_sources`, hence
+    `../../../../BaseSchema/...`). A module BB lives at `_sources/BaseSchema/modules/<name>/`, two
+    hops shallower, so the same target is `../../<X>`. Without this, a module that places a field on
+    e.g. `schema:instrument` emits a $ref that climbs past the repo root and the OGC postprocess
+    fails with "target file does not exist" (only branch CI catches it, not validate_examples)."""
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if k == "$ref" and isinstance(v, str) and v.startswith("../../../../BaseSchema/"):
+                obj[k] = "../../" + v[len("../../../../BaseSchema/"):]
+            else:
+                _reref_module_depth(v)
+    elif isinstance(obj, list):
+        for v in obj:
+            _reref_module_depth(v)
+    return obj
 
 
 def render(name, defs, stats, composed_by):
