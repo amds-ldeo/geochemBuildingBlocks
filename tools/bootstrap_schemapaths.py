@@ -201,9 +201,9 @@ def keyed_path(row):
     if not kb or kb == "(none)":
         return None
     routes = {
-        "defines: analyte": ["$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes"],
+        "defines: analyte": ["$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]"],
         "analyte": ["$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]"],
-        "defines: reported property": ["$MethodDefinition.ada:reportedProperties[]"],
+        "defines: reported property": ["$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[]"],
         "reported property": [f"$MethodDefinition.schema:variableMeasured[schema:name='{it}'].schema:defaultValue",
                               f"$Dataset.schema:variableMeasured[schema:name='{it}'].schema:value"],
         "defines: sampling unit": ["$MethodDefinition.ada:samplingUnit"],
