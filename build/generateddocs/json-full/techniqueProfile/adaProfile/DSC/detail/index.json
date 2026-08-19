@@ -1,0 +1,78 @@
+
+
+{
+  "itemIdentifier": "ogch.techniqueProfile.adaProfile.DSC.detail",
+  "$schema": "metaschema.yaml",
+  "name": "DSC Instrument Detail",
+  "abstract": "Differential Scanning Calorimetry heat tabular data. Defines properties: @type, analysisType.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-02-06T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-08-19",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "instrument",
+    "dsc"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.techniqueProfile.adaProfile.DSC.detail": [
+      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/DSC/detail/rules.shacl"
+    ]
+  },
+  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/DSC/detail/context.jsonld",
+  "schema": {
+    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/DSC/detail/schema.yaml",
+    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/DSC/detail/schema.json"
+  },
+  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/DSC/detail/schema.yaml",
+  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/DSC/detail/context.jsonld",
+  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/DSC/detail/resolvedProperties.json",
+  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/DSC/detail/",
+  "validationPassed": false,
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/adaProfile/DSC/detail/",
+  "description": "# DSC Instrument Detail\n\nDifferential Scanning Calorimetry heat tabular data.\n",
+  "examples": [
+    {
+      "title": "DSC Instrument Detail Example",
+      "content": "Differential Scanning Calorimetry heat flow data detail.",
+      "prefixes": {
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/DSC/detail/example_1_1.json",
+          "sizeBytes": 71,
+          "code": "{\n  \"@type\": [\"ada:DSCHeatTabular\"],\n  \"ada:analysisType\": \"heating\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/DSC/detail/example_1_1.jsonld",
+          "sizeBytes": 314,
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/DSC/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:DSCHeatTabular\"\n  ],\n  \"ada:analysisType\": \"heating\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/DSC/detail/example_1_1.ttl",
+          "sizeBytes": 113,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:DSCHeatTabular ;\n    ada:analysisType \"heating\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: DSC Instrument Detail\ndescription: Differential Scanning Calorimetry heat tabular data\ntype: object\nproperties:\n  ada:componentType:\n    const: ada:DSCHeatTabular\n    x-jsonld-id: https://ada.astromat.org/metadata/componentType\n  ada:analysisType:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/analysisType\nrequired:\n- ada:componentType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/techniqueProfile/adaProfile/DSC/detail"
+}

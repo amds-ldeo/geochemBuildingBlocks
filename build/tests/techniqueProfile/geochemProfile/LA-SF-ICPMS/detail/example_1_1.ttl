@@ -1,0 +1,44 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Zhang2022 a ada:LAICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/uncertaintyPropagationMethod> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA Grants 80NSSC19K1238 (BZ), 80NSSC19K1613 (NLC), 80NSSC18K0595 (MH), NNX17AE77G (AER); NSF Cooperative Agreement DMR-1644779 and State of Florida [Acknowledgements]" ] ;
+    schema1:measurementTechnique ex:laSficpmsTAPP-Zhang2022 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisLocationSpotCoordinates "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "LA-ICP-MS concentrations agreed with NAA within ±40% for most elements (LA relative to NAA); within ±10% for Ni, Co, Ga; differences in W (4.39 vs 1.06 ng g⁻¹ for Cerro del Inca by LA vs INAA) and Au/As up to 30% — attributed to heterogeneous sampling scale difference between techniques" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:LAICPMSTabular" ;
+    ada:detectionLimit "LODs not formally reported; all concentrations above detection limits except noted (Cr in some irons below LOD)" ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:mappingArea "Raster over \"a few millimeters\" of polished iron slab surface (area not precisely stated)" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "missing" ;
+    ada:sampleName "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:signalIntegrationTime "N/A (mapping) / ~20 s (Ge spots: 20 s ablation at 50 Hz)" ;
+    ada:spotDiameterMeasured -9999 ;
+    ada:transectLength -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
+    schema1:name "Transect Rate, Mapping Rate or Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
+    schema1:value "10 µm s⁻¹ (raster scan); N/A (spot Ge)" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
+    schema1:name "Uncertainty Propagation Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/uncertaintyPropagationMethod> ;
+    schema1:value "Standard deviation (SD) across individual integration cycles of raster scans; uncertainty propagation not formally described" .
+

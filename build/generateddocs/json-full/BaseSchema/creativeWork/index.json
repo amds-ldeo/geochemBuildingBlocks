@@ -1,0 +1,77 @@
+
+
+{
+  "itemIdentifier": "ogch.BaseSchema.creativeWork",
+  "$schema": "metaschema.yaml",
+  "name": "Creative Work Type",
+  "abstract": "Shell type for labeled links to creative works (schema:CreativeWork). Defines properties: @type, schema:name, schema:description, schema:url.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-02-05T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-08-19",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "schema.org"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.BaseSchema.creativeWork": [
+      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/creativeWork/rules.shacl"
+    ]
+  },
+  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/creativeWork/context.jsonld",
+  "schema": {
+    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/creativeWork/schema.yaml",
+    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/creativeWork/schema.json"
+  },
+  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/creativeWork/schema.yaml",
+  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/creativeWork/context.jsonld",
+  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/creativeWork/resolvedProperties.json",
+  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/creativeWork/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/creativeWork/",
+  "description": "# Creative Work Type\n\nA shell type used mostly for labeled links to other resources. Implements `schema:CreativeWork` with name, description, and URL properties. Used in ADA metadata for license references and related resource links.\n",
+  "examples": [
+    {
+      "title": "Creative Work Example",
+      "content": "A labeled link to an external resource typed as schema:CreativeWork.",
+      "prefixes": {
+        "schema": "http://schema.org/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/creativeWork/example_1_1.json",
+          "sizeBytes": 243,
+          "code": "{\n  \"@type\": [\"schema:CreativeWork\"],\n  \"schema:name\": \"Analytical Methods for Geochemistry\",\n  \"schema:description\": \"Reference document describing standard analytical procedures.\",\n  \"schema:url\": \"https://doi.org/10.1234/example-methods\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/creativeWork/example_1_1.jsonld",
+          "sizeBytes": 458,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/creativeWork/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:CreativeWork\"\n  ],\n  \"schema:name\": \"Analytical Methods for Geochemistry\",\n  \"schema:description\": \"Reference document describing standard analytical procedures.\",\n  \"schema:url\": \"https://doi.org/10.1234/example-methods\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/creativeWork/example_1_1.ttl",
+          "sizeBytes": 277,
+          "code": "@prefix schema1: <http://schema.org/> .\n\n[] a schema1:CreativeWork ;\n    schema1:description \"Reference document describing standard analytical procedures.\" ;\n    schema1:name \"Analytical Methods for Geochemistry\" ;\n    schema1:url \"https://doi.org/10.1234/example-methods\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Creative Work Type\ndescription: Shell type for labeled links to other resources. Any schema.org CreativeWork\n  property could be included.\ntype: object\nproperties:\n  '@type':\n    type: array\n    contains:\n      const: schema:CreativeWork\n    minItems: 1\n  schema:name:\n    type: string\n    x-jsonld-id: http://schema.org/name\n  schema:description:\n    type: string\n    x-jsonld-id: http://schema.org/description\n  schema:url:\n    type: string\n    x-jsonld-id: http://schema.org/url\nrequired:\n- '@type'\nx-jsonld-prefixes:\n  schema: http://schema.org/\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/BaseSchema/creativeWork"
+}

@@ -1,0 +1,135 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:temTAPP-Zega2025-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "FEI TitanX",
+  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX) (publication column of TEM_TAPP_v17.xlsx).",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory"
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
+    }
+  ],
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:acceleratingVoltageDefault": "80\u2013300 keV (range; specific voltage per dataset not stated)",
+  "ada:analyticalMode": [
+    "TEM Imaging",
+    "STEM Imaging"
+  ],
+  "ada:convergenceSemiAngle": -9999,
+  "ada:stemDwellTimePerPixelDefault": -9999,
+  "ada:cameraLengthDefault": -9999,
+  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsQuantificationMethod": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
+  "ada:eelsAcquisitionModeDefault": "missing",
+  "ada:eelsEdgesDefault": "missing",
+  "ada:eelsCollectionSemiAngle": -9999,
+  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
+  "ada:eelsEnergyLossRangeDefault": "missing",
+  "ada:phaseIdentificationMethod": "missing",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:edsCalibrationStandardDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/stemProbeCurrentDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stemProbeCurrentDefault",
+      "schema:name": "STEM Probe Current",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "<0.25 nA",
+      "schema:unitText": "pA or nA"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/stemFrameAveragingDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stemFrameAveragingDefault",
+      "schema:name": "STEM Frame Averaging",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Sequential acquisition several minutes to >1 h; combined using Python (light-element volatilization control)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "imageProcessingMethodsAppliedDefault",
+      "schema:name": "Image Processing Methods Applied",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Sequential map acquisition combined in Python to control light-element volatilization"
+    }
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
+}

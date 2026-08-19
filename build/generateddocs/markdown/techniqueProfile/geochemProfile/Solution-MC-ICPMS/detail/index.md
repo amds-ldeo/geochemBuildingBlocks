@@ -1,0 +1,1685 @@
+
+# Solution MC-ICP-MS Analysis Detail (Schema)
+
+`ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.detail` *v0.1*
+
+Dataset-level analysis-instance detail for solution MC-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
+
+[*Status*](http://www.opengis.net/def/status): Under development
+
+## Schema
+
+```yaml
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Solution MC-ICP-MS Analysis Detail
+description: Dataset-level analysis-instance detail for solution MC-ICP-MS, reusing
+  CDIF/schema.org slots on the schema:Dataset root.
+allOf:
+- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/group1/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/reportingCore/schema.yaml#/$defs/AggregationQc_Analysis
+- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/AnalysisIdentification
+- type: object
+  properties:
+    prov:wasGeneratedBy:
+      type: array
+      items:
+        type: object
+        properties:
+          schema:object:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    '@type':
+                      contains:
+                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  required:
+                  - '@type'
+                then:
+                  properties:
+                    schema:identifier:
+                      description: Globally unique, persistent identifier for each
+                        sample listed in Sample Name. IGSN (International Geo Sample
+                        Number) is the recommended standard for geological and cosmochemical
+                        samples, as used by Astromat, EarthChem and SESAR. Where a
+                        sample and its sub-samples are separately registered, record
+                        the identifier at the level actually analysed.
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                    schema:description:
+                      description: Brief description of sample provenance, form, or
+                        preparation state relevant to this analysis.
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        title: Sample Aliquot Mass or Volume
+                        description: Mass (mg) of solid material digested or volume
+                          (mL) of liquid taken for dissolution. Used for yield calculations
+                          and concentration back-calculation.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
+                          schema:name:
+                            const: Sample Aliquot Mass or Volume
+                          schema:value:
+                            anyOf:
+                            - type: number
+                            - type: string
+                          schema:unitText:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        - schema:unitText
+                      allOf:
+                      - contains:
+                          title: Sample Aliquot Mass or Volume
+                          description: Mass (mg) of solid material digested or volume
+                            (mL) of liquid taken for dissolution. Used for yield calculations
+                            and concentration back-calculation.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
+                            schema:name:
+                              const: Sample Aliquot Mass or Volume
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                    schema:name:
+                      description: "Name or identifier of each sample analysed in
+                        this session, as used in the laboratory \u2014 a sample mount,
+                        section or aliquot counts as one entry where that is what
+                        the laboratory tracks. The analysis record corresponds to
+                        one session and may cover several samples; fields whose Keyed
+                        By column declares 'sample' take one value per entry. Should
+                        match the identifier used in associated publications or data
+                        tables."
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+            allOf:
+            - contains:
+                properties:
+                  '@type':
+                    contains:
+                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                required:
+                - '@type'
+          schema:actionProcess:
+            type: object
+            properties:
+              schema:step:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                  - if:
+                      properties:
+                        schema:name:
+                          const: Sample digestion
+                      required:
+                      - schema:name
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            anyOf:
+                            - title: Digestion Temperature
+                              description: "Temperature at which acid digestion was
+                                carried out (\xB0C). Procedure specifies the target
+                                temperature."
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/digestionTemperature
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/digestionTemperature
+                                schema:name:
+                                  const: Digestion Temperature
+                                schema:value:
+                                  anyOf:
+                                  - type: number
+                                  - type: string
+                                schema:unitText:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                              - schema:unitText
+                            - title: Digestion Duration
+                              description: Duration of the primary acid digestion
+                                step (hours or days).
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/digestionDuration
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/digestionDuration
+                                schema:name:
+                                  const: Digestion Duration
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                          allOf:
+                          - contains:
+                              title: Digestion Temperature
+                              description: "Temperature at which acid digestion was
+                                carried out (\xB0C). Procedure specifies the target
+                                temperature."
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/digestionTemperature
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/digestionTemperature
+                                schema:name:
+                                  const: Digestion Temperature
+                                schema:value:
+                                  anyOf:
+                                  - type: number
+                                  - type: string
+                                schema:unitText:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                              - schema:unitText
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              title: Digestion Duration
+                              description: Duration of the primary acid digestion
+                                step (hours or days).
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/digestionDuration
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/digestionDuration
+                                schema:name:
+                                  const: Digestion Duration
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
+                  - if:
+                      properties:
+                        schema:name:
+                          const: Data reduction
+                      required:
+                      - schema:name
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            anyOf:
+                            - title: Spike / Outlier Filtering Approach
+                              description: Criteria used to identify and exclude anomalous
+                                cycles or replicate measurements from the calculated
+                                isotope ratio mean. Filtering is applied after baseline
+                                subtraction and before mass bias correction.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach
+                                schema:name:
+                                  const: Spike / Outlier Filtering Approach
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            - title: Uncertainty Propagation Method
+                              description: 'The approach used to propagate analytical
+                                uncertainty through the data reduction chain to the
+                                final reported value. State which sources are included
+                                in the propagation: counting statistics, calibration
+                                standard uncertainty, internal standard uncertainty,
+                                drift correction, and any systematic contributions.
+                                Distinct from Uncertainty Level, which states the
+                                convention at which the resulting uncertainty is quoted.'
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod
+                                schema:name:
+                                  const: Uncertainty Propagation Method
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            - title: Normalization / Standards-Based Correction
+                              description: "Post-acquisition normalization applied
+                                to output isotope ratio data beyond the primary mass
+                                bias correction. Examples: correction of \u03B4 values
+                                for decay of enriched spike isotopes between calibration
+                                and use date (double-spike procedures); age correction
+                                of \u03B4238U for secular disequilibrium. Record 'None'
+                                if no additional normalization is applied."
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            - title: Constants and Reference Values Used
+                              description: Physical constants and reference values
+                                used in data reduction to calculate the final reported
+                                quantity (e.g., decay constants for age calculation,
+                                standard isotope ratios, or other citable reference
+                                values used in a correction or calculation), together
+                                with their source. Distinct from the Group 6 reference-material
+                                fields, which document accepted values for specific
+                                calibration/validation materials rather than universal
+                                physical constants. Record "None" if no citable, revisable
+                                physical constants feed into this procedure's data
+                                reduction.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
+                                schema:name:
+                                  const: Constants and Reference Values Used
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                          allOf:
+                          - contains:
+                              title: Spike / Outlier Filtering Approach
+                              description: Criteria used to identify and exclude anomalous
+                                cycles or replicate measurements from the calculated
+                                isotope ratio mean. Filtering is applied after baseline
+                                subtraction and before mass bias correction.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach
+                                schema:name:
+                                  const: Spike / Outlier Filtering Approach
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              title: Uncertainty Propagation Method
+                              description: 'The approach used to propagate analytical
+                                uncertainty through the data reduction chain to the
+                                final reported value. State which sources are included
+                                in the propagation: counting statistics, calibration
+                                standard uncertainty, internal standard uncertainty,
+                                drift correction, and any systematic contributions.
+                                Distinct from Uncertainty Level, which states the
+                                convention at which the resulting uncertainty is quoted.'
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod
+                                schema:name:
+                                  const: Uncertainty Propagation Method
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              title: Normalization / Standards-Based Correction
+                              description: "Post-acquisition normalization applied
+                                to output isotope ratio data beyond the primary mass
+                                bias correction. Examples: correction of \u03B4 values
+                                for decay of enriched spike isotopes between calibration
+                                and use date (double-spike procedures); age correction
+                                of \u03B4238U for secular disequilibrium. Record 'None'
+                                if no additional normalization is applied."
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              title: Constants and Reference Values Used
+                              description: Physical constants and reference values
+                                used in data reduction to calculate the final reported
+                                quantity (e.g., decay constants for age calculation,
+                                standard isotope ratios, or other citable reference
+                                values used in a correction or calculation), together
+                                with their source. Distinct from the Group 6 reference-material
+                                fields, which document accepted values for specific
+                                calibration/validation materials rather than universal
+                                physical constants. Record "None" if no citable, revisable
+                                physical constants feed into this procedure's data
+                                reduction.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
+                                schema:name:
+                                  const: Constants and Reference Values Used
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
+                allOf:
+                - contains:
+                    properties:
+                      schema:name:
+                        const: Sample digestion
+                    required:
+                    - schema:name
+                - contains:
+                    properties:
+                      schema:name:
+                        const: Data reduction
+                    required:
+                    - schema:name
+          prov:used:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  required:
+                  - schema:instrument
+                then:
+                  properties:
+                    schema:instrument:
+                      type: array
+                      items:
+                        allOf:
+                        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+                        - type: object
+                          allOf:
+                          - if:
+                              properties:
+                                schema:additionalType:
+                                  contains:
+                                    const: ICPMS
+                              required:
+                              - schema:additionalType
+                            then:
+                              properties:
+                                schema:identifier:
+                                  description: Serial number or laboratory-internal
+                                    identifier for the specific instrument unit. Supports
+                                    traceability to instrument service records.
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                                schema:hasPart:
+                                  type: array
+                                  items:
+                                    type: object
+                                    allOf:
+                                    - if:
+                                        properties:
+                                          schema:additionalType:
+                                            contains:
+                                              const: Torch
+                                        required:
+                                        - schema:additionalType
+                                      then:
+                                        properties:
+                                          schema:additionalProperty:
+                                            type: array
+                                            items:
+                                              title: Torch Depth
+                                              description: Distance between the load
+                                                coil and the sampling cone tip (mm),
+                                                also called injector depth or torch
+                                                position depending on the instrument
+                                                manufacturer. Affects ion transmission
+                                                efficiency, oxide formation, and doubly-charged
+                                                species production. The procedure
+                                                specifies a target value optimised
+                                                during initial setup; the analyst
+                                                confirms or fine-adjusts during session
+                                                tuning.
+                                              type: object
+                                              properties:
+                                                '@id':
+                                                  const: ada:parameter/solutionMcicpmsTAPP/torchDepth
+                                                '@type':
+                                                  const:
+                                                  - schema:PropertyValue
+                                                schema:propertyID:
+                                                  const:
+                                                  - '@id': ada:parameter/solutionMcicpmsTAPP/torchDepth
+                                                schema:name:
+                                                  const: Torch Depth
+                                                schema:value:
+                                                  type: string
+                                              required:
+                                              - '@id'
+                                              - '@type'
+                                              - schema:propertyID
+                                              - schema:name
+                                              - schema:value
+                                            allOf:
+                                            - contains:
+                                                title: Torch Depth
+                                                description: Distance between the
+                                                  load coil and the sampling cone
+                                                  tip (mm), also called injector depth
+                                                  or torch position depending on the
+                                                  instrument manufacturer. Affects
+                                                  ion transmission efficiency, oxide
+                                                  formation, and doubly-charged species
+                                                  production. The procedure specifies
+                                                  a target value optimised during
+                                                  initial setup; the analyst confirms
+                                                  or fine-adjusts during session tuning.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/torchDepth
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/torchDepth
+                                                  schema:name:
+                                                    const: Torch Depth
+                                                  schema:value:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                              minContains: 0
+                                              maxContains: 1
+                                    - if:
+                                        properties:
+                                          schema:additionalType:
+                                            contains:
+                                              const: Sample Introduction System
+                                        required:
+                                        - schema:additionalType
+                                      then:
+                                        properties:
+                                          schema:additionalProperty:
+                                            type: array
+                                            items:
+                                              anyOf:
+                                              - title: Sample Uptake Rate
+                                                description: "Peristaltic pump speed
+                                                  or self-aspiration flow rate for
+                                                  sample introduction (\xB5L/min or
+                                                  mL/min)."
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
+                                                  schema:name:
+                                                    const: Sample Uptake Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              - title: Nebulizer Gas Flow Rate
+                                                description: Flow rate of the carrier
+                                                  argon gas delivered through the
+                                                  nebulizer (L/min). Controls aerosol
+                                                  transport and strongly influences
+                                                  signal sensitivity and stability.
+                                                  Adjusted daily to optimize signal.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
+                                                  schema:name:
+                                                    const: Nebulizer Gas Flow Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              - title: Make-up Gas Flow Rate
+                                                description: Supplementary argon flow
+                                                  added downstream of a desolvation
+                                                  system to maintain total gas delivery
+                                                  to the plasma (L/min). Record 'N/A'
+                                                  if no desolvation system is used.
+                                                  Record 'N/A' where Desolvation System
+                                                  is 'None'.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate
+                                                  schema:name:
+                                                    const: Make-up Gas Flow Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                            allOf:
+                                            - contains:
+                                                title: Sample Uptake Rate
+                                                description: "Peristaltic pump speed
+                                                  or self-aspiration flow rate for
+                                                  sample introduction (\xB5L/min or
+                                                  mL/min)."
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
+                                                  schema:name:
+                                                    const: Sample Uptake Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              minContains: 0
+                                              maxContains: 1
+                                            - contains:
+                                                title: Nebulizer Gas Flow Rate
+                                                description: Flow rate of the carrier
+                                                  argon gas delivered through the
+                                                  nebulizer (L/min). Controls aerosol
+                                                  transport and strongly influences
+                                                  signal sensitivity and stability.
+                                                  Adjusted daily to optimize signal.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
+                                                  schema:name:
+                                                    const: Nebulizer Gas Flow Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              minContains: 0
+                                              maxContains: 1
+                                            - contains:
+                                                title: Make-up Gas Flow Rate
+                                                description: Supplementary argon flow
+                                                  added downstream of a desolvation
+                                                  system to maintain total gas delivery
+                                                  to the plasma (L/min). Record 'N/A'
+                                                  if no desolvation system is used.
+                                                  Record 'N/A' where Desolvation System
+                                                  is 'None'.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate
+                                                  schema:name:
+                                                    const: Make-up Gas Flow Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              minContains: 0
+                                              maxContains: 1
+                                    - if:
+                                        properties:
+                                          schema:additionalType:
+                                            contains:
+                                              const: ICP Source
+                                        required:
+                                        - schema:additionalType
+                                      then:
+                                        properties:
+                                          schema:additionalProperty:
+                                            type: array
+                                            items:
+                                              anyOf:
+                                              - title: RF Power
+                                                description: Radiofrequency forward
+                                                  power applied to the plasma (W).
+                                                  Controls ionization efficiency and
+                                                  oxide production rates.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/rfPower
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/rfPower
+                                                  schema:name:
+                                                    const: RF Power
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              - title: Coolant (Plasma) Gas Flow Rate
+                                                description: Flow rate of the outer
+                                                  (coolant) argon gas stream (L/min).
+                                                  Influences plasma temperature and
+                                                  oxide ion formation.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate
+                                                  schema:name:
+                                                    const: Coolant (Plasma) Gas Flow
+                                                      Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              - title: Auxiliary Gas Flow Rate
+                                                description: Flow rate of the intermediate
+                                                  (auxiliary) argon gas stream between
+                                                  torch body and injector tube (L/min).
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate
+                                                  schema:name:
+                                                    const: Auxiliary Gas Flow Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                            allOf:
+                                            - contains:
+                                                title: RF Power
+                                                description: Radiofrequency forward
+                                                  power applied to the plasma (W).
+                                                  Controls ionization efficiency and
+                                                  oxide production rates.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/rfPower
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/rfPower
+                                                  schema:name:
+                                                    const: RF Power
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              minContains: 0
+                                              maxContains: 1
+                                            - contains:
+                                                title: Coolant (Plasma) Gas Flow Rate
+                                                description: Flow rate of the outer
+                                                  (coolant) argon gas stream (L/min).
+                                                  Influences plasma temperature and
+                                                  oxide ion formation.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate
+                                                  schema:name:
+                                                    const: Coolant (Plasma) Gas Flow
+                                                      Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              minContains: 0
+                                              maxContains: 1
+                                            - contains:
+                                                title: Auxiliary Gas Flow Rate
+                                                description: Flow rate of the intermediate
+                                                  (auxiliary) argon gas stream between
+                                                  torch body and injector tube (L/min).
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate
+                                                  schema:name:
+                                                    const: Auxiliary Gas Flow Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              minContains: 0
+                                              maxContains: 1
+                                    - if:
+                                        properties:
+                                          schema:additionalType:
+                                            contains:
+                                              const: Collision Reaction Cell
+                                        required:
+                                        - schema:additionalType
+                                      then:
+                                        properties:
+                                          schema:additionalProperty:
+                                            type: array
+                                            items:
+                                              anyOf:
+                                              - title: Collision Gas Flow Rate
+                                                description: Flow rate of the collision
+                                                  gas in KED mode (mL/min), on collision/reaction-cell-equipped
+                                                  MC-ICP-MS instruments. Higher flow
+                                                  rates provide greater interference
+                                                  suppression at the cost of analyte
+                                                  sensitivity. Record 'N/A' if the
+                                                  instrument has no cell or KED mode
+                                                  is not used. Record 'N/A' where
+                                                  Collision/Reaction Cell (CRC) Configuration
+                                                  does not include KED.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate
+                                                  schema:name:
+                                                    const: Collision Gas Flow Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              - title: Cell Exit Discrimination Voltage
+                                                description: Kinetic energy discrimination
+                                                  offset voltage applied at the exit
+                                                  of the collision cell (V), on collision/reaction-cell-equipped
+                                                  MC-ICP-MS instruments. Controls
+                                                  the degree of polyatomic ion suppression.
+                                                  Record 'N/A' if the instrument has
+                                                  no cell or KED mode is not used.
+                                                  Record 'N/A' where Collision/Reaction
+                                                  Cell (CRC) Configuration does not
+                                                  include KED.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage
+                                                  schema:name:
+                                                    const: Cell Exit Discrimination
+                                                      Voltage
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              - title: Reaction Gas Flow Rate
+                                                description: Flow rate of the reaction
+                                                  gas in DRC mode (mL/min), on collision/reaction-cell-equipped
+                                                  MC-ICP-MS instruments. Record 'N/A'
+                                                  if the instrument has no cell or
+                                                  DRC mode is not used. Record 'N/A'
+                                                  where Collision/Reaction Cell (CRC)
+                                                  Configuration does not include DRC.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate
+                                                  schema:name:
+                                                    const: Reaction Gas Flow Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                            allOf:
+                                            - contains:
+                                                title: Collision Gas Flow Rate
+                                                description: Flow rate of the collision
+                                                  gas in KED mode (mL/min), on collision/reaction-cell-equipped
+                                                  MC-ICP-MS instruments. Higher flow
+                                                  rates provide greater interference
+                                                  suppression at the cost of analyte
+                                                  sensitivity. Record 'N/A' if the
+                                                  instrument has no cell or KED mode
+                                                  is not used. Record 'N/A' where
+                                                  Collision/Reaction Cell (CRC) Configuration
+                                                  does not include KED.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate
+                                                  schema:name:
+                                                    const: Collision Gas Flow Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              minContains: 0
+                                              maxContains: 1
+                                            - contains:
+                                                title: Cell Exit Discrimination Voltage
+                                                description: Kinetic energy discrimination
+                                                  offset voltage applied at the exit
+                                                  of the collision cell (V), on collision/reaction-cell-equipped
+                                                  MC-ICP-MS instruments. Controls
+                                                  the degree of polyatomic ion suppression.
+                                                  Record 'N/A' if the instrument has
+                                                  no cell or KED mode is not used.
+                                                  Record 'N/A' where Collision/Reaction
+                                                  Cell (CRC) Configuration does not
+                                                  include KED.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage
+                                                  schema:name:
+                                                    const: Cell Exit Discrimination
+                                                      Voltage
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              minContains: 0
+                                              maxContains: 1
+                                            - contains:
+                                                title: Reaction Gas Flow Rate
+                                                description: Flow rate of the reaction
+                                                  gas in DRC mode (mL/min), on collision/reaction-cell-equipped
+                                                  MC-ICP-MS instruments. Record 'N/A'
+                                                  if the instrument has no cell or
+                                                  DRC mode is not used. Record 'N/A'
+                                                  where Collision/Reaction Cell (CRC)
+                                                  Configuration does not include DRC.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate
+                                                  schema:name:
+                                                    const: Reaction Gas Flow Rate
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - schema:value
+                                                - schema:unitText
+                                              minContains: 0
+                                              maxContains: 1
+                                  allOf:
+                                  - contains:
+                                      properties:
+                                        schema:additionalType:
+                                          contains:
+                                            const: Sample Introduction System
+                                      required:
+                                      - schema:additionalType
+                                  - contains:
+                                      properties:
+                                        schema:additionalType:
+                                          contains:
+                                            const: ICP Source
+                                      required:
+                                      - schema:additionalType
+                                  - contains:
+                                      properties:
+                                        schema:additionalType:
+                                          contains:
+                                            const: Collision Reaction Cell
+                                      required:
+                                      - schema:additionalType
+                                schema:additionalProperty:
+                                  type: array
+                                  items:
+                                    title: Memory Effect Mitigation
+                                    description: Procedure applied to minimize carryover
+                                      of analyte isotopes between successive sample
+                                      introductions. In MC-ICP-MS, extended rinse
+                                      periods with the same acid matrix as samples
+                                      (see Wash Time Between Samples) are the primary
+                                      mitigation. At data processing level, documents
+                                      any flagging or exclusion of measurements preceded
+                                      by samples with significantly different isotopic
+                                      compositions where carryover may be suspected.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation
+                                      schema:name:
+                                        const: Memory Effect Mitigation
+                                      schema:value:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                  allOf:
+                                  - contains:
+                                      title: Memory Effect Mitigation
+                                      description: Procedure applied to minimize carryover
+                                        of analyte isotopes between successive sample
+                                        introductions. In MC-ICP-MS, extended rinse
+                                        periods with the same acid matrix as samples
+                                        (see Wash Time Between Samples) are the primary
+                                        mitigation. At data processing level, documents
+                                        any flagging or exclusion of measurements
+                                        preceded by samples with significantly different
+                                        isotopic compositions where carryover may
+                                        be suspected.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation
+                                        schema:name:
+                                          const: Memory Effect Mitigation
+                                        schema:value:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                    minContains: 0
+                                    maxContains: 1
+                      allOf:
+                      - contains:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: ICPMS
+                          required:
+                          - schema:additionalType
+              - if:
+                  required:
+                  - bios:computationalTool
+                then:
+                  properties:
+                    bios:computationalTool:
+                      type: array
+                      items:
+                        allOf:
+                        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                        - type: object
+                          allOf:
+                          - if:
+                              properties:
+                                ada:toolRole:
+                                  const: acquisition
+                              required:
+                              - ada:toolRole
+                            then:
+                              properties:
+                                schema:name:
+                                  description: Name and version of the software used
+                                    to control the instrument and acquire raw multi-collector
+                                    data.
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                          - if:
+                              properties:
+                                ada:toolRole:
+                                  const: dataReduction
+                              required:
+                              - ada:toolRole
+                            then:
+                              properties:
+                                schema:name:
+                                  description: "Name and version of the software used
+                                    for data reduction: baseline subtraction, gain
+                                    correction, mass bias correction (SSB, double-spike
+                                    inversion, or internal normalization), interference
+                                    corrections, and calculation of isotope ratios,
+                                    \u03B4-values, and concentrations. Include version
+                                    number."
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                          required:
+                          - ada:toolRole
+              - if:
+                  required:
+                  - prov:reagent
+                then:
+                  properties:
+                    prov:reagent:
+                      type: array
+                      items:
+                        allOf:
+                        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent
+                        - type: object
+                          allOf:
+                          - if:
+                              properties:
+                                ada:reagentRole:
+                                  const: primaryStandard
+                              required:
+                              - ada:reagentRole
+                            then:
+                              properties:
+                                schema:name:
+                                  description: "Name and reference material identifier
+                                    of the isotopic reference standard used as the
+                                    bracketing standard (SSB) or zero-delta anchor.
+                                    This is an isotopic composition standard (not
+                                    a concentration standard): it defines the isotopic
+                                    composition against which all sample \u03B4 or
+                                    \u03B5 values are normalized. Must be a pure,
+                                    homogeneous, internationally distributed material
+                                    with well-characterized isotopic composition.
+                                    For double-spike procedures, also used for spike
+                                    calibration. Include the material name, its source
+                                    or supplier, and a citation for the accepted values
+                                    used, since results calibrated against different
+                                    published values for the same material are not
+                                    directly comparable."
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                          - if:
+                              properties:
+                                ada:reagentRole:
+                                  const: referenceMaterial
+                              required:
+                              - ada:reagentRole
+                            then:
+                              properties:
+                                schema:name:
+                                  description: Reference material(s) measured as unknowns
+                                    to independently assess analytical accuracy. Specify
+                                    material name and the isotopic composition reference
+                                    source (certified value, consensus value, or literature
+                                    compilation). For isotope ratio procedures, secondary
+                                    RMs are geological materials with published isotopic
+                                    compositions (e.g., BHVO-2 for Fe isotopes) or
+                                    pure isotopic standards of certified composition.
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                          required:
+                          - ada:reagentRole
+          schema:additionalProperty:
+            type: array
+            items:
+              title: Signal Integration Time
+              description: "Total integration time per sample solution (s). Calculated
+                from blocks \xD7 cycles per block \xD7 integration time per cycle.
+                Recorded at analysis level as the actual total time used."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime
+                schema:name:
+                  const: Signal Integration Time
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            allOf:
+            - contains:
+                title: Signal Integration Time
+                description: "Total integration time per sample solution (s). Calculated
+                  from blocks \xD7 cycles per block \xD7 integration time per cycle.
+                  Recorded at analysis level as the actual total time used."
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime
+                  schema:name:
+                    const: Signal Integration Time
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              minContains: 0
+              maxContains: 1
+          schema:description:
+            description: "Any procedure- or analysis-specific information not captured
+              by a structured field anywhere in this TAPP \u2014 including anomalies,
+              deviations from the registered procedure, instrument modifications,
+              and supplementary context. Scope is the whole document, not Group 6:
+              this is the last field of the TAPP and covers all six groups. Use sparingly;
+              a structured field is preferred for anything that can be formally categorised."
+            type: string
+    dqv:hasQualityMeasurement:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: Oxide production ratio
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Measured oxide production ratio obtained during session-start
+                  tuning, for the proxy specified in Oxide Production Method and Threshold.
+                  Record the measured value and confirm whether the procedure threshold
+                  was met.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+      allOf:
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: Oxide production ratio
+          required:
+          - dqv:isMeasurementOf
+
+```
+
+Links to the schema:
+
+* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/detail/schema.json)
+* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/detail/schema.yaml)
+
+
+# JSON-LD Context
+
+```jsonld
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "dqv": "http://www.w3.org/ns/dqv#",
+    "bios": "https://bioschemas.org/",
+    "wd": "https://www.wikidata.org/entity/",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://w3id.org/cdif/",
+    "ex": "https://example.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "@version": 1.1
+  }
+}
+```
+
+You can find the full JSON-LD context here:
+[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/detail/context.jsonld)
+
+## Sources
+
+* [Solution_MC-ICP-MS_TAPP_v16.csv (TAPP worksheet)](https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs)
+
+# For developers
+
+The source code for this Building Block can be found in the following repository:
+
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
+* Path: `_sources/techniqueProfile/geochemProfile/Solution-MC-ICPMS/detail`
+

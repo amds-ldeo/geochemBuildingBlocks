@@ -1,0 +1,16 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: NanoIR Instrument Detail
+description: Nano-IR spectroscopy collections with phase analysis
+type: object
+properties:
+  ada:componentType:
+    const: ada:NanoIRBackground
+    x-jsonld-id: https://ada.astromat.org/metadata/componentType
+  ada:phaseAnalyzed:
+    $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.yaml
+    x-jsonld-id: https://ada.astromat.org/metadata/phaseAnalyzed
+required:
+- ada:componentType
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/

@@ -1,0 +1,77 @@
+
+
+{
+  "itemIdentifier": "ogch.BaseSchema.otherFile",
+  "$schema": "metaschema.yaml",
+  "name": "Other File Type",
+  "abstract": "Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-02-05T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-08-19",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.BaseSchema.otherFile": [
+      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/otherFile/rules.shacl"
+    ]
+  },
+  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/otherFile/context.jsonld",
+  "schema": {
+    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/otherFile/schema.yaml",
+    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/otherFile/schema.json"
+  },
+  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/otherFile/schema.yaml",
+  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/otherFile/context.jsonld",
+  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/otherFile/resolvedProperties.json",
+  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/otherFile/",
+  "validationPassed": false,
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/otherFile/",
+  "description": "# Other File Type\n\nDescribes files in non-standard formats that have been approved for submission to the Astromat Archive. Supports EMSA spectral data, OBJ 3D models, STL files, XLSX workbooks, and Neptune Plus exports.\n",
+  "examples": [
+    {
+      "title": "Other File Type Example",
+      "content": "A 3D shape model in OBJ format from structured light scanning.",
+      "prefixes": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/otherFile/example_1_1.json",
+          "sizeBytes": 190,
+          "code": "{\n  \"@type\": [\"ada:otherFileType\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:other\"\n  },\n  \"schema:encodingFormat\": \"model/obj\",\n  \"ada:formatDescription\": \"Wavefront OBJ 3D model file\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/otherFile/example_1_1.jsonld",
+          "sizeBytes": 453,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/otherFile/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:otherFileType\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:other\"\n  },\n  \"schema:encodingFormat\": \"model/obj\",\n  \"ada:formatDescription\": \"Wavefront OBJ 3D model file\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/otherFile/example_1_1.ttl",
+          "sizeBytes": 258,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] a ada:otherFileType ;\n    schema1:encodingFormat \"model/obj\" ;\n    ada:componentType [ a ada:other ] ;\n    ada:formatDescription \"Wavefront OBJ 3D model file\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Other File Type\ndescription: Files in other widely-used formats approved for submission to the Astromat\n  Archive. Includes EMSA, OBJ, STL, XLSX, and Neptune Plus export formats.\ntype: object\nproperties:\n  '@type':\n    type: array\n    items:\n      type: string\n    minItems: 1\n    contains:\n      const: ada:otherFileType\n  ada:componentType:\n    type: string\n    enum:\n    - ada:VLMVideo\n    - ada:XCTVideo\n    - ada:contextVideo\n    - ada:other\n    description: ADA componentType for an other-format file, as a single string. Allowed\n      values are constrained at the technique-profile level.\n    x-jsonld-id: https://ada.astromat.org/metadata/componentType\n  schema:encodingFormat:\n    description: 'One of the approved non-standard file formats: ''Spectral Data Exchange\n      File (.emsa)''-->text/plain; ''3D model file (.obj)''-->model/obj; ''Standard\n      Triangle Language (.stl)''-->model/stl; ''Open XML workbook (.xlsx)''-->application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;\n      ''Neptune Plus export (.exp)''-->application/octet-stream'\n    type: array\n    items:\n      enum:\n      - text/plain\n      - model/obj\n      - model/stl\n      - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\n      - application/octet-stream\n      - application/zip\n      - video/mp4\n      - video/x-m4v\n      - video/quicktime\n    x-jsonld-id: http://schema.org/encodingFormat\n  ada:formatDescription:\n    type: string\n    description: Free text explanation of file format, or a link to a publicly accessible\n      specification for the format.\n    x-jsonld-id: https://ada.astromat.org/metadata/formatDescription\nrequired:\n- '@type'\n- ada:componentType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/BaseSchema/otherFile"
+}

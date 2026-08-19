@@ -1,0 +1,55 @@
+Validation report for ogch.techniqueProfile.adaProfile.NanoIR.detail - NanoIR Instrument Detail
+Generated 2026-08-19T16:00:34.520562+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'ada:componentType' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+     'description': 'Nano-IR spectroscopy collections with phase analysis',
+     'properties': {'ada:componentType': {'const': 'ada:NanoIRBackground',
+                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},
+                    'ada:phaseAnalyzed': {'$ref': 'https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.yaml',
+                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/phaseAnalyzed'}},
+     'required': ['ada:componentType'],
+     'title': 'NanoIR Instrument Detail',
+     'type': 'object',
+     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',
+                           'schema': 'http://schema.org/'}}
+
+On instance:
+    {'@type': ['ada:NanoIRBackground'],
+     'ada:phaseAnalyzed': ['carbonate', 'silicate']}
+=== End JSON Schema ===
+
+=== SHACL ===
+
+** Validation error **
+Validation result for _sources/techniqueProfile/adaProfile/NanoIR/detail/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("NanoIR detail nodes must declare ada:componentType.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path ada:componentType ]
+  	Focus Node: [ ada:phaseAnalyzed Literal("carbonate"), Literal("silicate") ; rdf:type ada:NanoIRBackground ]
+  	Result Path: ada:componentType
+  	Message: NanoIR detail nodes must declare ada:componentType.
+  
+Focus nodes for _sources/techniqueProfile/adaProfile/NanoIR/detail/rules.shacl:
+ - Shape cdifd:detailNanoIRShape: *none*
+
+Validation result for _sources/BaseSchema/stringArray/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+=== End SHACL ===
+

@@ -1,0 +1,100 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:temTAPP-Cymes2023-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibrationDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyDispersion>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2pyx) | HAADF-STEM + Dual EELS + EDS (NRL Nion UltraSTEM200-X) (publication column of TEM_TAPP_v17.xlsx)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "TEM" ;
+            schema1:name "missing" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping" ;
+            schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping" ] ;
+    schema1:name "Nion UltraSTEM200-X" ;
+    ada:acceleratingVoltageDefault "200 keV" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analyticalSubModeDefault "missing" ;
+    ada:calibrationFactorAndDeterminationMethodDefault "missing" ;
+    ada:cameraLengthDefault -9999 ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:convergenceSemiAngle -9999 ;
+    ada:edsAcquisitionModeDefault "Spectrum imaging (SI): simultaneous EELS + EDS at each pixel; both low-loss and core-loss EELS collected" ;
+    ada:edsCalibrationStandardDefault "missing" ;
+    ada:edsQuantificationMethod "Cliff-Lorimer method with detector-specific k-factors; no absorption correction (sample thin); pyroxene compositions calculated with assumed O stoichiometry of 60%" ;
+    ada:eelsAcquisitionModeDefault "Dual EELS spectrum imaging (simultaneous low-loss and core-loss)" ;
+    ada:eelsAcquisitionTimePerSpectrumDefault "Fe (L2,3); O (K)" ;
+    ada:eelsCollectionSemiAngle "Power-law background removal" ;
+    ada:eelsEdgesDefault "Fe L2,3 edge (700–735 eV); O K-edge (528–550 eV)" ;
+    ada:eelsEnergyLossRangeDefault "Fe (L2,3); O (K)" ;
+    ada:phaseIdentificationMethod "EELS oxidation state mapping by MLLS fitting; HAADF-STEM + EDS chemical mapping; Fe⁰ identified by anti-correlation with O K-edge and lattice fringe measurement in HR images" ;
+    ada:reportedVariablesAndUnits "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:spectroscopicDetectorDefault "missing" ;
+    ada:stemDwellTimePerPixelDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibrationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "EELS reference standards collected on same microscope and spectrometer: FeNi metal (Fe⁰); wüstite (FeO) powder (Fe²⁺); synthetic Fe³⁺-bearing glass (Fe³⁺); magnetite Fe₃O₄ (mixed Fe²⁺/Fe³⁺) — Burgess & Stroud (2018b)" ;
+    schema1:name "EELS Energy Calibration" ;
+    schema1:readonlyValue false ;
+    schema1:valueName "eelsEnergyCalibrationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "40 pA" ;
+    schema1:name "STEM Probe Current" ;
+    schema1:readonlyValue false ;
+    schema1:unitText "pA or nA" ;
+    schema1:valueName "stemProbeCurrentDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "0.1 nm" ;
+    schema1:name "STEM Probe Diameter" ;
+    schema1:readonlyValue false ;
+    schema1:unitText "nm" ;
+    schema1:valueName "stemProbeDiameterDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyDispersion> a schema1:PropertyValue ;
+    schema1:name "EELS Energy Dispersion" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyDispersion> ;
+    schema1:unitText "eV/channel" ;
+    schema1:value "Double-arctan continuum removal (for Fe L2,3 white-line integration)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution> a schema1:PropertyValue ;
+    schema1:name "EELS Energy Resolution" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution> ;
+    schema1:unitText "eV FWHM" ;
+    schema1:value "Integral white-line intensity ratio I(L3)/I(L2) → Van Aken & Liebscher (2002) universal calibration curve for Fe³⁺/ΣFe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps" .
+

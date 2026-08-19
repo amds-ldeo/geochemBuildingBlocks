@@ -1,0 +1,140 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:datePublished "missing" ;
+    schema1:description "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume" ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "ICPMS" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Collision Reaction Cell" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ICP Source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Torch" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Interface Cone" ;
+                    schema1:name "missing" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Agilent 7500ce ICP-MS" ] ;
+            schema1:name "example instrumentName" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserEnergyDefault> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "GeoLasPro (193 nm Excimer laser-ablation system; manufacturer not stated by name; GeoLasPro is a Lambda Physik/Coherent product)" ] ;
+            schema1:name "example instrumentName" ;
+            ada:laserFluenceDefault "7–10 J/m² (stated in paper; units as written; likely a typographic error for J/cm²)" ;
+            ada:laserRepetitionRateDefault "5 Hz" ;
+            ada:laserSpotGeometryDefault "24 and 32 µm diameter (commonly used for silicates and glass); 90 µm (some olivine analyses to evaluate low REE signal sampling)" ;
+            ada:laserType "193 nm Excimer (ArF excimer)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Department of Geosciences, Virginia Tech" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-ICP-MS (193 nm excimer laser + ICP-MS; top-level technique)" ;
+            schema1:termCode "LA-ICP-MS" ] ;
+    schema1:name "laQicpms protocol — Liu2016" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Martian meteorite (Tissint) silicates, oxides, and glass: olivine, low-Ca pyroxene, augite, maskelynite, Fe-Ti-Cr oxides, shock melt glass, fusion crust" ],
+                <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "EPMA provides major element concentrations for comparison with LA-ICP-MS oxide-sum normalization results; agreement within <10% verified" ;
+                    schema1:name "EPMA (EMP)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationSamplingMode "Spot (stationary)" ;
+    ada:ablationSpotDurationDefault -9999 ;
+    ada:analysisSequenceDefault "NIST 610 glass standard analyzed before and after every session; unknowns in between" ;
+    ada:backgroundCountTimeDefault "50 s (background counted for 50 s before each LA-ICP-MS analysis)" ;
+    ada:blankBackgroundCorrectionMethod "50 s background measurement before each analysis; background subtracted (method not explicitly described beyond counting duration)" ;
+    ada:calibrationMeasurementFrequency "NIST 610 glass standard analyzed before and after every session" ;
+    ada:carrierGasFlowRateDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:elementalFractionationCorrection "External calibration using NIST 610 glass standard analyzed before and after session; oxide-sum normalization corrects for ablation yield variation; no explicit downhole fractionation correction described" ;
+    ada:internalStandardApproach "Normalization to 100 wt% oxide total (for silicates and oxides)" ;
+    ada:internalStandardElement "None (oxide sum normalization, 100 wt% total)" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
+    ada:massBiasCorrectionStrategy "missing" ;
+    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:primaryStandardNameDefault "NIST 610 glass standard" ;
+    ada:rasterLineSpacingDefault "missing" ;
+    ada:reportedVariablesAndUnits "missing" ;
+    ada:sampleIntroduction "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:signalCollectionMode "missing" ;
+    ada:signalIntegrationIntervalMethod "Time-lapse plots of each spot examined; only the plateau region used to quantify trace element abundances" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
+    ada:uncertaintyLevel "missing" ;
+    bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserEnergyDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 150 ;
+    schema1:description "150 mJ output energy" ;
+    schema1:name "Laser Energy" ;
+    schema1:valueName "laserEnergyDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "In situ — polished thin section (Tissint sections: Tata-2-C3, Tata-3-C2, UT1, UT3)" ;
+    schema1:name "Sample Form / Analytical Substrate" ;
+    schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
+    schema1:name "Multi-Run Sequential Analysis Design" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:value "Single spot analysis per location" .
+

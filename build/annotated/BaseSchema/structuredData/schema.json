@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Structured Data File Type",
+  "description": "A container/array data file (e.g. HDF5, NeXus) within an ADA bundle whose layout is described by a CDIF DataStructure via cdi:isStructuredBy, rather than the flat CSVW layout + per-column cdif:hasPhysicalMapping of a tabular text file (tabularData) or the locator mappings of a dataCube. This is the bundle-part analog of the monolithic single-file cdi:isStructuredBy pattern: the pattern is chosen by the file's encoding, not its position. Typed as ada:structuredData and cdi:PhysicalDataSet.",
+  "type": "object",
+  "properties": {
+    "@type": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "allOf": [
+        {
+          "contains": {
+            "const": "ada:structuredData"
+          }
+        },
+        {
+          "contains": {
+            "const": "cdi:PhysicalDataSet"
+          }
+        }
+      ]
+    },
+    "ada:componentType": {
+      "type": "string",
+      "description": "ADA componentType for a structured container file, as a single string. Allowed values are constrained at the technique-profile level.",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
+    },
+    "cdi:isStructuredBy": {
+      "description": "The data structure of this container file \u2014 one of the four CDIF DataStructure variants (DataStructure, Dimensional, Long, Wide) inline, or an @id reference to a structure declared elsewhere in the document (e.g. shared across parts).",
+      "anyOf": [
+        {
+          "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.json#/$defs/DataStructure"
+        },
+        {
+          "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.json#/$defs/DimensionalDataStructure"
+        },
+        {
+          "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.json#/$defs/LongDataStructure"
+        },
+        {
+          "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.json#/$defs/WideDataStructure"
+        },
+        {
+          "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.json"
+        }
+      ],
+      "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy"
+    }
+  },
+  "required": [
+    "@type",
+    "ada:componentType",
+    "cdi:isStructuredBy"
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://cdif.org/0.1/"
+  }
+}

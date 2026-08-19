@@ -1,0 +1,77 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:semImagingTAPP-Genge2025-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v11.xlsx)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "SEM" ;
+            schema1:description "VP-SEM / ESEM" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "SEDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "BSEDetector" ;
+                    schema1:name "missing" ] ;
+            schema1:manufacturer [ a schema1:Organization ;
+                    schema1:name "Zeiss" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "ZEISS 1550VP" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "10 kV" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "semImaging" ;
+            schema1:termCode "SEM" ] ;
+    schema1:name "semImaging protocol — Genge2025-2" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo" ] ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "BSE Imaging (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:analyticalMode "EDS" ;
+    ada:clAcquisitionMode "missing" ;
+    ada:clIntegrationTimeDefault -9999 ;
+    ada:clWavelengthRange -9999 ;
+    ada:dwellTimePerPixelDefault -9999 ;
+    ada:ebsdDetectorConfiguration "missing" ;
+    ada:sampleTiltAngle -9999 ;
+    ada:samplingUnit "missing" .
+

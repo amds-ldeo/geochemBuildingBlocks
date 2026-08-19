@@ -1,0 +1,53 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Cymes2023 a ada:TEMImage ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ] ;
+    schema1:measurementTechnique ex:temTAPP-Cymes2023 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "B.A. Cymes; K.D. Burgess; R.M. Stroud" ;
+    ada:componentType "ada:TEMImage" ;
+    ada:edsDeadTime -9999 ;
+    ada:edsDetectionLimit "missing" ;
+    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:sampleName "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "kV" ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
+    schema1:value "BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow> a schema1:PropertyValue ;
+    schema1:name "EFTEM Energy Window" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow> ;
+    schema1:value "10 eV (Ca M-edge EFTEM centered at 35 eV energy loss)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> a schema1:PropertyValue ;
+    schema1:name "Image Processing Methods Applied" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
+    schema1:value "Inverse FFT with spot-pass filter for HRTEM images" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> a schema1:PropertyValue ;
+    schema1:name "Selected-Area Aperture Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> ;
+    schema1:value "100 nm (SAED aperture)" .
+

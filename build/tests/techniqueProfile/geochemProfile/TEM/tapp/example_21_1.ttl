@@ -1,0 +1,72 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:temTAPP-Mo2022-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | TEM-EELS (Shanghai Institute of Ceramics CAS Hitachi HF5000) (publication column of TEM_TAPP_v17.xlsx)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "TEM" ;
+            schema1:name "missing" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis" ;
+            schema1:termCode "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis" ] ;
+    schema1:name "Hitachi HF5000" ;
+    ada:acceleratingVoltageDefault "200 kV" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analyticalSubModeDefault "missing" ;
+    ada:calibrationFactorAndDeterminationMethodDefault "missing" ;
+    ada:cameraLengthDefault -9999 ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:convergenceSemiAngle -9999 ;
+    ada:edsAcquisitionModeDefault "missing" ;
+    ada:edsCalibrationStandardDefault "missing" ;
+    ada:edsQuantificationMethod "missing" ;
+    ada:eelsAcquisitionModeDefault "Point analysis and line scan EELS" ;
+    ada:eelsAcquisitionTimePerSpectrumDefault "Fe (L3,2)" ;
+    ada:eelsCollectionSemiAngle -9999 ;
+    ada:eelsEdgesDefault "Fe L3,2 edge (~707–709 eV; L3 peak at 707.7 eV for Fe⁰, 707.2 eV for Fe²⁺, 709.0 eV for Fe³⁺)" ;
+    ada:eelsEnergyLossRangeDefault "Fe (L3,2)" ;
+    ada:phaseIdentificationMethod "EELS peak position and lineshape comparison to reference spectra; qualitative valence state ID (np-Fe0 = metallic; matrix = Fe³⁺; olivine = Fe²⁺)" ;
+    ada:reportedVariablesAndUnits "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:spectroscopicDetectorDefault "missing" ;
+    ada:stemDwellTimePerPixelDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "100 pA" ;
+    schema1:name "STEM Probe Current" ;
+    schema1:readonlyValue false ;
+    schema1:unitText "pA or nA" ;
+    schema1:valueName "stemProbeCurrentDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution> a schema1:PropertyValue ;
+    schema1:name "EELS Energy Resolution" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution> ;
+    schema1:unitText "eV FWHM" ;
+    schema1:value "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe⁰, Fe²⁺, Fe³⁺)" .
+

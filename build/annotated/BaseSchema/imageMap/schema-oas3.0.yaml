@@ -1,0 +1,124 @@
+x-defs:
+  ogch.BaseSchema.spatialRegistration:
+    title: Spatial Registration Type
+    description: Defines pixel coordinate system registration including origin coordinates,
+      pixel scales, and coordinate definition type for spatially registered images
+      and maps.
+    type: object
+    properties:
+      ada:basemap:
+        type: string
+        description: link to appropriate basemap image map
+        x-jsonld-id: https://ada.astromat.org/metadata/basemap
+      ada:originX:
+        type: number
+        x-jsonld-id: https://ada.astromat.org/metadata/originX
+      ada:originY:
+        type: number
+        x-jsonld-id: https://ada.astromat.org/metadata/originY
+      ada:originZ:
+        type: number
+        x-jsonld-id: https://ada.astromat.org/metadata/originZ
+      ada:coordDef:
+        type: string
+        description: Whether coordinates are stage-defined or pixel-defined. If pixel-defined,
+          are coordinates from stage, upperleftPixel, or centerPixel.
+        x-jsonld-id: https://ada.astromat.org/metadata/coordDef
+      ada:coordUnits:
+        type: string
+        x-jsonld-id: https://ada.astromat.org/metadata/coordUnits
+      ada:pixelUnits:
+        type: string
+        x-jsonld-id: https://ada.astromat.org/metadata/pixelUnits
+      ada:pixelScaleX:
+        type: number
+        x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleX
+      ada:pixelScaleY:
+        type: number
+        x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleY
+      ada:originLocation:
+        type: string
+        description: 'The location of the origin pixel of an image. Range: upperLeft,
+          upperRight, lowerLeft, lowerRight, center'
+        x-jsonld-id: https://ada.astromat.org/metadata/originLocation
+    required:
+    - ada:originX
+    - ada:originY
+    - ada:pixelScaleX
+    - ada:pixelScaleY
+    - ada:pixelUnits
+    - ada:originLocation
+    - ada:coordDef
+    x-jsonld-prefixes:
+      ada: https://ada.astromat.org/metadata/
+    x-schema-source: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/spatialRegistration/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+title: Image Map Type
+description: Spatially registered image maps with pixel coordinates, component type
+  classification, and spatial registration metadata.
+type: object
+properties:
+  '@type':
+    type: array
+    items:
+      type: string
+    minItems: 2
+    allOf:
+    - contains:
+        enum:
+        - ada:imageMap
+    - contains:
+        enum:
+        - schema:ImageObject
+  ada:acquisitionTime:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/acquisitionTime
+  ada:componentType:
+    type: string
+    enum:
+    - ada:EMPAImageMap
+    - ada:NanoIRMap
+    - ada:SEMEBSDGrainImageMap
+    - ada:SEMEDSElementalMap
+    - ada:SEMHRCLMap
+    - ada:SEMImageMap
+    - ada:SLSTextureMap
+    - ada:basemap
+    - ada:supplementalBasemap
+    description: ADA componentType for an imageMap, as a single string. Allowed values
+      are constrained at the technique-profile level.
+    x-jsonld-id: https://ada.astromat.org/metadata/componentType
+  ada:channel1:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/channel1
+  ada:channel2:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/channel2
+  ada:channel3:
+    type: string
+    x-jsonld-id: https://ada.astromat.org/metadata/channel3
+  ada:illuminationType:
+    type: string
+    description: Type of illumination used to create the image.
+    x-jsonld-id: https://ada.astromat.org/metadata/illuminationType
+  ada:imageType:
+    type: string
+    description: Specifies the nature of the sample's response to the illumination.
+    x-jsonld-id: https://ada.astromat.org/metadata/imageType
+  ada:numPixelsX:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/numPixelsX
+  ada:numPixelsY:
+    type: integer
+    x-jsonld-id: https://ada.astromat.org/metadata/numPixelsY
+  ada:spatialRegistration:
+    x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
+    allOf:
+    - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/imageMap/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.spatialRegistration
+required:
+- '@type'
+- ada:componentType
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/
+x-schema-version: https://json-schema.org/draft/2020-12/schema

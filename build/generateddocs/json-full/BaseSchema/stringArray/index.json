@@ -1,0 +1,62 @@
+
+
+{
+  "itemIdentifier": "ogch.BaseSchema.stringArray",
+  "$schema": "metaschema.yaml",
+  "name": "String Array Type",
+  "abstract": "Simple reusable array of strings used throughout ADA metadata. Defines type: array of strings.",
+  "isTypeLibrary": true,
+  "status": "under-development",
+  "dateTimeAddition": "2026-02-05T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-08-19",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "utility"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.BaseSchema.stringArray": [
+      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/stringArray/rules.shacl"
+    ]
+  },
+  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/stringArray/context.jsonld",
+  "schema": {
+    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.yaml",
+    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.json"
+  },
+  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/stringArray/schema.yaml",
+  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/stringArray/context.jsonld",
+  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/stringArray/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/stringArray/",
+  "description": "# String Array Type\n\nA simple reusable array of strings used throughout ADA metadata for properties like `resultTarget`, `memberTypes`, `phaseAnalyzed`, and `isotopeAnalyzed`.\n",
+  "examples": [
+    {
+      "title": "String Array Example",
+      "content": "A simple array of string values, used for multi-valued text properties such as phases analyzed or isotopes tracked.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/stringArray/example_1_1.json",
+          "sizeBytes": 39,
+          "code": "[\"olivine\", \"pyroxene\", \"plagioclase\"]\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: String Array Type\ndescription: Simple reusable array of strings\ntype: array\nminItems: 0\nitems:\n  type: string\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/BaseSchema/stringArray"
+}

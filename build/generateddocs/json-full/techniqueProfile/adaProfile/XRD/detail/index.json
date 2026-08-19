@@ -1,0 +1,78 @@
+
+
+{
+  "itemIdentifier": "ogch.techniqueProfile.adaProfile.XRD.detail",
+  "$schema": "metaschema.yaml",
+  "name": "XRD Instrument Detail",
+  "abstract": "X-ray Diffraction tabular data with geometry and wavelength. Defines properties: @type, geometry, sampleMount, stepSize, timePerStep, wavelength.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-02-06T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-08-19",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "instrument",
+    "xrd"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.techniqueProfile.adaProfile.XRD.detail": [
+      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/XRD/detail/rules.shacl"
+    ]
+  },
+  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/XRD/detail/context.jsonld",
+  "schema": {
+    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/XRD/detail/schema.yaml",
+    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/XRD/detail/schema.json"
+  },
+  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/XRD/detail/schema.yaml",
+  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/XRD/detail/context.jsonld",
+  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/XRD/detail/resolvedProperties.json",
+  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/XRD/detail/",
+  "validationPassed": false,
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/adaProfile/XRD/detail/",
+  "description": "# XRD Instrument Detail\n\nX-ray Diffraction tabular data with geometry and wavelength.\n",
+  "examples": [
+    {
+      "title": "XRD Instrument Detail Example",
+      "content": "X-ray Diffraction tabular data with geometry and wavelength parameters.",
+      "prefixes": {
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/XRD/detail/example_1_1.json",
+          "sizeBytes": 183,
+          "code": "{\n  \"@type\": [\"ada:XRDTabular\"],\n  \"ada:geometry\": \"Bragg-Brentano\",\n  \"ada:sampleMount\": \"flat plate\",\n  \"ada:stepSize\": 0.02,\n  \"ada:timePerStep\": 1.0,\n  \"ada:wavelength\": 1.5406\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/XRD/detail/example_1_1.jsonld",
+          "sizeBytes": 426,
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/XRD/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:XRDTabular\"\n  ],\n  \"ada:geometry\": \"Bragg-Brentano\",\n  \"ada:sampleMount\": \"flat plate\",\n  \"ada:stepSize\": 0.02,\n  \"ada:timePerStep\": 1.0,\n  \"ada:wavelength\": 1.5406\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/XRD/detail/example_1_1.ttl",
+          "sizeBytes": 283,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a ada:XRDTabular ;\n    ada:geometry \"Bragg-Brentano\" ;\n    ada:sampleMount \"flat plate\" ;\n    ada:stepSize 2e-02 ;\n    ada:timePerStep 1e+00 ;\n    ada:wavelength 1.5406e+00 .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: XRD Instrument Detail\ndescription: X-ray Diffraction tabular data with geometry and wavelength\ntype: object\nproperties:\n  ada:componentType:\n    const: ada:XRDTabular\n    x-jsonld-id: https://ada.astromat.org/metadata/componentType\n  ada:geometry:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/geometry\n  ada:sampleMount:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/sampleMount\n  ada:stepSize:\n    type: number\n    x-jsonld-id: https://ada.astromat.org/metadata/stepSize\n  ada:timePerStep:\n    type: number\n    x-jsonld-id: https://ada.astromat.org/metadata/timePerStep\n  ada:wavelength:\n    type: number\n    x-jsonld-id: https://ada.astromat.org/metadata/wavelength\nrequired:\n- ada:componentType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/techniqueProfile/adaProfile/XRD/detail"
+}

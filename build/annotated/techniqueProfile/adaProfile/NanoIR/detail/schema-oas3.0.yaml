@@ -1,0 +1,28 @@
+x-defs:
+  ogch.BaseSchema.stringArray:
+    title: String Array Type
+    description: Simple reusable array of strings
+    type: array
+    minItems: 0
+    items:
+      type: string
+    x-schema-source: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+title: NanoIR Instrument Detail
+description: Nano-IR spectroscopy collections with phase analysis
+type: object
+properties:
+  ada:componentType:
+    x-jsonld-id: https://ada.astromat.org/metadata/componentType
+    enum:
+    - ada:NanoIRBackground
+  ada:phaseAnalyzed:
+    x-jsonld-id: https://ada.astromat.org/metadata/phaseAnalyzed
+    allOf:
+    - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoIR/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.stringArray
+required:
+- ada:componentType
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/
+x-schema-version: https://json-schema.org/draft/2020-12/schema

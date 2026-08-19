@@ -1,0 +1,88 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ADA EMPA Product Profile (path-driven)
+description: Technique-specific profile for Electron Microprobe Analysis (EMPA/EPMA)
+  products. Extends the base ADA product profile with the EMPA analysis-instance detail
+  (detailEMPA) on the schema:Dataset root, narrows prov:used to the empaTAPP protocol,
+  and constrains valid EMPA component types on schema:distribution.hasPart.
+allOf:
+- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml
+- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/EMPA/detail/schema.yaml
+- type: object
+  properties:
+    prov:wasGeneratedBy:
+      description: "Narrow the base prov:used to the empaTAPP definition \u2014 inline,
+        or by node @id \u2014 alongside the instrument. (Base adaProduct accepts the
+        generic tappDefinition; this profile requires the technique-specific one.)"
+      type: array
+      items:
+        type: object
+        properties:
+          prov:used:
+            type: array
+            items:
+              allOf:
+              - if:
+                  type: object
+                  required:
+                  - schema:instrument
+                then:
+                  properties:
+                    schema:instrument:
+                      type: array
+                      minItems: 1
+                      items:
+                        $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+              - if:
+                  type: object
+                  properties:
+                    '@type':
+                      contains:
+                        const: ada:TAPPDefinition
+                  required:
+                  - '@type'
+                then:
+                  $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/EMPA/tapp/schema.yaml
+    schema:additionalType:
+      description: Must include an EMPA product type identifier.
+      contains:
+        enum:
+        - Electron Microprobe Analysis (EMPA) Collection
+        - Electron Microprobe Analysis Image (EMPA)
+        - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
+        - Electron Microprobe Analysis (EMPA)
+        - Electron microprobe analysis
+    schema:distribution:
+      description: Distribution items for empaProfile. Archive hasPart items must
+        have ada:componentType from technique-specific or universal values.
+      type: array
+      items:
+        type: object
+        properties:
+          schema:hasPart:
+            items:
+              type: object
+              anyOf:
+              - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
+                    - ada:EMPAImage
+                    - ada:EMPAImageMap
+                    - ada:EMPAQEATabular
+                    - ada:EMPAImageCollection
+                    - ada:EMPAESPCTabular
+                    - ada:EMPAESPCPlot
+                required:
+                - ada:componentType
+    schema:subjectOf:
+      properties:
+        dcterms:conformsTo:
+          contains:
+            type: object
+            required:
+            - '@id'
+            additionalProperties: false
+            properties:
+              '@id':
+                const: https://w3id.org/geochem/metadata/profiles/adaEMPA

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADA XCT Product Profile",
+  "description": "Technique-specific profile for X-ray Computed Tomography (XCT) products. Extends the base ADA product profile with constraints on valid XCT component types and detailXCT requirements.",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/adaProduct/schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema:additionalType": {
+          "description": "Must include a XCT product type identifier.",
+          "contains": {
+            "enum": [
+              "X-ray Computed Tomography (XCT) Image Collection",
+              "X-ray computed tomography"
+            ]
+          },
+          "x-jsonld-id": "http://schema.org/additionalType"
+        },
+        "schema:distribution": {
+          "description": "Distribution items for adaXCT. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:hasPart": {
+                "items": {
+                  "type": "object",
+                  "anyOf": [
+                    {
+                      "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/adaProduct/schema.json#/$defs/universalComponentTypeBranch"
+                    },
+                    {
+                      "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/XCT/detail-legacy/schema.json"
+                    }
+                  ]
+                },
+                "x-jsonld-id": "http://schema.org/hasPart"
+              }
+            }
+          },
+          "x-jsonld-id": "http://schema.org/distribution"
+        },
+        "schema:subjectOf": {
+          "properties": {
+            "dcterms:conformsTo": {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "const": "https://w3id.org/geochem/metadata/profiles/adaXCT"
+                  }
+                }
+              },
+              "x-jsonld-id": "http://purl.org/dc/terms/conformsTo"
+            }
+          },
+          "x-jsonld-id": "http://schema.org/subjectOf"
+        }
+      }
+    }
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#"
+  }
+}

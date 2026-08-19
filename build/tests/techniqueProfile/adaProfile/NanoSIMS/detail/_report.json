@@ -1,0 +1,102 @@
+{
+  "title": "Validation report for ogch.techniqueProfile.adaProfile.NanoSIMS.detail - NanoSIMS Instrument Detail",
+  "bblockName": "NanoSIMS Instrument Detail",
+  "bblockId": "ogch.techniqueProfile.adaProfile.NanoSIMS.detail",
+  "generated": "2026-08-19T16:00:34.606214+00:00",
+  "result": false,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/techniqueProfile/adaProfile/NanoSIMS/detail/example_1_1.json",
+        "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/NanoSIMS/detail/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_1_1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 7,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:componentType' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:componentType' is a required property\n\nFailed validating 'required' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'Nano Secondary Ion Mass Spectrometry with isotope '\n                    'tracking',\n     'properties': {'ada:componentType': {'anyOf': [{'const': 'ada:NanoSIMSCollection'},\n                                                    {'const': 'ada:NanoSIMSImageCollection'},\n                                                    {'const': 'ada:NanoSIMSTabular'},\n                                                    {'const': 'ada:NanoSIMSMap'}],\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},\n                    'ada:isotopeAnalyzed': {'$ref': 'https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.yaml',\n                                            'x-jsonld-id': 'https://ada.astromat.org/metadata/isotopeAnalyzed'},\n                    'ada:phaseAnalyzed': {'$ref': 'https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.yaml',\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/phaseAnalyzed'}},\n     'required': ['ada:componentType'],\n     'title': 'NanoSIMS Instrument Detail',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['ada:NanoSIMSTabular'],\n     'ada:isotopeAnalyzed': ['12C', '13C', '28Si', '29Si'],\n     'ada:phaseAnalyzed': ['presolar SiC', 'presolar graphite']}"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/techniqueProfile/adaProfile/NanoSIMS/detail/rules.shacl",
+              "graph": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a ada:NanoSIMSTabular ;\n                    ada:isotopeAnalyzed \"12C\",\n                        \"13C\",\n                        \"28Si\",\n                        \"29Si\" ;\n                    ada:phaseAnalyzed \"presolar SiC\",\n                        \"presolar graphite\" ] ;\n            sh:resultMessage \"NanoSIMS detail nodes must declare ada:componentType.\" ;\n            sh:resultPath ada:componentType ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:maxCount 1 ;\n                    sh:message \"NanoSIMS detail nodes must declare ada:componentType.\" ;\n                    sh:minCount 1 ;\n                    sh:path ada:componentType ] ] .\n\n",
+              "isError": true,
+              "message": "Validation result for _sources/techniqueProfile/adaProfile/NanoSIMS/detail/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"NanoSIMS detail nodes must declare ada:componentType.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ada:componentType ]\n  \tFocus Node: [ ada:isotopeAnalyzed Literal(\"12C\"), Literal(\"13C\"), Literal(\"28Si\"), Literal(\"29Si\") ; ada:phaseAnalyzed Literal(\"presolar SiC\"), Literal(\"presolar graphite\") ; rdf:type ada:NanoSIMSTabular ]\n  \tResult Path: ada:componentType\n  \tMessage: NanoSIMS detail nodes must declare ada:componentType.\n  "
+            },
+            {
+              "shaclFile": "_sources/techniqueProfile/adaProfile/NanoSIMS/detail/rules.shacl",
+              "focusNodes": {
+                "cdifd:detailNanoSIMSShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/techniqueProfile/adaProfile/NanoSIMS/detail/rules.shacl:\n - Shape cdifd:detailNanoSIMSShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/stringArray/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/BaseSchema/stringArray/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1
+  }
+}

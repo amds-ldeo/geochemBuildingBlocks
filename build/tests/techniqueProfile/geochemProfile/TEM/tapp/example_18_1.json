@@ -1,0 +1,131 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:temTAPP-Cymes2023",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "JEOL JEM-2200FS",
+  "schema:description": "temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2pyx) | BF/EFTEM + SAED + HRTEM (NRL JEOL JEM-2200FS) (publication column of TEM_TAPP_v17.xlsx).",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Naval Research Laboratory, Washington, D.C., USA"
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)",
+      "schema:name": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)"
+    }
+  ],
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:acceleratingVoltageDefault": "200 keV",
+  "ada:analyticalMode": [],
+  "ada:convergenceSemiAngle": -9999,
+  "ada:stemDwellTimePerPixelDefault": -9999,
+  "ada:cameraLengthDefault": -9999,
+  "ada:edsAcquisitionModeDefault": "missing",
+  "ada:edsQuantificationMethod": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
+  "ada:eelsAcquisitionModeDefault": "missing",
+  "ada:eelsEdgesDefault": "missing",
+  "ada:eelsCollectionSemiAngle": -9999,
+  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
+  "ada:eelsEnergyLossRangeDefault": "missing",
+  "ada:phaseIdentificationMethod": "SAED zone-axis patterns; simulated SAED patterns using SingleCrystal (CrystalMaker Software); HRTEM lattice fringe imaging + FFT; inverse FFT with spot-pass filter (lattice deformation visualization)",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:edsCalibrationStandardDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/eftemEnergyWindowDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eftemEnergyWindowDefault",
+      "schema:name": "EFTEM Energy Window",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "10 eV (Ca M-edge EFTEM centered at 35 eV energy loss)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/selectedAreaApertureSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "selectedAreaApertureSizeDefault",
+      "schema:name": "Selected-Area Aperture Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "100 nm (SAED aperture)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "imageProcessingMethodsAppliedDefault",
+      "schema:name": "Image Processing Methods Applied",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "Inverse FFT with spot-pass filter for HRTEM images"
+    }
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
+}

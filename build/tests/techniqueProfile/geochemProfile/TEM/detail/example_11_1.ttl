@@ -1,0 +1,42 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Dobrica2022 a ada:TEMImage ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/cameraLength> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ] ;
+    schema1:measurementTechnique ex:temTAPP-Dobrica2022 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "E. Dobrica; K.K. Ohtaki; C. Engrand" ;
+    ada:componentType "ada:TEMImage" ;
+    ada:edsDeadTime -9999 ;
+    ada:edsDetectionLimit "missing" ;
+    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:sampleName "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "kV" ;
+    schema1:value 300 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
+    schema1:value "DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/cameraLength> a schema1:PropertyValue ;
+    schema1:name "Camera Length" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/cameraLength> ;
+    schema1:unitText "mm" ;
+    schema1:value 295 .
+

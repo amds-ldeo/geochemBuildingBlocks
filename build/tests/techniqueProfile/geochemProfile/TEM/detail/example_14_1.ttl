@@ -1,0 +1,67 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Thompson2020 a ada:TEMImage ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960" ] ;
+    schema1:measurementTechnique ex:temTAPP-Thompson2020 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "M.S. Thompson; L.P. Keller; R. Christoffersen; Z. Rahman (FIB prep)" ;
+    ada:componentType "ada:TEMImage" ;
+    ada:edsDeadTime -9999 ;
+    ada:edsDetectionLimit "missing" ;
+    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:sampleName "Murchison CM2 (1×, 5× laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm × 3 cm, unpolished)" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "kV" ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
+    schema1:value "BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
+    schema1:name "EDS Acquisition Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
+    schema1:value "Spectrum imaging (spatially resolved maps and line profiles); successive accumulated scans" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion> a schema1:PropertyValue ;
+    schema1:name "EDS Counting Statistics / Accumulation Criterion" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion> ;
+    schema1:value "Successive scans accumulated until major element counts achieved 1% counting statistics" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel> a schema1:PropertyValue ;
+    schema1:name "STEM Dwell Time per Pixel" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel> ;
+    schema1:unitText "ms" ;
+    schema1:value 50 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> a schema1:PropertyValue ;
+    schema1:name "STEM Frame Averaging" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> ;
+    schema1:value "Successive scans accumulated until major element counts achieved 1% counting statistics" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> a schema1:PropertyValue ;
+    schema1:name "STEM Probe Diameter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> ;
+    schema1:unitText "nm" ;
+    schema1:value 2 .
+

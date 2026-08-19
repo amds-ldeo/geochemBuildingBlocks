@@ -1,0 +1,345 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/fusionFluxAndDilutionRatioDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Li-borate fusion: 350 mg Li₂B₄O₇ + 10 mg powdered sample fused in Pt-Au crucible (M4 automatic fluxer); glass surface cleaned with ethanol before LA" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Liu, Xue, Li, Wang et al." ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser Reported detail: ada:ablationSamplingMode = Spot (stationary; single spot at 1 Hz)." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NSFC; Chinese Academy of Sciences" ] ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration>,
+                <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/icpTuningDefault>,
+                <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting>,
+                <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/memoryEffectMitigationDefault> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "ICPMS" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/coolantGasFlowRateDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/rfPowerDefault> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ICP Source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Interface Cone" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Collision Reaction Cell" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Torch" ;
+                    schema1:name "missing" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)" ] ;
+            schema1:name "example instrumentName" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)" ] ;
+            schema1:name "example instrumentName" ;
+            ada:laserFluenceDefault "6.79 J cm⁻²" ;
+            ada:laserRepetitionRateDefault "1 Hz" ;
+            ada:laserSpotGeometryDefault "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)" ;
+            ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "fs-LA-Q-ICP-MS" ;
+            schema1:termCode "LA-ICP-MS" ] ;
+    schema1:name "Liu et al. (2024) Extraterrestrial Flux Glass fs-LA-ICP-MS Spot v1" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Li-borate flux fusion glass (extraterrestrial sample preparation)" ],
+                <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationSamplingMode "Spot (stationary)" ;
+    ada:ablationSpotDurationDefault "45 s ablation (after 25 s gas blank; 25 s washout between analyses)" ;
+    ada:analysisSequenceDefault "Gas blank (25 s) → ablation (45 s) → washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns" ;
+    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/detectionLimit>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/detectionLimitMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
+            ada:defaultAnalytes "²³²Th",
+                "²³⁸U (32 trace elements)",
+                "²¹Sc",
+                "¹³³Cs",
+                "¹³⁷Ba",
+                "¹³⁹La",
+                "¹⁴¹Pr",
+                "¹⁴⁰Ce",
+                "¹⁴⁶Nd",
+                "¹⁴⁷Sm",
+                "¹⁵³Eu",
+                "¹⁵⁷Gd",
+                "¹⁵⁹Tb",
+                "¹⁶³Dy",
+                "¹⁶⁵Ho",
+                "¹⁶⁶Er",
+                "¹⁶⁹Tm",
+                "¹⁷²Yb",
+                "¹⁷⁵Lu",
+                "¹⁷⁸Hf",
+                "¹⁸¹Ta",
+                "⁵²Cr",
+                "⁵¹V",
+                "⁵⁹Co",
+                "⁶³Cu",
+                "⁶⁰Ni",
+                "⁶⁶Zn",
+                "⁶⁹Ga",
+                "⁸⁵Rb",
+                "⁸⁸Sr",
+                "⁸⁹Y",
+                "⁹³Nb",
+                "⁹⁰Zr" ] ;
+    ada:backgroundCountTimeDefault "25 s gas blank before each ablation" ;
+    ada:blankBackgroundCorrectionMethod "Gas blank measured for 25 s before each ablation; background subtracted per isotope" ;
+    ada:calibrationMeasurementFrequency "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns" ;
+    ada:carrierGasFlowRateDefault "He: 0.7 l min⁻¹ (chamber) + 0.1 l min⁻¹ (cup gas)" ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:elementalFractionationCorrection "Femtosecond laser substantially reduces elemental fractionation and matrix effects (stated); non-matrix-matched external standards (NIST 612 + 614) used successfully with fs laser (verified by GRM accuracy assessment)" ;
+    ada:internalStandardApproach "Two internal standards: Si from XRF SiO₂ (for Co, Ni, Cu, Zn); Al from XRF Al₂O₃ (for all other trace elements); non-matrix-matched external standards (NIST 612 + 614) used; fs laser minimizes matrix effects" ;
+    ada:internalStandardElement "Si (SiO₂ from XRF) for Co, Ni, Cu, Zn; Al (Al₂O₃ from XRF) for all other 28 trace elements" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
+    ada:massBiasCorrectionStrategy "missing" ;
+    ada:oxideProductionMethodAndThreshold "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05" ;
+    ada:primaryStandardNameDefault "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser" ;
+    ada:rasterLineSpacingDefault "missing" ;
+    ada:reportedVariablesAndUnits "missing" ;
+    ada:sampleIntroduction "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:secondaryReferenceMaterialDefault "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) — 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS" ;
+    ada:signalCollectionMode "missing" ;
+    ada:signalIntegrationIntervalMethod "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
+    ada:uncertaintyLevel "missing" ;
+    bios:computationalTool [ schema1:name "Iolite 4 (Paton et al. 2011)" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimit" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Detection Limit Method" ;
+    schema1:valueName "detectionLimitMethod" ;
+    ada:dataType "uri" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Isobaric Interference Corrections Applied" ;
+    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    ada:dataType "boolean" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Limit of Quantification (LOQ) Method" ;
+    schema1:valueName "limitOfQuantificationMethod" ;
+    ada:dataType "uri" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
+    schema1:name "Mass Resolution per Analyte" ;
+    schema1:valueName "massResolutionPerAnalyte" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Isotopes" ;
+    schema1:valueName "monitoredIsotopes" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Normalization / Standards-Based Correction" ;
+    schema1:valueName "normalizationStandardsBasedCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/coolantGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 15 ;
+    schema1:description "Plasma gas flow: 15 l min⁻¹; Auxiliary gas: 0.85 l min⁻¹" ;
+    schema1:name "Coolant (Plasma) Gas Flow Rate" ;
+    schema1:valueName "coolantGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/fusionFluxAndDilutionRatioDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Li₂B₄O₇ flux; sample:flux = 1:35 (10 mg sample + 350 mg flux)" ;
+    schema1:name "Fusion Flux and Dilution Ratio" ;
+    schema1:valueName "fusionFluxAndDilutionRatioDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/icpTuningDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Gas flows optimized via spot ablation of NIST SRM 612 to obtain maximum signal intensities while maintaining ThO/Th <0.3% and U/Th at 0.95–1.05" ;
+    schema1:name "ICP Tuning" ;
+    schema1:valueName "icpTuningDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Unit resolution (quadrupole; ICP-MS/MS mode not specified)" ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:valueName "massResolutionSetting" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "25 s washout between analyses (25 s gas blank → 45 s ablation → 25 s washout)" ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:valueName "memoryEffectMitigationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAblationSurfaceTreatmentDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Surface cleaning with ethanol before analysis" ;
+    schema1:name "Pre-Ablation Surface Treatment" ;
+    schema1:valueName "preAblationSurfaceTreatmentDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Applied: dual detector mode (30 ms / 10 ms dwell alternation)" ;
+    schema1:name "Pulse/Analog Detector Nonlinearity Correction" ;
+    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/rfPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1550 ;
+    schema1:description "1550 W" ;
+    schema1:name "RF Power" ;
+    schema1:valueName "rfPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Li-borate flux fusion glass disc (10 mg sample + 350 mg Li₂B₄O₇, 35:1 dilution)" ;
+    schema1:name "Sample Form / Analytical Substrate" ;
+    schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Homogeneity index (H) applied to test element distribution; Co, Ni, Cu in high-Si glass (GSR-1) identified as near-LOD and flagged; flux blank contributions to pollution elements subtracted" ;
+    schema1:name "Spike / Outlier Filtering Approach" ;
+    schema1:valueName "spikeOutlierFilteringApproachDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
+    schema1:name "Detector Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration> ;
+    schema1:value "Dual mode detector (30 ms / 10 ms dwell alternation)" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> a schema1:PropertyValue ;
+    schema1:name "Laser Pulse Duration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
+    schema1:value "Femtosecond (exact value not stated; GenesisGEO fs laser)" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
+    schema1:name "Multi-Run Sequential Analysis Design" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:value "Single spot per location (45 s ablation at 1 Hz)" .
+

@@ -1,0 +1,78 @@
+
+
+{
+  "itemIdentifier": "ogch.techniqueProfile.adaProfile.ICPOES.detail",
+  "$schema": "metaschema.yaml",
+  "name": "ICP-OES Instrument Detail",
+  "abstract": "Inductively Coupled Plasma Optical Emission Spectrometry detail properties. Defines properties: @type, mass, dissolutionFactor.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-02-06T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-08-19",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "instrument",
+    "icpoes"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.techniqueProfile.adaProfile.ICPOES.detail": [
+      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/ICPOES/detail/rules.shacl"
+    ]
+  },
+  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/ICPOES/detail/context.jsonld",
+  "schema": {
+    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/ICPOES/detail/schema.yaml",
+    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/ICPOES/detail/schema.json"
+  },
+  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/ICPOES/detail/schema.yaml",
+  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/ICPOES/detail/context.jsonld",
+  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/ICPOES/detail/resolvedProperties.json",
+  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/ICPOES/detail/",
+  "validationPassed": false,
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/adaProfile/ICPOES/detail/",
+  "description": "# ICP-OES Instrument Detail\n\nInductively Coupled Plasma Optical Emission Spectrometry. (Extension type, not in v3 source schema.)\n",
+  "examples": [
+    {
+      "title": "ICP-OES Instrument Detail Example",
+      "content": "Inductively Coupled Plasma Optical Emission Spectrometry processed data detail.",
+      "prefixes": {
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/ICPOES/detail/example_1_1.json",
+          "sizeBytes": 105,
+          "code": "{\n  \"@type\": [\"ada:ICPOESProcessedTabular\"],\n  \"ada:mass\": \"50.2 mg\",\n  \"ada:dissolutionFactor\": 100.0\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/ICPOES/detail/example_1_1.jsonld",
+          "sizeBytes": 351,
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/ICPOES/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:ICPOESProcessedTabular\"\n  ],\n  \"ada:mass\": \"50.2 mg\",\n  \"ada:dissolutionFactor\": 100.0\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/ICPOES/detail/example_1_1.ttl",
+          "sizeBytes": 198,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a ada:ICPOESProcessedTabular ;\n    ada:dissolutionFactor 1e+02 ;\n    ada:mass \"50.2 mg\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ICP-OES Instrument Detail\ndescription: Inductively Coupled Plasma Optical Emission Spectrometry. (Extension\n  type, not in v3 source schema.)\ntype: object\nproperties:\n  ada:componentType:\n    anyOf:\n    - const: ada:ICPOESIntermediateTabular\n    - const: ada:ICPOESProcessedTabular\n    - const: ada:ICPOESRawTabular\n    x-jsonld-id: https://ada.astromat.org/metadata/componentType\n  ada:mass:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/mass\n  ada:dissolutionFactor:\n    type: number\n    x-jsonld-id: https://ada.astromat.org/metadata/dissolutionFactor\nrequired:\n- ada:componentType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/techniqueProfile/adaProfile/ICPOES/detail"
+}

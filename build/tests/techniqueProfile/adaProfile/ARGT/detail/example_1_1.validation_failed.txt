@@ -1,0 +1,55 @@
+Validation report for ogch.techniqueProfile.adaProfile.ARGT.detail - ARGT Instrument Detail
+Generated 2026-08-19T16:00:34.213429+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'ada:componentType' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+     'description': 'ARGT (Argon) document type with phase and isotope '
+                    'analysis',
+     'properties': {'ada:componentType': {'const': 'ada:ARGTDocument',
+                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},
+                    'ada:isotopeType': {'type': 'string',
+                                        'x-jsonld-id': 'https://ada.astromat.org/metadata/isotopeType'},
+                    'ada:phaseAnalyzed': {'type': 'string',
+                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/phaseAnalyzed'}},
+     'required': ['ada:componentType'],
+     'title': 'ARGT Instrument Detail',
+     'type': 'object',
+     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',
+                           'schema': 'http://schema.org/'}}
+
+On instance:
+    {'@type': ['ada:ARGTDocument'],
+     'ada:isotopeType': '40Ar/39Ar',
+     'ada:phaseAnalyzed': 'sanidine'}
+=== End JSON Schema ===
+
+=== SHACL ===
+
+** Validation error **
+Validation result for _sources/techniqueProfile/adaProfile/ARGT/detail/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("ARGT detail nodes must declare ada:componentType.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path ada:componentType ]
+  	Focus Node: [ ada:isotopeType Literal("40Ar/39Ar") ; ada:phaseAnalyzed Literal("sanidine") ; rdf:type ada:ARGTDocument ]
+  	Result Path: ada:componentType
+  	Message: ARGT detail nodes must declare ada:componentType.
+  
+Focus nodes for _sources/techniqueProfile/adaProfile/ARGT/detail/rules.shacl:
+ - Shape cdifd:detailARGTShape: *none*
+
+=== End SHACL ===
+

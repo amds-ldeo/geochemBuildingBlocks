@@ -1,0 +1,334 @@
+Validation report for ogch.BaseSchema.tappDefinition - Technique-Aligned Protocol Profile (TAPP) Definition
+Generated 2026-08-19T16:00:41.593360+00:00
+=== Files ===
+Using exampletappDefinition-uoc-laicpms-glass-v1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_3_1.jsonld created
+Output Turtle example_3_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: {'analyte': 'Si29', 'spectrometerDwellTime': '1e-8', 'analysisCountTime': 40, 'backgroundCountTime': 30, 'detectionLimit': 'internal standard', 'detectionLimitUnit': ''} is not valid under any of the given schemas
+
+Failed validating 'anyOf' in schema[1]['allOf'][1]:
+    {'anyOf': [{'required': ['schema:name']},
+               {'required': ['schema:identifier']},
+               {'required': ['schema:termCode']}]}
+
+On instance:
+    {'analysisCountTime': 40,
+     'analyte': 'Si29',
+     'backgroundCountTime': 30,
+     'detectionLimit': 'internal standard',
+     'detectionLimitUnit': '',
+     'spectrometerDwellTime': '1e-8'}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/BaseSchema/tappDefinition/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:
+ - Shape cdifd:tappDefinitionShape: *none*
+ - Shape cdifd:WorkflowStepUniqueNamesShape: *none*
+
+
+** Validation error **
+Validation result for _sources/BaseSchema/instrument/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:message Literal("An instrument must have an identifier (schema:identifier).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:identifier ]
+  	Focus Node: [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("nxs:BaseClass/NXinstrument") ; schema1:hasPart [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("ICPMS") ; schema1:description Literal("Single-quadrupole ICP-MS") ; schema1:manufacturer [ rdf:type schema1:Organization ; schema1:name Literal("Thermo Fisher Scientific") ] ; schema1:name Literal("Thermo Fischer iCAP Q") ], [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("Laser Ablation System") ; schema1:description Literal("193 nm ArF excimer laser ablation system") ; schema1:manufacturer [ rdf:type schema1:Organization ; schema1:name Literal("Elemental Scientific Lasers (ESI)") ] ; schema1:name Literal("ESI imageGEO193") ] ; schema1:name Literal("ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS") ]
+  	Result Path: schema1:identifier
+  	Message: An instrument must have an identifier (schema:identifier).
+  
+Focus nodes for _sources/BaseSchema/instrument/rules.shacl:
+ - Shape cdifd:provUsedInstrumentParamValueShape: *none*
+ - Shape cdifd:adaInstrumentShape: *none*
+ - Shape cdifd:tappInstrumentParamSpecShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Warning
+  	Source Shape: [ sh:message Literal("An instrument should have a category classification from a controlled vocabulary (schema:category).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:category ; sh:severity sh:Warning ]
+  	Focus Node: [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("nxs:BaseClass/NXinstrument") ; schema1:hasPart [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("ICPMS") ; schema1:description Literal("Single-quadrupole ICP-MS") ; schema1:manufacturer [ rdf:type schema1:Organization ; schema1:name Literal("Thermo Fisher Scientific") ] ; schema1:name Literal("Thermo Fischer iCAP Q") ], [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("Laser Ablation System") ; schema1:description Literal("193 nm ArF excimer laser ablation system") ; schema1:manufacturer [ rdf:type schema1:Organization ; schema1:name Literal("Elemental Scientific Lasers (ESI)") ] ; schema1:name Literal("ESI imageGEO193") ] ; schema1:name Literal("ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS") ]
+  	Result Path: schema1:category
+  	Message: An instrument should have a category classification from a controlled vocabulary (schema:category).
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:
+ - Shape cdifd:instrumentNode: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (3):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("ppm") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("ppm") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("ppb") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("ppb") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("weight percent (%m/m)") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("weight percent (%m/m)") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:
+ - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*
+ - Shape _:nf6db64ef2dee44818140777c50322981b18: *none*
+ - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:nf6db64ef2dee44818140777c50322981b4: *none*
+ - Shape _:nf6db64ef2dee44818140777c50322981b14: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape _:nf6db64ef2dee44818140777c50322981b3: *none*
+ - Shape _:nf6db64ef2dee44818140777c50322981b17: *none*
+ - Shape _:nf6db64ef2dee44818140777c50322981b16: *none*
+ - Shape cdifd:CDIFDefinedTermShape: _:N3682ec4a975742569b349cdf23adad86,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/bios:reagent,_:N81897b75677646d3b3730011ba6c6d55,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/bios:reagent,_:N3dbca58ec4c44a399a35a2b212430da1
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:nf6db64ef2dee44818140777c50322981b20: *none*
+ - Shape _:nf6db64ef2dee44818140777c50322981b15: *none*
+ - Shape cdifd:CDIFRoleShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n359c0300959d449a87b83478f0f21754b8: *none*
+ - Shape _:n359c0300959d449a87b83478f0f21754b7: *none*
+ - Shape _:n359c0300959d449a87b83478f0f21754b19: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape _:n359c0300959d449a87b83478f0f21754b5: *none*
+ - Shape _:n359c0300959d449a87b83478f0f21754b26: *none*
+ - Shape _:n359c0300959d449a87b83478f0f21754b6: *none*
+ - Shape _:n359c0300959d449a87b83478f0f21754b4: *none*
+ - Shape _:n359c0300959d449a87b83478f0f21754b10: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Warning
+  	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ; sh:minLength Literal("5", datatype=xsd:integer) ] [ sh:class schema1:DefinedTerm ] ) ; sh:path schema1:propertyID ; sh:severity sh:Warning ]
+  	Focus Node: [ rdf:type schema1:PropertyValue ; schema1:value Literal("DFG INST 216/1019-1 FUGG no. 665508") ]
+  	Result Path: schema1:propertyID
+  	Message: Less than 1 values on [ rdf:type schema1:PropertyValue ; schema1:value Literal("DFG INST 216/1019-1 FUGG no. 665508") ]->schema1:propertyID
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+ - Shape _:n98ef205b5bb5484bbfb522eb09c56580b23: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n98ef205b5bb5484bbfb522eb09c56580b25: *none*
+ - Shape cdifd:CDIFIdentifierShape: *none*
+ - Shape _:n98ef205b5bb5484bbfb522eb09c56580b20: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
+ - Shape _:n98ef205b5bb5484bbfb522eb09c56580b21: *none*
+ - Shape _:n98ef205b5bb5484bbfb522eb09c56580b22: *none*
+ - Shape _:n98ef205b5bb5484bbfb522eb09c56580b10: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n98ef205b5bb5484bbfb522eb09c56580b11: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:
+ - Shape cdifd:CDIFContactPointShape: *none*
+ - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*
+ - Shape _:nce7825ae574c4017b9495b20fd7099c1b14: *none*
+ - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFPersonShape: *none*
+ - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:maintainerOrProviderContactPointShape: *none*
+ - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*
+ - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
+ - Shape cdifd:CDIFOrganizationShape: <https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:instrument/schema1:hasPart/schema1:manufacturer,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:instrument/schema1:hasPart/schema1:manufacturer,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:funding/schema1:funder,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:agent
+ - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl:
+ - Shape cdifd:CDIFRelationShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:
+ - Shape cdifd:CDIFLabeledLinkShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:AdditionalTypeUriShouldBeIRIShape
+  	Focus Node: Literal("bios:LabProcess")
+  	Value Node: Literal("bios:LabProcess")
+  	Message: schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {"@id":"..."}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:AdditionalTypeUriShouldBeIRIShape
+  	Focus Node: Literal("nxs:BaseClass/NXinstrument")
+  	Value Node: Literal("nxs:BaseClass/NXinstrument")
+  	Message: schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {"@id":"..."}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b21: *none*
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b13: *none*
+ - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b30: *none*
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b7: *none*
+ - Shape cdifd:CDIFAddPropertyTermShape: *none*
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b31: *none*
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b33: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b29: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b14: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b28: *none*
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b6: *none*
+ - Shape _:n393ca4b6c2e749018ab9fe032a0edef2b20: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: <https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/schema1:additionalType,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:instrument/schema1:hasPart/schema1:additionalType,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:instrument/schema1:additionalType,<https://www.wikidata.org/wiki/Q3099911>,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:instrument/schema1:hasPart/schema1:additionalType
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
+ - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:qualityMeasurementNode: <https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/dqv:hasQualityMeasurement
+ - Shape _:nbb83eba973184aa7b8d755540c9e89b4b5: *none*
+ - Shape _:nbb83eba973184aa7b8d755540c9e89b4b11: *none*
+ - Shape _:nbb83eba973184aa7b8d755540c9e89b4b4: *none*
+ - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:
+ - Shape cdifd:fundingShape/sh:or/rdf:first: *none*
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb25: *none*
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb11: *none*
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb15: *none*
+ - Shape cdifd:fundingShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:fundingShape: <https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:funding
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb3: *none*
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb13: *none*
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb17: *none*
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb26: *none*
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb5: *none*
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb14: *none*
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb4: *none*
+ - Shape _:n647b3c179b194fa8ad27180965bbf7ceb12: *none*
+
+Validation result for _sources/BaseSchema/laboratory/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/BaseSchema/laboratory/rules.shacl:
+ - Shape cdifd:laboratoryShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (3):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("ppm") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("ppm") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("ppb") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("ppb") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("weight percent (%m/m)") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("weight percent (%m/m)") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb9: *none*
+ - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape: _:N3682ec4a975742569b349cdf23adad86,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/bios:reagent,_:N81897b75677646d3b3730011ba6c6d55,<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:actionProcess/schema1:step/bios:reagent,_:N3dbca58ec4c44a399a35a2b212430da1
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb41: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb24: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb13: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb44: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb10: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb38: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb16: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb39: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb29: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb4: *none*
+ - Shape cdifd:spatialExtentProperty/sh:or/rdf:first: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb42: *none*
+ - Shape cdifd:geoCoordinatesNode: *none*
+ - Shape cdifd:spatialExtentProperty: <https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1>/schema1:location
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb15: *none*
+ - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb40: *none*
+ - Shape cdifd:geoShapeNode: *none*
+ - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n615a20b96b004d47bfe8ff4cd4c772ddb3: *none*
+
+=== End SHACL ===
+

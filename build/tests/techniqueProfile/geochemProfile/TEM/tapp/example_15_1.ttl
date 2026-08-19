@@ -1,0 +1,72 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:temTAPP-Xing2023 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsSensitivityAndDetectionLimitDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale mineralogy in NEPS | No original protocol data (publication column of TEM_TAPP_v17.xlsx)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "TEM" ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "tem" ;
+            schema1:termCode "tem" ] ;
+    schema1:name "tem protocol — Xing2023" ;
+    ada:acceleratingVoltageDefault "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analyticalSubModeDefault "missing" ;
+    ada:calibrationFactorAndDeterminationMethodDefault "missing" ;
+    ada:cameraLengthDefault -9999 ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:convergenceSemiAngle -9999 ;
+    ada:edsAcquisitionModeDefault "missing" ;
+    ada:edsCalibrationStandardDefault "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error" ;
+    ada:edsQuantificationMethod "EDS described as \"mostly semiquantitative\"; standard-based quantification (matched thickness/composition standard) achieves ~0.1% error; quantitative EDS rarely performed without standards" ;
+    ada:eelsAcquisitionModeDefault "missing" ;
+    ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
+    ada:eelsCollectionSemiAngle -9999 ;
+    ada:eelsEdgesDefault "missing" ;
+    ada:eelsEnergyLossRangeDefault "missing" ;
+    ada:phaseIdentificationMethod "Reviews SAED; NBD (nanobeam diffraction); CBED; HRTEM + FFT; aberration-corrected HAADF-STEM + FFT (atomic-resolution phase ID)" ;
+    ada:reportedVariablesAndUnits "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:spectroscopicDetectorDefault "missing" ;
+    ada:stemDwellTimePerPixelDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements" ;
+    schema1:name "EDS Detection Limit" ;
+    schema1:readonlyValue false ;
+    schema1:valueName "edsDetectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsSensitivityAndDetectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability" ;
+    schema1:name "EELS Sensitivity and Detection Limit" ;
+    schema1:readonlyValue false ;
+    schema1:valueName "eelsSensitivityAndDetectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+

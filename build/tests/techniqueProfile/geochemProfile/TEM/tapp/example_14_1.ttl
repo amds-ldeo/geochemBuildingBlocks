@@ -1,0 +1,85 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:temTAPP-Thompson2020 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | BF/DF-STEM + HRTEM + STEM-EDX (JSC JEOL 2500SE) (publication column of TEM_TAPP_v17.xlsx)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "TEM" ;
+            schema1:name "missing" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging" ;
+            schema1:termCode "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging" ] ;
+    schema1:name "JEOL 2500SE" ;
+    ada:acceleratingVoltageDefault "200 kV" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analyticalSubModeDefault "missing" ;
+    ada:calibrationFactorAndDeterminationMethodDefault "missing" ;
+    ada:cameraLengthDefault -9999 ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:convergenceSemiAngle -9999 ;
+    ada:edsAcquisitionModeDefault "Spectrum imaging (spatially resolved maps and line profiles); successive accumulated scans" ;
+    ada:edsCalibrationStandardDefault "missing" ;
+    ada:edsQuantificationMethod "missing" ;
+    ada:eelsAcquisitionModeDefault "missing" ;
+    ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
+    ada:eelsCollectionSemiAngle -9999 ;
+    ada:eelsEdgesDefault "missing" ;
+    ada:eelsEnergyLossRangeDefault "missing" ;
+    ada:phaseIdentificationMethod "HRTEM lattice fringe imaging + FFT; EDS composition maps (no SAED; phase ID by d-spacings from HRTEM); phases identified: pentlandite, Fe-Ni-S, magnetite, serpentine, chrysotile, olivine, metallic Fe" ;
+    ada:reportedVariablesAndUnits "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:spectroscopicDetectorDefault "missing" ;
+    ada:stemDwellTimePerPixelDefault "50 µs (kept short to prevent beam damage)" ;
+    ada:targetSelectionCriteriaDefault "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Successive scans accumulated until major element counts achieved 1% counting statistics" ;
+    schema1:name "EDS Counting Statistics / Accumulation Criterion" ;
+    schema1:readonlyValue false ;
+    schema1:valueName "edsCountingStatisticsAccumulationCriterionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Successive scans accumulated until major element counts achieved 1% counting statistics" ;
+    schema1:name "STEM Frame Averaging" ;
+    schema1:readonlyValue false ;
+    schema1:valueName "stemFrameAveragingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "2 nm" ;
+    schema1:name "STEM Probe Diameter" ;
+    schema1:readonlyValue false ;
+    schema1:unitText "nm" ;
+    schema1:valueName "stemProbeDiameterDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+

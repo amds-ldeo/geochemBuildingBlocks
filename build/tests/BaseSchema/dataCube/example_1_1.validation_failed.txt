@@ -1,0 +1,102 @@
+Validation report for ogch.BaseSchema.dataCube - Data Cube Type
+Generated 2026-08-19T16:00:35.771748+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: {'@type': 'ada:SEMEDSElementalMapsCube'} is not of type 'string'
+
+Failed validating 'type' in schema['allOf'][0]['properties']['ada:componentType']:
+    {'description': 'ADA componentType for a data cube, as a single '
+                    'string. Allowed values are constrained at the '
+                    'technique-profile level.',
+     'enum': ['ada:FTICRMSCube',
+              'ada:GCMSCube',
+              'ada:L2MSCube',
+              'ada:LCMSRawData',
+              'ada:STEMEDSCube',
+              'ada:STEMEDSTomo',
+              'ada:STEMEELSCube'],
+     'type': 'string',
+     'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'}
+
+On instance['ada:componentType']:
+    {'@type': 'ada:SEMEDSElementalMapsCube'}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/BaseSchema/dataCube/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/BaseSchema/dataCube/rules.shacl:
+ - Shape cdifd:dataCubeShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Warning
+  	Source Shape: [ sh:message Literal("A StructuredDataSet should have physical mappings (cdif:hasPhysicalMapping) linking variables to their physical representation.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path cdif:hasPhysicalMapping ; sh:severity sh:Warning ]
+  	Focus Node: [ ada:componentType [ rdf:type ada:SEMEDSElementalMapsCube ] ; ada:dataComponentResource Literal("cube_SEMEDS_001.hdf5") ; rdf:type ada:dataCube, cdi:StructuredDataSet ]
+  	Result Path: cdif:hasPhysicalMapping
+  	Message: A StructuredDataSet should have physical mappings (cdif:hasPhysicalMapping) linking variables to their physical representation.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl:
+ - Shape cdifd:dataCubeShape: _:N8def675d7364465497ab50907b89f317
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl:
+ - Shape cdifd:physicalMappingShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+ - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n89d5f3c20dfe4f8288da625fa7535538b5: *none*
+ - Shape _:n89d5f3c20dfe4f8288da625fa7535538b4: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape _:n89d5f3c20dfe4f8288da625fa7535538b19: *none*
+ - Shape _:n89d5f3c20dfe4f8288da625fa7535538b6: *none*
+ - Shape _:n89d5f3c20dfe4f8288da625fa7535538b10: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n89d5f3c20dfe4f8288da625fa7535538b26: *none*
+ - Shape _:n89d5f3c20dfe4f8288da625fa7535538b7: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape _:n89d5f3c20dfe4f8288da625fa7535538b8: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+ - Shape _:nc8590de247404cef833acf8024dfb506b11: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape: *none*
+ - Shape _:nc8590de247404cef833acf8024dfb506b10: *none*
+ - Shape _:nc8590de247404cef833acf8024dfb506b23: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
+ - Shape _:nc8590de247404cef833acf8024dfb506b20: *none*
+ - Shape _:nc8590de247404cef833acf8024dfb506b25: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape _:nc8590de247404cef833acf8024dfb506b22: *none*
+ - Shape _:nc8590de247404cef833acf8024dfb506b21: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+
+=== End SHACL ===
+

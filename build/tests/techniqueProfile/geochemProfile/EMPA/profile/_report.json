@@ -1,0 +1,80 @@
+{
+  "title": "Validation report for ogch.techniqueProfile.geochemProfile.EMPA.profile - EMPA Geochem Profile",
+  "bblockName": "EMPA Geochem Profile",
+  "bblockId": "ogch.techniqueProfile.geochemProfile.EMPA.profile",
+  "generated": "2026-08-19T16:04:59.089765+00:00",
+  "result": false,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/techniqueProfile/geochemProfile/EMPA/profile/example_1_1.json",
+        "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/geochemProfile/EMPA/profile/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using exampleempaProfile.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 212,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": []
+        }
+      ]
+    }
+  ],
+  "globalErrors": {
+    "SHACL": {
+      "isError": true,
+      "message": "Error processing _sources/BaseSchema/modules/reportingCore/rules.shacl: at line 53 of <>:\nBad syntax (Prefix \"dqv:\" not bound) at ^ in:\n\"...b'  }\\n        \"\"\" ;\\n    ] ;\\n    sh:property [\\n        sh:path '^b'dqv:hasQualityMeasurement ;\\n        sh:minCount 1 ;\\n        '...\""
+    }
+  },
+  "counts": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1
+  }
+}

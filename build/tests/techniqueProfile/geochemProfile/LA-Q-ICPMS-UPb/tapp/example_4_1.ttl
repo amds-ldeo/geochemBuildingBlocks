@@ -1,0 +1,249 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:laQicpmsUPbTAPP-Liu2025-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Same capsule section as silicate glass; sulfide grains ≥20 µm selected by SEM-BSE" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAdditionDefault> ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Liu, Li, Xu, Xiong et al." ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "Analysis of quenched experimental pyrrhotite (Fe₁₋ₓS) from same piston-cylinder experiments; 20 µm spot required due to small grain size (5–50 µm); same instrument and analytical session as glass protocol" ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ] ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)" ] ;
+            schema1:name "Cetac Analyte HE system (same as silicate glass protocol)" ;
+            ada:laserFluenceDefault "~2.5 J cm⁻²" ;
+            ada:laserRepetitionRateDefault "7 Hz" ;
+            ada:laserSpotGeometryDefault "20 µm circular (sulfide; grain sizes >20 µm selected)" ;
+            ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "ICPMS" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Collision Reaction Cell" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Torch" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Interface Cone" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ICP Source" ;
+                    schema1:name "missing" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
+            schema1:name "example instrumentName" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-Q-ICP-MS" ;
+            schema1:termCode "LA-ICP-MS" ] ;
+    schema1:name "Liu et al. (2025) Experimental Sulfide LA-ICP-MS Spot v1" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Experimental pyrrhotite (Fe₁₋ₓS) sulfide (quench product)" ],
+                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationSpotDurationDefault "~40 s (same protocol; grain size >20 µm selected)" ;
+    ada:ageModelDefault "missing" ;
+    ada:analysisSequenceDefault "Same bracketing as silicate glass protocol" ;
+    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/detectionLimit>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/detectionLimitMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/limitOfQuantificationMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/massResolutionPerAnalyte>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
+            ada:defaultAnalytes "¹⁹⁷Au",
+                "⁶³Cu (primary targets; Si and Fe from EMP as internal standards)" ] ;
+    ada:backgroundCountTimeDefault -9999 ;
+    ada:blankBackgroundCorrectionMethod "missing" ;
+    ada:calibrationMeasurementFrequency "Same bracketing as silicate glass protocol" ;
+    ada:carrierGasFlowRateDefault "He (flow rate not stated; same system as glass protocol)" ;
+    ada:elementalFractionationCorrection "Femtosecond laser reduces LIEF; NIST 610 external standard; Fe IS from EMP corrects for ablation yield; micronuggets identified from Au signal spikes and excluded from integration" ;
+    ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
+    ada:internalStandardApproach "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard" ;
+    ada:internalStandardElement "Fe from EMP (FeOT wt% for sulfide)" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
+    ada:massBiasCorrectionStrategy "missing" ;
+    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:primaryStandardNameDefault "NIST 610 (primary external standard); Fe from EMP as IS" ;
+    ada:rasterLineSpacingDefault "missing" ;
+    ada:sampleIntroduction "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:secondaryReferenceMaterialDefault "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)" ;
+    ada:signalCollectionMode "missing" ;
+    ada:signalIntegrationIntervalMethod "Same approach as glass; micronugget identification from Au signal spikes critical for sulfide analyses" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:uncertaintyLevel "missing" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimit" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Detection Limit Method" ;
+    schema1:valueName "detectionLimitMethod" ;
+    ada:dataType "uri" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Isobaric Interference Corrections Applied" ;
+    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    ada:dataType "boolean" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Limit of Quantification (LOQ) Method" ;
+    schema1:valueName "limitOfQuantificationMethod" ;
+    ada:dataType "uri" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
+    schema1:name "Mass Resolution per Analyte" ;
+    schema1:valueName "massResolutionPerAnalyte" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Isotopes" ;
+    schema1:valueName "monitoredIsotopes" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Normalization / Standards-Based Correction" ;
+    schema1:valueName "normalizationStandardsBasedCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Unit resolution (quadrupole fixed)" ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:valueName "massResolutionSetting" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAdditionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N₂ or Ar mixed (same protocol as glass)" ;
+    schema1:name "Plasma / Make-up Gas Addition" ;
+    schema1:valueName "plasmaMakeUpGasAdditionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "In situ — polished epoxy mount (same capsule section as glass protocol)" ;
+    schema1:name "Sample Form / Analytical Substrate" ;
+    schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Same approach as glass; Au spike identification critical for determining solubility vs. nugget contribution" ;
+    schema1:name "Spike / Outlier Filtering Approach" ;
+    schema1:valueName "spikeOutlierFilteringApproachDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
+    schema1:name "Multi-Run Sequential Analysis Design" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:value "Single spot per location (sulfides; same acquisition parameters as glass but 20 µm spot)" .
+

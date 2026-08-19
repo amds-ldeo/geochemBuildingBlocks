@@ -1,0 +1,171 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:temTAPP-Cymes2023-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Nion UltraSTEM200-X",
+  "schema:description": "temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2pyx) | HAADF-STEM + Dual EELS + EDS (NRL Nion UltraSTEM200-X) (publication column of TEM_TAPP_v17.xlsx).",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Naval Research Laboratory, Washington, D.C., USA"
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
+    }
+  ],
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:acceleratingVoltageDefault": "200 keV",
+  "ada:analyticalMode": [],
+  "ada:convergenceSemiAngle": -9999,
+  "ada:stemDwellTimePerPixelDefault": -9999,
+  "ada:cameraLengthDefault": -9999,
+  "ada:edsAcquisitionModeDefault": "Spectrum imaging (SI): simultaneous EELS + EDS at each pixel; both low-loss and core-loss EELS collected",
+  "ada:edsQuantificationMethod": "Cliff-Lorimer method with detector-specific k-factors; no absorption correction (sample thin); pyroxene compositions calculated with assumed O stoichiometry of 60%",
+  "ada:reportedVariablesAndUnits": "missing",
+  "ada:eelsAcquisitionModeDefault": "Dual EELS spectrum imaging (simultaneous low-loss and core-loss)",
+  "ada:eelsEdgesDefault": "Fe L2,3 edge (700\u2013735 eV); O K-edge (528\u2013550 eV)",
+  "ada:eelsCollectionSemiAngle": "Power-law background removal",
+  "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L2,3); O (K)",
+  "ada:eelsEnergyLossRangeDefault": "Fe (L2,3); O (K)",
+  "ada:phaseIdentificationMethod": "EELS oxidation state mapping by MLLS fitting; HAADF-STEM + EDS chemical mapping; Fe\u2070 identified by anti-correlation with O K-edge and lattice fringe measurement in HR images",
+  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:edsCalibrationStandardDefault": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/stemProbeDiameterDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stemProbeDiameterDefault",
+      "schema:name": "STEM Probe Diameter",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "0.1 nm",
+      "schema:unitText": "nm"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/stemProbeCurrentDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stemProbeCurrentDefault",
+      "schema:name": "STEM Probe Current",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "40 pA",
+      "schema:unitText": "pA or nA"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsEnergyCalibrationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsEnergyCalibrationDefault",
+      "schema:name": "EELS Energy Calibration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:readonlyValue": false,
+      "ada:tier": "R",
+      "schema:defaultValue": "EELS reference standards collected on same microscope and spectrometer: FeNi metal (Fe\u2070); w\u00fcstite (FeO) powder (Fe\u00b2\u207a); synthetic Fe\u00b3\u207a-bearing glass (Fe\u00b3\u207a); magnetite Fe\u2083O\u2084 (mixed Fe\u00b2\u207a/Fe\u00b3\u207a) \u2014 Burgess & Stroud (2018b)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsEnergyDispersion",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/temTAPP/eelsEnergyDispersion"
+        }
+      ],
+      "schema:name": "EELS Energy Dispersion",
+      "schema:value": "Double-arctan continuum removal (for Fe L2,3 white-line integration)",
+      "schema:unitText": "eV/channel"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsEnergyResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/temTAPP/eelsEnergyResolution"
+        }
+      ],
+      "schema:name": "EELS Energy Resolution",
+      "schema:value": "Integral white-line intensity ratio I(L3)/I(L2) \u2192 Van Aken & Liebscher (2002) universal calibration curve for Fe\u00b3\u207a/\u03a3Fe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps",
+      "schema:unitText": "eV FWHM"
+    }
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      }
+    ]
+  },
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "missing",
+  "schema:datePublished": "missing"
+}

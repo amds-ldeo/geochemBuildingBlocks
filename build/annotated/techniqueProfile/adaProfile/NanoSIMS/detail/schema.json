@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NanoSIMS Instrument Detail",
+  "description": "Nano Secondary Ion Mass Spectrometry with isotope tracking",
+  "type": "object",
+  "properties": {
+    "ada:componentType": {
+      "anyOf": [
+        {
+          "const": "ada:NanoSIMSCollection"
+        },
+        {
+          "const": "ada:NanoSIMSImageCollection"
+        },
+        {
+          "const": "ada:NanoSIMSTabular"
+        },
+        {
+          "const": "ada:NanoSIMSMap"
+        }
+      ],
+      "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
+    },
+    "ada:phaseAnalyzed": {
+      "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.json",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/phaseAnalyzed"
+    },
+    "ada:isotopeAnalyzed": {
+      "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.json",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/isotopeAnalyzed"
+    }
+  },
+  "required": [
+    "ada:componentType"
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  }
+}

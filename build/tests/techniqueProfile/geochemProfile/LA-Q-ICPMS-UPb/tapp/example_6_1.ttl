@@ -1,0 +1,140 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:datePublished "missing" ;
+    schema1:description "N/A — see silicate column for general notes" ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "ICPMS" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Collision Reaction Cell" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Interface Cone" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ICP Source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Torch" ;
+                    schema1:name "missing" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Agilent 7500ce ICP-MS" ] ;
+            schema1:name "example instrumentName" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserEnergyDefault> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)" ] ;
+            schema1:name "example instrumentName" ;
+            ada:laserFluenceDefault "7–10 J/m² (same as silicate protocol)" ;
+            ada:laserRepetitionRateDefault "5 Hz" ;
+            ada:laserSpotGeometryDefault "~24 µm diameter" ;
+            ada:laserType "193 nm Excimer (ArF excimer)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Department of Geosciences, Virginia Tech" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-ICP-MS (same as silicate protocol)" ;
+            schema1:termCode "LA-ICP-MS" ] ;
+    schema1:name "laQicpmsUPb protocol — Liu2016-2" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Martian meteorite (Tissint) phosphate: sodium-merrillite" ],
+                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)" ;
+                    schema1:name "EPMA (EMP)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Same as silicate protocol" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationSamplingMode "Spot (stationary)" ;
+    ada:ablationSpotDurationDefault -9999 ;
+    ada:ageModelDefault "missing" ;
+    ada:analysisSequenceDefault "Same as silicate protocol" ;
+    ada:backgroundCountTimeDefault "50 s (same as silicate protocol)" ;
+    ada:blankBackgroundCorrectionMethod "50 s background measurement before each analysis (same as silicate protocol)" ;
+    ada:calibrationMeasurementFrequency "NIST 610 analyzed before and after every session (same as silicate protocol)" ;
+    ada:carrierGasFlowRateDefault "missing" ;
+    ada:elementalFractionationCorrection "External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described" ;
+    ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
+    ada:internalStandardApproach "Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot" ;
+    ada:internalStandardElement "40Ca; CaO wt% from EMP at the analysis spot" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
+    ada:massBiasCorrectionStrategy "missing" ;
+    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:primaryStandardNameDefault "NIST 610 glass standard" ;
+    ada:rasterLineSpacingDefault "missing" ;
+    ada:sampleIntroduction "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:signalCollectionMode "missing" ;
+    ada:signalIntegrationIntervalMethod "Time-lapse plots examined; only plateau region used (same as silicate protocol)" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:uncertaintyLevel "missing" ;
+    bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008)" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserEnergyDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 150 ;
+    schema1:description "150 mJ output energy" ;
+    schema1:name "Laser Energy" ;
+    schema1:valueName "laserEnergyDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "In situ — polished thin section (same sections as silicate protocol)" ;
+    schema1:name "Sample Form / Analytical Substrate" ;
+    schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
+    schema1:name "Multi-Run Sequential Analysis Design" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:value "Single spot analysis per location" .
+

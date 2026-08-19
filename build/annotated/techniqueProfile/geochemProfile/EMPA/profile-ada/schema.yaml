@@ -1,0 +1,69 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ADA EMPA Product Profile
+description: Technique-specific profile for Electron Microprobe Analysis (EMPA/EPMA)
+  products. Extends the base ADA product profile with constraints on valid EMPA component
+  types. Generic (adaProduct-only) profile; the analysis-instance detail (detailEMPA)
+  and empaTAPP linkage live on the path-driven geochem empaProfile.
+allOf:
+- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/adaProduct/schema.yaml
+- type: object
+  properties:
+    schema:additionalType:
+      description: Must include an EMPA product type identifier.
+      contains:
+        enum:
+        - Electron Microprobe Analysis (EMPA) Collection
+        - Electron Microprobe Analysis Image (EMPA)
+        - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
+        - Electron Microprobe Analysis (EMPA)
+        - Electron microprobe analysis
+      x-jsonld-id: http://schema.org/additionalType
+    schema:distribution:
+      description: Distribution items for adaEMPA. Archive hasPart items must have
+        ada:componentType from technique-specific or universal values.
+      type: array
+      items:
+        type: object
+        properties:
+          schema:hasPart:
+            items:
+              type: object
+              anyOf:
+              - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
+                    - ada:EMPAImage
+                    - ada:EMPAImageMap
+                    - ada:EMPAQEATabular
+                    - ada:EMPAImageCollection
+                    - ada:EMPAESPCTabular
+                    - ada:EMPAESPCPlot
+                required:
+                - ada:componentType
+            x-jsonld-id: http://schema.org/hasPart
+      x-jsonld-id: http://schema.org/distribution
+    schema:subjectOf:
+      properties:
+        dcterms:conformsTo:
+          contains:
+            type: object
+            required:
+            - '@id'
+            additionalProperties: false
+            properties:
+              '@id':
+                const: https://w3id.org/geochem/metadata/profiles/adaEMPA
+          x-jsonld-id: http://purl.org/dc/terms/conformsTo
+      x-jsonld-id: http://schema.org/subjectOf
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/
+  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+  csvw: http://www.w3.org/ns/csvw#
+  prov: http://www.w3.org/ns/prov#
+  spdx: http://spdx.org/rdf/terms#
+  nxs: https://manual.nexusformat.org/classes/
+  dcterms: http://purl.org/dc/terms/
+  geosparql: http://www.opengis.net/ont/geosparql#

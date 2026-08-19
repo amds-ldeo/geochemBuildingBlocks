@@ -1,0 +1,66 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Zega2025-2 a ada:TEMImage ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231" ] ;
+    schema1:measurementTechnique ex:temTAPP-Zega2025-2 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:TEMImage" ;
+    ada:edsDeadTime -9999 ;
+    ada:edsDetectionLimit "missing" ;
+    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:sampleName "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "kV" ;
+    schema1:value 80 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
+    schema1:value "HAADF-STEM (STEM Imaging)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> a schema1:PropertyValue ;
+    schema1:name "Coupled Dataset or Publication Reference" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> ;
+    schema1:value "Astromat (astromat.org); DOIs in Supplementary Table 1" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
+    schema1:name "EDS Acquisition Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
+    schema1:value "Spectrum image (map)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> a schema1:PropertyValue ;
+    schema1:name "Image Processing Methods Applied" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
+    schema1:value "Sequential map acquisition combined in Python to control light-element volatilization" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> a schema1:PropertyValue ;
+    schema1:name "STEM Frame Averaging" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> ;
+    schema1:value "Sequential acquisition several minutes to >1 h; combined using Python (light-element volatilization control)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> a schema1:PropertyValue ;
+    schema1:name "STEM Probe Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
+    schema1:unitText "pA or nA" ;
+    schema1:value "<0.25 nA" .
+

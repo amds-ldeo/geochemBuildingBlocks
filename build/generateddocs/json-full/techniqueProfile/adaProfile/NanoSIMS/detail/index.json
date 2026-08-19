@@ -1,0 +1,84 @@
+
+
+{
+  "itemIdentifier": "ogch.techniqueProfile.adaProfile.NanoSIMS.detail",
+  "$schema": "metaschema.yaml",
+  "name": "NanoSIMS Instrument Detail",
+  "abstract": "Nano Secondary Ion Mass Spectrometry with isotope tracking. Defines properties: @type, phaseAnalyzed, isotopeAnalyzed. Uses building blocks: stringArray (geochemProperties).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-02-06T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-08-19",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "instrument",
+    "nanosims"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.techniqueProfile.adaProfile.NanoSIMS.detail": [
+      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/NanoSIMS/detail/rules.shacl"
+    ],
+    "ogch.BaseSchema.stringArray": [
+      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/stringArray/rules.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogch.BaseSchema.stringArray"
+  ],
+  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/context.jsonld",
+  "schema": {
+    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/schema.yaml",
+    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/schema.json"
+  },
+  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/NanoSIMS/detail/schema.yaml",
+  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/NanoSIMS/detail/context.jsonld",
+  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/resolvedProperties.json",
+  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/techniqueProfile/adaProfile/NanoSIMS/detail/",
+  "validationPassed": false,
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/adaProfile/NanoSIMS/detail/",
+  "description": "# NanoSIMS Instrument Detail\n\nNano Secondary Ion Mass Spectrometry with isotope tracking.\n",
+  "examples": [
+    {
+      "title": "NanoSIMS Instrument Detail Example",
+      "content": "NanoSIMS detail with isotope and phase tracking for presolar grain analysis.",
+      "prefixes": {
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/NanoSIMS/detail/example_1_1.json",
+          "sizeBytes": 158,
+          "code": "{\n  \"@type\": [\"ada:NanoSIMSTabular\"],\n  \"ada:phaseAnalyzed\": [\"presolar SiC\", \"presolar graphite\"],\n  \"ada:isotopeAnalyzed\": [\"12C\", \"13C\", \"28Si\", \"29Si\"]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/NanoSIMS/detail/example_1_1.jsonld",
+          "sizeBytes": 438,
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:NanoSIMSTabular\"\n  ],\n  \"ada:phaseAnalyzed\": [\n    \"presolar SiC\",\n    \"presolar graphite\"\n  ],\n  \"ada:isotopeAnalyzed\": [\n    \"12C\",\n    \"13C\",\n    \"28Si\",\n    \"29Si\"\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/NanoSIMS/detail/example_1_1.ttl",
+          "sizeBytes": 228,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:NanoSIMSTabular ;\n    ada:isotopeAnalyzed \"12C\",\n        \"13C\",\n        \"28Si\",\n        \"29Si\" ;\n    ada:phaseAnalyzed \"presolar SiC\",\n        \"presolar graphite\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: NanoSIMS Instrument Detail\ndescription: Nano Secondary Ion Mass Spectrometry with isotope tracking\ntype: object\nproperties:\n  ada:componentType:\n    anyOf:\n    - const: ada:NanoSIMSCollection\n    - const: ada:NanoSIMSImageCollection\n    - const: ada:NanoSIMSTabular\n    - const: ada:NanoSIMSMap\n    x-jsonld-id: https://ada.astromat.org/metadata/componentType\n  ada:phaseAnalyzed:\n    $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.yaml\n    x-jsonld-id: https://ada.astromat.org/metadata/phaseAnalyzed\n  ada:isotopeAnalyzed:\n    $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.yaml\n    x-jsonld-id: https://ada.astromat.org/metadata/isotopeAnalyzed\nrequired:\n- ada:componentType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/techniqueProfile/adaProfile/NanoSIMS/detail"
+}

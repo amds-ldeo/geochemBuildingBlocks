@@ -1,0 +1,484 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:laSficpmsTAPP-Zhang2022",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "Zhang et al. (2022) Iron Meteorite LA-ICP-MS v1",
+  "schema:description": "Raster scans used for main element dataset (23 elements); separate spot analyses on 5 irons for more precise Ge abundances (150 \u00b5m spot, 50 Hz, 20 s); two different analysis modes represent distinct protocols but are reported in same paper Reported detail: ada:ablationSamplingMode = Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons.",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS",
+      "schema:name": "LA-SF-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Zhang, Chabot, Rubin, Humayun et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Zhang et al. (2022) GCA 323, 202\u2013219; Humayun (2012) for standardization"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (Brown University CAMECA SX-100)",
+        "schema:description": "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Iron meteorite metal (kamacite + taenite); pyroxene-bearing pallasite metal"
+          ]
+        },
+        {
+          "@id": "ada:parameter/laSficpmsTAPP/sampleFormAnalyticalSubstrateDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
+          "schema:name": "Sample Form / Analytical Substrate",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Polished metal slab (in situ)"
+        }
+      ]
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished metal slabs and thin sections; no acid treatment described",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Applied: triple mode detection at 65% duty cycle (pulse counting + analog + Faraday); specific cross-calibration not described"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "ESI New Wave UP193FX (193 nm Nd:YAG frequency-quintupled solid state)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserSpotGeometryDefault": "Raster: 50 \u00b5m circular beam spot; Spot (Ge): 150 \u00b5m circular",
+      "ada:laserRepetitionRateDefault": "Raster: 50 Hz; Spot (Ge): 50 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "ICPMS",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/laSficpmsTAPP/massResolutionSettingDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "massResolutionSettingDefault",
+          "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Low resolution (M/\u0394M \u2248 400)"
+        },
+        {
+          "@id": "ada:parameter/laSficpmsTAPP/detectorConfiguration",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laSficpmsTAPP/detectorConfiguration"
+            }
+          ],
+          "schema:name": "Detector Configuration",
+          "schema:value": "Triple mode detection (pulse counting + analog + Faraday) at 65% duty cycle"
+        }
+      ],
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
+  "ada:ablationSpotDurationDefault": "N/A (raster) / 20 s (spot Ge at 50 Hz)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laSficpmsTAPP/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate, Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "10 \u00b5m s\u207b\u00b9 (raster scan); N/A (spot Ge)"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "uncertaintyPropagationMethodDefault",
+      "schema:name": "Uncertainty Propagation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Standard deviation (SD) across individual integration cycles of raster scans; uncertainty propagation not formally described"
+    }
+  ],
+  "ada:analysisSequenceDefault": "Standards at start of session \u2192 raster unknowns \u2192 repeat \u2192 standards at end; separate session for Ge spot analyses",
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "\u00b3\u00b9P",
+      "\u2075\u00b9V",
+      "\u2075\u00b3Cr",
+      "\u2075\u2075Mn",
+      "\u2075\u2077Fe",
+      "\u2075\u2079Co",
+      "\u2076\u2070Ni",
+      "\u2076\u00b3Cu",
+      "\u2077\u00b9Ga",
+      "\u2077\u2074Ge",
+      "\u2077\u2075As",
+      "\u2079\u2075Mo",
+      "\u00b9\u2070\u00b2Ru",
+      "\u00b9\u2070\u00b3Rh",
+      "\u00b9\u2070\u2076Pd",
+      "\u00b9\u00b2\u2070Sn",
+      "\u00b9\u00b2\u00b9Sb",
+      "\u00b9\u2078\u00b2W",
+      "\u00b9\u2078\u2075Re",
+      "\u00b9\u2079\u2070Os",
+      "\u00b9\u2079\u00b3Ir",
+      "\u00b9\u2079\u2075Pt",
+      "\u00b9\u2079\u2077Au (23 elements; 31P, 51V, 53Cr, 55Mn, 57Fe, 59Co, 60Ni, 63Cu, 71Ga for spot Ge runs)"
+    ],
+    "ada:analyteColumns": [
+      {
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/monitoredIsotopes",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredIsotopes",
+        "schema:name": "Monitored Isotopes",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "boolean",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "normalizationStandardsBasedCorrection",
+        "schema:name": "Normalization / Standards-Based Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/detectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimit",
+        "schema:name": "Detection Limit",
+        "ada:dataType": "number"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/detectionLimitMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimitMethod",
+        "schema:name": "Detection Limit Method",
+        "ada:dataType": "uri",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/limitOfQuantificationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "limitOfQuantificationMethod",
+        "schema:name": "Limit of Quantification (LOQ) Method",
+        "ada:dataType": "uri"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionPerAnalyte",
+        "schema:name": "Mass Resolution per Analyte",
+        "ada:dataType": "string"
+      }
+    ]
+  },
+  "ada:internalStandardApproach": "Standardization techniques followed those of Humayun (2012) [Section 2.2; specific IS approach not restated in this paper]",
+  "ada:elementalFractionationCorrection": [
+    "Multi-point external calibration using series of iron meteorite reference materials (North Chile Filomena as primary standard for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au)"
+  ],
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each raster analysis; mean background subtracted",
+  "ada:primaryStandardNameDefault": "North Chile Filomena (IIAB iron meteorite; Wasson et al. 1989) for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba (IVB; Walker et al. 2008) for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel (Campbell & Humayun 2005) for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au",
+  "ada:calibrationMeasurementFrequency": "Standards at start and end of session; external bracketing",
+  "ada:ablationPitDepthRateDefault": "missing",
+  "ada:backgroundCountTimeDefault": -9999,
+  "ada:carrierGasFlowRateDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:internalStandardElement": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
+  "ada:massBiasCorrectionStrategy": "missing",
+  "ada:massResolutionAssignment": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
+  "ada:sampleIntroduction": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
+  "ada:uncertaintyLevel": "missing",
+  "schema:datePublished": "missing"
+}

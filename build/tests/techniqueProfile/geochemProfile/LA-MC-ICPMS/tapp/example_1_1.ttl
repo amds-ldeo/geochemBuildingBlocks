@@ -1,0 +1,352 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thin section (two-volume cell)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign>,
+        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/plasmaMakeUpGasAdditionDefault>,
+        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSizeDefault>,
+        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault> ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Zhang et al. (China Univ. of Geosciences Wuhan)" ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability Reported detail: ada:isobaricInterferenceCorrectionsApplied = correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law); ada:ablationSamplingMode = Transect (continuous line scan at 2–6 µm s⁻¹)." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "National Natural Science Foundation of China (NSFC)" ] ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "New Wave Research NWR FemtoUC (Yb:KGW fs, 257 nm PHAROS amplifier)" ] ;
+            schema1:name "Two-volume cell (constant distance between laser and aerosol extraction)" ;
+            ada:laserFluenceDefault "~60% of maximum output (PHAROS system; exact J cm⁻² not converted)" ;
+            ada:laserPulseDuration "300 fs (Yb:KGW PHAROS femtosecond amplifier)" ;
+            ada:laserRepetitionRateDefault "10–30 Hz (varied based on Sr concentration in samples)" ;
+            ada:laserSpotGeometryDefault "50–60 µm circular" ;
+            ada:laserType "257 nm Yb:KGW femtosecond; pulse duration 300 fs (PHAROS system)" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/detectorConfiguration>,
+                <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/icpTuningDefault>,
+                <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/massResolutionSettingDefault> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "ICPMS",
+                "Multi-collector sector-field (MC-ICP-MS)" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Collector" ;
+                    schema1:name "missing" ;
+                    ada:collectorConfiguration <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues>,
+                        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod>,
+                        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/integrationTimePerCycle>,
+                        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod>,
+                        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferingSpecies>,
+                        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/ionCounterDeadTime>,
+                        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/massResolutionAssignment> ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Collision Reaction Cell" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interfaceConeConfiguration> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Interface Cone" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Torch" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/auxiliaryGasFlowRateDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/coolantGasFlowRateDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/rfPowerDefault> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ICP Source" ;
+                    schema1:name "missing" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)" ] ;
+            schema1:name "example instrumentName" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "State Key Laboratory of Geological Processes and Mineral Resources, China Univ. Geosciences, Wuhan, China" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "fs-LA-MC-ICP-MS" ;
+            schema1:termCode "LA-MC-ICP-MS" ] ;
+    schema1:name "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1" ;
+    schema1:object [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ],
+        [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
+    prov:wasDerivedFrom "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)" ;
+    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationSamplingMode "Transect (continuous line scan)" ;
+    ada:ablationSpotDurationDefault -9999 ;
+    ada:analysisSequenceDefault "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis" ;
+    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/detectionLimit>,
+                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/massResolutionPerAnalyte>,
+                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection>,
+                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy>,
+                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/sensitivityAsUsefulYield> ;
+            ada:defaultAnalytes "C (⁸⁶Sr)",
+                "H1 (¹⁷³Yb²⁺)",
+                "H2 (⁸⁷Sr)",
+                "H3 (⁸⁸Sr) (7 cups monitoring Kr, Rb, Er, Yb, Sr)",
+                "L1 (⁸⁵Rb)",
+                "L2 (⁸⁴Sr)",
+                "L3 (¹⁶⁷Er²⁺)",
+                "L4 (⁸³Kr)" ] ;
+    ada:analyticalAccuracy "87Sr/86Sr relative errors <0.2‰ for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within ±3% for 11 glasses; exceptions: NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) — all within stated ±3% criterion" ;
+    ada:backgroundCountTimeDefault "30 cycles × 0.524 s ≈ 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)" ;
+    ada:betweenSessionPrecision "missing" ;
+    ada:blankBackgroundCorrectionMethod "First 30 cycles (no laser ablation) used for background collection; background Kr⁺ signals removed by correction; no additional Kr peak stripping applied" ;
+    ada:calibrationMeasurementFrequency "missing" ;
+    ada:carrierGasFlowRateDefault "He, 0.90 l min⁻¹ (two-volume cell)" ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:detectionLimitMethod "missing" ;
+    ada:elementalFractionationCorrection "Femtosecond laser substantially reduces elemental fractionation; no explicit downhole correction; Rb/Sr elemental fractionation corrected externally by analyzing series of reference glasses; exponential law for Sr isotope mass bias (88Sr/86Sr = 8.37521)" ;
+    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
+    ada:internalStandardApproach "No conventional IS; external calibration only (Rb/Sr elemental fractionation corrected by series of reference glasses; 87Sr/86Sr mass bias corrected by exponential law using 88Sr/86Sr = 8.37521)" ;
+    ada:internalStandardElement "No conventional IS; ⁸⁵Rb used to calculate ⁸⁷Rb/⁸⁶Sr via 87Rb/85Rb; external calibration for Rb/Sr elemental fractionation using reference glasses" ;
+    ada:isobaricInterferenceCorrectionsApplied true ;
+    ada:massBiasCorrectionStrategy "missing" ;
+    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:primaryStandardNameDefault "NIST 610 for instrument parameter optimization; series of reference glasses (NIST 612, BHVO-2G, BCR-2G, NKT-1G, TB-1G, ATHO-G, KL2-G, ML3B-G, StHs6/80-G, T1-G) for external calibration of ⁸⁷Rb/⁸⁶Sr ratio; natural clinopyroxenes (NHB-9, YY12-01) and anorthite (YG4301) as unknown samples for ⁸⁷Sr/⁸⁶Sr data quality evaluation" ;
+    ada:rasterLineSpacingDefault "missing" ;
+    ada:sampleIntroduction "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:secondaryReferenceMaterialDefault "Natural clinopyroxenes NHB-9 and YY12-01 (reference values given in Table 2); anorthite YG4301 — measured as unknowns for 87Sr/86Sr data quality evaluation" ;
+    ada:signalIntegrationIntervalMethod "Regions of integration for gas background and sample signal selected first; cycles at beginning and end of ablation discarded; for heterogeneous minerals (unstable 87Rb/86Sr): SUIA (Smallest Unit Isochron Age) data reduction strategy applied per cycle" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:uncertaintyLevel "missing" ;
+    ada:withinSessionPrecision "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1" ;
+    bios:computationalTool [ schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimit" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Limit of Quantification (LOQ) Method" ;
+    schema1:valueName "limitOfQuantificationMethod" ;
+    ada:dataType "uri" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
+    schema1:name "Mass Resolution per Analyte" ;
+    schema1:valueName "massResolutionPerAnalyte" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Isotopes" ;
+    schema1:valueName "monitoredIsotopes" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Normalization / Standards-Based Correction" ;
+    schema1:valueName "normalizationStandardsBasedCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Per-Analyte Calibration Strategy" ;
+    schema1:valueName "perAnalyteCalibrationStrategy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/sensitivityAsUsefulYield> a schema1:PropertyValueSpecification ;
+    schema1:name "Sensitivity as Useful Yield" ;
+    schema1:valueName "sensitivityAsUsefulYield" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/integrationTimePerCycle> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 5.24e-01 ;
+    schema1:description "0.524 s integration time per cycle (one block of 120 cycles = 62.88 s total)" ;
+    schema1:name "Integration Time per Cycle" ;
+    schema1:valueName "integrationTimePerCycle" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/ionCounterDeadTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue -9999 ;
+    schema1:name "Ion Counter Dead Time" ;
+    schema1:valueName "ionCounterDeadTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 8e-01 ;
+    schema1:description "Auxiliary: 0.80 l min⁻¹ Ar" ;
+    schema1:name "Auxiliary Gas Flow Rate" ;
+    schema1:valueName "auxiliaryGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/coolantGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.6e+01 ;
+    schema1:description "Cool gas: 16.0 l min⁻¹ Ar" ;
+    schema1:name "Coolant (Plasma) Gas Flow Rate" ;
+    schema1:valueName "coolantGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/icpTuningDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "NIST 610 used to optimize He/Ar gas flows, torch position, RF power, and source lens settings for max sensitivity and peak flatness; small N₂ added downstream" ;
+    schema1:name "ICP Tuning" ;
+    schema1:valueName "icpTuningDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Low resolution (M/ΔM ≈ 400)" ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/plasmaMakeUpGasAdditionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Ar make-up (flow rate not separately stated); N₂ 12 ml min⁻¹ added via Y-connector downstream of signal-smoothing device" ;
+    schema1:name "Plasma / Make-up Gas Addition" ;
+    schema1:valueName "plasmaMakeUpGasAdditionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/rfPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1250 ;
+    schema1:description "1250 W" ;
+    schema1:name "RF Power" ;
+    schema1:valueName "rfPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "In situ — polished thin section (two-volume cell)" ;
+    schema1:name "Sample Form / Analytical Substrate" ;
+    schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/signalSmoothingDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability" ;
+    schema1:name "Signal Smoothing" ;
+    schema1:valueName "signalSmoothingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals" ;
+    schema1:name "Spike / Outlier Filtering Approach" ;
+    schema1:valueName "spikeOutlierFilteringApproachDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSizeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "2–6 µm s⁻¹ (varied based on Sr concentration in target minerals)" ;
+    schema1:name "Transect Rate, Mapping Rate or Step Size" ;
+    schema1:valueName "transectRateMappingRateOrStepSizeDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Standard error (SE = SD/√n) for repeatability within individual runs; assessed separately for 87Sr/86Sr and 87Rb/86Sr using signal intensity regression" ;
+    schema1:name "Uncertainty Propagation Method" ;
+    schema1:valueName "uncertaintyPropagationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues> a schema1:PropertyValue ;
+    schema1:name "Faraday Cup Amplifier Resistor Values" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues> ;
+    schema1:value "missing" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod> a schema1:PropertyValue ;
+    schema1:name "Faraday Cup Gain Calibration Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod> ;
+    schema1:value "missing" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValue ;
+    schema1:name "Interference Correction Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod> ;
+    schema1:value "Sequential interference correction: (a) doubly charged Er and Yb corrections on Sr masses using measured 167Er²⁺ and 173Yb²⁺ signals and natural isotope ratios; (b) 87Rb isobaric correction on 87Sr using measured 85Rb signal and user-specified 87Rb/85Rb calculated from exponential law for mass bias" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferingSpecies> a schema1:PropertyValue ;
+    schema1:name "Interfering Species" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferingSpecies> ;
+    schema1:value "¹⁶⁸Er²⁺ on ⁸⁴Sr",
+        "¹⁷²Yb²⁺ on ⁸⁶Sr",
+        "¹⁷⁰Er²⁺ + ¹⁷⁰Yb²⁺ on ⁸⁵Rb",
+        "¹⁷⁴Yb²⁺ on ⁸⁷Sr",
+        "⁸⁷Rb on ⁸⁷Sr (isobaric)" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValue ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/massResolutionAssignment> ;
+    schema1:value "missing" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
+    schema1:name "Detector Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/detectorConfiguration> ;
+    schema1:value "Seven fixed electron multiplier ICs + nine Faraday cups (1011 Ω resistors)" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interfaceConeConfiguration> a schema1:PropertyValue ;
+    schema1:name "Interface Cone Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interfaceConeConfiguration> ;
+    schema1:value "X skimmer cone + Jet sample cone (high-sensitivity configuration)" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
+    schema1:name "Multi-Run Sequential Analysis Design" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:value "Single line scan per location (1 block of 120 cycles at 0.524 s integration)" .
+

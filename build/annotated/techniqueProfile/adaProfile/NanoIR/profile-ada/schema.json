@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADA NanoIR Product Profile",
+  "description": "Technique-specific profile for Nano-Infrared Spectroscopy (NanoIR) products. Extends the base ADA product profile with constraints on valid NanoIR component types and detailNanoIR requirements.",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/adaProduct/schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema:additionalType": {
+          "description": "Must include a NanoIR product type identifier.",
+          "contains": {
+            "enum": [
+              "Nanoscale Infrared Mapping (NanoIR) Background",
+              "Nanoscale Infrared Mapping (NanoIR) MapCollection",
+              "Nanoscale Infrared Mapping (NanoIR) Point Data",
+              "Nanoscale Infrared Mapping"
+            ]
+          },
+          "x-jsonld-id": "http://schema.org/additionalType"
+        },
+        "schema:distribution": {
+          "description": "Distribution items for adaNanoIR. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:hasPart": {
+                "items": {
+                  "type": "object",
+                  "anyOf": [
+                    {
+                      "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/adaProduct/schema.json#/$defs/universalComponentTypeBranch"
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:NanoIRMap",
+                            "ada:NanoIRMapCollection",
+                            "ada:NanoIRPointCollection"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    },
+                    {
+                      "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoIR/detail/schema.json"
+                    }
+                  ]
+                },
+                "x-jsonld-id": "http://schema.org/hasPart"
+              }
+            }
+          },
+          "x-jsonld-id": "http://schema.org/distribution"
+        },
+        "schema:subjectOf": {
+          "properties": {
+            "dcterms:conformsTo": {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "const": "https://w3id.org/geochem/metadata/profiles/adaNanoIR"
+                  }
+                }
+              },
+              "x-jsonld-id": "http://purl.org/dc/terms/conformsTo"
+            }
+          },
+          "x-jsonld-id": "http://schema.org/subjectOf"
+        }
+      }
+    }
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#"
+  }
+}

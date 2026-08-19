@@ -1,0 +1,84 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:semTAPP-Zega2025-9 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:analyticalMode = Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "SEM" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
+                    schema1:name "missing" ] ;
+            schema1:manufacturer [ a schema1:Organization ;
+                    schema1:name "JEOL" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "JSM-7000F" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "5 keV" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Université Côte d'Azur / Observatoire de la Côte d'Azur, Valbonne, France" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "sem" ;
+            schema1:termCode "SEM" ] ;
+    schema1:name "sem protocol — Zega2025-9" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); olivine and carbonate grains" ] ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:analyticalMode "CL" ;
+    ada:dwellTimePerPixelDefault -9999 ;
+    ada:edsAcquisitionMode "missing" ;
+    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
+    ada:massAbsorptionCoefficients "missing" ;
+    ada:matrixCorrectionMethod "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:wdsDeadTimeCorrection "missing" .
+

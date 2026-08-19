@@ -1,0 +1,64 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ADA QRIS Product Profile
+description: Technique-specific profile for Quantitative Reflectance Imaging Spectroscopy
+  (QRIS) products. Extends the base ADA product profile with constraints on valid
+  QRIS component types and detailQRIS requirements.
+allOf:
+- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/adaProduct/schema.yaml
+- type: object
+  properties:
+    schema:additionalType:
+      description: Must include a QRIS product type identifier.
+      contains:
+        enum:
+        - Quantitative Reflective Imaging System (QRIS)
+        - Quantitative Reflective Imaging System
+        - Quantitative Reflective Imaging System (QRIS) Calibrated
+        - Quantitative Reflectance Imaging System
+      x-jsonld-id: http://schema.org/additionalType
+    schema:distribution:
+      description: Distribution items for adaQRIS. Archive hasPart items must have
+        ada:componentType from technique-specific or universal values.
+      type: array
+      items:
+        type: object
+        properties:
+          schema:hasPart:
+            items:
+              type: object
+              anyOf:
+              - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
+                    - ada:QRISCalibratedCollection
+                    - ada:QRISRawCollection
+                    - ada:QRISCalibrationFile
+                required:
+                - ada:componentType
+            x-jsonld-id: http://schema.org/hasPart
+      x-jsonld-id: http://schema.org/distribution
+    schema:subjectOf:
+      properties:
+        dcterms:conformsTo:
+          contains:
+            type: object
+            required:
+            - '@id'
+            additionalProperties: false
+            properties:
+              '@id':
+                const: https://w3id.org/geochem/metadata/profiles/adaQRIS
+          x-jsonld-id: http://purl.org/dc/terms/conformsTo
+      x-jsonld-id: http://schema.org/subjectOf
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/
+  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+  csvw: http://www.w3.org/ns/csvw#
+  prov: http://www.w3.org/ns/prov#
+  spdx: http://spdx.org/rdf/terms#
+  nxs: https://manual.nexusformat.org/classes/
+  dcterms: http://purl.org/dc/terms/
+  geosparql: http://www.opengis.net/ont/geosparql#

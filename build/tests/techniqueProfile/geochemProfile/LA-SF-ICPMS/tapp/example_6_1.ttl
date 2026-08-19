@@ -1,0 +1,322 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:laSficpmsTAPP-Navarro2024 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/signalSmoothingDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/guardElectrode> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/plasmaMakeUpGasAdditionDefault> ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Navarro, Enzweiler, Crósta et al." ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "Key innovations: (1) use of two measurement standards (NIST SRM 612 + North Chile) with yield correction in iolite 3D DRS; (2) Fe+Ni+Co=100% normalization eliminates need for EPMA IS; Cr results not quantitative due to argide interferences" ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "FAPESP (São Paulo Research Foundation); CNPq" ] ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/laserPulseDuration> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Teledyne Excite 193 (193 nm ArF excimer)" ] ;
+            schema1:name "HelEx II two-volume sample cell" ;
+            ada:laserFluenceDefault "7 J cm⁻²" ;
+            ada:laserRepetitionRateDefault "10 Hz" ;
+            ada:laserSpotGeometryDefault "150 µm circular" ;
+            ada:laserType "193 nm ArF excimer; pulse duration 4 ns" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/detectorConfiguration>,
+                <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/icpTuningDefault>,
+                <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/massResolutionSettingDefault> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "ICPMS",
+                "Sector field (SF-ICP-MS) (explicitly stated: \"sector field inductively coupled plasma mass spectrometer\")" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Torch" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/coolantGasFlowRateDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/rfPowerDefault> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ICP Source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interfaceConeConfiguration> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Interface Cone" ;
+                    schema1:name "missing" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+            schema1:name "example instrumentName" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-SF-ICP-MS" ;
+            schema1:termCode "LA-ICP-MS" ] ;
+    schema1:name "Navarro et al. (2024) Iron Meteorite Spot v1" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Iron meteorite metal (kamacite + taenite)" ],
+                <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationSamplingMode "Spot (stationary)" ;
+    ada:ablationSpotDurationDefault "40 s on-sample ablation (after 20 s background measurement)" ;
+    ada:analysisSequenceDefault "NIST SRM 612(×3) → North Chile(×3) → unknowns(×10) → NIST SRM 612(×2) → North Chile(×2) → unknowns(×10) → … (bracketing every 15)" ;
+    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/detectionLimit>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/detectionLimitMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/isobaricInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/limitOfQuantificationMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
+            ada:defaultAnalytes "low relative abundance isotopes chosen for Ni and Fe (analog mode)",
+                "¹⁰³Rh",
+                "¹⁰⁵Pd",
+                "¹⁸²W",
+                "¹⁸⁵Re",
+                "¹⁸⁹Os",
+                "¹⁹³Ir",
+                "¹⁹⁵Pt",
+                "¹⁹⁷Au (17 isotopes)",
+                "⁵²Cr",
+                "⁵⁷Fe",
+                "⁵⁹Co",
+                "⁶¹Ni",
+                "⁶⁵Cu",
+                "⁶⁹Ga",
+                "⁷²Ge",
+                "⁷⁵As",
+                "⁹⁹Ru" ] ;
+    ada:backgroundCountTimeDefault "20 s background measurement (laser shutter closed) before each 40 s ablation" ;
+    ada:blankBackgroundCorrectionMethod "Background signal measured for 20 s (laser shutter closed) before each 40 s ablation; background mean subtracted per isotope in iolite" ;
+    ada:calibrationMeasurementFrequency "NIST SRM 612 and North Chile measured bracketing every 15 unknowns: 3×STD → 3×STD → 10×unknowns → repeat" ;
+    ada:carrierGasFlowRateDefault "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch" ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:elementalFractionationCorrection "External calibration using North Chile iron meteorite + NIST SRM 612 glass (yield correction applied in iolite 3D DRS for NIST relative to North Chile); ordinary least-squares fitting per 15 min calibration block; Fe+Ni+Co normalization eliminates need for independent EPMA IS" ;
+    ada:internalStandardApproach "Fe+Ni+Co sum normalization to 100% using iolite 3D Trace Elements DRS (eliminates need for independent EPMA IS)" ;
+    ada:internalStandardElement "No single IS; Fe+Ni+Co mass fractions normalized to 100% via iolite 3D DRS (yield correction factors applied for NIST SRM 612 relative to North Chile)" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
+    ada:massBiasCorrectionStrategy "missing" ;
+    ada:massResolutionAssignment "missing" ;
+    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:primaryStandardNameDefault "NIST SRM 612 glass (Jochum et al. 2011) + North Chile Filomena iron meteorite (Wasson et al. 1989) — used together with yield correction in iolite 3D DRS" ;
+    ada:rasterLineSpacingDefault "missing" ;
+    ada:reportedVariablesAndUnits "missing" ;
+    ada:sampleIntroduction "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:secondaryReferenceMaterialDefault "North Chile Filomena measured as unknown on different days over 4 months to assess intermediate precision (Table 3 and Fig. 2)" ;
+    ada:signalIntegrationIntervalMethod "Time-resolved LA-ICP-MS signals inspected per analysis; background interval (20 s) and ablation interval (40 s) selected; no automated spike exclusion described" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
+    ada:uncertaintyLevel "missing" ;
+    bios:computationalTool [ schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimit" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Detection Limit Method" ;
+    schema1:valueName "detectionLimitMethod" ;
+    ada:dataType "uri" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Isobaric Interference Corrections Applied" ;
+    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    ada:dataType "boolean" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Limit of Quantification (LOQ) Method" ;
+    schema1:valueName "limitOfQuantificationMethod" ;
+    ada:dataType "uri" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
+    schema1:name "Mass Resolution per Analyte" ;
+    schema1:valueName "massResolutionPerAnalyte" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Isotopes" ;
+    schema1:valueName "monitoredIsotopes" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Normalization / Standards-Based Correction" ;
+    schema1:valueName "normalizationStandardsBasedCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/coolantGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 16 ;
+    schema1:description "Plasma gas: 16 l min⁻¹; Auxiliary: 0.9 l min⁻¹; Nebulizer gas (from table): 1.1 l min⁻¹" ;
+    schema1:name "Coolant (Plasma) Gas Flow Rate" ;
+    schema1:valueName "coolantGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/icpTuningDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "ICP and laser settings optimized daily for optimum signal intensity and low oxide formation (factory specifications; mass calibration and detector cross-calibration checked and redone if required)" ;
+    schema1:name "ICP Tuning" ;
+    schema1:valueName "icpTuningDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Low resolution (M/ΔM = 300)" ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/plasmaMakeUpGasAdditionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Ar make-up gas (combined via T-piece in sample transport line near torch; flow rate not stated separately)" ;
+    schema1:name "Plasma / Make-up Gas Addition" ;
+    schema1:valueName "plasmaMakeUpGasAdditionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Applied: triple mode detector (pulse counting, analog, Faraday); low relative abundance isotopes chosen for Ni and Fe to allow analog mode measurement of major matrix elements" ;
+    schema1:name "Pulse/Analog Detector Nonlinearity Correction" ;
+    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/rfPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1200 ;
+    schema1:description "1200 W" ;
+    schema1:name "RF Power" ;
+    schema1:valueName "rfPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "In situ — polished epoxy mount (~1 cm fragments in epoxy, etched with Nital)" ;
+    schema1:name "Sample Form / Analytical Substrate" ;
+    schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/signalSmoothingDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "None" ;
+    schema1:name "Signal Smoothing" ;
+    schema1:valueName "signalSmoothingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
+    schema1:name "Detector Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/detectorConfiguration> ;
+    schema1:value "Triple mode detector (pulse counting, analog, Faraday)" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/guardElectrode> a schema1:PropertyValue ;
+    schema1:name "Guard Electrode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/guardElectrode> ;
+    schema1:value "On (active)" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interfaceConeConfiguration> a schema1:PropertyValue ;
+    schema1:name "Interface Cone Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interfaceConeConfiguration> ;
+    schema1:value "Ni sampler cone; Ni skimmer cone" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/laserPulseDuration> a schema1:PropertyValue ;
+    schema1:name "Laser Pulse Duration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/laserPulseDuration> ;
+    schema1:value "4 ns (ArF excimer Excite 193)" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
+    schema1:name "Multi-Run Sequential Analysis Design" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:value "Single acquisition run (20 spot analyses per sample under repeatability conditions)" .
+

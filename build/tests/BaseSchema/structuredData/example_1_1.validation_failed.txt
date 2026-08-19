@@ -1,0 +1,172 @@
+Validation report for ogch.BaseSchema.structuredData - Structured Data File Type
+Generated 2026-08-19T16:00:37.274737+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: {'@id': 'ex:struct-map-cube-001', '@type': ['cdi:DimensionalDataStructure'], 'schema:name': 'Elemental map cube structure', 'cdi:has_DataStructureComponent': [{'@type': ['cdi:MeasureComponent'], 'cdif:name': ['intensity']}, {'@type': ['cdi:DimensionComponent'], 'cdif:name': ['x']}, {'@type': ['cdi:DimensionComponent'], 'cdif:name': ['y']}]} is not valid under any of the given schemas
+
+Failed validating 'anyOf' in schema['properties']['cdi:isStructuredBy']:
+    {'anyOf': [{'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure'},
+               {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure'},
+               {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure'},
+               {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure'},
+               {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml'}],
+     'description': 'The data structure of this container file — one of '
+                    'the four CDIF DataStructure variants (DataStructure, '
+                    'Dimensional, Long, Wide) inline, or an @id reference '
+                    'to a structure declared elsewhere in the document '
+                    '(e.g. shared across parts).',
+     'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy'}
+
+On instance['cdi:isStructuredBy']:
+    {'@id': 'ex:struct-map-cube-001',
+     '@type': ['cdi:DimensionalDataStructure'],
+     'cdi:has_DataStructureComponent': [{'@type': ['cdi:MeasureComponent'],
+                                         'cdif:name': ['intensity']},
+                                        {'@type': ['cdi:DimensionComponent'],
+                                         'cdif:name': ['x']},
+                                        {'@type': ['cdi:DimensionComponent'],
+                                         'cdif:name': ['y']}],
+     'schema:name': 'Elemental map cube structure'}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/BaseSchema/structuredData/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/BaseSchema/structuredData/rules.shacl:
+ - Shape cdifd:structuredDataShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl:
+ - Shape cdifd:cdifDataStructure_WideDataStructureShape: *none*
+ - Shape cdifd:cdifDataStructure_inlineStructureShape: *none*
+ - Shape cdifd:cdifDataStructure_PrimaryKeyShape: *none*
+ - Shape cdifd:cdifDataStructure_LongDataStructureShape: *none*
+ - Shape cdifd:cdifDataStructure_DimensionalDataStructureShape: <ex:struct-map-cube-001>
+ - Shape cdifd:cdifDataStructure_DataStructureShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+ - Shape _:n63cd8805cbd043cc9397f5e6857d7a1fb11: *none*
+ - Shape _:n63cd8805cbd043cc9397f5e6857d7a1fb20: *none*
+ - Shape cdifd:CDIFIdentifierShape: *none*
+ - Shape _:n63cd8805cbd043cc9397f5e6857d7a1fb25: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape _:n63cd8805cbd043cc9397f5e6857d7a1fb10: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
+ - Shape _:n63cd8805cbd043cc9397f5e6857d7a1fb22: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n63cd8805cbd043cc9397f5e6857d7a1fb21: *none*
+ - Shape _:n63cd8805cbd043cc9397f5e6857d7a1fb23: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl:
+ - Shape cdifd:cdifRepresentedVariable_UnitTypeShape: *none*
+ - Shape cdifd:cdifRepresentedVariable_ConceptSystemShape: *none*
+ - Shape cdifd:cdifRepresentedVariable_RepresentedVariableShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+ - Shape _:n1d079499041c417b87efcde593b8e39db7: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n1d079499041c417b87efcde593b8e39db26: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n1d079499041c417b87efcde593b8e39db10: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape _:n1d079499041c417b87efcde593b8e39db6: *none*
+ - Shape _:n1d079499041c417b87efcde593b8e39db8: *none*
+ - Shape _:n1d079499041c417b87efcde593b8e39db4: *none*
+ - Shape _:n1d079499041c417b87efcde593b8e39db19: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape _:n1d079499041c417b87efcde593b8e39db5: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl:
+ - Shape cdifd:cdifSubstantiveValueDomainShape: *none*
+ - Shape cdifd:cdifSentinelValueDomainShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl:
+ - Shape cdifd:cdifEnumerationDomainShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl:
+ - Shape cdifd:CDIFCodelistConformsToShape: *none*
+ - Shape cdifd:CDIFCodelistShape: *none*
+ - Shape cdifd:CDIFCodelistConceptShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
+ - Shape skosv:prefLabelUniqueLangShape: *none*
+ - Shape skosv:ConceptShape: *none*
+ - Shape skosv:conceptBroaderNotSelfShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:message Literal("A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path cdif:isDefinedBy_RepresentedVariable ; sh:severity sh:Violation ]
+  	Focus Node: [ cdif:name Literal("x") ; rdf:type cdi:DimensionComponent ]
+  	Result Path: cdif:isDefinedBy_RepresentedVariable
+  	Message: A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:message Literal("A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path cdif:isDefinedBy_RepresentedVariable ; sh:severity sh:Violation ]
+  	Focus Node: [ cdif:name Literal("y") ; rdf:type cdi:DimensionComponent ]
+  	Result Path: cdif:isDefinedBy_RepresentedVariable
+  	Message: A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl:
+ - Shape cdifd:cdifVariableDescriptorComponentShape: *none*
+ - Shape cdifd:cdifDimensionComponentShape: <ex:struct-map-cube-001>/cdi:has_DataStructureComponent,<ex:struct-map-cube-001>/cdi:has_DataStructureComponent
+ - Shape cdifd:cdifIdentifierComponentShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl:
+ - Shape cdifd:cdifDescriptorVariableShape: *none*
+ - Shape cdifd:cdifDescriptorValueDomainShape: *none*
+
+=== End SHACL ===
+

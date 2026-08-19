@@ -1,0 +1,87 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:temTAPP-Zega2025-3 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v17.xlsx)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "TEM" ;
+            schema1:name "missing" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
+            schema1:termCode "TEM/STEM" ] ;
+    schema1:name "ThermoScientific Talos F200-X G2 S/TEM" ;
+    ada:acceleratingVoltageDefault "200 kV" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analyticalMode "Electron Diffraction",
+        "STEM Imaging",
+        "TEM Imaging" ;
+    ada:analyticalSubModeDefault "missing" ;
+    ada:calibrationFactorAndDeterminationMethodDefault "missing" ;
+    ada:cameraLengthDefault -9999 ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:convergenceSemiAngle "10.5 mrad" ;
+    ada:edsAcquisitionModeDefault "missing" ;
+    ada:edsCalibrationStandardDefault "missing" ;
+    ada:edsQuantificationMethod "missing" ;
+    ada:eelsAcquisitionModeDefault "missing" ;
+    ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
+    ada:eelsCollectionSemiAngle -9999 ;
+    ada:eelsEdgesDefault "missing" ;
+    ada:eelsEnergyLossRangeDefault "missing" ;
+    ada:phaseIdentificationMethod "Manual d-spacing comparison (SAED patterns; camera constant calibrated with AGAR S106 cross grating)" ;
+    ada:reportedVariablesAndUnits "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:spectroscopicDetectorDefault "missing" ;
+    ada:stemDwellTimePerPixelDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "External standard (AGAR S106 cross grating, 3 mm)" ;
+    schema1:name "Diffraction Calibration Reference" ;
+    schema1:readonlyValue false ;
+    schema1:valueName "diffractionCalibrationReferenceDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "External standard (AGAR S106 cross grating, 3 mm)" ;
+    schema1:name "Diffraction Camera Length Calibration Method" ;
+    schema1:readonlyValue false ;
+    schema1:valueName "diffractionCameraLengthCalibrationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Inner 58 mrad (HAADF)" ;
+    schema1:name "HAADF Collection Angles" ;
+    schema1:readonlyValue false ;
+    schema1:valueName "haadfCollectionAnglesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" ;
+    ada:tier "R" .
+

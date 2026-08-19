@@ -1,0 +1,95 @@
+{
+  "title": "Validation report for ogch.techniqueProfile.adaProfile.VNMIR.detail - VNMIR Instrument Detail",
+  "bblockName": "VNMIR Instrument Detail",
+  "bblockId": "ogch.techniqueProfile.adaProfile.VNMIR.detail",
+  "generated": "2026-08-19T16:00:34.417279+00:00",
+  "result": false,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/techniqueProfile/adaProfile/VNMIR/detail/example_1_1.json",
+        "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/techniqueProfile/adaProfile/VNMIR/detail/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_1_1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 20,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:componentType' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:componentType' is a required property\n\nFailed validating 'required' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'Very-Near Mid-IR spectroscopy with detailed '\n                    'measurement parameters',\n     'properties': {'ada:beamsplitter': {'type': 'string',\n                                         'x-jsonld-id': 'https://ada.astromat.org/metadata/beamsplitter'},\n                    'ada:calibrationStandards': {'type': 'string',\n                                                 'x-jsonld-id': 'https://ada.astromat.org/metadata/calibrationStandards'},\n                    'ada:comments': {'type': 'string',\n                                     'x-jsonld-id': 'https://ada.astromat.org/metadata/comments'},\n                    'ada:componentType': {'anyOf': [{'const': 'ada:VNMIRSpectralPoint'},\n                                                    {'const': 'ada:VNMIROverviewImage'},\n                                                    {'const': 'ada:VNMIRSpectralMap'}],\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},\n                    'ada:detector': {'type': 'string',\n                                     'x-jsonld-id': 'https://ada.astromat.org/metadata/detector'},\n                    'ada:eMaxFitRegionMax': {'type': 'string',\n                                             'x-jsonld-id': 'https://ada.astromat.org/metadata/eMaxFitRegionMax'},\n                    'ada:eMaxFitRegionMin': {'type': 'string',\n                                             'x-jsonld-id': 'https://ada.astromat.org/metadata/eMaxFitRegionMin'},\n                    'ada:emissionAngle': {'type': 'number',\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/emissionAngle'},\n                    'ada:emissivityMaximum': {'type': 'string',\n                                              'x-jsonld-id': 'https://ada.astromat.org/metadata/emissivityMaximum'},\n                    'ada:environmentalPressure': {'type': 'number',\n                                                  'x-jsonld-id': 'https://ada.astromat.org/metadata/environmentalPressure'},\n                    'ada:incidenceAngle': {'type': 'number',\n                                           'x-jsonld-id': 'https://ada.astromat.org/metadata/incidenceAngle'},\n                    'ada:measurement': {'type': 'string',\n                                        'x-jsonld-id': 'https://ada.astromat.org/metadata/measurement'},\n                    'ada:measurementEnvironment': {'type': 'string',\n                                                   'x-jsonld-id': 'https://ada.astromat.org/metadata/measurementEnvironment'},\n                    'ada:numberOfScans': {'type': 'integer',\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/numberOfScans'},\n                    'ada:phaseAngle': {'type': 'number',\n                                       'x-jsonld-id': 'https://ada.astromat.org/metadata/phaseAngle'},\n                    'ada:sampleHeated': {'type': 'boolean',\n                                         'x-jsonld-id': 'https://ada.astromat.org/metadata/sampleHeated'},\n                    'ada:samplePreparation': {'type': 'string',\n                                              'x-jsonld-id': 'https://ada.astromat.org/metadata/samplePreparation'},\n                    'ada:sampleTemperature': {'type': 'integer',\n                                              'x-jsonld-id': 'https://ada.astromat.org/metadata/sampleTemperature'},\n                    'ada:spectralRangeMax': {'type': 'string',\n                                             'x-jsonld-id': 'https://ada.astromat.org/metadata/spectralRangeMax'},\n                    'ada:spectralRangeMin': {'type': 'string',\n                                             'x-jsonld-id': 'https://ada.astromat.org/metadata/spectralRangeMin'},\n                    'ada:spectralResolution': {'type': 'string',\n                                               'x-jsonld-id': 'https://ada.astromat.org/metadata/spectralResolution'},\n                    'ada:spectralSampling': {'type': 'string',\n                                             'x-jsonld-id': 'https://ada.astromat.org/metadata/spectralSampling'},\n                    'ada:spotSize': {'type': 'string',\n                                     'x-jsonld-id': 'https://ada.astromat.org/metadata/spotSize'},\n                    'ada:uncertaintyNoise': {'type': 'number',\n                                             'x-jsonld-id': 'https://ada.astromat.org/metadata/uncertaintyNoise'},\n                    'ada:vacuumExposedSample': {'type': 'boolean',\n                                                'x-jsonld-id': 'https://ada.astromat.org/metadata/vacuumExposedSample'}},\n     'required': ['ada:componentType'],\n     'title': 'VNMIR Instrument Detail',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['ada:VNMIRSpectralPoint'],\n     'ada:beamsplitter': 'KBr',\n     'ada:calibrationStandards': 'gold mirror',\n     'ada:detector': 'MCT',\n     'ada:emissionAngle': 0.0,\n     'ada:environmentalPressure': 1013.25,\n     'ada:incidenceAngle': 30.0,\n     'ada:measurement': 'reflectance',\n     'ada:measurementEnvironment': 'ambient',\n     'ada:numberOfScans': 256,\n     'ada:phaseAngle': 30.0,\n     'ada:sampleHeated': False,\n     'ada:sampleTemperature': 25,\n     'ada:spectralRangeMax': '4000',\n     'ada:spectralRangeMin': '400',\n     'ada:spectralResolution': '4 cm-1',\n     'ada:spectralSampling': '2 cm-1',\n     'ada:spotSize': '100 micrometer',\n     'ada:uncertaintyNoise': 0.002,\n     'ada:vacuumExposedSample': False}"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/techniqueProfile/adaProfile/VNMIR/detail/rules.shacl",
+              "graph": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a ada:VNMIRSpectralPoint ;\n                    ada:beamsplitter \"KBr\" ;\n                    ada:calibrationStandards \"gold mirror\" ;\n                    ada:detector \"MCT\" ;\n                    ada:emissionAngle 0e+00 ;\n                    ada:environmentalPressure 1.01325e+03 ;\n                    ada:incidenceAngle 3e+01 ;\n                    ada:measurement \"reflectance\" ;\n                    ada:measurementEnvironment \"ambient\" ;\n                    ada:numberOfScans 256 ;\n                    ada:phaseAngle 3e+01 ;\n                    ada:sampleHeated false ;\n                    ada:sampleTemperature 25 ;\n                    ada:spectralRangeMax \"4000\" ;\n                    ada:spectralRangeMin \"400\" ;\n                    ada:spectralResolution \"4 cm-1\" ;\n                    ada:spectralSampling \"2 cm-1\" ;\n                    ada:spotSize \"100 micrometer\" ;\n                    ada:uncertaintyNoise 2e-03 ;\n                    ada:vacuumExposedSample false ] ;\n            sh:resultMessage \"VNMIR detail nodes must declare ada:componentType.\" ;\n            sh:resultPath ada:componentType ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:maxCount 1 ;\n                    sh:message \"VNMIR detail nodes must declare ada:componentType.\" ;\n                    sh:minCount 1 ;\n                    sh:path ada:componentType ] ] .\n\n",
+              "isError": true,
+              "message": "Validation result for _sources/techniqueProfile/adaProfile/VNMIR/detail/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"VNMIR detail nodes must declare ada:componentType.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ada:componentType ]\n  \tFocus Node: [ ada:beamsplitter Literal(\"KBr\") ; ada:calibrationStandards Literal(\"gold mirror\") ; ada:detector Literal(\"MCT\") ; ada:emissionAngle Literal(\"0.0\", datatype=xsd:double) ; ada:environmentalPressure Literal(\"1013.25\", datatype=xsd:double) ; ada:incidenceAngle Literal(\"30.0\", datatype=xsd:double) ; ada:measurement Literal(\"reflectance\") ; ada:measurementEnvironment Literal(\"ambient\") ; ada:numberOfScans Literal(\"256\", datatype=xsd:integer) ; ada:phaseAngle Literal(\"30.0\", datatype=xsd:double) ; ada:sampleHeated Literal(\"false\" = False, datatype=xsd:boolean) ; ada:sampleTemperature Literal(\"25\", datatype=xsd:integer) ; ada:spectralRangeMax Literal(\"4000\") ; ada:spectralRangeMin Literal(\"400\") ; ada:spectralResolution Literal(\"4 cm-1\") ; ada:spectralSampling Literal(\"2 cm-1\") ; ada:spotSize Literal(\"100 micrometer\") ; ada:uncertaintyNoise Literal(\"0.002\", datatype=xsd:double) ; ada:vacuumExposedSample Literal(\"false\" = False, datatype=xsd:boolean) ; rdf:type ada:VNMIRSpectralPoint ]\n  \tResult Path: ada:componentType\n  \tMessage: VNMIR detail nodes must declare ada:componentType.\n  "
+            },
+            {
+              "shaclFile": "_sources/techniqueProfile/adaProfile/VNMIR/detail/rules.shacl",
+              "focusNodes": {
+                "cdifd:detailVNMIRShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/techniqueProfile/adaProfile/VNMIR/detail/rules.shacl:\n - Shape cdifd:detailVNMIRShape: *none*\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1
+  }
+}
