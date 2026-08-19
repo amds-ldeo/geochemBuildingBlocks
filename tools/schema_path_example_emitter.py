@@ -416,6 +416,13 @@ def fill_structural_gaps(inst, resolved_schema, max_passes=6):
                         node["schema:name"] = "example instrumentName"
                         added += 1
                         break
+                # a labeledLink / identifier requires a resolvable URL the sidecar never carries (a
+                # coupled-technique relatedLink has a name/target but no link) -> a placeholder URL.
+                if cand.validator == "required" and "'schema:url'" in cand.message:
+                    if isinstance(node, dict) and "schema:url" not in node:
+                        node["schema:url"] = "https://ada.astromat.org/missing"
+                        added += 1
+                        break
                 # a 1..* / 0..* property is always a JSON array in these schemas, but a schema path
                 # carries one value, so the builder writes the bare value. Wrap it.
                 if (cand.validator == "type" and cand.validator_value == "array"

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)",
-  "description": "Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/SEM_Composition_TAPP_v17.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+  "description": "Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/SEM_Composition_TAPP_v17.xlsx via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
   "properties": {
     "@context": {
       "type": "object",
@@ -311,7 +311,7 @@
       }
     },
     "schema:object": {
-      "description": "Target material(s) this method is designed to analyse (e.g. silicate glass, olivine, spinel). Modeled as DefinedTerm(s) or free text.",
+      "description": "Target material(s) this method is designed to analyse (e.g. silicate glass, olivine, spinel), modeled as DefinedTerm(s) or free text; and/or the sample(s) analysed, modeled as iSamples material-sample objects (the \"Samples analyzed\" shape carried over from geochemProduct).",
       "type": "array",
       "items": {
         "anyOf": [
@@ -320,6 +320,54 @@
           },
           {
             "type": "string"
+          },
+          {
+            "type": "object",
+            "description": "Samples analyzed",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "allOf": [
+                  {
+                    "contains": {
+                      "const": "schema:Thing"
+                    }
+                  },
+                  {
+                    "contains": {
+                      "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                    }
+                  }
+                ],
+                "minItems": 2
+              },
+              "schema:additionalType": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "schema:identifier": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "schema:name": {
+                "description": "Sample name/identifier as used in the lab.",
+                "type": "string"
+              },
+              "schema:additionalProperty": {
+                "description": "Per-sample PropertyValue entries (e.g. analysis location); technique profiles constrain these.",
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            }
           }
         ]
       }
@@ -1718,10 +1766,16 @@
         },
         "ada:defaultAnalytes": {
           "type": "array",
-          "description": "Pre-populated analyte rows for this method. Each entry is an object keyed by analyteColumn names.",
+          "description": "The analytes (analyzed constituents) this method targets by default — the ROWS of the per-analyte table. Each is a bare string or a schema:DefinedTerm identifying the analyte; per-analyte column VALUES live in the analysis record, not here.",
           "items": {
-            "type": "object",
-            "additionalProperties": true
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/DefinedTerm"
+              }
+            ]
           }
         }
       },
@@ -1788,10 +1842,16 @@
         },
         "ada:defaultChannels": {
           "type": "array",
-          "description": "Pre-populated channel rows for this procedure. Each entry is an object keyed by channelColumn names.",
+          "description": "The channels this procedure defines by default — the ROWS of the channel table. Each is a bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live in the analysis record's collectorConfiguration array, not here.",
           "items": {
-            "type": "object",
-            "additionalProperties": true
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/DefinedTerm"
+              }
+            ]
           }
         }
       },
@@ -1858,10 +1918,16 @@
         },
         "ada:defaultReportedProperties": {
           "type": "array",
-          "description": "Pre-populated reported-property rows for this procedure. Each entry is an object keyed by reportedPropertyColumn names.",
+          "description": "The reported properties this procedure defines by default — the ROWS of the reported- property table. Each is a bare string or a schema:DefinedTerm identifying the property; per-property column VALUES live in the analysis record, not here.",
           "items": {
-            "type": "object",
-            "additionalProperties": true
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/DefinedTerm"
+              }
+            ]
           }
         }
       },
@@ -2609,6 +2675,30 @@
           }
         ]
       }
+    },
+    "schema:variableMeasured": {
+      "title": "Reported Variables",
+      "description": "Variables / properties this procedure reports (e.g. detection limit, limit of quantification, calibration factor, uncertainty propagation method), each modeled as a schema:PropertyValueSpecification (a procedure-level default, carrying schema:defaultValue) or a schema:PropertyValue (a measured value, carrying schema:value), keyed by schema:name. A technique profile enumerates the reported properties it defines; a dataset instance overrides each schema:defaultValue with a schema:value. Left open here — the technique overlay narrows it.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "schema:name": {
+            "type": "string"
+          },
+          "ada:dataType": {
+            "type": "string"
+          },
+          "schema:defaultValue": {},
+          "schema:value": {}
+        }
+      }
     }
   },
   "allOf": [
@@ -2621,13 +2711,12 @@
       ]
     },
     {
-      "title": "Group1 on the procedure",
-      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
         "schema:name": {
           "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:measurementTechnique": {
           "type": "array",
@@ -2636,7 +2725,15 @@
             "properties": {
               "schema:termCode": {
                 "description": "Top-level analytical technique identifier.",
-                "type": "string"
+                "type": "string",
+                "enum": [
+                  "SEM",
+                  "SEM/FIB-SEM",
+                  "N/A",
+                  "None",
+                  "missing"
+                ],
+                "readOnly": true
               }
             }
           }
@@ -2646,7 +2743,8 @@
           "properties": {
             "schema:name": {
               "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
-              "type": "string"
+              "type": "string",
+              "readOnly": true
             }
           }
         },
@@ -2665,7 +2763,8 @@
         },
         "schema:datePublished": {
           "description": "First date this procedure configuration was used in production.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "schema:funding": {
           "type": "array",
@@ -2674,7 +2773,8 @@
             "properties": {
               "schema:name": {
                 "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
-                "type": "string"
+                "type": "string",
+                "readOnly": true
               }
             }
           }
@@ -2702,7 +2802,8 @@
                       "properties": {
                         "schema:name": {
                           "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
-                          "type": "string"
+                          "type": "string",
+                          "readOnly": true
                         }
                       }
                     }
@@ -2727,7 +2828,21 @@
                       "properties": {
                         "schema:name": {
                           "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                          "type": "string"
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "EPMA; NanoSIMS",
+                                "XCT (pre-SEM overview)",
+                                "None",
+                                "N/A",
+                                "missing"
+                              ]
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
                         },
                         "schema:description": {
                           "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
@@ -2740,30 +2855,7 @@
               }
             ]
           }
-        }
-      },
-      "required": [
-        "schema:datePublished",
-        "schema:name"
-      ]
-    },
-    {
-      "title": "ReportingCore (all blocks) on the procedure",
-      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
-      "type": "object",
-      "properties": {
-        "ada:targetSelectionCriteriaDefault": {
-          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "ada:targetSelectionCriteriaDefault"
-      ]
-    },
-    {
-      "type": "object",
-      "properties": {
+        },
         "schema:object": {
           "type": "array",
           "items": {
@@ -2806,22 +2898,29 @@
                                   "type": "array",
                                   "items": {
                                     "description": "General description of the material type(s) this procedure is designed to analyze.",
-                                    "type": "string",
-                                    "enum": [
-                                      "Silicate mineral",
-                                      "Oxide",
-                                      "Sulfide",
-                                      "Carbonate",
-                                      "Phosphate",
-                                      "Metal alloy",
-                                      "Organic matter",
-                                      "Glass",
-                                      "Regolith",
-                                      "Whole rock / polished section",
-                                      "Porous material",
-                                      "N/A",
-                                      "None",
-                                      "missing"
+                                    "anyOf": [
+                                      {
+                                        "type": "string",
+                                        "enum": [
+                                          "Silicate mineral",
+                                          "Oxide",
+                                          "Sulfide",
+                                          "Carbonate",
+                                          "Phosphate",
+                                          "Metal alloy",
+                                          "Organic matter",
+                                          "Glass",
+                                          "Regolith",
+                                          "Whole rock / polished section",
+                                          "Porous material",
+                                          "N/A",
+                                          "None",
+                                          "missing"
+                                        ]
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
                                     ],
                                     "readOnly": true
                                   }
@@ -3043,6 +3142,30 @@
               ]
             }
           }
+        },
+        "ada:samplingUnit": {
+          "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Whole sample",
+                "Aliquot",
+                "Grain",
+                "Spot",
+                "Analysis point",
+                "Phase",
+                "Sub-volume",
+                "Region of interest",
+                "N/A",
+                "None",
+                "missing"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "schema:instrument": {
           "type": "array",
@@ -3627,6 +3750,47 @@
                     ]
                   },
                   {
+                    "title": "Technique per Analyte",
+                    "description": "For each analyte, records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a procedure employs both EDS and WDS simultaneously, assigning each element to the detector appropriate to its concentration range, line overlap situation, or required precision. List in the same order as the Analyte field.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/semCompositionTAPP/techniquePerAnalyte"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "techniquePerAnalyte"
+                      },
+                      "schema:name": {
+                        "const": "Technique per Analyte"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
                     "title": "Diffracting Crystal",
                     "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
                     "type": "object",
@@ -4005,12 +4169,12 @@
                     ]
                   },
                   {
-                    "title": "Blank Correction",
-                    "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+                    "title": "Analyte Estimation Method",
+                    "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/semCompositionTAPP/blankCorrection"
+                        "const": "ada:analyteColumn/semCompositionTAPP/analyteEstimationMethod"
                       },
                       "@type": {
                         "const": [
@@ -4018,16 +4182,16 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "blankCorrection"
+                        "const": "analyteEstimationMethod"
                       },
                       "schema:name": {
-                        "const": "Blank Correction"
+                        "const": "Analyte Estimation Method"
                       },
                       "ada:dataType": {
                         "const": "string"
                       },
                       "schema:readonlyValue": {
-                        "const": false
+                        "const": true
                       },
                       "ada:tier": {
                         "const": "R"
@@ -4045,12 +4209,12 @@
                     ]
                   },
                   {
-                    "title": "Normalization / Standards-Based Correction",
-                    "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                    "title": "Blank Correction",
+                    "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                        "const": "ada:analyteColumn/semCompositionTAPP/blankCorrection"
                       },
                       "@type": {
                         "const": [
@@ -4058,10 +4222,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "normalizationStandardsBasedCorrection"
+                        "const": "blankCorrection"
                       },
                       "schema:name": {
-                        "const": "Normalization / Standards-Based Correction"
+                        "const": "Blank Correction"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -4167,12 +4331,12 @@
                     ]
                   },
                   {
-                    "title": "Detection Limit",
-                    "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
+                    "title": "Interference Corrections Applied",
+                    "description": "Whether a spectral interference correction was applied for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/semCompositionTAPP/detectionLimit"
+                        "const": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -4180,53 +4344,13 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "detectionLimit"
+                        "const": "interferenceCorrectionsApplied"
                       },
                       "schema:name": {
-                        "const": "Detection Limit"
+                        "const": "Interference Corrections Applied"
                       },
                       "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Detection Limit Method",
-                    "description": "Formula or approach used to calculate detection limits.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/semCompositionTAPP/detectionLimitMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimitMethod"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
+                        "const": "boolean"
                       },
                       "schema:readonlyValue": {
                         "const": true
@@ -4245,6 +4369,86 @@
                       "schema:name",
                       "ada:dataType",
                       "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Interfering Elements",
+                    "description": "Element(s) whose X-ray lines overlap with the measured peak for one or more analytes, requiring a correction.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/semCompositionTAPP/interferingElements"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingElements"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Elements"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Interference Correction Standard",
+                    "description": "Reference material used to quantify and calibrate the interference correction for each affected analyte.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionStandard"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Standard"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
                     ]
                   },
                   {
@@ -4424,6 +4628,51 @@
                 },
                 {
                   "contains": {
+                    "title": "Technique per Analyte",
+                    "description": "For each analyte, records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a procedure employs both EDS and WDS simultaneously, assigning each element to the detector appropriate to its concentration range, line overlap situation, or required precision. List in the same order as the Analyte field.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/semCompositionTAPP/techniquePerAnalyte"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "techniquePerAnalyte"
+                      },
+                      "schema:name": {
+                        "const": "Technique per Analyte"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
                     "title": "Diffracting Crystal",
                     "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
                     "type": "object",
@@ -4838,12 +5087,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Blank Correction",
-                    "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+                    "title": "Analyte Estimation Method",
+                    "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/semCompositionTAPP/blankCorrection"
+                        "const": "ada:analyteColumn/semCompositionTAPP/analyteEstimationMethod"
                       },
                       "@type": {
                         "const": [
@@ -4851,16 +5100,16 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "blankCorrection"
+                        "const": "analyteEstimationMethod"
                       },
                       "schema:name": {
-                        "const": "Blank Correction"
+                        "const": "Analyte Estimation Method"
                       },
                       "ada:dataType": {
                         "const": "string"
                       },
                       "schema:readonlyValue": {
-                        "const": false
+                        "const": true
                       },
                       "ada:tier": {
                         "const": "R"
@@ -4882,12 +5131,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Normalization / Standards-Based Correction",
-                    "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                    "title": "Blank Correction",
+                    "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                        "const": "ada:analyteColumn/semCompositionTAPP/blankCorrection"
                       },
                       "@type": {
                         "const": [
@@ -4895,10 +5144,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "normalizationStandardsBasedCorrection"
+                        "const": "blankCorrection"
                       },
                       "schema:name": {
-                        "const": "Normalization / Standards-Based Correction"
+                        "const": "Blank Correction"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -5016,12 +5265,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Detection Limit",
-                    "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
+                    "title": "Interference Corrections Applied",
+                    "description": "Whether a spectral interference correction was applied for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/semCompositionTAPP/detectionLimit"
+                        "const": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -5029,16 +5278,61 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "detectionLimit"
+                        "const": "interferenceCorrectionsApplied"
                       },
                       "schema:name": {
-                        "const": "Detection Limit"
+                        "const": "Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "boolean"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interfering Elements",
+                    "description": "Element(s) whose X-ray lines overlap with the measured peak for one or more analytes, requiring a correction.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/semCompositionTAPP/interferingElements"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingElements"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Elements"
                       },
                       "ada:dataType": {
                         "const": "string"
                       },
                       "schema:readonlyValue": {
-                        "const": false
+                        "const": true
                       },
                       "ada:tier": {
                         "const": "R"
@@ -5060,12 +5354,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Detection Limit Method",
-                    "description": "Formula or approach used to calculate detection limits.",
+                    "title": "Interference Correction Standard",
+                    "description": "Reference material used to quantify and calibrate the interference correction for each affected analyte.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/semCompositionTAPP/detectionLimitMethod"
+                        "const": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard"
                       },
                       "@type": {
                         "const": [
@@ -5073,10 +5367,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "detectionLimitMethod"
+                        "const": "interferenceCorrectionStandard"
                       },
                       "schema:name": {
-                        "const": "Detection Limit Method"
+                        "const": "Interference Correction Standard"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -5085,7 +5379,7 @@
                         "const": true
                       },
                       "ada:tier": {
-                        "const": "M"
+                        "const": "R"
                       },
                       "schema:defaultValue": {
                         "type": "string"
@@ -5096,8 +5390,7 @@
                       "@type",
                       "schema:valueName",
                       "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
+                      "ada:dataType"
                     ]
                   },
                   "minContains": 0,
@@ -5240,8 +5533,14 @@
             "ada:defaultAnalytes": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {}
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
               }
             }
           }
@@ -5494,42 +5793,6 @@
                 "readOnly": true
               },
               {
-                "title": "Analyte Estimation Method",
-                "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semCompositionTAPP/analyteEstimationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semCompositionTAPP/analyteEstimationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Analyte Estimation Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              {
                 "title": "Halogen Correction on Oxygen",
                 "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
                 "type": "object",
@@ -5592,78 +5855,6 @@
                   },
                   "schema:name": {
                     "const": "EDS Spectral Processing Type"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              {
-                "title": "Interfering Elements",
-                "description": "Element(s) whose X-ray lines overlap with the measured peak for one or more analytes, requiring a correction.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semCompositionTAPP/interferingElements"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semCompositionTAPP/interferingElements"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Interfering Elements"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              {
-                "title": "Interference Correction Standard",
-                "description": "Reference material used to quantify and calibrate the interference correction for each affected analyte.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semCompositionTAPP/interferenceCorrectionStandard"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semCompositionTAPP/interferenceCorrectionStandard"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Interference Correction Standard"
                   },
                   "schema:value": {
                     "type": "string"
@@ -5950,46 +6141,6 @@
             },
             {
               "contains": {
-                "title": "Analyte Estimation Method",
-                "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semCompositionTAPP/analyteEstimationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semCompositionTAPP/analyteEstimationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Analyte Estimation Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Halogen Correction on Oxygen",
                 "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
                 "type": "object",
@@ -6072,86 +6223,6 @@
               },
               "minContains": 0,
               "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Interfering Elements",
-                "description": "Element(s) whose X-ray lines overlap with the measured peak for one or more analytes, requiring a correction.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semCompositionTAPP/interferingElements"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semCompositionTAPP/interferingElements"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Interfering Elements"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Interference Correction Standard",
-                "description": "Reference material used to quantify and calibrate the interference correction for each affected analyte.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semCompositionTAPP/interferenceCorrectionStandard"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semCompositionTAPP/interferenceCorrectionStandard"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Interference Correction Standard"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
             }
           ]
         },
@@ -6180,17 +6251,13 @@
           ],
           "readOnly": true
         },
-        "ada:techniquePerAnalyte": {
-          "description": "For each analyte, records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a procedure employs both EDS and WDS simultaneously, assigning each element to the detector appropriate to its concentration range, line overlap situation, or required precision. List in the same order as the Analyte field.",
-          "type": "string",
-          "enum": [
-            "WDS",
-            "EDS",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
+        "ada:reportedProperties": {
+          "type": "array",
+          "items": {
+            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+            "type": "string",
+            "readOnly": true
+          }
         },
         "ada:edsLiveTimePerPointOrPixelDefault": {
           "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds. Longer live time improves counting statistics but increases beam damage risk and total acquisition time.",
@@ -6247,6 +6314,447 @@
           ],
           "readOnly": true
         },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Calibration Factor and Determination Method",
+                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Detection Limit",
+                "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Detection Limit Method",
+                "description": "Formula or approach used to calculate detection limits.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/detectionLimitMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitMethod"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "readOnly": true
+              },
+              {
+                "title": "Goodness-of-Fit or Dispersion Statistic",
+                "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/goodnessOfFitOrDispersionStatisticDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "goodnessOfFitOrDispersionStatisticDefault"
+                  },
+                  "schema:name": {
+                    "const": "Goodness-of-Fit or Dispersion Statistic"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Calibration Factor and Determination Method",
+                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detection Limit",
+                "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detection Limit Method",
+                "description": "Formula or approach used to calculate detection limits.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/detectionLimitMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitMethod"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ],
+                "readOnly": true
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Goodness-of-Fit or Dispersion Statistic",
+                "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/goodnessOfFitOrDispersionStatisticDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "goodnessOfFitOrDispersionStatisticDefault"
+                  },
+                  "schema:name": {
+                    "const": "Goodness-of-Fit or Dispersion Statistic"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
         "ada:wdsDeadTimeCorrection": {
           "description": "Method used to correct for WDS proportional counter dead time at high count rates. Dead time errors are most significant for major elements with high count rates (e.g., Si, Fe, Ca). Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion.",
           "type": "string",
@@ -6262,39 +6770,22 @@
           ],
           "readOnly": true
         },
-        "ada:interferenceCorrectionsApplied": {
-          "description": "Whether a spectral interference correction was applied for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
-          "type": "boolean",
-          "readOnly": true
-        },
         "schema:description": {
           "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
           "type": "string"
-        },
-        "ada:reportedPropertyTemplate": {
-          "type": "object",
-          "properties": {
-            "ada:defaultReportedProperties": {
-              "type": "array",
-              "items": {
-                "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
-                "type": "string",
-                "readOnly": true
-              }
-            }
-          }
         }
       },
       "required": [
+        "schema:name",
+        "schema:datePublished",
+        "ada:samplingUnit",
         "ada:dwellTimePerPixelDefault",
         "ada:edsAcquisitionMode",
-        "ada:techniquePerAnalyte",
         "ada:edsLiveTimePerPointOrPixelDefault",
         "ada:stepSizePixelSizeDefault",
         "ada:matrixCorrectionMethod",
         "ada:massAbsorptionCoefficients",
-        "ada:wdsDeadTimeCorrection",
-        "ada:interferenceCorrectionsApplied"
+        "ada:wdsDeadTimeCorrection"
       ]
     }
   ],
@@ -6765,7 +7256,7 @@
                             ]
                           },
                           {
-                            "$ref": "#/$defs/CdifConceptScheme_cdifConcept"
+                            "$ref": "#/$defs/cdifConcept"
                           }
                         ]
                       }
@@ -6924,7 +7415,7 @@
                               "schema:additionalType": {
                                 "type": "array",
                                 "items": {
-                                  "$ref": "#/$defs/Organization_cdifConceptOrTermOrString"
+                                  "$ref": "#/$defs/cdifConceptOrTermOrString"
                                 }
                               },
                               "schema:name": {
@@ -7165,7 +7656,7 @@
                           "schema:additionalType": {
                             "type": "array",
                             "items": {
-                              "$ref": "#/$defs/Organization_cdifConceptOrTermOrString"
+                              "$ref": "#/$defs/cdifConceptOrTermOrString"
                             }
                           },
                           "schema:name": {
@@ -7883,7 +8374,7 @@
                                 ]
                               },
                               {
-                                "$ref": "#/$defs/CdifConceptScheme_cdifConcept"
+                                "$ref": "#/$defs/cdifConcept"
                               }
                             ]
                           }
@@ -8525,7 +9016,7 @@
         "schema:additionalType": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Organization_cdifConceptOrTermOrString"
+            "$ref": "#/$defs/cdifConceptOrTermOrString"
           }
         },
         "schema:name": {
@@ -9967,163 +10458,6 @@
         }
       ]
     },
-    "Organization_cdifConceptOrTermOrString": {
-      "title": "CDIF Concept-or-Term-or-String",
-      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
-          "anyOf": [
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "reference to a skos concept for the data type"
-                }
-              }
-            },
-            {
-              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:DefinedTerm"
-                  },
-                  "minItems": 1
-                },
-                "schema:name": {
-                  "type": "string",
-                  "description": "text label for the term that is useful to human user"
-                },
-                "schema:identifier": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-                      "type": "object",
-                      "properties": {
-                        "@type": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "contains": {
-                            "const": "schema:PropertyValue"
-                          },
-                          "minItems": 1
-                        },
-                        "schema:propertyID": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "object",
-                              "additionalProperties": false,
-                              "required": [
-                                "@id"
-                              ],
-                              "properties": {
-                                "@id": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          ],
-                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                        },
-                        "schema:value": {
-                          "type": "string",
-                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                        },
-                        "schema:url": {
-                          "type": "string",
-                          "format": "uri",
-                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                        }
-                      },
-                      "allOf": [
-                        {
-                          "required": [
-                            "@type"
-                          ]
-                        },
-                        {
-                          "anyOf": [
-                            {
-                              "required": [
-                                "schema:value"
-                              ]
-                            },
-                            {
-                              "required": [
-                                "schema:url"
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "schema:inDefinedTermSet": {
-                  "type": "string",
-                  "description": "Name for the controlled vocabulary responsible for this keyword."
-                },
-                "schema:termCode": {
-                  "type": "string",
-                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-                }
-              },
-              "allOf": [
-                {
-                  "required": [
-                    "@type"
-                  ]
-                },
-                {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:identifier"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:termCode"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "$ref": "#/$defs/CdifConceptScheme_cdifConcept"
-            }
-          ]
-        }
-      ]
-    },
     "AdditionalProperty_DefinedTerm": {
       "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
       "type": "object",
@@ -10252,209 +10586,6 @@
       ]
     },
     "LanguageTaggedValue": {
-      "type": "object",
-      "description": "An RDF literal value with a language tag, serialized as a JSON-LD value object. Inlined from skosConcept (the resolver does not preserve cross-file '#/$defs/...' fragment refs).",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "description": "The text content."
-        },
-        "@language": {
-          "type": "string",
-          "description": "BCP 47 language tag (e.g. en, fr, de)."
-        }
-      },
-      "required": [
-        "@value"
-      ]
-    },
-    "CdifConceptScheme_cdifConcept": {
-      "type": "object",
-      "properties": {
-        "@context": {
-          "description": "JSON-LD context declaring the skos namespace prefix. May be a single object or an array of strings and objects.",
-          "type": "object",
-          "properties": {
-            "skos": {
-              "const": "http://www.w3.org/2004/02/skos/core#"
-            }
-          },
-          "required": [
-            "skos"
-          ]
-        },
-        "@id": {
-          "type": "string",
-          "description": "URI identifier for this concept."
-        },
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "skos:Concept"
-          },
-          "minItems": 1
-        },
-        "skos:prefLabel": {
-          "description": "Preferred lexical label for this concept. A single string, a single language-tagged value, or an array of language-tagged values. Each language should appear at most once.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/$defs/CdifConceptScheme_LanguageTaggedValue"
-            },
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/CdifConceptScheme_LanguageTaggedValue"
-              }
-            }
-          ]
-        },
-        "skos:notation": {
-          "description": "Classification code for this concept within a scheme (a single notation string, consistent with CdifCodelistConcept).",
-          "type": "string"
-        },
-        "skos:definition": {
-          "description": "Formal explanation of the meaning of this concept.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/$defs/CdifConceptScheme_LanguageTaggedValue"
-            },
-            {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/CdifConceptScheme_LanguageTaggedValue"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "skos:note": {
-          "description": "General note about this concept.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/$defs/CdifConceptScheme_LanguageTaggedValue"
-            },
-            {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/CdifConceptScheme_LanguageTaggedValue"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "skos:inScheme": {
-          "description": "Concept scheme(s) this concept belongs to.",
-          "anyOf": [
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
-              }
-            }
-          ]
-        },
-        "skos:broader": {
-          "description": "Broader (parent) concepts in the hierarchy. Items are inline concept objects or @id references.",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "URI of the referenced concept."
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
-              },
-              {
-                "$ref": "#/$defs/CdifConceptScheme_cdifConcept"
-              }
-            ]
-          }
-        },
-        "skos:narrower": {
-          "description": "Narrower (child) concepts in the hierarchy. Items are inline concept objects or @id references.",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "URI of the referenced concept."
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
-              },
-              {
-                "$ref": "#/$defs/CdifConceptScheme_cdifConcept"
-              }
-            ]
-          }
-        }
-      },
-      "required": [
-        "@type",
-        "skos:prefLabel"
-      ]
-    },
-    "CdifConceptScheme_LanguageTaggedValue": {
       "type": "object",
       "description": "An RDF literal value with a language tag, serialized as a JSON-LD value object. Inlined from skosConcept (the resolver does not preserve cross-file '#/$defs/...' fragment refs).",
       "properties": {

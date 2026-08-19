@@ -4255,6 +4255,36 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  semComposition_analyteEstimationMethod:
+    title: Analyte Estimation Method
+    description: Whether elemental concentrations were calculated directly from measured X-ray intensities,
+      or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates;
+      carbon from stoichiometry in carbonates).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semCompositionTAPP/analyteEstimationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyteEstimationMethod
+      schema:name:
+        const: Analyte Estimation Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   semComposition_analyticalAccuracy:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary standards, expressed
@@ -4585,6 +4615,94 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  semComposition_interferenceCorrectionStandard:
+    title: Interference Correction Standard
+    description: Reference material used to quantify and calibrate the interference correction for each
+      affected analyte.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionStandard
+      schema:name:
+        const: Interference Correction Standard
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  semComposition_interferenceCorrectionsApplied:
+    title: Interference Corrections Applied
+    description: Whether a spectral interference correction was applied for each analyte. Common interferences
+      include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionsApplied
+      schema:name:
+        const: Interference Corrections Applied
+      ada:dataType:
+        const: boolean
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  semComposition_interferingElements:
+    title: Interfering Elements
+    description: Element(s) whose X-ray lines overlap with the measured peak for one or more analytes,
+      requiring a correction.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semCompositionTAPP/interferingElements
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferingElements
+      schema:name:
+        const: Interfering Elements
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   semComposition_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: Post-acquisition normalization applied using secondary reference materials to correct
@@ -4727,6 +4845,38 @@ $defs:
         const: string
       schema:readonlyValue:
         const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  semComposition_techniquePerAnalyte:
+    title: Technique per Analyte
+    description: For each analyte, records which X-ray detection technique (EDS or WDS) was used to collect
+      the measurement. Required when a procedure employs both EDS and WDS simultaneously, assigning each
+      element to the detector appropriate to its concentration range, line overlap situation, or required
+      precision. List in the same order as the Analyte field.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semCompositionTAPP/techniquePerAnalyte
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: techniquePerAnalyte
+      schema:name:
+        const: Technique per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
       schema:defaultValue:
@@ -4896,6 +5046,36 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  sem_analyteEstimationMethod:
+    title: Analyte Estimation Method
+    description: Whether elemental concentrations were calculated directly from measured X-ray intensities,
+      or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates;
+      carbon from stoichiometry in carbonates).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semTAPP/analyteEstimationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyteEstimationMethod
+      schema:name:
+        const: Analyte Estimation Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   sem_analyticalAccuracy:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary standards, expressed
@@ -5226,6 +5406,94 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  sem_interferenceCorrectionStandard:
+    title: Interference Correction Standard
+    description: Reference material used to quantify and calibrate the interference correction for each
+      affected analyte.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semTAPP/interferenceCorrectionStandard
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionStandard
+      schema:name:
+        const: Interference Correction Standard
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  sem_interferenceCorrectionsApplied:
+    title: Interference Corrections Applied
+    description: Whether a spectral interference correction was applied for each analyte. Common interferences
+      include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semTAPP/interferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionsApplied
+      schema:name:
+        const: Interference Corrections Applied
+      ada:dataType:
+        const: boolean
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  sem_interferingElements:
+    title: Interfering Elements
+    description: Element(s) whose X-ray lines overlap with the measured peak for one or more analytes,
+      requiring a correction.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semTAPP/interferingElements
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferingElements
+      schema:name:
+        const: Interfering Elements
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   sem_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: Post-acquisition normalization applied using secondary reference materials to correct
@@ -5368,6 +5636,38 @@ $defs:
         const: string
       schema:readonlyValue:
         const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  sem_techniquePerAnalyte:
+    title: Technique per Analyte
+    description: For each analyte, records which X-ray detection technique (EDS or WDS) was used to collect
+      the measurement. Required when a procedure employs both EDS and WDS simultaneously, assigning each
+      element to the detector appropriate to its concentration range, line overlap situation, or required
+      precision. List in the same order as the Analyte field.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semTAPP/techniquePerAnalyte
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: techniquePerAnalyte
+      schema:name:
+        const: Technique per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
       schema:defaultValue:

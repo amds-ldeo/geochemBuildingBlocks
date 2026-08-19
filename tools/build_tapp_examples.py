@@ -761,6 +761,50 @@ def conform_enums(inst, tapp_dir, technique_enum):
                                       + " Reported detail: " + "; ".join(notes) + ".").strip()
 
 
+def conform_nested_enums(inst, resolved_schema, max_passes=4):
+    """Snap any string value that violates an enum AT ANY DEPTH onto a matching option — the same
+    normalisation conform_enums does for top-level fields, but validator-driven so it reaches nested
+    fields (an instrument component's controlled schema:description: a publication reporting an
+    electron source as 'Other: FEG …' is snapped to the enum's catch-all). Prevents the downstream
+    fill pass from over-wrapping the unmatched string into an array. Mutates inst; returns count."""
+    from jsonschema import Draft202012Validator
+    V = Draft202012Validator(resolved_schema)
+    total = 0
+    for _ in range(max_passes):
+        changed = 0
+        for e in V.iter_errors(inst):
+            enum = None
+            for c in [e] + list(e.context or []):
+                if c.validator == "enum" and isinstance(c.instance, str):
+                    enum = c.validator_value
+                    path = list(c.absolute_path)
+                    break
+            if enum is None or not path:
+                continue
+            parent = inst
+            for step in path[:-1]:
+                try:
+                    parent = parent[step]
+                except (KeyError, IndexError, TypeError):
+                    parent = None
+                    break
+            if not isinstance(parent, (dict, list)):
+                continue
+            val = parent[path[-1]]
+            if not isinstance(val, str) or val in enum:
+                continue
+            snapped, _ = _snap_enum(val, enum)
+            if snapped is None:
+                snapped = next((o for o in ("Unknown", "N/A", "None", "missing") if o in enum), None)
+            if snapped is not None and snapped != val:
+                parent[path[-1]] = snapped
+                changed += 1
+        total += changed
+        if not changed:
+            break
+    return total
+
+
 def coerce(v, jtype):
     """Coerce a string cell value to the JSON type implied by the field's data type."""
     if jtype in ("number", "integer"):
@@ -813,6 +857,18 @@ def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_t
     saps, seen_pv = [], set()
     for b in R["detail_addl"]:
         if b["name"] in seen_pv:
+            continue
+        # Only a param whose canonical path is the detail-ROOT schema:additionalProperty belongs in
+        # this array. Skip ones that live on a workflow step (Sample Preparation Method -> the step's
+        # schema:description) or nested under another node (Sample Persistent Identifier ->
+        # schema:object[...].schema:additionalProperty) — the detail schema does not enumerate them
+        # here, so dumping them makes the whole additionalProperty array reject.
+        _cp = canon_sp.get(b["item"], "")
+        for _root in ("$Dataset.", "$MethodDefinition."):
+            if _cp.startswith(_root):
+                _cp = _cp[len(_root):]
+                break
+        if not _cp.startswith("schema:additionalProperty"):
             continue
         v = cell(pubval[b["item"]].get(pc))
         if not v:
@@ -976,6 +1032,7 @@ def main():
         # instrument's Wikidata term / placeholder name, array cardinality — read off the resolved
         # schema; then sentinel every still-absent required field.
         if tapp_res is not None:
+            conform_nested_enums(inst, tapp_res)     # snap nested controlled values before wrapping
             ex.fill_required_types(inst, tapp_res)
             ex.fill_structural_gaps(inst, tapp_res)
         fill_required_sentinels(inst, TAPP_DIR)
@@ -990,6 +1047,7 @@ def main():
         dinst = build_detail(tapp, code, pc, R, pubval, PARAM_BASE, detail_name, component_types, canon_sp)
         type_instrument_tree(dinst)
         if detail_res is not None:
+            conform_nested_enums(dinst, detail_res)
             ex.fill_required_types(dinst, detail_res)
             ex.fill_structural_gaps(dinst, detail_res)
         fill_required_sentinels(dinst, DETAIL_DIR)

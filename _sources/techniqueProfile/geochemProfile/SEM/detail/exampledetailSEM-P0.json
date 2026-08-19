@@ -14,7 +14,96 @@
   ],
   "prov:wasGeneratedBy": [
     {
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "example samplePreparationMethod"
+          },
+          {
+            "schema:name": "Data reduction",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed"
+                  }
+                ],
+                "schema:name": "Constants and Reference Values Used",
+                "schema:value": "example value"
+              }
+            ]
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "example sampleName",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semTAPP/samplePersistentIdentifier",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semTAPP/samplePersistentIdentifier"
+                }
+              ],
+              "schema:name": "Sample Persistent Identifier",
+              "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/semTAPP/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semTAPP/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "example value"
+            }
+          ]
+        }
+      ],
       "prov:used": [
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataReductionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
         {
           "schema:instrument": [
             {
@@ -33,43 +122,9 @@
               "schema:name": "example instrumentName"
             }
           ]
-        },
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "example acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "example dataReductionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            }
-          ]
         }
       ],
-      "schema:description": "example additionalNotes",
-      "schema:endDate": "example analysisEndDate",
-      "schema:startDate": "example analysisStartDate",
       "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/semTAPP/beamDamageMinimization",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/semTAPP/beamDamageMinimization"
-            }
-          ],
-          "schema:name": "Beam Damage Minimization",
-          "schema:value": "example value"
-        },
         {
           "@id": "ada:parameter/semTAPP/beamRasterDimensions",
           "@type": [
@@ -82,6 +137,19 @@
           ],
           "schema:name": "Beam Raster Dimensions",
           "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semTAPP/beamDamageMinimization",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semTAPP/beamDamageMinimization"
+            }
+          ],
+          "schema:name": "Beam Damage Minimization",
+          "schema:value": "example value"
         },
         {
           "@id": "ada:parameter/semTAPP/driftCorrection",
@@ -110,17 +178,17 @@
           "schema:value": 1
         },
         {
-          "@id": "ada:parameter/semTAPP/preAnalysisImagingAndScreening",
+          "@id": "ada:parameter/semTAPP/stepSizePixelSize",
           "@type": [
             "schema:PropertyValue"
           ],
           "schema:propertyID": [
             {
-              "@id": "ada:parameter/semTAPP/preAnalysisImagingAndScreening"
+              "@id": "ada:parameter/semTAPP/stepSizePixelSize"
             }
           ],
-          "schema:name": "Pre-Analysis Imaging and Screening",
-          "schema:value": "example value"
+          "schema:name": "Step Size / Pixel Size",
+          "schema:value": 1
         },
         {
           "@id": "ada:parameter/semTAPP/halogenCorrectionOnOxygen",
@@ -136,17 +204,17 @@
           "schema:value": "example value"
         },
         {
-          "@id": "ada:parameter/semTAPP/stepSizePixelSize",
+          "@id": "ada:parameter/semTAPP/proceduralBlankLevel",
           "@type": [
             "schema:PropertyValue"
           ],
           "schema:propertyID": [
             {
-              "@id": "ada:parameter/semTAPP/stepSizePixelSize"
+              "@id": "ada:parameter/semTAPP/proceduralBlankLevel"
             }
           ],
-          "schema:name": "Step Size / Pixel Size",
-          "schema:value": 1
+          "schema:name": "Procedural Blank Level",
+          "schema:value": "example value"
         },
         {
           "@id": "ada:parameter/semTAPP/edsDeadTime",
@@ -161,65 +229,18 @@
           "schema:name": "EDS Dead Time",
           "schema:value": 1,
           "schema:unitText": "example value"
-        },
-        {
-          "@id": "ada:parameter/semTAPP/proceduralBlankLevel",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/semTAPP/proceduralBlankLevel"
-            }
-          ],
-          "schema:name": "Procedural Blank Level",
-          "schema:value": "example value"
         }
       ],
       "ada:edsLiveTimePerPointOrPixel": 1.0,
-      "schema:location": {
-        "@type": [
-          "schema:Place"
-        ],
-        "schema:name": "example laboratory",
-        "schema:identifier": "example laboratoryId"
-      },
-      "schema:object": [
-        {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-          ],
-          "schema:name": "example sampleName",
-          "schema:identifier": "example samplePersistentIdentifier"
-        }
+      "schema:description": "example additionalNotes"
+    }
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
       ],
-      "schema:actionProcess": {
-        "schema:step": [
-          {
-            "schema:name": "Sample preparation",
-            "schema:description": "example samplePreparationMethod"
-          },
-          {
-            "schema:name": "Data reduction",
-            "schema:additionalProperty": [
-              {
-                "@id": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/semTAPP/constantsAndReferenceValuesUsed"
-                  }
-                ],
-                "schema:name": "Constants and Reference Values Used",
-                "schema:value": "example value"
-              }
-            ]
-          }
-        ]
-      },
-      "schema:identifier": "example sessionIdentifier"
+      "schema:identifier": "example procedureDoi"
     }
   ],
   "schema:contributor": [
@@ -228,10 +249,14 @@
       "schema:name": "example analyst"
     }
   ],
+  "schema:funding": [],
   "schema:relatedLink": [
     {
-      "schema:linkRelationship": "coupledDataset",
-      "schema:target": "example coupledDatasetOrPublicationReference"
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA; NanoSIMS",
+        "schema:description": "example couplingDescription"
+      }
     },
     {
       "schema:linkRelationship": "coupledProcedure",
@@ -240,20 +265,8 @@
       }
     },
     {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA; NanoSIMS",
-        "schema:description": "example couplingDescription"
-      }
-    }
-  ],
-  "schema:funding": [],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:identifier": "example procedureDoi"
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
     }
   ],
   "schema:additionalProperty": [
@@ -269,16 +282,6 @@
       ],
       "schema:name": "Map Area",
       "schema:value": 1
-    }
-  ],
-  "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }

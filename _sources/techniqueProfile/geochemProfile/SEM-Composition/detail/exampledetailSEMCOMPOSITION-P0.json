@@ -55,7 +55,34 @@
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
           "schema:name": "example sampleName",
-          "schema:identifier": "example samplePersistentIdentifier"
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/samplePersistentIdentifier",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semCompositionTAPP/samplePersistentIdentifier"
+                }
+              ],
+              "schema:name": "Sample Persistent Identifier",
+              "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/semCompositionTAPP/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semCompositionTAPP/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "example value"
+            }
+          ]
         }
       ],
       "prov:used": [
@@ -192,8 +219,7 @@
         }
       ],
       "ada:edsLiveTimePerPointOrPixel": 1.0,
-      "schema:description": "example additionalNotes",
-      "schema:identifier": "example sessionIdentifier"
+      "schema:description": "example additionalNotes"
     }
   ],
   "schema:measurementTechnique": [
@@ -228,16 +254,6 @@
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
-    }
-  ],
-  "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }

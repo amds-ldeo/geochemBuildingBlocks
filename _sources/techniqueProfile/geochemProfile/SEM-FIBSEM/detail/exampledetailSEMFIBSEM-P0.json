@@ -129,7 +129,34 @@
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
           "schema:name": "example sampleName",
-          "schema:identifier": "example samplePersistentIdentifier"
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/samplePersistentIdentifier",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/samplePersistentIdentifier"
+                }
+              ],
+              "schema:name": "Sample Persistent Identifier",
+              "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/semFibsemTAPP/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "example value"
+            }
+          ]
         }
       ],
       "prov:used": [
@@ -188,8 +215,7 @@
       ],
       "ada:imageRegistration3D": "example imageRegistration3D",
       "ada:segmentationMethod3D": "example segmentationMethod3D",
-      "schema:description": "example additionalNotes",
-      "schema:identifier": "example sessionIdentifier"
+      "schema:description": "example additionalNotes"
     }
   ],
   "schema:measurementTechnique": [
@@ -226,15 +252,5 @@
       "schema:target": "example coupledDatasetOrPublicationReference"
     }
   ],
-  "ada:voxelSize": "example voxelSizeAndImageStackDimensions",
-  "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    }
-  ]
+  "ada:voxelSize": "example voxelSizeAndImageStackDimensions"
 }

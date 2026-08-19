@@ -68,7 +68,34 @@
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
           "schema:name": "example sampleName",
-          "schema:identifier": "example samplePersistentIdentifier"
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/samplePersistentIdentifier",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/samplePersistentIdentifier"
+                }
+              ],
+              "schema:name": "Sample Persistent Identifier",
+              "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "example value"
+            }
+          ]
         }
       ],
       "prov:used": [
@@ -165,8 +192,7 @@
         }
       ],
       "ada:clIntegrationTime": 1.0,
-      "schema:description": "example additionalNotes",
-      "schema:identifier": "example sessionIdentifier"
+      "schema:description": "example additionalNotes"
     }
   ],
   "schema:measurementTechnique": [
@@ -210,15 +236,5 @@
   "ada:indexingMethod": "Hough transform",
   "ada:patternQualityThreshold": "example ebsdPatternQualityThreshold",
   "ada:meanAngularDeviation": 1.0,
-  "ada:indexingRate": 1.0,
-  "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    }
-  ]
+  "ada:indexingRate": 1.0
 }
