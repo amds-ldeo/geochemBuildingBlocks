@@ -1369,8 +1369,13 @@ properties:
                                               - schema:value
                                               - schema:unitText
                                             - &id040
-                                              title: RF Power (W)
-                                              description: ''
+                                              title: RF Power
+                                              description: ICP radiofrequency forward power in watts.
+                                                Affects plasma temperature, ionisation efficiency, oxide
+                                                formation, and whether cool or normal plasma conditions
+                                                are in effect. The procedure registers a target value
+                                                optimised during initial setup; the analyst confirms or
+                                                fine-adjusts during session tuning.
                                               type: object
                                               properties:
                                                 '@id':
@@ -1382,8 +1387,12 @@ properties:
                                                   const:
                                                   - '@id': ada:parameter/laSficpmsUPbTAPP/rfPower
                                                 schema:name:
-                                                  const: RF Power (W)
+                                                  const: RF Power
                                                 schema:value:
+                                                  anyOf:
+                                                  - type: number
+                                                  - type: string
+                                                schema:unitText:
                                                   type: string
                                               required:
                                               - '@id'
@@ -1391,6 +1400,7 @@ properties:
                                               - schema:propertyID
                                               - schema:name
                                               - schema:value
+                                              - schema:unitText
                                           allOf:
                                           - contains: *id038
                                             minContains: 0
@@ -1962,15 +1972,17 @@ properties:
                     calibration inputs, complementary spatial context, or required companion measurements.
                     Use the same controlled vocabulary as the Technique field. Enter "None" if no coupling
                     is intended.
-                  type: string
-                  enum:
-                  - EPMA
-                  - SIMS
-                  - ICP-MS (solution)
-                  - Noble Gas MS
-                  - None
-                  - N/A
-                  - missing
+                  anyOf:
+                  - type: string
+                    enum:
+                    - EPMA
+                    - SIMS
+                    - ICP-MS (solution)
+                    - Noble Gas MS
+                    - None
+                    - N/A
+                    - missing
+                  - type: string
                 schema:description:
                   description: 'Description of how this procedure is coupled with the technique(s) listed
                     above. Include: (1) the functional relationship — what data or context flows between

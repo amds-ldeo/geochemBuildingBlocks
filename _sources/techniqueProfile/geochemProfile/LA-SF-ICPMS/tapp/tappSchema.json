@@ -120,15 +120,22 @@
                                             "properties": {
                                                 "schema:name": {
                                                     "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                                                    "type": "string",
-                                                    "enum": [
-                                                        "EPMA",
-                                                        "SIMS",
-                                                        "ICP-MS (solution)",
-                                                        "Noble Gas MS",
-                                                        "None",
-                                                        "N/A",
-                                                        "missing"
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "EPMA",
+                                                                "SIMS",
+                                                                "ICP-MS (solution)",
+                                                                "Noble Gas MS",
+                                                                "None",
+                                                                "N/A",
+                                                                "missing"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
                                                     ]
                                                 },
                                                 "schema:description": {
@@ -185,24 +192,31 @@
                                                                     "type": "array",
                                                                     "items": {
                                                                         "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching.",
-                                                                        "type": "string",
-                                                                        "enum": [
-                                                                            "Silicate glass",
-                                                                            "Feldspar",
-                                                                            "Pyroxene",
-                                                                            "Olivine",
-                                                                            "Oxide",
-                                                                            "Sulfide",
-                                                                            "Carbonate",
-                                                                            "Phosphate",
-                                                                            "Native metal",
-                                                                            "Iron meteorite",
-                                                                            "Fluid inclusion",
-                                                                            "Melt inclusion",
-                                                                            "Whole rock",
-                                                                            "N/A",
-                                                                            "None",
-                                                                            "missing"
+                                                                        "anyOf": [
+                                                                            {
+                                                                                "type": "string",
+                                                                                "enum": [
+                                                                                    "Silicate glass",
+                                                                                    "Feldspar",
+                                                                                    "Pyroxene",
+                                                                                    "Olivine",
+                                                                                    "Oxide",
+                                                                                    "Sulfide",
+                                                                                    "Carbonate",
+                                                                                    "Phosphate",
+                                                                                    "Native metal",
+                                                                                    "Iron meteorite",
+                                                                                    "Fluid inclusion",
+                                                                                    "Melt inclusion",
+                                                                                    "Whole rock",
+                                                                                    "N/A",
+                                                                                    "None",
+                                                                                    "missing"
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "type": "string"
+                                                                            }
                                                                         ],
                                                                         "readOnly": true
                                                                     }
@@ -296,19 +310,26 @@
                 },
                 "ada:samplingUnit": {
                     "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
-                    "type": "string",
-                    "enum": [
-                        "Whole sample",
-                        "Aliquot",
-                        "Grain",
-                        "Spot",
-                        "Analysis point",
-                        "Phase",
-                        "Sub-volume",
-                        "Region of interest",
-                        "N/A",
-                        "None",
-                        "missing"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Whole sample",
+                                "Aliquot",
+                                "Grain",
+                                "Spot",
+                                "Analysis point",
+                                "Phase",
+                                "Sub-volume",
+                                "Region of interest",
+                                "N/A",
+                                "None",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
                     ]
                 },
                 "schema:actionProcess": {
@@ -4289,8 +4310,14 @@
                         "ada:defaultAnalytes": {
                             "type": "array",
                             "items": {
-                                "type": "object",
-                                "properties": {}
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    }
+                                ]
                             }
                         },
                         "ada:analyteColumns": {
@@ -5499,16 +5526,23 @@
                 },
                 "ada:uncertaintyLevel": {
                     "description": "The convention at which reported uncertainties are quoted — 1-sigma, 2-sigma, or a 95% confidence interval — and whether a measured spread is reported as a standard error or a standard deviation. A reported uncertainty is not interpretable without it: the same numeric value means different things at 1-sigma and at 95% confidence. State the convention applying to all values reported under this procedure, and state each separately where different reported quantities use different conventions. Distinct from Uncertainty Propagation Method, which addresses how component uncertainties are combined rather than how the result is quoted.",
-                    "type": "string",
-                    "enum": [
-                        "2σ (95% confidence)",
-                        "1σ (68% confidence)",
-                        "95% confidence interval",
-                        "2 standard errors (2SE)",
-                        "1 standard deviation (1SD)",
-                        "N/A",
-                        "None",
-                        "missing"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "2σ (95% confidence)",
+                                "1σ (68% confidence)",
+                                "95% confidence interval",
+                                "2 standard errors (2SE)",
+                                "1 standard deviation (1SD)",
+                                "N/A",
+                                "None",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
                     ],
                     "readOnly": true
                 },

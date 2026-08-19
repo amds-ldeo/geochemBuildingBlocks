@@ -14,14 +14,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "Same as silicate protocol",
-  "schema:description": "laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite Phosphate (merrillite) Spot analysis LA-Q-ICP-MS Virginia Tech (publication column of LA-Q-ICP-MS_TAPP_v15.xlsx).",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Department of Geosciences, Virginia Tech"
-  },
+  "schema:name": "laQicpms protocol — Liu2016-2",
+  "schema:description": "N/A — see silicate column for general notes",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -31,71 +25,186 @@
       "schema:name": "LA-ICP-MS (same as silicate protocol)"
     }
   ],
-  "ada:sampleFormAnalyticalSubstrateDefault": "In situ — polished thin section (same sections as silicate protocol)",
-  "ada:samplingUnit": "missing",
-  "ada:samplePreparationMethodDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:laserManufacturerModel": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
-  "ada:icpMsManufacturerModel": "Agilent 7500ce ICP-MS",
-  "ada:icpMsType": "missing",
-  "ada:interfaceConeConfiguration": "missing",
-  "ada:guardElectrode": "missing",
-  "ada:massResolutionSetting": "missing",
-  "ada:detectorConfiguration": "missing",
-  "ada:collisionReactionCellConfiguration": "missing",
-  "ada:laserWavelengthAndType": "193 nm Excimer (ArF excimer)",
-  "ada:ablationCellType": "missing",
-  "ada:sampleIntroduction": "missing",
-  "ada:laserSpotGeometryDefault": "~24 µm diameter",
-  "ada:laserSpotPathAblationMode": "Spot (stationary)",
-  "ada:laserFluenceDefault": "7–10 J/m² (same as silicate protocol)",
-  "ada:laserRepetitionRateDefault": "5 Hz",
-  "ada:laserPulseDuration": "missing",
-  "ada:ablationDurationPerSpotDefault": "missing",
-  "ada:ablationPitDepthAndAblationRateDefault": "missing",
-  "ada:rasterLineSpacingDefault": "missing",
-  "ada:carrierGasAndFlowRateDefault": "missing",
-  "ada:coolantGasFlowRateDefault": "missing",
-  "ada:auxiliaryGasFlowRateDefault": "missing",
-  "ada:rfPowerDefault": "missing",
-  "ada:plasmaThermalMode": "missing",
-  "ada:oxideProductionMethodAndThreshold": "missing",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Department of Geosciences, Virginia Tech"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Same as silicate protocol"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (EMP)",
+        "schema:description": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Martian meteorite (Tissint) phosphate: sodium-merrillite"
+          ]
+        },
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
+          "schema:name": "Sample Form / Analytical Substrate",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "In situ — polished thin section (same sections as silicate protocol)"
+        }
+      ]
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm Excimer (ArF excimer)",
+      "ada:laserSpotGeometryDefault": "~24 µm diameter",
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/laserEnergyDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserEnergyDefault",
+          "schema:name": "Laser Energy",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 150,
+          "schema:description": "150 mJ output energy"
+        }
+      ],
+      "ada:laserFluenceDefault": "7–10 J/m² (same as silicate protocol)",
+      "ada:laserRepetitionRateDefault": "5 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "ICPMS",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Agilent 7500ce ICP-MS",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
   "ada:analysisSequenceDefault": "Same as silicate protocol",
-  "ada:monitoredIsotopes": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
-  "ada:signalCollectionMode": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
-  "ada:collisionGasType": "missing",
-  "ada:collisionGasFlowRateDefault": "missing",
-  "ada:cellExitDiscriminationVoltageDefault": "missing",
-  "ada:dwellTimePerMassDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
-  "ada:internalStandardApproach": "Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot",
-  "ada:internalStandardElement": "40Ca; CaO wt% from EMP at the analysis spot",
-  "ada:perAnalyteCalibrationStrategy": [
-    "missing"
-  ],
-  "ada:elementalFractionationCorrection": [
-    "External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described"
-  ],
-  "ada:massBiasCorrectionStrategy": "missing",
-  "ada:uncertaintyLevel": "missing",
-  "ada:signalIntegrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
-  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
-  "ada:isobaricInterferenceCorrectionsApplied": "missing",
-  "ada:interferingSpecies": "missing",
-  "ada:interferenceCorrectionMethod": "missing",
-  "ada:isotopeDilutionDataReductionMethod": "missing",
-  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:primaryCalibrationStandardNameDefault": "NIST 610 glass standard",
-  "ada:calibrationStandardMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
-  "ada:secondaryReferenceMaterialsDefault": "missing",
-  "ada:detectionLimitMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign",
@@ -111,6 +220,15 @@
       "schema:value": "Single spot analysis per location"
     }
   ],
+  "ada:internalStandardApproach": "Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot",
+  "ada:internalStandardElement": "40Ca; CaO wt% from EMP at the analysis spot",
+  "ada:elementalFractionationCorrection": [
+    "External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
+  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
+  "ada:primaryStandardNameDefault": "NIST 610 glass standard",
+  "ada:calibrationMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -151,38 +269,20 @@
       }
     ]
   },
-  "schema:instrument": [
-    {
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:additionalType": [
-        "ICPMS",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:name": "missing"
-    },
-    {
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:name": "missing"
-    }
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
-  "ada:calibrationMeasurementFrequency": "missing",
   "ada:carrierGasFlowRateDefault": "missing",
-  "ada:primaryStandardNameDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
+  "ada:massBiasCorrectionStrategy": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:reportedVariablesAndUnits": "missing",
+  "ada:sampleIntroduction": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:signalCollectionMode": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
+  "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }

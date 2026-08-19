@@ -88,15 +88,17 @@ allOf:
                       — providing calibration inputs, complementary spatial context, or required companion
                       measurements. Use the same controlled vocabulary as the Technique field. Enter "None"
                       if no coupling is intended.
-                    type: string
-                    enum:
-                    - EPMA
-                    - SIMS
-                    - ICP-MS (solution)
-                    - Noble Gas MS
-                    - None
-                    - N/A
-                    - missing
+                    anyOf:
+                    - type: string
+                      enum:
+                      - EPMA
+                      - SIMS
+                      - ICP-MS (solution)
+                      - Noble Gas MS
+                      - None
+                      - N/A
+                      - missing
+                    - type: string
                   schema:description:
                     description: 'Description of how this procedure is coupled with the technique(s) listed
                       above. Include: (1) the functional relationship — what data or context flows between
@@ -137,24 +139,26 @@ allOf:
                           items:
                             description: General description of the material type(s) this procedure is
                               designed to analyse. Used for discoverability and procedure matching.
-                            type: string
-                            enum:
-                            - Silicate glass
-                            - Feldspar
-                            - Pyroxene
-                            - Olivine
-                            - Oxide
-                            - Sulfide
-                            - Carbonate
-                            - Phosphate
-                            - Native metal
-                            - Iron meteorite
-                            - Fluid inclusion
-                            - Melt inclusion
-                            - Whole rock
-                            - N/A
-                            - None
-                            - missing
+                            anyOf:
+                            - type: string
+                              enum:
+                              - Silicate glass
+                              - Feldspar
+                              - Pyroxene
+                              - Olivine
+                              - Oxide
+                              - Sulfide
+                              - Carbonate
+                              - Phosphate
+                              - Native metal
+                              - Iron meteorite
+                              - Fluid inclusion
+                              - Melt inclusion
+                              - Whole rock
+                              - N/A
+                              - None
+                              - missing
+                            - type: string
                             readOnly: true
                 allOf:
                 - contains:
@@ -209,19 +213,21 @@ allOf:
         — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit
         type at procedure level and the units actually analysed at analysis level. Where units nest (e.g.
         confined tracks within grains), state both levels.
-      type: string
-      enum:
-      - Whole sample
-      - Aliquot
-      - Grain
-      - Spot
-      - Analysis point
-      - Phase
-      - Sub-volume
-      - Region of interest
-      - N/A
-      - None
-      - missing
+      anyOf:
+      - type: string
+        enum:
+        - Whole sample
+        - Aliquot
+        - Grain
+        - Spot
+        - Analysis point
+        - Phase
+        - Sub-volume
+        - Region of interest
+        - N/A
+        - None
+        - missing
+      - type: string
     schema:actionProcess:
       type: object
       properties:
@@ -3298,27 +3304,34 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - title: RF Power (W)
-                              description: ''
+                            - &id027
+                              title: RF Power
+                              description: ICP radiofrequency forward power in watts. Affects plasma temperature,
+                                ionisation efficiency, oxide formation, and whether cool or normal plasma
+                                conditions are in effect. The procedure registers a target value optimised
+                                during initial setup; the analyst confirms or fine-adjusts during session
+                                tuning.
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:parameter/laQicpmsUPbTAPP/rfPower
+                                  const: ada:parameter/laQicpmsUPbTAPP/rfPowerDefault
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
                                 schema:valueName:
-                                  const: rfPower
+                                  const: rfPowerDefault
                                 schema:name:
-                                  const: RF Power (W)
+                                  const: RF Power
                                 ada:dataType:
-                                  const: string
+                                  const: number
                                 ada:fieldScope:
                                   const: session
                                 schema:readonlyValue:
-                                  const: true
+                                  const: false
                                 ada:tier:
                                   const: R
+                                schema:unitText:
+                                  const: W
                               required:
                               - '@id'
                               - '@type'
@@ -3326,7 +3339,6 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                              readOnly: true
                             - title: Plasma Thermal Mode
                               description: Whether the ICP plasma is operated under cool plasma (≤900
                                 W RF) or normal (hot) plasma (>1000 W RF) conditions. Cool plasma substantially
@@ -3362,36 +3374,7 @@ allOf:
                           - contains: *id026
                             minContains: 0
                             maxContains: 1
-                          - contains:
-                              title: RF Power (W)
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsUPbTAPP/rfPower
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: rfPower
-                                schema:name:
-                                  const: RF Power (W)
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                              readOnly: true
+                          - contains: *id027
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -3704,14 +3687,15 @@ allOf:
         ada:defaultAnalytes:
           type: array
           items:
-            type: object
-            properties: {}
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
         ada:analyteColumns:
           type: array
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id027
+            - &id028
               title: Monitored Isotopes
               description: Specific isotope(s) monitored in this procedure, grouped by the analyte element
                 they serve where they serve one. Includes interference-monitor and internal-standard masses,
@@ -3743,7 +3727,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id028
+            - &id029
               title: Dwell Time per Mass
               description: 'Count time (dwell time) per mass position for each measured isotope in milliseconds.
                 Longer dwell times improve counting statistics and lower detection limits but reduce the
@@ -3776,7 +3760,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id029
+            - &id030
               title: Isobaric Interference Corrections Applied
               description: 'Whether isobaric interference corrections were applied for any measured isotope
                 in this procedure. A procedure-level Boolean: if the procedure includes interference corrections,
@@ -3808,7 +3792,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id030
+            - &id031
               title: Interfering Species
               description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping
                 with the measured isotope.
@@ -3838,7 +3822,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id031
+            - &id032
               title: Interference Correction Method
               description: Equation or procedure used to correct for isobaric interferences, including
                 the production rate factor and the reference material used to measure it.
@@ -3868,7 +3852,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id032
+            - &id033
               title: Normalization / Standards-Based Correction
               description: Any post-acquisition normalization applied to correct for systematic biases
                 identified from secondary reference materials, or stoichiometric normalization applied
@@ -3899,7 +3883,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id033
+            - &id034
               title: Detection Limit
               description: Session detection limit, one per reported concentration variable (one per analyte,
                 these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory
@@ -3932,7 +3916,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id034
+            - &id035
               title: Detection Limit Method
               description: Reference or description of the method used to calculate session detection
                 limits. Mandatory at analysis level. Must be consistent with the method applied to generate
@@ -3963,7 +3947,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id035
+            - &id036
               title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate the limit of quantification
                 (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
@@ -3994,7 +3978,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id036
+            - &id037
               title: Within-Session Analytical Precision and Assessment Method
               description: 'Reproducibility of repeated measurements within a single analytical session.
                 Report both the assessment method and the precision values. Assessment method must specify:
@@ -4028,7 +4012,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id037
+            - &id038
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: 'Reproducibility of measurements across multiple analytical sessions over weeks
                 to months (long-term or intermediate precision). Report both the assessment method and
@@ -4060,7 +4044,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id038
+            - &id039
               title: Analytical Accuracy and Assessment Method
               description: 'Offset between measured and accepted reference values for secondary reference
                 materials, expressed as % relative bias. Report both the assessment method and the accuracy
@@ -4092,7 +4076,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id039
+            - &id040
               title: Mass Resolution per Analyte
               description: ''
               type: object
@@ -4119,9 +4103,6 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id027
-            minContains: 0
-            maxContains: 1
           - contains: *id028
             minContains: 0
             maxContains: 1
@@ -4156,6 +4137,9 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id039
+            minContains: 0
+            maxContains: 1
+          - contains: *id040
             minContains: 0
             maxContains: 1
     ada:reportedPropertyTemplate:
@@ -4253,16 +4237,18 @@ allOf:
         reported under this procedure, and state each separately where different reported quantities use
         different conventions. Distinct from Uncertainty Propagation Method, which addresses how component
         uncertainties are combined rather than how the result is quoted.'
-      type: string
-      enum:
-      - 2σ (95% confidence)
-      - 1σ (68% confidence)
-      - 95% confidence interval
-      - 2 standard errors (2SE)
-      - 1 standard deviation (1SD)
-      - N/A
-      - None
-      - missing
+      anyOf:
+      - type: string
+        enum:
+        - 2σ (95% confidence)
+        - 1σ (68% confidence)
+        - 95% confidence interval
+        - 2 standard errors (2SE)
+        - 1 standard deviation (1SD)
+        - N/A
+        - None
+        - missing
+      - type: string
       readOnly: true
     ada:signalIntegrationIntervalMethod:
       description: 'Approach used to select the stable signal interval for integration during data reduction,

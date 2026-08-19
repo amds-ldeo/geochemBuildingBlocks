@@ -3508,15 +3508,22 @@
                                     "properties": {
                                         "schema:name": {
                                             "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                                            "type": "string",
-                                            "enum": [
-                                                "EPMA",
-                                                "SIMS",
-                                                "ICP-MS (solution)",
-                                                "Noble Gas MS",
-                                                "None",
-                                                "N/A",
-                                                "missing"
+                                            "anyOf": [
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "EPMA",
+                                                        "SIMS",
+                                                        "ICP-MS (solution)",
+                                                        "Noble Gas MS",
+                                                        "None",
+                                                        "N/A",
+                                                        "missing"
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
                                             ]
                                         },
                                         "schema:description": {

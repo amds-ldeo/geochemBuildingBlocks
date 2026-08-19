@@ -176,9 +176,17 @@ def normalize_path(p):
     the default channel list as `…collectorConfiguration.ada:defaultChannels[]`, but the emitted
     structure is `ada:collectorConfiguration` = the channel-column array itself, with
     `ada:defaultChannels` a SIBLING of it on the Collector (an array cannot also hold a
-    defaultChannels key). Rewrite both so schema and example agree without touching the sidecar."""
+    defaultChannels key). Rewrite both so schema and example agree without touching the sidecar.
+
+    Also collapse a trailing `[]` on a default-ROW array (ada:defaultAnalytes[]/ada:defaultChannels[]):
+    the emitter carries the transcribed member list as a single scalar leaf on the template (the way
+    the reference LA-MC-ICPMS sidecar addresses it — no brackets), whereas the array-segment form
+    routes into the append leaf and would emit the raw items schema instead of the members. The
+    schema side keys off the property NAME, so both grammars still emit the same array constraint."""
     return (p.replace(".ada:collectorConfiguration.ada:channelColumns", ".ada:collectorConfiguration")
-             .replace(".ada:collectorConfiguration.ada:defaultChannels", ".ada:defaultChannels"))
+             .replace(".ada:collectorConfiguration.ada:defaultChannels", ".ada:defaultChannels")
+             .replace(".ada:defaultAnalytes[]", ".ada:defaultAnalytes")
+             .replace(".ada:defaultChannels[]", ".ada:defaultChannels"))
 
 
 class AddlType:
