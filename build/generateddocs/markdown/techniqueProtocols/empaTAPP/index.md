@@ -952,7 +952,7 @@ empaTAPP instance derived from publication Richard & Deng 2026 (synthetic compre
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -2505,7 +2505,7 @@ empaTAPP instance derived from publication Chi et al. 2015 (Tissintite, EPSL). P
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -3078,7 +3078,7 @@ empaTAPP instance derived from publication Hu et al. 2020 (Coesite NWA8657, GCA)
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -3558,7 +3558,7 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint silicate min
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -4017,7 +4017,7 @@ empaTAPP instance derived from publication Liu et al. 2016 (Tissint phosphate mi
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -4570,7 +4570,7 @@ empaTAPP instance derived from publication Ma et al. 2017 (Liebermannite, MAPS).
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -5225,7 +5225,7 @@ empaTAPP instance derived from publication Frank et al. 2023 (Ivuna CAI, MAPS). 
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -5816,7 +5816,7 @@ empaTAPP instance derived from publication Broussard et al. 2026 (OC002 CI chond
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -6479,7 +6479,7 @@ empaTAPP instance derived from publication Seifert et al. 2026 (Bennu apatite, M
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -7011,7 +7011,7 @@ empaTAPP instance derived from publication Zega et al. 2025 (Bennu silicates, Na
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -7254,7 +7254,7 @@ empaTAPP instance derived from publication Zega et al. 2025 (Bennu carbonates, N
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -7495,7 +7495,7 @@ empaTAPP instance derived from publication Zega et al. 2025 (Bennu phosphates, N
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -7741,7 +7741,7 @@ empaTAPP instance derived from publication McCoy et al. 2025 (Bennu silicates, N
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -8079,7 +8079,7 @@ empaTAPP instance derived from publication McCoy et al. 2025 (Bennu carbonates, 
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -8556,7 +8556,7 @@ empaTAPP instance derived from publication McCoy et al. 2025 (Bennu phosphates, 
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -8940,7 +8940,7 @@ empaTAPP instance derived from publication Pang et al. 2016 (NWA 8003 eucrite, S
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -9166,7 +9166,7 @@ empaTAPP instance derived from publication Pang et al. 2016 (NWA 8003 eucrite pl
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -9305,7 +9305,7 @@ description: EMPA-specific extension of the base TAPP definition. Adds top-level
   column from tappDefinition); each catalog file is itself a JSON Schema whose examples[0]
   carries the canonical instance. Generated from docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py.
 allOf:
-- $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml
 - type: object
   properties:
     ada:beamMode:
@@ -9345,171 +9345,171 @@ allOf:
           type: array
           items:
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analysisOrder
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCorrectionMethod
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCountingPosition
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCountingTime
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/blankCorrection
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimitMethod
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/edsDeadTime
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/elementEstimationMethod
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/epmaTechnique
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferenceCorrection
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferenceCorrectionStandard
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferingElements
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/monochromatorCrystal
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/normalization-standardsCorrection
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/peakCountingTime
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/primaryCalibrationStandard
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/pulseHeightAnalyzeSetting
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/secondaryReferenceMaterial
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spectrometerNumber
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/timeDependentIntensityCorrection
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalAnalyticalAccuracy
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalAnalyticalPrecision
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalCountingStatisticsError
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalDetectionLimit
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/wdsDetectorType
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/xrayEmissionLine
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analysisOrder
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCorrectionMethod
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCountingPosition
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCountingTime
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/blankCorrection
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimitMethod
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/edsDeadTime
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/elementEstimationMethod
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/epmaTechnique
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferenceCorrection
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferenceCorrectionStandard
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferingElements
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/monochromatorCrystal
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/normalization-standardsCorrection
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/peakCountingTime
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/primaryCalibrationStandard
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/pulseHeightAnalyzeSetting
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/secondaryReferenceMaterial
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spectrometerNumber
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/timeDependentIntensityCorrection
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalAnalyticalAccuracy
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalAnalyticalPrecision
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalCountingStatisticsError
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalDetectionLimit
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/wdsDetectorType
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/xrayEmissionLine
           allOf:
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analysisOrder
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analysisOrder
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCorrectionMethod
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCorrectionMethod
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCountingPosition
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCountingPosition
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCountingTime
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/backgroundCountingTime
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/blankCorrection
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/blankCorrection
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimitMethod
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimitMethod
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/edsDeadTime
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/edsDeadTime
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/elementEstimationMethod
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/elementEstimationMethod
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/epmaTechnique
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/epmaTechnique
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferenceCorrection
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferenceCorrection
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferenceCorrectionStandard
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferenceCorrectionStandard
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferingElements
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferingElements
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/monochromatorCrystal
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/monochromatorCrystal
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/normalization-standardsCorrection
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/normalization-standardsCorrection
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/peakCountingTime
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/peakCountingTime
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/primaryCalibrationStandard
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/primaryCalibrationStandard
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/pulseHeightAnalyzeSetting
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/pulseHeightAnalyzeSetting
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/secondaryReferenceMaterial
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/secondaryReferenceMaterial
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spectrometerNumber
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spectrometerNumber
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/timeDependentIntensityCorrection
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/timeDependentIntensityCorrection
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalAnalyticalAccuracy
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalAnalyticalAccuracy
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalAnalyticalPrecision
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalAnalyticalPrecision
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalCountingStatisticsError
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalCountingStatisticsError
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalDetectionLimit
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/typicalDetectionLimit
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/wdsDetectorType
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/wdsDetectorType
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/xrayEmissionLine
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/xrayEmissionLine
             minContains: 0
             maxContains: 1
     ada:methodParameters:
       type: array
       items:
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/BeamDamageMinimization
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/DriftCorrection
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/edsSpectralProcessingType
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/halogenOxygenCorrection
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/massAbsorptionCoefficients
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/wdsDeadTimeCorrection
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/BeamDamageMinimization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/DriftCorrection
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/edsSpectralProcessingType
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/halogenOxygenCorrection
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/massAbsorptionCoefficients
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/wdsDeadTimeCorrection
       allOf:
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/BeamDamageMinimization
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/BeamDamageMinimization
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/DriftCorrection
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/DriftCorrection
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/edsSpectralProcessingType
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/edsSpectralProcessingType
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/halogenOxygenCorrection
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/halogenOxygenCorrection
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/massAbsorptionCoefficients
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/massAbsorptionCoefficients
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/wdsDeadTimeCorrection
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/wdsDeadTimeCorrection
         minContains: 0
         maxContains: 1
     schema:instrument:
@@ -9615,8 +9615,8 @@ allOf:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/schema.yaml)
 
 
 # JSON-LD Context
@@ -9643,16 +9643,16 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/context.jsonld)
 
 ## Sources
 
-* [TAPP_EPMA_filled.xlsx (Components / TAPP worksheet)](https://github.com/usgin/geochemBuildingBlocks/tree/main/docs)
+* [TAPP_EPMA_filled.xlsx (Components / TAPP worksheet)](https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs)
 
 # For developers
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/techniqueProtocols/empaTAPP`
 

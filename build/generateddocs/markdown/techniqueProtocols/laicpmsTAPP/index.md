@@ -206,7 +206,7 @@ laicpmsTAPP instance derived from publication LA-ICPMS spot analysis mode. Prope
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -607,7 +607,7 @@ laicpmsTAPP instance derived from publication LA-ICPMS transect / line-scan mode
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -1008,7 +1008,7 @@ laicpmsTAPP instance derived from publication LA-ICPMS 2-D mapping mode. Propert
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -1259,7 +1259,7 @@ description: LA-ICPMS-specific extension of the base TAPP definition. Adds top-l
   carries the canonical instance. Generated from docs/TAPP_LAICPMS_filled.xlsx by
   tools/build_TAPP_from_spreadsheet.py.
 allOf:
-- $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml
 - type: object
   properties:
     ada:spotGeometryDefault:
@@ -1304,116 +1304,116 @@ allOf:
           type: array
           items:
             anyOf:
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrection
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrectionMethod
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analyticalAccuracy
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analyticalAccuracyMethod
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/betweenSessionReproducibility
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/betweenSessionReproducibilityMethod
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimit
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimitMethod
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferingSpecies
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/limitOfQuantification
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spectrometerDwellTime
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotIdentifier
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotXCoordinate
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotYCoordinate
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/withinSessionReproducibility
-            - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/withinSessionReproducibilityMethod
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrection
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrectionMethod
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analyticalAccuracy
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analyticalAccuracyMethod
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/betweenSessionReproducibility
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/betweenSessionReproducibilityMethod
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimit
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimitMethod
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferingSpecies
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/limitOfQuantification
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spectrometerDwellTime
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotIdentifier
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotXCoordinate
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotYCoordinate
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/withinSessionReproducibility
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/withinSessionReproducibilityMethod
           allOf:
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrection
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrection
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrectionMethod
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/IsobaricInterferenceCorrectionMethod
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analyticalAccuracy
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analyticalAccuracy
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analyticalAccuracyMethod
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/analyticalAccuracyMethod
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/betweenSessionReproducibility
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/betweenSessionReproducibility
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/betweenSessionReproducibilityMethod
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/betweenSessionReproducibilityMethod
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimit
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimit
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimitMethod
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/detectionLimitMethod
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferingSpecies
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/interferingSpecies
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/limitOfQuantification
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/limitOfQuantification
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spectrometerDwellTime
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spectrometerDwellTime
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotIdentifier
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotIdentifier
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotXCoordinate
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotXCoordinate
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotYCoordinate
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/spotYCoordinate
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/withinSessionReproducibility
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/withinSessionReproducibility
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/withinSessionReproducibilityMethod
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/analyteColumns/schema.yaml#/$defs/withinSessionReproducibilityMethod
             minContains: 0
             maxContains: 1
     ada:methodParameters:
       type: array
       items:
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/DriftMonitorFrequency
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/LaserPulseDuration
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/MatrixOffseCorrection
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/SessionDurationLimit
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/WarmUpTime
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/DriftMonitorFrequency
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/LaserPulseDuration
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/MatrixOffseCorrection
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/SessionDurationLimit
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/WarmUpTime
       allOf:
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/DriftMonitorFrequency
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/DriftMonitorFrequency
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/LaserPulseDuration
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/LaserPulseDuration
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/MatrixOffseCorrection
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/MatrixOffseCorrection
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/SessionDurationLimit
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/SessionDurationLimit
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/WarmUpTime
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterTemplates/schema.yaml#/$defs/WarmUpTime
         minContains: 0
         maxContains: 1
     schema:instrument:
@@ -1471,8 +1471,8 @@ allOf:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/schema.yaml)
 
 
 # JSON-LD Context
@@ -1499,16 +1499,16 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/laicpmsTAPP/context.jsonld)
 
 ## Sources
 
-* [LA-ICPMS_TAPP_v8.xlsx (TAPP worksheet)](https://github.com/usgin/geochemBuildingBlocks/tree/main/docs)
+* [LA-ICPMS_TAPP_v8.xlsx (TAPP worksheet)](https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs)
 
 # For developers
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/techniqueProtocols/laicpmsTAPP`
 

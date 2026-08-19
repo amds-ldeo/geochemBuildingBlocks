@@ -41,7 +41,7 @@ A tabular data file containing MC-ICP-MS isotope ratio results.
       "ada": "https://ada.astromat.org/metadata/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/context.jsonld"
   ],
   "@type": [
     "cdi:TabularTextDataSet",
@@ -114,7 +114,7 @@ allOf:
       type: string
       x-jsonld-id: https://ada.astromat.org/metadata/coordUnits
     ada:spatialRegistration:
-      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.yaml
+      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.yaml
       x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
   required:
   - '@type'
@@ -129,8 +129,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.yaml)
 
 
 # JSON-LD Context
@@ -148,7 +148,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/context.jsonld)
 
 ## Sources
 
@@ -158,6 +158,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/geochemProperties/tabularData`
 

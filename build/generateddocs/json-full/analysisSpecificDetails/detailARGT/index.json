@@ -11,7 +11,7 @@
   "register": "cdif-building-block-register",
   "version": "0.1",
   "dateOfLastChange": "2026-06-04",
-  "link": "https://github.com/usgin/geochemBuildingBlocks",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
   "tags": [
@@ -28,20 +28,20 @@
   ],
   "shaclShapes": {
     "ogch.analysisSpecificDetails.detailARGT": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailARGT/rules.shacl"
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailARGT/rules.shacl"
     ]
   },
-  "ldContext": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailARGT/context.jsonld",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailARGT/context.jsonld",
   "schema": {
-    "application/yaml": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailARGT/schema.yaml",
-    "application/json": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailARGT/schema.json"
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailARGT/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailARGT/schema.json"
   },
-  "sourceSchema": "https://usgin.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailARGT/schema.yaml",
-  "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailARGT/context.jsonld",
-  "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailARGT/resolvedProperties.json",
-  "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailARGT/",
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailARGT/schema.yaml",
+  "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailARGT/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailARGT/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/analysisSpecificDetails/detailARGT/",
   "validationPassed": false,
-  "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/analysisSpecificDetails/detailARGT/",
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/analysisSpecificDetails/detailARGT/",
   "description": "# ARGT Instrument Detail\n\nARGT (Argon) document type with phase and isotope analysis.\n",
   "examples": [
     {
@@ -53,23 +53,23 @@
       "snippets": [
         {
           "language": "json",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailARGT/example_1_1.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailARGT/example_1_1.json",
           "code": "{\n  \"@type\": [\"ada:ARGTDocument\"],\n  \"ada:phaseAnalyzed\": \"sanidine\",\n  \"ada:isotopeType\": \"40Ar/39Ar\"\n}\n"
         },
         {
           "language": "jsonld",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailARGT/example_1_1.jsonld",
-          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailARGT/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:ARGTDocument\"\n  ],\n  \"ada:phaseAnalyzed\": \"sanidine\",\n  \"ada:isotopeType\": \"40Ar/39Ar\"\n}"
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailARGT/example_1_1.jsonld",
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailARGT/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:ARGTDocument\"\n  ],\n  \"ada:phaseAnalyzed\": \"sanidine\",\n  \"ada:isotopeType\": \"40Ar/39Ar\"\n}"
         },
         {
           "language": "ttl",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailARGT/example_1_1.ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/analysisSpecificDetails/detailARGT/example_1_1.ttl",
           "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:ARGTDocument ;\n    ada:isotopeType \"40Ar/39Ar\" ;\n    ada:phaseAnalyzed \"sanidine\" .\n\n"
         }
       ]
     }
   ],
   "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ARGT Instrument Detail\ndescription: ARGT (Argon) document type with phase and isotope analysis\ntype: object\nproperties:\n  ada:componentType:\n    const: ada:ARGTDocument\n    x-jsonld-id: https://ada.astromat.org/metadata/componentType\n  ada:phaseAnalyzed:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/phaseAnalyzed\n  ada:isotopeType:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/isotopeType\nrequired:\n- ada:componentType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n",
-  "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/analysisSpecificDetails/detailARGT"
 }

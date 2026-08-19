@@ -723,7 +723,7 @@ def _generate_bblock_json(cfg: dict) -> str:
         "register": "cdif-building-block-register",
         "version": "0.1",
         "dateOfLastChange": "2026-02-12",
-        "link": "https://github.com/usgin/geochemBuildingBlocks",
+        "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
         "maturity": "draft",
         "scope": "unstable",
         "tags": tags,

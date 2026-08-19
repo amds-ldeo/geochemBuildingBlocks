@@ -41,7 +41,7 @@ Pixel coordinate system registration for a spatially registered image map.
     {
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/context.jsonld"
   ],
   "ada:basemap": "basemap_BSE_001.tif",
   "ada:originX": 0.0,
@@ -135,8 +135,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/schema.yaml)
 
 
 # JSON-LD Context
@@ -151,7 +151,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/spatialRegistration/context.jsonld)
 
 ## Sources
 
@@ -161,6 +161,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/geochemProperties/spatialRegistration`
 

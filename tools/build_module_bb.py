@@ -206,12 +206,12 @@ def write_bb(name, doc, stats, composed_by):
           "status": "under-development", "dateTimeAddition": f"{today}T00:00:00Z",
           "itemClass": "schema", "register": "cdif-building-block-register",
           "version": "0.1", "dateOfLastChange": today,
-          "link": "https://github.com/usgin/geochemBuildingBlocks",
+          "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
           "maturity": "draft", "scope": "unstable",
           "tags": ["ada", "astromat", "tapp", "composition-module", "profile",
                    re.sub(r"(?<!^)(?=[A-Z])", "-", name).lower()],
           "sources": [{"title": f"TAPP Module {name} (2026-08-11 library)",
-                       "link": "https://github.com/usgin/geochemBuildingBlocks"},
+                       "link": "https://github.com/amds-ldeo/geochemBuildingBlocks"},
                       {"title": "ADA Metadata Schema v3",
                        "link": "https://github.com/amds-ldeo/metadata"}]}
     with open(os.path.join(d, "bblock.json"), "w", encoding="utf-8", newline="\n") as f:

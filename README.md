@@ -117,7 +117,7 @@ This repository imports shared schema.org and CDIF property building blocks from
 
 ## Viewer
 
-Browse the building blocks at: https://usgin.github.io/geochemBuildingBlocks/
+Browse the building blocks at: https://amds-ldeo.github.io/geochemBuildingBlocks/
 
 ## Tools
 

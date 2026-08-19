@@ -1117,7 +1117,7 @@ def _write_catalog_registry(
             ("register", "cdif-building-block-register"),
             ("version", "0.1"),
             ("dateOfLastChange", "2026-05-20"),
-            ("link", "https://github.com/usgin/geochemBuildingBlocks"),
+            ("link", "https://github.com/amds-ldeo/geochemBuildingBlocks"),
             ("maturity", "draft"),
             ("scope", "unstable"),
             ("tags", bblock_tags),

@@ -11,7 +11,7 @@
   "register": "cdif-building-block-register",
   "version": "0.1",
   "dateOfLastChange": "2026-06-04",
-  "link": "https://github.com/usgin/geochemBuildingBlocks",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
   "tags": [
@@ -28,7 +28,7 @@
   ],
   "shaclShapes": {
     "ogch.geochemProperties.instrument": [
-      "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/rules.shacl"
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.instrument": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
@@ -61,17 +61,17 @@
   "dependsOn": [
     "cdif.bbr.metadata.schemaorgProperties.instrument"
   ],
-  "ldContext": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/context.jsonld",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/context.jsonld",
   "schema": {
-    "application/yaml": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.yaml",
-    "application/json": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.json"
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/schema.json"
   },
-  "sourceSchema": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/schema.yaml",
-  "sourceLdContext": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/context.jsonld",
-  "resolvedSchemaProperties": "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/resolvedProperties.json",
-  "sourceFiles": "https://usgin.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/",
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/schema.yaml",
+  "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/geochemProperties/instrument/",
   "validationPassed": false,
-  "testOutputs": "https://github.com/usgin/geochemBuildingBlocks/blob/main/build/tests/geochemProperties/instrument/",
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/geochemProperties/instrument/",
   "description": "# ADA Analysis Instrument\n\nExtends the core CDIF [instrument](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/) building block for ADA analytical instruments. Instruments are typed as `schema:Thing` + `schema:Product` (from core) with domain-specific classifications in `schema:additionalType` (e.g. `nxs:BaseClass/NXinstrument`, `ada:AMSInstrument`).\n\nInherits all core instrument properties: hierarchical sub-components via `schema:hasPart`, manufacturer, model, ownership, calibration properties, and linked resources.\n",
   "examples": [
     {
@@ -84,23 +84,23 @@
       "snippets": [
         {
           "language": "json",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/instrument/example_1_1.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/geochemProperties/instrument/example_1_1.json",
           "code": "{\n  \"@type\": [\"schema:Thing\", \"schema:Product\"],\n  \"schema:name\": \"JEOL JXA-8530F Electron Microprobe\",\n  \"schema:description\": \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\",\n  \"schema:identifier\": \"https://www.wikidata.org/wiki/Q116917974\",\n  \"schema:additionalType\": [\"nxs:BaseClass/NXinstrument\", \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\"]\n}\n"
         },
         {
           "language": "jsonld",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/instrument/example_1_1.jsonld",
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"http://purl.org/nexusformat/definitions/\"\n    },\n    \"https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Thing\",\n    \"schema:Product\"\n  ],\n  \"schema:name\": \"JEOL JXA-8530F Electron Microprobe\",\n  \"schema:description\": \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\",\n  \"schema:identifier\": \"https://www.wikidata.org/wiki/Q116917974\",\n  \"schema:additionalType\": [\n    \"nxs:BaseClass/NXinstrument\",\n    \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\"\n  ]\n}"
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/geochemProperties/instrument/example_1_1.jsonld",
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"http://purl.org/nexusformat/definitions/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/instrument/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Thing\",\n    \"schema:Product\"\n  ],\n  \"schema:name\": \"JEOL JXA-8530F Electron Microprobe\",\n  \"schema:description\": \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\",\n  \"schema:identifier\": \"https://www.wikidata.org/wiki/Q116917974\",\n  \"schema:additionalType\": [\n    \"nxs:BaseClass/NXinstrument\",\n    \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\"\n  ]\n}"
         },
         {
           "language": "ttl",
-          "url": "https://usgin.github.io/geochemBuildingBlocks/build/tests/geochemProperties/instrument/example_1_1.ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/geochemProperties/instrument/example_1_1.ttl",
           "code": "@prefix schema1: <http://schema.org/> .\n\n[] a schema1:Product,\n        schema1:Thing ;\n    schema1:additionalType \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\",\n        \"nxs:BaseClass/NXinstrument\" ;\n    schema1:description \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\" ;\n    schema1:identifier \"https://www.wikidata.org/wiki/Q116917974\" ;\n    schema1:name \"JEOL JXA-8530F Electron Microprobe\" .\n\n"
         }
       ]
     }
   ],
   "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA Analysis Instrument\ndescription: ADA analytical instrument building block. Extends the core CDIF instrument\n  building block with NeXus NXinstrument classification via additionalType. Instruments\n  are typed as schema:Thing + schema:Product (from core) with domain-specific types\n  (e.g. nxs:BaseClass/NXinstrument, ada:AMSInstrument) in additionalType.\nallOf:\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/instrument/schema.yaml\n- type: object\n  properties:\n    schema:additionalType:\n      description: Domain-specific instrument type classifications. Should include\n        a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific\n        identifier (e.g. ada:AMSInstrument, GCMD instrument identifier).\n      type: array\n      items:\n        type: string\n      minItems: 1\n      x-jsonld-id: http://schema.org/additionalType\n  required:\n  - schema:additionalType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  nxs: http://purl.org/nexusformat/definitions/\n",
-  "gitRepository": "https://github.com/usgin/geochemBuildingBlocks",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/geochemProperties/instrument"
 }

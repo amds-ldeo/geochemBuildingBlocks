@@ -4,7 +4,7 @@ description: Technique-specific profile for Two-Step Laser Mass Spectrometry (L2
   products. Extends the base ADA product profile with constraints on valid L2MS component
   types and detailL2MS requirements.
 allOf:
-- $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml
 - type: object
   properties:
     schema:additionalType:
@@ -25,7 +25,7 @@ allOf:
             items:
               type: object
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
               - properties:
                   ada:componentType:
                     type: string
@@ -33,7 +33,7 @@ allOf:
                     - ada:L2MSOverviewImage
                 required:
                 - ada:componentType
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailL2MS/schema.yaml
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailL2MS/schema.yaml
             x-jsonld-id: http://schema.org/hasPart
       x-jsonld-id: http://schema.org/distribution
     schema:subjectOf:

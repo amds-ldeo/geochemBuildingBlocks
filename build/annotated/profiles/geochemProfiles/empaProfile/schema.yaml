@@ -3,7 +3,7 @@ title: EMPA Geochem Profile
 description: Geochem dataset profile for EMPA. Extends adaProduct with a detailEMPA
   detail block and a schema:measurementTechnique that points at a empaTAPP TAPP definition.
 allOf:
-- $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml
 - type: object
   properties:
     schema:measurementTechnique:
@@ -16,7 +16,7 @@ allOf:
             format: uri
         required:
         - '@id'
-      - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/schema.yaml
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/empaTAPP/schema.yaml
     schema:distribution:
       type: array
       items:
@@ -25,5 +25,5 @@ allOf:
           schema:hasPart:
             items:
               anyOf:
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
-              - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.yaml
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/profiles/adaProfiles/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.yaml

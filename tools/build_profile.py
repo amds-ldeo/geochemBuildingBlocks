@@ -268,7 +268,7 @@ def _bblock(cfg):
             "abstract": f"Path-driven ADA product profile for {cfg['title']}.",
             "status": "under-development", "dateTimeAddition": "2026-08-04T00:00:00Z",
             "itemClass": "schema", "register": "cdif-building-block-register", "version": "0.1",
-            "dateOfLastChange": "2026-08-04", "link": "https://github.com/usgin/geochemBuildingBlocks",
+            "dateOfLastChange": "2026-08-04", "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
             "maturity": "draft", "scope": "unstable",
             "tags": ["ada", "astromat", "profile", "geochem", "path-driven"]}
 

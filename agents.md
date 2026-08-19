@@ -78,7 +78,7 @@ Profiles additionally compose base schemas via `allOf` references.
 
 - **Identifier prefix:** `ogch.` (e.g. `ogch.BaseSchema.instrument`, `ogch.techniqueProfile.EMPA.detail`, `ogch.BaseSchema.adaProduct`; was `ada.bbr.metadata.`)
 - **Import source:** `https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json`
-- **Viewer URL:** `https://usgin.github.io/geochemBuildingBlocks/`
+- **Viewer URL:** `https://amds-ldeo.github.io/geochemBuildingBlocks/`
 
 ## componentType architecture (canonical mapping in spreadsheet)
 

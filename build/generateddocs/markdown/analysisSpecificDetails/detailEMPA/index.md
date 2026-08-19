@@ -34,7 +34,7 @@ Electron Microprobe Analysis detail with spectrometer and signal information.
     {
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/context.jsonld"
   ],
   "@type": [
     "ada:EMPAQEATabular"
@@ -107,10 +107,10 @@ allOf:
         the parameters you have values for."
       items:
         anyOf:
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/acceleratingVoltage
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/beamDiameter
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/BeamRasterDimension
-        - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/reportedAnalyte
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/acceleratingVoltage
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/beamDiameter
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/BeamRasterDimension
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProtocols/parameterValues/schema.yaml#/$defs/reportedAnalyte
         - type: object
           description: Catch-all for additional schema:PropertyValue entries beyond
             those enumerated in the empaTAPP-derived catalog above.
@@ -142,8 +142,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/schema.yaml)
 
 
 # JSON-LD Context
@@ -159,7 +159,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/analysisSpecificDetails/detailEMPA/context.jsonld)
 
 ## Sources
 
@@ -169,6 +169,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/analysisSpecificDetails/detailEMPA`
 

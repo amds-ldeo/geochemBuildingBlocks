@@ -59,7 +59,7 @@ no schema:contentUrl.
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/context.jsonld"
   ],
   "@type": [
     "ada:image",
@@ -198,7 +198,7 @@ allOf:
         type: string
       x-jsonld-id: http://schema.org/encodingFormat
     ada:resultTarget:
-      $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
+      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/stringArray/schema.yaml
       x-jsonld-id: https://ada.astromat.org/metadata/resultTarget
     schema:relatedLink:
       type: array
@@ -236,14 +236,14 @@ allOf:
             x-jsonld-id: http://schema.org/target
       x-jsonld-id: http://schema.org/relatedLink
 - anyOf:
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/image/schema.yaml
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/imageMap/schema.yaml
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.yaml
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/collection/schema.yaml
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/schema.yaml
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/document/schema.yaml
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/supDocImage/schema.yaml
-  - $ref: https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/otherFile/schema.yaml
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/image/schema.yaml
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/imageMap/schema.yaml
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/tabularData/schema.yaml
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/collection/schema.yaml
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/dataCube/schema.yaml
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/document/schema.yaml
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/supDocImage/schema.yaml
+  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/otherFile/schema.yaml
   - type: object
     properties:
       '@type':
@@ -261,8 +261,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema.json)
-* JSON version: [schema.json](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/schema.yaml)
 
 
 # JSON-LD Context
@@ -281,7 +281,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://usgin.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/geochemProperties/files/context.jsonld)
 
 ## Sources
 
@@ -291,6 +291,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/usgin/geochemBuildingBlocks](https://github.com/usgin/geochemBuildingBlocks)
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
 * Path: `_sources/geochemProperties/files`
 
