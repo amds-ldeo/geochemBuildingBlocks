@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol — Garvie2008-2",
-  "schema:description": "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v11.xlsx).",
+  "schema:description": "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v14.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -56,6 +56,7 @@
       {
         "schema:name": "Sample preparation",
         "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
+        "ada:coarseMillingConditionsDefault": "30 kV, 10 pA Ga beam",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -77,24 +78,11 @@
         "schema:position": 2
       },
       {
-        "schema:name": "Ion milling",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/coarseMillingConditionsDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "coarseMillingConditionsDefault",
-            "schema:name": "Coarse Milling Conditions",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "30 kV, 10 pA Ga beam"
-          }
-        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -220,5 +208,6 @@
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
   "ada:segmentationMethod3DDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

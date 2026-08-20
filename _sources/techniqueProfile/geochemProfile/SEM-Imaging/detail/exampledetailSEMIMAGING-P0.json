@@ -21,6 +21,7 @@
         "schema:name": "example laboratory",
         "schema:identifier": "example laboratoryId"
       },
+      "schema:identifier": "example sessionIdentifier",
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
       "schema:actionProcess": {
@@ -68,20 +69,8 @@
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
           "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier",
           "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/semImagingTAPP/samplePersistentIdentifier",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/samplePersistentIdentifier"
-                }
-              ],
-              "schema:name": "Sample Persistent Identifier",
-              "schema:value": "example value"
-            },
             {
               "@id": "ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening",
               "@type": [
@@ -98,46 +87,20 @@
           ]
         }
       ],
-      "prov:used": [
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "example acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "example dataReductionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            }
-          ]
-        },
-        {
-          "schema:instrument": [
-            {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:acceleratingVoltage": 1.0,
-              "ada:workingDistance": 1.0,
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "example instrumentName"
-            }
-          ]
-        }
-      ],
       "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semImagingTAPP/targetSelectionCriteria",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/targetSelectionCriteria"
+            }
+          ],
+          "schema:name": "Target Selection Criteria",
+          "schema:value": "example value"
+        },
         {
           "@id": "ada:parameter/semImagingTAPP/chamberPressure",
           "@type": [
@@ -178,6 +141,45 @@
           "schema:value": 1
         },
         {
+          "@id": "ada:parameter/semImagingTAPP/clIntegrationTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/clIntegrationTime"
+            }
+          ],
+          "schema:name": "CL Integration Time",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semImagingTAPP/ebsdStepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/ebsdStepSize"
+            }
+          ],
+          "schema:name": "EBSD Step Size",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semImagingTAPP/ebsdPhaseList",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/ebsdPhaseList"
+            }
+          ],
+          "schema:name": "EBSD Phase List",
+          "schema:value": "example value"
+        },
+        {
           "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference",
           "@type": [
             "schema:PropertyValue"
@@ -191,7 +193,73 @@
           "schema:value": "example value"
         }
       ],
-      "ada:clIntegrationTime": 1.0,
+      "prov:used": [
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataProcessingSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                    }
+                  ],
+                  "schema:name": "Working Distance",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "example instrumentName"
+            }
+          ]
+        }
+      ],
       "schema:description": "example additionalNotes"
     }
   ],
@@ -229,10 +297,7 @@
       "schema:target": "example coupledDatasetOrPublicationReference"
     }
   ],
-  "ada:clWavelengthRange": "example clGrating",
-  "ada:stepSize": 1.0,
   "ada:frameTime": 1.0,
-  "ada:phaseList": "example ebsdPhaseList",
   "ada:indexingMethod": "Hough transform",
   "ada:patternQualityThreshold": "example ebsdPatternQualityThreshold",
   "ada:meanAngularDeviation": 1.0,

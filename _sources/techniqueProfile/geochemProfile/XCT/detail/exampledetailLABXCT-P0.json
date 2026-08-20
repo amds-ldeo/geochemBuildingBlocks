@@ -82,19 +82,6 @@
           "schema:value": "example value"
         },
         {
-          "@id": "ada:parameter/labxctTAPP/samplePreparationNotes",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/labxctTAPP/samplePreparationNotes"
-            }
-          ],
-          "schema:name": "Sample Preparation Notes",
-          "schema:value": "example value"
-        },
-        {
           "@id": "ada:parameter/labxctTAPP/xRayPower",
           "@type": [
             "schema:PropertyValue"
@@ -137,6 +124,33 @@
           "schema:unitText": "example value"
         },
         {
+          "@id": "ada:parameter/labxctTAPP/rotationRange",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/rotationRange"
+            }
+          ],
+          "schema:name": "Rotation Range",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/numberOfProjections",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/numberOfProjections"
+            }
+          ],
+          "schema:name": "Number of Projections",
+          "schema:value": 1
+        },
+        {
           "@id": "ada:parameter/labxctTAPP/rotationStepSize",
           "@type": [
             "schema:PropertyValue"
@@ -147,6 +161,20 @@
             }
           ],
           "schema:name": "Rotation Step Size",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/exposureTimePerProjection",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/exposureTimePerProjection"
+            }
+          ],
+          "schema:name": "Exposure Time per Projection",
           "schema:value": 1,
           "schema:unitText": "example value"
         },
@@ -174,6 +202,32 @@
             }
           ],
           "schema:name": "Detector Binning",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/rotationMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/rotationMode"
+            }
+          ],
+          "schema:name": "Rotation Mode",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/targetSelectionCriteria",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/targetSelectionCriteria"
+            }
+          ],
+          "schema:name": "Target Selection Criteria",
           "schema:value": "example value"
         },
         {
@@ -226,6 +280,19 @@
             }
           ],
           "schema:name": "CT Number Calibration",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/segmentationMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/segmentationMethod"
+            }
+          ],
+          "schema:name": "Segmentation Method",
           "schema:value": "example value"
         },
         {
@@ -320,52 +387,12 @@
           "schema:value": "example value"
         }
       ],
-      "prov:used": [
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "example acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "example segmentationAndAnalysisSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            }
-          ]
-        },
-        {
-          "schema:instrument": [
-            {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:acceleratingVoltage": 1.0,
-              "ada:tubeCurrent": 1.0,
-              "ada:xRayPreFilter": "example xRayPreFilter",
-              "ada:voxelSize": 1.0,
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "example instrumentName"
-            }
-          ]
-        }
-      ],
-      "ada:rotationRange": 1.0,
-      "ada:numberOfProjections": 1,
-      "ada:exposureTimePerProjection": 1.0,
       "schema:actionProcess": {
         "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "example samplePreparationNotes"
+          },
           {
             "schema:name": "Data reduction",
             "schema:additionalProperty": [
@@ -412,9 +439,102 @@
           }
         ]
       },
-      "ada:rotationMode": "Step rotation (stop-and-shoot)",
-      "ada:segmentationMethod": "Global threshold (single CT number boundary)",
-      "schema:description": "example additionalNotes"
+      "prov:used": [
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataProcessingSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "XCT",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                    }
+                  ],
+                  "schema:name": "Tube Current",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                    }
+                  ],
+                  "schema:name": "X-ray Pre-filter",
+                  "schema:value": "example value"
+                },
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/voxelSize"
+                    }
+                  ],
+                  "schema:name": "Voxel Size",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "example instrumentName"
+            }
+          ]
+        }
+      ],
+      "schema:description": "example additionalNotes",
+      "schema:identifier": "example sessionIdentifier"
     }
   ],
   "schema:measurementTechnique": [

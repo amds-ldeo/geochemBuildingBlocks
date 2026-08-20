@@ -199,31 +199,6 @@ properties:
               - schema:name
               - schema:value
             - &id004
-              title: Sample Preparation Notes
-              description: Any preparation steps applied to the sample before scanning, including cleaning,
-                trimming, consolidation, or drying. XCT is typically non-destructive with no surface preparation
-                required; note any exceptions.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/labxctTAPP/samplePreparationNotes
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/labxctTAPP/samplePreparationNotes
-                schema:name:
-                  const: Sample Preparation Notes
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - &id005
               title: X-ray Power
               description: 'X-ray tube power in watts (W) registered by the procedure. Derivable as voltage
                 (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size
@@ -256,7 +231,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id006
+            - &id005
               title: Source-to-Object Distance (SOD)
               description: Distance from the X-ray source focal spot to the centre of the sample rotation
                 axis, in mm, as registered by the procedure. Together with SDD, determines geometric magnification
@@ -286,7 +261,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id007
+            - &id006
               title: Source-to-Detector Distance (SDD)
               description: Distance from the X-ray source focal spot to the detector surface, in mm, as
                 registered by the procedure. Together with SOD, determines geometric magnification M =
@@ -317,7 +292,65 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
+            - &id007
+              title: Rotation Range
+              description: Total angular range over which projection images are acquired, in degrees.
+                Full 360° rotation is standard for cone-beam lab XCT. 180° rotation (half-scan) is sometimes
+                used for faster acquisition but may introduce additional artifacts.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/rotationRange
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/rotationRange
+                schema:name:
+                  const: Rotation Range
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
             - &id008
+              title: Number of Projections
+              description: Total number of equally-spaced projection images acquired over the full rotation
+                range. More projections improve reconstruction quality by reducing under-sampling streak
+                artifacts but increase scan time. For Mode B (multi-volume stitching), this is the number
+                per sub-volume.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/numberOfProjections
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/numberOfProjections
+                schema:name:
+                  const: Number of Projections
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id009
               title: Rotation Step Size
               description: Angular increment between successive projection images, in degrees. Equal to
                 Rotation Range divided by Number of Projections when both are reported; however, some
@@ -349,7 +382,40 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id009
+            - &id010
+              title: Exposure Time per Projection
+              description: 'Duration of X-ray exposure for each individual projection image frame, in
+                seconds, as registered by the procedure. Set as a deliberate choice for the target sample
+                type and voxel size: longer exposures increase SNR at the cost of total scan time. May
+                be adjusted within procedure-allowed bounds for samples that are unusually dense or unusually
+                transparent. If the exposure time was varied across samples within the same procedure
+                or session, report the full range applied (e.g., 0.5–2 s).'
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/exposureTimePerProjection
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/exposureTimePerProjection
+                schema:name:
+                  const: Exposure Time per Projection
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - &id011
               title: Frames Averaged per Projection
               description: Number of individual detector frames acquired and averaged to produce each
                 saved projection image, as registered by the procedure. Frame averaging reduces random
@@ -377,7 +443,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id010
+            - &id012
               title: Detector Binning
               description: Detector pixel binning factor applied during acquisition. Binning combines
                 adjacent pixels (e.g., 2×2 combines 4 pixels into one), reducing effective resolution
@@ -402,7 +468,62 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id011
+            - &id013
+              title: Rotation Mode
+              description: Whether projection images are acquired during continuous sample rotation (faster;
+                may introduce slight motion blur at high rotation speeds) or at discrete step positions
+                with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur).
+                Continuous rotation has been associated with sub-volume rotational mismatch artifacts
+                in multi-volume stitching workflows (Eckley et al. 2025).
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/rotationMode
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/rotationMode
+                schema:name:
+                  const: Rotation Mode
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id014
+              title: Target Selection Criteria
+              description: 'The rules governing which part of the sample is analysed, and why. Covers
+                the criteria applied when choosing grains, aliquots, spots, or a region of interest —
+                size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial
+                position. Distinct from Target Material, which states the material type the procedure
+                is designed for: this field states how, within such a sample, the analysed portion is
+                picked out.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/targetSelectionCriteria
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/targetSelectionCriteria
+                schema:name:
+                  const: Target Selection Criteria
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id015
               title: Reconstruction Convolution Filter
               description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
                 Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother
@@ -428,7 +549,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id012
+            - &id016
               title: Beam Hardening Correction Parameter
               description: Numerical value or setting applied in the software beam hardening correction
                 algorithm for this specific analysis. May be tuned empirically per material type or per
@@ -453,7 +574,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id013
+            - &id017
               title: Ring Artifact Correction Method
               description: Procedure specification for how ring artifacts are handled. Ring artifacts
                 appear as concentric circular bands centred on the rotation axis and arise from defective
@@ -479,7 +600,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id014
+            - &id018
               title: CT Number Calibration
               description: Whether the raw CT grayscale values have been calibrated to physically meaningful
                 units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session
@@ -506,7 +627,31 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id015
+            - &id019
+              title: Segmentation Method
+              description: General approach used to separate distinct phases or features in the reconstructed
+                CT volume. The method must be reported for any quantitative result to be reproducible.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/segmentationMethod
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/segmentationMethod
+                schema:name:
+                  const: Segmentation Method
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id020
               title: Segmentation Threshold Values or Criteria
               description: Specific CT number range(s) or quantitative criteria used to define each segmented
                 phase or feature. Documenting these values enables reproducibility assessment and cross-study
@@ -531,7 +676,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id016
+            - &id021
               title: Phase Identification Method
               description: Method used to assign reconstructed CT number ranges to specific mineral phases
                 or material types. Approaches include comparison to calculated linear attenuation coefficients
@@ -556,7 +701,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id017
+            - &id022
               title: VOI Selection Criteria
               description: Procedure-level rules specifying how the Volume of Interest (VOI) is to be
                 defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at
@@ -582,7 +727,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id018
+            - &id023
               title: Output Bit Depth
               description: Bit depth of the reconstructed 3D volume (number of bits used to encode each
                 voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray
@@ -610,7 +755,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id019
+            - &id024
               title: Total Scan Duration
               description: Total elapsed time for the complete XCT acquisition, from the start of the
                 first projection to the end of the last. For multi-volume acquisitions, this is the combined
@@ -636,7 +781,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id020
+            - &id025
               title: Partial Volume Effect Criteria
               description: Procedure-level specification of how partial volume effects (PVE) are managed
                 in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and
@@ -670,7 +815,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id021
+            - &id026
               title: Cross-Validation Procedure Requirement
               description: Procedure-level specification of what independent analytical validation is
                 required to confirm CT segmentation results, phase identification, or quantitative measurements.
@@ -757,160 +902,21 @@ properties:
           - contains: *id021
             minContains: 0
             maxContains: 1
-        prov:used:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                required:
-                - bios:computationalTool
-              then:
-                properties:
-                  bios:computationalTool:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: acquisition
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Instrument control and data acquisition software used to
-                                  collect raw projection images, including version number. Separate from
-                                  reconstruction and segmentation software.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: dataReduction
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Software used for image segmentation, phase identification,
-                                  and quantitative 3D analysis after reconstruction. Report all packages
-                                  used, with version numbers.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        required:
-                        - ada:toolRole
-            - if:
-                required:
-                - schema:instrument
-              then:
-                properties:
-                  schema:instrument:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: ../../../../BaseSchema/instrument/schema.yaml
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              schema:additionalType:
-                                contains:
-                                  const: XCT
-                            required:
-                            - schema:additionalType
-                          then:
-                            properties:
-                              ada:acceleratingVoltage:
-                                description: 'X-ray tube accelerating voltage in kilovolts (kV) registered
-                                  by the procedure. Determines the maximum X-ray photon energy and controls
-                                  penetration depth and phase contrast. Higher voltages provide greater
-                                  penetration for dense or large samples; lower voltages improve contrast
-                                  between low-density phases. If the voltage was varied across samples
-                                  within the same procedure or session, report the full range applied
-                                  (e.g., 90–115 kV). Note: some sources report this parameter as ''X keV''
-                                  (maximum Bremsstrahlung photon energy) rather than ''X kV'' (tube voltage).
-                                  For polychromatic lab XCT, these are numerically equivalent: E_max [keV]
-                                  = V [kV]. Record the value as originally reported, and add a parenthetical
-                                  note if the unit used is keV.'
-                                anyOf:
-                                - type: number
-                                - type: string
-                              ada:tubeCurrent:
-                                description: X-ray tube current in microamperes (µA) registered by the
-                                  procedure. Controls photon flux and therefore projection image SNR.
-                                  Higher current improves SNR but increases thermal loading on the source
-                                  and may increase focal spot size. If the current was varied across samples
-                                  within the same procedure or session, report the full range applied
-                                  (e.g., 65–115 µA).
-                                anyOf:
-                                - type: number
-                                - type: string
-                              ada:xRayPreFilter:
-                                description: Material and thickness of the beam-hardening filter placed
-                                  between the X-ray source and the sample. Hardens the beam by attenuating
-                                  low-energy photons, reducing beam hardening artifacts and improving
-                                  CT number stability across the sample. Both filter material and thickness
-                                  must be reported. Instrument-proprietary filter codes should be decoded
-                                  where possible.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                              ada:voxelSize:
-                                description: Isotropic voxel edge length of the reconstructed 3D volume
-                                  in micrometres. The procedure registers the target voxel size, set based
-                                  on the smallest feature to be resolved (target voxel size ≤ ~1/3 of
-                                  that feature size; see the criterion recorded under Partial Volume Effect
-                                  Criteria). At analysis level, record the achieved voxel size as reported
-                                  by the reconstruction software, which may differ slightly from the target
-                                  due to final geometric calibration.
-                                anyOf:
-                                - type: number
-                                - type: string
-                    allOf:
-                    - contains:
-                        properties:
-                          schema:additionalType:
-                            contains:
-                              const: XCT
-                        required:
-                        - schema:additionalType
-        ada:rotationRange:
-          description: Total angular range over which projection images are acquired, in degrees. Full
-            360° rotation is standard for cone-beam lab XCT. 180° rotation (half-scan) is sometimes used
-            for faster acquisition but may introduce additional artifacts.
-          anyOf:
-          - type: number
-          - type: string
-        ada:numberOfProjections:
-          description: Total number of equally-spaced projection images acquired over the full rotation
-            range. More projections improve reconstruction quality by reducing under-sampling streak artifacts
-            but increase scan time. For Mode B (multi-volume stitching), this is the number per sub-volume.
-          anyOf:
-          - type: integer
-          - type: string
-        ada:exposureTimePerProjection:
-          description: 'Duration of X-ray exposure for each individual projection image frame, in seconds,
-            as registered by the procedure. Set as a deliberate choice for the target sample type and
-            voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted
-            within procedure-allowed bounds for samples that are unusually dense or unusually transparent.
-            If the exposure time was varied across samples within the same procedure or session, report
-            the full range applied (e.g., 0.5–2 s).'
-          anyOf:
-          - type: number
-          - type: string
+          - contains: *id022
+            minContains: 0
+            maxContains: 1
+          - contains: *id023
+            minContains: 0
+            maxContains: 1
+          - contains: *id024
+            minContains: 0
+            maxContains: 1
+          - contains: *id025
+            minContains: 0
+            maxContains: 1
+          - contains: *id026
+            minContains: 0
+            maxContains: 1
         schema:actionProcess:
           type: object
           properties:
@@ -919,6 +925,23 @@ properties:
               items:
                 type: object
                 allOf:
+                - if:
+                    properties:
+                      schema:name:
+                        const: Sample preparation
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:description:
+                        description: Any preparation steps applied to the sample before scanning, including
+                          cleaning, trimming, consolidation, or drying. XCT is typically non-destructive
+                          with no surface preparation required; note any exceptions.
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
                 - if:
                     properties:
                       schema:name:
@@ -931,7 +954,7 @@ properties:
                         type: array
                         items:
                           anyOf:
-                          - &id022
+                          - &id027
                             title: Flat Field Correction
                             description: Whether dark-field (detector read with X-ray source off; electronic
                               noise baseline) and bright-field (source on, no sample; gain calibration)
@@ -957,7 +980,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id023
+                          - &id028
                             title: Sub-volume Stitching and Registration Method
                             description: 'Method used to register adjacent sub-volume datasets to each
                               other and stitch them into a single continuous 3D volume. Report the alignment
@@ -986,7 +1009,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id024
+                          - &id029
                             title: Constants and Reference Values Used
                             description: Physical constants and reference values used in data reduction
                               to calculate the final reported quantity (e.g., decay constants for age
@@ -1017,13 +1040,13 @@ properties:
                             - schema:name
                             - schema:value
                         allOf:
-                        - contains: *id022
+                        - contains: *id027
                           minContains: 0
                           maxContains: 1
-                        - contains: *id023
+                        - contains: *id028
                           minContains: 0
                           maxContains: 1
-                        - contains: *id024
+                        - contains: *id029
                           minContains: 0
                           maxContains: 1
               allOf:
@@ -1033,39 +1056,253 @@ properties:
                       const: Data reduction
                   required:
                   - schema:name
-        ada:rotationMode:
-          description: Whether projection images are acquired during continuous sample rotation (faster;
-            may introduce slight motion blur at high rotation speeds) or at discrete step positions with
-            the stage stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous
-            rotation has been associated with sub-volume rotational mismatch artifacts in multi-volume
-            stitching workflows (Eckley et al. 2025).
-          type: string
-          enum:
-          - Step rotation (stop-and-shoot)
-          - Continuous rotation
-          - N/A
-          - None
-          - missing
-        ada:segmentationMethod:
-          description: General approach used to separate distinct phases or features in the reconstructed
-            CT volume. The method must be reported for any quantitative result to be reproducible.
-          anyOf:
-          - type: string
-            enum:
-            - Global threshold (single CT number boundary)
-            - Multi-threshold (separate CT number range per phase)
-            - Manual threshold per phase
-            - 'Semi-automated: threshold + morphological filtering'
-            - N/A
-            - None
-            - missing
-          - type: string
+        prov:used:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                required:
+                - bios:computationalTool
+              then:
+                properties:
+                  bios:computationalTool:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                      - type: object
+                        allOf:
+                        - if:
+                            properties:
+                              ada:toolRole:
+                                const: acquisition
+                            required:
+                            - ada:toolRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: Instrument control, automation and data acquisition software
+                                  used to collect the raw data, including version number. Distinct from
+                                  Data Processing Software(s), which covers everything applied to the
+                                  data after acquisition.
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                        - if:
+                            properties:
+                              ada:toolRole:
+                                const: dataReduction
+                            required:
+                            - ada:toolRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: All software applied to the data after acquisition in order
+                                  to produce the reported quantities, including version numbers. List
+                                  every package used. Distinct from Acquisition Software, which controls
+                                  the instrument and collects the raw data.
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                        required:
+                        - ada:toolRole
+            - if:
+                required:
+                - schema:instrument
+              then:
+                properties:
+                  schema:instrument:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: ../../../../BaseSchema/instrument/schema.yaml
+                      - type: object
+                        allOf:
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: XCT
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - &id030
+                                    title: Accelerating Voltage
+                                    description: 'X-ray tube accelerating voltage in kilovolts (kV) registered
+                                      by the procedure. Determines the maximum X-ray photon energy and
+                                      controls penetration depth and phase contrast. Higher voltages provide
+                                      greater penetration for dense or large samples; lower voltages improve
+                                      contrast between low-density phases. If the voltage was varied across
+                                      samples within the same procedure or session, report the full range
+                                      applied (e.g., 90–115 kV). Note: some sources report this parameter
+                                      as ''X keV'' (maximum Bremsstrahlung photon energy) rather than
+                                      ''X kV'' (tube voltage). For polychromatic lab XCT, these are numerically
+                                      equivalent: E_max [keV] = V [kV]. Record the value as originally
+                                      reported, and add a parenthetical note if the unit used is keV.'
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  - &id031
+                                    title: Tube Current
+                                    description: X-ray tube current in microamperes (µA) registered by
+                                      the procedure. Controls photon flux and therefore projection image
+                                      SNR. Higher current improves SNR but increases thermal loading on
+                                      the source and may increase focal spot size. If the current was
+                                      varied across samples within the same procedure or session, report
+                                      the full range applied (e.g., 65–115 µA).
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/tubeCurrent
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/tubeCurrent
+                                      schema:name:
+                                        const: Tube Current
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  - &id032
+                                    title: X-ray Pre-filter
+                                    description: Material and thickness of the beam-hardening filter placed
+                                      between the X-ray source and the sample. Hardens the beam by attenuating
+                                      low-energy photons, reducing beam hardening artifacts and improving
+                                      CT number stability across the sample. Both filter material and
+                                      thickness must be reported. Instrument-proprietary filter codes
+                                      should be decoded where possible.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/xRayPreFilter
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/xRayPreFilter
+                                      schema:name:
+                                        const: X-ray Pre-filter
+                                      schema:value:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                  - &id033
+                                    title: Voxel Size
+                                    description: Isotropic voxel edge length of the reconstructed 3D volume
+                                      in micrometres. The procedure registers the target voxel size, set
+                                      based on the smallest feature to be resolved (target voxel size
+                                      ≤ ~1/3 of that feature size; see the criterion recorded under Partial
+                                      Volume Effect Criteria). At analysis level, record the achieved
+                                      voxel size as reported by the reconstruction software, which may
+                                      differ slightly from the target due to final geometric calibration.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/voxelSize
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/voxelSize
+                                      schema:name:
+                                        const: Voxel Size
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                allOf:
+                                - contains: *id030
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains: *id031
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains: *id032
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains: *id033
+                                  minContains: 0
+                                  maxContains: 1
+                    allOf:
+                    - contains:
+                        properties:
+                          schema:additionalType:
+                            contains:
+                              const: XCT
+                        required:
+                        - schema:additionalType
         schema:description:
           description: 'Any procedure- or analysis-specific information not captured by a structured field
             anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument
             modifications, and supplementary context. Scope is the whole document, not Group 6: this is
             the last field of the TAPP and covers all six groups. Use sparingly; a structured field is
             preferred for anything that can be formally categorised.'
+          type: string
+        schema:identifier:
+          description: Identifier for the analytical session this record describes — the laboratory's
+            own run, sequence or batch identifier as generated by the instrument or acquisition software.
+            The analysis record corresponds to one session, which may cover several samples, and this
+            is the link back to the raw instrument files. Distinct from any persistent identifier a repository
+            mints on submission.
           type: string
   schema:measurementTechnique:
     type: array
@@ -1185,7 +1422,7 @@ properties:
     type: array
     items:
       anyOf:
-      - &id025
+      - &id034
         title: Effective Spatial Resolution (PSF/MTF)
         description: Effective spatial resolution of the reconstructed CT volume, which typically differs
           from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric
@@ -1217,7 +1454,7 @@ properties:
         - schema:propertyID
         - schema:name
         - schema:value
-      - &id026
+      - &id035
         title: Number of Sub-volumes
         description: 'Total number of overlapping sub-volume scans acquired to cover the full sample length.
           This is an analysis-level parameter: the number of sub-volumes depends on the length of the
@@ -1245,7 +1482,7 @@ properties:
         - schema:propertyID
         - schema:name
         - schema:value
-      - &id027
+      - &id036
         title: VOI Applied
         description: Actual Volume of Interest used in this specific analysis, including dimensions or
           defining criteria. Analysis-level companion to VOI Selection Criteria.
@@ -1269,7 +1506,7 @@ properties:
         - schema:propertyID
         - schema:name
         - schema:value
-      - &id028
+      - &id037
         title: Sub-volume Overlap
         description: Actual number of reconstructed slices overlapping between adjacent sub-volumes as
           used in this analysis. May differ from the minimum sub-volume overlap required specified in
@@ -1298,16 +1535,16 @@ properties:
         - schema:name
         - schema:value
     allOf:
-    - contains: *id025
+    - contains: *id034
       minContains: 0
       maxContains: 1
-    - contains: *id026
+    - contains: *id035
       minContains: 0
       maxContains: 1
-    - contains: *id027
+    - contains: *id036
       minContains: 0
       maxContains: 1
-    - contains: *id028
+    - contains: *id037
       minContains: 0
       maxContains: 1
   dqv:hasQualityMeasurement:

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)",
-  "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/EPMA_TAPP_v20.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+  "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v25.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
   "properties": {
     "@context": {
       "type": "object",
@@ -2711,147 +2711,6 @@
       ]
     },
     {
-      "title": "Group1 on the procedure",
-      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
-      "type": "object",
-      "properties": {
-        "schema:name": {
-          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
-          "type": "string"
-        },
-        "schema:measurementTechnique": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "schema:termCode": {
-                "description": "Top-level analytical technique identifier.",
-                "type": "string"
-              }
-            }
-          }
-        },
-        "schema:creator": {
-          "type": "object",
-          "properties": {
-            "schema:name": {
-              "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
-              "type": "string"
-            }
-          }
-        },
-        "schema:location": {
-          "type": "object",
-          "properties": {
-            "schema:name": {
-              "description": "Name of the laboratory or institution hosting the instrument.",
-              "type": "string"
-            },
-            "schema:identifier": {
-              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
-              "type": "string"
-            }
-          }
-        },
-        "schema:datePublished": {
-          "description": "First date this procedure configuration was used in production.",
-          "type": "string"
-        },
-        "schema:funding": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "schema:name": {
-                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
-                "type": "string"
-              }
-            }
-          }
-        },
-        "schema:relatedLink": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "schema:linkRelationship": {
-                      "const": "techniquePublication"
-                    }
-                  },
-                  "required": [
-                    "schema:linkRelationship"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:target": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "schema:linkRelationship": {
-                      "const": "coupledTechnique"
-                    }
-                  },
-                  "required": [
-                    "schema:linkRelationship"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:target": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                          "type": "string"
-                        },
-                        "schema:description": {
-                          "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        }
-      },
-      "required": [
-        "schema:datePublished",
-        "schema:name"
-      ]
-    },
-    {
-      "title": "ReportingCore (all blocks) on the procedure",
-      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
-      "type": "object",
-      "properties": {
-        "ada:targetSelectionCriteriaDefault": {
-          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "ada:targetSelectionCriteriaDefault"
-      ]
-    },
-    {
       "type": "object",
       "properties": {
         "schema:instrument": {
@@ -3148,7 +3007,7 @@
                       "type": "object",
                       "properties": {
                         "schema:name": {
-                          "description": "Make of the instrument used for this procedure.",
+                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
                           "type": "string",
                           "enum": [
                             "JEOL",
@@ -3184,22 +3043,8 @@
                       "type": "object",
                       "properties": {
                         "schema:name": {
-                          "description": "Model of the EPMA instrument.",
+                          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
                           "type": "string",
-                          "enum": [
-                            "JXA-8530F Plus",
-                            "JXA-8230",
-                            "JXA-8200",
-                            "JXA-8100",
-                            "SXFiveTactis",
-                            "SXFive",
-                            "SX100",
-                            "iHP200F",
-                            "Unknown",
-                            "N/A",
-                            "None",
-                            "missing"
-                          ],
                           "readOnly": true
                         }
                       }
@@ -3259,7 +3104,7 @@
                 "then": {
                   "properties": {
                     "schema:name": {
-                      "description": "Data acquisition and automation software, including version number.",
+                      "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -3289,7 +3134,7 @@
                 "then": {
                   "properties": {
                     "schema:name": {
-                      "description": "Software used for matrix correction and quantitative data reduction, if separate from the acquisition software. For mapping workflows, include software used to process count maps into concentration maps.",
+                      "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -3321,8 +3166,14 @@
             "ada:defaultAnalytes": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {}
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
               }
             },
             "ada:analyteColumns": {
@@ -3371,6 +3222,46 @@
                           "ada:cdifPropertyPath"
                         ]
                       }
+                    ]
+                  },
+                  {
+                    "title": "Analyte Estimation Method",
+                    "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/empaTAPP/analyteEstimationMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyteEstimationMethod"
+                      },
+                      "schema:name": {
+                        "const": "Analyte Estimation Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
                     ]
                   },
                   {
@@ -3672,7 +3563,7 @@
                   },
                   {
                     "title": "Counting Statistics Error",
-                    "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities, for each reported concentration variable per analysis.",
+                    "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately: where a procedure reports both, agreement indicates the measurement is shot-noise limited, and a larger observed scatter indicates a further source of variance.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3708,87 +3599,6 @@
                       "schema:valueName",
                       "schema:name",
                       "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Detection Limit",
-                    "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/detectionLimit"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimit"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Detection Limit Method",
-                    "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/detectionLimitMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimitMethod"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
                     ]
                   },
                   {
@@ -3874,12 +3684,12 @@
                     ]
                   },
                   {
-                    "title": "Normalization / Standards-Based Correction",
-                    "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                    "title": "Interference Correction Standard",
+                    "description": "Reference material used to quantify and calibrate the interference correction for this analyte.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/normalizationStandardsBasedCorrection"
+                        "const": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard"
                       },
                       "@type": {
                         "const": [
@@ -3887,16 +3697,97 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "normalizationStandardsBasedCorrection"
+                        "const": "interferenceCorrectionStandard"
                       },
                       "schema:name": {
-                        "const": "Normalization / Standards-Based Correction"
+                        "const": "Interference Correction Standard"
                       },
                       "ada:dataType": {
                         "const": "string"
                       },
                       "schema:readonlyValue": {
-                        "const": false
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Interference Corrections Applied",
+                    "description": "Whether a spectral interference correction was applied for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/empaTAPP/interferenceCorrectionsApplied"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionsApplied"
+                      },
+                      "schema:name": {
+                        "const": "Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "boolean"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Interfering Elements",
+                    "description": "Element(s) whose X-ray lines overlap with the measured peak for this analyte, requiring a correction.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/empaTAPP/interferingElements"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingElements"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Elements"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
                       },
                       "ada:tier": {
                         "const": "R"
@@ -4208,6 +4099,50 @@
               "allOf": [
                 {
                   "contains": {
+                    "title": "Analyte Estimation Method",
+                    "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/empaTAPP/analyteEstimationMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyteEstimationMethod"
+                      },
+                      "schema:name": {
+                        "const": "Analyte Estimation Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
                     "title": "Analytical Accuracy",
                     "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and per-analyte value.",
                     "type": "object",
@@ -4534,7 +4469,7 @@
                 {
                   "contains": {
                     "title": "Counting Statistics Error",
-                    "description": "1-sigma uncertainty propagated from counting statistics on peak and background intensities, for each reported concentration variable per analysis.",
+                    "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately: where a procedure reports both, agreement indicates the measurement is shot-noise limited, and a larger observed scatter indicates a further source of variance.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4570,95 +4505,6 @@
                       "schema:valueName",
                       "schema:name",
                       "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Detection Limit",
-                    "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/detectionLimit"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimit"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Detection Limit Method",
-                    "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/detectionLimitMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimitMethod"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
                     ]
                   },
                   "minContains": 0,
@@ -4756,12 +4602,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Normalization / Standards-Based Correction",
-                    "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                    "title": "Interference Correction Standard",
+                    "description": "Reference material used to quantify and calibrate the interference correction for this analyte.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/normalizationStandardsBasedCorrection"
+                        "const": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard"
                       },
                       "@type": {
                         "const": [
@@ -4769,16 +4615,105 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "normalizationStandardsBasedCorrection"
+                        "const": "interferenceCorrectionStandard"
                       },
                       "schema:name": {
-                        "const": "Normalization / Standards-Based Correction"
+                        "const": "Interference Correction Standard"
                       },
                       "ada:dataType": {
                         "const": "string"
                       },
                       "schema:readonlyValue": {
-                        "const": false
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interference Corrections Applied",
+                    "description": "Whether a spectral interference correction was applied for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/empaTAPP/interferenceCorrectionsApplied"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionsApplied"
+                      },
+                      "schema:name": {
+                        "const": "Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "boolean"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interfering Elements",
+                    "description": "Element(s) whose X-ray lines overlap with the measured peak for this analyte, requiring a correction.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/empaTAPP/interferingElements"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingElements"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Elements"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
                       },
                       "ada:tier": {
                         "const": "R"
@@ -5120,46 +5055,26 @@
             }
           }
         },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
+            "type": "string",
+            "enum": [
+              "WDS Point Analysis",
+              "EDS Point Analysis",
+              "WDS Mapping",
+              "EDS Mapping",
+              "WDS Point Analysis; EDS Point Analysis",
+              "missing"
+            ],
+            "readOnly": true
+          }
+        },
         "schema:additionalProperty": {
           "type": "array",
           "items": {
             "anyOf": [
-              {
-                "title": "Analyte Estimation Method",
-                "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/analyteEstimationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/analyteEstimationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Analyte Estimation Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
               {
                 "title": "Beam Damage Minimization",
                 "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
@@ -5287,47 +5202,6 @@
                 ]
               },
               {
-                "title": "Pre-Analysis Imaging and Screening",
-                "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "preAnalysisImagingAndScreeningDefault"
-                  },
-                  "schema:name": {
-                    "const": "Pre-Analysis Imaging and Screening"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
                 "title": "EDS Spectral Processing Type",
                 "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
                 "type": "object",
@@ -5403,78 +5277,6 @@
                   "ada:dataType",
                   "ada:fieldScope"
                 ]
-              },
-              {
-                "title": "Interference Correction Standard",
-                "description": "Reference material used to quantify and calibrate the interference correction for this analyte.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Interference Correction Standard"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              {
-                "title": "Interfering Elements",
-                "description": "Element(s) whose X-ray lines overlap with the measured peak for this analyte, requiring a correction.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/interferingElements"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/interferingElements"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Interfering Elements"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
               },
               {
                 "title": "Sequence",
@@ -5560,46 +5362,6 @@
           "allOf": [
             {
               "contains": {
-                "title": "Analyte Estimation Method",
-                "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/analyteEstimationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/analyteEstimationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Analyte Estimation Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Beam Damage Minimization",
                 "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
                 "type": "object",
@@ -5738,51 +5500,6 @@
             },
             {
               "contains": {
-                "title": "Pre-Analysis Imaging and Screening",
-                "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "preAnalysisImagingAndScreeningDefault"
-                  },
-                  "schema:name": {
-                    "const": "Pre-Analysis Imaging and Screening"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "EDS Spectral Processing Type",
                 "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
                 "type": "object",
@@ -5862,86 +5579,6 @@
                   "ada:dataType",
                   "ada:fieldScope"
                 ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Interference Correction Standard",
-                "description": "Reference material used to quantify and calibrate the interference correction for this analyte.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Interference Correction Standard"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Interfering Elements",
-                "description": "Element(s) whose X-ray lines overlap with the measured peak for this analyte, requiring a correction.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/interferingElements"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/interferingElements"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Interfering Elements"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -6035,21 +5672,431 @@
             }
           ]
         },
-        "ada:analyticalMode": {
+        "schema:relatedLink": {
           "type": "array",
           "items": {
-            "description": "Primary analytical mode(s) executed under this procedure. For single-mode procedures, records one value (e.g., WDS Point Analysis). For multi-mode procedures (e.g., simultaneous WDS point analysis and EDS mapping), list all applicable modes. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.",
-            "type": "string",
-            "enum": [
-              "WDS Point Analysis",
-              "EDS Point Analysis",
-              "WDS Mapping",
-              "EDS Mapping",
-              "WDS Point Analysis; EDS Point Analysis",
-              "missing"
-            ],
-            "readOnly": true
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "coupledTechnique"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "EBSD",
+                                "SEM-EDS",
+                                "NanoSIMS",
+                                "None",
+                                "N/A",
+                                "missing"
+                              ]
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:description": {
+                          "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "techniquePublication"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
+                          "type": "string",
+                          "readOnly": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
           }
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Detection Limit",
+                "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Detection Limit Method",
+                "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/detectionLimitMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/empaTAPP/detectionLimitMethod"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit Method"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ],
+                "readOnly": true
+              },
+              {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Calibration Factor and Determination Method",
+                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "title": "Detection Limit",
+                "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detection Limit Method",
+                "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/detectionLimitMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/empaTAPP/detectionLimitMethod"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit Method"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ],
+                "readOnly": true
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Calibration Factor and Determination Method",
+                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "calibrationFactorAndDeterminationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "ada:detectionLimitMethod": {
+          "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
+          "type": "string",
+          "readOnly": true
         },
         "ada:dwellTimePerPixelDefault": {
           "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
@@ -6075,6 +6122,158 @@
           ],
           "readOnly": true
         },
+        "schema:object": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "@type": {
+                      "contains": {
+                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:additionalProperty": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:name": {
+                                  "const": "Target Material"
+                                }
+                              },
+                              "required": [
+                                "schema:name"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:value": {
+                                  "type": "array",
+                                  "items": {
+                                    "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",
+                                    "anyOf": [
+                                      {
+                                        "type": "string",
+                                        "enum": [
+                                          "Silicate mineral",
+                                          "Silicate glass",
+                                          "Oxide",
+                                          "Sulfide",
+                                          "Phosphate",
+                                          "Carbonate",
+                                          "Metal alloy",
+                                          "N/A",
+                                          "None",
+                                          "missing"
+                                        ]
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "readOnly": true
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "title": "Pre-Analysis Imaging and Screening",
+                            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "preAnalysisImagingAndScreeningDefault"
+                              },
+                              "schema:name": {
+                                "const": "Pre-Analysis Imaging and Screening"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:name": {
+                                "const": "Target Material"
+                              }
+                            },
+                            "required": [
+                              "schema:name"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "@type": {
+                    "contains": {
+                      "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                    }
+                  }
+                },
+                "required": [
+                  "@type"
+                ]
+              }
+            }
+          ]
+        },
         "ada:edsLiveTimePerPointOrPixelDefault": {
           "description": "EDS spectral acquisition live time per analysis point in seconds. Previously referred to as \"EDS Acquisition Time\" in this TAPP and commonly used under that name in EPMA and SEM-EDS contexts. Renamed to align with TEM-EDS usage, where the per-point vs. per-pixel distinction (point/line mode vs. spectrum image) is explicit. In EPMA, acquisition is always per point.",
           "anyOf": [
@@ -6086,26 +6285,54 @@
             }
           ]
         },
-        "ada:interferenceCorrectionsApplied": {
-          "description": "Whether a spectral interference correction was applied for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
-          "type": "boolean",
-          "readOnly": true
+        "schema:funding": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
+                "type": "string",
+                "readOnly": true
+              }
+            }
+          }
+        },
+        "schema:location": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Name of the laboratory or institution hosting the instrument.",
+              "type": "string"
+            },
+            "schema:identifier": {
+              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+              "type": "string"
+            }
+          }
         },
         "ada:samplingUnit": {
           "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
-          "type": "string",
-          "enum": [
-            "Whole sample",
-            "Aliquot",
-            "Grain",
-            "Spot",
-            "Analysis point",
-            "Phase",
-            "Sub-volume",
-            "Region of interest",
-            "N/A",
-            "None",
-            "missing"
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Whole sample",
+                "Aliquot",
+                "Grain",
+                "Spot",
+                "Analysis point",
+                "Phase",
+                "Sub-volume",
+                "Region of interest",
+                "N/A",
+                "None",
+                "missing"
+              ]
+            },
+            {
+              "type": "string"
+            }
           ]
         },
         "schema:actionProcess": {
@@ -6497,6 +6724,26 @@
           ],
           "readOnly": true
         },
+        "schema:creator": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
+              "type": "string",
+              "readOnly": true
+            }
+          }
+        },
+        "schema:name": {
+          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
+          "type": "string",
+          "readOnly": true
+        },
+        "schema:datePublished": {
+          "description": "First date this procedure configuration was used in production.",
+          "type": "string",
+          "readOnly": true
+        },
         "ada:stepSizePixelSizeDefault": {
           "description": "Distance between adjacent measurement points in the X-ray map in micrometers, defining the spatial resolution. Report both X and Y step if they differ.",
           "anyOf": [
@@ -6508,105 +6755,26 @@
             }
           ]
         },
-        "schema:object": {
+        "schema:measurementTechnique": {
           "type": "array",
           "items": {
             "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "@type": {
-                      "contains": {
-                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                      }
-                    }
-                  },
-                  "required": [
-                    "@type"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:additionalProperty": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:name": {
-                                  "const": "Target Material"
-                                }
-                              },
-                              "required": [
-                                "schema:name"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:value": {
-                                  "type": "array",
-                                  "items": {
-                                    "description": "General description of the material type(s) this procedure is designed to analyze.",
-                                    "type": "string",
-                                    "enum": [
-                                      "Silicate mineral",
-                                      "Silicate glass",
-                                      "Oxide",
-                                      "Sulfide",
-                                      "Phosphate",
-                                      "Carbonate",
-                                      "Metal alloy",
-                                      "N/A",
-                                      "None",
-                                      "missing"
-                                    ],
-                                    "readOnly": true
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      "allOf": [
-                        {
-                          "contains": {
-                            "properties": {
-                              "schema:name": {
-                                "const": "Target Material"
-                              }
-                            },
-                            "required": [
-                              "schema:name"
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "properties": {
-                  "@type": {
-                    "contains": {
-                      "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                    }
-                  }
-                },
-                "required": [
-                  "@type"
-                ]
+            "properties": {
+              "schema:termCode": {
+                "description": "Top-level analytical technique identifier.",
+                "type": "string",
+                "enum": [
+                  "EPMA-WDS",
+                  "EPMA-EDS",
+                  "EPMA-WDS+EDS",
+                  "N/A",
+                  "None",
+                  "missing"
+                ],
+                "readOnly": true
               }
             }
-          ]
+          }
         },
         "ada:wdsDeadTimeCorrection": {
           "description": "Method used to correct for WDS proportional counter dead time at high count rates. Dead time errors are most significant for major elements with high count rates (e.g., Si, Fe, Ca). Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion.",
@@ -6626,30 +6794,32 @@
           ],
           "readOnly": true
         },
-        "ada:reportedPropertyTemplate": {
-          "type": "object",
-          "properties": {
-            "ada:defaultReportedProperties": {
-              "type": "array",
-              "items": {
-                "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
-                "type": "string",
-                "readOnly": true
-              }
-            }
+        "ada:targetSelectionCriteriaDefault": {
+          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+          "type": "string"
+        },
+        "ada:reportedProperties": {
+          "type": "array",
+          "items": {
+            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+            "type": "string",
+            "readOnly": true
           }
         }
       },
       "required": [
+        "ada:detectionLimitMethod",
         "ada:dwellTimePerPixelDefault",
         "ada:edsAcquisitionMode",
         "ada:edsLiveTimePerPointOrPixelDefault",
-        "ada:interferenceCorrectionsApplied",
         "ada:samplingUnit",
         "ada:massAbsorptionCoefficients",
         "ada:matrixCorrectionMethod",
+        "schema:name",
+        "schema:datePublished",
         "ada:stepSizePixelSizeDefault",
-        "ada:wdsDeadTimeCorrection"
+        "ada:wdsDeadTimeCorrection",
+        "ada:targetSelectionCriteriaDefault"
       ]
     }
   ],

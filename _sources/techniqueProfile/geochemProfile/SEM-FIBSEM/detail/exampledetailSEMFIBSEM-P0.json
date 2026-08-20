@@ -21,6 +21,7 @@
         "schema:name": "example laboratory",
         "schema:identifier": "example laboratoryId"
       },
+      "schema:identifier": "example sessionIdentifier",
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
       "schema:actionProcess": {
@@ -41,12 +42,7 @@
                 ],
                 "schema:name": "Protective Coating Deposition",
                 "schema:value": "example value"
-              }
-            ]
-          },
-          {
-            "schema:name": "Ion milling",
-            "schema:additionalProperty": [
+              },
               {
                 "@id": "ada:parameter/semFibsemTAPP/coarseMillingConditions",
                 "@type": [
@@ -59,7 +55,12 @@
                 ],
                 "schema:name": "Coarse Milling Conditions",
                 "schema:value": "example value"
-              },
+              }
+            ]
+          },
+          {
+            "schema:name": "Ion milling",
+            "schema:additionalProperty": [
               {
                 "@id": "ada:parameter/semFibsemTAPP/finePolishingConditions",
                 "@type": [
@@ -129,20 +130,8 @@
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
           "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier",
           "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/semFibsemTAPP/samplePersistentIdentifier",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/samplePersistentIdentifier"
-                }
-              ],
-              "schema:name": "Sample Persistent Identifier",
-              "schema:value": "example value"
-            },
             {
               "@id": "ada:parameter/semFibsemTAPP/preAnalysisImagingAndScreening",
               "@type": [
@@ -159,6 +148,60 @@
           ]
         }
       ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semFibsemTAPP/targetSelectionCriteria",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/targetSelectionCriteria"
+            }
+          ],
+          "schema:name": "Target Selection Criteria",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/semFibsemTAPP/dwellTimePerPixel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/dwellTimePerPixel"
+            }
+          ],
+          "schema:name": "Dwell Time per Pixel",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/semFibsemTAPP/imageRegistration3D",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/imageRegistration3D"
+            }
+          ],
+          "schema:name": "3D Image Registration",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/semFibsemTAPP/segmentationMethod3D",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/segmentationMethod3D"
+            }
+          ],
+          "schema:name": "3D Segmentation Method",
+          "schema:value": "example value"
+        }
+      ],
       "prov:used": [
         {
           "bios:computationalTool": [
@@ -171,7 +214,7 @@
             },
             {
               "ada:toolRole": "dataReduction",
-              "schema:name": "example dataReductionSoftware",
+              "schema:name": "example dataProcessingSoftware",
               "@type": [
                 "schema:SoftwareApplication"
               ]
@@ -187,8 +230,36 @@
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
               ],
-              "ada:acceleratingVoltage": 1.0,
-              "ada:workingDistance": 1.0,
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/workingDistance",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semFibsemTAPP/workingDistance"
+                    }
+                  ],
+                  "schema:name": "Working Distance",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
@@ -198,23 +269,6 @@
           ]
         }
       ],
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/semFibsemTAPP/dwellTimePerPixel",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/semFibsemTAPP/dwellTimePerPixel"
-            }
-          ],
-          "schema:name": "Dwell Time per Pixel",
-          "schema:value": 1
-        }
-      ],
-      "ada:imageRegistration3D": "example imageRegistration3D",
-      "ada:segmentationMethod3D": "example segmentationMethod3D",
       "schema:description": "example additionalNotes"
     }
   ],

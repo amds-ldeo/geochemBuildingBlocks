@@ -21,6 +21,7 @@
         "schema:name": "example laboratory",
         "schema:identifier": "example laboratoryId"
       },
+      "schema:identifier": "example sessionIdentifier",
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
       "schema:actionProcess": {
@@ -55,20 +56,8 @@
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
           "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier",
           "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/semCompositionTAPP/samplePersistentIdentifier",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/semCompositionTAPP/samplePersistentIdentifier"
-                }
-              ],
-              "schema:name": "Sample Persistent Identifier",
-              "schema:value": "example value"
-            },
             {
               "@id": "ada:parameter/semCompositionTAPP/preAnalysisImagingAndScreening",
               "@type": [
@@ -85,47 +74,20 @@
           ]
         }
       ],
-      "prov:used": [
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "example acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "example dataReductionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            }
-          ]
-        },
-        {
-          "schema:instrument": [
-            {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:acceleratingVoltage": 1.0,
-              "ada:beamDiameter": 1.0,
-              "ada:workingDistance": 1.0,
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "example instrumentName"
-            }
-          ]
-        }
-      ],
       "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semCompositionTAPP/targetSelectionCriteria",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/targetSelectionCriteria"
+            }
+          ],
+          "schema:name": "Target Selection Criteria",
+          "schema:value": "example value"
+        },
         {
           "@id": "ada:parameter/semCompositionTAPP/beamRasterDimensions",
           "@type": [
@@ -179,17 +141,18 @@
           "schema:value": 1
         },
         {
-          "@id": "ada:parameter/semCompositionTAPP/dwellTimePerPixel",
+          "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel",
           "@type": [
             "schema:PropertyValue"
           ],
           "schema:propertyID": [
             {
-              "@id": "ada:parameter/semCompositionTAPP/dwellTimePerPixel"
+              "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel"
             }
           ],
-          "schema:name": "Dwell Time per Pixel",
-          "schema:value": 1
+          "schema:name": "EDS Live Time per Point or Pixel",
+          "schema:value": 1,
+          "schema:unitText": "example value"
         },
         {
           "@id": "ada:parameter/semCompositionTAPP/stepSizePixelSize",
@@ -216,9 +179,102 @@
           ],
           "schema:name": "Halogen Correction on Oxygen",
           "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/semCompositionTAPP/proceduralBlankLevel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/proceduralBlankLevel"
+            }
+          ],
+          "schema:name": "Procedural Blank Level",
+          "schema:value": "example value"
         }
       ],
-      "ada:edsLiveTimePerPointOrPixel": 1.0,
+      "prov:used": [
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataProcessingSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/semCompositionTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semCompositionTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/semCompositionTAPP/beamDiameter",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semCompositionTAPP/beamDiameter"
+                    }
+                  ],
+                  "schema:name": "Beam Diameter",
+                  "schema:value": 1
+                },
+                {
+                  "@id": "ada:parameter/semCompositionTAPP/workingDistance",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semCompositionTAPP/workingDistance"
+                    }
+                  ],
+                  "schema:name": "Working Distance",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "example instrumentName"
+            }
+          ]
+        }
+      ],
+      "ada:deadTime": 1.0,
       "schema:description": "example additionalNotes"
     }
   ],
@@ -254,6 +310,22 @@
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
+    }
+  ],
+  "ada:mapDimensions": 1.0,
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semCompositionTAPP/mapArea",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semCompositionTAPP/mapArea"
+        }
+      ],
+      "schema:name": "Map Area",
+      "schema:value": 1
     }
   ]
 }

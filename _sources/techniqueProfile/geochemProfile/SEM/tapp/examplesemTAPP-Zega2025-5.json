@@ -16,12 +16,19 @@
   ],
   "schema:name": "sem protocol — Zega2025-5",
   "schema:description": "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:analyticalMode = EDS mapping; ada:edsAcquisitionMode = EDS mapping.",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
-  },
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford Instruments Aztec Live/x-stream"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Oxford Instruments Aztec"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS"
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -34,23 +41,96 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "schema:object": [
+  "ada:edsAcquisitionMode": "Map",
+  "schema:instrument": [
     {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "EDSDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Electron source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Unknown",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "BSEDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "WDSSpectrometer",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "Hitachi",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "S-4800",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
       "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
+        "schema:Product",
         "schema:Thing"
       ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
-          ]
-        }
-      ]
+      "schema:name": "example instrumentName"
     }
   ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -75,109 +155,40 @@
           "bios:LabProcess"
         ],
         "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion Milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
       }
     ],
     "@type": [
       "schema:HowTo"
     ]
   },
-  "schema:instrument": [
+  "schema:object": [
     {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:manufacturer": {
-        "schema:name": "Hitachi",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "S-4800",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Electron source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:description": "Unknown",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "missing"
-        },
-        {
-          "schema:additionalType": [
-            "EDSDetector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:description": "Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "WDSSpectrometer",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
-        }
-      ],
       "@type": [
-        "schema:Product",
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
         "schema:Thing"
       ],
-      "schema:name": "example instrumentName"
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
+          ]
+        }
+      ]
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford Instruments Aztec Live/x-stream"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Oxford Instruments Aztec"
-    }
-  ],
-  "ada:analyticalMode": [
-    "EDS"
-  ],
-  "ada:edsAcquisitionMode": "Map",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -187,13 +198,23 @@
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
+  "ada:clAcquisitionMode": "missing",
+  "ada:clIntegrationTimeDefault": -9999,
+  "ada:clWavelengthRange": -9999,
+  "ada:ebsdDetectorConfiguration": "missing",
+  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdStepSizeDefault": -9999,
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
+  "ada:imageRegistration3DDefault": "missing",
+  "ada:liftOutMethod": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
+  "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
 }

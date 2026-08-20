@@ -46,27 +46,9 @@
       "schema:name": "example fundingSourceForProcedureDevelopment"
     }
   ],
+  "ada:samplingUnit": "Whole sample",
+  "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
   "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "samplePreparationDetailsDefault",
-      "schema:name": "Sample Preparation Details",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/preAnalysisImagingAndScreeningDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "preAnalysisImagingAndScreeningDefault",
-      "schema:name": "Pre-Analysis Imaging and Screening",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
     {
       "@id": "ada:parameter/temTAPP/sampleHolderDefault",
       "@type": [
@@ -74,26 +56,6 @@
       ],
       "schema:valueName": "sampleHolderDefault",
       "schema:name": "Sample Holder",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/saedPatternSimulationSoftwareDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "saedPatternSimulationSoftwareDefault",
-      "schema:name": "SAED Pattern Simulation Software",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/temObjectiveApertureDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "temObjectiveApertureDefault",
-      "schema:name": "TEM Objective Aperture",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
     },
@@ -269,26 +231,6 @@
       "schema:value": "example value"
     },
     {
-      "@id": "ada:parameter/temTAPP/eelsBackgroundSubtractionMethodDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "eelsBackgroundSubtractionMethodDefault",
-      "schema:name": "EELS Background Subtraction Method",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsPluralScatteringCorrectionDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "eelsPluralScatteringCorrectionDefault",
-      "schema:name": "EELS Plural Scattering Correction",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
       "@id": "ada:parameter/temTAPP/edsSpectralProcessingType",
       "@type": [
         "schema:PropertyValue"
@@ -300,16 +242,6 @@
       ],
       "schema:name": "EDS Spectral Processing Type",
       "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "imageProcessingMethodsAppliedDefault",
-      "schema:name": "Image Processing Methods Applied",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/temTAPP/specimenThicknessDeterminationMethodDefault",
@@ -360,20 +292,8 @@
       "schema:name": "EDS Counting Statistics / Accumulation Criterion",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsSensitivityAndDetectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "eelsSensitivityAndDetectionLimitDefault",
-      "schema:name": "EELS Sensitivity and Detection Limit",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
     }
   ],
-  "ada:samplingUnit": "Whole sample",
-  "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalMode": [
     "TEM Imaging"
@@ -384,15 +304,17 @@
   "ada:cameraLengthDefault": 1.0,
   "ada:edsAcquisitionModeDefault": "Point analysis",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
+  "ada:reportedProperties": [
+    "example reportedVariablesAndUnits"
+  ],
   "ada:eelsAcquisitionModeDefault": "Point spectrum",
-  "ada:eelsEdgesDefault": "example eelsEdges",
+  "ada:eelsEdgesDefault": [
+    "example eelsEdges"
+  ],
   "ada:eelsCollectionSemiAngle": 1.0,
   "ada:eelsAcquisitionTimePerSpectrumDefault": 1.0,
   "ada:eelsEnergyLossRangeDefault": "example eelsEnergyLossRange",
   "ada:phaseIdentificationMethod": "Manual d-spacing comparison to ICDD PDF database",
-  "ada:calibrationFactorAndDeterminationMethodDefault": "example calibrationFactorAndDeterminationMethod",
-  "ada:analysisInclusionAndRejectionCriteria": "example analysisInclusionAndRejectionCriteria",
-  "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
   "ada:edsCalibrationStandardDefault": "example edsCalibrationStandard",
   "schema:description": "example additionalNotes"
 }
