@@ -49,6 +49,41 @@ FILLS = {
         "authored, and Basic/Editable like every target; the competing temTAPP variant is "
         "bootstrap-inferred",
         "data-reduction step parameter, following geochronTAPP"),
+    # --- wave-1 triage, reviewer-decided 2026-08-20. Each was flagged in SEM_Composition and
+    # --- already placed elsewhere; the two that had rival placements were decided explicitly.
+    "Analysis Inclusion and Rejection Criteria": (
+        "empaTAPP",
+        "reviewer: the EPMA/SEM data-reduction step parameter is correct; TEM's bare "
+        "ada:analysisInclusionAndRejectionCriteria was bootstrap-inferred and has been realigned",
+        "data-reduction step parameter"),
+    "EDS Dead Time": (
+        "temTAPP",
+        "reviewer tie-break between two authored placements: TEM's ada:deadTime wins over the "
+        "additionalProperty form, which has been realigned in EPMA and SEM",
+        "analysis-instance dead time, following temTAPP"),
+    "EDS Map Dimensions": (
+        "semTAPP",
+        "the only placement, authored",
+        "map dimensions on the dataset"),
+    "Map Area": (
+        "empaTAPP",
+        "identical authored placement in empaTAPP and semTAPP",
+        "shared analysis-instance row"),
+    "Procedural Blank Level": (
+        "empaTAPP",
+        "identical authored placement in empaTAPP and semTAPP",
+        "shared analysis-instance row"),
+    "Session Identifier": (
+        "semTAPP",
+        "reviewer's standing rule: the session identifier is always the analysis activity's own "
+        "schema:identifier, in every technique",
+        "analysis-session identifier"),
+    "Target Selection Criteria": (
+        "empaTAPP",
+        "authored by hand in empaTAPP, semTAPP and labxctTAPP with the identical path; the only "
+        "competing variant is the bootstrap-inferred dual-home pair in the LA family and temTAPP, "
+        "and an inferred path is not independent evidence",
+        "procedure default, following the authored empaTAPP/semTAPP placement"),
     "Reported Variables and Units": (
         "geochronTAPP",
         "the only placement; authored as the reported-property pilot",
