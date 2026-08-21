@@ -491,6 +491,33 @@ def write(path, text):
     print("wrote", os.path.relpath(path, ROOT))
 
 
+GEN_INDEX_DIR = os.path.join(ROOT, "build", "gen_index")
+
+
+def write_gen_index(prefix, **fields):
+    """Record what the generator emitted for this TAPP, under build/.
+
+    The index is the audit trail between the workbook's publication evidence and the schema: each
+    `basic_props` entry carries the coverage count that decided whether the property is required.
+
+    One shape, one place. It used to be written to docs/new_tapps202606/ - a June-2026 branch name,
+    under the hand-authored source tree, for a purely generated file - and the legacy EMPA path
+    wrote a DIFFERENT set of keys to the same filename, so a consumer could not tell which shape it
+    had without inspecting it. Every key below is always present; a path with nothing to say for one
+    passes an empty list.
+    """
+    keys = ("tapp_props", "pt_keys", "pv_keys", "analyte_cols", "detail_req",
+            "detail_req_multivol", "component_types", "basic_required", "basic_props")
+    unknown = set(fields) - set(keys)
+    if unknown:
+        raise ValueError("unknown gen_index field(s): %s" % ", ".join(sorted(unknown)))
+    os.makedirs(GEN_INDEX_DIR, exist_ok=True)
+    out = {k: fields.get(k, []) for k in keys}
+    path = os.path.join(GEN_INDEX_DIR, prefix + "_gen_index.json")
+    with open(path, "w", encoding="utf-8", newline=chr(10)) as fh:
+        json.dump(out, fh, indent=1)
+
+
 def write_bblock_if_missing(bb_dir, name, abstract, tags, register="cdif-building-block-register"):
     """Scaffold a registered-BB bblock.json once (left untouched if present, so re-runs
     don't churn it)."""
@@ -871,15 +898,15 @@ def build():
     write_bblock_if_missing(DETAIL_DIR, CFG["detail_title"], CFG["detail_description"],
                             ["ada", "astromat", "instrument", CFG["prefix"].lower()])
 
-    os.makedirs(os.path.join(ROOT, "docs", "new_tapps202606"), exist_ok=True)
-    json.dump({"tapp_props": list(tapp_props.keys()), "pt_keys": pt_keys, "pv_keys": pv_keys,
-               "analyte_cols": acols, "detail_req": [b["name"] for b in R["detail_req"]],
-               "detail_req_multivol": [b["name"] for b in R["detail_req"] if b["multivol_only"]],
-               "component_types": CFG["component_types"], "basic_required": basic_required,
-               "basic_props": [{"key": "ada:" + b["name"] + ("Default" if b["A"] == "Editable" else ""),
-                                "item": b["item"], "jtype": b["jtype"], "cov": b["cov"],
-                                "required": b["cov"] > 0} for b in R["tapp_prop"]]},
-              open(os.path.join(ROOT, "docs", "new_tapps202606", CFG["prefix"] + "_gen_index.json"), "w"), indent=1)
+    write_gen_index(
+        CFG["prefix"],
+        tapp_props=list(tapp_props.keys()), pt_keys=pt_keys, pv_keys=pv_keys,
+        analyte_cols=acols, detail_req=[b["name"] for b in R["detail_req"]],
+        detail_req_multivol=[b["name"] for b in R["detail_req"] if b["multivol_only"]],
+        component_types=CFG["component_types"], basic_required=basic_required,
+        basic_props=[{"key": "ada:" + b["name"] + ("Default" if b["A"] == "Editable" else ""),
+                      "item": b["item"], "jtype": b["jtype"], "cov": b["cov"],
+                      "required": b["cov"] > 0} for b in R["tapp_prop"]])
     print(f"DONE {TAPP}: tapp_prop={len(R['tapp_prop'])} method_param={len(pt_keys)} "
           f"detail_req={len(R['detail_req'])} detail_addl={len(pv_keys)} analyteCols={len(acols)} vocab={len(R['vocab'])}")
 
@@ -1169,15 +1196,18 @@ def build_empa():
     L._write_examples_yaml(examples_yaml)
     print(f"  wrote {n_tapp} empaTAPP + {n_detail} detailEMPA examples")
 
-    os.makedirs(os.path.join(ROOT, "docs", "new_tapps202606"), exist_ok=True)
-    json.dump({"schema_properties": [k for k, _ in cls["schema_properties"]],
-               "required_props": cls["required_props"],
-               "analyte_column_names": sorted(cls["analyte_column_names"]),
-               "parameter_names": sorted(cls["parameter_names"]),
-               "detail_param_names": sorted(cls["detail_param_names"]),
-               "basic_props": [{"key": k, "required": k in set(cls["required_props"])}
-                               for k, _ in cls["schema_properties"]]},
-              open(os.path.join(ROOT, "docs", "new_tapps202606", "empa_gen_index.json"), "w"), indent=1)
+    # Same shape as the matrix route: this path has no coverage counts or detail split, so those
+    # fields are simply empty rather than a differently-named set of keys.
+    write_gen_index(
+        "empa",
+        tapp_props=[k for k, _ in cls["schema_properties"]],
+        basic_required=cls["required_props"],
+        analyte_cols=sorted(cls["analyte_column_names"]),
+        pt_keys=sorted(cls["parameter_names"]),
+        pv_keys=sorted(cls["detail_param_names"]),
+        component_types=CFG["component_types"],
+        basic_props=[{"key": k, "required": k in set(cls["required_props"])}
+                     for k, _ in cls["schema_properties"]])
     print(f"DONE empaTAPP: props={len(cls['schema_properties'])} "
           f"(required {len(cls['required_props'])}) params={len(cls['parameter_names'])} "
           f"analyteCols={len(cls['analyte_column_names'])} detailValues={len(cls['detail_param_names'])}")
