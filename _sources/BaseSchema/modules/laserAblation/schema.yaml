@@ -219,3 +219,307 @@ $defs:
         - type: string
     required:
     - ada:spotDiameterMeasured
+  Param_Analysis_preAblationSurfaceTreatment:
+    title: Pre Ablation Surface Treatment
+    description: Procedure applied immediately before each analysis to remove surface contamination or
+      condition the sample surface. Distinct from general sample preparation. For spot analysis, pre-ablation
+      pulses are discarded before signal acquisition begins. For mapping, this step is typically omitted
+      as the large area ablated averages out surface effects.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/preAblationSurfaceTreatment
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/module/LaserAblation/preAblationSurfaceTreatment
+      schema:name:
+        const: Pre Ablation Surface Treatment
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  Param_Procedure_preAblationSurfaceTreatment:
+    title: Pre Ablation Surface Treatment
+    description: Procedure applied immediately before each analysis to remove surface contamination or
+      condition the sample surface. Distinct from general sample preparation. For spot analysis, pre-ablation
+      pulses are discarded before signal acquisition begins. For mapping, this step is typically omitted
+      as the large area ablated averages out surface effects.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAblationSurfaceTreatmentDefault
+      schema:name:
+        const: Pre Ablation Surface Treatment
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  Param_Analysis_laserEnergy:
+    title: Laser Energy
+    description: Laser pulse energy in millijoules as set at the laser output or measured at the sample
+      surface. Less commonly reported than fluence because it does not account for spot area. Report only
+      when the system displays energy directly. Laser fluence (J cm⁻²) is the preferred quantity and is
+      captured in Default Laser Fluence.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/laserEnergy
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/module/LaserAblation/laserEnergy
+      schema:name:
+        const: Laser Energy
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  Param_Procedure_laserEnergy:
+    title: Laser Energy
+    description: Laser pulse energy in millijoules as set at the laser output or measured at the sample
+      surface. Less commonly reported than fluence because it does not account for spot area. Report only
+      when the system displays energy directly. Laser fluence (J cm⁻²) is the preferred quantity and is
+      captured in Default Laser Fluence.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/laserEnergyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: laserEnergyDefault
+      schema:name:
+        const: Laser Energy
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mJ
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  Param_Procedure_laserBeamEnergyProfile:
+    title: Laser Beam Energy Profile
+    description: Spatial energy distribution of the laser beam at the sample surface, and whether a beam
+      homogenizer is installed. A flat-top (top-hat) profile produces more uniform ablation craters and
+      more reproducible crater morphology than a Gaussian beam. This is a fixed hardware property of the
+      laser system.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/laserBeamEnergyProfile
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: laserBeamEnergyProfile
+      schema:name:
+        const: Laser Beam Energy Profile
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  Param_Procedure_laserPulseDuration:
+    title: Laser Pulse Duration
+    description: 'Duration of each individual laser pulse, including units. Pulse duration determines
+      the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation;
+      femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix
+      effects. This is a fixed hardware property of the laser system.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/laserPulseDuration
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: laserPulseDuration
+      schema:name:
+        const: Laser Pulse Duration
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  Param_Analysis_transectRateMappingRateOrStepSize:
+    title: Transect Rate Mapping Rate or Step Size
+    description: 'For continuous line scan (transect) and raster mapping: the stage translation speed
+      in µm s⁻¹. This is the procedure-level parameter that, together with spot size and repetition rate,
+      determines spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹)
+      may be reported as an alternative when scan speed is session-variable. For stepped line profiles:
+      the distance between successive spot positions in µm.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize
+      schema:name:
+        const: Transect Rate Mapping Rate or Step Size
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  Param_Procedure_transectRateMappingRateOrStepSize:
+    title: Transect Rate Mapping Rate or Step Size
+    description: 'For continuous line scan (transect) and raster mapping: the stage translation speed
+      in µm s⁻¹. This is the procedure-level parameter that, together with spot size and repetition rate,
+      determines spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹)
+      may be reported as an alternative when scan speed is session-variable. For stepped line profiles:
+      the distance between successive spot positions in µm.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: transectRateMappingRateOrStepSizeDefault
+      schema:name:
+        const: Transect Rate Mapping Rate or Step Size
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  Param_Analysis_transectLength:
+    title: Transect Length
+    description: Total length of the transect line analysed in micrometres. This is an analysis-level
+      parameter because it depends on the size of the feature of interest rather than being fixed in the
+      procedure. The procedure fixes scan speed (captured in Transect Rate, Mapping Rate or Step Size);
+      transect length is determined at analysis time based on grain or feature size.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/transectLength
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/module/LaserAblation/transectLength
+      schema:name:
+        const: Transect Length
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  Param_Analysis_mappedAreaDescription:
+    title: Mapped area description
+    description: 'Location of the analysis on the sample surface. For spot and transect analysis: stage
+      coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim,
+      inclusion boundary). For mapping: coordinates of the map corner(s) or centre, plus map dimensions.
+      Enables spatial reconstruction and co-registration with other analytical images.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/mappedAreaDescription
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/module/LaserAblation/mappedAreaDescription
+      schema:name:
+        const: Mapped area description
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value

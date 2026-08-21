@@ -173,6 +173,666 @@
                     ]
                 }
             }
+        },
+        "Param_Procedure_faradayCupArrayConfiguration": {
+            "title": "Faraday Cup Array Configuration",
+            "description": "Description of the multi-collector Faraday cup array. Specify the total number of Faraday cup detectors (fixed and moveable), their labeled positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune), and the presence and position of any ion counter (SEM) or Daly detector in the collector block. The number and span of cups constrains which isotope combinations can be simultaneously collected.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "faradayCupArrayConfiguration"
+                },
+                "schema:name": {
+                    "const": "Faraday Cup Array Configuration"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Procedure_faradayCupAmplifierResistorValues": {
+            "title": "Faraday Cup Amplifier Resistor Values",
+            "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. High-gain amplifiers (10¹² or 10¹³ Ω) are fitted to selected cups to improve signal-to-noise for very low-intensity beams (e.g., 234U, low-abundance spike isotopes). Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/faradayCupAmplifierResistorValues"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "faradayCupAmplifierResistorValues"
+                },
+                "schema:name": {
+                    "const": "Faraday Cup Amplifier Resistor Values"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Procedure_faradayCupGainCalibrationMethod": {
+            "title": "Faraday Cup Gain Calibration Method",
+            "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Relative gain differences between amplifiers cause systematic errors in isotope ratios if uncorrected. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/faradayCupGainCalibrationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "faradayCupGainCalibrationMethod"
+                },
+                "schema:name": {
+                    "const": "Faraday Cup Gain Calibration Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Analysis_numberOfBlocksPerMeasurement": {
+            "title": "Number of Blocks per Measurement",
+            "description": "Number of measurement blocks acquired per sample or standard solution introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks per sample allow inspection of signal stability and within-measurement drift. Procedure specifies the standard number; analyst may adjust for samples with low signal or for high-precision requirements.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Number of Blocks per Measurement"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "Param_Procedure_numberOfBlocksPerMeasurement": {
+            "title": "Number of Blocks per Measurement",
+            "description": "Number of measurement blocks acquired per sample or standard solution introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks per sample allow inspection of signal stability and within-measurement drift. Procedure specifies the standard number; analyst may adjust for samples with low signal or for high-precision requirements.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "numberOfBlocksPerMeasurementDefault"
+                },
+                "schema:name": {
+                    "const": "Number of Blocks per Measurement"
+                },
+                "ada:dataType": {
+                    "const": "integer"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Analysis_numberOfCyclesPerBlock": {
+            "title": "Number of Cycles per Block",
+            "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement). Procedure specifies the standard value; analyst may adjust within procedure bounds.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Number of Cycles per Block"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "Param_Procedure_numberOfCyclesPerBlock": {
+            "title": "Number of Cycles per Block",
+            "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement). Procedure specifies the standard value; analyst may adjust within procedure bounds.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "numberOfCyclesPerBlockDefault"
+                },
+                "schema:name": {
+                    "const": "Number of Cycles per Block"
+                },
+                "ada:dataType": {
+                    "const": "integer"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Analysis_integrationTimePerCycle": {
+            "title": "Integration Time per Cycle",
+            "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Integration Time per Cycle"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "Param_Procedure_integrationTimePerCycle": {
+            "title": "Integration Time per Cycle",
+            "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "integrationTimePerCycleDefault"
+                },
+                "schema:name": {
+                    "const": "Integration Time per Cycle"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:unitText": {
+                    "const": "s"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Procedure_baselineMeasurementApproach": {
+            "title": "Baseline Measurement Approach",
+            "description": "Method and timing for measuring the ion beam baseline (on-peak zero) during acquisition, and the portion of the acquisition it is taken from. Three approaches are in use and the choice depends on how sample reaches the plasma: deflecting the ion beam (beam-off or electrostatic deflector); aspirating an acid blank, which applies only to solution introduction; or, for laser ablation, collecting a defined number of laser-off cycles at the start of the same block, since no blank can be aspirated mid-ablation. State which, and how many cycles or how long.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/baselineMeasurementApproach"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "baselineMeasurementApproach"
+                },
+                "schema:name": {
+                    "const": "Baseline Measurement Approach"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Procedure_massFractionationLaw": {
+            "title": "Mass Fractionation Law",
+            "description": "Mathematical law used to parameterize instrumental isotope mass fractionation as a function of mass difference. The exponential law (Maréchal et al. 1999) is most widely used and theoretically best justified for MC-ICP-MS. The linear law assumes fractionation proportional to mass difference. The power law is an alternative formulation. For double-spike procedures, the law is embedded in the inversion algorithm and must be consistent between spike calibration and sample data reduction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/massFractionationLaw"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "massFractionationLaw"
+                },
+                "schema:name": {
+                    "const": "Mass Fractionation Law"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Procedure_doubleSpikeIsotopePair": {
+            "title": "Double Spike Isotope Pair",
+            "description": "The pair of enriched isotopes used to construct the double spike. Both isotopes must be naturally rare, free from isobaric interferences, and chosen to minimize error magnification in the inversion. The double spike composition must be accurately calibrated before use. Specify both isotope masses and the spike certificate or calibration reference. Record 'N/A' if double-spike method is not used. Record 'N/A' where the procedure does not use a double spike.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "doubleSpikeIsotopePair"
+                },
+                "schema:name": {
+                    "const": "Double Spike Isotope Pair"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Analysis_doubleSpikeMixingRatio": {
+            "title": "Double Spike Mixing Ratio",
+            "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal mixing ratio minimizes error propagation through the double-spike inversion; the optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if double-spike method is not used. Record 'N/A' where the procedure does not use a double spike.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Double Spike Mixing Ratio"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "Param_Procedure_doubleSpikeMixingRatio": {
+            "title": "Double Spike Mixing Ratio",
+            "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal mixing ratio minimizes error propagation through the double-spike inversion; the optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if double-spike method is not used. Record 'N/A' where the procedure does not use a double spike.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "doubleSpikeMixingRatioDefault"
+                },
+                "schema:name": {
+                    "const": "Double Spike Mixing Ratio"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Procedure_doubleSpikeInversionAlgorithm": {
+            "title": "Double-Spike Inversion Algorithm",
+            "description": "Mathematical algorithm used to simultaneously solve for the true sample isotope ratio and the mass fractionation factor from the measured spike-sample mixture. Common implementations: iterative Newton-Raphson solution, matrix algebraic approach, or published software (e.g., Rudge et al. 2009 Double Spike Toolbox). Specify the algorithm or software reference and version. Record 'N/A' if double-spike method is not used. Record 'N/A' where the procedure does not use a double spike.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/doubleSpikeInversionAlgorithm"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "doubleSpikeInversionAlgorithm"
+                },
+                "schema:name": {
+                    "const": "Double-Spike Inversion Algorithm"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "Param_Procedure_peakFlatnessMethodAndThreshold": {
+            "title": "Peak Flatness Method and Threshold",
+            "description": "Method used to verify that every collector sits on a flat region of its peak top simultaneously, and the acceptance threshold applied before analysis begins. Specific to simultaneous collection: a sequential instrument centres one mass at a time, whereas a multi-collector array must have all cups on flat peak tops at once or the measured ratio carries a peak-shape bias that no downstream correction removes. Typically assessed by scanning across the peak plateau, or by comparing ratios measured at slightly offset mass positions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/module/MCICPMS/peakFlatnessMethodAndThreshold"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "peakFlatnessMethodAndThreshold"
+                },
+                "schema:name": {
+                    "const": "Peak Flatness Method and Threshold"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
         }
     }
 }

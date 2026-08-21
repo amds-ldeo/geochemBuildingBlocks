@@ -4,6 +4,522 @@
     "description": "Registry of reusable schema:PropertyValueSpecification channel column definitions derived from technique TAPP workbooks. Each $def constrains one column of the channel table, a channel being an instrument selection position -- a mass, a Faraday cup, an energy-loss edge, an X-ray line -- as distinct from the analyte measured on it. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
     "type": "object",
     "$defs": {
+        "empa_backgroundCountingTime": {
+            "title": "Background Counting Time",
+            "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:channelColumn/empaTAPP/backgroundCountingTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "backgroundCountingTime"
+                },
+                "schema:name": {
+                    "const": "Background Counting Time"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "anyOf": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "empa_backgroundPosition": {
+            "title": "Background Position(s)",
+            "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:channelColumn/empaTAPP/backgroundPosition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "backgroundPosition"
+                },
+                "schema:name": {
+                    "const": "Background Position(s)"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "empa_diffractingCrystal": {
+            "title": "Diffracting Crystal",
+            "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:channelColumn/empaTAPP/diffractingCrystal"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/empaTAPP/diffractingCrystal"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Diffracting Crystal"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "ada:dataType",
+                "schema:value"
+            ]
+        },
+        "empa_dwellTimePerPixel": {
+            "title": "Dwell Time per Pixel",
+            "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:channelColumn/empaTAPP/dwellTimePerPixel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "dwellTimePerPixel"
+                },
+                "schema:name": {
+                    "const": "Dwell Time per Pixel"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "anyOf": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "empa_peakCountingTime": {
+            "title": "Peak Counting Time",
+            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:channelColumn/empaTAPP/peakCountingTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "peakCountingTime"
+                },
+                "schema:name": {
+                    "const": "Peak Counting Time"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "anyOf": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "empa_proportionalCounterDetector": {
+            "title": "Proportional Counter / Detector",
+            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:channelColumn/empaTAPP/proportionalCounterDetector"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/empaTAPP/proportionalCounterDetector"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Proportional Counter / Detector"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "empa_sequence": {
+            "title": "Sequence",
+            "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:channelColumn/empaTAPP/sequence"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/empaTAPP/sequence"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sequence"
+                },
+                "ada:dataType": {
+                    "const": "integer"
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "anyOf": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "empa_wdsPhaSetting": {
+            "title": "WDS PHA Setting",
+            "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:channelColumn/empaTAPP/wdsPhaSetting"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/empaTAPP/wdsPhaSetting"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "WDS PHA Setting"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "empa_xRayLine": {
+            "title": "X-ray Line",
+            "description": "X-ray emission line measured on each spectrometer assignment. Line choice affects sensitivity, matrix correction accuracy, and susceptibility to peak overlap and spectral interference.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:channelColumn/empaTAPP/xRayLine"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/empaTAPP/xRayLine"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "X-ray Line"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "ada:dataType",
+                "schema:value"
+            ]
+        },
         "laMcicpms_faradayCupAmplifierResistorValues": {
             "title": "Faraday Cup Amplifier Resistor Values",
             "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. High-gain amplifiers (10¹² or 10¹³ Ω) are fitted to selected cups to improve signal-to-noise for very low-intensity beams (e.g., 234U, low-abundance spike isotopes). Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
@@ -1433,15 +1949,19 @@
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:analyteColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
+                    "const": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
                 },
                 "@type": {
                     "const": [
-                        "schema:PropertyValueSpecification"
+                        "schema:PropertyValue"
                     ]
                 },
-                "schema:valueName": {
-                    "const": "interferenceCorrectionMethod"
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
+                        }
+                    ]
                 },
                 "schema:name": {
                     "const": "Interference Correction Method"
@@ -1449,23 +1969,30 @@
                 "ada:dataType": {
                     "const": "string"
                 },
-                "schema:readonlyValue": {
-                    "const": true
-                },
                 "ada:tier": {
                     "const": "M"
                 },
-                "schema:defaultValue": {
-                    "type": "string"
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
                 }
             },
             "required": [
                 "@id",
                 "@type",
-                "schema:valueName",
+                "schema:propertyID",
                 "schema:name",
                 "ada:dataType",
-                "schema:defaultValue"
+                "schema:value"
             ]
         },
         "solutionMcicpms_interferingSpecies": {
@@ -1474,15 +2001,19 @@
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:analyteColumn/solutionMcicpmsTAPP/interferingSpecies"
+                    "const": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies"
                 },
                 "@type": {
                     "const": [
-                        "schema:PropertyValueSpecification"
+                        "schema:PropertyValue"
                     ]
                 },
-                "schema:valueName": {
-                    "const": "interferingSpecies"
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies"
+                        }
+                    ]
                 },
                 "schema:name": {
                     "const": "Interfering Species"
@@ -1490,23 +2021,30 @@
                 "ada:dataType": {
                     "const": "string"
                 },
-                "schema:readonlyValue": {
-                    "const": true
-                },
                 "ada:tier": {
                     "const": "M"
                 },
-                "schema:defaultValue": {
-                    "type": "string"
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
                 }
             },
             "required": [
                 "@id",
                 "@type",
-                "schema:valueName",
+                "schema:propertyID",
                 "schema:name",
                 "ada:dataType",
-                "schema:defaultValue"
+                "schema:value"
             ]
         },
         "solutionMcicpms_isobaricInterferenceCorrectionsApplied": {
@@ -1515,15 +2053,19 @@
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:analyteColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                    "const": "ada:channelColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied"
                 },
                 "@type": {
                     "const": [
-                        "schema:PropertyValueSpecification"
+                        "schema:PropertyValue"
                     ]
                 },
-                "schema:valueName": {
-                    "const": "isobaricInterferenceCorrectionsApplied"
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                        }
+                    ]
                 },
                 "schema:name": {
                     "const": "Isobaric Interference Corrections Applied"
@@ -1531,23 +2073,30 @@
                 "ada:dataType": {
                     "const": "string"
                 },
-                "schema:readonlyValue": {
-                    "const": true
-                },
                 "ada:tier": {
                     "const": "M"
                 },
-                "schema:defaultValue": {
-                    "type": "string"
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
                 }
             },
             "required": [
                 "@id",
                 "@type",
-                "schema:valueName",
+                "schema:propertyID",
                 "schema:name",
                 "ada:dataType",
-                "schema:defaultValue"
+                "schema:value"
             ]
         },
         "solutionQicpms_dwellTimePerMass": {
@@ -1556,7 +2105,7 @@
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:analyteColumn/solutionQicpmsTAPP/dwellTimePerMass"
+                    "const": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass"
                 },
                 "@type": {
                     "const": [
@@ -1581,10 +2130,27 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "type": "number"
+                            "anyOf": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
@@ -1604,15 +2170,19 @@
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:analyteColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
+                    "const": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
                 },
                 "@type": {
                     "const": [
-                        "schema:PropertyValueSpecification"
+                        "schema:PropertyValue"
                     ]
                 },
-                "schema:valueName": {
-                    "const": "interferenceCorrectionMethod"
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
+                        }
+                    ]
                 },
                 "schema:name": {
                     "const": "Interference Correction Method"
@@ -1620,23 +2190,30 @@
                 "ada:dataType": {
                     "const": "string"
                 },
-                "schema:readonlyValue": {
-                    "const": true
-                },
                 "ada:tier": {
                     "const": "M"
                 },
-                "schema:defaultValue": {
-                    "type": "string"
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
                 }
             },
             "required": [
                 "@id",
                 "@type",
-                "schema:valueName",
+                "schema:propertyID",
                 "schema:name",
                 "ada:dataType",
-                "schema:defaultValue"
+                "schema:value"
             ]
         },
         "solutionQicpms_interferingSpecies": {
@@ -1645,15 +2222,19 @@
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:analyteColumn/solutionQicpmsTAPP/interferingSpecies"
+                    "const": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies"
                 },
                 "@type": {
                     "const": [
-                        "schema:PropertyValueSpecification"
+                        "schema:PropertyValue"
                     ]
                 },
-                "schema:valueName": {
-                    "const": "interferingSpecies"
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies"
+                        }
+                    ]
                 },
                 "schema:name": {
                     "const": "Interfering Species"
@@ -1661,23 +2242,30 @@
                 "ada:dataType": {
                     "const": "string"
                 },
-                "schema:readonlyValue": {
-                    "const": true
-                },
                 "ada:tier": {
                     "const": "M"
                 },
-                "schema:defaultValue": {
-                    "type": "string"
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
                 }
             },
             "required": [
                 "@id",
                 "@type",
-                "schema:valueName",
+                "schema:propertyID",
                 "schema:name",
                 "ada:dataType",
-                "schema:defaultValue"
+                "schema:value"
             ]
         },
         "solutionQicpms_isobaricInterferenceCorrectionsApplied": {
@@ -1686,15 +2274,19 @@
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:analyteColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                    "const": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied"
                 },
                 "@type": {
                     "const": [
-                        "schema:PropertyValueSpecification"
+                        "schema:PropertyValue"
                     ]
                 },
-                "schema:valueName": {
-                    "const": "isobaricInterferenceCorrectionsApplied"
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                        }
+                    ]
                 },
                 "schema:name": {
                     "const": "Isobaric Interference Corrections Applied"
@@ -1702,23 +2294,30 @@
                 "ada:dataType": {
                     "const": "string"
                 },
-                "schema:readonlyValue": {
-                    "const": true
-                },
                 "ada:tier": {
                     "const": "M"
                 },
-                "schema:defaultValue": {
-                    "type": "string"
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
                 }
             },
             "required": [
                 "@id",
                 "@type",
-                "schema:valueName",
+                "schema:propertyID",
                 "schema:name",
                 "ada:dataType",
-                "schema:defaultValue"
+                "schema:value"
             ]
         },
         "tem_eelsBackgroundSubtractionMethod": {
