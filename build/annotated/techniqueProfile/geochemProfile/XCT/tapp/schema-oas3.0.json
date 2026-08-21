@@ -1762,8 +1762,24 @@
           "x-jsonld-id": "http://schema.org/identifier"
         },
         "schema:inDefinedTermSet": {
-          "type": "string",
-          "description": "Name for the controlled vocabulary responsible for this keyword.",
+          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ],
           "x-jsonld-id": "http://schema.org/inDefinedTermSet"
         },
         "schema:termCode": {
@@ -4304,6 +4320,63 @@
                           },
                           "minContains": 0,
                           "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "Pre-Analysis Imaging and Screening",
+                            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "enum": [
+                                  "ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault"
+                                ]
+                              },
+                              "@type": {
+                                "enum": [
+                                  [
+                                    "schema:PropertyValueSpecification"
+                                  ]
+                                ]
+                              },
+                              "schema:valueName": {
+                                "enum": [
+                                  "preAnalysisImagingAndScreeningDefault"
+                                ]
+                              },
+                              "schema:name": {
+                                "enum": [
+                                  "Pre-Analysis Imaging and Screening"
+                                ]
+                              },
+                              "ada:dataType": {
+                                "enum": [
+                                  "string"
+                                ]
+                              },
+                              "ada:fieldScope": {
+                                "enum": [
+                                  "session"
+                                ]
+                              },
+                              "schema:readonlyValue": {},
+                              "ada:tier": {
+                                "enum": [
+                                  "R"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
                         }
                       ]
                     }
@@ -4345,59 +4418,6 @@
           "type": "array",
           "items": {
             "anyOf": [
-              {
-                "title": "Pre-Analysis Imaging and Screening",
-                "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "enum": [
-                      "ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault"
-                    ]
-                  },
-                  "@type": {
-                    "enum": [
-                      [
-                        "schema:PropertyValueSpecification"
-                      ]
-                    ]
-                  },
-                  "schema:valueName": {
-                    "enum": [
-                      "preAnalysisImagingAndScreeningDefault"
-                    ]
-                  },
-                  "schema:name": {
-                    "enum": [
-                      "Pre-Analysis Imaging and Screening"
-                    ]
-                  },
-                  "ada:dataType": {
-                    "enum": [
-                      "string"
-                    ]
-                  },
-                  "ada:fieldScope": {
-                    "enum": [
-                      "session"
-                    ]
-                  },
-                  "schema:readonlyValue": {},
-                  "ada:tier": {
-                    "enum": [
-                      "R"
-                    ]
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
               {
                 "title": "Sample Mounting Method",
                 "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder type, adhesive or support material, and any alignment aids used.",
@@ -5509,63 +5529,6 @@
             ]
           },
           "allOf": [
-            {
-              "contains": {
-                "title": "Pre-Analysis Imaging and Screening",
-                "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "enum": [
-                      "ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault"
-                    ]
-                  },
-                  "@type": {
-                    "enum": [
-                      [
-                        "schema:PropertyValueSpecification"
-                      ]
-                    ]
-                  },
-                  "schema:valueName": {
-                    "enum": [
-                      "preAnalysisImagingAndScreeningDefault"
-                    ]
-                  },
-                  "schema:name": {
-                    "enum": [
-                      "Pre-Analysis Imaging and Screening"
-                    ]
-                  },
-                  "ada:dataType": {
-                    "enum": [
-                      "string"
-                    ]
-                  },
-                  "ada:fieldScope": {
-                    "enum": [
-                      "session"
-                    ]
-                  },
-                  "schema:readonlyValue": {},
-                  "ada:tier": {
-                    "enum": [
-                      "R"
-                    ]
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
             {
               "contains": {
                 "title": "Sample Mounting Method",
@@ -7707,17 +7670,12 @@
             }
           ]
         },
-        "ada:reportedPropertyTemplate": {
-          "type": "object",
-          "properties": {
-            "ada:defaultReportedProperties": {
-              "type": "array",
-              "items": {
-                "description": "The final variable(s) this procedure reports and their units \u2014 distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A \u2014 nominal property'.",
-                "type": "string",
-                "readOnly": true
-              }
-            }
+        "ada:reportedProperties": {
+          "type": "array",
+          "items": {
+            "description": "The final variable(s) this procedure reports and their units \u2014 distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A \u2014 nominal property'.",
+            "type": "string",
+            "readOnly": true
           }
         },
         "schema:description": {

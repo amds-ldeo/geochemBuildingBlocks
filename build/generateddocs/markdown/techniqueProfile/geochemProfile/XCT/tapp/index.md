@@ -518,15 +518,15 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -1179,14 +1179,14 @@ ex:labxctTAPP-Genge2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Decanted for XCT; sample split along fractures during mounting into pipette tips. Post-XCT: embedded in Specifix resin, polished with 0.1 µm Al₂O₃." ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Decanted for XCT; sample split along fractures during mounting into pipette tips. Post-XCT: embedded in Specifix resin, polished with 0.1 µm Al₂O₃." ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
@@ -2192,16 +2192,16 @@ ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Steel outer sleeve retained for scan" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Steel outer sleeve retained for scan" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
@@ -2558,13 +2558,13 @@ ex:labxctTAPP-Shearer2024 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v21.csv)." ;
     schema1:instrument [ a schema1:Product,
@@ -4603,14 +4603,14 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated (fragments purchased from IMCA member)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "None stated (fragments purchased from IMCA member)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -5166,14 +5166,14 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
@@ -6373,14 +6373,14 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -7497,14 +7497,14 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "8 mm diameter core drilled from meteorite prior to XCT" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "8 mm diameter core drilled from meteorite prior to XCT" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> ;
@@ -9072,6 +9072,43 @@ allOf:
                     - ada:fieldScope
                   minContains: 0
                   maxContains: 1
+                - contains:
+                    title: Pre-Analysis Imaging and Screening
+                    description: Imaging or other characterisation performed before
+                      the measurement in order to select or locate the analysed target,
+                      including the technique, instrument and settings used, and how
+                      individual analyses are linked back to the images. Distinct
+                      from any imaging the procedure performs as its own measurement.
+                      Where the imaging is performed on a separate instrument, it
+                      should also be recorded in the Group 1 coupling fields.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: preAnalysisImagingAndScreeningDefault
+                      schema:name:
+                        const: Pre-Analysis Imaging and Screening
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  minContains: 0
+                  maxContains: 1
       allOf:
       - contains:
           properties:
@@ -9110,39 +9147,6 @@ allOf:
       type: array
       items:
         anyOf:
-        - title: Pre-Analysis Imaging and Screening
-          description: Imaging or other characterisation performed before the measurement
-            in order to select or locate the analysed target, including the technique,
-            instrument and settings used, and how individual analyses are linked back
-            to the images. Distinct from any imaging the procedure performs as its
-            own measurement. Where the imaging is performed on a separate instrument,
-            it should also be recorded in the Group 1 coupling fields.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: preAnalysisImagingAndScreeningDefault
-            schema:name:
-              const: Pre-Analysis Imaging and Screening
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
         - title: Sample Mounting Method
           description: Method used to mount or hold the sample on the instrument rotation
             stage. Mounting material should transmit X-rays at the selected voltage
@@ -9816,42 +9820,6 @@ allOf:
           - ada:dataType
           - ada:fieldScope
       allOf:
-      - contains:
-          title: Pre-Analysis Imaging and Screening
-          description: Imaging or other characterisation performed before the measurement
-            in order to select or locate the analysed target, including the technique,
-            instrument and settings used, and how individual analyses are linked back
-            to the images. Distinct from any imaging the procedure performs as its
-            own measurement. Where the imaging is performed on a separate instrument,
-            it should also be recorded in the Group 1 coupling fields.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: preAnalysisImagingAndScreeningDefault
-            schema:name:
-              const: Pre-Analysis Imaging and Screening
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
       - contains:
           title: Sample Mounting Method
           description: Method used to mount or hold the sample on the instrument rotation
@@ -11270,23 +11238,20 @@ allOf:
         - None
         - missing
       - type: string
-    ada:reportedPropertyTemplate:
-      type: object
-      properties:
-        ada:defaultReportedProperties:
-          type: array
-          items:
-            description: "The final variable(s) this procedure reports and their units
-              \u2014 distinct from the fields recording what was *acquired* rather
-              than what is reported. A procedure may acquire many channels and report
-              a small number of derived quantities; without this field a data consumer
-              cannot tell which. Record every reported variable, including intermediate
-              quantities reported alongside final ones (e.g. both the 206Pb/238U ratio
-              and the 206Pb/238U date). Where a reported variable is a nominal property
-              with no magnitude (e.g. a mineral identification), record the variable
-              and give the unit as 'N/A \u2014 nominal property'."
-            type: string
-            readOnly: true
+    ada:reportedProperties:
+      type: array
+      items:
+        description: "The final variable(s) this procedure reports and their units
+          \u2014 distinct from the fields recording what was *acquired* rather than
+          what is reported. A procedure may acquire many channels and report a small
+          number of derived quantities; without this field a data consumer cannot
+          tell which. Record every reported variable, including intermediate quantities
+          reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U
+          date). Where a reported variable is a nominal property with no magnitude
+          (e.g. a mineral identification), record the variable and give the unit as
+          'N/A \u2014 nominal property'."
+        type: string
+        readOnly: true
     schema:description:
       description: "Any procedure- or analysis-specific information not captured by
         a structured field anywhere in this TAPP \u2014 including anomalies, deviations

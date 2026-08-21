@@ -101,6 +101,35 @@ properties:
                         - schema:propertyID
                         - schema:name
                         - schema:value
+                      - title: Pre-Analysis Imaging and Screening
+                        description: Imaging or other characterisation performed before
+                          the measurement in order to select or locate the analysed
+                          target, including the technique, instrument and settings
+                          used, and how individual analyses are linked back to the
+                          images. Distinct from any imaging the procedure performs
+                          as its own measurement. Where the imaging is performed on
+                          a separate instrument, it should also be recorded in the
+                          Group 1 coupling fields.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreening
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/labxctTAPP/preAnalysisImagingAndScreening
+                          schema:name:
+                            const: Pre-Analysis Imaging and Screening
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
                       - title: Sample Mass
                         description: 'Mass of the sample in grams, recorded for curatorial
                           tracking of precious or limited materials. Particularly
@@ -154,6 +183,38 @@ properties:
                             - '@id': ada:parameter/labxctTAPP/sampleDimensions
                           schema:name:
                             const: "Sample Dimensions (L \xD7 W \xD7 H)"
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        title: Pre-Analysis Imaging and Screening
+                        description: Imaging or other characterisation performed before
+                          the measurement in order to select or locate the analysed
+                          target, including the technique, instrument and settings
+                          used, and how individual analyses are linked back to the
+                          images. Distinct from any imaging the procedure performs
+                          as its own measurement. Where the imaging is performed on
+                          a separate instrument, it should also be recorded in the
+                          Group 1 coupling fields.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreening
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/labxctTAPP/preAnalysisImagingAndScreening
+                          schema:name:
+                            const: Pre-Analysis Imaging and Screening
                           schema:value:
                             type: string
                         required:

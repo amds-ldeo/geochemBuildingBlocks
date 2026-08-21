@@ -929,7 +929,22 @@ allOf:
       type: array
       items:
         type: object
+        required:
+        - schema:description
         properties:
+          '@type':
+            description: A variable is either a measured VALUE (schema:PropertyValue)
+              or a SPECIFICATION of one (schema:PropertyValueSpecification); exactly
+              which it is decides how a consumer reads schema:value. One of the two
+              must appear. Further type URIs are welcome alongside - cdi:InstanceVariable
+              is the usual companion - so the array is open.
+            type: array
+            items:
+              type: string
+            contains:
+              anyOf:
+              - const: schema:PropertyValue
+              - const: schema:PropertyValueSpecification
           schema:description:
             type: string
             minLength: 3
@@ -1009,8 +1024,6 @@ allOf:
             type: string
             format: uri
             x-jsonld-id: http://schema.org/url
-        required:
-        - schema:description
       x-jsonld-id: http://schema.org/variableMeasured
     schema:spatialCoverage:
       description: Geographic extent of resource content.

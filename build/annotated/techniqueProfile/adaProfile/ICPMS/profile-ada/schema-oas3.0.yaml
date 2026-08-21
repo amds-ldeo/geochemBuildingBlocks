@@ -509,7 +509,24 @@ x-defs:
           type: array
           items:
             type: object
+            required:
+            - schema:description
             properties:
+              '@type':
+                description: A variable is either a measured VALUE (schema:PropertyValue)
+                  or a SPECIFICATION of one (schema:PropertyValueSpecification); exactly
+                  which it is decides how a consumer reads schema:value. One of the
+                  two must appear. Further type URIs are welcome alongside - cdi:InstanceVariable
+                  is the usual companion - so the array is open.
+                type: array
+                items:
+                  type: string
+                contains:
+                  anyOf:
+                  - enum:
+                    - schema:PropertyValue
+                  - enum:
+                    - schema:PropertyValueSpecification
               schema:description:
                 type: string
                 minLength: 3
@@ -591,8 +608,6 @@ x-defs:
                 type: string
                 format: uri
                 x-jsonld-id: http://schema.org/url
-            required:
-            - schema:description
           x-jsonld-id: http://schema.org/variableMeasured
         schema:spatialCoverage:
           description: Geographic extent of resource content.
@@ -6006,12 +6021,20 @@ x-defs:
     type: object
     properties:
       '@type':
+        description: Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification
+          - a SPECIFICATION of one, stating the permitted range, default or unit rather
+          than an observed result. Protocol and method descriptions declare the latter,
+          and pinning the array to PropertyValue alone left them no valid spelling.
+          Additional type URIs may be included.
         type: array
         items:
           type: string
         contains:
-          enum:
-          - schema:PropertyValue
+          anyOf:
+          - enum:
+            - schema:PropertyValue
+          - enum:
+            - schema:PropertyValueSpecification
         minItems: 1
       '@id':
         type: string
@@ -7767,8 +7790,22 @@ x-defs:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/ICPMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
         x-jsonld-id: http://schema.org/identifier
       schema:inDefinedTermSet:
-        type: string
-        description: Name for the controlled vocabulary responsible for this keyword.
+        description: 'The controlled vocabulary responsible for this keyword, as EITHER
+          a plain URI string identifying the vocabulary, OR an object reference ({"@id":
+          "<uri>"}) to a vocabulary defined elsewhere in the document. Both forms
+          are already in use across CDIF profiles and downstream ADA building blocks;
+          permitting only the string form made the object form - the natural JSON-LD
+          spelling of a reference - invalid, while this class''s own union-type policy
+          above explicitly anticipates both.'
+        anyOf:
+        - type: string
+        - type: object
+          required:
+          - '@id'
+          additionalProperties: false
+          properties:
+            '@id':
+              type: string
         x-jsonld-id: http://schema.org/inDefinedTermSet
       schema:termCode:
         type: string
