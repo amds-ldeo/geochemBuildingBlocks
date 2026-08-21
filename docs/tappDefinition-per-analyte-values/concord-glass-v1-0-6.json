@@ -1,0 +1,63 @@
+{
+  "_note": "Per-analyte column values lifted out of exampletappDefinition-concord-glass-v1-0-6.json. The tappDefinition schema states that ada:defaultAnalytes members are 'a bare string or a schema:DefinedTerm identifying the analyte; per-analyte column VALUES live in the analysis record, not here.' These rows were therefore invalid where they sat, and a TAPP document has no valid home for them. Kept here so the curated content survives until an analysis-record example exists to carry it.",
+  "_source": "_sources/BaseSchema/tappDefinition/exampletappDefinition-concord-glass-v1-0-6.json",
+  "_analyteColumns": [
+    "analyte",
+    "beamCurrent",
+    "spectrometer",
+    "sequence",
+    "diffractingCrystal",
+    "detectorType",
+    "xrayLine",
+    "peakCountingTime",
+    "backgroundMethod",
+    "backgroundCountingTime",
+    "phaSettings",
+    "calibrationStandardName",
+    "normalizationMethod",
+    "normalizationStandards",
+    "detectionLimit",
+    "detectionLimitUnit",
+    "detectionLimitMethod"
+  ],
+  "rows": [
+    {
+      "analyte": "SiO2",
+      "beamCurrent": 6,
+      "spectrometer": "WDS 1",
+      "sequence": 1,
+      "diffractingCrystal": "PET",
+      "detectorType": "P-10",
+      "xrayLine": "Ka",
+      "peakCountingTime": "12",
+      "backgroundMethod": "high only",
+      "backgroundCountingTime": 4,
+      "phaSettings": "integral",
+      "calibrationStandardName": "Albite or Lipari obsidian ID3506 or BHVO-2g",
+      "normalizationMethod": "multi-standard weighted mean",
+      "normalizationStandards": "Lipari obsidian ID3506, BHVO-2g",
+      "detectionLimit": 0.0997,
+      "detectionLimitUnit": "weight percent (%m/m)",
+      "detectionLimitMethod": "Mean of WDS detection limits at 99% confidence"
+    },
+    {
+      "analyte": "TiO2",
+      "beamCurrent": 6,
+      "spectrometer": "WDS 1",
+      "sequence": 3,
+      "diffractingCrystal": "PET",
+      "detectorType": "xenon",
+      "xrayLine": "Ka",
+      "peakCountingTime": "28",
+      "backgroundMethod": "two backgrounds",
+      "backgroundCountingTime": 20,
+      "phaSettings": "integral",
+      "calibrationStandardName": "Kaersutite amphibole",
+      "normalizationMethod": "multi-standard weighted mean",
+      "normalizationStandards": "Lipari obsidian ID3506, BHVO-2g",
+      "detectionLimit": 0.0439,
+      "detectionLimitUnit": "weight percent (%m/m)",
+      "detectionLimitMethod": "Mean of WDS detection limits at 99% confidence"
+    }
+  ]
+}
