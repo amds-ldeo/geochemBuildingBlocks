@@ -26,7 +26,7 @@
             },
             {
               "ada:toolRole": "dataReduction",
-              "schema:name": "example dataReductionSoftware",
+              "schema:name": "example dataProcessingSoftware",
               "@type": [
                 "schema:SoftwareApplication"
               ]
@@ -109,16 +109,16 @@
                   ],
                   "schema:additionalProperty": [
                     {
-                      "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate",
+                      "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate",
                       "@type": [
                         "schema:PropertyValue"
                       ],
                       "schema:propertyID": [
                         {
-                          "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                          "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate"
                         }
                       ],
-                      "schema:name": "Make-up Gas Flow Rate",
+                      "schema:name": "Make-up Gas and Flow Rate",
                       "schema:value": 1,
                       "schema:unitText": "example value"
                     },
@@ -425,6 +425,19 @@
           "schema:name": "Signal Integration Time",
           "schema:value": 1,
           "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/solutionSficpmsTAPP/proceduralBlankLevel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/solutionSficpmsTAPP/proceduralBlankLevel"
+            }
+          ],
+          "schema:name": "Procedural Blank Level",
+          "schema:value": "example value"
         }
       ],
       "schema:description": "example additionalNotes",
@@ -469,14 +482,6 @@
     {
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "example oxideProduction"
-    },
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }

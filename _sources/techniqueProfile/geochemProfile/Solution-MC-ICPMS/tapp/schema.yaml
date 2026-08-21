@@ -1,12 +1,13 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)
-description: Solution multi-collector ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current
-  TAPPs/Solution_MC-ICP-MS_TAPP_v16.csv via the path-driven pipeline.
+description: Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current
+  TAPPs/Solution_MC-ICP-MS_TAPP_v30.csv via the path-driven pipeline.
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
-- $ref: ../../../../BaseSchema/modules/group1/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
     schema:object:
@@ -39,10 +40,22 @@ allOf:
                         schema:value:
                           type: array
                           items:
-                            description: Type of geological or experimental material being analyzed (e.g.,
-                              basalt, chondrite, seawater, mineral separate). Constrains the dissolution
-                              strategy, chromatographic separation, and matrix-matching requirements.
-                            type: string
+                            description: General description of the material type(s) this procedure is
+                              designed to analyse. Used for discoverability and procedure matching, and
+                              because the material type constrains sample preparation, calibration and
+                              matrix-matching requirements.
+                            anyOf:
+                            - type: string
+                              enum:
+                              - Basalt
+                              - Chondrite
+                              - Seawater
+                              - Mineral separate
+                              - Synthetic solution
+                              - N/A
+                              - None
+                              - missing
+                            - type: string
                             readOnly: true
                 allOf:
                 - contains:
@@ -453,6 +466,41 @@ allOf:
                         - ada:dataType
                         - ada:fieldScope
                       - &id004
+                        title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual analyses contribute to a
+                          reported aggregate result, together with the outcome of applying them: how many
+                          analyses were acquired, how many were included, and on what grounds any were
+                          excluded. Distinct from within-analysis outlier filtering, which removes anomalous
+                          points inside a single analysis: this field decides which whole analyses enter
+                          the reported value. Criteria and outcome are combined in one field because neither
+                          is interpretable without the other, following the precision/accuracy precedent.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionMcicpmsTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id005
                         title: Constants and Reference Values Used
                         description: Physical constants and reference values used in data reduction to
                           calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -525,6 +573,9 @@ allOf:
                     - contains: *id004
                       minContains: 0
                       maxContains: 1
+                    - contains: *id005
+                      minContains: 0
+                      maxContains: 1
           allOf:
           - contains:
               properties:
@@ -564,19 +615,11 @@ allOf:
             - schema:additionalType
           then:
             properties:
-              schema:model:
-                type: object
-                properties:
-                  schema:name:
-                    description: Manufacturer and model name of the MC-ICP-MS instrument. Determines the
-                      collector array geometry, available mass resolution modes, and detector complement.
-                    type: string
-                    readOnly: true
               schema:additionalProperty:
                 type: array
                 items:
                   anyOf:
-                  - &id005
+                  - &id006
                     title: Instrument Serial Number or Lab Identifier
                     description: Serial number or laboratory-internal identifier for the specific instrument
                       unit. Supports traceability to instrument service records.
@@ -606,7 +649,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id006
+                  - &id007
                     title: Mass Resolution Setting
                     description: Mass resolution mode used in this procedure. MC-ICP-MS instruments allow
                       selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm ≈
@@ -635,22 +678,27 @@ allOf:
                     - schema:propertyID
                     - schema:name
                     - schema:value
-                  - &id007
-                    title: Make-up Gas Flow Rate
-                    description: Supplementary argon flow added downstream of a desolvation system to
-                      maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation
-                      system is used. Record 'N/A' where Desolvation System is 'None'.
+                  - &id008
+                    title: Make-up Gas and Flow Rate
+                    description: Supplementary gas added to the sample-carrying stream between the sample
+                      introduction system and the plasma, with its identity and the procedure-registered
+                      target flow rate. Argon make-up is standard and maintains total gas delivery where
+                      the carrier flow alone is insufficient — downstream of an ablation cell, or of a
+                      desolvation system that has removed solvent load. Small nitrogen or hydrogen additions
+                      are also made here to enhance sensitivity for some elements; record them with their
+                      own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+                      where no supplementary gas is added, to distinguish it from not reported.
                     type: object
                     properties:
                       '@id':
-                        const: ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRateDefault
+                        const: ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRateDefault
                       '@type':
                         const:
                         - schema:PropertyValueSpecification
                       schema:valueName:
-                        const: makeUpGasFlowRateDefault
+                        const: makeUpGasAndFlowRateDefault
                       schema:name:
-                        const: Make-up Gas Flow Rate
+                        const: Make-up Gas and Flow Rate
                       ada:dataType:
                         const: number
                       ada:fieldScope:
@@ -668,7 +716,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id008
+                  - &id009
                     title: Memory Effect Mitigation
                     description: Procedure applied to minimize carryover of analyte isotopes between successive
                       sample introductions. In MC-ICP-MS, extended rinse periods with the same acid matrix
@@ -702,9 +750,6 @@ allOf:
                     - ada:dataType
                     - ada:fieldScope
                 allOf:
-                - contains: *id005
-                  minContains: 0
-                  maxContains: 1
                 - contains: *id006
                   minContains: 0
                   maxContains: 1
@@ -712,6 +757,9 @@ allOf:
                   minContains: 0
                   maxContains: 1
                 - contains: *id008
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id009
                   minContains: 0
                   maxContains: 1
               schema:hasPart:
@@ -740,7 +788,7 @@ allOf:
                               readOnly: true
                         schema:additionalProperty:
                           type: array
-                          items: &id009
+                          items: &id010
                             title: Torch Depth
                             description: Distance between the load coil and the sampling cone tip (mm),
                               also called injector depth or torch position depending on the instrument
@@ -775,7 +823,7 @@ allOf:
                             - ada:dataType
                             - ada:fieldScope
                           allOf:
-                          - contains: *id009
+                          - contains: *id010
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -979,7 +1027,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id010
+                            - &id011
                               title: Collision Gas Flow Rate
                               description: Flow rate of the collision gas in KED mode (mL/min), on collision/reaction-cell-equipped
                                 MC-ICP-MS instruments. Higher flow rates provide greater interference
@@ -1014,7 +1062,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id011
+                            - &id012
                               title: Cell Exit Discrimination Voltage
                               description: Kinetic energy discrimination offset voltage applied at the
                                 exit of the collision cell (V), on collision/reaction-cell-equipped MC-ICP-MS
@@ -1076,7 +1124,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id012
+                            - &id013
                               title: Reaction Gas Flow Rate
                               description: Flow rate of the reaction gas in DRC mode (mL/min), on collision/reaction-cell-equipped
                                 MC-ICP-MS instruments. Record 'N/A' if the instrument has no cell or DRC
@@ -1141,10 +1189,10 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id010
+                          - contains: *id011
                             minContains: 0
                             maxContains: 1
-                          - contains: *id011
+                          - contains: *id012
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -1177,7 +1225,7 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id012
+                          - contains: *id013
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -1244,7 +1292,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id013
+                            - &id014
                               title: Sample Uptake Rate
                               description: Peristaltic pump speed or self-aspiration flow rate for sample
                                 introduction (µL/min or mL/min).
@@ -1276,7 +1324,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id014
+                            - &id015
                               title: Nebulizer Gas Flow Rate
                               description: Flow rate of the carrier argon gas delivered through the nebulizer
                                 (L/min). Controls aerosol transport and strongly influences signal sensitivity
@@ -1367,10 +1415,10 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id013
+                          - contains: *id014
                             minContains: 0
                             maxContains: 1
-                          - contains: *id014
+                          - contains: *id015
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -1386,7 +1434,7 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id015
+                            - &id016
                               title: RF Power
                               description: Radiofrequency forward power applied to the plasma (W). Controls
                                 ionization efficiency and oxide production rates.
@@ -1418,7 +1466,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id016
+                            - &id017
                               title: Coolant (Plasma) Gas Flow Rate
                               description: Flow rate of the outer (coolant) argon gas stream (L/min).
                                 Influences plasma temperature and oxide ion formation.
@@ -1450,7 +1498,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id017
+                            - &id018
                               title: Auxiliary Gas Flow Rate
                               description: Flow rate of the intermediate (auxiliary) argon gas stream
                                 between torch body and injector tube (L/min).
@@ -1509,13 +1557,13 @@ allOf:
                               - schema:value
                               readOnly: true
                           allOf:
-                          - contains: *id015
-                            minContains: 0
-                            maxContains: 1
                           - contains: *id016
                             minContains: 0
                             maxContains: 1
                           - contains: *id017
+                            minContains: 0
+                            maxContains: 1
+                          - contains: *id018
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -1644,7 +1692,7 @@ allOf:
           - schema:value
           - schema:unitText
           readOnly: true
-        - &id018
+        - &id019
           title: Spike / Outlier Filtering Approach
           description: Criteria used to identify and exclude anomalous cycles or replicate measurements
             from the calculated isotope ratio mean. Filtering is applied after baseline subtraction and
@@ -1675,7 +1723,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id019
+        - &id020
           title: Uncertainty Propagation Method
           description: 'The approach used to propagate analytical uncertainty through the data reduction
             chain to the final reported value. State which sources are included in the propagation: counting
@@ -1771,204 +1819,12 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id018
-        minContains: 0
-        maxContains: 1
       - contains: *id019
         minContains: 0
         maxContains: 1
-    bios:computationalTool:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Name and version of the software used to control the instrument and acquire
-                  raw multi-collector data.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
-                const: dataReduction
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: 'Name and version of the software used for data reduction: baseline subtraction,
-                  gain correction, mass bias correction (SSB, double-spike inversion, or internal normalization),
-                  interference corrections, and calculation of isotope ratios, δ-values, and concentrations.
-                  Include version number.'
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        required:
-        - ada:toolRole
-    ada:analyteTemplate:
-      type: object
-      properties:
-        ada:defaultAnalytes:
-          type: array
-          items:
-            type: object
-            properties: {}
-        ada:analyteColumns:
-          type: array
-          items:
-            anyOf:
-            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id020
-              title: Detection Limit
-              description: Elemental detection limits, one per reported concentration variable (one per
-                analyte, these being the same set), applicable when isotope dilution concentrations are
-                also reported. For pure isotope ratio procedures (no concentration output), this field
-                is N/A or reports the minimum sample mass required for a measurement at target precision.
-                Specify units µg/g or µg/L and whether values are procedure-typical estimates or session-measured.
-                Record 'N/A' where the procedure produces isotope ratios only and reports no concentrations.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id021
-              title: Detection Limit Method
-              description: Method used to calculate detection limits for each reported concentration variable,
-                where concentration data are reported.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimitMethod
-                schema:name:
-                  const: Detection Limit Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id022
-              title: Limit of Quantification (LOQ) Method
-              description: Method used to determine the limit of quantification, where applicable.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: limitOfQuantificationMethod
-                schema:name:
-                  const: Limit of Quantification (LOQ) Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id023
-              title: Analytical Accuracy and Assessment Method
-              description: Accuracy of isotope ratio or δ-value measurements relative to certified or
-                published consensus values and the method used to assess it. For isotope ratio procedures,
-                accuracy is typically assessed by comparing measured δ values for secondary geological
-                reference materials against published interlaboratory compilations or certified values.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracyAndAssessmentMethod
-                schema:name:
-                  const: Analytical Accuracy and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-          allOf:
-          - contains: *id020
-            minContains: 0
-            maxContains: 1
-          - contains: *id021
-            minContains: 0
-            maxContains: 1
-          - contains: *id022
-            minContains: 0
-            maxContains: 1
-          - contains: *id023
-            minContains: 0
-            maxContains: 1
+      - contains: *id020
+        minContains: 0
+        maxContains: 1
     ada:sampleSequenceDesign:
       description: 'Description of the measurement order within a session: how sample solutions, bracketing
         standards, secondary reference materials, and blanks are interleaved. For SSB procedures, each
@@ -2059,29 +1915,32 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied
+                  const: ada:channelColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied
                 '@type':
                   const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: isobaricInterferenceCorrectionsApplied
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied
                 schema:name:
                   const: Isobaric Interference Corrections Applied
                 ada:dataType:
                   const: string
-                schema:readonlyValue:
-                  const: true
                 ada:tier:
                   const: M
-                schema:defaultValue:
-                  type: string
+                schema:value:
+                  anyOf:
+                  - &id021
+                    type: string
+                  - type: array
+                    items: *id021
               required:
               - '@id'
               - '@type'
-              - schema:valueName
+              - schema:propertyID
               - schema:name
               - ada:dataType
-              - schema:defaultValue
+              - schema:value
             - &id025
               title: Interfering Species
               description: List of isobaric or polyatomic species mathematically corrected in data reduction.
@@ -2091,29 +1950,32 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/interferingSpecies
+                  const: ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies
                 '@type':
                   const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferingSpecies
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies
                 schema:name:
                   const: Interfering Species
                 ada:dataType:
                   const: string
-                schema:readonlyValue:
-                  const: true
                 ada:tier:
                   const: M
-                schema:defaultValue:
-                  type: string
+                schema:value:
+                  anyOf:
+                  - &id022
+                    type: string
+                  - type: array
+                    items: *id022
               required:
               - '@id'
               - '@type'
-              - schema:valueName
+              - schema:propertyID
               - schema:name
               - ada:dataType
-              - schema:defaultValue
+              - schema:value
             - &id026
               title: Interference Correction Method
               description: Mathematical approach used to calculate and remove residual interference contributions.
@@ -2123,29 +1985,32 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
+                  const: ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferenceCorrectionMethod
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
                 schema:name:
                   const: Interference Correction Method
                 ada:dataType:
                   const: string
-                schema:readonlyValue:
-                  const: true
                 ada:tier:
                   const: M
-                schema:defaultValue:
-                  type: string
+                schema:value:
+                  anyOf:
+                  - &id023
+                    type: string
+                  - type: array
+                    items: *id023
               required:
               - '@id'
               - '@type'
-              - schema:valueName
+              - schema:propertyID
               - schema:name
               - ada:dataType
-              - schema:defaultValue
+              - schema:value
           allOf:
           - contains: *id024
             minContains: 0
@@ -2181,41 +2046,152 @@ allOf:
           materials with published isotopic compositions (e.g., BHVO-2 for Fe isotopes) or pure isotopic
           standards of certified composition.
         type: string
-    schema:description:
-      description: 'Any procedure- or analysis-specific information not captured by a structured field
-        anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument
-        modifications, and supplementary context. Scope is the whole document, not Group 6: this is the
-        last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred
-        for anything that can be formally categorised.'
-      type: string
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Top-level declaration of the kind of measurement this procedure covers. Solution
-          ICP-MS has a single routine mode — continuous nebulisation of a digested solution — so this
-          TAPP defines no mode flag columns; the field is still required (Rule 3) so that a procedure
-          record is self-describing and comparable with multi-mode TAPPs across the library.
-        type: string
-        enum:
-        - Solution nebulisation (continuous)
-        - Flow injection
-        - missing
-        readOnly: true
-    ada:reportedPropertyTemplate:
+    ada:analyteTemplate:
       type: object
       properties:
-        ada:defaultReportedProperties:
+        ada:analyteColumns:
           type: array
           items:
-            description: The final variable(s) this procedure reports and their units — distinct from
-              the fields recording what was *acquired* rather than what is reported. A procedure may acquire
-              many channels and report a small number of derived quantities; without this field a data
-              consumer cannot tell which. Record every reported variable, including intermediate quantities
-              reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date).
-              Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification),
-              record the variable and give the unit as 'N/A — nominal property'.
-            type: string
-            readOnly: true
+            anyOf:
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - &id027
+              title: Detection Limit
+              description: Elemental detection limits, one per reported concentration variable (one per
+                analyte, these being the same set), applicable when isotope dilution concentrations are
+                also reported. For pure isotope ratio procedures (no concentration output), this field
+                is N/A or reports the minimum sample mass required for a measurement at target precision.
+                Specify units µg/g or µg/L and whether values are procedure-typical estimates or session-measured.
+                Record 'N/A' where the procedure produces isotope ratios only and reports no concentrations.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimit
+                schema:name:
+                  const: Detection Limit
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id028
+              title: Detection Limit Method
+              description: Method used to calculate detection limits for each reported concentration variable,
+                where concentration data are reported.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimitMethod
+                schema:name:
+                  const: Detection Limit Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id029
+              title: Limit of Quantification (LOQ) Method
+              description: Method used to determine the limit of quantification, where applicable.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: limitOfQuantificationMethod
+                schema:name:
+                  const: Limit of Quantification (LOQ) Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id030
+              title: Analytical Accuracy and Assessment Method
+              description: Accuracy of isotope ratio or δ-value measurements relative to certified or
+                published consensus values and the method used to assess it. For isotope ratio procedures,
+                accuracy is typically assessed by comparing measured δ values for secondary geological
+                reference materials against published interlaboratory compilations or certified values.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: analyticalAccuracyAndAssessmentMethod
+                schema:name:
+                  const: Analytical Accuracy and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+          allOf:
+          - contains: *id027
+            minContains: 0
+            maxContains: 1
+          - contains: *id028
+            minContains: 0
+            maxContains: 1
+          - contains: *id029
+            minContains: 0
+            maxContains: 1
+          - contains: *id030
+            minContains: 0
+            maxContains: 1
   required:
   - ada:sampleSequenceDesign
   - ada:internalStandardElement

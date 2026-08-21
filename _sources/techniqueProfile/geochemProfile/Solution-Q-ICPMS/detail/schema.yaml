@@ -3,9 +3,8 @@ title: Solution Q-ICP-MS Analysis Detail
 description: Dataset-level analysis-instance detail for solution Q-ICP-MS, reusing CDIF/schema.org slots
   on the schema:Dataset root.
 allOf:
-- $ref: ../../../../BaseSchema/modules/group1/schema.yaml#/$defs/AnalysisIdentification
-- $ref: ../../../../BaseSchema/modules/reportingCore/schema.yaml#/$defs/AggregationQc_Analysis
-- $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/AnalysisIdentification
+- $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
     prov:wasGeneratedBy:
@@ -27,17 +26,6 @@ allOf:
                   - '@type'
                 then:
                   properties:
-                    schema:identifier:
-                      description: Globally unique, persistent identifier for each sample listed in Sample
-                        Name. IGSN (International Geo Sample Number) is the recommended standard for geological
-                        and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample
-                        and its sub-samples are separately registered, record the identifier at the level
-                        actually analysed.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
                     schema:description:
                       description: Brief description of sample provenance, form, or preparation state
                         relevant to this analysis.
@@ -81,18 +69,6 @@ allOf:
                       - contains: *id001
                         minContains: 0
                         maxContains: 1
-                    schema:name:
-                      description: Name or identifier of each sample analysed in this session, as used
-                        in the laboratory — a sample mount, section or aliquot counts as one entry where
-                        that is what the laboratory tracks. The analysis record corresponds to one session
-                        and may cover several samples; fields whose Keyed By column declares 'sample'
-                        take one value per entry. Should match the identifier used in associated publications
-                        or data tables.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
             allOf:
             - contains:
                 properties:
@@ -514,24 +490,31 @@ allOf:
                                                 - schema:value
                                                 - schema:unitText
                                               - &id012
-                                                title: Make-up Gas Flow Rate
-                                                description: Supplementary argon flow added downstream
-                                                  of a desolvation system to maintain total gas delivery
-                                                  to the plasma (L/min). Record 'N/A' if no desolvation
-                                                  system is used. Record 'N/A' where Desolvation System
-                                                  is 'None'.
+                                                title: Make-up Gas and Flow Rate
+                                                description: Supplementary gas added to the sample-carrying
+                                                  stream between the sample introduction system and the
+                                                  plasma, with its identity and the procedure-registered
+                                                  target flow rate. Argon make-up is standard and maintains
+                                                  total gas delivery where the carrier flow alone is insufficient
+                                                  — downstream of an ablation cell, or of a desolvation
+                                                  system that has removed solvent load. Small nitrogen
+                                                  or hydrogen additions are also made here to enhance
+                                                  sensitivity for some elements; record them with their
+                                                  own flow, whose unit commonly differs from the make-up
+                                                  flow. Record 'None' explicitly where no supplementary
+                                                  gas is added, to distinguish it from not reported.
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate
+                                                    const: ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRate
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate
+                                                    - '@id': ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRate
                                                   schema:name:
-                                                    const: Make-up Gas Flow Rate
+                                                    const: Make-up Gas and Flow Rate
                                                   schema:value:
                                                     anyOf:
                                                     - type: number
@@ -917,54 +900,6 @@ allOf:
                           - schema:additionalType
               - if:
                   required:
-                  - bios:computationalTool
-                then:
-                  properties:
-                    bios:computationalTool:
-                      type: array
-                      items:
-                        allOf:
-                        - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                ada:toolRole:
-                                  const: acquisition
-                              required:
-                              - ada:toolRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: Name and version of the software used to control the instrument
-                                    and acquire raw mass spectrum data (e.g., Qtegra, MassLynx).
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          - if:
-                              properties:
-                                ada:toolRole:
-                                  const: dataReduction
-                              required:
-                              - ada:toolRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: 'Name and version of the software used for data reduction:
-                                    blank correction, internal standard normalization, calibration, and
-                                    concentration calculation (e.g., Iolite, lab spreadsheet). Include
-                                    version number.'
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          required:
-                          - ada:toolRole
-              - if:
-                  required:
                   - prov:reagent
                 then:
                   properties:
@@ -1016,46 +951,72 @@ allOf:
                           - ada:reagentRole
           schema:additionalProperty:
             type: array
-            items: &id022
-              title: Signal Integration Time
-              description: Total integration time per analyte per replicate (s). Determined at analysis
-                time from the actual acquisition.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/solutionQicpmsTAPP/signalIntegrationTime
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/solutionQicpmsTAPP/signalIntegrationTime
-                schema:name:
-                  const: Signal Integration Time
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
+            items:
+              anyOf:
+              - &id022
+                title: Signal Integration Time
+                description: Total integration time per analyte per replicate (s). Determined at analysis
+                  time from the actual acquisition.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionQicpmsTAPP/signalIntegrationTime
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionQicpmsTAPP/signalIntegrationTime
+                  schema:name:
+                    const: Signal Integration Time
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - &id023
+                title: Procedural Blank Level
+                description: 'The measured level of the analytical blank in the session, and — where the
+                  reported quantity is a ratio — its composition, since a blank subtracted from a ratio
+                  biases the result unless its own composition is known. Companion to the blank correction
+                  method, which is procedure-level: this field records what was actually measured. Follows
+                  the criterion-versus-measurement split the library applies wherever a procedure sets
+                  a threshold and an analysis reports a value against it.'
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionQicpmsTAPP/proceduralBlankLevel
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionQicpmsTAPP/proceduralBlankLevel
+                  schema:name:
+                    const: Procedural Blank Level
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
             allOf:
             - contains: *id022
               minContains: 0
               maxContains: 1
-          schema:description:
-            description: 'Any procedure- or analysis-specific information not captured by a structured
-              field anywhere in this TAPP — including anomalies, deviations from the registered procedure,
-              instrument modifications, and supplementary context. Scope is the whole document, not Group
-              6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured
-              field is preferred for anything that can be formally categorised.'
-            type: string
+            - contains: *id023
+              minContains: 0
+              maxContains: 1
     dqv:hasQualityMeasurement:
       type: array
       items:

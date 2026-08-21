@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)",
-  "description": "Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/Solution_SF-ICP-MS_TAPP_v18.csv via the path-driven pipeline.",
+  "description": "Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v32.csv via the path-driven pipeline.",
   "properties": {
     "@context": {
       "type": "object",
@@ -2727,7 +2727,7 @@
       ]
     },
     {
-      "title": "Group1 on the procedure",
+      "title": "Core on the procedure",
       "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
@@ -2846,19 +2846,12 @@
               }
             ]
           }
-        }
-      },
-      "required": [
-        "schema:datePublished",
-        "schema:name"
-      ]
-    },
-    {
-      "title": "SolutionIntroduction fields on the procedure",
-      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
-      "type": "object",
-      "properties": {
-        "schema:object": {
+        },
+        "ada:samplingUnit": {
+          "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
+          "type": "string"
+        },
+        "schema:instrument": {
           "type": "array",
           "items": {
             "type": "object",
@@ -2866,59 +2859,159 @@
               {
                 "if": {
                   "properties": {
-                    "@type": {
+                    "schema:additionalType": {
                       "contains": {
-                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                        "const": "SEM"
                       }
                     }
                   },
                   "required": [
-                    "@type"
+                    "schema:additionalType"
                   ]
                 },
                 "then": {
                   "properties": {
-                    "schema:additionalProperty": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:name": {
-                                  "const": "Sample Aliquot Mass or Volume"
-                                }
-                              },
-                              "required": [
-                                "schema:name"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:defaultValue": {
-                                  "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                                  "anyOf": [
-                                    {
-                                      "type": "number"
-                                    },
-                                    {
-                                      "type": "string"
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          }
-                        ]
+                    "schema:manufacturer": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "schema:model": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
+                          "type": "string"
+                        }
                       }
                     }
                   }
                 }
               }
             ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:additionalType": {
+                    "contains": {
+                      "const": "SEM"
+                    }
+                  }
+                },
+                "required": [
+                  "schema:additionalType"
+                ]
+              }
+            }
+          ]
+        },
+        "bios:computationalTool": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ],
+            "required": [
+              "ada:toolRole"
+            ]
           }
         },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
+            "type": "string"
+          }
+        },
+        "ada:reportedProperties": {
+          "type": "array",
+          "items": {
+            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+            "type": "string"
+          }
+        },
+        "schema:description": {
+          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ada:samplingUnit",
+        "schema:datePublished",
+        "schema:name"
+      ]
+    },
+    {
+      "title": "SolutionIntroduction on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
         "schema:actionProcess": {
           "type": "object",
           "properties": {
@@ -2940,178 +3033,6 @@
                     },
                     "then": {
                       "properties": {
-                        "schema:additionalProperty": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "allOf": [
-                              {
-                                "if": {
-                                  "properties": {
-                                    "schema:name": {
-                                      "const": "Number of Digestion Steps"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                "then": {
-                                  "properties": {
-                                    "schema:value": {
-                                      "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some procedures require multiple sequential steps — for example, an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals, or by an aqua regia reflux to destroy fluoride complexes.",
-                                      "anyOf": [
-                                        {
-                                          "type": "integer"
-                                        },
-                                        {
-                                          "type": "string"
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "if": {
-                                  "properties": {
-                                    "schema:name": {
-                                      "const": "Digestion Vessel Type"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                "then": {
-                                  "properties": {
-                                    "schema:value": {
-                                      "description": "Type of vessel used for acid digestion. Vessel type constrains maximum temperature and pressure and determines suitability for refractory mineral dissolution (e.g., Parr bombs required for complete silicate digestion at high temperatures).",
-                                      "anyOf": [
-                                        {
-                                          "type": "string"
-                                        },
-                                        {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "string"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "if": {
-                                  "properties": {
-                                    "schema:name": {
-                                      "const": "Digestion Temperature"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                "then": {
-                                  "properties": {
-                                    "schema:defaultValue": {
-                                      "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
-                                      "anyOf": [
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "string"
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "if": {
-                                  "properties": {
-                                    "schema:name": {
-                                      "const": "Digestion Duration"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                "then": {
-                                  "properties": {
-                                    "schema:defaultValue": {
-                                      "description": "Duration of the primary acid digestion step (hours or days).",
-                                      "anyOf": [
-                                        {
-                                          "type": "string"
-                                        },
-                                        {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "string"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          },
-                          "allOf": [
-                            {
-                              "contains": {
-                                "properties": {
-                                  "schema:name": {
-                                    "const": "Number of Digestion Steps"
-                                  }
-                                },
-                                "required": [
-                                  "schema:name"
-                                ]
-                              }
-                            },
-                            {
-                              "contains": {
-                                "properties": {
-                                  "schema:name": {
-                                    "const": "Digestion Vessel Type"
-                                  }
-                                },
-                                "required": [
-                                  "schema:name"
-                                ]
-                              }
-                            },
-                            {
-                              "contains": {
-                                "properties": {
-                                  "schema:name": {
-                                    "const": "Digestion Temperature"
-                                  }
-                                },
-                                "required": [
-                                  "schema:name"
-                                ]
-                              }
-                            },
-                            {
-                              "contains": {
-                                "properties": {
-                                  "schema:name": {
-                                    "const": "Digestion Duration"
-                                  }
-                                },
-                                "required": [
-                                  "schema:name"
-                                ]
-                              }
-                            }
-                          ]
-                        },
                         "bios:reagent": {
                           "type": "array",
                           "items": {
@@ -3158,327 +3079,6 @@
           "description": "Acid type and concentration of the final dissolved sample solution introduced to the instrument. Directly affects instrument response and ion transmission. For isotope-ratio procedures, acid molarity must be precisely matched between samples and bracketing standards to avoid matrix-induced mass bias offsets. Procedures targeting HFSE may add trace HF to the final solution to keep those elements in solution.",
           "type": "string"
         },
-        "schema:instrument": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "schema:additionalType": {
-                      "contains": {
-                        "const": "ICPMS"
-                      }
-                    }
-                  },
-                  "required": [
-                    "schema:additionalType"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:hasPart": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:additionalType": {
-                                  "contains": {
-                                    "const": "Sample Introduction System"
-                                  }
-                                }
-                              },
-                              "required": [
-                                "schema:additionalType"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:additionalProperty": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "object",
-                                    "allOf": [
-                                      {
-                                        "if": {
-                                          "properties": {
-                                            "schema:name": {
-                                              "const": "Nebulizer Type"
-                                            }
-                                          },
-                                          "required": [
-                                            "schema:name"
-                                          ]
-                                        },
-                                        "then": {
-                                          "properties": {
-                                            "schema:value": {
-                                              "description": "Type and material of the pneumatic nebulizer used for sample introduction. Affects droplet size distribution and sample introduction efficiency.",
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
-                                            }
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "if": {
-                                          "properties": {
-                                            "schema:name": {
-                                              "const": "Spray Chamber Type and Cooling Temperature"
-                                            }
-                                          },
-                                          "required": [
-                                            "schema:name"
-                                          ]
-                                        },
-                                        "then": {
-                                          "properties": {
-                                            "schema:value": {
-                                              "description": "Type of spray chamber and cooling temperature if thermostatted (°C). Chamber type and temperature control aerosol droplet size and the solvent vapor load reaching the plasma. In some procedures a spray chamber is placed downstream of a desolvating nebulizer to improve signal stability.",
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
-                                            }
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "if": {
-                                          "properties": {
-                                            "schema:name": {
-                                              "const": "Sample Uptake Rate"
-                                            }
-                                          },
-                                          "required": [
-                                            "schema:name"
-                                          ]
-                                        },
-                                        "then": {
-                                          "properties": {
-                                            "schema:defaultValue": {
-                                              "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
-                                              "anyOf": [
-                                                {
-                                                  "type": "number"
-                                                },
-                                                {
-                                                  "type": "string"
-                                                }
-                                              ]
-                                            }
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "if": {
-                                          "properties": {
-                                            "schema:name": {
-                                              "const": "Nebulizer Gas Flow Rate"
-                                            }
-                                          },
-                                          "required": [
-                                            "schema:name"
-                                          ]
-                                        },
-                                        "then": {
-                                          "properties": {
-                                            "schema:defaultValue": {
-                                              "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
-                                              "anyOf": [
-                                                {
-                                                  "type": "number"
-                                                },
-                                                {
-                                                  "type": "string"
-                                                }
-                                              ]
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  },
-                                  "allOf": [
-                                    {
-                                      "contains": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Nebulizer Type"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      }
-                                    },
-                                    {
-                                      "contains": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Spray Chamber Type and Cooling Temperature"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      }
-                                    },
-                                    {
-                                      "contains": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Sample Uptake Rate"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      }
-                                    },
-                                    {
-                                      "contains": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Nebulizer Gas Flow Rate"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      "allOf": [
-                        {
-                          "contains": {
-                            "properties": {
-                              "schema:additionalType": {
-                                "contains": {
-                                  "const": "Sample Introduction System"
-                                }
-                              }
-                            },
-                            "required": [
-                              "schema:additionalType"
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "properties": {
-                  "schema:additionalType": {
-                    "contains": {
-                      "const": "ICPMS"
-                    }
-                  }
-                },
-                "required": [
-                  "schema:additionalType"
-                ]
-              }
-            }
-          ]
-        },
-        "schema:additionalProperty": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "schema:name": {
-                      "const": "Desolvation System"
-                    }
-                  },
-                  "required": [
-                    "schema:name"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:value": {
-                      "description": "Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent load. Lowers oxide production rates and increases sensitivity, and is commonly used for low-abundance analytes or small sample sizes. Note the trade-off: desolvation can introduce additional instrumental mass bias instability relative to wet plasma introduction. Record 'None' if not used.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "schema:name": {
-                      "const": "Internal Standard Concentration"
-                    }
-                  },
-                  "required": [
-                    "schema:name"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:value": {
-                      "description": "Target concentration of internal standard element(s) in all measured solutions (µg/L or ppb). Record 'N/A' where Internal Standard Element is 'None'.",
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
         "ada:washTimeBetweenSamples": {
           "description": "Duration of instrument rinse between successive sample solutions (seconds). Controls carryover and memory effects. For isotope-ratio work, complete washout is critical to prevent cross-contamination between samples with differing isotopic compositions.",
           "anyOf": [
@@ -3499,1198 +3099,33 @@
       ]
     },
     {
+      "title": "Analyte on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
-        "bios:computationalTool": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "ada:toolRole": {
-                      "const": "acquisition"
-                    }
-                  },
-                  "required": [
-                    "ada:toolRole"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:name": {
-                      "description": "Name and version of the software used to control the instrument and acquire raw mass spectrum data.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "ada:toolRole": {
-                      "const": "dataReduction"
-                    }
-                  },
-                  "required": [
-                    "ada:toolRole"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:name": {
-                      "description": "Name and version of the software used for data reduction: blank correction, internal standard normalization, calibration, and concentration calculation. Include version number.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ],
-            "required": [
-              "ada:toolRole"
-            ]
-          }
-        },
         "ada:analyteTemplate": {
           "type": "object",
           "properties": {
             "ada:defaultAnalytes": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {}
-              }
-            },
-            "ada:analyteColumns": {
-              "type": "array",
-              "items": {
                 "anyOf": [
                   {
-                    "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
-                    "allOf": [
-                      {
-                        "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
-                        "allOf": [
-                          {
-                            "$ref": "#/$defs/KeyedTableColumn"
-                          }
-                        ]
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "schema:valueName": {
-                            "const": "analyte"
-                          },
-                          "ada:dataType": {
-                            "const": "string"
-                          },
-                          "schema:readonlyValue": {
-                            "const": true
-                          },
-                          "schema:valueRequired": {
-                            "const": true
-                          },
-                          "ada:tier": {
-                            "const": "M"
-                          },
-                          "ada:cdifPropertyPath": {
-                            "const": "#/schema:variableMeasured/schema:name"
-                          }
-                        },
-                        "required": [
-                          "schema:valueName",
-                          "ada:dataType",
-                          "schema:readonlyValue",
-                          "schema:valueRequired",
-                          "ada:tier",
-                          "ada:cdifPropertyPath"
-                        ]
-                      }
-                    ]
+                    "type": "string"
                   },
                   {
-                    "title": "Monitored Isotopes",
-                    "description": "Specific isotope(s) monitored in this procedure, grouped by the analyte element they serve where they serve one. Includes interference-monitor and internal-standard masses, which serve no analyte and so have no parent element. The analyte list is given by the Analyte field and is never inferred from the element symbols appearing here.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/monitoredIsotopes"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "monitoredIsotopes"
-                      },
-                      "schema:name": {
-                        "const": "Monitored Isotopes"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Mass Resolution Assignment",
-                    "description": "Mass resolution mode assigned to each acquired mass. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "massResolutionAssignment"
-                      },
-                      "schema:name": {
-                        "const": "Mass Resolution Assignment"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Dwell Time per Mass",
-                    "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "dwellTimePerMass"
-                      },
-                      "schema:name": {
-                        "const": "Dwell Time per Mass"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Isobaric Interference Corrections Applied",
-                    "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction (supplementary to any interference suppression achieved through mass resolution selection).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "isobaricInterferenceCorrectionsApplied"
-                      },
-                      "schema:name": {
-                        "const": "Isobaric Interference Corrections Applied"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Interfering Species",
-                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferingSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Interfering Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Interference Correction Method",
-                    "description": "Mathematical approach used to calculate and remove residual interference contributions from measured signals. In SF-ICP-MS, interference solutions isolating specific polyatomic species are measured alongside samples and used to calibrate correction factors.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferenceCorrectionMethod"
-                      },
-                      "schema:name": {
-                        "const": "Interference Correction Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Detection Limit",
-                    "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimit"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Detection Limit Method",
-                    "description": "Method used to calculate detection limits for each reported concentration variable.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimitMethod"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Limit of Quantification (LOQ) Method",
-                    "description": "Method used to determine the limit of quantification.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "limitOfQuantificationMethod"
-                      },
-                      "schema:name": {
-                        "const": "Limit of Quantification (LOQ) Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Within-Session Analytical Precision and Assessment Method",
-                    "description": "Precision of repeated measurements within a single analysis session and the method used to assess it (e.g., %RSD of replicate standard or reference material measurements).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "schema:name": {
-                        "const": "Within-Session Analytical Precision and Assessment Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                    "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "schema:name": {
-                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Analytical Accuracy and Assessment Method",
-                    "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "analyticalAccuracyAndAssessmentMethod"
-                      },
-                      "schema:name": {
-                        "const": "Analytical Accuracy and Assessment Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
+                    "$ref": "#/$defs/DefinedTerm"
                   }
                 ]
-              },
-              "allOf": [
-                {
-                  "contains": {
-                    "title": "Monitored Isotopes",
-                    "description": "Specific isotope(s) monitored in this procedure, grouped by the analyte element they serve where they serve one. Includes interference-monitor and internal-standard masses, which serve no analyte and so have no parent element. The analyte list is given by the Analyte field and is never inferred from the element symbols appearing here.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/monitoredIsotopes"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "monitoredIsotopes"
-                      },
-                      "schema:name": {
-                        "const": "Monitored Isotopes"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Mass Resolution Assignment",
-                    "description": "Mass resolution mode assigned to each acquired mass. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "massResolutionAssignment"
-                      },
-                      "schema:name": {
-                        "const": "Mass Resolution Assignment"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Dwell Time per Mass",
-                    "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "dwellTimePerMass"
-                      },
-                      "schema:name": {
-                        "const": "Dwell Time per Mass"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Isobaric Interference Corrections Applied",
-                    "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction (supplementary to any interference suppression achieved through mass resolution selection).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "isobaricInterferenceCorrectionsApplied"
-                      },
-                      "schema:name": {
-                        "const": "Isobaric Interference Corrections Applied"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interfering Species",
-                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferingSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Interfering Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interference Correction Method",
-                    "description": "Mathematical approach used to calculate and remove residual interference contributions from measured signals. In SF-ICP-MS, interference solutions isolating specific polyatomic species are measured alongside samples and used to calibrate correction factors.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferenceCorrectionMethod"
-                      },
-                      "schema:name": {
-                        "const": "Interference Correction Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Detection Limit",
-                    "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimit"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Detection Limit Method",
-                    "description": "Method used to calculate detection limits for each reported concentration variable.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimitMethod"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Limit of Quantification (LOQ) Method",
-                    "description": "Method used to determine the limit of quantification.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "limitOfQuantificationMethod"
-                      },
-                      "schema:name": {
-                        "const": "Limit of Quantification (LOQ) Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Within-Session Analytical Precision and Assessment Method",
-                    "description": "Precision of repeated measurements within a single analysis session and the method used to assess it (e.g., %RSD of replicate standard or reference material measurements).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "schema:name": {
-                        "const": "Within-Session Analytical Precision and Assessment Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                    "description": "Reproducibility of measurements across multiple analytical sessions over weeks to months (long-term or intermediate precision). Report both the assessment method and the precision values. Specify: reference material used, number of sessions n, time span covered, and statistic reported. Long-term precision is typically assessed from a compiled record of secondary reference material values across all sessions.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "schema:name": {
-                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Analytical Accuracy and Assessment Method",
-                    "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "analyticalAccuracyAndAssessmentMethod"
-                      },
-                      "schema:name": {
-                        "const": "Analytical Accuracy and Assessment Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                }
-              ]
+              }
             }
           }
-        },
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
         "schema:instrument": {
           "type": "array",
           "items": {
@@ -5809,16 +4244,6 @@
                         }
                       ]
                     },
-                    "schema:model": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "Manufacturer and model name of the sector-field ICP-MS instrument (e.g., Thermo Element 2, Thermo Element XR, Nu Instruments Attom HR). Determines available mass resolution modes and detector configuration.",
-                          "type": "string",
-                          "readOnly": true
-                        }
-                      }
-                    },
                     "schema:additionalProperty": {
                       "type": "array",
                       "items": {
@@ -5983,12 +4408,12 @@
                             ]
                           },
                           {
-                            "title": "Make-up Gas Flow Rate",
-                            "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+                            "title": "Make-up Gas and Flow Rate",
+                            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRateDefault"
+                                "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRateDefault"
                               },
                               "@type": {
                                 "const": [
@@ -5996,10 +4421,10 @@
                                 ]
                               },
                               "schema:valueName": {
-                                "const": "makeUpGasFlowRateDefault"
+                                "const": "makeUpGasAndFlowRateDefault"
                               },
                               "schema:name": {
-                                "const": "Make-up Gas Flow Rate"
+                                "const": "Make-up Gas and Flow Rate"
                               },
                               "ada:dataType": {
                                 "const": "number"
@@ -6288,12 +4713,12 @@
                         },
                         {
                           "contains": {
-                            "title": "Make-up Gas Flow Rate",
-                            "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+                            "title": "Make-up Gas and Flow Rate",
+                            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRateDefault"
+                                "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRateDefault"
                               },
                               "@type": {
                                 "const": [
@@ -6301,10 +4726,10 @@
                                 ]
                               },
                               "schema:valueName": {
-                                "const": "makeUpGasFlowRateDefault"
+                                "const": "makeUpGasAndFlowRateDefault"
                               },
                               "schema:name": {
-                                "const": "Make-up Gas Flow Rate"
+                                "const": "Make-up Gas and Flow Rate"
                               },
                               "ada:dataType": {
                                 "const": "number"
@@ -6489,8 +4914,24 @@
                                 "schema:value": {
                                   "type": "array",
                                   "items": {
-                                    "description": "Type of geological or experimental material being analyzed (e.g., basalt, peridotite, chondrite, synthetic solution). Constrains the calibration strategy and matrix-matching requirements.",
-                                    "type": "string",
+                                    "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",
+                                    "anyOf": [
+                                      {
+                                        "type": "string",
+                                        "enum": [
+                                          "Basalt",
+                                          "Chondrite",
+                                          "Peridotite",
+                                          "Synthetic solution",
+                                          "N/A",
+                                          "None",
+                                          "missing"
+                                        ]
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ],
                                     "readOnly": true
                                   }
                                 }
@@ -7226,6 +5667,47 @@
                                 "readOnly": true
                               },
                               {
+                                "title": "Analysis Inclusion and Rejection Criteria",
+                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "analysisInclusionAndRejectionCriteriaDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Analysis Inclusion and Rejection Criteria"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
                                 "title": "Constants and Reference Values Used",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
@@ -7395,6 +5877,51 @@
                                   "schema:value"
                                 ],
                                 "readOnly": true
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Analysis Inclusion and Rejection Criteria",
+                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "analysisInclusionAndRejectionCriteriaDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Analysis Inclusion and Rejection Criteria"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -8033,8 +6560,1120 @@
             }
           ]
         },
+        "ada:analyteTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:analyteColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+                    "allOf": [
+                      {
+                        "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/KeyedTableColumn"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema:valueName": {
+                            "const": "analyte"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "schema:readonlyValue": {
+                            "const": true
+                          },
+                          "schema:valueRequired": {
+                            "const": true
+                          },
+                          "ada:tier": {
+                            "const": "M"
+                          },
+                          "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                          }
+                        },
+                        "required": [
+                          "schema:valueName",
+                          "ada:dataType",
+                          "schema:readonlyValue",
+                          "schema:valueRequired",
+                          "ada:tier",
+                          "ada:cdifPropertyPath"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Monitored Masses",
+                    "description": "Specific masses monitored in this procedure, grouped by the analyte element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an analyte onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no analyte and so have no parent element. The analyte list is given by the Analyte field and is never inferred from the element symbols appearing here.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/monitoredMasses"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "monitoredMasses"
+                      },
+                      "schema:name": {
+                        "const": "Monitored Masses"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Mass Resolution Assignment",
+                    "description": "Mass resolution mode assigned to each acquired mass. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "massResolutionAssignment"
+                      },
+                      "schema:name": {
+                        "const": "Mass Resolution Assignment"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Dwell Time per Mass",
+                    "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "dwellTimePerMass"
+                      },
+                      "schema:name": {
+                        "const": "Dwell Time per Mass"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Isobaric Interference Corrections Applied",
+                    "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction (supplementary to any interference suppression achieved through mass resolution selection).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "isobaricInterferenceCorrectionsApplied"
+                      },
+                      "schema:name": {
+                        "const": "Isobaric Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Interfering Species",
+                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Interference Correction Method",
+                    "description": "Mathematical approach used to calculate and remove residual interference contributions from measured signals. In SF-ICP-MS, interference solutions isolating specific polyatomic species are measured alongside samples and used to calibrate correction factors.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionMethod"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Detection Limit",
+                    "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimit"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Detection Limit Method",
+                    "description": "Method used to calculate detection limits for each reported concentration variable.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimitMethod"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Limit of Quantification (LOQ) Method",
+                    "description": "Method used to determine the limit of quantification.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "limitOfQuantificationMethod"
+                      },
+                      "schema:name": {
+                        "const": "Limit of Quantification (LOQ) Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Within-Session Analytical Precision and Assessment Method",
+                    "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Within-Session Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                    "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported. Long-term precision is normally poorer than within-session precision and is the figure a data user should carry when comparing results from different sessions.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Analytical Accuracy and Assessment Method",
+                    "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Analytical Accuracy and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Monitored Masses",
+                    "description": "Specific masses monitored in this procedure, grouped by the analyte element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an analyte onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no analyte and so have no parent element. The analyte list is given by the Analyte field and is never inferred from the element symbols appearing here.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/monitoredMasses"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "monitoredMasses"
+                      },
+                      "schema:name": {
+                        "const": "Monitored Masses"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Mass Resolution Assignment",
+                    "description": "Mass resolution mode assigned to each acquired mass. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "massResolutionAssignment"
+                      },
+                      "schema:name": {
+                        "const": "Mass Resolution Assignment"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Dwell Time per Mass",
+                    "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "dwellTimePerMass"
+                      },
+                      "schema:name": {
+                        "const": "Dwell Time per Mass"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Isobaric Interference Corrections Applied",
+                    "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction (supplementary to any interference suppression achieved through mass resolution selection).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "isobaricInterferenceCorrectionsApplied"
+                      },
+                      "schema:name": {
+                        "const": "Isobaric Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interfering Species",
+                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interference Correction Method",
+                    "description": "Mathematical approach used to calculate and remove residual interference contributions from measured signals. In SF-ICP-MS, interference solutions isolating specific polyatomic species are measured alongside samples and used to calibrate correction factors.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionMethod"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Detection Limit",
+                    "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical estimates or session-specific measured values.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimit"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Detection Limit Method",
+                    "description": "Method used to calculate detection limits for each reported concentration variable.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "detectionLimitMethod"
+                      },
+                      "schema:name": {
+                        "const": "Detection Limit Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Limit of Quantification (LOQ) Method",
+                    "description": "Method used to determine the limit of quantification.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "limitOfQuantificationMethod"
+                      },
+                      "schema:name": {
+                        "const": "Limit of Quantification (LOQ) Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Within-Session Analytical Precision and Assessment Method",
+                    "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Within-Session Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                    "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported. Long-term precision is normally poorer than within-session precision and is the figure a data user should carry when comparing results from different sessions.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Analytical Accuracy and Assessment Method",
+                    "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Analytical Accuracy and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
+            }
+          }
+        },
         "ada:numberOfScansPerReplicate": {
-          "description": "Number of complete mass scans accumulated per analytical replicate.",
+          "description": "Number of complete mass scans accumulated per analytical replicate. A scan — also called a sweep or a pass — is one complete traversal of the monitored masses by a sequentially scanning analyser, so the scan count multiplied by the per-mass dwell time gives the total integration time per replicate. Distinct from a cycle in simultaneous multi-collection, which is one readout of all detectors at once rather than a traversal of masses.",
           "anyOf": [
             {
               "type": "integer"
@@ -8046,7 +7685,7 @@
           "readOnly": true
         },
         "ada:numberOfReplicatesPerSample": {
-          "description": "Number of discrete replicate measurements acquired per sample solution.",
+          "description": "Number of replicate measurements performed on the same sample, or on the same nominal location where the technique is spatially resolved. For spot analysis this is the number of individual spots per grain or location; for transects, the number of replicate lines; for mapping, the number of map acquisitions of the same area; for solution work, the number of discrete replicate measurements acquired per sample solution. The procedure registers an intended count where it has one; the analysis records the count actually acquired.",
           "anyOf": [
             {
               "type": "integer"
@@ -8054,8 +7693,7 @@
             {
               "type": "string"
             }
-          ],
-          "readOnly": true
+          ]
         },
         "ada:sampleSequenceDesign": {
           "description": "Description of the measurement order within a session: how samples, blanks, calibration standards, and reference materials are interleaved.",
@@ -8156,36 +7794,6 @@
           "description": "How often the primary calibration standard is measured relative to unknown samples within a session.",
           "type": "string",
           "readOnly": true
-        },
-        "schema:description": {
-          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
-          "type": "string"
-        },
-        "ada:analyticalMode": {
-          "type": "array",
-          "items": {
-            "description": "Top-level declaration of the kind of measurement this procedure covers. Solution ICP-MS has a single routine mode — continuous nebulisation of a digested solution — so this TAPP defines no mode flag columns; the field is still required (Rule 3) so that a procedure record is self-describing and comparable with multi-mode TAPPs across the library.",
-            "type": "string",
-            "enum": [
-              "Solution nebulisation (continuous)",
-              "Flow injection",
-              "missing"
-            ],
-            "readOnly": true
-          }
-        },
-        "ada:reportedPropertyTemplate": {
-          "type": "object",
-          "properties": {
-            "ada:defaultReportedProperties": {
-              "type": "array",
-              "items": {
-                "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
-                "type": "string",
-                "readOnly": true
-              }
-            }
-          }
         }
       },
       "required": [

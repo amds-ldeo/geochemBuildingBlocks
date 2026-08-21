@@ -5,7 +5,7 @@
   "description": "Dataset-level analysis-instance detail for solution SF-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.",
   "allOf": [
     {
-      "title": "Group1 on the analysis",
+      "title": "Core on the analysis",
       "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
       "type": "object",
       "properties": {
@@ -37,6 +37,219 @@
               },
               "schema:endDate": {
                 "description": "Date on which the analytical session ended. May equal Analysis Start Date for single-day sessions. Format: YYYY-MM-DD.",
+                "type": "string"
+              },
+              "schema:object": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "@type": {
+                            "contains": {
+                              "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                            }
+                          }
+                        },
+                        "required": [
+                          "@type"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "schema:name": {
+                            "description": "Name or identifier of each sample analysed in this session, as used in the laboratory — a sample mount, section or aliquot counts as one entry where that is what the laboratory tracks. The analysis record corresponds to one session and may cover several samples; fields whose Keyed By column declares 'sample' take one value per entry. Should match the identifier used in associated publications or data tables.",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          },
+                          "schema:identifier": {
+                            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "allOf": [
+                  {
+                    "contains": {
+                      "properties": {
+                        "@type": {
+                          "contains": {
+                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                          }
+                        }
+                      },
+                      "required": [
+                        "@type"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "prov:used": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "if": {
+                        "required": [
+                          "bios:computationalTool"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "bios:computationalTool": {
+                            "type": "array",
+                            "items": {
+                              "allOf": [
+                                {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Computational tool actually used (acquisition, data reduction, or processing).",
+                                  "properties": {
+                                    "@type": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "contains": {
+                                        "const": "schema:SoftwareApplication"
+                                      }
+                                    },
+                                    "@id": {
+                                      "type": "string"
+                                    },
+                                    "schema:name": {
+                                      "type": "string"
+                                    },
+                                    "schema:version": {
+                                      "type": "string"
+                                    },
+                                    "schema:url": {
+                                      "type": "string",
+                                      "format": "uri"
+                                    },
+                                    "schema:description": {
+                                      "type": "string"
+                                    },
+                                    "ada:toolRole": {
+                                      "type": "string",
+                                      "enum": [
+                                        "acquisition",
+                                        "dataReduction",
+                                        "processing",
+                                        "visualization"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "@type",
+                                    "schema:name"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "allOf": [
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "ada:toolRole": {
+                                            "const": "acquisition"
+                                          }
+                                        },
+                                        "required": [
+                                          "ada:toolRole"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "schema:name": {
+                                            "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "ada:toolRole": {
+                                            "const": "dataReduction"
+                                          }
+                                        },
+                                        "required": [
+                                          "ada:toolRole"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "schema:name": {
+                                            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "required": [
+                                    "ada:toolRole"
+                                  ]
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "schema:description": {
+                "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
                 "type": "string"
               }
             }
@@ -207,11 +420,11 @@
       ]
     },
     {
-      "title": "ReportingCore · aggregation_qc on the analysis",
+      "title": "Aggregation on the analysis",
       "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
       "type": "object",
       "properties": {
-        "dqv:hasQualityMeasurement": {
+        "schema:variableMeasured": {
           "type": "array",
           "items": {
             "type": "object",
@@ -219,47 +432,17 @@
               {
                 "if": {
                   "properties": {
-                    "dqv:isMeasurementOf": {
-                      "const": "Dispersion Statistic"
+                    "schema:name": {
+                      "const": "Goodness-of-Fit or Dispersion Statistic"
                     }
                   },
                   "required": [
-                    "dqv:isMeasurementOf"
+                    "schema:name"
                   ]
                 },
                 "then": {
                   "properties": {
-                    "dqv:value": {
-                      "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "dqv:isMeasurementOf": {
-                      "const": "Goodness-of-Fit"
-                    }
-                  },
-                  "required": [
-                    "dqv:isMeasurementOf"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "dqv:value": {
+                    "schema:value": {
                       "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
                       "anyOf": [
                         {
@@ -282,24 +465,12 @@
             {
               "contains": {
                 "properties": {
-                  "dqv:isMeasurementOf": {
-                    "const": "Dispersion Statistic"
+                  "schema:name": {
+                    "const": "Goodness-of-Fit or Dispersion Statistic"
                   }
                 },
                 "required": [
-                  "dqv:isMeasurementOf"
-                ]
-              }
-            },
-            {
-              "contains": {
-                "properties": {
-                  "dqv:isMeasurementOf": {
-                    "const": "Goodness-of-Fit"
-                  }
-                },
-                "required": [
-                  "dqv:isMeasurementOf"
+                  "schema:name"
                 ]
               }
             }
@@ -308,290 +479,6 @@
       }
     },
     {
-      "title": "SolutionIntroduction fields on the analysis",
-      "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
-      "type": "object",
-      "properties": {
-        "prov:wasGeneratedBy": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "schema:object": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "if": {
-                        "properties": {
-                          "@type": {
-                            "contains": {
-                              "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                            }
-                          }
-                        },
-                        "required": [
-                          "@type"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "schema:additionalProperty": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "allOf": [
-                                {
-                                  "if": {
-                                    "properties": {
-                                      "schema:name": {
-                                        "const": "Sample Aliquot Mass or Volume"
-                                      }
-                                    },
-                                    "required": [
-                                      "schema:name"
-                                    ]
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "schema:value": {
-                                        "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                                        "anyOf": [
-                                          {
-                                            "type": "number"
-                                          },
-                                          {
-                                            "type": "string"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "schema:actionProcess": {
-                "type": "object",
-                "properties": {
-                  "schema:step": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "allOf": [
-                        {
-                          "if": {
-                            "properties": {
-                              "schema:name": {
-                                "const": "sampleDigestion"
-                              }
-                            },
-                            "required": [
-                              "schema:name"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "schema:additionalProperty": {
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "allOf": [
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Digestion Temperature"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:value": {
-                                            "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Digestion Duration"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:value": {
-                                            "description": "Duration of the primary acid digestion step (hours or days).",
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              "prov:used": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "if": {
-                        "properties": {
-                          "schema:additionalType": {
-                            "contains": {
-                              "const": "ICPMS"
-                            }
-                          }
-                        },
-                        "required": [
-                          "schema:additionalType"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "schema:hasPart": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "allOf": [
-                                {
-                                  "if": {
-                                    "properties": {
-                                      "schema:additionalType": {
-                                        "contains": {
-                                          "const": "Sample Introduction System"
-                                        }
-                                      }
-                                    },
-                                    "required": [
-                                      "schema:additionalType"
-                                    ]
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "schema:additionalProperty": {
-                                        "type": "array",
-                                        "items": {
-                                          "type": "object",
-                                          "allOf": [
-                                            {
-                                              "if": {
-                                                "properties": {
-                                                  "schema:name": {
-                                                    "const": "Sample Uptake Rate"
-                                                  }
-                                                },
-                                                "required": [
-                                                  "schema:name"
-                                                ]
-                                              },
-                                              "then": {
-                                                "properties": {
-                                                  "schema:value": {
-                                                    "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            {
-                                              "if": {
-                                                "properties": {
-                                                  "schema:name": {
-                                                    "const": "Nebulizer Gas Flow Rate"
-                                                  }
-                                                },
-                                                "required": [
-                                                  "schema:name"
-                                                ]
-                                              },
-                                              "then": {
-                                                "properties": {
-                                                  "schema:value": {
-                                                    "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          ]
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    {
       "type": "object",
       "properties": {
         "prov:wasGeneratedBy": {
@@ -604,137 +491,6 @@
                 "items": {
                   "type": "object",
                   "allOf": [
-                    {
-                      "if": {
-                        "required": [
-                          "bios:computationalTool"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "bios:computationalTool": {
-                            "type": "array",
-                            "items": {
-                              "allOf": [
-                                {
-                                  "type": "object",
-                                  "additionalProperties": false,
-                                  "description": "Computational tool actually used (acquisition, data reduction, or processing).",
-                                  "properties": {
-                                    "@type": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      },
-                                      "contains": {
-                                        "const": "schema:SoftwareApplication"
-                                      }
-                                    },
-                                    "@id": {
-                                      "type": "string"
-                                    },
-                                    "schema:name": {
-                                      "type": "string"
-                                    },
-                                    "schema:version": {
-                                      "type": "string"
-                                    },
-                                    "schema:url": {
-                                      "type": "string",
-                                      "format": "uri"
-                                    },
-                                    "schema:description": {
-                                      "type": "string"
-                                    },
-                                    "ada:toolRole": {
-                                      "type": "string",
-                                      "enum": [
-                                        "acquisition",
-                                        "dataReduction",
-                                        "processing",
-                                        "visualization"
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "@type",
-                                    "schema:name"
-                                  ]
-                                },
-                                {
-                                  "type": "object",
-                                  "allOf": [
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "ada:toolRole": {
-                                            "const": "acquisition"
-                                          }
-                                        },
-                                        "required": [
-                                          "ada:toolRole"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "description": "Name and version of the software used to control the instrument and acquire raw mass spectrum data.",
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "ada:toolRole": {
-                                            "const": "dataReduction"
-                                          }
-                                        },
-                                        "required": [
-                                          "ada:toolRole"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "description": "Name and version of the software used for data reduction: blank correction, internal standard normalization, calibration, and concentration calculation. Include version number.",
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ],
-                                  "required": [
-                                    "ada:toolRole"
-                                  ]
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    },
                     {
                       "if": {
                         "required": [
@@ -2734,12 +2490,12 @@
                                                         "items": {
                                                           "anyOf": [
                                                             {
-                                                              "title": "Make-up Gas Flow Rate",
-                                                              "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+                                                              "title": "Make-up Gas and Flow Rate",
+                                                              "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
                                                               "type": "object",
                                                               "properties": {
                                                                 "@id": {
-                                                                  "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                                                  "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate"
                                                                 },
                                                                 "@type": {
                                                                   "const": [
@@ -2749,12 +2505,12 @@
                                                                 "schema:propertyID": {
                                                                   "const": [
                                                                     {
-                                                                      "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                                                      "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate"
                                                                     }
                                                                   ]
                                                                 },
                                                                 "schema:name": {
-                                                                  "const": "Make-up Gas Flow Rate"
+                                                                  "const": "Make-up Gas and Flow Rate"
                                                                 },
                                                                 "schema:value": {
                                                                   "anyOf": [
@@ -2876,12 +2632,12 @@
                                                         "allOf": [
                                                           {
                                                             "contains": {
-                                                              "title": "Make-up Gas Flow Rate",
-                                                              "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+                                                              "title": "Make-up Gas and Flow Rate",
+                                                              "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
                                                               "type": "object",
                                                               "properties": {
                                                                 "@id": {
-                                                                  "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                                                  "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate"
                                                                 },
                                                                 "@type": {
                                                                   "const": [
@@ -2891,12 +2647,12 @@
                                                                 "schema:propertyID": {
                                                                   "const": [
                                                                     {
-                                                                      "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                                                                      "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate"
                                                                     }
                                                                   ]
                                                                 },
                                                                 "schema:name": {
-                                                                  "const": "Make-up Gas Flow Rate"
+                                                                  "const": "Make-up Gas and Flow Rate"
                                                                 },
                                                                 "schema:value": {
                                                                   "anyOf": [
@@ -3714,20 +3470,6 @@
                       },
                       "then": {
                         "properties": {
-                          "schema:identifier": {
-                            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            ]
-                          },
                           "schema:description": {
                             "description": "Brief description of sample provenance, form, or preparation state relevant to this analysis.",
                             "anyOf": [
@@ -3840,20 +3582,6 @@
                                 },
                                 "minContains": 0,
                                 "maxContains": 1
-                              }
-                            ]
-                          },
-                          "schema:name": {
-                            "description": "Name or identifier of each sample analysed in this session, as used in the laboratory — a sample mount, section or aliquot counts as one entry where that is what the laboratory tracks. The analysis record corresponds to one session and may cover several samples; fields whose Keyed By column declares 'sample' take one value per entry. Should match the identifier used in associated publications or data tables.",
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
                               }
                             ]
                           }
@@ -4511,49 +4239,88 @@
               "schema:additionalProperty": {
                 "type": "array",
                 "items": {
-                  "title": "Signal Integration Time",
-                  "description": "Total integration time per analyte per replicate (s). Determined at analysis time from the actual acquisition.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/solutionSficpmsTAPP/signalIntegrationTime"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/solutionSficpmsTAPP/signalIntegrationTime"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Signal Integration Time"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
+                  "anyOf": [
+                    {
+                      "title": "Signal Integration Time",
+                      "description": "Total integration time per analyte per replicate (s). Determined at analysis time from the actual acquisition.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionSficpmsTAPP/signalIntegrationTime"
                         },
-                        {
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionSficpmsTAPP/signalIntegrationTime"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Signal Integration Time"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
-                    "schema:unitText": {
-                      "type": "string"
+                    {
+                      "title": "Procedural Blank Level",
+                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionSficpmsTAPP/proceduralBlankLevel"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionSficpmsTAPP/proceduralBlankLevel"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Procedural Blank Level"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
                     }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value",
-                    "schema:unitText"
                   ]
                 },
                 "allOf": [
@@ -4606,12 +4373,47 @@
                     },
                     "minContains": 0,
                     "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Procedural Blank Level",
+                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionSficpmsTAPP/proceduralBlankLevel"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionSficpmsTAPP/proceduralBlankLevel"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Procedural Blank Level"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
                   }
                 ]
-              },
-              "schema:description": {
-                "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
-                "type": "string"
               }
             }
           }
