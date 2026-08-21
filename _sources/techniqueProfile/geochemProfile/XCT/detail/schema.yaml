@@ -101,6 +101,34 @@ properties:
                         - schema:name
                         - schema:value
                       - &id002
+                        title: Pre-Analysis Imaging and Screening
+                        description: Imaging or other characterisation performed before the measurement
+                          in order to select or locate the analysed target, including the technique, instrument
+                          and settings used, and how individual analyses are linked back to the images.
+                          Distinct from any imaging the procedure performs as its own measurement. Where
+                          the imaging is performed on a separate instrument, it should also be recorded
+                          in the Group 1 coupling fields.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreening
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/labxctTAPP/preAnalysisImagingAndScreening
+                          schema:name:
+                            const: Pre-Analysis Imaging and Screening
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                      - &id003
                         title: Sample Mass
                         description: 'Mass of the sample in grams, recorded for curatorial tracking of
                           precious or limited materials. Particularly important for meteorite, mission-returned,
@@ -138,6 +166,9 @@ properties:
                     - contains: *id002
                       minContains: 0
                       maxContains: 1
+                    - contains: *id003
+                      minContains: 0
+                      maxContains: 1
                   schema:name:
                     description: Name or identifier of each sample analysed in this session, as used in
                       the laboratory — a sample mount, section or aliquot counts as one entry where that
@@ -173,7 +204,7 @@ properties:
           type: array
           items:
             anyOf:
-            - &id003
+            - &id004
               title: Sample Mounting Method
               description: Method used to mount or hold the sample on the instrument rotation stage. Mounting
                 material should transmit X-rays at the selected voltage without dominating beam attenuation.
@@ -198,7 +229,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id004
+            - &id005
               title: X-ray Power
               description: 'X-ray tube power in watts (W) registered by the procedure. Derivable as voltage
                 (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size
@@ -231,7 +262,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id005
+            - &id006
               title: Source-to-Object Distance (SOD)
               description: Distance from the X-ray source focal spot to the centre of the sample rotation
                 axis, in mm, as registered by the procedure. Together with SDD, determines geometric magnification
@@ -261,7 +292,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id006
+            - &id007
               title: Source-to-Detector Distance (SDD)
               description: Distance from the X-ray source focal spot to the detector surface, in mm, as
                 registered by the procedure. Together with SOD, determines geometric magnification M =
@@ -292,7 +323,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id007
+            - &id008
               title: Rotation Range
               description: Total angular range over which projection images are acquired, in degrees.
                 Full 360° rotation is standard for cone-beam lab XCT. 180° rotation (half-scan) is sometimes
@@ -322,7 +353,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id008
+            - &id009
               title: Number of Projections
               description: Total number of equally-spaced projection images acquired over the full rotation
                 range. More projections improve reconstruction quality by reducing under-sampling streak
@@ -350,7 +381,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id009
+            - &id010
               title: Rotation Step Size
               description: Angular increment between successive projection images, in degrees. Equal to
                 Rotation Range divided by Number of Projections when both are reported; however, some
@@ -382,7 +413,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id010
+            - &id011
               title: Exposure Time per Projection
               description: 'Duration of X-ray exposure for each individual projection image frame, in
                 seconds, as registered by the procedure. Set as a deliberate choice for the target sample
@@ -415,7 +446,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id011
+            - &id012
               title: Frames Averaged per Projection
               description: Number of individual detector frames acquired and averaged to produce each
                 saved projection image, as registered by the procedure. Frame averaging reduces random
@@ -443,7 +474,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id012
+            - &id013
               title: Detector Binning
               description: Detector pixel binning factor applied during acquisition. Binning combines
                 adjacent pixels (e.g., 2×2 combines 4 pixels into one), reducing effective resolution
@@ -468,7 +499,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id013
+            - &id014
               title: Rotation Mode
               description: Whether projection images are acquired during continuous sample rotation (faster;
                 may introduce slight motion blur at high rotation speeds) or at discrete step positions
@@ -495,7 +526,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id014
+            - &id015
               title: Target Selection Criteria
               description: 'The rules governing which part of the sample is analysed, and why. Covers
                 the criteria applied when choosing grains, aliquots, spots, or a region of interest —
@@ -523,7 +554,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id015
+            - &id016
               title: Reconstruction Convolution Filter
               description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
                 Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother
@@ -549,7 +580,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id016
+            - &id017
               title: Beam Hardening Correction Parameter
               description: Numerical value or setting applied in the software beam hardening correction
                 algorithm for this specific analysis. May be tuned empirically per material type or per
@@ -574,7 +605,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id017
+            - &id018
               title: Ring Artifact Correction Method
               description: Procedure specification for how ring artifacts are handled. Ring artifacts
                 appear as concentric circular bands centred on the rotation axis and arise from defective
@@ -600,7 +631,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id018
+            - &id019
               title: CT Number Calibration
               description: Whether the raw CT grayscale values have been calibrated to physically meaningful
                 units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session
@@ -627,7 +658,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id019
+            - &id020
               title: Segmentation Method
               description: General approach used to separate distinct phases or features in the reconstructed
                 CT volume. The method must be reported for any quantitative result to be reproducible.
@@ -651,7 +682,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id020
+            - &id021
               title: Segmentation Threshold Values or Criteria
               description: Specific CT number range(s) or quantitative criteria used to define each segmented
                 phase or feature. Documenting these values enables reproducibility assessment and cross-study
@@ -676,7 +707,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id021
+            - &id022
               title: Phase Identification Method
               description: Method used to assign reconstructed CT number ranges to specific mineral phases
                 or material types. Approaches include comparison to calculated linear attenuation coefficients
@@ -701,7 +732,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id022
+            - &id023
               title: VOI Selection Criteria
               description: Procedure-level rules specifying how the Volume of Interest (VOI) is to be
                 defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at
@@ -727,7 +758,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id023
+            - &id024
               title: Output Bit Depth
               description: Bit depth of the reconstructed 3D volume (number of bits used to encode each
                 voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray
@@ -755,7 +786,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id024
+            - &id025
               title: Total Scan Duration
               description: Total elapsed time for the complete XCT acquisition, from the start of the
                 first projection to the end of the last. For multi-volume acquisitions, this is the combined
@@ -781,7 +812,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id025
+            - &id026
               title: Partial Volume Effect Criteria
               description: Procedure-level specification of how partial volume effects (PVE) are managed
                 in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and
@@ -815,7 +846,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id026
+            - &id027
               title: Cross-Validation Procedure Requirement
               description: Procedure-level specification of what independent analytical validation is
                 required to confirm CT segmentation results, phase identification, or quantitative measurements.
@@ -845,9 +876,6 @@ properties:
               - schema:name
               - schema:value
           allOf:
-          - contains: *id003
-            minContains: 0
-            maxContains: 1
           - contains: *id004
             minContains: 0
             maxContains: 1
@@ -917,6 +945,9 @@ properties:
           - contains: *id026
             minContains: 0
             maxContains: 1
+          - contains: *id027
+            minContains: 0
+            maxContains: 1
         schema:actionProcess:
           type: object
           properties:
@@ -954,7 +985,7 @@ properties:
                         type: array
                         items:
                           anyOf:
-                          - &id027
+                          - &id028
                             title: Flat Field Correction
                             description: Whether dark-field (detector read with X-ray source off; electronic
                               noise baseline) and bright-field (source on, no sample; gain calibration)
@@ -980,7 +1011,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id028
+                          - &id029
                             title: Sub-volume Stitching and Registration Method
                             description: 'Method used to register adjacent sub-volume datasets to each
                               other and stitch them into a single continuous 3D volume. Report the alignment
@@ -1009,7 +1040,7 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
-                          - &id029
+                          - &id030
                             title: Constants and Reference Values Used
                             description: Physical constants and reference values used in data reduction
                               to calculate the final reported quantity (e.g., decay constants for age
@@ -1040,13 +1071,13 @@ properties:
                             - schema:name
                             - schema:value
                         allOf:
-                        - contains: *id027
-                          minContains: 0
-                          maxContains: 1
                         - contains: *id028
                           minContains: 0
                           maxContains: 1
                         - contains: *id029
+                          minContains: 0
+                          maxContains: 1
+                        - contains: *id030
                           minContains: 0
                           maxContains: 1
               allOf:
@@ -1136,7 +1167,7 @@ properties:
                                 type: array
                                 items:
                                   anyOf:
-                                  - &id030
+                                  - &id031
                                     title: Accelerating Voltage
                                     description: 'X-ray tube accelerating voltage in kilovolts (kV) registered
                                       by the procedure. Determines the maximum X-ray photon energy and
@@ -1174,7 +1205,7 @@ properties:
                                     - schema:name
                                     - schema:value
                                     - schema:unitText
-                                  - &id031
+                                  - &id032
                                     title: Tube Current
                                     description: X-ray tube current in microamperes (µA) registered by
                                       the procedure. Controls photon flux and therefore projection image
@@ -1207,7 +1238,7 @@ properties:
                                     - schema:name
                                     - schema:value
                                     - schema:unitText
-                                  - &id032
+                                  - &id033
                                     title: X-ray Pre-filter
                                     description: Material and thickness of the beam-hardening filter placed
                                       between the X-ray source and the sample. Hardens the beam by attenuating
@@ -1235,7 +1266,7 @@ properties:
                                     - schema:propertyID
                                     - schema:name
                                     - schema:value
-                                  - &id033
+                                  - &id034
                                     title: Voxel Size
                                     description: Isotropic voxel edge length of the reconstructed 3D volume
                                       in micrometres. The procedure registers the target voxel size, set
@@ -1270,9 +1301,6 @@ properties:
                                     - schema:value
                                     - schema:unitText
                                 allOf:
-                                - contains: *id030
-                                  minContains: 0
-                                  maxContains: 1
                                 - contains: *id031
                                   minContains: 0
                                   maxContains: 1
@@ -1280,6 +1308,9 @@ properties:
                                   minContains: 0
                                   maxContains: 1
                                 - contains: *id033
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains: *id034
                                   minContains: 0
                                   maxContains: 1
                     allOf:
@@ -1422,7 +1453,7 @@ properties:
     type: array
     items:
       anyOf:
-      - &id034
+      - &id035
         title: Effective Spatial Resolution (PSF/MTF)
         description: Effective spatial resolution of the reconstructed CT volume, which typically differs
           from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric
@@ -1454,7 +1485,7 @@ properties:
         - schema:propertyID
         - schema:name
         - schema:value
-      - &id035
+      - &id036
         title: Number of Sub-volumes
         description: 'Total number of overlapping sub-volume scans acquired to cover the full sample length.
           This is an analysis-level parameter: the number of sub-volumes depends on the length of the
@@ -1482,7 +1513,7 @@ properties:
         - schema:propertyID
         - schema:name
         - schema:value
-      - &id036
+      - &id037
         title: VOI Applied
         description: Actual Volume of Interest used in this specific analysis, including dimensions or
           defining criteria. Analysis-level companion to VOI Selection Criteria.
@@ -1506,7 +1537,7 @@ properties:
         - schema:propertyID
         - schema:name
         - schema:value
-      - &id037
+      - &id038
         title: Sub-volume Overlap
         description: Actual number of reconstructed slices overlapping between adjacent sub-volumes as
           used in this analysis. May differ from the minimum sub-volume overlap required specified in
@@ -1535,9 +1566,6 @@ properties:
         - schema:name
         - schema:value
     allOf:
-    - contains: *id034
-      minContains: 0
-      maxContains: 1
     - contains: *id035
       minContains: 0
       maxContains: 1
@@ -1545,6 +1573,9 @@ properties:
       minContains: 0
       maxContains: 1
     - contains: *id037
+      minContains: 0
+      maxContains: 1
+    - contains: *id038
       minContains: 0
       maxContains: 1
   dqv:hasQualityMeasurement:

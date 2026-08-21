@@ -142,6 +142,41 @@
                                                             ]
                                                         },
                                                         {
+                                                            "title": "Pre-Analysis Imaging and Screening",
+                                                            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/labxctTAPP/preAnalysisImagingAndScreening"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": [
+                                                                        {
+                                                                            "@id": "ada:parameter/labxctTAPP/preAnalysisImagingAndScreening"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Pre-Analysis Imaging and Screening"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        {
                                                             "title": "Sample Mass",
                                                             "description": "Mass of the sample in grams, recorded for curatorial tracking of precious or limited materials. Particularly important for meteorite, mission-returned, and other restricted samples. This is an analysis-level field: the actual sample mass depends on the specific sample being scanned, not on the procedure design.",
                                                             "type": "object",
@@ -213,6 +248,45 @@
                                                                 },
                                                                 "schema:name": {
                                                                     "const": "Sample Dimensions (L × W × H)"
+                                                                },
+                                                                "schema:value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:propertyID",
+                                                                "schema:name",
+                                                                "schema:value"
+                                                            ]
+                                                        },
+                                                        "minContains": 0,
+                                                        "maxContains": 1
+                                                    },
+                                                    {
+                                                        "contains": {
+                                                            "title": "Pre-Analysis Imaging and Screening",
+                                                            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "const": "ada:parameter/labxctTAPP/preAnalysisImagingAndScreening"
+                                                                },
+                                                                "@type": {
+                                                                    "const": [
+                                                                        "schema:PropertyValue"
+                                                                    ]
+                                                                },
+                                                                "schema:propertyID": {
+                                                                    "const": [
+                                                                        {
+                                                                            "@id": "ada:parameter/labxctTAPP/preAnalysisImagingAndScreening"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "schema:name": {
+                                                                    "const": "Pre-Analysis Imaging and Screening"
                                                                 },
                                                                 "schema:value": {
                                                                     "type": "string"
@@ -371,41 +445,6 @@
                                     ]
                                 },
                                 {
-                                    "title": "Sample Preparation Notes",
-                                    "description": "Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note any exceptions.",
-                                    "type": "object",
-                                    "properties": {
-                                        "@id": {
-                                            "const": "ada:parameter/labxctTAPP/samplePreparationNotes"
-                                        },
-                                        "@type": {
-                                            "const": [
-                                                "schema:PropertyValue"
-                                            ]
-                                        },
-                                        "schema:propertyID": {
-                                            "const": [
-                                                {
-                                                    "@id": "ada:parameter/labxctTAPP/samplePreparationNotes"
-                                                }
-                                            ]
-                                        },
-                                        "schema:name": {
-                                            "const": "Sample Preparation Notes"
-                                        },
-                                        "schema:value": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                    ]
-                                },
-                                {
                                     "title": "X-ray Power",
                                     "description": "X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7–13 W).",
                                     "type": "object",
@@ -544,6 +583,94 @@
                                     ]
                                 },
                                 {
+                                    "title": "Rotation Range",
+                                    "description": "Total angular range over which projection images are acquired, in degrees. Full 360° rotation is standard for cone-beam lab XCT. 180° rotation (half-scan) is sometimes used for faster acquisition but may introduce additional artifacts.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/rotationRange"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/rotationRange"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Rotation Range"
+                                        },
+                                        "schema:value": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "schema:unitText": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value",
+                                        "schema:unitText"
+                                    ]
+                                },
+                                {
+                                    "title": "Number of Projections",
+                                    "description": "Total number of equally-spaced projection images acquired over the full rotation range. More projections improve reconstruction quality by reducing under-sampling streak artifacts but increase scan time. For Mode B (multi-volume stitching), this is the number per sub-volume.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/numberOfProjections"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/numberOfProjections"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Number of Projections"
+                                        },
+                                        "schema:value": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                    ]
+                                },
+                                {
                                     "title": "Rotation Step Size",
                                     "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly. Finer step sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.",
                                     "type": "object",
@@ -565,6 +692,52 @@
                                         },
                                         "schema:name": {
                                             "const": "Rotation Step Size"
+                                        },
+                                        "schema:value": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "schema:unitText": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value",
+                                        "schema:unitText"
+                                    ]
+                                },
+                                {
+                                    "title": "Exposure Time per Projection",
+                                    "description": "Duration of X-ray exposure for each individual projection image frame, in seconds, as registered by the procedure. Set as a deliberate choice for the target sample type and voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted within procedure-allowed bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5–2 s).",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/exposureTimePerProjection"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/exposureTimePerProjection"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Exposure Time per Projection"
                                         },
                                         "schema:value": {
                                             "anyOf": [
@@ -653,6 +826,76 @@
                                         },
                                         "schema:name": {
                                             "const": "Detector Binning"
+                                        },
+                                        "schema:value": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                    ]
+                                },
+                                {
+                                    "title": "Rotation Mode",
+                                    "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous rotation has been associated with sub-volume rotational mismatch artifacts in multi-volume stitching workflows (Eckley et al. 2025).",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/rotationMode"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/rotationMode"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Rotation Mode"
+                                        },
+                                        "schema:value": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                    ]
+                                },
+                                {
+                                    "title": "Target Selection Criteria",
+                                    "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/targetSelectionCriteria"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/targetSelectionCriteria"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Target Selection Criteria"
                                         },
                                         "schema:value": {
                                             "type": "string"
@@ -793,6 +1036,41 @@
                                         },
                                         "schema:name": {
                                             "const": "CT Number Calibration"
+                                        },
+                                        "schema:value": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                    ]
+                                },
+                                {
+                                    "title": "Segmentation Method",
+                                    "description": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/segmentationMethod"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/segmentationMethod"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Segmentation Method"
                                         },
                                         "schema:value": {
                                             "type": "string"
@@ -1095,45 +1373,6 @@
                             },
                             {
                                 "contains": {
-                                    "title": "Sample Preparation Notes",
-                                    "description": "Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note any exceptions.",
-                                    "type": "object",
-                                    "properties": {
-                                        "@id": {
-                                            "const": "ada:parameter/labxctTAPP/samplePreparationNotes"
-                                        },
-                                        "@type": {
-                                            "const": [
-                                                "schema:PropertyValue"
-                                            ]
-                                        },
-                                        "schema:propertyID": {
-                                            "const": [
-                                                {
-                                                    "@id": "ada:parameter/labxctTAPP/samplePreparationNotes"
-                                                }
-                                            ]
-                                        },
-                                        "schema:name": {
-                                            "const": "Sample Preparation Notes"
-                                        },
-                                        "schema:value": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                    ]
-                                },
-                                "minContains": 0,
-                                "maxContains": 1
-                            },
-                            {
-                                "contains": {
                                     "title": "X-ray Power",
                                     "description": "X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7–13 W).",
                                     "type": "object",
@@ -1284,6 +1523,102 @@
                             },
                             {
                                 "contains": {
+                                    "title": "Rotation Range",
+                                    "description": "Total angular range over which projection images are acquired, in degrees. Full 360° rotation is standard for cone-beam lab XCT. 180° rotation (half-scan) is sometimes used for faster acquisition but may introduce additional artifacts.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/rotationRange"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/rotationRange"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Rotation Range"
+                                        },
+                                        "schema:value": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "schema:unitText": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value",
+                                        "schema:unitText"
+                                    ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                            },
+                            {
+                                "contains": {
+                                    "title": "Number of Projections",
+                                    "description": "Total number of equally-spaced projection images acquired over the full rotation range. More projections improve reconstruction quality by reducing under-sampling streak artifacts but increase scan time. For Mode B (multi-volume stitching), this is the number per sub-volume.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/numberOfProjections"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/numberOfProjections"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Number of Projections"
+                                        },
+                                        "schema:value": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                    ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                            },
+                            {
+                                "contains": {
                                     "title": "Rotation Step Size",
                                     "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly. Finer step sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.",
                                     "type": "object",
@@ -1305,6 +1640,56 @@
                                         },
                                         "schema:name": {
                                             "const": "Rotation Step Size"
+                                        },
+                                        "schema:value": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "schema:unitText": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value",
+                                        "schema:unitText"
+                                    ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                            },
+                            {
+                                "contains": {
+                                    "title": "Exposure Time per Projection",
+                                    "description": "Duration of X-ray exposure for each individual projection image frame, in seconds, as registered by the procedure. Set as a deliberate choice for the target sample type and voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted within procedure-allowed bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5–2 s).",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/exposureTimePerProjection"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/exposureTimePerProjection"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Exposure Time per Projection"
                                         },
                                         "schema:value": {
                                             "anyOf": [
@@ -1401,6 +1786,84 @@
                                         },
                                         "schema:name": {
                                             "const": "Detector Binning"
+                                        },
+                                        "schema:value": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                    ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                            },
+                            {
+                                "contains": {
+                                    "title": "Rotation Mode",
+                                    "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous rotation has been associated with sub-volume rotational mismatch artifacts in multi-volume stitching workflows (Eckley et al. 2025).",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/rotationMode"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/rotationMode"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Rotation Mode"
+                                        },
+                                        "schema:value": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                    ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                            },
+                            {
+                                "contains": {
+                                    "title": "Target Selection Criteria",
+                                    "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/targetSelectionCriteria"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/targetSelectionCriteria"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Target Selection Criteria"
                                         },
                                         "schema:value": {
                                             "type": "string"
@@ -1557,6 +2020,45 @@
                                         },
                                         "schema:name": {
                                             "const": "CT Number Calibration"
+                                        },
+                                        "schema:value": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                    ]
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                            },
+                            {
+                                "contains": {
+                                    "title": "Segmentation Method",
+                                    "description": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
+                                    "type": "object",
+                                    "properties": {
+                                        "@id": {
+                                            "const": "ada:parameter/labxctTAPP/segmentationMethod"
+                                        },
+                                        "@type": {
+                                            "const": [
+                                                "schema:PropertyValue"
+                                            ]
+                                        },
+                                        "schema:propertyID": {
+                                            "const": [
+                                                {
+                                                    "@id": "ada:parameter/labxctTAPP/segmentationMethod"
+                                                }
+                                            ]
+                                        },
+                                        "schema:name": {
+                                            "const": "Segmentation Method"
                                         },
                                         "schema:value": {
                                             "type": "string"
@@ -1848,243 +2350,6 @@
                             }
                         ]
                     },
-                    "prov:used": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "allOf": [
-                                {
-                                    "if": {
-                                        "required": [
-                                            "bios:computationalTool"
-                                        ]
-                                    },
-                                    "then": {
-                                        "properties": {
-                                            "bios:computationalTool": {
-                                                "type": "array",
-                                                "items": {
-                                                    "allOf": [
-                                                        {
-                                                            "$ref": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool"
-                                                        },
-                                                        {
-                                                            "type": "object",
-                                                            "allOf": [
-                                                                {
-                                                                    "if": {
-                                                                        "properties": {
-                                                                            "ada:toolRole": {
-                                                                                "const": "acquisition"
-                                                                            }
-                                                                        },
-                                                                        "required": [
-                                                                            "ada:toolRole"
-                                                                        ]
-                                                                    },
-                                                                    "then": {
-                                                                        "properties": {
-                                                                            "schema:name": {
-                                                                                "description": "Instrument control and data acquisition software used to collect raw projection images, including version number. Separate from reconstruction and segmentation software.",
-                                                                                "anyOf": [
-                                                                                    {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                },
-                                                                {
-                                                                    "if": {
-                                                                        "properties": {
-                                                                            "ada:toolRole": {
-                                                                                "const": "dataReduction"
-                                                                            }
-                                                                        },
-                                                                        "required": [
-                                                                            "ada:toolRole"
-                                                                        ]
-                                                                    },
-                                                                    "then": {
-                                                                        "properties": {
-                                                                            "schema:name": {
-                                                                                "description": "Software used for image segmentation, phase identification, and quantitative 3D analysis after reconstruction. Report all packages used, with version numbers.",
-                                                                                "anyOf": [
-                                                                                    {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            ],
-                                                            "required": [
-                                                                "ada:toolRole"
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                {
-                                    "if": {
-                                        "required": [
-                                            "schema:instrument"
-                                        ]
-                                    },
-                                    "then": {
-                                        "properties": {
-                                            "schema:instrument": {
-                                                "type": "array",
-                                                "items": {
-                                                    "allOf": [
-                                                        {
-                                                            "$ref": "../../../../BaseSchema/instrument/instrumentSchema.json"
-                                                        },
-                                                        {
-                                                            "type": "object",
-                                                            "allOf": [
-                                                                {
-                                                                    "if": {
-                                                                        "properties": {
-                                                                            "schema:additionalType": {
-                                                                                "contains": {
-                                                                                    "const": "XCT"
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        "required": [
-                                                                            "schema:additionalType"
-                                                                        ]
-                                                                    },
-                                                                    "then": {
-                                                                        "properties": {
-                                                                            "ada:acceleratingVoltage": {
-                                                                                "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the procedure. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same procedure or session, report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical note if the unit used is keV.",
-                                                                                "anyOf": [
-                                                                                    {
-                                                                                        "type": "number"
-                                                                                    },
-                                                                                    {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                ]
-                                                                            },
-                                                                            "ada:tubeCurrent": {
-                                                                                "description": "X-ray tube current in microamperes (µA) registered by the procedure. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same procedure or session, report the full range applied (e.g., 65–115 µA).",
-                                                                                "anyOf": [
-                                                                                    {
-                                                                                        "type": "number"
-                                                                                    },
-                                                                                    {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                ]
-                                                                            },
-                                                                            "ada:xRayPreFilter": {
-                                                                                "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Hardens the beam by attenuating low-energy photons, reducing beam hardening artifacts and improving CT number stability across the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
-                                                                                "anyOf": [
-                                                                                    {
-                                                                                        "type": "string"
-                                                                                    },
-                                                                                    {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    }
-                                                                                ]
-                                                                            },
-                                                                            "ada:voxelSize": {
-                                                                                "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the smallest feature to be resolved (target voxel size ≤ ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
-                                                                                "anyOf": [
-                                                                                    {
-                                                                                        "type": "number"
-                                                                                    },
-                                                                                    {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                "allOf": [
-                                                    {
-                                                        "contains": {
-                                                            "properties": {
-                                                                "schema:additionalType": {
-                                                                    "contains": {
-                                                                        "const": "XCT"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "required": [
-                                                                "schema:additionalType"
-                                                            ]
-                                                        }
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "ada:rotationRange": {
-                        "description": "Total angular range over which projection images are acquired, in degrees. Full 360° rotation is standard for cone-beam lab XCT. 180° rotation (half-scan) is sometimes used for faster acquisition but may introduce additional artifacts.",
-                        "anyOf": [
-                            {
-                                "type": "number"
-                            },
-                            {
-                                "type": "string"
-                            }
-                        ]
-                    },
-                    "ada:numberOfProjections": {
-                        "description": "Total number of equally-spaced projection images acquired over the full rotation range. More projections improve reconstruction quality by reducing under-sampling streak artifacts but increase scan time. For Mode B (multi-volume stitching), this is the number per sub-volume.",
-                        "anyOf": [
-                            {
-                                "type": "integer"
-                            },
-                            {
-                                "type": "string"
-                            }
-                        ]
-                    },
-                    "ada:exposureTimePerProjection": {
-                        "description": "Duration of X-ray exposure for each individual projection image frame, in seconds, as registered by the procedure. Set as a deliberate choice for the target sample type and voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted within procedure-allowed bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5–2 s).",
-                        "anyOf": [
-                            {
-                                "type": "number"
-                            },
-                            {
-                                "type": "string"
-                            }
-                        ]
-                    },
                     "schema:actionProcess": {
                         "type": "object",
                         "properties": {
@@ -2093,6 +2358,36 @@
                                 "items": {
                                     "type": "object",
                                     "allOf": [
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "schema:name": {
+                                                        "const": "Sample preparation"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "schema:name"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:description": {
+                                                        "description": "Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note any exceptions.",
+                                                        "anyOf": [
+                                                            {
+                                                                "type": "string"
+                                                            },
+                                                            {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
                                         {
                                             "if": {
                                                 "properties": {
@@ -2359,39 +2654,540 @@
                             }
                         }
                     },
-                    "ada:rotationMode": {
-                        "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous rotation has been associated with sub-volume rotational mismatch artifacts in multi-volume stitching workflows (Eckley et al. 2025).",
-                        "type": "string",
-                        "enum": [
-                            "Step rotation (stop-and-shoot)",
-                            "Continuous rotation",
-                            "N/A",
-                            "None",
-                            "missing"
-                        ]
-                    },
-                    "ada:segmentationMethod": {
-                        "description": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
-                        "anyOf": [
-                            {
-                                "type": "string",
-                                "enum": [
-                                    "Global threshold (single CT number boundary)",
-                                    "Multi-threshold (separate CT number range per phase)",
-                                    "Manual threshold per phase",
-                                    "Semi-automated: threshold + morphological filtering",
-                                    "N/A",
-                                    "None",
-                                    "missing"
-                                ]
-                            },
-                            {
-                                "type": "string"
-                            }
-                        ]
+                    "prov:used": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "allOf": [
+                                {
+                                    "if": {
+                                        "required": [
+                                            "bios:computationalTool"
+                                        ]
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "bios:computationalTool": {
+                                                "type": "array",
+                                                "items": {
+                                                    "allOf": [
+                                                        {
+                                                            "$ref": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool"
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "allOf": [
+                                                                {
+                                                                    "if": {
+                                                                        "properties": {
+                                                                            "ada:toolRole": {
+                                                                                "const": "acquisition"
+                                                                            }
+                                                                        },
+                                                                        "required": [
+                                                                            "ada:toolRole"
+                                                                        ]
+                                                                    },
+                                                                    "then": {
+                                                                        "properties": {
+                                                                            "schema:name": {
+                                                                                "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
+                                                                                "anyOf": [
+                                                                                    {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "if": {
+                                                                        "properties": {
+                                                                            "ada:toolRole": {
+                                                                                "const": "dataReduction"
+                                                                            }
+                                                                        },
+                                                                        "required": [
+                                                                            "ada:toolRole"
+                                                                        ]
+                                                                    },
+                                                                    "then": {
+                                                                        "properties": {
+                                                                            "schema:name": {
+                                                                                "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                                                                                "anyOf": [
+                                                                                    {
+                                                                                        "type": "string"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "required": [
+                                                                "ada:toolRole"
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "required": [
+                                            "schema:instrument"
+                                        ]
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "schema:instrument": {
+                                                "type": "array",
+                                                "items": {
+                                                    "allOf": [
+                                                        {
+                                                            "$ref": "../../../../BaseSchema/instrument/instrumentSchema.json"
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "allOf": [
+                                                                {
+                                                                    "if": {
+                                                                        "properties": {
+                                                                            "schema:additionalType": {
+                                                                                "contains": {
+                                                                                    "const": "XCT"
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "required": [
+                                                                            "schema:additionalType"
+                                                                        ]
+                                                                    },
+                                                                    "then": {
+                                                                        "properties": {
+                                                                            "schema:additionalProperty": {
+                                                                                "type": "array",
+                                                                                "items": {
+                                                                                    "anyOf": [
+                                                                                        {
+                                                                                            "title": "Accelerating Voltage",
+                                                                                            "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the procedure. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same procedure or session, report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical note if the unit used is keV.",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "@id": {
+                                                                                                    "const": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                                                                                                },
+                                                                                                "@type": {
+                                                                                                    "const": [
+                                                                                                        "schema:PropertyValue"
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:propertyID": {
+                                                                                                    "const": [
+                                                                                                        {
+                                                                                                            "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:name": {
+                                                                                                    "const": "Accelerating Voltage"
+                                                                                                },
+                                                                                                "schema:value": {
+                                                                                                    "anyOf": [
+                                                                                                        {
+                                                                                                            "type": "number"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:unitText": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "required": [
+                                                                                                "@id",
+                                                                                                "@type",
+                                                                                                "schema:propertyID",
+                                                                                                "schema:name",
+                                                                                                "schema:value",
+                                                                                                "schema:unitText"
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "title": "Tube Current",
+                                                                                            "description": "X-ray tube current in microamperes (µA) registered by the procedure. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same procedure or session, report the full range applied (e.g., 65–115 µA).",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "@id": {
+                                                                                                    "const": "ada:parameter/labxctTAPP/tubeCurrent"
+                                                                                                },
+                                                                                                "@type": {
+                                                                                                    "const": [
+                                                                                                        "schema:PropertyValue"
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:propertyID": {
+                                                                                                    "const": [
+                                                                                                        {
+                                                                                                            "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:name": {
+                                                                                                    "const": "Tube Current"
+                                                                                                },
+                                                                                                "schema:value": {
+                                                                                                    "anyOf": [
+                                                                                                        {
+                                                                                                            "type": "number"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:unitText": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "required": [
+                                                                                                "@id",
+                                                                                                "@type",
+                                                                                                "schema:propertyID",
+                                                                                                "schema:name",
+                                                                                                "schema:value",
+                                                                                                "schema:unitText"
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "title": "X-ray Pre-filter",
+                                                                                            "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Hardens the beam by attenuating low-energy photons, reducing beam hardening artifacts and improving CT number stability across the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "@id": {
+                                                                                                    "const": "ada:parameter/labxctTAPP/xRayPreFilter"
+                                                                                                },
+                                                                                                "@type": {
+                                                                                                    "const": [
+                                                                                                        "schema:PropertyValue"
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:propertyID": {
+                                                                                                    "const": [
+                                                                                                        {
+                                                                                                            "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:name": {
+                                                                                                    "const": "X-ray Pre-filter"
+                                                                                                },
+                                                                                                "schema:value": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "required": [
+                                                                                                "@id",
+                                                                                                "@type",
+                                                                                                "schema:propertyID",
+                                                                                                "schema:name",
+                                                                                                "schema:value"
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "title": "Voxel Size",
+                                                                                            "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the smallest feature to be resolved (target voxel size ≤ ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "@id": {
+                                                                                                    "const": "ada:parameter/labxctTAPP/voxelSize"
+                                                                                                },
+                                                                                                "@type": {
+                                                                                                    "const": [
+                                                                                                        "schema:PropertyValue"
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:propertyID": {
+                                                                                                    "const": [
+                                                                                                        {
+                                                                                                            "@id": "ada:parameter/labxctTAPP/voxelSize"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:name": {
+                                                                                                    "const": "Voxel Size"
+                                                                                                },
+                                                                                                "schema:value": {
+                                                                                                    "anyOf": [
+                                                                                                        {
+                                                                                                            "type": "number"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:unitText": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "required": [
+                                                                                                "@id",
+                                                                                                "@type",
+                                                                                                "schema:propertyID",
+                                                                                                "schema:name",
+                                                                                                "schema:value",
+                                                                                                "schema:unitText"
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "allOf": [
+                                                                                    {
+                                                                                        "contains": {
+                                                                                            "title": "Accelerating Voltage",
+                                                                                            "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the procedure. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same procedure or session, report the full range applied (e.g., 90–115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical note if the unit used is keV.",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "@id": {
+                                                                                                    "const": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                                                                                                },
+                                                                                                "@type": {
+                                                                                                    "const": [
+                                                                                                        "schema:PropertyValue"
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:propertyID": {
+                                                                                                    "const": [
+                                                                                                        {
+                                                                                                            "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:name": {
+                                                                                                    "const": "Accelerating Voltage"
+                                                                                                },
+                                                                                                "schema:value": {
+                                                                                                    "anyOf": [
+                                                                                                        {
+                                                                                                            "type": "number"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:unitText": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "required": [
+                                                                                                "@id",
+                                                                                                "@type",
+                                                                                                "schema:propertyID",
+                                                                                                "schema:name",
+                                                                                                "schema:value",
+                                                                                                "schema:unitText"
+                                                                                            ]
+                                                                                        },
+                                                                                        "minContains": 0,
+                                                                                        "maxContains": 1
+                                                                                    },
+                                                                                    {
+                                                                                        "contains": {
+                                                                                            "title": "Tube Current",
+                                                                                            "description": "X-ray tube current in microamperes (µA) registered by the procedure. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same procedure or session, report the full range applied (e.g., 65–115 µA).",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "@id": {
+                                                                                                    "const": "ada:parameter/labxctTAPP/tubeCurrent"
+                                                                                                },
+                                                                                                "@type": {
+                                                                                                    "const": [
+                                                                                                        "schema:PropertyValue"
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:propertyID": {
+                                                                                                    "const": [
+                                                                                                        {
+                                                                                                            "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:name": {
+                                                                                                    "const": "Tube Current"
+                                                                                                },
+                                                                                                "schema:value": {
+                                                                                                    "anyOf": [
+                                                                                                        {
+                                                                                                            "type": "number"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:unitText": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "required": [
+                                                                                                "@id",
+                                                                                                "@type",
+                                                                                                "schema:propertyID",
+                                                                                                "schema:name",
+                                                                                                "schema:value",
+                                                                                                "schema:unitText"
+                                                                                            ]
+                                                                                        },
+                                                                                        "minContains": 0,
+                                                                                        "maxContains": 1
+                                                                                    },
+                                                                                    {
+                                                                                        "contains": {
+                                                                                            "title": "X-ray Pre-filter",
+                                                                                            "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Hardens the beam by attenuating low-energy photons, reducing beam hardening artifacts and improving CT number stability across the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "@id": {
+                                                                                                    "const": "ada:parameter/labxctTAPP/xRayPreFilter"
+                                                                                                },
+                                                                                                "@type": {
+                                                                                                    "const": [
+                                                                                                        "schema:PropertyValue"
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:propertyID": {
+                                                                                                    "const": [
+                                                                                                        {
+                                                                                                            "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:name": {
+                                                                                                    "const": "X-ray Pre-filter"
+                                                                                                },
+                                                                                                "schema:value": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "required": [
+                                                                                                "@id",
+                                                                                                "@type",
+                                                                                                "schema:propertyID",
+                                                                                                "schema:name",
+                                                                                                "schema:value"
+                                                                                            ]
+                                                                                        },
+                                                                                        "minContains": 0,
+                                                                                        "maxContains": 1
+                                                                                    },
+                                                                                    {
+                                                                                        "contains": {
+                                                                                            "title": "Voxel Size",
+                                                                                            "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the smallest feature to be resolved (target voxel size ≤ ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "@id": {
+                                                                                                    "const": "ada:parameter/labxctTAPP/voxelSize"
+                                                                                                },
+                                                                                                "@type": {
+                                                                                                    "const": [
+                                                                                                        "schema:PropertyValue"
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:propertyID": {
+                                                                                                    "const": [
+                                                                                                        {
+                                                                                                            "@id": "ada:parameter/labxctTAPP/voxelSize"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:name": {
+                                                                                                    "const": "Voxel Size"
+                                                                                                },
+                                                                                                "schema:value": {
+                                                                                                    "anyOf": [
+                                                                                                        {
+                                                                                                            "type": "number"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "schema:unitText": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "required": [
+                                                                                                "@id",
+                                                                                                "@type",
+                                                                                                "schema:propertyID",
+                                                                                                "schema:name",
+                                                                                                "schema:value",
+                                                                                                "schema:unitText"
+                                                                                            ]
+                                                                                        },
+                                                                                        "minContains": 0,
+                                                                                        "maxContains": 1
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                "allOf": [
+                                                    {
+                                                        "contains": {
+                                                            "properties": {
+                                                                "schema:additionalType": {
+                                                                    "contains": {
+                                                                        "const": "XCT"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "schema:additionalType"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
                     },
                     "schema:description": {
                         "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+                        "type": "string"
+                    },
+                    "schema:identifier": {
+                        "description": "Identifier for the analytical session this record describes — the laboratory's own run, sequence or batch identifier as generated by the instrument or acquisition software. The analysis record corresponds to one session, which may cover several samples, and this is the link back to the raw instrument files. Distinct from any persistent identifier a repository mints on submission.",
                         "type": "string"
                     }
                 }
