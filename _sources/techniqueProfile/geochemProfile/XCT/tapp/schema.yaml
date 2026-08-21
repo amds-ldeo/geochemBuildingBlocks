@@ -3,8 +3,8 @@ title: Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)
 description: 'Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP
   definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier
   fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte
-  axis, so no ada:analyteTemplate is defined. Generated from TAPPS20260813/Current TAPPs/Lab-XCT_TAPP_v17.xlsx
-  by tools/build_tapp.py.'
+  axis, so no ada:analyteTemplate is defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v21.csv by
+  tools/build_tapp.py.'
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - type: object
@@ -148,7 +148,9 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s) this procedure is
-                              designed to scan. Used for discoverability and procedure matching.
+                              designed to analyse. Used for discoverability and procedure matching, and
+                              because the material type constrains sample preparation, calibration and
+                              matrix-matching requirements.
                             anyOf:
                             - type: string
                               enum:
@@ -306,37 +308,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id003
-          title: Sample Preparation Notes
-          description: Any preparation steps applied to the sample before scanning, including cleaning,
-            trimming, consolidation, or drying. XCT is typically non-destructive with no surface preparation
-            required; note any exceptions.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/labxctTAPP/samplePreparationNotesDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: samplePreparationNotesDefault
-            schema:name:
-              const: Sample Preparation Notes
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
         - title: X-ray Tube Anode Material
           description: Material of the X-ray tube anode (target). Determines the characteristic line energies
             superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific
@@ -441,7 +412,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id004
+        - &id003
           title: X-ray Power
           description: 'X-ray tube power in watts (W) registered by the procedure. Derivable as voltage
             (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for
@@ -477,7 +448,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id005
+        - &id004
           title: Source-to-Object Distance (SOD)
           description: Distance from the X-ray source focal spot to the centre of the sample rotation
             axis, in mm, as registered by the procedure. Together with SDD, determines geometric magnification
@@ -510,7 +481,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id006
+        - &id005
           title: Source-to-Detector Distance (SDD)
           description: Distance from the X-ray source focal spot to the detector surface, in mm, as registered
             by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel
@@ -544,7 +515,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id007
+        - &id006
           title: Rotation Step Size
           description: Angular increment between successive projection images, in degrees. Equal to Rotation
             Range divided by Number of Projections when both are reported; however, some sources report
@@ -579,7 +550,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id008
+        - &id007
           title: Frames Averaged per Projection
           description: Number of individual detector frames acquired and averaged to produce each saved
             projection image, as registered by the procedure. Frame averaging reduces random electronic
@@ -610,7 +581,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id009
+        - &id008
           title: Detector Binning
           description: Detector pixel binning factor applied during acquisition. Binning combines adjacent
             pixels (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing
@@ -641,7 +612,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id010
+        - &id009
           title: Reconstruction Convolution Filter
           description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
             Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother
@@ -673,7 +644,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id011
+        - &id010
           title: Beam Hardening Correction Parameter
           description: Numerical value or setting applied in the software beam hardening correction algorithm
             for this specific analysis. May be tuned empirically per material type or per scan session.
@@ -704,7 +675,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id012
+        - &id011
           title: Ring Artifact Correction Method
           description: Procedure specification for how ring artifacts are handled. Ring artifacts appear
             as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated
@@ -736,7 +707,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id013
+        - &id012
           title: CT Number Calibration
           description: Whether the raw CT grayscale values have been calibrated to physically meaningful
             units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session
@@ -769,7 +740,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id014
+        - &id013
           title: Segmentation Threshold Values or Criteria
           description: Specific CT number range(s) or quantitative criteria used to define each segmented
             phase or feature. Documenting these values enables reproducibility assessment and cross-study
@@ -800,7 +771,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id015
+        - &id014
           title: Phase Identification Method
           description: Method used to assign reconstructed CT number ranges to specific mineral phases
             or material types. Approaches include comparison to calculated linear attenuation coefficients
@@ -831,7 +802,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id016
+        - &id015
           title: VOI Selection Criteria
           description: Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined
             for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges,
@@ -863,7 +834,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id017
+        - &id016
           title: Output Bit Depth
           description: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's
             grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels),
@@ -897,7 +868,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id018
+        - &id017
           title: Partial Volume Effect Criteria
           description: Procedure-level specification of how partial volume effects (PVE) are managed in
             quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the
@@ -936,7 +907,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id019
+        - &id018
           title: Cross-Validation Procedure Requirement
           description: Procedure-level specification of what independent analytical validation is required
             to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation
@@ -975,9 +946,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id002
-        minContains: 0
-        maxContains: 1
-      - contains: *id003
         minContains: 0
         maxContains: 1
       - contains:
@@ -1096,6 +1064,9 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
+      - contains: *id003
+        minContains: 0
+        maxContains: 1
       - contains: *id004
         minContains: 0
         maxContains: 1
@@ -1141,15 +1112,199 @@ allOf:
       - contains: *id018
         minContains: 0
         maxContains: 1
-      - contains: *id019
-        minContains: 0
-        maxContains: 1
-    ada:ctSystemManufacturerAndModel:
-      description: Manufacturer and model name of the CT system. For custom-built systems, report the
-        make/model of the X-ray source and detector separately. Include facility name for multi-user shared
-        instruments.
-      type: string
-      readOnly: true
+    schema:actionProcess:
+      type: object
+      properties:
+        schema:step:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:name:
+                    const: Sample preparation
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:description:
+                    description: Any preparation steps applied to the sample before scanning, including
+                      cleaning, trimming, consolidation, or drying. XCT is typically non-destructive with
+                      no surface preparation required; note any exceptions.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+            - if:
+                properties:
+                  schema:name:
+                    const: Data reduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - &id019
+                        title: Flat Field Correction
+                        description: Whether dark-field (detector read with X-ray source off; electronic
+                          noise baseline) and bright-field (source on, no sample; gain calibration) reference
+                          images are acquired and applied to normalize detector response before reconstruction.
+                          Standard practice in all quantitative lab XCT;.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/labxctTAPP/flatFieldCorrectionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: flatFieldCorrectionDefault
+                          schema:name:
+                            const: Flat Field Correction
+                          ada:dataType:
+                            const: boolean
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id020
+                        title: Calibration Factor and Determination Method
+                        description: 'An externally-calibrated factor that converts the measured quantity
+                          into the reported quantity, how it was determined, and its uncertainty. Applies
+                          where the conversion depends on a factor calibrated against a reference of independently
+                          known value, rather than on the instrument response alone. Distinct from the
+                          fields that name the calibration material and that state which approach applies
+                          to which analyte, where the technique has them: this field records the resulting
+                          factor itself.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/labxctTAPP/calibrationFactorAndDeterminationMethodDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: calibrationFactorAndDeterminationMethodDefault
+                          schema:name:
+                            const: Calibration Factor and Determination Method
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id021
+                        title: Sub-volume Stitching and Registration Method
+                        description: 'Method used to register adjacent sub-volume datasets to each other
+                          and stitch them into a single continuous 3D volume. Report the alignment strategy
+                          (manual, automated, fiducial-based), the software used, and any correction steps
+                          applied. Note: rotational mismatch artifacts have been identified in continuous-rotation
+                          acquisitions (~0.35° misalignment in Eckley et al. 2025); their correction via
+                          raw projection re-alignment should be documented here.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: subVolumeStitchingAndRegistrationMethodDefault
+                          schema:name:
+                            const: Sub-volume Stitching and Registration Method
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id022
+                        title: Constants and Reference Values Used
+                        description: Physical constants and reference values used in data reduction to
+                          calculate the final reported quantity (e.g., decay constants for age calculation,
+                          standard isotope ratios, or other citable reference values used in a correction
+                          or calculation), together with their source. Distinct from the Group 6 reference-material
+                          fields, which document accepted values for specific calibration/validation materials
+                          rather than universal physical constants. Record "None" if no citable, revisable
+                          physical constants feed into this procedure's data reduction.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/labxctTAPP/constantsAndReferenceValuesUsedDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: constantsAndReferenceValuesUsedDefault
+                          schema:name:
+                            const: Constants and Reference Values Used
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                    allOf:
+                    - contains: *id019
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id020
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id021
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id022
+                      minContains: 0
+                      maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                schema:name:
+                  const: Data reduction
+              required:
+              - schema:name
     ada:xRaySourceConfiguration:
       description: Focal spot geometry and scale of the X-ray tube. Reflection target configurations are
         most common in lab XCT (X-rays emitted from the face of the anode toward the sample); transmission
@@ -1196,8 +1351,9 @@ allOf:
           then:
             properties:
               schema:name:
-                description: Instrument control and data acquisition software used to collect raw projection
-                  images, including version number. Separate from reconstruction and segmentation software.
+                description: Instrument control, automation and data acquisition software used to collect
+                  the raw data, including version number. Distinct from Data Processing Software(s), which
+                  covers everything applied to the data after acquisition.
                 anyOf:
                 - type: string
                 - type: array
@@ -1212,8 +1368,9 @@ allOf:
           then:
             properties:
               schema:name:
-                description: Software used for image segmentation, phase identification, and quantitative
-                  3D analysis after reconstruction. Report all packages used, with version numbers.
+                description: All software applied to the data after acquisition in order to produce the
+                  reported quantities, including version numbers. List every package used. Distinct from
+                  Acquisition Software, which controls the instrument and collects the raw data.
                 anyOf:
                 - type: string
                 - type: array
@@ -1224,10 +1381,11 @@ allOf:
     ada:analyticalMode:
       type: array
       items:
-        description: Primary analytical mode(s) executed under this procedure. For single-mode procedures,
-          records one value (e.g., Single-volume). For procedures covering both single-volume and multi-volume
-          stitched acquisitions, list all applicable modes. Serves as the procedure-level declaration
-          of measurement type, distinct from the mode flag columns which indicate per-field applicability.
+        description: Primary analytical mode(s) executed under this procedure. Records one value for a
+          single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level
+          declaration of measurement type, distinct from the mode flag columns, which state per-field
+          applicability. Required even where a procedure defines no mode flag columns, so that every procedure
+          record is self-describing and comparable across the library.
         type: string
         enum:
         - Single-volume
@@ -1292,6 +1450,38 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+              schema:manufacturer:
+                type: object
+                properties:
+                  schema:name:
+                    description: Manufacturer of the instrument that performs the measurement, recorded
+                      as a controlled value so that procedures can be found by vendor. Where a procedure
+                      couples a sample-introduction system to an analysing instrument, this records the
+                      analysing instrument. Instrument Model gives the specific designation.
+                    type: string
+                    enum:
+                    - Nikon
+                    - Zeiss
+                    - Bruker
+                    - GE / Waygate
+                    - North Star Imaging
+                    - RX Solutions
+                    - Custom-built
+                    - Unknown
+                    - N/A
+                    - None
+                    - missing
+                    readOnly: true
+              schema:model:
+                type: object
+                properties:
+                  schema:name:
+                    description: Model designation of the instrument that performs the measurement, including
+                      any generation or configuration suffix. Conventionally written with the manufacturer
+                      name included; Instrument Manufacturer records the vendor separately, as a controlled
+                      value, so that procedures remain findable by vendor.
+                    type: string
+                    readOnly: true
       allOf:
       - contains:
           properties:
@@ -1324,182 +1514,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    schema:actionProcess:
-      type: object
-      properties:
-        schema:step:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  schema:name:
-                    const: Data reduction
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - &id020
-                        title: Flat Field Correction
-                        description: Whether dark-field (detector read with X-ray source off; electronic
-                          noise baseline) and bright-field (source on, no sample; gain calibration) reference
-                          images are acquired and applied to normalize detector response before reconstruction.
-                          Standard practice in all quantitative lab XCT;.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/labxctTAPP/flatFieldCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: flatFieldCorrectionDefault
-                          schema:name:
-                            const: Flat Field Correction
-                          ada:dataType:
-                            const: boolean
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - &id021
-                        title: Calibration Factor and Determination Method
-                        description: 'An externally-calibrated factor that converts the measured quantity
-                          into the reported quantity, how it was determined, and its uncertainty. Applies
-                          where the conversion depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone. Distinct from the
-                          fields that name the calibration material and that state which approach applies
-                          to which analyte, where the technique has them: this field records the resulting
-                          factor itself.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/labxctTAPP/calibrationFactorAndDeterminationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: calibrationFactorAndDeterminationMethodDefault
-                          schema:name:
-                            const: Calibration Factor and Determination Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - &id022
-                        title: Sub-volume Stitching and Registration Method
-                        description: 'Method used to register adjacent sub-volume datasets to each other
-                          and stitch them into a single continuous 3D volume. Report the alignment strategy
-                          (manual, automated, fiducial-based), the software used, and any correction steps
-                          applied. Note: rotational mismatch artifacts have been identified in continuous-rotation
-                          acquisitions (~0.35° misalignment in Eckley et al. 2025); their correction via
-                          raw projection re-alignment should be documented here.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: subVolumeStitchingAndRegistrationMethodDefault
-                          schema:name:
-                            const: Sub-volume Stitching and Registration Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - &id023
-                        title: Constants and Reference Values Used
-                        description: Physical constants and reference values used in data reduction to
-                          calculate the final reported quantity (e.g., decay constants for age calculation,
-                          standard isotope ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from the Group 6 reference-material
-                          fields, which document accepted values for specific calibration/validation materials
-                          rather than universal physical constants. Record "None" if no citable, revisable
-                          physical constants feed into this procedure's data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/labxctTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                    allOf:
-                    - contains: *id020
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id021
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id022
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id023
-                      minContains: 0
-                      maxContains: 1
-          allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: Data reduction
-              required:
-              - schema:name
     ada:rotationModeDefault:
       description: Whether projection images are acquired during continuous sample rotation (faster; may
         introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage
@@ -1637,7 +1651,6 @@ allOf:
   - schema:datePublished
   - ada:targetFeature
   - ada:applicableSampleDimensionRange
-  - ada:ctSystemManufacturerAndModel
   - ada:xRaySourceConfiguration
   - ada:detectorType
   - ada:rotationRangeDefault

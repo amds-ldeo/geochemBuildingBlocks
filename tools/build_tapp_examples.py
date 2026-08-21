@@ -894,7 +894,17 @@ def main():
     bt.configure(tapp)
     short = tapp.replace("TAPP", "")
     R = bt.route()
-    ws = openpyxl.load_workbook(bt.XLSX, data_only=True, read_only=True)["TAPP"]
+    # The 2026-08 delivery moved the tables to CSV, but this builder reads publication columns
+    # through openpyxl. Every delivered table ships an .xlsx twin beside the .csv, so resolve that
+    # rather than teaching the whole publication-column reader a second input format.
+    src = bt.XLSX
+    if src.lower().endswith(".csv"):
+        twin = os.path.splitext(src)[0] + ".xlsx"
+        if not os.path.exists(twin):
+            raise SystemExit("%s is a .csv and no .xlsx twin exists beside it; this builder needs "
+                             "the workbook form to read publication columns" % src)
+        src = twin
+    ws = openpyxl.load_workbook(src, data_only=True, read_only=True)["TAPP"]
     rows = list(ws.iter_rows(min_row=1, values_only=True))
     hdr = rows[0]
     H = [norm(h).lower() for h in hdr]

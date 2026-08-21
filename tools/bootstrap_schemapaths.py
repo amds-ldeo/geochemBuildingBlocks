@@ -190,6 +190,30 @@ def _dualize(paths, row):
 _ISAMPLE = "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
 
 
+# Some items are selected in schema:variableMeasured by a shorter name than the table's wording.
+# The selector literal is the variable's own name, not the Metadata Item.
+_VM_SELECTOR = {
+    "goodness of fit or dispersion statistic": "Goodness-of-Fit",
+}
+
+
+def _reported_property_paths(row, it):
+    """The reported-property route, which depends on the row's tier pair."""
+    name = _VM_SELECTOR.get(_norm_item(it), it)
+    P = re.sub(r"[^a-z]+", "", str(row.get("P") or "").lower())
+    A = re.sub(r"[^a-z]+", "", str(row.get("A") or "").lower())
+    ds = f"$Dataset.schema:variableMeasured[schema:name='{name}'].schema:value"
+    if P in ("na", "n/a", ""):
+        return [ds]
+    leaf = "schema:value" if A == "readonly" else "schema:defaultValue"
+    return [f"$MethodDefinition.schema:variableMeasured[schema:name='{name}'].{leaf}", ds]
+
+
+def _norm_item(s):
+    """Case/punctuation-insensitive item key, for the keyed_path item overrides."""
+    return re.sub(r"[^a-z0-9]+", " ", str(s).lower()).strip()
+
+
 def keyed_path(row):
     """The canonical schema path(s) implied by the workbook's 'Keyed By' column, or None to fall
     through to content inference. `defines: X` rows are the template's list ROOT; the plain values
@@ -200,15 +224,40 @@ def keyed_path(row):
     it = row["item"]
     if not kb or kb == "(none)":
         return None
+    # A few items are not generic members of their domain: they map onto a first-class property of
+    # the sample rather than onto an additionalProperty bag keyed by their own name. Checked before
+    # the domain routes so the specific rule wins.
+    item_routes = {
+        "sample persistent identifier":
+            [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}'].schema:identifier"],
+    }
+    special = item_routes.get(_norm_item(it))
+    if special:
+        return (special, "keyed:" + kb.replace(" ", "-"))
+
     routes = {
         "defines: analyte": ["$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]"],
         "analyte": ["$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]"],
-        "defines: reported property": ["$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[]"],
-        "reported property": [f"$MethodDefinition.schema:variableMeasured[schema:name='{it}'].schema:defaultValue",
-                              f"$Dataset.schema:variableMeasured[schema:name='{it}'].schema:value"],
+        # `channel` is a keyed table exactly like `analyte`: a spectrometer/detector channel
+        # assignment repeats the same set of columns. It was left unrouted as "technique-scoped",
+        # and in the absence of a route the sidecars drifted onto three different structures —
+        # analyte columns (which conflates a channel with the element it measures), instrument
+        # hasPart components, and bare ada: defaults.
+        "channel": ["$MethodDefinition.ada:channelTemplate.ada:channelColumns[]"],
+        "defines: reported property": ["$MethodDefinition.ada:reportedProperties[]"],
+        # TIER-DEPENDENT. A reported property is stated by the procedure only when the procedure
+        # has something to state: at Protocol N/A there is no procedure side at all, and where the
+        # analysis cannot vary it (Read-Only) the procedure states a VALUE, not a default. Emitting
+        # `…defaultValue` for every tier asserted an editable default that the tier denies.
+        "reported property": _reported_property_paths(row, it),
         "defines: sampling unit": ["$MethodDefinition.ada:samplingUnit"],
         "defines: sample": [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}'].schema:name"],
-        "sample": [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}']"
+        # Dual-homed, like `reported property`: the procedure states a default for the sample
+        # property, and each analysis supplies its own value. Routing only the $Dataset half left
+        # the procedure side unstated for every sample-keyed field.
+        "sample": [f"$MethodDefinition.schema:object[@type='{_ISAMPLE}']"
+                   f".schema:additionalProperty[schema:name='{it}'].schema:defaultValue",
+                   f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}']"
                    f".schema:additionalProperty[schema:name='{it}'].schema:value"],
     }
     p = routes.get(kb)

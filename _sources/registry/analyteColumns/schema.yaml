@@ -389,6 +389,36 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  empa_analyteEstimationMethod:
+    title: Analyte Estimation Method
+    description: Whether elemental concentrations were calculated directly from measured X-ray intensities,
+      or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates;
+      carbon from stoichiometry in carbonates).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/empaTAPP/analyteEstimationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyteEstimationMethod
+      schema:name:
+        const: Analyte Estimation Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   empa_analyticalAccuracy:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary standards, expressed
@@ -511,8 +541,13 @@ $defs:
     - schema:defaultValue
   empa_countingStatisticsError:
     title: Counting Statistics Error
-    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities,
-      for each reported concentration variable per analysis.
+    description: 'Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson
+      distribution of the counts accumulated — for each reported quantity per analysis, with the sigma
+      level stated. Derived from the counts on the analyte together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement or between
+      repeated measurements, which is recorded separately: where a procedure reports both, agreement indicates
+      the measurement is shot-noise limited, and a larger observed scatter indicates a further source
+      of variance.'
     type: object
     properties:
       '@id':
@@ -615,6 +650,36 @@ $defs:
         const: EPMA Technique per Analyte
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  empa_interferenceCorrectionsApplied:
+    title: Interference Corrections Applied
+    description: Whether a spectral interference correction was applied for each analyte. Common interferences
+      include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/empaTAPP/interferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionsApplied
+      schema:name:
+        const: Interference Corrections Applied
+      ada:dataType:
+        const: boolean
       schema:readonlyValue:
         const: true
       ada:tier:
@@ -1164,7 +1229,8 @@ $defs:
     - ada:dataType
   interferenceCorrectionStandard:
     title: Interference Correction Standard
-    description: Reference material used to quantify and calibrate the interference correction.
+    description: Reference material used to quantify and calibrate the interference correction for this
+      analyte.
     type: object
     properties:
       '@id':
@@ -1181,7 +1247,9 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1190,7 +1258,8 @@ $defs:
     - ada:dataType
   interferingElements:
     title: Interfering Elements
-    description: List of elements whose X-ray lines overlap with the measured line for this element.
+    description: Element(s) whose X-ray lines overlap with the measured peak for this analyte, requiring
+      a correction.
     type: object
     properties:
       '@id':
@@ -1207,7 +1276,9 @@ $defs:
       schema:readonlyValue:
         const: true
       ada:tier:
-        const: M
+        const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4500,8 +4571,13 @@ $defs:
     - ada:dataType
   semComposition_countingStatisticsError:
     title: Counting Statistics Error
-    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities,
-      for each reported concentration variable per analysis.
+    description: 'Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson
+      distribution of the counts accumulated — for each reported quantity per analysis, with the sigma
+      level stated. Derived from the counts on the analyte together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement or between
+      repeated measurements, which is recorded separately: where a procedure reports both, agreement indicates
+      the measurement is shot-noise limited, and a larger observed scatter indicates a further source
+      of variance.'
     type: object
     properties:
       '@id':
@@ -5291,8 +5367,13 @@ $defs:
     - ada:dataType
   sem_countingStatisticsError:
     title: Counting Statistics Error
-    description: 1-sigma uncertainty propagated from counting statistics on peak and background intensities,
-      for each reported concentration variable per analysis.
+    description: 'Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson
+      distribution of the counts accumulated — for each reported quantity per analysis, with the sigma
+      level stated. Derived from the counts on the analyte together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement or between
+      repeated measurements, which is recorded separately: where a procedure reports both, agreement indicates
+      the measurement is shot-noise limited, and a larger observed scatter indicates a further source
+      of variance.'
     type: object
     properties:
       '@id':

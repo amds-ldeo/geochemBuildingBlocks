@@ -17,20 +17,10 @@
   ],
   "schema:name": "example procedureName",
   "schema:description": "example additionalNotes",
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
+  ],
   "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/empaTAPP/analyteEstimationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/empaTAPP/analyteEstimationMethod"
-        }
-      ],
-      "schema:name": "Analyte Estimation Method",
-      "schema:value": "example value"
-    },
     {
       "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
       "@type": [
@@ -62,16 +52,6 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "preAnalysisImagingAndScreeningDefault",
-      "schema:name": "Pre-Analysis Imaging and Screening",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
       "@id": "ada:parameter/empaTAPP/edsSpectralProcessingType",
       "@type": [
         "schema:PropertyValue"
@@ -93,32 +73,6 @@
       "schema:name": "Halogen Correction on Oxygen",
       "ada:dataType": "boolean",
       "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/interferenceCorrectionStandard",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
-        }
-      ],
-      "schema:name": "Interference Correction Standard",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/interferingElements",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/empaTAPP/interferingElements"
-        }
-      ],
-      "schema:name": "Interfering Elements",
-      "schema:value": "example value"
     },
     {
       "@id": "ada:parameter/empaTAPP/sequence",
@@ -147,9 +101,7 @@
       "schema:value": "example value"
     }
   ],
-  "ada:analyticalMode": [
-    "WDS Point Analysis"
-  ],
+  "ada:detectionLimitMethod": "example detectionLimitMethod",
   "ada:dwellTimePerPixelDefault": 1.0,
   "ada:edsAcquisitionMode": "Point",
   "ada:edsLiveTimePerPointOrPixelDefault": 1.0,
@@ -161,7 +113,6 @@
       "schema:name": "example fundingSourceForProcedureDevelopment"
     }
   ],
-  "ada:interferenceCorrectionsApplied": true,
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -189,5 +140,8 @@
     }
   ],
   "ada:wdsDeadTimeCorrection": "Default constant 3 us (Cameca)",
-  "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria"
+  "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
+  "ada:reportedProperties": [
+    "example reportedVariablesAndUnits"
+  ]
 }

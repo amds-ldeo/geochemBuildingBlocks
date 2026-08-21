@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)",
-  "description": "Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate (imaging has no per-element analyte axis). Generated from TAPPS20260813/Current TAPPs/SEM_Imaging_TAPP_v11.xlsx by tools/build_tapp.py.",
+  "description": "Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v14.csv by tools/build_tapp.py.",
   "properties": {
     "@context": {
       "type": "object",
@@ -2897,7 +2897,7 @@
                                 "schema:value": {
                                   "type": "array",
                                   "items": {
-                                    "description": "General description of the material type(s) this procedure is designed to analyze.",
+                                    "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",
                                     "anyOf": [
                                       {
                                         "type": "string",
@@ -3257,6 +3257,10 @@
             }
           ]
         },
+        "ada:targetSelectionCriteriaDefault": {
+          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+          "type": "string"
+        },
         "schema:instrument": {
           "type": "array",
           "items": {
@@ -3281,7 +3285,7 @@
                       "type": "object",
                       "properties": {
                         "schema:name": {
-                          "description": "Make of the instrument used for this procedure.",
+                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
                           "type": "string",
                           "enum": [
                             "JEOL",
@@ -3303,7 +3307,7 @@
                       "type": "object",
                       "properties": {
                         "schema:name": {
-                          "description": "Model designation of the SEM or FIB-SEM instrument, including generation suffix if applicable.",
+                          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
                           "type": "string",
                           "readOnly": true
                         }
@@ -3555,6 +3559,167 @@
                         }
                       ]
                     },
+                    "schema:additionalProperty": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "title": "CL Detector Configuration",
+                            "description": "CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": [
+                                  {
+                                    "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
+                                  }
+                                ]
+                              },
+                              "schema:name": {
+                                "const": "CL Detector Configuration"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          },
+                          {
+                            "title": "CL Grating",
+                            "description": "Diffraction grating specification for spectral or hyperspectral CL acquisition, including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/semImagingTAPP/clGrating"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": [
+                                  {
+                                    "@id": "ada:parameter/semImagingTAPP/clGrating"
+                                  }
+                                ]
+                              },
+                              "schema:name": {
+                                "const": "CL Grating"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          }
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "title": "CL Detector Configuration",
+                            "description": "CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": [
+                                  {
+                                    "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
+                                  }
+                                ]
+                              },
+                              "schema:name": {
+                                "const": "CL Detector Configuration"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        },
+                        {
+                          "contains": {
+                            "title": "CL Grating",
+                            "description": "Diffraction grating specification for spectral or hyperspectral CL acquisition, including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/semImagingTAPP/clGrating"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValue"
+                                ]
+                              },
+                              "schema:propertyID": {
+                                "const": [
+                                  {
+                                    "@id": "ada:parameter/semImagingTAPP/clGrating"
+                                  }
+                                ]
+                              },
+                              "schema:name": {
+                                "const": "CL Grating"
+                              },
+                              "schema:value": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:propertyID",
+                              "schema:name",
+                              "schema:value"
+                            ],
+                            "readOnly": true
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        }
+                      ]
+                    },
                     "ada:acceleratingVoltageDefault": {
                       "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
                       "anyOf": [
@@ -3599,349 +3764,6 @@
             }
           ]
         },
-        "schema:additionalProperty": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "title": "CL Detector Configuration",
-                "description": "CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "CL Detector Configuration"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              {
-                "title": "Chamber Pressure",
-                "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semImagingTAPP/chamberPressureDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "chamberPressureDefault"
-                  },
-                  "schema:name": {
-                    "const": "Chamber Pressure"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Image Pixel Size",
-                "description": "Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semImagingTAPP/imagePixelSizeDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "imagePixelSizeDefault"
-                  },
-                  "schema:name": {
-                    "const": "Image Pixel Size"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "CL Wavelength Calibration Reference",
-                "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReferenceDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "clWavelengthCalibrationReferenceDefault"
-                  },
-                  "schema:name": {
-                    "const": "CL Wavelength Calibration Reference"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              }
-            ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "title": "CL Detector Configuration",
-                "description": "CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "CL Detector Configuration"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Chamber Pressure",
-                "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semImagingTAPP/chamberPressureDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "chamberPressureDefault"
-                  },
-                  "schema:name": {
-                    "const": "Chamber Pressure"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Image Pixel Size",
-                "description": "Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semImagingTAPP/imagePixelSizeDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "imagePixelSizeDefault"
-                  },
-                  "schema:name": {
-                    "const": "Image Pixel Size"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "CL Wavelength Calibration Reference",
-                "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReferenceDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "clWavelengthCalibrationReferenceDefault"
-                  },
-                  "schema:name": {
-                    "const": "CL Wavelength Calibration Reference"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            }
-          ]
-        },
         "ada:ebsdDetectorConfiguration": {
           "description": "EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).",
           "type": "string",
@@ -3966,7 +3788,7 @@
                 "then": {
                   "properties": {
                     "schema:name": {
-                      "description": "Software used to control the SEM and acquire data, including version number. For FIB-SEM 3D tomography, include the automated slice-and-view module name and version.",
+                      "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -3996,7 +3818,7 @@
                 "then": {
                   "properties": {
                     "schema:name": {
-                      "description": "Software used for post-acquisition data reduction and analysis. List all packages with version numbers.",
+                      "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -4021,7 +3843,7 @@
         "ada:analyticalMode": {
           "type": "array",
           "items": {
-            "description": "Primary analytical mode(s) executed under this procedure. For multi-mode procedures (e.g., simultaneous BSE + EDS mapping), list all active modes.",
+            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
             "type": "string",
             "enum": [
               "SE Imaging",
@@ -4205,6 +4027,273 @@
             }
           }
         },
+        "schema:additionalProperty": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Chamber Pressure",
+                "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semImagingTAPP/chamberPressureDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "chamberPressureDefault"
+                  },
+                  "schema:name": {
+                    "const": "Chamber Pressure"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Image Pixel Size",
+                "description": "Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semImagingTAPP/imagePixelSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "imagePixelSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Image Pixel Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "CL Wavelength Calibration Reference",
+                "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReferenceDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "clWavelengthCalibrationReferenceDefault"
+                  },
+                  "schema:name": {
+                    "const": "CL Wavelength Calibration Reference"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "title": "Chamber Pressure",
+                "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semImagingTAPP/chamberPressureDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "chamberPressureDefault"
+                  },
+                  "schema:name": {
+                    "const": "Chamber Pressure"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Image Pixel Size",
+                "description": "Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semImagingTAPP/imagePixelSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "imagePixelSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Image Pixel Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "CL Wavelength Calibration Reference",
+                "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReferenceDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "clWavelengthCalibrationReferenceDefault"
+                  },
+                  "schema:name": {
+                    "const": "CL Wavelength Calibration Reference"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
         "ada:dwellTimePerPixelDefault": {
           "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
           "anyOf": [
@@ -4265,6 +4354,21 @@
           ],
           "readOnly": true
         },
+        "ada:ebsdStepSizeDefault": {
+          "description": "Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest to resolve grain boundary positions and intragrain orientation gradients.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:ebsdPhaseListDefault": {
+          "description": "Mineral phases included in the EBSD reference pattern library for this procedure. The procedure specifies the expected phase suite for the target material; analysts may add phases for specific sample compositions.",
+          "type": "string"
+        },
         "schema:description": {
           "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
           "type": "string"
@@ -4274,12 +4378,15 @@
         "schema:name",
         "schema:datePublished",
         "ada:samplingUnit",
+        "ada:targetSelectionCriteriaDefault",
         "ada:ebsdDetectorConfiguration",
         "ada:dwellTimePerPixelDefault",
         "ada:clAcquisitionMode",
         "ada:clWavelengthRange",
         "ada:clIntegrationTimeDefault",
-        "ada:sampleTiltAngle"
+        "ada:sampleTiltAngle",
+        "ada:ebsdStepSizeDefault",
+        "ada:ebsdPhaseListDefault"
       ]
     }
   ],
