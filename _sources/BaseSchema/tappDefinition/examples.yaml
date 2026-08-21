@@ -38,3 +38,27 @@
   snippets:
     - language: json
       ref: exampletappDefinition-uoc-laicpms-glass-v1.json
+- title: All-properties reference instance (synthetic)
+  content: |-
+    Every property tappDefinition allows, populated - the file to read when asking
+    "what may a TAPP contain?". Generated from resolvedSchema.json and populated
+    with values mined from the publication-derived examples, so the shapes are the
+    schema's and the content is real: six analyte columns, the six-step workflow,
+    real instruments and calibration standards.
+
+    Note ada:defaultAnalytes here: the schema allows a bare string OR a
+    schema:DefinedTerm identifying the analyte. Per-analyte column VALUES are not
+    members of that array.
+
+    Synthetic, so it describes no real laboratory procedure and must not be cited
+    as one.
+  prefixes:
+    ada: https://ada.astromat.org/metadata/
+    schema: http://schema.org/
+    cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+    bios: https://bioschemas.org/
+    dqv: http://www.w3.org/ns/dqv#
+    prov: http://www.w3.org/ns/prov#
+  snippets:
+    - language: json
+      ref: exampletappDefinition-all-properties.json
