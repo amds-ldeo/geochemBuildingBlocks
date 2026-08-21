@@ -111,11 +111,11 @@ The procedure half of the UPb module, with every property populated. Generated f
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:name "samplePreparation" ;
-                    ada:chemicalAbrasionConditions "example value" ],
-                [ schema1:additionalProperty [ schema1:name "Intermediate Daughter Disequilibrium Correction" ;
+[] schema1:actionProcess [ schema1:step [ schema1:additionalProperty [ schema1:name "Intermediate Daughter Disequilibrium Correction" ;
                             schema1:value "example value" ] ;
-                    schema1:name "dataReduction" ] ] ;
+                    schema1:name "dataReduction" ],
+                [ schema1:name "samplePreparation" ;
+                    ada:chemicalAbrasionConditions "example value" ] ] ;
     schema1:additionalProperty [ schema1:name "Discordance Definition and Values" ;
             schema1:value "example value" ] .
 

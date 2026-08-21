@@ -15,14 +15,14 @@ ex:semFibsemTAPP-Zega2025-5 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -37,12 +37,12 @@ ex:semFibsemTAPP-Zega2025-5 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
+                        "BSEDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
+                        "SEDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -86,8 +86,8 @@ ex:semFibsemTAPP-Zega2025-5 a cdi:Activity,
     ada:samplingUnit "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ] .
 

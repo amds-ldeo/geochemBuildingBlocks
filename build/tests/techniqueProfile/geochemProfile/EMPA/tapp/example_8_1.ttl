@@ -32,18 +32,15 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "SEM" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "JEOL 8530 EMPA (stated as \"JEOL 8530 EMPA at NASA JSC\"; no F suffix or JXA prefix stated)" ] ;
+            schema1:name "example instrumentName" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "EPMA" ;
             schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
@@ -52,20 +49,23 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "xrayLine" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "JEOL" ] ;
             schema1:name "example instrumentName" ;
             ada:acceleratingVoltageDefault "15 kV" ;
             ada:beamDiameterDefault "2 µm (stated as \"2 µm probe size\")" ;
-            ada:beamMode "Focused" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL 8530 EMPA (stated as \"JEOL 8530 EMPA at NASA JSC\"; no F suffix or JXA prefix stated)" ] ;
-            schema1:name "example instrumentName" ] ;
+            ada:beamMode "Focused" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES, NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -78,12 +78,12 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Phosphate (apatite)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;

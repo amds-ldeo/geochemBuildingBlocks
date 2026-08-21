@@ -15,6 +15,11 @@ ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -22,15 +27,20 @@ ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
     schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "FIBSEM" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Ion Beam Source" ;
+                    schema1:name "missing" ] ;
+            schema1:name "missing" ],
+        [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "SEM" ;
@@ -43,12 +53,12 @@ ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
+                        "BSEDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
+                        "SEDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Unknown" ] ;
@@ -56,17 +66,7 @@ ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
                     schema1:name "Helios NanoLab 650" ] ;
             schema1:name "example instrumentName" ;
             ada:acceleratingVoltageDefault "2 kV (SEM imaging)" ;
-            ada:workingDistanceDefault "4 mm" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "FIBSEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Ion Beam Source" ;
-                    schema1:name "missing" ] ;
-            schema1:name "missing" ] ;
+            ada:workingDistanceDefault "4 mm" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Geosciences, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;

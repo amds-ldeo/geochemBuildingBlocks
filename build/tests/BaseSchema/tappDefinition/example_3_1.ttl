@@ -15,16 +15,15 @@
             schema1:name "LA-ICP-MS volcanic glass trace element workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:description "Secondary standards (NIST610, ATHO-G, StHs6/80-G) analysed interspersed with unknowns in ratio 2 calibration / 4 QC / 15 unknowns. Drift monitored via repeated NIST612 analyses throughout session." ;
-                    schema1:name "Quality control" ;
-                    schema1:object <file:///github/workspace/#quantifiedConcentrations> ;
-                    schema1:position 6 ;
-                    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
-                            dqv:isMeasurementOf "oxide production" ;
-                            dqv:value "ThO/Th ca. 0.7%" ],
-                        [ a dqv:QualityMeasurement ;
-                            dqv:isMeasurementOf "detection limit method" ;
-                            dqv:value "Sample-individual LOD per Pettke et al. (2012)" ] ],
+                    schema1:description "Process raw time-resolved signals in Iolite 4. Background subtraction using 30 s pre-ablation gas blank. Normalize to NIST612 with Si as internal standard. Calculate concentrations and sample-individual detection limits per Pettke et al. (2012)." ;
+                    schema1:name "Data reduction" ;
+                    schema1:object <file:///github/workspace/#rawSignals> ;
+                    schema1:position 5 ;
+                    schema1:result <file:///github/workspace/#quantifiedConcentrations> ;
+                    bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Iolite" ;
+                            schema1:version "4" ;
+                            ada:toolRole "dataReduction" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -35,6 +34,87 @@
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "ca. 0.7%" ;
+                            schema1:name "Oxide Production (ThO/Th)" ;
+                            schema1:readonlyValue false ;
+                            schema1:valueName "oxideProduction" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 9e-01 ;
+                            schema1:name "Carrier Gas (He) Flow Rate" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "L/min" ;
+                            schema1:valueName "carrierGasHeFlowRate" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 1200 ;
+                            schema1:name "RF Power" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "W" ;
+                            schema1:valueName "rfPower" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "Glass smoothing device" ;
+                            schema1:name "Signal Smoothing" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "signalSmoothing" ;
+                            schema1:valueRequired false ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "R" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 8e-01 ;
+                            schema1:name "Carrier Gas (Ar) Flow Rate" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "L/min" ;
+                            schema1:valueName "carrierGasArFlowRate" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ] ;
+                    schema1:description "Tune ICP-MS using auto-tune function on line scan of NIST612. Optimize for maximum sensitivity while minimizing oxide production (ThO/Th ~0.7%)." ;
+                    schema1:name "ICP-MS tuning and optimization" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:description "Secondary standards (NIST610, ATHO-G, StHs6/80-G) analysed interspersed with unknowns in ratio 2 calibration / 4 QC / 15 unknowns. Drift monitored via repeated NIST612 analyses throughout session." ;
+                    schema1:name "Quality control" ;
+                    schema1:object <file:///github/workspace/#quantifiedConcentrations> ;
+                    schema1:position 6 ;
+                    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
+                            dqv:isMeasurementOf "detection limit method" ;
+                            dqv:value "Sample-individual LOD per Pettke et al. (2012)" ],
+                        [ a dqv:QualityMeasurement ;
+                            dqv:isMeasurementOf "oxide production" ;
+                            dqv:value "ThO/Th ca. 0.7%" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "point" ;
+                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/laicpms/spot-geometries> ;
+                            schema1:name "Laser Spot Path Geometry" ;
+                            schema1:readonlyValue false ;
+                            schema1:valueName "laserSpotPathGeometry" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "7 ns" ;
                             schema1:name "Laser Pulse Time" ;
                             schema1:readonlyValue true ;
@@ -68,15 +148,14 @@
                             ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "point" ;
-                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/laicpms/spot-geometries> ;
-                            schema1:name "Laser Spot Path Geometry" ;
-                            schema1:readonlyValue false ;
-                            schema1:valueName "laserSpotPathGeometry" ;
+                            schema1:defaultValue "193 nm (ArF excimer)" ;
+                            schema1:name "Laser Wavelength" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "laserWavelength" ;
                             schema1:valueRequired true ;
                             ada:category "Laser Conditions" ;
                             ada:dataType "string" ;
-                            ada:fieldScope "session" ;
+                            ada:fieldScope "method" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue 5 ;
@@ -88,16 +167,6 @@
                             ada:category "Laser Conditions" ;
                             ada:dataType "number" ;
                             ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "193 nm (ArF excimer)" ;
-                            schema1:name "Laser Wavelength" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "laserWavelength" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
                             ada:tier "M" ] ;
                     schema1:description "Ablate sample in point mode with 15â€“20 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device." ;
                     schema1:name "Laser ablation data acquisition" ;
@@ -106,68 +175,15 @@
                     schema1:result <file:///github/workspace/#rawSignals> ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "Glass smoothing device" ;
-                            schema1:name "Signal Smoothing" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "signalSmoothing" ;
-                            schema1:valueRequired false ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "R" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "ca. 0.7%" ;
-                            schema1:name "Oxide Production (ThO/Th)" ;
-                            schema1:readonlyValue false ;
-                            schema1:valueName "oxideProduction" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 9e-01 ;
-                            schema1:name "Carrier Gas (He) Flow Rate" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "L/min" ;
-                            schema1:valueName "carrierGasHeFlowRate" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 1200 ;
-                            schema1:name "RF Power" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "W" ;
-                            schema1:valueName "rfPower" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 8e-01 ;
-                            schema1:name "Carrier Gas (Ar) Flow Rate" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "L/min" ;
-                            schema1:valueName "carrierGasArFlowRate" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ] ;
-                    schema1:description "Tune ICP-MS using auto-tune function on line scan of NIST612. Optimize for maximum sensitivity while minimizing oxide production (ThO/Th ~0.7%)." ;
-                    schema1:name "ICP-MS tuning and optimization" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:description "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G." ;
                     schema1:name "Laser ablation calibration" ;
                     schema1:position 3 ;
                     bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
+                            schema1:description "Trace Elements in Glass (nominal 50 ppm)" ;
+                            schema1:name "NIST SRM 612" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:DefinedTerm ;
                             schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
                             schema1:description "MPI-DING St. Helens dacite glass" ;
                             schema1:name "StHs6/80-G" ;
@@ -181,23 +197,7 @@
                             schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
                             schema1:description "MPI-DING Icelandic rhyolite glass" ;
                             schema1:name "ATHO-G" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
-                            schema1:description "Trace Elements in Glass (nominal 50 ppm)" ;
-                            schema1:name "NIST SRM 612" ;
-                            ada:reagentRole "primaryStandard" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:description "Process raw time-resolved signals in Iolite 4. Background subtraction using 30 s pre-ablation gas blank. Normalize to NIST612 with Si as internal standard. Calculate concentrations and sample-individual detection limits per Pettke et al. (2012)." ;
-                    schema1:name "Data reduction" ;
-                    schema1:object <file:///github/workspace/#rawSignals> ;
-                    schema1:position 5 ;
-                    schema1:result <file:///github/workspace/#quantifiedConcentrations> ;
-                    bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Iolite" ;
-                            schema1:version "4" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+                            ada:reagentRole "secondaryStandard" ] ] ] ;
     schema1:agent [ a schema1:Organization ;
             schema1:name "University of Cologne, Institute of Geology and Mineralogy" ] ;
     schema1:datePublished "2022-04-22" ;
@@ -214,19 +214,19 @@
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICPMS" ;
-                    schema1:description "Single-quadrupole ICP-MS" ;
-                    schema1:manufacturer [ a schema1:Organization ;
-                            schema1:name "Thermo Fisher Scientific" ] ;
-                    schema1:name "Thermo Fischer iCAP Q" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Laser Ablation System" ;
                     schema1:description "193 nm ArF excimer laser ablation system" ;
                     schema1:manufacturer [ a schema1:Organization ;
                             schema1:name "Elemental Scientific Lasers (ESI)" ] ;
-                    schema1:name "ESI imageGEO193" ] ;
+                    schema1:name "ESI imageGEO193" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ICPMS" ;
+                    schema1:description "Single-quadrupole ICP-MS" ;
+                    schema1:manufacturer [ a schema1:Organization ;
+                            schema1:name "Thermo Fisher Scientific" ] ;
+                    schema1:name "Thermo Fischer iCAP Q" ] ;
             schema1:name "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Geo-/Cosmochemistry lab, Institute of Geology and Mineralogy, University of Cologne, Germany" ] ;
@@ -240,29 +240,11 @@
             schema1:name "volcanic glass" ] ;
     schema1:version "1.0" ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:description "Element symbol with mass number (e.g. Si29, Ba138, U238)." ;
-                    schema1:name "Measured Isotope" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:description "Gas blank measurement time before ablation in seconds." ;
-                    schema1:minValue 1 ;
-                    schema1:name "Background Count Time" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "backgroundCountTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
                     schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
                             schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                                    schema1:termCode "ppb" ],
-                                [ a schema1:DefinedTerm ;
                                     schema1:termCode "weight percent (%m/m)" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "ppb" ],
                                 [ a schema1:DefinedTerm ;
                                     schema1:termCode "ppm" ] ] ;
                     schema1:name "Detection Limit Unit" ;
@@ -288,12 +270,30 @@
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Gas blank measurement time before ablation in seconds." ;
+                    schema1:minValue 1 ;
+                    schema1:name "Background Count Time" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "backgroundCountTime" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
                     schema1:description "Typical detection limit at 99% confidence (3-sigma)." ;
                     schema1:name "Detection Limit" ;
                     schema1:valueName "detectionLimit" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
-                    ada:tier "R" ] ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Element symbol with mass number (e.g. Si29, Ba138, U238)." ;
+                    schema1:name "Measured Isotope" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
             ada:defaultAnalytes [ ],
                 [ ],
                 [ ],
@@ -316,27 +316,6 @@
                 [ ],
                 [ ] ] ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "2/4/15" ;
-            schema1:description "Ratio of calibration standard / QC standard / unknown analyses in a repeating block." ;
-            schema1:name "Calibration/QC/Unknown Sequence" ;
-            schema1:readonlyValue false ;
-            schema1:valueName "analysisSequenceRatio" ;
-            schema1:valueRequired false ;
-            ada:category "Quality Control" ;
-            ada:dataType "string" ;
-            ada:fieldScope "session" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "No correction other than measurement relative to NIST612 and use of Si as internal standard" ;
-            schema1:name "Element Fractionation Correction" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "elementFractionationCorrection" ;
-            schema1:valueRequired false ;
-            ada:category "Data Processing" ;
-            ada:dataType "string" ;
-            ada:fieldScope "method" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Si analyzed by EPMA or EDS" ;
             schema1:description "Internal standard element and how its concentration is derived for each unknown." ;
             schema1:name "Internal Standard" ;
@@ -348,12 +327,33 @@
             ada:fieldScope "method" ;
             ada:tier "M" ],
         [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "2/4/15" ;
+            schema1:description "Ratio of calibration standard / QC standard / unknown analyses in a repeating block." ;
+            schema1:name "Calibration/QC/Unknown Sequence" ;
+            schema1:readonlyValue false ;
+            schema1:valueName "analysisSequenceRatio" ;
+            schema1:valueRequired false ;
+            ada:category "Quality Control" ;
+            ada:dataType "string" ;
+            ada:fieldScope "session" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Sample individual LOD calculation according to Pettke et al. (2012)" ;
             schema1:name "Detection Limit Method" ;
             schema1:readonlyValue true ;
             schema1:valueName "detectionLimitMethod" ;
             schema1:valueRequired false ;
             ada:category "Quality Control" ;
+            ada:dataType "string" ;
+            ada:fieldScope "method" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "No correction other than measurement relative to NIST612 and use of Si as internal standard" ;
+            schema1:name "Element Fractionation Correction" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "elementFractionationCorrection" ;
+            schema1:valueRequired false ;
+            ada:category "Data Processing" ;
             ada:dataType "string" ;
             ada:fieldScope "method" ;
             ada:tier "R" ] ;

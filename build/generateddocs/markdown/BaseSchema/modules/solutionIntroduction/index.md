@@ -235,12 +235,12 @@ The procedure half of the SolutionIntroduction module, with every property popul
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:additionalProperty [ schema1:name "Digestion Vessel Type" ;
-                            schema1:value "example value" ],
-                        [ schema1:defaultValue "example value" ;
+[] schema1:actionProcess [ schema1:step [ schema1:additionalProperty [ schema1:defaultValue "example value" ;
                             schema1:name "Digestion Duration" ],
                         [ schema1:defaultValue 1 ;
                             schema1:name "Digestion Temperature" ],
+                        [ schema1:name "Digestion Vessel Type" ;
+                            schema1:value "example value" ],
                         [ schema1:name "Number of Digestion Steps" ;
                             schema1:value 1 ] ;
                     schema1:name "sampleDigestion" ;
@@ -250,14 +250,14 @@ The procedure half of the SolutionIntroduction module, with every property popul
         [ schema1:name "Desolvation System" ;
             schema1:value "example value" ] ;
     schema1:instrument [ schema1:additionalType "example value" ;
-            schema1:hasPart [ schema1:additionalProperty [ schema1:name "Nebulizer Type" ;
-                            schema1:value "example value" ],
-                        [ schema1:name "Spray Chamber Type and Cooling Temperature" ;
-                            schema1:value "example value" ],
+            schema1:hasPart [ schema1:additionalProperty [ schema1:defaultValue 1 ;
+                            schema1:name "Sample Uptake Rate" ],
                         [ schema1:defaultValue 1 ;
                             schema1:name "Nebulizer Gas Flow Rate" ],
-                        [ schema1:defaultValue 1 ;
-                            schema1:name "Sample Uptake Rate" ] ;
+                        [ schema1:name "Spray Chamber Type and Cooling Temperature" ;
+                            schema1:value "example value" ],
+                        [ schema1:name "Nebulizer Type" ;
+                            schema1:value "example value" ] ;
                     schema1:additionalType "example value" ] ] ;
     schema1:object [ schema1:additionalProperty [ schema1:defaultValue 1 ;
                     schema1:name "Sample Aliquot Mass or Volume" ] ] ;
