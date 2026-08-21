@@ -1,0 +1,29 @@
+Key Outcomes
+The discussion clarified and restructured three core concepts in the TAP (Technique Aligned Procedure) data framework: target species (formerly "analyte"), monitored species/channels (instrument-level measurements), and reported properties (derived outputs). Agreement was reached that datasets always contain reported properties, and sometimes also contain channel-level measurements. Terminology changes were proposed to reduce ambiguity across instrument types. [Citation][Citation]
+Decisions Made
+- "Analyte" → "Target Species": Analyte is a discovery keyword only — no quantitative data is associated with it; rename to target species for clarity. [Citation][Citation]
+- "Channel" → "Monitored Species": Channels represent what the instrument actually measures (e.g., individual isotopes); rename to monitored species. [Citation]
+- Two-level data model confirmed:
+    - Level 1 — Monitored species: Raw instrument measurements (may or may not be archived). [Citation]
+    - Level 2 — Reported properties: Derived outputs (always present in a dataset); includes ratios, delta notations, ages, concentrations. [Citation]
+- Instrument vs. session configuration distinction: Detector/cup/spectrometer properties fixed at instrument level; These are modeled as instrument parts; isotope-to-cup or element-to-spectrometer mapping and cup settings defined at session level; neither changes per sampling unit. 
+- the 'channel' or 'monitoredSpecies' definition is related to an analyte and to the instrument part that measures it.
+- In a dataset table, each sampling unit (microprobe point, Ar-Ar step heating fraction, chromotography draw, zircon fraction, single crystal...) is associated with reportedProperties, and if channels are defined, each samplingUnit is associated with the channel properties. 
+- EPMA/microprobe case: in the simple case, Channel, reported property are effectively the same — silicon measured, silicon (oxide?) reported. So datasets only include reportedProperty, and each reported property corresponds to one analyte.
+
+Conceptual Clarifications
+- Target species = keyword for discovery; scoped to element or molecule level (e.g., Iron, not Fe-56); no result table. 
+- Monitored species/channels: closest to what the instrument physically measures; e.g. for MC-ICP-MS, these are individual isotopes per Faraday cup. For single-collector MS, there is only one cup/detector; the monitoredSpecies all link to that collector, but there might be different acquisition paramaters for the session associated with different monitoredSpecies.  In EMPS EDS, all reportedProperties are derived from a spectra that is not recorded, so there is no monitoredSpecies.
+- Reported properties = end-product values after data processing; examples include isotope ratios, delta/epsilon notations, oxide concentrations, and interpreted ages. If there are monitoredSpecies, each reportedProperty specification needs to declare its relation the the monitoredSpecies; this might be quite complex, so to start the relation should be specified in text.
+- For procedures like EPMA-EDS, only reported properties exist in the dataset — raw spectra are processed but not archived. 
+- For U-Pb geochronology, measured isotope ratios may be reported alongside interpreted ages (e.g., lower intercept, Concordia age) — both types coexist in one table, mixing monitoredSpecies and reportedProperties.
+
+
+Open Questions
+- Whether "target species" should extend to interpreted variables (e.g., "age") or remain strictly at the element/molecule level. What is the appropriate granularity for 'target species'? For now, this is up to the metadata creator. 
+
+Action Items
+
+- Rename "analyte" → "target species" and "channel" → "monitored species" in the TAP template. 
+- Make a metadata section for monitored species metadata and a separate metadata section for reported species metadata (capturing data processing and uncertainty evaluation). 
+
