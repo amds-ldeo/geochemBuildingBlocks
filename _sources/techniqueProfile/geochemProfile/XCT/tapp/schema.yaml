@@ -209,6 +209,42 @@ allOf:
                     - ada:fieldScope
                   minContains: 0
                   maxContains: 1
+                - contains:
+                    title: Pre-Analysis Imaging and Screening
+                    description: Imaging or other characterisation performed before the measurement in
+                      order to select or locate the analysed target, including the technique, instrument
+                      and settings used, and how individual analyses are linked back to the images. Distinct
+                      from any imaging the procedure performs as its own measurement. Where the imaging
+                      is performed on a separate instrument, it should also be recorded in the Group 1
+                      coupling fields.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: preAnalysisImagingAndScreeningDefault
+                      schema:name:
+                        const: Pre-Analysis Imaging and Screening
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  minContains: 0
+                  maxContains: 1
       allOf:
       - contains:
           properties:
@@ -245,39 +281,6 @@ allOf:
       items:
         anyOf:
         - &id001
-          title: Pre-Analysis Imaging and Screening
-          description: Imaging or other characterisation performed before the measurement in order to
-            select or locate the analysed target, including the technique, instrument and settings used,
-            and how individual analyses are linked back to the images. Distinct from any imaging the procedure
-            performs as its own measurement. Where the imaging is performed on a separate instrument,
-            it should also be recorded in the Group 1 coupling fields.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: preAnalysisImagingAndScreeningDefault
-            schema:name:
-              const: Pre-Analysis Imaging and Screening
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - &id002
           title: Sample Mounting Method
           description: Method used to mount or hold the sample on the instrument rotation stage. Mounting
             material should transmit X-rays at the selected voltage without dominating beam attenuation.
@@ -412,7 +415,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id003
+        - &id002
           title: X-ray Power
           description: 'X-ray tube power in watts (W) registered by the procedure. Derivable as voltage
             (kV) × current (mA) = kV × µA / 1000. Power constrains the achievable focal spot size for
@@ -448,7 +451,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id004
+        - &id003
           title: Source-to-Object Distance (SOD)
           description: Distance from the X-ray source focal spot to the centre of the sample rotation
             axis, in mm, as registered by the procedure. Together with SDD, determines geometric magnification
@@ -481,7 +484,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id005
+        - &id004
           title: Source-to-Detector Distance (SDD)
           description: Distance from the X-ray source focal spot to the detector surface, in mm, as registered
             by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel
@@ -515,7 +518,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id006
+        - &id005
           title: Rotation Step Size
           description: Angular increment between successive projection images, in degrees. Equal to Rotation
             Range divided by Number of Projections when both are reported; however, some sources report
@@ -550,7 +553,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id007
+        - &id006
           title: Frames Averaged per Projection
           description: Number of individual detector frames acquired and averaged to produce each saved
             projection image, as registered by the procedure. Frame averaging reduces random electronic
@@ -581,7 +584,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id008
+        - &id007
           title: Detector Binning
           description: Detector pixel binning factor applied during acquisition. Binning combines adjacent
             pixels (e.g., 2×2 combines 4 pixels into one), reducing effective resolution while increasing
@@ -612,7 +615,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id009
+        - &id008
           title: Reconstruction Convolution Filter
           description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
             Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother
@@ -644,7 +647,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id010
+        - &id009
           title: Beam Hardening Correction Parameter
           description: Numerical value or setting applied in the software beam hardening correction algorithm
             for this specific analysis. May be tuned empirically per material type or per scan session.
@@ -675,7 +678,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id011
+        - &id010
           title: Ring Artifact Correction Method
           description: Procedure specification for how ring artifacts are handled. Ring artifacts appear
             as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated
@@ -707,7 +710,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id012
+        - &id011
           title: CT Number Calibration
           description: Whether the raw CT grayscale values have been calibrated to physically meaningful
             units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session
@@ -740,7 +743,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id013
+        - &id012
           title: Segmentation Threshold Values or Criteria
           description: Specific CT number range(s) or quantitative criteria used to define each segmented
             phase or feature. Documenting these values enables reproducibility assessment and cross-study
@@ -771,7 +774,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id014
+        - &id013
           title: Phase Identification Method
           description: Method used to assign reconstructed CT number ranges to specific mineral phases
             or material types. Approaches include comparison to calculated linear attenuation coefficients
@@ -802,7 +805,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id015
+        - &id014
           title: VOI Selection Criteria
           description: Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined
             for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges,
@@ -834,7 +837,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id016
+        - &id015
           title: Output Bit Depth
           description: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's
             grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels),
@@ -868,7 +871,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id017
+        - &id016
           title: Partial Volume Effect Criteria
           description: Procedure-level specification of how partial volume effects (PVE) are managed in
             quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the
@@ -907,7 +910,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id018
+        - &id017
           title: Cross-Validation Procedure Requirement
           description: Procedure-level specification of what independent analytical validation is required
             to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation
@@ -943,9 +946,6 @@ allOf:
           - ada:fieldScope
       allOf:
       - contains: *id001
-        minContains: 0
-        maxContains: 1
-      - contains: *id002
         minContains: 0
         maxContains: 1
       - contains:
@@ -1064,6 +1064,9 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
+      - contains: *id002
+        minContains: 0
+        maxContains: 1
       - contains: *id003
         minContains: 0
         maxContains: 1
@@ -1109,9 +1112,6 @@ allOf:
       - contains: *id017
         minContains: 0
         maxContains: 1
-      - contains: *id018
-        minContains: 0
-        maxContains: 1
     schema:actionProcess:
       type: object
       properties:
@@ -1149,7 +1149,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id019
+                      - &id018
                         title: Flat Field Correction
                         description: Whether dark-field (detector read with X-ray source off; electronic
                           noise baseline) and bright-field (source on, no sample; gain calibration) reference
@@ -1181,7 +1181,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - &id020
+                      - &id019
                         title: Calibration Factor and Determination Method
                         description: 'An externally-calibrated factor that converts the measured quantity
                           into the reported quantity, how it was determined, and its uncertainty. Applies
@@ -1216,7 +1216,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - &id021
+                      - &id020
                         title: Sub-volume Stitching and Registration Method
                         description: 'Method used to register adjacent sub-volume datasets to each other
                           and stitch them into a single continuous 3D volume. Report the alignment strategy
@@ -1250,7 +1250,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - &id022
+                      - &id021
                         title: Constants and Reference Values Used
                         description: Physical constants and reference values used in data reduction to
                           calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -1286,6 +1286,9 @@ allOf:
                         - ada:dataType
                         - ada:fieldScope
                     allOf:
+                    - contains: *id018
+                      minContains: 0
+                      maxContains: 1
                     - contains: *id019
                       minContains: 0
                       maxContains: 1
@@ -1293,9 +1296,6 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains: *id021
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id022
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -1624,21 +1624,18 @@ allOf:
         - None
         - missing
       - type: string
-    ada:reportedPropertyTemplate:
-      type: object
-      properties:
-        ada:defaultReportedProperties:
-          type: array
-          items:
-            description: The final variable(s) this procedure reports and their units — distinct from
-              the fields recording what was *acquired* rather than what is reported. A procedure may acquire
-              many channels and report a small number of derived quantities; without this field a data
-              consumer cannot tell which. Record every reported variable, including intermediate quantities
-              reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date).
-              Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification),
-              record the variable and give the unit as 'N/A — nominal property'.
-            type: string
-            readOnly: true
+    ada:reportedProperties:
+      type: array
+      items:
+        description: The final variable(s) this procedure reports and their units — distinct from the
+          fields recording what was *acquired* rather than what is reported. A procedure may acquire many
+          channels and report a small number of derived quantities; without this field a data consumer
+          cannot tell which. Record every reported variable, including intermediate quantities reported
+          alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported
+          variable is a nominal property with no magnitude (e.g. a mineral identification), record the
+          variable and give the unit as 'N/A — nominal property'.
+        type: string
+        readOnly: true
     schema:description:
       description: 'Any procedure- or analysis-specific information not captured by a structured field
         anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument

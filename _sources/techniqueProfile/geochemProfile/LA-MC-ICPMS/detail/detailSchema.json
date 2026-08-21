@@ -791,6 +791,305 @@
                                                                                                 "properties": {
                                                                                                     "schema:additionalType": {
                                                                                                         "contains": {
+                                                                                                            "const": "Collector"
+                                                                                                        }
+                                                                                                    }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                    "schema:additionalType"
+                                                                                                ]
+                                                                                            },
+                                                                                            "then": {
+                                                                                                "properties": {
+                                                                                                    "ada:collectorConfiguration": {
+                                                                                                        "type": "array",
+                                                                                                        "items": {
+                                                                                                            "anyOf": [
+                                                                                                                {
+                                                                                                                    "title": "Integration Time per Cycle",
+                                                                                                                    "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
+                                                                                                                    "type": "object",
+                                                                                                                    "properties": {
+                                                                                                                        "@id": {
+                                                                                                                            "const": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                                                                                                                        },
+                                                                                                                        "@type": {
+                                                                                                                            "const": [
+                                                                                                                                "schema:PropertyValue"
+                                                                                                                            ]
+                                                                                                                        },
+                                                                                                                        "schema:propertyID": {
+                                                                                                                            "const": [
+                                                                                                                                {
+                                                                                                                                    "@id": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        },
+                                                                                                                        "schema:name": {
+                                                                                                                            "const": "Integration Time per Cycle"
+                                                                                                                        },
+                                                                                                                        "ada:dataType": {
+                                                                                                                            "const": "number"
+                                                                                                                        },
+                                                                                                                        "ada:tier": {
+                                                                                                                            "const": "M"
+                                                                                                                        },
+                                                                                                                        "schema:value": {
+                                                                                                                            "anyOf": [
+                                                                                                                                {
+                                                                                                                                    "anyOf": [
+                                                                                                                                        {
+                                                                                                                                            "type": "number"
+                                                                                                                                        },
+                                                                                                                                        {
+                                                                                                                                            "type": "string"
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "type": "array",
+                                                                                                                                    "items": {
+                                                                                                                                        "anyOf": [
+                                                                                                                                            {
+                                                                                                                                                "type": "number"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "type": "string"
+                                                                                                                                            }
+                                                                                                                                        ]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    "required": [
+                                                                                                                        "@id",
+                                                                                                                        "@type",
+                                                                                                                        "schema:propertyID",
+                                                                                                                        "schema:name",
+                                                                                                                        "ada:dataType",
+                                                                                                                        "schema:value"
+                                                                                                                    ]
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "title": "Ion Counter Dead Time",
+                                                                                                                    "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
+                                                                                                                    "type": "object",
+                                                                                                                    "properties": {
+                                                                                                                        "@id": {
+                                                                                                                            "const": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                                                                        },
+                                                                                                                        "@type": {
+                                                                                                                            "const": [
+                                                                                                                                "schema:PropertyValue"
+                                                                                                                            ]
+                                                                                                                        },
+                                                                                                                        "schema:propertyID": {
+                                                                                                                            "const": [
+                                                                                                                                {
+                                                                                                                                    "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        },
+                                                                                                                        "schema:name": {
+                                                                                                                            "const": "Ion Counter Dead Time"
+                                                                                                                        },
+                                                                                                                        "ada:dataType": {
+                                                                                                                            "const": "number"
+                                                                                                                        },
+                                                                                                                        "ada:tier": {
+                                                                                                                            "const": "M"
+                                                                                                                        },
+                                                                                                                        "schema:value": {
+                                                                                                                            "anyOf": [
+                                                                                                                                {
+                                                                                                                                    "anyOf": [
+                                                                                                                                        {
+                                                                                                                                            "type": "number"
+                                                                                                                                        },
+                                                                                                                                        {
+                                                                                                                                            "type": "string"
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "type": "array",
+                                                                                                                                    "items": {
+                                                                                                                                        "anyOf": [
+                                                                                                                                            {
+                                                                                                                                                "type": "number"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "type": "string"
+                                                                                                                                            }
+                                                                                                                                        ]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    "required": [
+                                                                                                                        "@id",
+                                                                                                                        "@type",
+                                                                                                                        "schema:propertyID",
+                                                                                                                        "schema:name",
+                                                                                                                        "ada:dataType",
+                                                                                                                        "schema:value"
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "allOf": [
+                                                                                                            {
+                                                                                                                "contains": {
+                                                                                                                    "title": "Integration Time per Cycle",
+                                                                                                                    "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
+                                                                                                                    "type": "object",
+                                                                                                                    "properties": {
+                                                                                                                        "@id": {
+                                                                                                                            "const": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                                                                                                                        },
+                                                                                                                        "@type": {
+                                                                                                                            "const": [
+                                                                                                                                "schema:PropertyValue"
+                                                                                                                            ]
+                                                                                                                        },
+                                                                                                                        "schema:propertyID": {
+                                                                                                                            "const": [
+                                                                                                                                {
+                                                                                                                                    "@id": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        },
+                                                                                                                        "schema:name": {
+                                                                                                                            "const": "Integration Time per Cycle"
+                                                                                                                        },
+                                                                                                                        "ada:dataType": {
+                                                                                                                            "const": "number"
+                                                                                                                        },
+                                                                                                                        "ada:tier": {
+                                                                                                                            "const": "M"
+                                                                                                                        },
+                                                                                                                        "schema:value": {
+                                                                                                                            "anyOf": [
+                                                                                                                                {
+                                                                                                                                    "anyOf": [
+                                                                                                                                        {
+                                                                                                                                            "type": "number"
+                                                                                                                                        },
+                                                                                                                                        {
+                                                                                                                                            "type": "string"
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "type": "array",
+                                                                                                                                    "items": {
+                                                                                                                                        "anyOf": [
+                                                                                                                                            {
+                                                                                                                                                "type": "number"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "type": "string"
+                                                                                                                                            }
+                                                                                                                                        ]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    "required": [
+                                                                                                                        "@id",
+                                                                                                                        "@type",
+                                                                                                                        "schema:propertyID",
+                                                                                                                        "schema:name",
+                                                                                                                        "ada:dataType",
+                                                                                                                        "schema:value"
+                                                                                                                    ]
+                                                                                                                },
+                                                                                                                "minContains": 0,
+                                                                                                                "maxContains": 1
+                                                                                                            },
+                                                                                                            {
+                                                                                                                "contains": {
+                                                                                                                    "title": "Ion Counter Dead Time",
+                                                                                                                    "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
+                                                                                                                    "type": "object",
+                                                                                                                    "properties": {
+                                                                                                                        "@id": {
+                                                                                                                            "const": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                                                                        },
+                                                                                                                        "@type": {
+                                                                                                                            "const": [
+                                                                                                                                "schema:PropertyValue"
+                                                                                                                            ]
+                                                                                                                        },
+                                                                                                                        "schema:propertyID": {
+                                                                                                                            "const": [
+                                                                                                                                {
+                                                                                                                                    "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        },
+                                                                                                                        "schema:name": {
+                                                                                                                            "const": "Ion Counter Dead Time"
+                                                                                                                        },
+                                                                                                                        "ada:dataType": {
+                                                                                                                            "const": "number"
+                                                                                                                        },
+                                                                                                                        "ada:tier": {
+                                                                                                                            "const": "M"
+                                                                                                                        },
+                                                                                                                        "schema:value": {
+                                                                                                                            "anyOf": [
+                                                                                                                                {
+                                                                                                                                    "anyOf": [
+                                                                                                                                        {
+                                                                                                                                            "type": "number"
+                                                                                                                                        },
+                                                                                                                                        {
+                                                                                                                                            "type": "string"
+                                                                                                                                        }
+                                                                                                                                    ]
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "type": "array",
+                                                                                                                                    "items": {
+                                                                                                                                        "anyOf": [
+                                                                                                                                            {
+                                                                                                                                                "type": "number"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "type": "string"
+                                                                                                                                            }
+                                                                                                                                        ]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    "required": [
+                                                                                                                        "@id",
+                                                                                                                        "@type",
+                                                                                                                        "schema:propertyID",
+                                                                                                                        "schema:name",
+                                                                                                                        "ada:dataType",
+                                                                                                                        "schema:value"
+                                                                                                                    ]
+                                                                                                                },
+                                                                                                                "minContains": 0,
+                                                                                                                "maxContains": 1
+                                                                                                            }
+                                                                                                        ]
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "if": {
+                                                                                                "properties": {
+                                                                                                    "schema:additionalType": {
+                                                                                                        "contains": {
                                                                                                             "const": "Torch"
                                                                                                         }
                                                                                                     }
@@ -906,6 +1205,20 @@
                                                                                                 "schema:additionalType": {
                                                                                                     "contains": {
                                                                                                         "const": "Collision Reaction Cell"
+                                                                                                    }
+                                                                                                }
+                                                                                            },
+                                                                                            "required": [
+                                                                                                "schema:additionalType"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "contains": {
+                                                                                            "properties": {
+                                                                                                "schema:additionalType": {
+                                                                                                    "contains": {
+                                                                                                        "const": "Collector"
                                                                                                     }
                                                                                                 }
                                                                                             },
@@ -3533,309 +3846,6 @@
                             }
                         ]
                     },
-                    "schema:used": {
-                        "type": "object",
-                        "properties": {
-                            "schema:instrument": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "allOf": [
-                                        {
-                                            "if": {
-                                                "properties": {
-                                                    "schema:additionalType": {
-                                                        "contains": {
-                                                            "const": "ICPMS"
-                                                        }
-                                                    }
-                                                },
-                                                "required": [
-                                                    "schema:additionalType"
-                                                ]
-                                            },
-                                            "then": {
-                                                "properties": {
-                                                    "schema:hasPart": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "allOf": [
-                                                                {
-                                                                    "if": {
-                                                                        "properties": {
-                                                                            "schema:additionalType": {
-                                                                                "contains": {
-                                                                                    "const": "Collector"
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        "required": [
-                                                                            "schema:additionalType"
-                                                                        ]
-                                                                    },
-                                                                    "then": {
-                                                                        "properties": {
-                                                                            "ada:collectorConfiguration": {
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "ada:channelColumns": {
-                                                                                        "type": "array",
-                                                                                        "items": {
-                                                                                            "anyOf": [
-                                                                                                {
-                                                                                                    "title": "Integration Time per Cycle",
-                                                                                                    "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
-                                                                                                    "type": "object",
-                                                                                                    "properties": {
-                                                                                                        "@id": {
-                                                                                                            "const": "ada:analyteColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                                                        },
-                                                                                                        "@type": {
-                                                                                                            "const": [
-                                                                                                                "schema:PropertyValueSpecification"
-                                                                                                            ]
-                                                                                                        },
-                                                                                                        "schema:valueName": {
-                                                                                                            "const": "integrationTimePerCycle"
-                                                                                                        },
-                                                                                                        "schema:name": {
-                                                                                                            "const": "Integration Time per Cycle"
-                                                                                                        },
-                                                                                                        "ada:dataType": {
-                                                                                                            "const": "number"
-                                                                                                        },
-                                                                                                        "schema:readonlyValue": {
-                                                                                                            "const": false
-                                                                                                        },
-                                                                                                        "ada:tier": {
-                                                                                                            "const": "M"
-                                                                                                        },
-                                                                                                        "schema:defaultValue": {
-                                                                                                            "anyOf": [
-                                                                                                                {
-                                                                                                                    "type": "number"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "type": "string"
-                                                                                                                }
-                                                                                                            ]
-                                                                                                        }
-                                                                                                    },
-                                                                                                    "required": [
-                                                                                                        "@id",
-                                                                                                        "@type",
-                                                                                                        "schema:valueName",
-                                                                                                        "schema:name",
-                                                                                                        "ada:dataType",
-                                                                                                        "schema:defaultValue"
-                                                                                                    ]
-                                                                                                },
-                                                                                                {
-                                                                                                    "title": "Ion Counter Dead Time",
-                                                                                                    "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-                                                                                                    "type": "object",
-                                                                                                    "properties": {
-                                                                                                        "@id": {
-                                                                                                            "const": "ada:analyteColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                                                                        },
-                                                                                                        "@type": {
-                                                                                                            "const": [
-                                                                                                                "schema:PropertyValueSpecification"
-                                                                                                            ]
-                                                                                                        },
-                                                                                                        "schema:valueName": {
-                                                                                                            "const": "ionCounterDeadTime"
-                                                                                                        },
-                                                                                                        "schema:name": {
-                                                                                                            "const": "Ion Counter Dead Time"
-                                                                                                        },
-                                                                                                        "ada:dataType": {
-                                                                                                            "const": "number"
-                                                                                                        },
-                                                                                                        "schema:readonlyValue": {
-                                                                                                            "const": false
-                                                                                                        },
-                                                                                                        "ada:tier": {
-                                                                                                            "const": "M"
-                                                                                                        },
-                                                                                                        "schema:defaultValue": {
-                                                                                                            "anyOf": [
-                                                                                                                {
-                                                                                                                    "type": "number"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "type": "string"
-                                                                                                                }
-                                                                                                            ]
-                                                                                                        }
-                                                                                                    },
-                                                                                                    "required": [
-                                                                                                        "@id",
-                                                                                                        "@type",
-                                                                                                        "schema:valueName",
-                                                                                                        "schema:name",
-                                                                                                        "ada:dataType",
-                                                                                                        "schema:defaultValue"
-                                                                                                    ]
-                                                                                                }
-                                                                                            ]
-                                                                                        },
-                                                                                        "allOf": [
-                                                                                            {
-                                                                                                "contains": {
-                                                                                                    "title": "Integration Time per Cycle",
-                                                                                                    "description": "Duration of signal integration per measurement cycle (seconds). Determines counting statistics per cycle. Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window. For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge. Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds. Where different isotope channels use different integration schemes, record the time for each channel.",
-                                                                                                    "type": "object",
-                                                                                                    "properties": {
-                                                                                                        "@id": {
-                                                                                                            "const": "ada:analyteColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                                                        },
-                                                                                                        "@type": {
-                                                                                                            "const": [
-                                                                                                                "schema:PropertyValueSpecification"
-                                                                                                            ]
-                                                                                                        },
-                                                                                                        "schema:valueName": {
-                                                                                                            "const": "integrationTimePerCycle"
-                                                                                                        },
-                                                                                                        "schema:name": {
-                                                                                                            "const": "Integration Time per Cycle"
-                                                                                                        },
-                                                                                                        "ada:dataType": {
-                                                                                                            "const": "number"
-                                                                                                        },
-                                                                                                        "schema:readonlyValue": {
-                                                                                                            "const": false
-                                                                                                        },
-                                                                                                        "ada:tier": {
-                                                                                                            "const": "M"
-                                                                                                        },
-                                                                                                        "schema:defaultValue": {
-                                                                                                            "anyOf": [
-                                                                                                                {
-                                                                                                                    "type": "number"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "type": "string"
-                                                                                                                }
-                                                                                                            ]
-                                                                                                        }
-                                                                                                    },
-                                                                                                    "required": [
-                                                                                                        "@id",
-                                                                                                        "@type",
-                                                                                                        "schema:valueName",
-                                                                                                        "schema:name",
-                                                                                                        "ada:dataType",
-                                                                                                        "schema:defaultValue"
-                                                                                                    ]
-                                                                                                },
-                                                                                                "minContains": 0,
-                                                                                                "maxContains": 1
-                                                                                            },
-                                                                                            {
-                                                                                                "contains": {
-                                                                                                    "title": "Ion Counter Dead Time",
-                                                                                                    "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-                                                                                                    "type": "object",
-                                                                                                    "properties": {
-                                                                                                        "@id": {
-                                                                                                            "const": "ada:analyteColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                                                                        },
-                                                                                                        "@type": {
-                                                                                                            "const": [
-                                                                                                                "schema:PropertyValueSpecification"
-                                                                                                            ]
-                                                                                                        },
-                                                                                                        "schema:valueName": {
-                                                                                                            "const": "ionCounterDeadTime"
-                                                                                                        },
-                                                                                                        "schema:name": {
-                                                                                                            "const": "Ion Counter Dead Time"
-                                                                                                        },
-                                                                                                        "ada:dataType": {
-                                                                                                            "const": "number"
-                                                                                                        },
-                                                                                                        "schema:readonlyValue": {
-                                                                                                            "const": false
-                                                                                                        },
-                                                                                                        "ada:tier": {
-                                                                                                            "const": "M"
-                                                                                                        },
-                                                                                                        "schema:defaultValue": {
-                                                                                                            "anyOf": [
-                                                                                                                {
-                                                                                                                    "type": "number"
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    "type": "string"
-                                                                                                                }
-                                                                                                            ]
-                                                                                                        }
-                                                                                                    },
-                                                                                                    "required": [
-                                                                                                        "@id",
-                                                                                                        "@type",
-                                                                                                        "schema:valueName",
-                                                                                                        "schema:name",
-                                                                                                        "ada:dataType",
-                                                                                                        "schema:defaultValue"
-                                                                                                    ]
-                                                                                                },
-                                                                                                "minContains": 0,
-                                                                                                "maxContains": 1
-                                                                                            }
-                                                                                        ]
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        "allOf": [
-                                                            {
-                                                                "contains": {
-                                                                    "properties": {
-                                                                        "schema:additionalType": {
-                                                                            "contains": {
-                                                                                "const": "Collector"
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "required": [
-                                                                        "schema:additionalType"
-                                                                    ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    ]
-                                },
-                                "allOf": [
-                                    {
-                                        "contains": {
-                                            "properties": {
-                                                "schema:additionalType": {
-                                                    "contains": {
-                                                        "const": "ICPMS"
-                                                    }
-                                                }
-                                            },
-                                            "required": [
-                                                "schema:additionalType"
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
                     "schema:location": {
                         "type": "object",
                         "properties": {
@@ -3915,235 +3925,475 @@
         "schema:variableMeasured": {
             "type": "array",
             "items": {
-                "type": "object",
-                "allOf": [
+                "anyOf": [
                     {
-                        "if": {
-                            "properties": {
-                                "schema:name": {
-                                    "const": "Calibration Factor and Determination Method"
-                                }
+                        "title": "Calibration Factor and Determination Method",
+                        "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod"
                             },
-                            "required": [
-                                "schema:name"
-                            ]
-                        },
-                        "then": {
-                            "properties": {
-                                "schema:value": {
-                                    "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                    "anyOf": [
-                                        {
-                                            "type": "string"
-                                        },
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    ]
-                                }
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod"
+                                    }
+                                ]
+                            },
+                            "schema:name": {
+                                "const": "Calibration Factor and Determination Method"
+                            },
+                            "schema:value": {
+                                "type": "string"
                             }
-                        }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
                     },
                     {
-                        "if": {
-                            "properties": {
-                                "schema:name": {
-                                    "const": "Detection Limit"
-                                }
+                        "title": "Detection Limit",
+                        "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/detectionLimit"
                             },
-                            "required": [
-                                "schema:name"
-                            ]
-                        },
-                        "then": {
-                            "properties": {
-                                "schema:value": {
-                                    "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
-                                    "anyOf": [
-                                        {
-                                            "type": "number"
-                                        },
-                                        {
-                                            "type": "string"
-                                        }
-                                    ]
-                                }
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/detectionLimit"
+                                    }
+                                ]
+                            },
+                            "schema:name": {
+                                "const": "Detection Limit"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "schema:unitText": {
+                                "type": "string"
                             }
-                        }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value",
+                            "schema:unitText"
+                        ]
                     },
                     {
-                        "if": {
-                            "properties": {
-                                "schema:name": {
-                                    "const": "Goodness-of-Fit or Dispersion Statistic"
-                                }
+                        "title": "Goodness-of-Fit or Dispersion Statistic",
+                        "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatistic"
                             },
-                            "required": [
-                                "schema:name"
-                            ]
-                        },
-                        "then": {
-                            "properties": {
-                                "schema:value": {
-                                    "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
-                                    "anyOf": [
-                                        {
-                                            "type": "string"
-                                        },
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    ]
-                                }
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatistic"
+                                    }
+                                ]
+                            },
+                            "schema:name": {
+                                "const": "Goodness-of-Fit or Dispersion Statistic"
+                            },
+                            "schema:value": {
+                                "type": "string"
                             }
-                        }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
                     },
                     {
-                        "if": {
-                            "properties": {
-                                "schema:name": {
-                                    "const": "Limit of Quantification (LOQ) Method"
-                                }
+                        "title": "Limit of Quantification (LOQ) Method",
+                        "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
                             },
-                            "required": [
-                                "schema:name"
-                            ]
-                        },
-                        "then": {
-                            "properties": {
-                                "schema:value": {
-                                    "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
-                                    "anyOf": [
-                                        {
-                                            "type": "string"
-                                        },
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    ]
-                                }
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
+                                    }
+                                ]
+                            },
+                            "schema:name": {
+                                "const": "Limit of Quantification (LOQ) Method"
+                            },
+                            "schema:value": {
+                                "type": "string"
                             }
-                        }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
                     },
                     {
-                        "if": {
-                            "properties": {
-                                "schema:name": {
-                                    "const": "Normalization / Standards-Based Correction"
-                                }
+                        "title": "Normalization / Standards-Based Correction",
+                        "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
                             },
-                            "required": [
-                                "schema:name"
-                            ]
-                        },
-                        "then": {
-                            "properties": {
-                                "schema:value": {
-                                    "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
-                                    "anyOf": [
-                                        {
-                                            "type": "string"
-                                        },
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    ]
-                                }
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                                    }
+                                ]
+                            },
+                            "schema:name": {
+                                "const": "Normalization / Standards-Based Correction"
+                            },
+                            "schema:value": {
+                                "type": "string"
                             }
-                        }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
                     },
                     {
-                        "if": {
-                            "properties": {
-                                "schema:name": {
-                                    "const": "Uncertainty Propagation Method"
-                                }
+                        "title": "Uncertainty Propagation Method",
+                        "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
                             },
-                            "required": [
-                                "schema:name"
-                            ]
-                        },
-                        "then": {
-                            "properties": {
-                                "schema:value": {
-                                    "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                    "anyOf": [
-                                        {
-                                            "type": "string"
-                                        },
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    ]
-                                }
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
+                                    }
+                                ]
+                            },
+                            "schema:name": {
+                                "const": "Uncertainty Propagation Method"
+                            },
+                            "schema:value": {
+                                "type": "string"
                             }
-                        }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
                     }
                 ]
             },
             "allOf": [
                 {
                     "contains": {
+                        "title": "Calibration Factor and Determination Method",
+                        "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                        "type": "object",
                         "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod"
+                                    }
+                                ]
+                            },
                             "schema:name": {
                                 "const": "Calibration Factor and Determination Method"
+                            },
+                            "schema:value": {
+                                "type": "string"
                             }
                         },
                         "required": [
-                            "schema:name"
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
                         ]
-                    }
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
                 },
                 {
                     "contains": {
+                        "title": "Detection Limit",
+                        "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                        "type": "object",
                         "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/detectionLimit"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/detectionLimit"
+                                    }
+                                ]
+                            },
                             "schema:name": {
                                 "const": "Detection Limit"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "schema:unitText": {
+                                "type": "string"
                             }
                         },
                         "required": [
-                            "schema:name"
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value",
+                            "schema:unitText"
                         ]
-                    }
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
                 },
                 {
                     "contains": {
+                        "title": "Goodness-of-Fit or Dispersion Statistic",
+                        "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                        "type": "object",
                         "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatistic"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatistic"
+                                    }
+                                ]
+                            },
                             "schema:name": {
                                 "const": "Goodness-of-Fit or Dispersion Statistic"
+                            },
+                            "schema:value": {
+                                "type": "string"
                             }
                         },
                         "required": [
-                            "schema:name"
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
                         ]
-                    }
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
                 },
                 {
                     "contains": {
+                        "title": "Limit of Quantification (LOQ) Method",
+                        "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
+                        "type": "object",
                         "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
+                                    }
+                                ]
+                            },
                             "schema:name": {
                                 "const": "Limit of Quantification (LOQ) Method"
+                            },
+                            "schema:value": {
+                                "type": "string"
                             }
                         },
                         "required": [
-                            "schema:name"
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
                         ]
-                    }
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Normalization / Standards-Based Correction",
+                        "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                                    }
+                                ]
+                            },
+                            "schema:name": {
+                                "const": "Normalization / Standards-Based Correction"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                },
+                {
+                    "contains": {
+                        "title": "Uncertainty Propagation Method",
+                        "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
+                                    }
+                                ]
+                            },
+                            "schema:name": {
+                                "const": "Uncertainty Propagation Method"
+                            },
+                            "schema:value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                        ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
                 }
             ]
         },
