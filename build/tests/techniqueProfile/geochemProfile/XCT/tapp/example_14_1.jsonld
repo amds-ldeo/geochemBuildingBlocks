@@ -1,0 +1,196 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Tait2014",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Tait2014",
+  "schema:description": "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CSIRO, Kensington, Western Australia"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Optical microscopy; EBSD",
+        "schema:description": "XCT qualitatively compared with thin sections and EBSD"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "H7 ordinary chondrite (Watson 012)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "8 mm diameter core"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Plagioclase network connectivity; partial melt evidence",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "8 mm diameter core drilled from meteorite prior to XCT",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "70 kV",
+      "ada:tubeCurrentDefault": "86 \u00b5A",
+      "ada:voxelSizeDefault": "1.923 \u00b5m",
+      "schema:model": {
+        "schema:name": "XRADIA XRM500",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 7,
+      "schema:description": "7 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Dedicated workflow; specific threshold values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable"
+    }
+  ],
+  "ada:rotationRangeDefault": "360\u00b0",
+  "ada:numberOfProjectionsDefault": "2000",
+  "ada:segmentationMethodDefault": "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AvizoFire 8.0; Matlab; Drishti 2.0"
+    }
+  ],
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:detectorType": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}

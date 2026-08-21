@@ -7,7 +7,7 @@
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -26,71 +26,6 @@
   ],
   "schema:name": "sem protocol \u2014 Pascucci2026-2",
   "schema:description": "Spot analysis: 20 kV, 30 \u00b5m aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy)",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
-          ]
-        }
-      ]
-    }
-  ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -99,33 +34,8 @@
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
-      "schema:manufacturer": {
-        "schema:name": "Zeiss",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "Supra 40",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
+      "ada:acceleratingVoltageDefault": "20 kV",
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Electron source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:description": "Unknown",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "missing"
-        },
         {
           "schema:additionalType": [
             "EDSDetector",
@@ -141,12 +51,26 @@
           "schema:name": "missing"
         },
         {
+          "schema:additionalType": [
+            "Electron source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Unknown",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "BSEDetector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -159,7 +83,7 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "xrayLine",
+            "WDSSpectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -167,7 +91,18 @@
           "schema:name": "missing"
         }
       ],
-      "ada:acceleratingVoltageDefault": "20 kV",
+      "schema:manufacturer": {
+        "schema:name": "Zeiss",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "Supra 40",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -185,10 +120,6 @@
       "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)"
     }
   ],
-  "ada:analyticalMode": [
-    "N/A"
-  ],
-  "ada:edsAcquisitionMode": "N/A",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Mg",
@@ -214,89 +145,30 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/beamCurrent",
+        "@id": "ada:analyteColumn/semTAPP/analyteEstimationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/techniquePerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "techniquePerAnalyte",
-        "schema:name": "Technique per Analyte",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
+        "schema:valueName": "analyteEstimationMethod",
+        "schema:name": "Analyte Estimation Method",
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/proportionalCounterDetector",
+        "@id": "ada:analyteColumn/semTAPP/analyticalAccuracy",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/wdsPhaSetting",
+        "@id": "ada:analyteColumn/semTAPP/analyticalPrecision",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
         "ada:dataType": "string"
       },
       {
@@ -310,22 +182,14 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/timeDependentIntensityCorrection",
+        "@id": "ada:analyteColumn/semTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "timeDependentIntensityCorrection",
-        "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/analyteEstimationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyteEstimationMethod",
-        "schema:name": "Analyte Estimation Method",
-        "ada:dataType": "string"
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/semTAPP/blankCorrection",
@@ -334,6 +198,43 @@
         ],
         "schema:valueName": "blankCorrection",
         "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/semTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionsApplied",
+        "schema:name": "Interference Corrections Applied",
+        "ada:dataType": "boolean",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/semTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
         "ada:dataType": "string"
       },
       {
@@ -357,64 +258,50 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionsApplied",
+        "@id": "ada:analyteColumn/semTAPP/techniquePerAnalyte",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferenceCorrectionsApplied",
-        "schema:name": "Interference Corrections Applied",
-        "ada:dataType": "boolean",
+        "schema:valueName": "techniquePerAnalyte",
+        "schema:name": "Technique per Analyte",
+        "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/interferingElements",
+        "@id": "ada:analyteColumn/semTAPP/timeDependentIntensityCorrection",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferingElements",
-        "schema:name": "Interfering Elements",
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionStandard",
+        "@id": "ada:analyteColumn/semTAPP/wdsSpectrometerChannel",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferenceCorrectionStandard",
-        "schema:name": "Interference Correction Standard",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/analyticalAccuracy",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
+        "schema:valueName": "wdsSpectrometerChannel",
+        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
+  "ada:analyticalMode": [
+    "N/A"
+  ],
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "chamberPressureDefault",
+      "schema:name": "Chamber Pressure",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "High vacuum"
+    },
     {
       "@id": "ada:parameter/semTAPP/edsSpectralProcessingType",
       "@type": [
@@ -429,6 +316,84 @@
       "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
     }
   ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:edsAcquisitionMode": "N/A",
+  "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion Milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
+          ]
+        }
+      ]
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -438,12 +403,22 @@
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
+  "ada:clAcquisitionMode": "missing",
+  "ada:clIntegrationTimeDefault": -9999,
+  "ada:clWavelengthRange": -9999,
+  "ada:ebsdDetectorConfiguration": "missing",
+  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdStepSizeDefault": -9999,
+  "ada:imageRegistration3DDefault": "missing",
+  "ada:liftOutMethod": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
+  "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
 }

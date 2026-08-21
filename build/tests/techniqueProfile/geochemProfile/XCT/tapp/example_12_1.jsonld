@@ -1,0 +1,237 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Richard2019-3",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Richard2019-3",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "U. Strathclyde, Glasgow, UK"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Synthetic quartz monocrystal with aqueous fluid inclusions"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "3 \u00d7 5 \u00d7 2 cm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Fluid inclusion morphology and phase volumes",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Microfocus multi-metal target (225 kV)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Silver (for Sample B)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2000 \u00d7 2000 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+        }
+      ],
+      "schema:name": "Detector Pixel Size",
+      "schema:value": 0.2,
+      "schema:unitText": "example value",
+      "schema:description": "0.2 \u00d7 0.2 mm cell size"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 7.4,
+      "schema:description": "7.4 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 frame per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual threshold: vapor = darker, liquid = brighter pixels; specific values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phase identified by grayscale contrast (vapor darker, liquid brighter)"
+    }
+  ],
+  "ada:detectorType": "Flat panel photodetector (2000 \u00d7 2000 px, cell size 0.2 \u00d7 0.2 mm)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 9.2.0"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "160 kV",
+      "ada:tubeCurrentDefault": "46 \u00b5A (Ag target)",
+      "ada:xRayPreFilterDefault": "None (conditions did not require filtering)",
+      "ada:voxelSizeDefault": "7.7 \u00b5m",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320/225",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "3141",
+  "ada:exposureTimePerProjectionDefault": "1.415 s",
+  "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
+  "ada:segmentationMethodDefault": "Manual grayscale threshold",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}

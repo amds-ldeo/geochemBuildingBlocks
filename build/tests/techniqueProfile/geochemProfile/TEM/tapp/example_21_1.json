@@ -14,43 +14,231 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "Hitachi HF5000",
-  "schema:description": "temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | TEM-EELS (Shanghai Institute of Ceramics CAS Hitachi HF5000) (publication column of TEM_TAPP_v17.xlsx).",
+  "schema:name": "tem protocol \u2014 Mo2022-2",
+  "schema:description": "Hitachi HF5000 at Shanghai Institute of Ceramics CAS; 200 kV; 100 pA; Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer. Energy resolution: 0.5\u20130.7 eV FWHM at ZLP. Fe L3,2 edge: L3 peak positions 707.7 eV (Fe\u2070), 707.2 eV (Fe\u00b2\u207a), 709.0 eV (Fe\u00b3\u207a). EELS acquired in DualEELS mode; 10 s point analysis, 18 s line scan. Reference standards: Fe metal + troilite (L6 ordinary chondrite GRV051874) for Fe\u2070/Fe\u00b2\u207a; terrestrial hematite for Fe\u00b3\u207a; w\u00fcstite and hematite from Yao et al. 2018 (AES refs). ZLP aligned before spectral comparison. Background and continuum removal methods not stated. Valence state ID is qualitative (peak position + lineshape). Coordinated with FEI Talos F200X (EDS at SINANO) and PHI 700/710 Auger nanoprobe. Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan; ada:eelsAcquisitionModeDefault = Point analysis and line scan EELS.",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "TEM"
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China"
   },
-  "schema:measurementTechnique": [
+  "schema:relatedLink": [
     {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); HAADF-STEM + EDS (FEI Talos F200X at SINANO CAS; coordinated); Auger electron spectroscopy (PHI 700/710 at Tsinghua University)",
+        "schema:description": "In situ Fe valence state analysis in Chang'E-5 lunar soil by TEM-EELS; Fe L3,2 edge peak position and lineshape comparison to reference standards (Fe\u2070, Fe\u00b2\u207a, Fe\u00b3\u207a); point analysis and line scan"
+      },
       "@type": [
-        "schema:DefinedTerm"
+        "schema:CreativeWork"
       ],
-      "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis",
-      "schema:name": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:acceleratingVoltageDefault": "200 kV",
-  "ada:analyticalMode": [],
-  "ada:convergenceSemiAngle": -9999,
-  "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:cameraLengthDefault": -9999,
-  "ada:edsAcquisitionModeDefault": "missing",
-  "ada:edsQuantificationMethod": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
-  "ada:eelsAcquisitionModeDefault": "Point analysis and line scan EELS",
-  "ada:eelsEdgesDefault": "Fe L3,2 edge (~707\u2013709 eV; L3 peak at 707.7 eV for Fe\u2070, 707.2 eV for Fe\u00b2\u207a, 709.0 eV for Fe\u00b3\u207a)",
-  "ada:eelsCollectionSemiAngle": -9999,
-  "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L3,2)",
-  "ada:eelsEnergyLossRangeDefault": "Fe (L3,2)",
-  "ada:phaseIdentificationMethod": "EELS peak position and lineshape comparison to reference spectra; qualitative valence state ID (np-Fe0 = metallic; matrix = Fe\u00b3\u207a; olivine = Fe\u00b2\u207a)",
-  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:edsCalibrationStandardDefault": "missing",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Chang'E-5 lunar soil grain CE5C0400YJFM00505 (two grains selected); <50 \u00b5m; dispersed on Al double-sided tape in Ar-filled glovebox; coated with gold layer to prevent charging"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "FIB lift-out (Ga) + ion mill",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "samplePreparationDetailsDefault",
+            "schema:name": "Sample Preparation Details",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "FEI Scios Dual-beam FIB-SEM at Institute of Geochemistry, CAS (IGCAS), Guiyang; Wirth method (Wirth, 2009 Chem. Geol.); ultrathin foils <100 nm; characterized in sequence: FE-STEM \u2192 Auger nanoprobe \u2192 TEM-EELS; FIB foils cleaned with 1 keV Ar+ beam (PHI 710) before Auger and EELS analysis"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data Reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "Hitachi",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "Hitachi HF5000",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "EELSSpectrometer",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "ImagingDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "HAADF-STEM detector",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "4DSTEMDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "AberrationCorrector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "EDSDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Electron source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Monochromator",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "200 kV",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:spectroscopicDetectorDefault": "N/A",
+  "ada:analyticalSubModeDefault": "ADF",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/temTAPP/stemProbeCurrentDefault",
@@ -61,10 +249,8 @@
       "schema:name": "STEM Probe Current",
       "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "100 pA",
-      "schema:unitText": "pA or nA"
+      "schema:defaultValue": 100,
+      "schema:description": "100 pA"
     },
     {
       "@id": "ada:parameter/temTAPP/eelsEnergyResolution",
@@ -78,43 +264,40 @@
       ],
       "schema:name": "EELS Energy Resolution",
       "schema:value": "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe\u2070, Fe\u00b2\u207a, Fe\u00b3\u207a)",
-      "schema:unitText": "eV FWHM"
+      "schema:unitText": "example value"
     }
   ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "Fe"
     ],
-    "schema:step": [
+    "ada:analyteColumns": [
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
       }
     ]
   },
-  "schema:instrument": [
-    {
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:additionalType": [
-        "TEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:name": "missing"
-    }
+  "ada:eelsAcquisitionModeDefault": "Line scan",
+  "ada:eelsEdgesDefault": [
+    "Fe L3,2 edge (~707\u2013709 eV; L3 peak at 707.7 eV for Fe\u2070, 707.2 eV for Fe\u00b2\u207a, 709.0 eV for Fe\u00b3\u207a)"
   ],
-  "ada:analyticalSubModeDefault": "missing",
-  "ada:spectroscopicDetectorDefault": "missing",
+  "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L3,2)",
+  "ada:eelsEnergyLossRangeDefault": "Fe (L3,2)",
+  "ada:phaseIdentificationMethod": "N/A",
+  "ada:cameraLengthDefault": -9999,
+  "ada:convergenceSemiAngle": -9999,
+  "ada:edsAcquisitionModeDefault": "missing",
+  "ada:edsCalibrationStandardDefault": "missing",
+  "ada:edsQuantificationMethod": "missing",
+  "ada:eelsCollectionSemiAngle": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:stemDwellTimePerPixelDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

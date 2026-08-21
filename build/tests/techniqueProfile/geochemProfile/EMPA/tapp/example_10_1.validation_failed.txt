@@ -1,0 +1,310 @@
+Validation report for ogch.techniqueProfile.geochemProfile.EMPA.tapp - EMPA Technique-Aligned Protocol Profile (empaTAPP)
+Generated 2026-08-21T00:21:19.973055+00:00
+=== Files ===
+Using exampleempaTAPP-JEOL8530-2.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_10_1.jsonld created
+Output Turtle example_10_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+
+** Validation error **
+Validation result for _sources/BaseSchema/tappDefinition/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Validation Result in MaxCountConstraintComponent (http://www.w3.org/ns/shacl#MaxCountConstraintComponent):
+  	Severity: sh:Warning
+  	Source Shape: [ sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("TAPP definition should specify a primary instrument.") ; sh:path schema1:instrument ; sh:severity sh:Warning ]
+  	Focus Node: ex:empaTAPP-JEOL8530-2
+  	Result Path: schema1:instrument
+  	Message: TAPP definition should specify a primary instrument.
+  
+Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:
+ - Shape cdifd:WorkflowStepUniqueNamesShape: *none*
+ - Shape cdifd:tappDefinitionShape: *none*
+
+
+** Validation error **
+Validation result for _sources/BaseSchema/instrument/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:message Literal("An instrument must have an identifier (schema:identifier).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:identifier ]
+  	Focus Node: [ ada:acceleratingVoltageDefault Literal("15 kV") ; ada:beamDiameterDefault Literal("5 µm (carbonates); 1 µm (silicates/oxides)") ; ada:beamMode Literal("Focused") ; rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("EPMA") ; schema1:hasPart [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("EDSDetector") ; schema1:name Literal("missing") ], [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("Electron source") ; schema1:description Literal("Field Emission (FEG)") ; schema1:name Literal("missing") ], [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("WDSSpectrometer") ; schema1:name Literal("LIFL (Fe Ka, Mn Ka); TAPL (Mg Ka); PETL (Ca Ka) — partial; full config N") ], [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("xrayLine") ; schema1:name Literal("missing") ] ; schema1:manufacturer [ rdf:type schema1:Organization ; schema1:name Literal("JEOL") ] ; schema1:name Literal("example instrumentName") ]
+  	Result Path: schema1:identifier
+  	Message: An instrument must have an identifier (schema:identifier).
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:message Literal("An instrument must have an identifier (schema:identifier).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:identifier ]
+  	Focus Node: [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("SEM") ; schema1:model [ rdf:type schema1:ProductModel ; schema1:name Literal("JXA-8530F Plus (stated as "JEOL 8530 F+ Hyperprobe Field Emission Electron Probe Microanalyzer")") ] ; schema1:name Literal("example instrumentName") ]
+  	Result Path: schema1:identifier
+  	Message: An instrument must have an identifier (schema:identifier).
+  
+Focus nodes for _sources/BaseSchema/instrument/rules.shacl:
+ - Shape cdifd:tappInstrumentParamSpecShape: *none*
+ - Shape cdifd:provUsedInstrumentParamValueShape: *none*
+ - Shape cdifd:adaInstrumentShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Warning
+  	Source Shape: [ sh:message Literal("An instrument should have a category classification from a controlled vocabulary (schema:category).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:category ; sh:severity sh:Warning ]
+  	Focus Node: [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("SEM") ; schema1:model [ rdf:type schema1:ProductModel ; schema1:name Literal("JXA-8530F Plus (stated as "JEOL 8530 F+ Hyperprobe Field Emission Electron Probe Microanalyzer")") ] ; schema1:name Literal("example instrumentName") ]
+  	Result Path: schema1:category
+  	Message: An instrument should have a category classification from a controlled vocabulary (schema:category).
+  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Warning
+  	Source Shape: [ sh:message Literal("An instrument should have a category classification from a controlled vocabulary (schema:category).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:category ; sh:severity sh:Warning ]
+  	Focus Node: [ ada:acceleratingVoltageDefault Literal("15 kV") ; ada:beamDiameterDefault Literal("5 µm (carbonates); 1 µm (silicates/oxides)") ; ada:beamMode Literal("Focused") ; rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("EPMA") ; schema1:hasPart [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("EDSDetector") ; schema1:name Literal("missing") ], [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("Electron source") ; schema1:description Literal("Field Emission (FEG)") ; schema1:name Literal("missing") ], [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("WDSSpectrometer") ; schema1:name Literal("LIFL (Fe Ka, Mn Ka); TAPL (Mg Ka); PETL (Ca Ka) — partial; full config N") ], [ rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("xrayLine") ; schema1:name Literal("missing") ] ; schema1:manufacturer [ rdf:type schema1:Organization ; schema1:name Literal("JEOL") ] ; schema1:name Literal("example instrumentName") ]
+  	Result Path: schema1:category
+  	Message: An instrument should have a category classification from a controlled vocabulary (schema:category).
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:
+ - Shape cdifd:instrumentNode: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
+ - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFOrganizationShape: ex:empaTAPP-JEOL8530-2/schema1:instrument/schema1:manufacturer
+ - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+ - Shape _:n99c44affeff9470b95a8fc60a2eaaf22b5: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape _:n99c44affeff9470b95a8fc60a2eaaf22b19: *none*
+ - Shape _:n99c44affeff9470b95a8fc60a2eaaf22b8: *none*
+ - Shape _:n99c44affeff9470b95a8fc60a2eaaf22b26: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape _:n99c44affeff9470b95a8fc60a2eaaf22b4: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n99c44affeff9470b95a8fc60a2eaaf22b7: *none*
+ - Shape _:n99c44affeff9470b95a8fc60a2eaaf22b6: *none*
+ - Shape _:n99c44affeff9470b95a8fc60a2eaaf22b10: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+ - Shape _:n448a1318b68a4b7181e39bacaff7aa44b22: *none*
+ - Shape _:n448a1318b68a4b7181e39bacaff7aa44b11: *none*
+ - Shape _:n448a1318b68a4b7181e39bacaff7aa44b25: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n448a1318b68a4b7181e39bacaff7aa44b20: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape _:n448a1318b68a4b7181e39bacaff7aa44b21: *none*
+ - Shape _:n448a1318b68a4b7181e39bacaff7aa44b23: *none*
+ - Shape _:n448a1318b68a4b7181e39bacaff7aa44b10: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Info
+  	Source Shape: cdifd:contactPointProperty
+  	Focus Node: [ rdf:type schema1:Person ; schema1:name Literal("T. J. McCoy") ]
+  	Result Path: schema1:contactPoint
+  	Message: A Person should have a contactPoint (schema:ContactPoint or mailto: IRI)
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:
+ - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFPersonShape: ex:empaTAPP-JEOL8530-2/schema1:creator
+ - Shape cdifd:maintainerOrProviderContactPointShape: *none*
+ - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n718d668bd7d3424194fee63e14dcb4f8b14: *none*
+ - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFContactPointShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>, schema1:DefinedTerm, schema1:Thing ; schema1:additionalProperty [ schema1:name Literal("Target Material") ; schema1:value Literal("Carbonate | Oxide | Silicate mineral (Bennu evaporite and host phases)") ] ]
+  	Value Node: [ rdf:type <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>, schema1:DefinedTerm, schema1:Thing ; schema1:additionalProperty [ schema1:name Literal("Target Material") ; schema1:value Literal("Carbonate | Oxide | Silicate mineral (Bennu evaporite and host phases)") ] ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:
+ - Shape cdifd:CDIFRoleShape: *none*
+ - Shape _:n589d75f088824e858003b5d23e16e21db4: *none*
+ - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape: ex:empaTAPP-JEOL8530-2/schema1:object,ex:empaTAPP-JEOL8530-2/schema1:measurementTechnique
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape _:n589d75f088824e858003b5d23e16e21db3: *none*
+ - Shape _:n589d75f088824e858003b5d23e16e21db17: *none*
+ - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*
+ - Shape _:n589d75f088824e858003b5d23e16e21db20: *none*
+ - Shape _:n589d75f088824e858003b5d23e16e21db16: *none*
+ - Shape _:n589d75f088824e858003b5d23e16e21db14: *none*
+ - Shape _:n589d75f088824e858003b5d23e16e21db18: *none*
+ - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n589d75f088824e858003b5d23e16e21db15: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:AdditionalTypeUriShouldBeIRIShape
+  	Focus Node: Literal("bios:LabProcess")
+  	Value Node: Literal("bios:LabProcess")
+  	Message: schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {"@id":"..."}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b20: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: ex:empaTAPP-JEOL8530-2/schema1:instrument/schema1:additionalType,<https://www.wikidata.org/wiki/Q3099911>,ex:empaTAPP-JEOL8530-2/schema1:instrument/schema1:hasPart/schema1:additionalType,ex:empaTAPP-JEOL8530-2/schema1:instrument/schema1:hasPart/schema1:additionalType,ex:empaTAPP-JEOL8530-2/schema1:actionProcess/schema1:step/schema1:additionalType,ex:empaTAPP-JEOL8530-2/schema1:instrument/schema1:additionalType,ex:empaTAPP-JEOL8530-2/schema1:instrument/schema1:hasPart/schema1:additionalType,ex:empaTAPP-JEOL8530-2/schema1:instrument/schema1:hasPart/schema1:additionalType
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b6: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b29: *none*
+ - Shape cdifd:CDIFAddPropertyTermShape: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b7: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b21: *none*
+ - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b33: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b28: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b30: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b14: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b13: *none*
+ - Shape _:n0684e83fce3841b6a2ca51e52138e073b31: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl:
+ - Shape cdifd:CDIFRelationShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:
+ - Shape cdifd:CDIFLabeledLinkShape: ex:empaTAPP-JEOL8530-2/schema1:relatedLink,ex:empaTAPP-JEOL8530-2/schema1:relatedLink
+
+Validation result for _sources/BaseSchema/laboratory/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/BaseSchema/laboratory/rules.shacl:
+ - Shape cdifd:laboratoryShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>, schema1:DefinedTerm, schema1:Thing ; schema1:additionalProperty [ schema1:name Literal("Target Material") ; schema1:value Literal("Carbonate | Oxide | Silicate mineral (Bennu evaporite and host phases)") ] ]
+  	Value Node: [ rdf:type <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>, schema1:DefinedTerm, schema1:Thing ; schema1:additionalProperty [ schema1:name Literal("Target Material") ; schema1:value Literal("Carbonate | Oxide | Silicate mineral (Bennu evaporite and host phases)") ] ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
+ - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:spatialExtentProperty: ex:empaTAPP-JEOL8530-2/schema1:location
+ - Shape cdifd:geoShapeNode: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb4: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb41: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb15: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb40: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb13: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb29: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb16: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb24: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb42: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb3: *none*
+ - Shape cdifd:spatialExtentProperty/sh:or/rdf:first: *none*
+ - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape: ex:empaTAPP-JEOL8530-2/schema1:object,ex:empaTAPP-JEOL8530-2/schema1:measurementTechnique
+ - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb10: *none*
+ - Shape cdifd:geoCoordinatesNode: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb9: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb39: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb38: *none*
+ - Shape _:n5e1f05e0da154166a40d1f34dd76cf1bb44: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
+ - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
+ - Shape _:ne9b3f4c7fb8744b4b8765588f462a897b4: *none*
+ - Shape cdifd:qualityMeasurementNode: *none*
+ - Shape _:ne9b3f4c7fb8744b4b8765588f462a897b11: *none*
+ - Shape _:ne9b3f4c7fb8744b4b8765588f462a897b5: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b11: *none*
+ - Shape cdifd:fundingShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b5: *none*
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b4: *none*
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b15: *none*
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b13: *none*
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b3: *none*
+ - Shape cdifd:fundingShape: *none*
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b26: *none*
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b17: *none*
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b14: *none*
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b12: *none*
+ - Shape _:n66d755f2ac8d4f3baf13182359c09e79b25: *none*
+ - Shape cdifd:fundingShape/sh:or/rdf:first: *none*
+
+=== End SHACL ===
+

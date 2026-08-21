@@ -1,0 +1,292 @@
+Validation report for ogch.techniqueProfile.geochemProfile.XCT.tapp - Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)
+Generated 2026-08-21T00:22:17.082321+00:00
+=== Files ===
+Using examplelabxctTAPP-Neuman2025.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_3_1.jsonld created
+Output Turtle example_3_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/BaseSchema/tappDefinition/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:
+ - Shape cdifd:WorkflowStepUniqueNamesShape: *none*
+ - Shape cdifd:tappDefinitionShape: *none*
+
+
+** Validation error **
+Validation result for _sources/BaseSchema/instrument/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:message Literal("An instrument must have an identifier (schema:identifier).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:identifier ]
+  	Focus Node: [ ada:acceleratingVoltageDefault Literal("180 kV") ; ada:tubeCurrentDefault Literal("0.18 mA (180 µA)") ; ada:xRayPreFilterDefault Literal("0.72 mm Al") ; rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("XCT") ; schema1:model [ rdf:type schema1:ProductModel ; schema1:name Literal("Custom NSI instrument (North Star Imaging) at UTCT") ] ; schema1:name Literal("example instrumentName") ]
+  	Result Path: schema1:identifier
+  	Message: An instrument must have an identifier (schema:identifier).
+  
+Focus nodes for _sources/BaseSchema/instrument/rules.shacl:
+ - Shape cdifd:tappInstrumentParamSpecShape: *none*
+ - Shape cdifd:provUsedInstrumentParamValueShape: *none*
+ - Shape cdifd:adaInstrumentShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Warning
+  	Source Shape: [ sh:message Literal("An instrument should have a category classification from a controlled vocabulary (schema:category).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:category ; sh:severity sh:Warning ]
+  	Focus Node: [ ada:acceleratingVoltageDefault Literal("180 kV") ; ada:tubeCurrentDefault Literal("0.18 mA (180 µA)") ; ada:xRayPreFilterDefault Literal("0.72 mm Al") ; rdf:type schema1:Product, schema1:Thing ; schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>, Literal("XCT") ; schema1:model [ rdf:type schema1:ProductModel ; schema1:name Literal("Custom NSI instrument (North Star Imaging) at UTCT") ] ; schema1:name Literal("example instrumentName") ]
+  	Result Path: schema1:category
+  	Message: An instrument should have a category classification from a controlled vocabulary (schema:category).
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:
+ - Shape cdifd:instrumentNode: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
+ - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFOrganizationShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+ - Shape _:n6f3d34fe968f4444820312de5d0cfcd9b8: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n6f3d34fe968f4444820312de5d0cfcd9b10: *none*
+ - Shape _:n6f3d34fe968f4444820312de5d0cfcd9b6: *none*
+ - Shape _:n6f3d34fe968f4444820312de5d0cfcd9b19: *none*
+ - Shape _:n6f3d34fe968f4444820312de5d0cfcd9b7: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape _:n6f3d34fe968f4444820312de5d0cfcd9b26: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n6f3d34fe968f4444820312de5d0cfcd9b4: *none*
+ - Shape _:n6f3d34fe968f4444820312de5d0cfcd9b5: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+ - Shape _:n1bf3ee99979543ed82b8c9f23be1a1a9b11: *none*
+ - Shape _:n1bf3ee99979543ed82b8c9f23be1a1a9b23: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape _:n1bf3ee99979543ed82b8c9f23be1a1a9b25: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n1bf3ee99979543ed82b8c9f23be1a1a9b10: *none*
+ - Shape _:n1bf3ee99979543ed82b8c9f23be1a1a9b20: *none*
+ - Shape _:n1bf3ee99979543ed82b8c9f23be1a1a9b21: *none*
+ - Shape cdifd:CDIFIdentifierShape: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n1bf3ee99979543ed82b8c9f23be1a1a9b22: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:
+ - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFPersonShape: *none*
+ - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*
+ - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:maintainerOrProviderContactPointShape: *none*
+ - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:nb52519f7a2804514bbef83cd88cbafc7b14: *none*
+ - Shape cdifd:CDIFContactPointShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("missing") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("missing") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>, schema1:DefinedTerm, schema1:Thing ; schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault>, [ schema1:name Literal("Target Material") ; schema1:value Literal("Lunar regolith (Apollo 17 drive-tube core)") ] ]
+  	Value Node: [ rdf:type <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>, schema1:DefinedTerm, schema1:Thing ; schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault>, [ schema1:name Literal("Target Material") ; schema1:value Literal("Lunar regolith (Apollo 17 drive-tube core)") ] ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:
+ - Shape _:ncb05d5cbcfe9420b9d4ba16c5c4100f5b16: *none*
+ - Shape _:ncb05d5cbcfe9420b9d4ba16c5c4100f5b17: *none*
+ - Shape cdifd:CDIFRoleShape: *none*
+ - Shape _:ncb05d5cbcfe9420b9d4ba16c5c4100f5b20: *none*
+ - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape: ex:labxctTAPP-Neuman2025/schema1:measurementTechnique,ex:labxctTAPP-Neuman2025/schema1:object
+ - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*
+ - Shape _:ncb05d5cbcfe9420b9d4ba16c5c4100f5b4: *none*
+ - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:ncb05d5cbcfe9420b9d4ba16c5c4100f5b14: *none*
+ - Shape _:ncb05d5cbcfe9420b9d4ba16c5c4100f5b3: *none*
+ - Shape _:ncb05d5cbcfe9420b9d4ba16c5c4100f5b18: *none*
+ - Shape _:ncb05d5cbcfe9420b9d4ba16c5c4100f5b15: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:AdditionalTypeUriShouldBeIRIShape
+  	Focus Node: Literal("bios:LabProcess")
+  	Value Node: Literal("bios:LabProcess")
+  	Message: schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {"@id":"..."}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:
+ - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb29: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb21: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb28: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb7: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: <https://www.wikidata.org/wiki/Q3099911>,ex:labxctTAPP-Neuman2025/schema1:instrument/schema1:additionalType,ex:labxctTAPP-Neuman2025/schema1:actionProcess/schema1:step/schema1:additionalType
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb14: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb33: *none*
+ - Shape cdifd:CDIFAddPropertyTermShape: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb13: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb30: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb6: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb31: *none*
+ - Shape _:nf78e3c23038a492eac45e9b3c05052edb20: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape: <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl:
+ - Shape cdifd:CDIFRelationShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:
+ - Shape cdifd:CDIFLabeledLinkShape: *none*
+
+Validation result for _sources/BaseSchema/laboratory/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/BaseSchema/laboratory/rules.shacl:
+ - Shape cdifd:laboratoryShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("missing") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("missing") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>, schema1:DefinedTerm, schema1:Thing ; schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault>, [ schema1:name Literal("Target Material") ; schema1:value Literal("Lunar regolith (Apollo 17 drive-tube core)") ] ]
+  	Value Node: [ rdf:type <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>, schema1:DefinedTerm, schema1:Thing ; schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault>, [ schema1:name Literal("Target Material") ; schema1:value Literal("Lunar regolith (Apollo 17 drive-tube core)") ] ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
+ - Shape _:n561974de720346d489a747c450809ef5b13: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b9: *none*
+ - Shape cdifd:spatialExtentProperty: ex:labxctTAPP-Neuman2025/schema1:location
+ - Shape cdifd:geoShapeNode: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b29: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b44: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b40: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b10: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b42: *none*
+ - Shape cdifd:spatialExtentProperty/sh:or/rdf:first: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b24: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b15: *none*
+ - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b3: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b39: *none*
+ - Shape cdifd:CDIFDefinedTermShape: ex:labxctTAPP-Neuman2025/schema1:measurementTechnique,ex:labxctTAPP-Neuman2025/schema1:object
+ - Shape _:n561974de720346d489a747c450809ef5b4: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b41: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b38: *none*
+ - Shape _:n561974de720346d489a747c450809ef5b16: *none*
+ - Shape cdifd:geoCoordinatesNode: *none*
+ - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
+ - Shape _:n0b5e0649e35643f5a86a8e6c779c45d3b5: *none*
+ - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n0b5e0649e35643f5a86a8e6c779c45d3b4: *none*
+ - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:qualityMeasurementNode: *none*
+ - Shape _:n0b5e0649e35643f5a86a8e6c779c45d3b11: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb12: *none*
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb15: *none*
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb13: *none*
+ - Shape cdifd:fundingShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb17: *none*
+ - Shape cdifd:fundingShape: *none*
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb5: *none*
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb4: *none*
+ - Shape cdifd:fundingShape/sh:or/rdf:first: *none*
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb14: *none*
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb11: *none*
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb26: *none*
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb3: *none*
+ - Shape _:n9ad52c6543644da681f8a657aba49c5fb25: *none*
+
+=== End SHACL ===
+

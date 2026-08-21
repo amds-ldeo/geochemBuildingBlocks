@@ -70,7 +70,7 @@ The procedure half of the Geochronology module, with every property populated. G
     {
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/geochronology/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/context.jsonld"
   ],
   "ada:ageCalculationMethod": [
     "example value"
@@ -110,7 +110,7 @@ The analysis half of the Geochronology module, with every property populated. Ge
     {
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/geochronology/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/context.jsonld"
   ],
   "ada:reportedDateType": [
     "example value"
@@ -197,8 +197,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/geochronology/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/geochronology/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml)
 
 
 # JSON-LD Context
@@ -213,7 +213,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/geochronology/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/context.jsonld)
 
 ## Sources
 

@@ -3,10 +3,10 @@ title: SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)
 description: 'Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the
   base TAPP definition. Basic protocol-tier fields are required top-level ada: properties;
   Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate
-  (imaging has no per-element analyte axis). Generated from TAPPS20260813/Current
-  TAPPs/SEM_Imaging_TAPP_v11.xlsx by tools/build_tapp.py.'
+  (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v14.csv
+  by tools/build_tapp.py.'
 allOf:
-- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - type: object
   properties:
     schema:name:
@@ -153,7 +153,10 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to analyze.
+                              this procedure is designed to analyse. Used for discoverability
+                              and procedure matching, and because the material type
+                              constrains sample preparation, calibration and matrix-matching
+                              requirements.
                             anyOf:
                             - type: string
                               enum:
@@ -403,6 +406,14 @@ allOf:
         - None
         - missing
       - type: string
+    ada:targetSelectionCriteriaDefault:
+      description: "The rules governing which part of the sample is analysed, and
+        why. Covers the criteria applied when choosing grains, aliquots, spots, or
+        a region of interest \u2014 size, morphology, clarity, freedom from inclusions
+        or alteration, phase identity, or spatial position. Distinct from Target Material,
+        which states the material type the procedure is designed for: this field states
+        how, within such a sample, the analysed portion is picked out."
+      type: string
     schema:instrument:
       type: array
       items:
@@ -421,7 +432,11 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Make of the instrument used for this procedure.
+                    description: Manufacturer of the instrument that performs the
+                      measurement, recorded as a controlled value so that procedures
+                      can be found by vendor. Where a procedure couples a sample-introduction
+                      system to an analysing instrument, this records the analysing
+                      instrument. Instrument Model gives the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -439,8 +454,11 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Model designation of the SEM or FIB-SEM instrument,
-                      including generation suffix if applicable.
+                    description: Model designation of the instrument that performs
+                      the measurement, including any generation or configuration suffix.
+                      Conventionally written with the manufacturer name included;
+                      Instrument Manufacturer records the vendor separately, as a
+                      controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
               schema:hasPart:
@@ -618,6 +636,119 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+              schema:additionalProperty:
+                type: array
+                items:
+                  anyOf:
+                  - title: CL Detector Configuration
+                    description: CL detector type, manufacturer, model, collection
+                      optics (e.g., parabolic mirror, elliptical mirror, light guide),
+                      and spectral detection configuration (PMT for panchromatic,
+                      CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/semImagingTAPP/clDetectorConfiguration
+                      '@type':
+                        const:
+                        - schema:PropertyValue
+                      schema:propertyID:
+                        const:
+                        - '@id': ada:parameter/semImagingTAPP/clDetectorConfiguration
+                      schema:name:
+                        const: CL Detector Configuration
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    readOnly: true
+                  - title: CL Grating
+                    description: Diffraction grating specification for spectral or
+                      hyperspectral CL acquisition, including groove density and blaze
+                      wavelength. Not applicable to panchromatic-only acquisition.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/semImagingTAPP/clGrating
+                      '@type':
+                        const:
+                        - schema:PropertyValue
+                      schema:propertyID:
+                        const:
+                        - '@id': ada:parameter/semImagingTAPP/clGrating
+                      schema:name:
+                        const: CL Grating
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    readOnly: true
+                allOf:
+                - contains:
+                    title: CL Detector Configuration
+                    description: CL detector type, manufacturer, model, collection
+                      optics (e.g., parabolic mirror, elliptical mirror, light guide),
+                      and spectral detection configuration (PMT for panchromatic,
+                      CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/semImagingTAPP/clDetectorConfiguration
+                      '@type':
+                        const:
+                        - schema:PropertyValue
+                      schema:propertyID:
+                        const:
+                        - '@id': ada:parameter/semImagingTAPP/clDetectorConfiguration
+                      schema:name:
+                        const: CL Detector Configuration
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    readOnly: true
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    title: CL Grating
+                    description: Diffraction grating specification for spectral or
+                      hyperspectral CL acquisition, including groove density and blaze
+                      wavelength. Not applicable to panchromatic-only acquisition.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/semImagingTAPP/clGrating
+                      '@type':
+                        const:
+                        - schema:PropertyValue
+                      schema:propertyID:
+                        const:
+                        - '@id': ada:parameter/semImagingTAPP/clGrating
+                      schema:name:
+                        const: CL Grating
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    readOnly: true
+                  minContains: 0
+                  maxContains: 1
               ada:acceleratingVoltageDefault:
                 description: Electron beam accelerating voltage in kilovolts. Affects
                   X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging
@@ -642,36 +773,174 @@ allOf:
                 const: SEM
           required:
           - schema:additionalType
+    ada:ebsdDetectorConfiguration:
+      description: EBSD detector manufacturer, model, and camera resolution. Include
+        whether EBSD and EDS are acquired simultaneously (common on modern combined
+        EBSD-EDS systems).
+      type: string
+      readOnly: true
+    bios:computationalTool:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              ada:toolRole:
+                const: acquisition
+            required:
+            - ada:toolRole
+          then:
+            properties:
+              schema:name:
+                description: Instrument control, automation and data acquisition software
+                  used to collect the raw data, including version number. Distinct
+                  from Data Processing Software(s), which covers everything applied
+                  to the data after acquisition.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+        - if:
+            properties:
+              ada:toolRole:
+                const: dataReduction
+            required:
+            - ada:toolRole
+          then:
+            properties:
+              schema:name:
+                description: All software applied to the data after acquisition in
+                  order to produce the reported quantities, including version numbers.
+                  List every package used. Distinct from Acquisition Software, which
+                  controls the instrument and collects the raw data.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+        required:
+        - ada:toolRole
+    ada:analyticalMode:
+      type: array
+      items:
+        description: Primary analytical mode(s) executed under this procedure. Records
+          one value for a single-mode procedure and all applicable modes for a multi-mode
+          one. Serves as the procedure-level declaration of measurement type, distinct
+          from the mode flag columns, which state per-field applicability. Required
+          even where a procedure defines no mode flag columns, so that every procedure
+          record is self-describing and comparable across the library.
+        type: string
+        enum:
+        - SE Imaging
+        - BSE Imaging
+        - EDS
+        - SEM-WDS
+        - CL
+        - EBSD
+        - TEM Sample Preparation
+        - 3D Tomography
+        - N/A
+        - None
+        - missing
+        readOnly: true
+    ada:reportedProperties:
+      type: array
+      items:
+        description: "The final variable(s) this procedure reports and their units
+          \u2014 distinct from the fields recording what was *acquired* rather than
+          what is reported. A procedure may acquire many channels and report a small
+          number of derived quantities; without this field a data consumer cannot
+          tell which. Record every reported variable, including intermediate quantities
+          reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U
+          date). Where a reported variable is a nominal property with no magnitude
+          (e.g. a mineral identification), record the variable and give the unit as
+          'N/A \u2014 nominal property'."
+        type: string
+        readOnly: true
+    ada:analyteTemplate:
+      type: object
+      properties:
+        ada:analyteColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - title: Beam Current
+              description: Electron beam probe current. Higher current improves signal-to-noise
+                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
+                and reduce spatial resolution. Express in nA; for sub-nA values use
+                decimal notation (e.g., 0.4 nA).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semImagingTAPP/beamCurrent
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: beamCurrent
+                schema:name:
+                  const: Beam Current
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+          allOf:
+          - contains:
+              title: Beam Current
+              description: Electron beam probe current. Higher current improves signal-to-noise
+                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
+                and reduce spatial resolution. Express in nA; for sub-nA values use
+                decimal notation (e.g., 0.4 nA).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/semImagingTAPP/beamCurrent
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: beamCurrent
+                schema:name:
+                  const: Beam Current
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
     schema:additionalProperty:
       type: array
       items:
         anyOf:
-        - title: CL Detector Configuration
-          description: CL detector type, manufacturer, model, collection optics (e.g.,
-            parabolic mirror, elliptical mirror, light guide), and spectral detection
-            configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel
-            for pseudo-color CL).
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semImagingTAPP/clDetectorConfiguration
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semImagingTAPP/clDetectorConfiguration
-            schema:name:
-              const: CL Detector Configuration
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
         - title: Chamber Pressure
           description: Chamber pressure and gas type during analysis. Required for
             variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report
@@ -765,35 +1034,6 @@ allOf:
           - ada:dataType
           - ada:fieldScope
       allOf:
-      - contains:
-          title: CL Detector Configuration
-          description: CL detector type, manufacturer, model, collection optics (e.g.,
-            parabolic mirror, elliptical mirror, light guide), and spectral detection
-            configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel
-            for pseudo-color CL).
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semImagingTAPP/clDetectorConfiguration
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semImagingTAPP/clDetectorConfiguration
-            schema:name:
-              const: CL Detector Configuration
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        minContains: 0
-        maxContains: 1
       - contains:
           title: Chamber Pressure
           description: Chamber pressure and gas type during analysis. Required for
@@ -895,164 +1135,6 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
-    ada:ebsdDetectorConfiguration:
-      description: EBSD detector manufacturer, model, and camera resolution. Include
-        whether EBSD and EDS are acquired simultaneously (common on modern combined
-        EBSD-EDS systems).
-      type: string
-      readOnly: true
-    bios:computationalTool:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Software used to control the SEM and acquire data, including
-                  version number. For FIB-SEM 3D tomography, include the automated
-                  slice-and-view module name and version.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
-                const: dataReduction
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Software used for post-acquisition data reduction and
-                  analysis. List all packages with version numbers.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        required:
-        - ada:toolRole
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Primary analytical mode(s) executed under this procedure. For
-          multi-mode procedures (e.g., simultaneous BSE + EDS mapping), list all active
-          modes.
-        type: string
-        enum:
-        - SE Imaging
-        - BSE Imaging
-        - EDS
-        - SEM-WDS
-        - CL
-        - EBSD
-        - TEM Sample Preparation
-        - 3D Tomography
-        - N/A
-        - None
-        - missing
-        readOnly: true
-    ada:reportedProperties:
-      type: array
-      items:
-        description: "The final variable(s) this procedure reports and their units
-          \u2014 distinct from the fields recording what was *acquired* rather than
-          what is reported. A procedure may acquire many channels and report a small
-          number of derived quantities; without this field a data consumer cannot
-          tell which. Record every reported variable, including intermediate quantities
-          reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U
-          date). Where a reported variable is a nominal property with no magnitude
-          (e.g. a mineral identification), record the variable and give the unit as
-          'N/A \u2014 nominal property'."
-        type: string
-        readOnly: true
-    ada:analyteTemplate:
-      type: object
-      properties:
-        ada:analyteColumns:
-          type: array
-          items:
-            anyOf:
-            - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - title: Beam Current
-              description: Electron beam probe current. Higher current improves signal-to-noise
-                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
-                and reduce spatial resolution. Express in nA; for sub-nA values use
-                decimal notation (e.g., 0.4 nA).
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semImagingTAPP/beamCurrent
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: beamCurrent
-                schema:name:
-                  const: Beam Current
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-          allOf:
-          - contains:
-              title: Beam Current
-              description: Electron beam probe current. Higher current improves signal-to-noise
-                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
-                and reduce spatial resolution. Express in nA; for sub-nA values use
-                decimal notation (e.g., 0.4 nA).
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semImagingTAPP/beamCurrent
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: beamCurrent
-                schema:name:
-                  const: Beam Current
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
     ada:dwellTimePerPixelDefault:
       description: Time the electron beam dwells on each pixel during raster scanning
         (imaging modes) or on each step position during compositional mapping (EDS
@@ -1100,6 +1182,18 @@ allOf:
       - type: number
       - type: string
       readOnly: true
+    ada:ebsdStepSizeDefault:
+      description: "Distance between adjacent EBSD measurement points in the map in
+        nm or \xB5m. Must be smaller than the smallest grain of interest to resolve
+        grain boundary positions and intragrain orientation gradients."
+      anyOf:
+      - type: number
+      - type: string
+    ada:ebsdPhaseListDefault:
+      description: Mineral phases included in the EBSD reference pattern library for
+        this procedure. The procedure specifies the expected phase suite for the target
+        material; analysts may add phases for specific sample compositions.
+      type: string
     schema:description:
       description: "Any procedure- or analysis-specific information not captured by
         a structured field anywhere in this TAPP \u2014 including anomalies, deviations
@@ -1112,9 +1206,12 @@ allOf:
   - schema:name
   - schema:datePublished
   - ada:samplingUnit
+  - ada:targetSelectionCriteriaDefault
   - ada:ebsdDetectorConfiguration
   - ada:dwellTimePerPixelDefault
   - ada:clAcquisitionMode
   - ada:clWavelengthRange
   - ada:clIntegrationTimeDefault
   - ada:sampleTiltAngle
+  - ada:ebsdStepSizeDefault
+  - ada:ebsdPhaseListDefault

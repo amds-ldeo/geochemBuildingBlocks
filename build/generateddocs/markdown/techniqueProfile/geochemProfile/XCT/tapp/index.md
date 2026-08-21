@@ -7,6 +7,8851 @@ Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the 
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### labxctTAPP example Eckley2024
+labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Eckley2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Eckley2024",
+  "schema:description": "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "C-type asteroid particle (Bennu, OSIRIS-REx)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Internal structure; mineralogy (reconnaissance scan)",
+  "ada:xRaySourceConfiguration": "180 kV transmission source",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Tungsten"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3.0,
+      "schema:description": "3.0 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToObjectDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToObjectDistanceDefault",
+      "schema:name": "Source-to-Object Distance (SOD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 20.39,
+      "schema:description": "20.39 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToDetectorDistanceDefault",
+      "schema:name": "Source-to-Detector Distance (SDD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 679.51,
+      "schema:description": "679.51 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 frame"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorBinningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectorBinningDefault",
+      "schema:name": "Detector Binning",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "1×1 (no binning)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "beamHardeningCorrectionParameterDefault",
+      "schema:name": "Beam Hardening Correction Parameter",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Preset 4"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/outputBitDepthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "outputBitDepthDefault",
+      "schema:name": "Output Bit Depth",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "16-bit (full grayscale range)"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Nikon CTPro3D v5.4"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "110 kV",
+      "ada:tubeCurrentDefault": "27 µA",
+      "ada:xRayPreFilterDefault": "0.25 mm aluminum",
+      "ada:voxelSizeDefault": "6.00 µm",
+      "schema:model": {
+        "schema:name": "Nikon XT H 320",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "4000",
+  "ada:exposureTimePerProjectionDefault": "4.00 s",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "flatFieldCorrectionDefault",
+            "schema:name": "Flat Field Correction",
+            "ada:dataType": "boolean",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Flux normalization: no"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:rotationModeDefault": "Continuous rotation",
+  "ada:beamHardeningCorrectionMethod": "Hardware filter (0.25 mm Al) + software BHC preset",
+  "ada:outputDataFormatDefault": "TIFF (16-bit, 928 slices)",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:detectorType": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Eckley2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Eckley2024",
+  "schema:description": "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "C-type asteroid particle (Bennu, OSIRIS-REx)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Internal structure; mineralogy (reconnaissance scan)",
+  "ada:xRaySourceConfiguration": "180 kV transmission source",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Tungsten"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3.0,
+      "schema:description": "3.0 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToObjectDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToObjectDistanceDefault",
+      "schema:name": "Source-to-Object Distance (SOD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 20.39,
+      "schema:description": "20.39 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToDetectorDistanceDefault",
+      "schema:name": "Source-to-Detector Distance (SDD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 679.51,
+      "schema:description": "679.51 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 frame"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorBinningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectorBinningDefault",
+      "schema:name": "Detector Binning",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "1\u00d71 (no binning)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "beamHardeningCorrectionParameterDefault",
+      "schema:name": "Beam Hardening Correction Parameter",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Preset 4"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/outputBitDepthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "outputBitDepthDefault",
+      "schema:name": "Output Bit Depth",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "16-bit (full grayscale range)"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Nikon CTPro3D v5.4"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "110 kV",
+      "ada:tubeCurrentDefault": "27 \u00b5A",
+      "ada:xRayPreFilterDefault": "0.25 mm aluminum",
+      "ada:voxelSizeDefault": "6.00 \u00b5m",
+      "schema:model": {
+        "schema:name": "Nikon XT H 320",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "4000",
+  "ada:exposureTimePerProjectionDefault": "4.00 s",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "flatFieldCorrectionDefault",
+            "schema:name": "Flat Field Correction",
+            "ada:dataType": "boolean",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Flux normalization: no"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:rotationModeDefault": "Continuous rotation",
+  "ada:beamHardeningCorrectionMethod": "Hardware filter (0.25 mm Al) + software BHC preset",
+  "ada:outputDataFormatDefault": "TIFF (16-bit, 928 slices)",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:detectorType": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Eckley2024 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistanceDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Nikon XT H 320" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "110 kV" ;
+            ada:tubeCurrentDefault "27 µA" ;
+            ada:voxelSizeDefault "6.00 µm" ;
+            ada:xRayPreFilterDefault "0.25 mm aluminum" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Eckley2024" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "C-type asteroid particle (Bennu, OSIRIS-REx)" ] ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "Hardware filter (0.25 mm Al) + software BHC preset" ;
+    ada:detectorType "missing" ;
+    ada:exposureTimePerProjectionDefault "4.00 s" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "4000" ;
+    ada:outputDataFormatDefault "TIFF (16-bit, 928 slices)" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "Continuous rotation" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "missing" ;
+    ada:targetFeature "Internal structure; mineralogy (reconnaissance scan)" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "180 kV transmission source" ;
+    bios:computationalTool [ schema1:name "Nikon CTPro3D v5.4" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Preset 4" ;
+    schema1:name "Beam Hardening Correction Parameter" ;
+    schema1:valueName "beamHardeningCorrectionParameterDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "1×1 (no binning)" ;
+    schema1:name "Detector Binning" ;
+    schema1:valueName "detectorBinningDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Flux normalization: no" ;
+    schema1:name "Flat Field Correction" ;
+    schema1:valueName "flatFieldCorrectionDefault" ;
+    ada:dataType "boolean" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:description "1 frame" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "16-bit (full grayscale range)" ;
+    schema1:name "Output Bit Depth" ;
+    schema1:valueName "outputBitDepthDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistanceDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 6.7951e+02 ;
+    schema1:description "679.51 mm" ;
+    schema1:name "Source-to-Detector Distance (SDD)" ;
+    schema1:valueName "sourceToDetectorDistanceDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 2.039e+01 ;
+    schema1:description "20.39 mm" ;
+    schema1:name "Source-to-Object Distance (SOD)" ;
+    schema1:valueName "sourceToObjectDistanceDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3e+00 ;
+    schema1:description "3.0 W" ;
+    schema1:name "X-ray Power" ;
+    schema1:valueName "xRayPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
+    schema1:name "X-ray Tube Anode Material" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:value "Tungsten" .
+
+
+```
+
+
+### labxctTAPP example Genge2025
+labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Genge2025",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Genge2025",
+  "schema:description": "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Not stated"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM (post-XCT polished sections)",
+        "schema:description": "Serial polished sections cut post-XCT; SEM imaging"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "C-type asteroid particle (Ryugu, Hayabusa2)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "1.592 × 0.756 × 0.985 mm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Microchondrules (SSOs); 3D volume fraction",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Mounted in pipette tips"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Tungsten"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2000 × 2000 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/opticalObjective",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/opticalObjective"
+        }
+      ],
+      "schema:name": "Optical Objective",
+      "schema:value": "4× objective lens"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorBinningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectorBinningDefault",
+      "schema:name": "Detector Binning",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "No binning"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Sulphide rims of SSOs identified by bright contrast; silicate glass by contrast relative to matrix"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/outputBitDepthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "outputBitDepthDefault",
+      "schema:name": "Output Bit Depth",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "16-bit (CCD pixel depth)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "partialVolumeEffectCriteriaDefault",
+      "schema:name": "Partial Volume Effect Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "SSOs ≥ 5.4 µm identified (implicit: features ≥ voxel size = 0.625 µm); sulphide rims ≥ 1 voxel required for detection"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Decanted for XCT; sample split along fractures during mounting into pipette tips. Post-XCT: embedded in Specifix resin, polished with 0.1 µm Al₂O₃.",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:detectorType": "2000 × 2000 CCD plane (16-bit)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "ImageJ + TANGO plugin (Ollion et al. 2013)"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "90 kV",
+      "ada:tubeCurrentDefault": "89 µA",
+      "ada:xRayPreFilterDefault": "Inbuilt LE4 filter (beam hardening reduction)",
+      "ada:voxelSizeDefault": "0.625 µm (A0180-A); 0.672 µm (A0180-B)",
+      "schema:model": {
+        "schema:name": "Zeiss Versa (model not specified)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationRangeDefault": "360°",
+  "ada:numberOfProjectionsDefault": "2401",
+  "ada:exposureTimePerProjectionDefault": "33 s (A0180-A); 28 s (A0180-B)",
+  "ada:beamHardeningCorrectionMethod": "Hardware filter (LE4 inbuilt)",
+  "ada:segmentationMethodDefault": "ImageJ threshold-based; TANGO plugin for 3D object detection",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Genge2025",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Genge2025",
+  "schema:description": "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Not stated"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM (post-XCT polished sections)",
+        "schema:description": "Serial polished sections cut post-XCT; SEM imaging"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "C-type asteroid particle (Ryugu, Hayabusa2)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "1.592 \u00d7 0.756 \u00d7 0.985 mm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Microchondrules (SSOs); 3D volume fraction",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Mounted in pipette tips"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Tungsten"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2000 \u00d7 2000 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/opticalObjective",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/opticalObjective"
+        }
+      ],
+      "schema:name": "Optical Objective",
+      "schema:value": "4\u00d7 objective lens"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorBinningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectorBinningDefault",
+      "schema:name": "Detector Binning",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "No binning"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Sulphide rims of SSOs identified by bright contrast; silicate glass by contrast relative to matrix"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/outputBitDepthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "outputBitDepthDefault",
+      "schema:name": "Output Bit Depth",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "16-bit (CCD pixel depth)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "partialVolumeEffectCriteriaDefault",
+      "schema:name": "Partial Volume Effect Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "SSOs \u2265 5.4 \u00b5m identified (implicit: features \u2265 voxel size = 0.625 \u00b5m); sulphide rims \u2265 1 voxel required for detection"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Decanted for XCT; sample split along fractures during mounting into pipette tips. Post-XCT: embedded in Specifix resin, polished with 0.1 \u00b5m Al\u2082O\u2083.",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:detectorType": "2000 \u00d7 2000 CCD plane (16-bit)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "ImageJ + TANGO plugin (Ollion et al. 2013)"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "90 kV",
+      "ada:tubeCurrentDefault": "89 \u00b5A",
+      "ada:xRayPreFilterDefault": "Inbuilt LE4 filter (beam hardening reduction)",
+      "ada:voxelSizeDefault": "0.625 \u00b5m (A0180-A); 0.672 \u00b5m (A0180-B)",
+      "schema:model": {
+        "schema:name": "Zeiss Versa (model not specified)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationRangeDefault": "360\u00b0",
+  "ada:numberOfProjectionsDefault": "2401",
+  "ada:exposureTimePerProjectionDefault": "33 s (A0180-A); 28 s (A0180-B)",
+  "ada:beamHardeningCorrectionMethod": "Hardware filter (LE4 inbuilt)",
+  "ada:segmentationMethodDefault": "ImageJ threshold-based; TANGO plugin for 3D object detection",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Genge2025 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Decanted for XCT; sample split along fractures during mounting into pipette tips. Post-XCT: embedded in Specifix resin, polished with 0.1 µm Al₂O₃." ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Zeiss Versa (model not specified)" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "90 kV" ;
+            ada:tubeCurrentDefault "89 µA" ;
+            ada:voxelSizeDefault "0.625 µm (A0180-A); 0.672 µm (A0180-B)" ;
+            ada:xRayPreFilterDefault "Inbuilt LE4 filter (beam hardening reduction)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Not stated" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Genge2025" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "C-type asteroid particle (Ryugu, Hayabusa2)" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Serial polished sections cut post-XCT; SEM imaging" ;
+                    schema1:name "SEM (post-XCT polished sections)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "Hardware filter (LE4 inbuilt)" ;
+    ada:detectorType "2000 × 2000 CCD plane (16-bit)" ;
+    ada:exposureTimePerProjectionDefault "33 s (A0180-A); 28 s (A0180-B)" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "2401" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault "360°" ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "ImageJ threshold-based; TANGO plugin for 3D object detection" ;
+    ada:targetFeature "Microchondrules (SSOs); 3D volume fraction" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "missing" ;
+    bios:computationalTool [ schema1:name "ImageJ + TANGO plugin (Ollion et al. 2013)" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "No binning" ;
+    schema1:name "Detector Binning" ;
+    schema1:valueName "detectorBinningDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "16-bit (CCD pixel depth)" ;
+    schema1:name "Output Bit Depth" ;
+    schema1:valueName "outputBitDepthDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "SSOs ≥ 5.4 µm identified (implicit: features ≥ voxel size = 0.625 µm); sulphide rims ≥ 1 voxel required for detection" ;
+    schema1:name "Partial Volume Effect Criteria" ;
+    schema1:valueName "partialVolumeEffectCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Sulphide rims of SSOs identified by bright contrast; silicate glass by contrast relative to matrix" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "1.592 × 0.756 × 0.985 mm" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Mounted in pipette tips" ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "2000 × 2000 pixels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective> a schema1:PropertyValue ;
+    schema1:name "Optical Objective" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective> ;
+    schema1:value "4× objective lens" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
+    schema1:name "X-ray Tube Anode Material" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:value "Tungsten" .
+
+
+```
+
+
+### labxctTAPP example Neuman2025
+labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Neuman2025",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Neuman2025",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v21.csv). Reported detail: ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "UTCT Facility, U. Texas"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar regolith (Apollo 17 drive-tube core)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~35 cm length core"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Plexiglass tube (vertical); triple-sealed Teflon bag"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2048 × 2048 (physical); 4096 × 4096 (effective, NSI Subpix)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ringArtifactCorrectionMethodDefault",
+      "schema:name": "Ring Artifact Correction Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Post-reconstruction ring corrections applied"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Al inner sleeve triple-sealed in Teflon; stainless-steel outer sleeve removed prior to scan",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "subVolumeStitchingAndRegistrationMethodDefault",
+            "schema:name": "Sub-volume Stitching and Registration Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Digital stitching (method not named); post-reconstruction ring and distortion corrections applied"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",
+  "ada:detectorType": "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "180 kV",
+      "ada:tubeCurrentDefault": "0.18 mA (180 µA)",
+      "ada:xRayPreFilterDefault": "0.72 mm Al",
+      "schema:model": {
+        "schema:name": "Custom NSI instrument (North Star Imaging) at UTCT",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationModeDefault": "Continuous rotation",
+  "ada:minimumSubVolumeOverlap": "~380 slices overlap between sub-volumes",
+  "ada:beamHardeningCorrectionMethod": "Software BHC applied during reconstruction",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Neuman2025",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Neuman2025",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v21.csv). Reported detail: ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "UTCT Facility, U. Texas"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar regolith (Apollo 17 drive-tube core)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~35 cm length core"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Plexiglass tube (vertical); triple-sealed Teflon bag"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2048 \u00d7 2048 (physical); 4096 \u00d7 4096 (effective, NSI Subpix)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ringArtifactCorrectionMethodDefault",
+      "schema:name": "Ring Artifact Correction Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Post-reconstruction ring corrections applied"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Al inner sleeve triple-sealed in Teflon; stainless-steel outer sleeve removed prior to scan",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "subVolumeStitchingAndRegistrationMethodDefault",
+            "schema:name": "Sub-volume Stitching and Registration Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Digital stitching (method not named); post-reconstruction ring and distortion corrections applied"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",
+  "ada:detectorType": "2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "180 kV",
+      "ada:tubeCurrentDefault": "0.18 mA (180 \u00b5A)",
+      "ada:xRayPreFilterDefault": "0.72 mm Al",
+      "schema:model": {
+        "schema:name": "Custom NSI instrument (North Star Imaging) at UTCT",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationModeDefault": "Continuous rotation",
+  "ada:minimumSubVolumeOverlap": "~380 slices overlap between sub-volumes",
+  "ada:beamHardeningCorrectionMethod": "Software BHC applied during reconstruction",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Neuman2025 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Al inner sleeve triple-sealed in Teflon; stainless-steel outer sleeve removed prior to scan" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v21.csv). Reported detail: ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "180 kV" ;
+            ada:tubeCurrentDefault "0.18 mA (180 µA)" ;
+            ada:xRayPreFilterDefault "0.72 mm Al" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "UTCT Facility, U. Texas" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Neuman2025" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Lunar regolith (Apollo 17 drive-tube core)" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "Software BHC applied during reconstruction" ;
+    ada:detectorType "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)" ;
+    ada:exposureTimePerProjectionDefault -9999 ;
+    ada:minimumSubVolumeOverlap "~380 slices overlap between sub-volumes" ;
+    ada:numberOfProjectionsDefault -9999 ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "Continuous rotation" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "missing" ;
+    ada:targetFeature "Voids, lithic clasts, stratigraphic layers in core" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "Feinfocus FXE 225.48 microfocal source" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Post-reconstruction ring corrections applied" ;
+    schema1:name "Ring Artifact Correction Method" ;
+    schema1:valueName "ringArtifactCorrectionMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "~35 cm length core" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Plexiglass tube (vertical); triple-sealed Teflon bag" ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Digital stitching (method not named); post-reconstruction ring and distortion corrections applied" ;
+    schema1:name "Sub-volume Stitching and Registration Method" ;
+    schema1:valueName "subVolumeStitchingAndRegistrationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "2048 × 2048 (physical); 4096 × 4096 (effective, NSI Subpix)" .
+
+
+```
+
+
+### labxctTAPP example Neuman2025-2
+labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Neuman2025-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Neuman2025-2",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v21.csv). Reported detail: ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "UTCT Facility, U. Texas"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar regolith (Apollo 17 drive-tube core, steel sleeve)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~35 cm length core"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core (steel-sleeved)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Custom PVC tube"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2048 × 2048 (physical); 4096 × 4096 (effective, NSI Subpix)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ringArtifactCorrectionMethodDefault",
+      "schema:name": "Ring Artifact Correction Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Post-reconstruction ring corrections applied"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Steel outer sleeve retained for scan",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "subVolumeStitchingAndRegistrationMethodDefault",
+            "schema:name": "Sub-volume Stitching and Registration Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Digital stitching; manual realignment of raw projection images for rotational misalignment (up to 0.35°); additional cone-beam, BH, and scattering corrections applied"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",
+  "ada:detectorType": "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "190 kV",
+      "ada:xRayPreFilterDefault": "None (steel sleeve acts as effective filter)",
+      "schema:model": {
+        "schema:name": "Custom NSI instrument (North Star Imaging) at UTCT",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationModeDefault": "Continuous rotation",
+  "ada:beamHardeningCorrectionMethod": "Software BHC (same factor as 73002 re-used)",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Neuman2025-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Neuman2025-2",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v21.csv). Reported detail: ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "UTCT Facility, U. Texas"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar regolith (Apollo 17 drive-tube core, steel sleeve)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~35 cm length core"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core (steel-sleeved)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Custom PVC tube"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2048 \u00d7 2048 (physical); 4096 \u00d7 4096 (effective, NSI Subpix)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ringArtifactCorrectionMethodDefault",
+      "schema:name": "Ring Artifact Correction Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Post-reconstruction ring corrections applied"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Steel outer sleeve retained for scan",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "subVolumeStitchingAndRegistrationMethodDefault",
+            "schema:name": "Sub-volume Stitching and Registration Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Digital stitching; manual realignment of raw projection images for rotational misalignment (up to 0.35\u00b0); additional cone-beam, BH, and scattering corrections applied"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",
+  "ada:detectorType": "2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "190 kV",
+      "ada:xRayPreFilterDefault": "None (steel sleeve acts as effective filter)",
+      "schema:model": {
+        "schema:name": "Custom NSI instrument (North Star Imaging) at UTCT",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationModeDefault": "Continuous rotation",
+  "ada:beamHardeningCorrectionMethod": "Software BHC (same factor as 73002 re-used)",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Steel outer sleeve retained for scan" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v21.csv). Reported detail: ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "190 kV" ;
+            ada:xRayPreFilterDefault "None (steel sleeve acts as effective filter)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "UTCT Facility, U. Texas" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Neuman2025-2" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Lunar regolith (Apollo 17 drive-tube core, steel sleeve)" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "Software BHC (same factor as 73002 re-used)" ;
+    ada:detectorType "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)" ;
+    ada:exposureTimePerProjectionDefault -9999 ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault -9999 ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "Continuous rotation" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "missing" ;
+    ada:targetFeature "Voids, lithic clasts, stratigraphic layers in core (steel-sleeved)" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "Feinfocus FXE 225.48 microfocal source" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Post-reconstruction ring corrections applied" ;
+    schema1:name "Ring Artifact Correction Method" ;
+    schema1:valueName "ringArtifactCorrectionMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "~35 cm length core" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Custom PVC tube" ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Digital stitching; manual realignment of raw projection images for rotational misalignment (up to 0.35°); additional cone-beam, BH, and scattering corrections applied" ;
+    schema1:name "Sub-volume Stitching and Registration Method" ;
+    schema1:valueName "subVolumeStitchingAndRegistrationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "2048 × 2048 (physical); 4096 × 4096 (effective, NSI Subpix)" .
+
+
+```
+
+
+### labxctTAPP example Shearer2024
+labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Shearer2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Shearer2024",
+  "schema:description": "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar regolith (Apollo 17 drive-tube CSVC)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Internal structure of core vacuum seal container",
+  "ada:xRaySourceConfiguration": "225 kV multi-metal reflection target source",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "215 kV",
+      "ada:tubeCurrentDefault": "179 mA (possibly typo for µA per source)",
+      "ada:voxelSizeDefault": "38.49 µm voxel edge",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:detectorType": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Shearer2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Shearer2024",
+  "schema:description": "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar regolith (Apollo 17 drive-tube CSVC)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Internal structure of core vacuum seal container",
+  "ada:xRaySourceConfiguration": "225 kV multi-metal reflection target source",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "215 kV",
+      "ada:tubeCurrentDefault": "179 mA (possibly typo for \u00b5A per source)",
+      "ada:voxelSizeDefault": "38.49 \u00b5m voxel edge",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:detectorType": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Shearer2024 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Nikon XTH 320" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "215 kV" ;
+            ada:tubeCurrentDefault "179 mA (possibly typo for µA per source)" ;
+            ada:voxelSizeDefault "38.49 µm voxel edge" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Shearer2024" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Lunar regolith (Apollo 17 drive-tube CSVC)" ] ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "missing" ;
+    ada:detectorType "missing" ;
+    ada:exposureTimePerProjectionDefault -9999 ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault -9999 ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "missing" ;
+    ada:targetFeature "Internal structure of core vacuum seal container" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "225 kV multi-metal reflection target source" .
+
+
+```
+
+
+### labxctTAPP example Shearer2024-2
+labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 particles Single-volume Nikon XTH 320 NASA JSC X-FaCT.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Shearer2024-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Shearer2024-2",
+  "schema:description": "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 particles Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar regolith particles (Apollo 17 core)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Individual particle internal structure",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Triple-bagged in Teflon, wrapped in cylinder, placed in 1-cm plastic straw"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Tungsten"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3.0,
+      "schema:description": "3.0 W"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Triple-bagged (Teflon) per ANGSA curation protocol",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "180 kV nano-focus transmission target source",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "90 kV (typical; optimized per sample)",
+      "ada:xRayPreFilterDefault": "0.1–0.25 mm Al (Bennu PE protocol range stated)",
+      "ada:voxelSizeDefault": "2.8–20.6 µm (optimized per sample)",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:detectorType": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Shearer2024-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Shearer2024-2",
+  "schema:description": "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 particles Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar regolith particles (Apollo 17 core)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Individual particle internal structure",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Triple-bagged in Teflon, wrapped in cylinder, placed in 1-cm plastic straw"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Tungsten"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3.0,
+      "schema:description": "3.0 W"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Triple-bagged (Teflon) per ANGSA curation protocol",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "180 kV nano-focus transmission target source",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "90 kV (typical; optimized per sample)",
+      "ada:xRayPreFilterDefault": "0.1\u20130.25 mm Al (Bennu PE protocol range stated)",
+      "ada:voxelSizeDefault": "2.8\u201320.6 \u00b5m (optimized per sample)",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:detectorType": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Shearer2024-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Triple-bagged (Teflon) per ANGSA curation protocol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 particles Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Nikon XTH 320" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "90 kV (typical; optimized per sample)" ;
+            ada:voxelSizeDefault "2.8–20.6 µm (optimized per sample)" ;
+            ada:xRayPreFilterDefault "0.1–0.25 mm Al (Bennu PE protocol range stated)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Shearer2024-2" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Lunar regolith particles (Apollo 17 core)" ] ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "missing" ;
+    ada:detectorType "missing" ;
+    ada:exposureTimePerProjectionDefault -9999 ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault -9999 ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "missing" ;
+    ada:targetFeature "Individual particle internal structure" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "180 kV nano-focus transmission target source" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Triple-bagged in Teflon, wrapped in cylinder, placed in 1-cm plastic straw" ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3e+00 ;
+    schema1:description "3.0 W" ;
+    schema1:name "X-ray Power" ;
+    schema1:valueName "xRayPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
+    schema1:name "X-ray Tube Anode Material" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:value "Tungsten" .
+
+
+```
+
+
+### labxctTAPP example Tomkinson2015
+labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Tomkinson2015",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Tomkinson2015",
+  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Manchester X-ray Imaging Facility, U. Manchester"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM-BSE (qualitative comparison)",
+        "schema:description": "BSE images compared with XCT attenuation contrast"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Martian meteorite (nakhlite, NWA 5790)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~1.1 × 1.2 × 0.8 cm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Modal mineralogy (vol%); secondary minerals",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None; chip used as received",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Copper"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Thresholds not given numerically; SEM images used to define phases; errors from threshold + subvoxel variability generally <5% for grains >125 voxels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phases: augite, mesostasis, olivine, titanomagnetite, pore space — identified by grayscale correlated to linear attenuation coefficients; verified with SEM"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "partialVolumeEffectCriteriaDefault",
+      "schema:name": "Partial Volume Effect Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Errors from threshold + PVE generally <5% for grains >125 voxels; features smaller than ~3 voxels unreliable"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo™"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)",
+      "ada:voxelSizeDefault": "10.3 × 10.3 × 10.3 µm³",
+      "schema:model": {
+        "schema:name": "Nikon Metris XTH 225",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "3143",
+  "ada:exposureTimePerProjectionDefault": "20 s",
+  "ada:reconstructionAlgorithm": "Filtered back projection (Nikon proprietary)",
+  "ada:segmentationMethodDefault": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:detectorType": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Tomkinson2015",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Tomkinson2015",
+  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Manchester X-ray Imaging Facility, U. Manchester"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM-BSE (qualitative comparison)",
+        "schema:description": "BSE images compared with XCT attenuation contrast"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Martian meteorite (nakhlite, NWA 5790)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~1.1 \u00d7 1.2 \u00d7 0.8 cm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Modal mineralogy (vol%); secondary minerals",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None; chip used as received",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Copper"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Thresholds not given numerically; SEM images used to define phases; errors from threshold + subvoxel variability generally <5% for grains >125 voxels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phases: augite, mesostasis, olivine, titanomagnetite, pore space \u2014 identified by grayscale correlated to linear attenuation coefficients; verified with SEM"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "partialVolumeEffectCriteriaDefault",
+      "schema:name": "Partial Volume Effect Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Errors from threshold + PVE generally <5% for grains >125 voxels; features smaller than ~3 voxels unreliable"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo\u2122"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)",
+      "ada:voxelSizeDefault": "10.3 \u00d7 10.3 \u00d7 10.3 \u00b5m\u00b3",
+      "schema:model": {
+        "schema:name": "Nikon Metris XTH 225",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "3143",
+  "ada:exposureTimePerProjectionDefault": "20 s",
+  "ada:reconstructionAlgorithm": "Filtered back projection (Nikon proprietary)",
+  "ada:segmentationMethodDefault": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:detectorType": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None; chip used as received" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Nikon Metris XTH 225" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)" ;
+            ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Tomkinson2015" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Martian meteorite (nakhlite, NWA 5790)" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "BSE images compared with XCT attenuation contrast" ;
+                    schema1:name "SEM-BSE (qualitative comparison)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "missing" ;
+    ada:detectorType "missing" ;
+    ada:exposureTimePerProjectionDefault "20 s" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "3143" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "Filtered back projection (Nikon proprietary)" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume" ;
+    ada:targetFeature "Modal mineralogy (vol%); secondary minerals" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "missing" ;
+    bios:computationalTool [ schema1:name "Avizo™" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Errors from threshold + PVE generally <5% for grains >125 voxels; features smaller than ~3 voxels unreliable" ;
+    schema1:name "Partial Volume Effect Criteria" ;
+    schema1:valueName "partialVolumeEffectCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Phases: augite, mesostasis, olivine, titanomagnetite, pore space — identified by grayscale correlated to linear attenuation coefficients; verified with SEM" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "~1.1 × 1.2 × 0.8 cm" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Thresholds not given numerically; SEM images used to define phases; errors from threshold + subvoxel variability generally <5% for grains >125 voxels" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
+    schema1:name "X-ray Tube Anode Material" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:value "Copper" .
+
+
+```
+
+
+### labxctTAPP example Glavin2023
+labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Glavin2023",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Glavin2023",
+  "schema:description": "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "CM2 carbonaceous chondrite (Murchison)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Radiation dose assessment (not mineralogy)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Glass vial placed in scanner"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Tungsten"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2000 × 2000 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToObjectDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToObjectDistanceDefault",
+      "schema:name": "Source-to-Object Distance (SOD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 39.22,
+      "schema:description": "39.22 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToDetectorDistanceDefault",
+      "schema:name": "Source-to-Detector Distance (SDD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 679.51,
+      "schema:description": "679.51 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationStepSizeDefault",
+      "schema:name": "Rotation Step Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.115,
+      "schema:description": "0.115°"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8,
+      "schema:description": "8 frames averaged per projection"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Chips (~10.3 g) crushed with mortar and pestle; vortex mixed 3 min; split into two ~4.6 g portions",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "180 kV nano-focus tungsten transmission source (~1 µm spot size)",
+  "ada:detectorType": "2000 × 2000 pixel Perkin Elmer flat panel CCD",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Nikon CTAgentPro v5.4 (FBP algorithm)"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)",
+      "ada:tubeCurrentDefault": "38 µA",
+      "ada:xRayPreFilterDefault": "None (intentionally unfiltered; worst-case dose experiment)",
+      "ada:voxelSizeDefault": "11.54 µm (cubic voxel edge)",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationRangeDefault": "360° (continuous)",
+  "ada:numberOfProjectionsDefault": "3141",
+  "ada:exposureTimePerProjectionDefault": "1.00 s per frame",
+  "ada:rotationModeDefault": "N/A",
+  "ada:reconstructionAlgorithm": "Filtered back projection (FBP)",
+  "ada:beamHardeningCorrectionMethod": "None (intentionally unfiltered; no software BHC mentioned)",
+  "ada:outputDataFormatDefault": "TIFF (continuous series of 2D TIFF images)",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Glavin2023",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Glavin2023",
+  "schema:description": "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "CM2 carbonaceous chondrite (Murchison)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Radiation dose assessment (not mineralogy)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Glass vial placed in scanner"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Tungsten"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2000 \u00d7 2000 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToObjectDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToObjectDistanceDefault",
+      "schema:name": "Source-to-Object Distance (SOD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 39.22,
+      "schema:description": "39.22 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToDetectorDistanceDefault",
+      "schema:name": "Source-to-Detector Distance (SDD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 679.51,
+      "schema:description": "679.51 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationStepSizeDefault",
+      "schema:name": "Rotation Step Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.115,
+      "schema:description": "0.115\u00b0"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8,
+      "schema:description": "8 frames averaged per projection"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Chips (~10.3 g) crushed with mortar and pestle; vortex mixed 3 min; split into two ~4.6 g portions",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "180 kV nano-focus tungsten transmission source (~1 \u00b5m spot size)",
+  "ada:detectorType": "2000 \u00d7 2000 pixel Perkin Elmer flat panel CCD",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Nikon CTAgentPro v5.4 (FBP algorithm)"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)",
+      "ada:tubeCurrentDefault": "38 \u00b5A",
+      "ada:xRayPreFilterDefault": "None (intentionally unfiltered; worst-case dose experiment)",
+      "ada:voxelSizeDefault": "11.54 \u00b5m (cubic voxel edge)",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationRangeDefault": "360\u00b0 (continuous)",
+  "ada:numberOfProjectionsDefault": "3141",
+  "ada:exposureTimePerProjectionDefault": "1.00 s per frame",
+  "ada:rotationModeDefault": "N/A",
+  "ada:reconstructionAlgorithm": "Filtered back projection (FBP)",
+  "ada:beamHardeningCorrectionMethod": "None (intentionally unfiltered; no software BHC mentioned)",
+  "ada:outputDataFormatDefault": "TIFF (continuous series of 2D TIFF images)",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Glavin2023 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Chips (~10.3 g) crushed with mortar and pestle; vortex mixed 3 min; split into two ~4.6 g portions" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistanceDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Nikon XTH 320" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)" ;
+            ada:tubeCurrentDefault "38 µA" ;
+            ada:voxelSizeDefault "11.54 µm (cubic voxel edge)" ;
+            ada:xRayPreFilterDefault "None (intentionally unfiltered; worst-case dose experiment)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Glavin2023" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "CM2 carbonaceous chondrite (Murchison)" ] ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "None (intentionally unfiltered; no software BHC mentioned)" ;
+    ada:detectorType "2000 × 2000 pixel Perkin Elmer flat panel CCD" ;
+    ada:exposureTimePerProjectionDefault "1.00 s per frame" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "3141" ;
+    ada:outputDataFormatDefault "TIFF (continuous series of 2D TIFF images)" ;
+    ada:reconstructionAlgorithm "Filtered back projection (FBP)" ;
+    ada:rotationModeDefault "N/A" ;
+    ada:rotationRangeDefault "360° (continuous)" ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "missing" ;
+    ada:targetFeature "Radiation dose assessment (not mineralogy)" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "180 kV nano-focus tungsten transmission source (~1 µm spot size)" ;
+    bios:computationalTool [ schema1:name "Nikon CTAgentPro v5.4 (FBP algorithm)" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 8 ;
+    schema1:description "8 frames averaged per projection" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.15e-01 ;
+    schema1:description "0.115°" ;
+    schema1:name "Rotation Step Size" ;
+    schema1:valueName "rotationStepSizeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Glass vial placed in scanner" ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistanceDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 6.7951e+02 ;
+    schema1:description "679.51 mm" ;
+    schema1:name "Source-to-Detector Distance (SDD)" ;
+    schema1:valueName "sourceToDetectorDistanceDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3.922e+01 ;
+    schema1:description "39.22 mm" ;
+    schema1:name "Source-to-Object Distance (SOD)" ;
+    schema1:valueName "sourceToObjectDistanceDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "2000 × 2000 pixels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
+    schema1:name "X-ray Tube Anode Material" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:value "Tungsten" .
+
+
+```
+
+
+### labxctTAPP example Dias2019
+labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Dias2019",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Dias2019",
+  "schema:description": "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Micro-XRF (same samples)",
+        "schema:description": "Micro-XRF performed on same meteorite fragments after XCT"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar meteorite (NWA 8277); Martian meteorite (NWA 6963)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~4 mm fragments"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Internal structure; porosity; density contrast",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Polystyrene support"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2240 × 2240 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationStepSizeDefault",
+      "schema:name": "Rotation Step Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.4,
+      "schema:description": "0.4°/step"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Adaptive mean threshold; total analyzed VOI for NWA 8277 = 5.39 mm³"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Three density regions: high, medium, low density; porosity separate"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated (fragments purchased from IMCA member)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:detectorType": "Flat panel detector (2240 × 2240 pixels)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "DataViewer; CTVox; CTAn (Bruker proprietary suite)"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "50 kV",
+      "ada:tubeCurrentDefault": "160 µA",
+      "ada:xRayPreFilterDefault": "1.0 mm aluminum",
+      "ada:voxelSizeDefault": "5.34 µm",
+      "schema:model": {
+        "schema:name": "Bruker/Skyscan 1173",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationRangeDefault": "360°",
+  "ada:beamHardeningCorrectionMethod": "Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned",
+  "ada:segmentationMethodDefault": "Adaptive (mean) thresholding",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Dias2019",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Dias2019",
+  "schema:description": "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Micro-XRF (same samples)",
+        "schema:description": "Micro-XRF performed on same meteorite fragments after XCT"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar meteorite (NWA 8277); Martian meteorite (NWA 6963)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~4 mm fragments"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Internal structure; porosity; density contrast",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Polystyrene support"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2240 \u00d7 2240 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationStepSizeDefault",
+      "schema:name": "Rotation Step Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.4,
+      "schema:description": "0.4\u00b0/step"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Adaptive mean threshold; total analyzed VOI for NWA 8277 = 5.39 mm\u00b3"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Three density regions: high, medium, low density; porosity separate"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated (fragments purchased from IMCA member)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:detectorType": "Flat panel detector (2240 \u00d7 2240 pixels)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "DataViewer; CTVox; CTAn (Bruker proprietary suite)"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "50 kV",
+      "ada:tubeCurrentDefault": "160 \u00b5A",
+      "ada:xRayPreFilterDefault": "1.0 mm aluminum",
+      "ada:voxelSizeDefault": "5.34 \u00b5m",
+      "schema:model": {
+        "schema:name": "Bruker/Skyscan 1173",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationRangeDefault": "360\u00b0",
+  "ada:beamHardeningCorrectionMethod": "Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned",
+  "ada:segmentationMethodDefault": "Adaptive (mean) thresholding",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Dias2019 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None stated (fragments purchased from IMCA member)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Bruker/Skyscan 1173" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "50 kV" ;
+            ada:tubeCurrentDefault "160 µA" ;
+            ada:voxelSizeDefault "5.34 µm" ;
+            ada:xRayPreFilterDefault "1.0 mm aluminum" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Dias2019" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Lunar meteorite (NWA 8277); Martian meteorite (NWA 6963)" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Micro-XRF performed on same meteorite fragments after XCT" ;
+                    schema1:name "Micro-XRF (same samples)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned" ;
+    ada:detectorType "Flat panel detector (2240 × 2240 pixels)" ;
+    ada:exposureTimePerProjectionDefault -9999 ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault -9999 ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault "360°" ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Adaptive (mean) thresholding" ;
+    ada:targetFeature "Internal structure; porosity; density contrast" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "missing" ;
+    bios:computationalTool [ schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Three density regions: high, medium, low density; porosity separate" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 4e-01 ;
+    schema1:description "0.4°/step" ;
+    schema1:name "Rotation Step Size" ;
+    schema1:valueName "rotationStepSizeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "~4 mm fragments" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Polystyrene support" ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Adaptive mean threshold; total analyzed VOI for NWA 8277 = 5.39 mm³" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "2240 × 2240 pixels" .
+
+
+```
+
+
+### labxctTAPP example Richard2019
+labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Richard2019",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Richard2019",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Lab. de Microtomografía de Rayos X, UNAM, Mexico"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Olivine phenocryst with silicate melt inclusion"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~1 mm olivine"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Silicate melt inclusion morphology and phase volumes",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated for XCT; embedded in epoxy after XCT for microprobe",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:detectorType": "CCD ANDOR camera (1080 × 1080 px, 32-bit)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "1080 × 1080 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/opticalObjective",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/opticalObjective"
+        }
+      ],
+      "schema:name": "Optical Objective",
+      "schema:value": "4.0× magnification"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 200,
+      "schema:description": "~200 reference (blank) images taken; number of frames averaged per projection N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Threshold range selected to include all voxels of one phase while excluding adjacent phases; specific values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phase identified by grayscale contrast (vapor vs. silicate/mineral)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/outputBitDepthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "outputBitDepthDefault",
+      "schema:name": "Output Bit Depth",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "32-bit (ZEISS XRM output)"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "ImageJ; Avizo 9.2"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "30 kV",
+      "ada:voxelSizeDefault": "2.06 µm/px",
+      "schema:model": {
+        "schema:name": "Zeiss Xradia 510 Versa",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "1601",
+  "ada:exposureTimePerProjectionDefault": "8 s",
+  "ada:segmentationMethodDefault": "Grayscale threshold range selection (ImageJ)",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Richard2019",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Richard2019",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Lab. de Microtomograf\u00eda de Rayos X, UNAM, Mexico"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Olivine phenocryst with silicate melt inclusion"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~1 mm olivine"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Silicate melt inclusion morphology and phase volumes",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated for XCT; embedded in epoxy after XCT for microprobe",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:detectorType": "CCD ANDOR camera (1080 \u00d7 1080 px, 32-bit)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "1080 \u00d7 1080 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/opticalObjective",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/opticalObjective"
+        }
+      ],
+      "schema:name": "Optical Objective",
+      "schema:value": "4.0\u00d7 magnification"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 200,
+      "schema:description": "~200 reference (blank) images taken; number of frames averaged per projection N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Threshold range selected to include all voxels of one phase while excluding adjacent phases; specific values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phase identified by grayscale contrast (vapor vs. silicate/mineral)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/outputBitDepthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "outputBitDepthDefault",
+      "schema:name": "Output Bit Depth",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "32-bit (ZEISS XRM output)"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "ImageJ; Avizo 9.2"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "30 kV",
+      "ada:voxelSizeDefault": "2.06 \u00b5m/px",
+      "schema:model": {
+        "schema:name": "Zeiss Xradia 510 Versa",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "1601",
+  "ada:exposureTimePerProjectionDefault": "8 s",
+  "ada:segmentationMethodDefault": "Grayscale threshold range selection (ImageJ)",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Richard2019 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Zeiss Xradia 510 Versa" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "30 kV" ;
+            ada:voxelSizeDefault "2.06 µm/px" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Lab. de Microtomografía de Rayos X, UNAM, Mexico" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Richard2019" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Olivine phenocryst with silicate melt inclusion" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "missing" ;
+    ada:detectorType "CCD ANDOR camera (1080 × 1080 px, 32-bit)" ;
+    ada:exposureTimePerProjectionDefault "8 s" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "1601" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Grayscale threshold range selection (ImageJ)" ;
+    ada:targetFeature "Silicate melt inclusion morphology and phase volumes" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "missing" ;
+    bios:computationalTool [ schema1:name "ImageJ; Avizo 9.2" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 200 ;
+    schema1:description "~200 reference (blank) images taken; number of frames averaged per projection N" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "32-bit (ZEISS XRM output)" ;
+    schema1:name "Output Bit Depth" ;
+    schema1:valueName "outputBitDepthDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Phase identified by grayscale contrast (vapor vs. silicate/mineral)" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "~1 mm olivine" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Threshold range selected to include all voxels of one phase while excluding adjacent phases; specific values N" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "1080 × 1080 pixels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective> a schema1:PropertyValue ;
+    schema1:name "Optical Objective" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective> ;
+    schema1:value "4.0× magnification" .
+
+
+```
+
+
+### labxctTAPP example Richard2019-2
+labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Richard2019-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Richard2019-2",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "U. Strathclyde, Glasgow, UK"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Synthetic quartz monocrystal with aqueous fluid inclusions"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "3 × 5 × 2 cm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Fluid inclusion morphology and phase volumes",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Microfocus multi-metal target (225 kV)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Silver (for Sample B)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2000 × 2000 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+        }
+      ],
+      "schema:name": "Detector Pixel Size",
+      "schema:value": 0.2,
+      "schema:unitText": "example value",
+      "schema:description": "0.2 × 0.2 mm cell size"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 11.4,
+      "schema:description": "11.4 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 frame per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual threshold: vapor = darker, liquid = brighter pixels; specific values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phase identified by grayscale contrast (vapor darker, liquid brighter)"
+    }
+  ],
+  "ada:detectorType": "Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 9.2.0"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "160 kV",
+      "ada:tubeCurrentDefault": "71 µA (Ag target)",
+      "ada:xRayPreFilterDefault": "None (conditions did not require filtering)",
+      "ada:voxelSizeDefault": "25 µm",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320/225",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "3141",
+  "ada:exposureTimePerProjectionDefault": "0.708 s",
+  "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
+  "ada:segmentationMethodDefault": "Manual grayscale threshold",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Richard2019-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Richard2019-2",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "U. Strathclyde, Glasgow, UK"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Synthetic quartz monocrystal with aqueous fluid inclusions"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "3 \u00d7 5 \u00d7 2 cm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Fluid inclusion morphology and phase volumes",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Microfocus multi-metal target (225 kV)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Silver (for Sample B)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2000 \u00d7 2000 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+        }
+      ],
+      "schema:name": "Detector Pixel Size",
+      "schema:value": 0.2,
+      "schema:unitText": "example value",
+      "schema:description": "0.2 \u00d7 0.2 mm cell size"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 11.4,
+      "schema:description": "11.4 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 frame per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual threshold: vapor = darker, liquid = brighter pixels; specific values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phase identified by grayscale contrast (vapor darker, liquid brighter)"
+    }
+  ],
+  "ada:detectorType": "Flat panel photodetector (2000 \u00d7 2000 px, cell size 0.2 \u00d7 0.2 mm)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 9.2.0"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "160 kV",
+      "ada:tubeCurrentDefault": "71 \u00b5A (Ag target)",
+      "ada:xRayPreFilterDefault": "None (conditions did not require filtering)",
+      "ada:voxelSizeDefault": "25 \u00b5m",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320/225",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "3141",
+  "ada:exposureTimePerProjectionDefault": "0.708 s",
+  "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
+  "ada:segmentationMethodDefault": "Manual grayscale threshold",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Richard2019-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Nikon XTH 320/225" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "160 kV" ;
+            ada:tubeCurrentDefault "71 µA (Ag target)" ;
+            ada:voxelSizeDefault "25 µm" ;
+            ada:xRayPreFilterDefault "None (conditions did not require filtering)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "U. Strathclyde, Glasgow, UK" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Richard2019-2" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Synthetic quartz monocrystal with aqueous fluid inclusions" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "None (conditions did not saturate detector; not required)" ;
+    ada:detectorType "Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm)" ;
+    ada:exposureTimePerProjectionDefault "0.708 s" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "3141" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Manual grayscale threshold" ;
+    ada:targetFeature "Fluid inclusion morphology and phase volumes" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "Microfocus multi-metal target (225 kV)" ;
+    bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:description "1 frame per projection" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Phase identified by grayscale contrast (vapor darker, liquid brighter)" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "3 × 5 × 2 cm" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual threshold: vapor = darker, liquid = brighter pixels; specific values N" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.14e+01 ;
+    schema1:description "11.4 W" ;
+    schema1:name "X-ray Power" ;
+    schema1:valueName "xRayPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "2000 × 2000 pixels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> a schema1:PropertyValue ;
+    schema1:description "0.2 × 0.2 mm cell size" ;
+    schema1:name "Detector Pixel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> ;
+    schema1:unitText "example value" ;
+    schema1:value 2e-01 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
+    schema1:name "X-ray Tube Anode Material" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:value "Silver (for Sample B)" .
+
+
+```
+
+
+### labxctTAPP example Richard2019-3
+labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Richard2019-3",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Richard2019-3",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "U. Strathclyde, Glasgow, UK"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Synthetic quartz monocrystal with aqueous fluid inclusions"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "3 × 5 × 2 cm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Fluid inclusion morphology and phase volumes",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Microfocus multi-metal target (225 kV)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Silver (for Sample B)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2000 × 2000 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+        }
+      ],
+      "schema:name": "Detector Pixel Size",
+      "schema:value": 0.2,
+      "schema:unitText": "example value",
+      "schema:description": "0.2 × 0.2 mm cell size"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 7.4,
+      "schema:description": "7.4 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 frame per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual threshold: vapor = darker, liquid = brighter pixels; specific values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phase identified by grayscale contrast (vapor darker, liquid brighter)"
+    }
+  ],
+  "ada:detectorType": "Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 9.2.0"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "160 kV",
+      "ada:tubeCurrentDefault": "46 µA (Ag target)",
+      "ada:xRayPreFilterDefault": "None (conditions did not require filtering)",
+      "ada:voxelSizeDefault": "7.7 µm",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320/225",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "3141",
+  "ada:exposureTimePerProjectionDefault": "1.415 s",
+  "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
+  "ada:segmentationMethodDefault": "Manual grayscale threshold",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Richard2019-3",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Richard2019-3",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "U. Strathclyde, Glasgow, UK"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Synthetic quartz monocrystal with aqueous fluid inclusions"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "3 \u00d7 5 \u00d7 2 cm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Fluid inclusion morphology and phase volumes",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Microfocus multi-metal target (225 kV)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Silver (for Sample B)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2000 \u00d7 2000 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+        }
+      ],
+      "schema:name": "Detector Pixel Size",
+      "schema:value": 0.2,
+      "schema:unitText": "example value",
+      "schema:description": "0.2 \u00d7 0.2 mm cell size"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 7.4,
+      "schema:description": "7.4 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 frame per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual threshold: vapor = darker, liquid = brighter pixels; specific values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phase identified by grayscale contrast (vapor darker, liquid brighter)"
+    }
+  ],
+  "ada:detectorType": "Flat panel photodetector (2000 \u00d7 2000 px, cell size 0.2 \u00d7 0.2 mm)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 9.2.0"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "160 kV",
+      "ada:tubeCurrentDefault": "46 \u00b5A (Ag target)",
+      "ada:xRayPreFilterDefault": "None (conditions did not require filtering)",
+      "ada:voxelSizeDefault": "7.7 \u00b5m",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320/225",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "3141",
+  "ada:exposureTimePerProjectionDefault": "1.415 s",
+  "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
+  "ada:segmentationMethodDefault": "Manual grayscale threshold",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Richard2019-3 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Nikon XTH 320/225" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "160 kV" ;
+            ada:tubeCurrentDefault "46 µA (Ag target)" ;
+            ada:voxelSizeDefault "7.7 µm" ;
+            ada:xRayPreFilterDefault "None (conditions did not require filtering)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "U. Strathclyde, Glasgow, UK" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Richard2019-3" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Synthetic quartz monocrystal with aqueous fluid inclusions" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "None (conditions did not saturate detector; not required)" ;
+    ada:detectorType "Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm)" ;
+    ada:exposureTimePerProjectionDefault "1.415 s" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "3141" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Manual grayscale threshold" ;
+    ada:targetFeature "Fluid inclusion morphology and phase volumes" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "Microfocus multi-metal target (225 kV)" ;
+    bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:description "1 frame per projection" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Phase identified by grayscale contrast (vapor darker, liquid brighter)" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "3 × 5 × 2 cm" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual threshold: vapor = darker, liquid = brighter pixels; specific values N" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 7.4e+00 ;
+    schema1:description "7.4 W" ;
+    schema1:name "X-ray Power" ;
+    schema1:valueName "xRayPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "2000 × 2000 pixels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> a schema1:PropertyValue ;
+    schema1:description "0.2 × 0.2 mm cell size" ;
+    schema1:name "Detector Pixel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> ;
+    schema1:unitText "example value" ;
+    schema1:value 2e-01 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
+    schema1:name "X-ray Tube Anode Material" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:value "Silver (for Sample B)" .
+
+
+```
+
+
+### labxctTAPP example Richard2019-4
+labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Richard2019-4",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Richard2019-4",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Université de Lorraine, France"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Confocal laser scanning microscopy (Sample I)",
+        "schema:description": "CLSM performed on same inclusion for volumetric cross-validation"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Minerals with fluid inclusions (quartz, garnet, emerald, wolframite, feldspar)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Varies: 0.3×0.4 to 11×11×7 mm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Fluid inclusion morphology and phase volumes",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:detectorType": "CCD Hamamatsu (2300 × 2300 px)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2300 × 2300 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToObjectDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToObjectDistanceDefault",
+      "schema:name": "Source-to-Object Distance (SOD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 6,
+      "schema:description": "6–55 mm (varies by sample)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3,
+      "schema:description": "3–6 (varies by sample)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ringArtifactCorrectionMethodDefault",
+      "schema:name": "Ring Artifact Correction Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Software ring artifact correction filter applied during analysis"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual threshold per phase; specific values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phases by grayscale contrast; minerals by differential attenuation"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "90–115 kV (varies by sample)",
+      "ada:tubeCurrentDefault": "65–115 µA (varies by sample)",
+      "ada:voxelSizeDefault": "0.77–3.5 µm (varies by sample)",
+      "schema:model": {
+        "schema:name": "Phoenix Nanotom S",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "1200–2000 (varies by sample)",
+  "ada:exposureTimePerProjectionDefault": "750–1250 ms (varies by sample)",
+  "ada:beamHardeningCorrectionMethod": "Software BHC applied per respective software",
+  "ada:segmentationMethodDefault": "Manual grayscale threshold per phase",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 9.2.0"
+    }
+  ],
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Richard2019-4",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Richard2019-4",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Universit\u00e9 de Lorraine, France"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Confocal laser scanning microscopy (Sample I)",
+        "schema:description": "CLSM performed on same inclusion for volumetric cross-validation"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Minerals with fluid inclusions (quartz, garnet, emerald, wolframite, feldspar)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Varies: 0.3\u00d70.4 to 11\u00d711\u00d77 mm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Fluid inclusion morphology and phase volumes",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:detectorType": "CCD Hamamatsu (2300 \u00d7 2300 px)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2300 \u00d7 2300 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToObjectDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToObjectDistanceDefault",
+      "schema:name": "Source-to-Object Distance (SOD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 6,
+      "schema:description": "6\u201355 mm (varies by sample)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3,
+      "schema:description": "3\u20136 (varies by sample)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ringArtifactCorrectionMethodDefault",
+      "schema:name": "Ring Artifact Correction Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Software ring artifact correction filter applied during analysis"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual threshold per phase; specific values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Phases by grayscale contrast; minerals by differential attenuation"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "90\u2013115 kV (varies by sample)",
+      "ada:tubeCurrentDefault": "65\u2013115 \u00b5A (varies by sample)",
+      "ada:voxelSizeDefault": "0.77\u20133.5 \u00b5m (varies by sample)",
+      "schema:model": {
+        "schema:name": "Phoenix Nanotom S",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "1200\u20132000 (varies by sample)",
+  "ada:exposureTimePerProjectionDefault": "750\u20131250 ms (varies by sample)",
+  "ada:beamHardeningCorrectionMethod": "Software BHC applied per respective software",
+  "ada:segmentationMethodDefault": "Manual grayscale threshold per phase",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 9.2.0"
+    }
+  ],
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Richard2019-4 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Phoenix Nanotom S" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
+            ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
+            ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Université de Lorraine, France" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Richard2019-4" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Minerals with fluid inclusions (quartz, garnet, emerald, wolframite, feldspar)" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "CLSM performed on same inclusion for volumetric cross-validation" ;
+                    schema1:name "Confocal laser scanning microscopy (Sample I)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "Software BHC applied per respective software" ;
+    ada:detectorType "CCD Hamamatsu (2300 × 2300 px)" ;
+    ada:exposureTimePerProjectionDefault "750–1250 ms (varies by sample)" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "1200–2000 (varies by sample)" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Manual grayscale threshold per phase" ;
+    ada:targetFeature "Fluid inclusion morphology and phase volumes" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "missing" ;
+    bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3 ;
+    schema1:description "3–6 (varies by sample)" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Phases by grayscale contrast; minerals by differential attenuation" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Software ring artifact correction filter applied during analysis" ;
+    schema1:name "Ring Artifact Correction Method" ;
+    schema1:valueName "ringArtifactCorrectionMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Varies: 0.3×0.4 to 11×11×7 mm" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual threshold per phase; specific values N" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 6 ;
+    schema1:description "6–55 mm (varies by sample)" ;
+    schema1:name "Source-to-Object Distance (SOD)" ;
+    schema1:valueName "sourceToObjectDistanceDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "2300 × 2300 pixels" .
+
+
+```
+
+
+### labxctTAPP example Tait2014
+labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Tait2014",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Tait2014",
+  "schema:description": "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CSIRO, Kensington, Western Australia"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Optical microscopy; EBSD",
+        "schema:description": "XCT qualitatively compared with thin sections and EBSD"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "H7 ordinary chondrite (Watson 012)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "8 mm diameter core"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Plagioclase network connectivity; partial melt evidence",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "8 mm diameter core drilled from meteorite prior to XCT",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "70 kV",
+      "ada:tubeCurrentDefault": "86 µA",
+      "ada:voxelSizeDefault": "1.923 µm",
+      "schema:model": {
+        "schema:name": "XRADIA XRM500",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 7,
+      "schema:description": "7 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Dedicated workflow; specific threshold values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable"
+    }
+  ],
+  "ada:rotationRangeDefault": "360°",
+  "ada:numberOfProjectionsDefault": "2000",
+  "ada:segmentationMethodDefault": "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AvizoFire 8.0; Matlab; Drishti 2.0"
+    }
+  ],
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:detectorType": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Tait2014",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Tait2014",
+  "schema:description": "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CSIRO, Kensington, Western Australia"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Optical microscopy; EBSD",
+        "schema:description": "XCT qualitatively compared with thin sections and EBSD"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "H7 ordinary chondrite (Watson 012)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "8 mm diameter core"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Plagioclase network connectivity; partial melt evidence",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "8 mm diameter core drilled from meteorite prior to XCT",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "70 kV",
+      "ada:tubeCurrentDefault": "86 \u00b5A",
+      "ada:voxelSizeDefault": "1.923 \u00b5m",
+      "schema:model": {
+        "schema:name": "XRADIA XRM500",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 7,
+      "schema:description": "7 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Dedicated workflow; specific threshold values N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable"
+    }
+  ],
+  "ada:rotationRangeDefault": "360\u00b0",
+  "ada:numberOfProjectionsDefault": "2000",
+  "ada:segmentationMethodDefault": "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AvizoFire 8.0; Matlab; Drishti 2.0"
+    }
+  ],
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:detectorType": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:xRaySourceConfiguration": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Tait2014 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "8 mm diameter core drilled from meteorite prior to XCT" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "XRADIA XRM500" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "70 kV" ;
+            ada:tubeCurrentDefault "86 µA" ;
+            ada:voxelSizeDefault "1.923 µm" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "CSIRO, Kensington, Western Australia" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Tait2014" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "H7 ordinary chondrite (Watson 012)" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "XCT qualitatively compared with thin sections and EBSD" ;
+                    schema1:name "Optical microscopy; EBSD" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "missing" ;
+    ada:detectorType "missing" ;
+    ada:exposureTimePerProjectionDefault -9999 ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "2000" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault "360°" ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation" ;
+    ada:targetFeature "Plagioclase network connectivity; partial melt evidence" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "missing" ;
+    bios:computationalTool [ schema1:name "AvizoFire 8.0; Matlab; Drishti 2.0" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "8 mm diameter core" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Dedicated workflow; specific threshold values N" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 7 ;
+    schema1:description "7 W" ;
+    schema1:name "X-ray Power" ;
+    schema1:valueName "xRayPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+
+```
+
+
+### labxctTAPP example Charles2018
+labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Charles2018",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Charles2018",
+  "schema:description": "labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Robarts Institute, U. Western Ontario"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "CR2 chondrite (NWA 801)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L × W × H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Analysis zone ~3 × 0.7 × 4.1 cm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Chondrule shapes; petrofabric; compaction estimation",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Fixed to motorized gantry along scanner axis"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "10 heads (ring); each 8 × 8 cm face, 2.46 mm² pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+        }
+      ],
+      "schema:name": "Detector Pixel Size",
+      "schema:value": 2.46,
+      "schema:unitText": "example value",
+      "schema:description": "2.46 mm² per pixel (1.57 mm pitch)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationStepSizeDefault",
+      "schema:name": "Rotation Step Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.4,
+      "schema:description": "0.4°/view"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ctNumberCalibrationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ctNumberCalibrationDefault",
+      "schema:name": "CT Number Calibration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Hounsfield units — calibrated with air, water, bone, and Al imaged in same session"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Chondrule boundaries digitized by coordinate measurement; no global greyscale threshold used"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/voiSelectionCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "voiSelectionCriteriaDefault",
+      "schema:name": "VOI Selection Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Three neighboring zones defined by sample geometry (~8.6 cm³ total)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/outputBitDepthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "outputBitDepthDefault",
+      "schema:name": "Output Bit Depth",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "16-bit CT values (voxels)"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Ring-gantry geometry (rotating source, CZT ring detector)",
+  "ada:detectorType": "CdZnTe (CZT) ring detector (10 planar heads, 8×8 cm each, 2.46 mm² pixels)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "110 kV",
+      "ada:tubeCurrentDefault": "32 mA",
+      "ada:voxelSizeDefault": "49.8 µm (edge)",
+      "schema:model": {
+        "schema:name": "GE eXplore speCZT",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationRangeDefault": "360°",
+  "ada:numberOfProjectionsDefault": "900",
+  "ada:exposureTimePerProjectionDefault": "16 ms",
+  "ada:reconstructionAlgorithm": "Filtered back projection with iterative projection geometry corrections",
+  "ada:segmentationMethodDefault": "Manual coordinate digitization of chondrule boundaries in MicroView (54+ points per chondrule)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "MicroView v2.1.2 and 2.5.0-a5"
+    }
+  ],
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Charles2018",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Charles2018",
+  "schema:description": "labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Robarts Institute, U. Western Ontario"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "CR2 chondrite (NWA 801)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Analysis zone ~3 \u00d7 0.7 \u00d7 4.1 cm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Chondrule shapes; petrofabric; compaction estimation",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Fixed to motorized gantry along scanner axis"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "10 heads (ring); each 8 \u00d7 8 cm face, 2.46 mm\u00b2 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+        }
+      ],
+      "schema:name": "Detector Pixel Size",
+      "schema:value": 2.46,
+      "schema:unitText": "example value",
+      "schema:description": "2.46 mm\u00b2 per pixel (1.57 mm pitch)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationStepSizeDefault",
+      "schema:name": "Rotation Step Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.4,
+      "schema:description": "0.4\u00b0/view"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ctNumberCalibrationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ctNumberCalibrationDefault",
+      "schema:name": "CT Number Calibration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Hounsfield units \u2014 calibrated with air, water, bone, and Al imaged in same session"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Chondrule boundaries digitized by coordinate measurement; no global greyscale threshold used"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/voiSelectionCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "voiSelectionCriteriaDefault",
+      "schema:name": "VOI Selection Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Three neighboring zones defined by sample geometry (~8.6 cm\u00b3 total)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/outputBitDepthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "outputBitDepthDefault",
+      "schema:name": "Output Bit Depth",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "16-bit CT values (voxels)"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Ring-gantry geometry (rotating source, CZT ring detector)",
+  "ada:detectorType": "CdZnTe (CZT) ring detector (10 planar heads, 8\u00d78 cm each, 2.46 mm\u00b2 pixels)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "110 kV",
+      "ada:tubeCurrentDefault": "32 mA",
+      "ada:voxelSizeDefault": "49.8 \u00b5m (edge)",
+      "schema:model": {
+        "schema:name": "GE eXplore speCZT",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationRangeDefault": "360\u00b0",
+  "ada:numberOfProjectionsDefault": "900",
+  "ada:exposureTimePerProjectionDefault": "16 ms",
+  "ada:reconstructionAlgorithm": "Filtered back projection with iterative projection geometry corrections",
+  "ada:segmentationMethodDefault": "Manual coordinate digitization of chondrule boundaries in MicroView (54+ points per chondrule)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "MicroView v2.1.2 and 2.5.0-a5"
+    }
+  ],
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Charles2018 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/ctNumberCalibrationDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiSelectionCriteriaDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "GE eXplore speCZT" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "110 kV" ;
+            ada:tubeCurrentDefault "32 mA" ;
+            ada:voxelSizeDefault "49.8 µm (edge)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Robarts Institute, U. Western Ontario" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Charles2018" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "CR2 chondrite (NWA 801)" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "missing" ;
+    ada:detectorType "CdZnTe (CZT) ring detector (10 planar heads, 8×8 cm each, 2.46 mm² pixels)" ;
+    ada:exposureTimePerProjectionDefault "16 ms" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "900" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "Filtered back projection with iterative projection geometry corrections" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault "360°" ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Manual coordinate digitization of chondrule boundaries in MicroView (54+ points per chondrule)" ;
+    ada:targetFeature "Chondrule shapes; petrofabric; compaction estimation" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "Ring-gantry geometry (rotating source, CZT ring detector)" ;
+    bios:computationalTool [ schema1:name "MicroView v2.1.2 and 2.5.0-a5" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/ctNumberCalibrationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Hounsfield units — calibrated with air, water, bone, and Al imaged in same session" ;
+    schema1:name "CT Number Calibration" ;
+    schema1:valueName "ctNumberCalibrationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "16-bit CT values (voxels)" ;
+    schema1:name "Output Bit Depth" ;
+    schema1:valueName "outputBitDepthDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 4e-01 ;
+    schema1:description "0.4°/view" ;
+    schema1:name "Rotation Step Size" ;
+    schema1:valueName "rotationStepSizeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Analysis zone ~3 × 0.7 × 4.1 cm" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Fixed to motorized gantry along scanner axis" ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Chondrule boundaries digitized by coordinate measurement; no global greyscale threshold used" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voiSelectionCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Three neighboring zones defined by sample geometry (~8.6 cm³ total)" ;
+    schema1:name "VOI Selection Criteria" ;
+    schema1:valueName "voiSelectionCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "10 heads (ring); each 8 × 8 cm face, 2.46 mm² pixels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> a schema1:PropertyValue ;
+    schema1:description "2.46 mm² per pixel (1.57 mm pitch)" ;
+    schema1:name "Detector Pixel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> ;
+    schema1:unitText "example value" ;
+    schema1:value 2.46e+00 .
+
+
+```
+
+
+### labxctTAPP example Treiman2022
+labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Treiman2022",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol — Treiman2022",
+  "schema:description": "labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NIST Center for Neutron Research (NCNR)"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Neutron CT (simultaneous, same instrument)",
+        "schema:description": "Simultaneous neutron CT + X-ray CT in NIST-NeXT system; same rotation axis; co-registered"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Howardite (EET 87503); CR2 chondrite (GRA 06100)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "H-bearing minerals; phase density contrast (NXCT)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Aluminum mesh (EET); plastic substrate (GRA)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2560 × 2160 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+        }
+      ],
+      "schema:name": "Detector Pixel Size",
+      "schema:value": 6.5,
+      "schema:unitText": "example value",
+      "schema:description": "6.5 µm (physical pixel size)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/opticalObjective",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/opticalObjective"
+        }
+      ],
+      "schema:name": "Optical Objective",
+      "schema:value": "Infinity-corrected macroscope (not used for these datasets)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Threshold regions defined manually in bivariate histogram space; 7 phase regions defined"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "7 phases from bivariate histogram peaks: void/Al/plagioclase, plastic, anhydrous Mg silicates, Fe silicates, hydrous minerals, Fe-Ti-Cr oxides, Fe metal"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/voiSelectionCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "voiSelectionCriteriaDefault",
+      "schema:name": "VOI Selection Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Full sample volumes; GRA 06100 cropped to remove plastic artifact"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "flatFieldCorrectionDefault",
+            "schema:name": "Flat Field Correction",
+            "ada:dataType": "boolean",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Flat field effects noted (Poisson noise from flat-fielding)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Point source (bremsstrahlung, polychromatic, max 90 keV)",
+  "ada:detectorType": "P43 scintillator (GadOx) + Andor NEO sCMOS camera",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Dragonfly (DRAGONFLY, 2021)"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "90 keV max (paper reports max Bremsstrahlung photon energy; numerically equivalent to 90 kV tube voltage)",
+      "ada:xRayPreFilterDefault": "2 mm aluminum",
+      "ada:voxelSizeDefault": "15 µm — NCT value. The paper gives this as the reconstructed voxel dimension of the NCT (neutron) tomograms; no XCT voxel size is stated anywhere in the paper",
+      "schema:model": {
+        "schema:name": "NIST-NeXT System (custom, BT-2 beamline)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:outputDataFormatDefault": "Raw image slices (available in supplementary material)",
+  "ada:segmentationMethodDefault": "Bivariate histogram segmentation (X-ray attenuation vs. neutron attenuation) in Dragonfly",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Treiman2022",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Treiman2022",
+  "schema:description": "labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NIST Center for Neutron Research (NCNR)"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Neutron CT (simultaneous, same instrument)",
+        "schema:description": "Simultaneous neutron CT + X-ray CT in NIST-NeXT system; same rotation axis; co-registered"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Howardite (EET 87503); CR2 chondrite (GRA 06100)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "H-bearing minerals; phase density contrast (NXCT)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Aluminum mesh (EET); plastic substrate (GRA)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2560 \u00d7 2160 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+        }
+      ],
+      "schema:name": "Detector Pixel Size",
+      "schema:value": 6.5,
+      "schema:unitText": "example value",
+      "schema:description": "6.5 \u00b5m (physical pixel size)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/opticalObjective",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/opticalObjective"
+        }
+      ],
+      "schema:name": "Optical Objective",
+      "schema:value": "Infinity-corrected macroscope (not used for these datasets)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Threshold regions defined manually in bivariate histogram space; 7 phase regions defined"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "phaseIdentificationMethodDefault",
+      "schema:name": "Phase Identification Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "7 phases from bivariate histogram peaks: void/Al/plagioclase, plastic, anhydrous Mg silicates, Fe silicates, hydrous minerals, Fe-Ti-Cr oxides, Fe metal"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/voiSelectionCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "voiSelectionCriteriaDefault",
+      "schema:name": "VOI Selection Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Full sample volumes; GRA 06100 cropped to remove plastic artifact"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "flatFieldCorrectionDefault",
+            "schema:name": "Flat Field Correction",
+            "ada:dataType": "boolean",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Flat field effects noted (Poisson noise from flat-fielding)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Point source (bremsstrahlung, polychromatic, max 90 keV)",
+  "ada:detectorType": "P43 scintillator (GadOx) + Andor NEO sCMOS camera",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Dragonfly (DRAGONFLY, 2021)"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "90 keV max (paper reports max Bremsstrahlung photon energy; numerically equivalent to 90 kV tube voltage)",
+      "ada:xRayPreFilterDefault": "2 mm aluminum",
+      "ada:voxelSizeDefault": "15 \u00b5m \u2014 NCT value. The paper gives this as the reconstructed voxel dimension of the NCT (neutron) tomograms; no XCT voxel size is stated anywhere in the paper",
+      "schema:model": {
+        "schema:name": "NIST-NeXT System (custom, BT-2 beamline)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:outputDataFormatDefault": "Raw image slices (available in supplementary material)",
+  "ada:segmentationMethodDefault": "Bivariate histogram segmentation (X-ray attenuation vs. neutron attenuation) in Dragonfly",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Treiman2022 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiSelectionCriteriaDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "NIST-NeXT System (custom, BT-2 beamline)" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "90 keV max (paper reports max Bremsstrahlung photon energy; numerically equivalent to 90 kV tube voltage)" ;
+            ada:voxelSizeDefault "15 µm — NCT value. The paper gives this as the reconstructed voxel dimension of the NCT (neutron) tomograms; no XCT voxel size is stated anywhere in the paper" ;
+            ada:xRayPreFilterDefault "2 mm aluminum" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "NIST Center for Neutron Research (NCNR)" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Treiman2022" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Howardite (EET 87503); CR2 chondrite (GRA 06100)" ] ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Simultaneous neutron CT + X-ray CT in NIST-NeXT system; same rotation axis; co-registered" ;
+                    schema1:name "Neutron CT (simultaneous, same instrument)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "missing" ;
+    ada:detectorType "P43 scintillator (GadOx) + Andor NEO sCMOS camera" ;
+    ada:exposureTimePerProjectionDefault -9999 ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault -9999 ;
+    ada:outputDataFormatDefault "Raw image slices (available in supplementary material)" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Bivariate histogram segmentation (X-ray attenuation vs. neutron attenuation) in Dragonfly" ;
+    ada:targetFeature "H-bearing minerals; phase density contrast (NXCT)" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "Point source (bremsstrahlung, polychromatic, max 90 keV)" ;
+    bios:computationalTool [ schema1:name "Dragonfly (DRAGONFLY, 2021)" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Flat field effects noted (Poisson noise from flat-fielding)" ;
+    schema1:name "Flat Field Correction" ;
+    schema1:valueName "flatFieldCorrectionDefault" ;
+    ada:dataType "boolean" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "7 phases from bivariate histogram peaks: void/Al/plagioclase, plastic, anhydrous Mg silicates, Fe silicates, hydrous minerals, Fe-Ti-Cr oxides, Fe metal" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Aluminum mesh (EET); plastic substrate (GRA)" ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Threshold regions defined manually in bivariate histogram space; 7 phase regions defined" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voiSelectionCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Full sample volumes; GRA 06100 cropped to remove plastic artifact" ;
+    schema1:name "VOI Selection Criteria" ;
+    schema1:valueName "voiSelectionCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "2560 × 2160 pixels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> a schema1:PropertyValue ;
+    schema1:description "6.5 µm (physical pixel size)" ;
+    schema1:name "Detector Pixel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> ;
+    schema1:unitText "example value" ;
+    schema1:value 6.5e+00 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective> a schema1:PropertyValue ;
+    schema1:name "Optical Objective" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective> ;
+    schema1:value "Infinity-corrected macroscope (not used for these datasets)" .
+
+
+```
+
 ## Schema
 
 ```yaml
@@ -16,9 +8861,9 @@ description: 'Laboratory X-ray computed tomography (polychromatic cone-beam) ext
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification
   entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined.
-  Generated from TAPPS20260813/Current TAPPs/Lab-XCT_TAPP_v17.xlsx by tools/build_tapp.py.'
+  Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v21.csv by tools/build_tapp.py.'
 allOf:
-- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - type: object
   properties:
     schema:name:
@@ -164,8 +9009,10 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to scan. Used for discoverability
-                              and procedure matching.
+                              this procedure is designed to analyse. Used for discoverability
+                              and procedure matching, and because the material type
+                              constrains sample preparation, calibration and matrix-matching
+                              requirements.
                             anyOf:
                             - type: string
                               enum:
@@ -312,36 +9159,6 @@ allOf:
               const: sampleMountingMethodDefault
             schema:name:
               const: Sample Mounting Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Sample Preparation Notes
-          description: Any preparation steps applied to the sample before scanning,
-            including cleaning, trimming, consolidation, or drying. XCT is typically
-            non-destructive with no surface preparation required; note any exceptions.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/labxctTAPP/samplePreparationNotesDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: samplePreparationNotesDefault
-            schema:name:
-              const: Sample Preparation Notes
             ada:dataType:
               const: string
             ada:fieldScope:
@@ -1070,39 +9887,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          title: Sample Preparation Notes
-          description: Any preparation steps applied to the sample before scanning,
-            including cleaning, trimming, consolidation, or drying. XCT is typically
-            non-destructive with no surface preparation required; note any exceptions.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/labxctTAPP/samplePreparationNotesDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: samplePreparationNotesDefault
-            schema:name:
-              const: Sample Preparation Notes
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
           title: X-ray Tube Anode Material
           description: Material of the X-ray tube anode (target). Determines the characteristic
             line energies superimposed on the bremsstrahlung continuum, which can
@@ -1803,201 +10587,6 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
-    ada:ctSystemManufacturerAndModel:
-      description: Manufacturer and model name of the CT system. For custom-built
-        systems, report the make/model of the X-ray source and detector separately.
-        Include facility name for multi-user shared instruments.
-      type: string
-      readOnly: true
-    ada:xRaySourceConfiguration:
-      description: Focal spot geometry and scale of the X-ray tube. Reflection target
-        configurations are most common in lab XCT (X-rays emitted from the face of
-        the anode toward the sample); transmission target configurations allow smaller
-        focal spots by thinning the anode into a membrane and collecting X-rays from
-        the back, enabling higher spatial resolution at the cost of lower maximum
-        power.
-      anyOf:
-      - type: string
-        enum:
-        - Reflection target, microfocal
-        - Reflection target, rotating (high-power)
-        - Transmission target, nanofocal
-        - N/A
-        - None
-        - missing
-      - type: string
-      readOnly: true
-    ada:detectorType:
-      description: Type of X-ray detector used to record projection images. Flat-panel
-        detectors (amorphous silicon) are standard in Nikon, NSI, and similar systems.
-        CCD or CMOS detectors coupled to a scintillator via an optical objective are
-        used in Zeiss Xradia Versa systems, enabling optical magnification for sub-micrometre
-        voxel sizes.
-      anyOf:
-      - type: string
-        enum:
-        - Flat-panel (amorphous silicon, a-Si)
-        - CCD + scintillator (with optical objective)
-        - CMOS + scintillator
-        - N/A
-        - None
-        - missing
-      - type: string
-      readOnly: true
-    bios:computationalTool:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Instrument control and data acquisition software used
-                  to collect raw projection images, including version number. Separate
-                  from reconstruction and segmentation software.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
-                const: dataReduction
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Software used for image segmentation, phase identification,
-                  and quantitative 3D analysis after reconstruction. Report all packages
-                  used, with version numbers.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        required:
-        - ada:toolRole
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Primary analytical mode(s) executed under this procedure. For
-          single-mode procedures, records one value (e.g., Single-volume). For procedures
-          covering both single-volume and multi-volume stitched acquisitions, list
-          all applicable modes. Serves as the procedure-level declaration of measurement
-          type, distinct from the mode flag columns which indicate per-field applicability.
-        type: string
-        enum:
-        - Single-volume
-        - Multi-volume stitching
-        - Single-volume; Multi-volume stitching
-        - missing
-        readOnly: true
-    schema:instrument:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              schema:additionalType:
-                contains:
-                  const: XCT
-            required:
-            - schema:additionalType
-          then:
-            properties:
-              ada:acceleratingVoltageDefault:
-                description: "X-ray tube accelerating voltage in kilovolts (kV) registered
-                  by the procedure. Determines the maximum X-ray photon energy and
-                  controls penetration depth and phase contrast. Higher voltages provide
-                  greater penetration for dense or large samples; lower voltages improve
-                  contrast between low-density phases. If the voltage was varied across
-                  samples within the same procedure or session, report the full range
-                  applied (e.g., 90\u2013115 kV). Note: some sources report this parameter
-                  as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X
-                  kV' (tube voltage). For polychromatic lab XCT, these are numerically
-                  equivalent: E_max [keV] = V [kV]. Record the value as originally
-                  reported, and add a parenthetical note if the unit used is keV."
-                anyOf:
-                - type: number
-                - type: string
-              ada:tubeCurrentDefault:
-                description: "X-ray tube current in microamperes (\xB5A) registered
-                  by the procedure. Controls photon flux and therefore projection
-                  image SNR. Higher current improves SNR but increases thermal loading
-                  on the source and may increase focal spot size. If the current was
-                  varied across samples within the same procedure or session, report
-                  the full range applied (e.g., 65\u2013115 \xB5A)."
-                anyOf:
-                - type: number
-                - type: string
-              ada:xRayPreFilterDefault:
-                description: Material and thickness of the beam-hardening filter placed
-                  between the X-ray source and the sample. Hardens the beam by attenuating
-                  low-energy photons, reducing beam hardening artifacts and improving
-                  CT number stability across the sample. Both filter material and
-                  thickness must be reported. Instrument-proprietary filter codes
-                  should be decoded where possible.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-              ada:voxelSizeDefault:
-                description: "Isotropic voxel edge length of the reconstructed 3D
-                  volume in micrometres. The procedure registers the target voxel
-                  size, set based on the smallest feature to be resolved (target voxel
-                  size \u2264 ~1/3 of that feature size; see the criterion recorded
-                  under Partial Volume Effect Criteria). At analysis level, record
-                  the achieved voxel size as reported by the reconstruction software,
-                  which may differ slightly from the target due to final geometric
-                  calibration."
-                anyOf:
-                - type: number
-                - type: string
-      allOf:
-      - contains:
-          properties:
-            schema:additionalType:
-              contains:
-                const: XCT
-          required:
-          - schema:additionalType
-    ada:rotationRangeDefault:
-      description: "Total angular range over which projection images are acquired,
-        in degrees. Full 360\xB0 rotation is standard for cone-beam lab XCT. 180\xB0
-        rotation (half-scan) is sometimes used for faster acquisition but may introduce
-        additional artifacts."
-      anyOf:
-      - type: number
-      - type: string
-    ada:numberOfProjectionsDefault:
-      description: Total number of equally-spaced projection images acquired over
-        the full rotation range. More projections improve reconstruction quality by
-        reducing under-sampling streak artifacts but increase scan time. For Mode
-        B (multi-volume stitching), this is the number per sub-volume.
-      anyOf:
-      - type: integer
-      - type: string
-    ada:exposureTimePerProjectionDefault:
-      description: "Duration of X-ray exposure for each individual projection image
-        frame, in seconds, as registered by the procedure. Set as a deliberate choice
-        for the target sample type and voxel size: longer exposures increase SNR at
-        the cost of total scan time. May be adjusted within procedure-allowed bounds
-        for samples that are unusually dense or unusually transparent. If the exposure
-        time was varied across samples within the same procedure or session, report
-        the full range applied (e.g., 0.5\u20132 s)."
-      anyOf:
-      - type: number
-      - type: string
     schema:actionProcess:
       type: object
       properties:
@@ -2006,6 +10595,24 @@ allOf:
           items:
             type: object
             allOf:
+            - if:
+                properties:
+                  schema:name:
+                    const: Sample preparation
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:description:
+                    description: Any preparation steps applied to the sample before
+                      scanning, including cleaning, trimming, consolidation, or drying.
+                      XCT is typically non-destructive with no surface preparation
+                      required; note any exceptions.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
             - if:
                 properties:
                   schema:name:
@@ -2320,6 +10927,232 @@ allOf:
                   const: Data reduction
               required:
               - schema:name
+    ada:xRaySourceConfiguration:
+      description: Focal spot geometry and scale of the X-ray tube. Reflection target
+        configurations are most common in lab XCT (X-rays emitted from the face of
+        the anode toward the sample); transmission target configurations allow smaller
+        focal spots by thinning the anode into a membrane and collecting X-rays from
+        the back, enabling higher spatial resolution at the cost of lower maximum
+        power.
+      anyOf:
+      - type: string
+        enum:
+        - Reflection target, microfocal
+        - Reflection target, rotating (high-power)
+        - Transmission target, nanofocal
+        - N/A
+        - None
+        - missing
+      - type: string
+      readOnly: true
+    ada:detectorType:
+      description: Type of X-ray detector used to record projection images. Flat-panel
+        detectors (amorphous silicon) are standard in Nikon, NSI, and similar systems.
+        CCD or CMOS detectors coupled to a scintillator via an optical objective are
+        used in Zeiss Xradia Versa systems, enabling optical magnification for sub-micrometre
+        voxel sizes.
+      anyOf:
+      - type: string
+        enum:
+        - Flat-panel (amorphous silicon, a-Si)
+        - CCD + scintillator (with optical objective)
+        - CMOS + scintillator
+        - N/A
+        - None
+        - missing
+      - type: string
+      readOnly: true
+    bios:computationalTool:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              ada:toolRole:
+                const: acquisition
+            required:
+            - ada:toolRole
+          then:
+            properties:
+              schema:name:
+                description: Instrument control, automation and data acquisition software
+                  used to collect the raw data, including version number. Distinct
+                  from Data Processing Software(s), which covers everything applied
+                  to the data after acquisition.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+        - if:
+            properties:
+              ada:toolRole:
+                const: dataReduction
+            required:
+            - ada:toolRole
+          then:
+            properties:
+              schema:name:
+                description: All software applied to the data after acquisition in
+                  order to produce the reported quantities, including version numbers.
+                  List every package used. Distinct from Acquisition Software, which
+                  controls the instrument and collects the raw data.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+        required:
+        - ada:toolRole
+    ada:analyticalMode:
+      type: array
+      items:
+        description: Primary analytical mode(s) executed under this procedure. Records
+          one value for a single-mode procedure and all applicable modes for a multi-mode
+          one. Serves as the procedure-level declaration of measurement type, distinct
+          from the mode flag columns, which state per-field applicability. Required
+          even where a procedure defines no mode flag columns, so that every procedure
+          record is self-describing and comparable across the library.
+        type: string
+        enum:
+        - Single-volume
+        - Multi-volume stitching
+        - Single-volume; Multi-volume stitching
+        - missing
+        readOnly: true
+    schema:instrument:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              schema:additionalType:
+                contains:
+                  const: XCT
+            required:
+            - schema:additionalType
+          then:
+            properties:
+              ada:acceleratingVoltageDefault:
+                description: "X-ray tube accelerating voltage in kilovolts (kV) registered
+                  by the procedure. Determines the maximum X-ray photon energy and
+                  controls penetration depth and phase contrast. Higher voltages provide
+                  greater penetration for dense or large samples; lower voltages improve
+                  contrast between low-density phases. If the voltage was varied across
+                  samples within the same procedure or session, report the full range
+                  applied (e.g., 90\u2013115 kV). Note: some sources report this parameter
+                  as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X
+                  kV' (tube voltage). For polychromatic lab XCT, these are numerically
+                  equivalent: E_max [keV] = V [kV]. Record the value as originally
+                  reported, and add a parenthetical note if the unit used is keV."
+                anyOf:
+                - type: number
+                - type: string
+              ada:tubeCurrentDefault:
+                description: "X-ray tube current in microamperes (\xB5A) registered
+                  by the procedure. Controls photon flux and therefore projection
+                  image SNR. Higher current improves SNR but increases thermal loading
+                  on the source and may increase focal spot size. If the current was
+                  varied across samples within the same procedure or session, report
+                  the full range applied (e.g., 65\u2013115 \xB5A)."
+                anyOf:
+                - type: number
+                - type: string
+              ada:xRayPreFilterDefault:
+                description: Material and thickness of the beam-hardening filter placed
+                  between the X-ray source and the sample. Hardens the beam by attenuating
+                  low-energy photons, reducing beam hardening artifacts and improving
+                  CT number stability across the sample. Both filter material and
+                  thickness must be reported. Instrument-proprietary filter codes
+                  should be decoded where possible.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+              ada:voxelSizeDefault:
+                description: "Isotropic voxel edge length of the reconstructed 3D
+                  volume in micrometres. The procedure registers the target voxel
+                  size, set based on the smallest feature to be resolved (target voxel
+                  size \u2264 ~1/3 of that feature size; see the criterion recorded
+                  under Partial Volume Effect Criteria). At analysis level, record
+                  the achieved voxel size as reported by the reconstruction software,
+                  which may differ slightly from the target due to final geometric
+                  calibration."
+                anyOf:
+                - type: number
+                - type: string
+              schema:manufacturer:
+                type: object
+                properties:
+                  schema:name:
+                    description: Manufacturer of the instrument that performs the
+                      measurement, recorded as a controlled value so that procedures
+                      can be found by vendor. Where a procedure couples a sample-introduction
+                      system to an analysing instrument, this records the analysing
+                      instrument. Instrument Model gives the specific designation.
+                    type: string
+                    enum:
+                    - Nikon
+                    - Zeiss
+                    - Bruker
+                    - GE / Waygate
+                    - North Star Imaging
+                    - RX Solutions
+                    - Custom-built
+                    - Unknown
+                    - N/A
+                    - None
+                    - missing
+                    readOnly: true
+              schema:model:
+                type: object
+                properties:
+                  schema:name:
+                    description: Model designation of the instrument that performs
+                      the measurement, including any generation or configuration suffix.
+                      Conventionally written with the manufacturer name included;
+                      Instrument Manufacturer records the vendor separately, as a
+                      controlled value, so that procedures remain findable by vendor.
+                    type: string
+                    readOnly: true
+      allOf:
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                const: XCT
+          required:
+          - schema:additionalType
+    ada:rotationRangeDefault:
+      description: "Total angular range over which projection images are acquired,
+        in degrees. Full 360\xB0 rotation is standard for cone-beam lab XCT. 180\xB0
+        rotation (half-scan) is sometimes used for faster acquisition but may introduce
+        additional artifacts."
+      anyOf:
+      - type: number
+      - type: string
+    ada:numberOfProjectionsDefault:
+      description: Total number of equally-spaced projection images acquired over
+        the full rotation range. More projections improve reconstruction quality by
+        reducing under-sampling streak artifacts but increase scan time. For Mode
+        B (multi-volume stitching), this is the number per sub-volume.
+      anyOf:
+      - type: integer
+      - type: string
+    ada:exposureTimePerProjectionDefault:
+      description: "Duration of X-ray exposure for each individual projection image
+        frame, in seconds, as registered by the procedure. Set as a deliberate choice
+        for the target sample type and voxel size: longer exposures increase SNR at
+        the cost of total scan time. May be adjusted within procedure-allowed bounds
+        for samples that are unusually dense or unusually transparent. If the exposure
+        time was varied across samples within the same procedure or session, report
+        the full range applied (e.g., 0.5\u20132 s)."
+      anyOf:
+      - type: number
+      - type: string
     ada:rotationModeDefault:
       description: Whether projection images are acquired during continuous sample
         rotation (faster; may introduce slight motion blur at high rotation speeds)
@@ -2467,7 +11300,6 @@ allOf:
   - schema:datePublished
   - ada:targetFeature
   - ada:applicableSampleDimensionRange
-  - ada:ctSystemManufacturerAndModel
   - ada:xRaySourceConfiguration
   - ada:detectorType
   - ada:rotationRangeDefault
@@ -2486,8 +11318,8 @@ allOf:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/schema.yaml)
 
 
 # JSON-LD Context
@@ -2515,7 +11347,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld)
 
 ## Sources
 

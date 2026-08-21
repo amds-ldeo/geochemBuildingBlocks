@@ -7,6 +7,2182 @@ Laboratory X-ray computed tomography analysis-specific detail properties. Discri
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example Eckley2024
+detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Eckley2024",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Eckley2024"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "Scott Eckley",
+  "ada:analysisStartDate": "2024-10-29",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "OREX-800099-0",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Eckley2024",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Eckley2024"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "Scott Eckley",
+  "ada:analysisStartDate": "2024-10-29",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "OREX-800099-0",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Eckley2024 a ada:XCTVolume ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Eckley2024 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-10-29" ;
+    ada:analyst "Scott Eckley" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "missing" ;
+    ada:sampleName "OREX-800099-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "missing" .
+
+
+```
+
+
+### detail example Genge2025
+detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Genge2025",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Genge2025"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "1.592 × 0.756 × 0.985 mm",
+  "ada:sampleName": "A0180 (A0180-A and A0180-B)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full scan volume",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — the paper's \"spatial resolutions (in voxels)\" are the voxel sizes (0.625 / 0.672 µm); no effective (PSF/MTF) resolution reported"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Genge2025",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Genge2025"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "1.592 \u00d7 0.756 \u00d7 0.985 mm",
+  "ada:sampleName": "A0180 (A0180-A and A0180-B)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full scan volume",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 the paper's \"spatial resolutions (in voxels)\" are the voxel sizes (0.625 / 0.672 \u00b5m); no effective (PSF/MTF) resolution reported"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Genge2025 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Genge2025 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "1.592 × 0.756 × 0.985 mm" ;
+    ada:sampleName "A0180 (A0180-A and A0180-B)" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "Full scan volume" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — the paper's \"spatial resolutions (in voxels)\" are the voxel sizes (0.625 / 0.672 µm); no effective (PSF/MTF) resolution reported" .
+
+
+```
+
+
+### detail example Neuman2025
+detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Neuman2025",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Neuman2025"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "~35 cm length core",
+  "ada:sampleName": "Apollo 17 core 73002",
+  "ada:samplingUnit": "missing",
+  "ada:numberOfSubVolumes": 6,
+  "ada:voiApplied": "Full core length per sub-volume",
+  "ada:subVolumeOverlap": "~380 slices per sub-volume overlap"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Neuman2025",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Neuman2025"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "~35 cm length core",
+  "ada:sampleName": "Apollo 17 core 73002",
+  "ada:samplingUnit": "missing",
+  "ada:numberOfSubVolumes": 6,
+  "ada:voiApplied": "Full core length per sub-volume",
+  "ada:subVolumeOverlap": "~380 slices per sub-volume overlap"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Neuman2025 a ada:XCTVolume ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Neuman2025 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:numberOfSubVolumes 6 ;
+    ada:sampleDimensions "~35 cm length core" ;
+    ada:sampleName "Apollo 17 core 73002" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:subVolumeOverlap "~380 slices per sub-volume overlap" ;
+    ada:voiApplied "Full core length per sub-volume" .
+
+
+```
+
+
+### detail example Neuman2025-2
+detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Neuman2025-2",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Neuman2025-2"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "~35 cm length core",
+  "ada:sampleName": "Apollo 17 core 73001",
+  "ada:samplingUnit": "missing",
+  "ada:numberOfSubVolumes": 9,
+  "ada:voiApplied": "Full core length per sub-volume"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Neuman2025-2",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Neuman2025-2"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "~35 cm length core",
+  "ada:sampleName": "Apollo 17 core 73001",
+  "ada:samplingUnit": "missing",
+  "ada:numberOfSubVolumes": 9,
+  "ada:voiApplied": "Full core length per sub-volume"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Neuman2025-2 a ada:XCTVolume ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Neuman2025-2 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:numberOfSubVolumes 9 ;
+    ada:sampleDimensions "~35 cm length core" ;
+    ada:sampleName "Apollo 17 core 73001" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "Full core length per sub-volume" .
+
+
+```
+
+
+### detail example Shearer2024
+detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Shearer2024",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Shearer2024"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "73001 CSVC",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — voxel size only (38.49 µm); no effective resolution reported. The paper's \"spatial resolution of 60 µm\" is the multispectral core imager, not this XCT scan"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Shearer2024",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Shearer2024"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "73001 CSVC",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 voxel size only (38.49 \u00b5m); no effective resolution reported. The paper's \"spatial resolution of 60 \u00b5m\" is the multispectral core imager, not this XCT scan"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Shearer2024 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Shearer2024 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "missing" ;
+    ada:sampleName "73001 CSVC" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "missing" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — voxel size only (38.49 µm); no effective resolution reported. The paper's \"spatial resolution of 60 µm\" is the multispectral core imager, not this XCT scan" .
+
+
+```
+
+
+### detail example Shearer2024-2
+detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 particles Single-volume Nikon XTH 320 NASA JSC X-FaCT.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Shearer2024-2",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Shearer2024-2"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "Multiple particles from 73001 and 73002",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — voxel size only (2.8–20.6 µm); no effective resolution reported. The paper's \"spatial resolution of 60 µm\" is the multispectral core imager, not this XCT scan"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Shearer2024-2",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Shearer2024-2"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "Multiple particles from 73001 and 73002",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 voxel size only (2.8\u201320.6 \u00b5m); no effective resolution reported. The paper's \"spatial resolution of 60 \u00b5m\" is the multispectral core imager, not this XCT scan"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Shearer2024-2 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Shearer2024-2 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "missing" ;
+    ada:sampleName "Multiple particles from 73001 and 73002" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "missing" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — voxel size only (2.8–20.6 µm); no effective resolution reported. The paper's \"spatial resolution of 60 µm\" is the multispectral core imager, not this XCT scan" .
+
+
+```
+
+
+### detail example Tomkinson2015
+detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Tomkinson2015",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Tomkinson2015"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "~1.1 × 1.2 × 0.8 cm",
+  "ada:sampleName": "NWA 5790",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — the paper states \"a resolution of 10.3 x 10.3 x 10.3 µm³ per voxel\", i.e. the voxel size; no effective resolution reported"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Tomkinson2015",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Tomkinson2015"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "~1.1 \u00d7 1.2 \u00d7 0.8 cm",
+  "ada:sampleName": "NWA 5790",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 the paper states \"a resolution of 10.3 x 10.3 x 10.3 \u00b5m\u00b3 per voxel\", i.e. the voxel size; no effective resolution reported"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Tomkinson2015 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Tomkinson2015 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "~1.1 × 1.2 × 0.8 cm" ;
+    ada:sampleName "NWA 5790" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — the paper states \"a resolution of 10.3 x 10.3 x 10.3 µm³ per voxel\", i.e. the voxel size; no effective resolution reported" .
+
+
+```
+
+
+### detail example Glavin2023
+detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Glavin2023",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Glavin2023"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "Scott A. Eckley",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "Murchison B (USNM 5453,1)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full vial volume (2000 × 2000 × 2000 voxels)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "~30 µm — stated as \"resolution limits of ~30 µm (around 3x the voxel size)\" against an 11.54 µm voxel. Rule-of-thumb estimate; no PSF or MTF measurement"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Glavin2023",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Glavin2023"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "Scott A. Eckley",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "Murchison B (USNM 5453,1)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full vial volume (2000 \u00d7 2000 \u00d7 2000 voxels)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "~30 \u00b5m \u2014 stated as \"resolution limits of ~30 \u00b5m (around 3x the voxel size)\" against an 11.54 \u00b5m voxel. Rule-of-thumb estimate; no PSF or MTF measurement"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Glavin2023 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Glavin2023 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "Scott A. Eckley" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "missing" ;
+    ada:sampleName "Murchison B (USNM 5453,1)" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "Full vial volume (2000 × 2000 × 2000 voxels)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "~30 µm — stated as \"resolution limits of ~30 µm (around 3x the voxel size)\" against an 11.54 µm voxel. Rule-of-thumb estimate; no PSF or MTF measurement" .
+
+
+```
+
+
+### detail example Dias2019
+detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Dias2019",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Dias2019"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "~4 mm fragments",
+  "ada:sampleName": "NWA 8277; NWA 6963",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "5.39 mm³ total analyzed volume (NWA 8277)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — voxel size only (5.34 µm); the paper describes resolution only generically (\"of the order of microns\")"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Dias2019",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Dias2019"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "~4 mm fragments",
+  "ada:sampleName": "NWA 8277; NWA 6963",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "5.39 mm\u00b3 total analyzed volume (NWA 8277)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 voxel size only (5.34 \u00b5m); the paper describes resolution only generically (\"of the order of microns\")"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Dias2019 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Dias2019 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "~4 mm fragments" ;
+    ada:sampleName "NWA 8277; NWA 6963" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "5.39 mm³ total analyzed volume (NWA 8277)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — voxel size only (5.34 µm); the paper describes resolution only generically (\"of the order of microns\")" .
+
+
+```
+
+
+### detail example Richard2019
+detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Richard2019",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Richard2019"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "~1 mm olivine",
+  "ada:sampleName": "Sample A (olivine)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full scan volume",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — the paper's \"spatial resolution of 2.06 µm/px (8.7 µm³/vx)\" is the voxel size; no effective resolution reported"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Richard2019",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Richard2019"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "~1 mm olivine",
+  "ada:sampleName": "Sample A (olivine)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full scan volume",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 the paper's \"spatial resolution of 2.06 \u00b5m/px (8.7 \u00b5m\u00b3/vx)\" is the voxel size; no effective resolution reported"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Richard2019 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Richard2019 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "~1 mm olivine" ;
+    ada:sampleName "Sample A (olivine)" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "Full scan volume" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — the paper's \"spatial resolution of 2.06 µm/px (8.7 µm³/vx)\" is the voxel size; no effective resolution reported" .
+
+
+```
+
+
+### detail example Richard2019-2
+detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Richard2019-2",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Richard2019-2"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "3 × 5 × 2 cm",
+  "ada:sampleName": "Sample B (synthetic quartz)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full scan volume",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — the paper's \"spatial resolution\" figures are given in µm/px with voxel volumes, i.e. the voxel size (25 µm); no effective resolution reported"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Richard2019-2",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Richard2019-2"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "3 \u00d7 5 \u00d7 2 cm",
+  "ada:sampleName": "Sample B (synthetic quartz)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full scan volume",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 the paper's \"spatial resolution\" figures are given in \u00b5m/px with voxel volumes, i.e. the voxel size (25 \u00b5m); no effective resolution reported"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Richard2019-2 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Richard2019-2 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "3 × 5 × 2 cm" ;
+    ada:sampleName "Sample B (synthetic quartz)" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "Full scan volume" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — the paper's \"spatial resolution\" figures are given in µm/px with voxel volumes, i.e. the voxel size (25 µm); no effective resolution reported" .
+
+
+```
+
+
+### detail example Richard2019-3
+detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Richard2019-3",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Richard2019-3"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "3 × 5 × 2 cm",
+  "ada:sampleName": "Sample B (synthetic quartz)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full scan volume",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — the paper's \"spatial resolution\" figures are given in µm/px with voxel volumes, i.e. the voxel size (7.7 µm); no effective resolution reported"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Richard2019-3",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Richard2019-3"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "3 \u00d7 5 \u00d7 2 cm",
+  "ada:sampleName": "Sample B (synthetic quartz)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full scan volume",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 the paper's \"spatial resolution\" figures are given in \u00b5m/px with voxel volumes, i.e. the voxel size (7.7 \u00b5m); no effective resolution reported"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Richard2019-3 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Richard2019-3 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "3 × 5 × 2 cm" ;
+    ada:sampleName "Sample B (synthetic quartz)" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "Full scan volume" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — the paper's \"spatial resolution\" figures are given in µm/px with voxel volumes, i.e. the voxel size (7.7 µm); no effective resolution reported" .
+
+
+```
+
+
+### detail example Richard2019-4
+detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Richard2019-4",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Richard2019-4"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "Varies: 0.3×0.4 to 11×11×7 mm",
+  "ada:sampleName": "Samples C–I (various)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full scan volume per sample",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — the paper's \"spatial resolution\" figures are given in µm/px with voxel volumes, i.e. the voxel size (0.77–3.5 µm); no effective resolution reported"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Richard2019-4",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Richard2019-4"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "Varies: 0.3\u00d70.4 to 11\u00d711\u00d77 mm",
+  "ada:sampleName": "Samples C\u2013I (various)",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full scan volume per sample",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 the paper's \"spatial resolution\" figures are given in \u00b5m/px with voxel volumes, i.e. the voxel size (0.77\u20133.5 \u00b5m); no effective resolution reported"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Richard2019-4 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Richard2019-4 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "Varies: 0.3×0.4 to 11×11×7 mm" ;
+    ada:sampleName "Samples C–I (various)" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "Full scan volume per sample" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — the paper's \"spatial resolution\" figures are given in µm/px with voxel volumes, i.e. the voxel size (0.77–3.5 µm); no effective resolution reported" .
+
+
+```
+
+
+### detail example Tait2014
+detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Tait2014",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Tait2014"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "8 mm diameter core",
+  "ada:sampleName": "Watson 012",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full 8 mm core volume",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — voxel size only (1.923 µm); no spatial resolution reported"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Tait2014",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Tait2014"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "8 mm diameter core",
+  "ada:sampleName": "Watson 012",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full 8 mm core volume",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 voxel size only (1.923 \u00b5m); no spatial resolution reported"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Tait2014 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Tait2014 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "8 mm diameter core" ;
+    ada:sampleName "Watson 012" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "Full 8 mm core volume" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — voxel size only (1.923 µm); no spatial resolution reported" .
+
+
+```
+
+
+### detail example Charles2018
+detail instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Charles2018",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Charles2018"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "Analysis zone ~3 × 0.7 × 4.1 cm",
+  "ada:sampleName": "NWA 801",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "~8.6 cm³ parallelepiped (three neighboring zones)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N — voxel size only (49.8 µm); no spatial resolution reported"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Charles2018",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Charles2018"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "Analysis zone ~3 \u00d7 0.7 \u00d7 4.1 cm",
+  "ada:sampleName": "NWA 801",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "~8.6 cm\u00b3 parallelepiped (three neighboring zones)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N \u2014 voxel size only (49.8 \u00b5m); no spatial resolution reported"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Charles2018 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Charles2018 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "Analysis zone ~3 × 0.7 × 4.1 cm" ;
+    ada:sampleName "NWA 801" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "~8.6 cm³ parallelepiped (three neighboring zones)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N — voxel size only (49.8 µm); no spatial resolution reported" .
+
+
+```
+
+
+### detail example Treiman2022
+detail instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Treiman2022",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Treiman2022"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "EET 87503,73; GRA 06100,84",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full sample volumes; GRA 06100 cropped to remove plastic region",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N for XCT — the paper's only resolution statement (\"reconstructed voxel dimension of 15 µm with a minimum resolution of 30 µm\") is explicitly for the NCT (neutron) tomograms; no XCT resolution is reported"
+    }
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Treiman2022",
+  "@type": [
+    "ada:XCTVolume"
+  ],
+  "ada:componentType": "ada:XCTVolume",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:labxctTAPP-Treiman2022"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "EET 87503,73; GRA 06100,84",
+  "ada:samplingUnit": "missing",
+  "ada:voiApplied": "Full sample volumes; GRA 06100 cropped to remove plastic region",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
+        }
+      ],
+      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
+      "schema:value": "N for XCT \u2014 the paper's only resolution statement (\"reconstructed voxel dimension of 15 \u00b5m with a minimum resolution of 30 \u00b5m\") is explicitly for the NCT (neutron) tomograms; no XCT resolution is reported"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+
+ex:detail-Treiman2022 a ada:XCTVolume ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:labxctTAPP-Treiman2022 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:XCTVolume" ;
+    ada:sampleDimensions "missing" ;
+    ada:sampleName "EET 87503,73; GRA 06100,84" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:voiApplied "Full sample volumes; GRA 06100 cropped to remove plastic region" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
+    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
+    schema1:value "N for XCT — the paper's only resolution statement (\"reconstructed voxel dimension of 15 µm with a minimum resolution of 30 µm\") is explicitly for the NCT (neutron) tomograms; no XCT resolution is reported" .
+
+
+```
+
 ## Schema
 
 ```yaml
@@ -273,30 +2449,6 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - title: Sample Preparation Notes
-              description: Any preparation steps applied to the sample before scanning,
-                including cleaning, trimming, consolidation, or drying. XCT is typically
-                non-destructive with no surface preparation required; note any exceptions.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/labxctTAPP/samplePreparationNotes
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/labxctTAPP/samplePreparationNotes
-                schema:name:
-                  const: Sample Preparation Notes
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
             - title: X-ray Power
               description: "X-ray tube power in watts (W) registered by the procedure.
                 Derivable as voltage (kV) \xD7 current (mA) = kV \xD7 \xB5A / 1000.
@@ -392,6 +2544,64 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
+            - title: Rotation Range
+              description: "Total angular range over which projection images are acquired,
+                in degrees. Full 360\xB0 rotation is standard for cone-beam lab XCT.
+                180\xB0 rotation (half-scan) is sometimes used for faster acquisition
+                but may introduce additional artifacts."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/rotationRange
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/rotationRange
+                schema:name:
+                  const: Rotation Range
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - title: Number of Projections
+              description: Total number of equally-spaced projection images acquired
+                over the full rotation range. More projections improve reconstruction
+                quality by reducing under-sampling streak artifacts but increase scan
+                time. For Mode B (multi-volume stitching), this is the number per
+                sub-volume.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/numberOfProjections
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/numberOfProjections
+                schema:name:
+                  const: Number of Projections
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: Rotation Step Size
               description: Angular increment between successive projection images,
                 in degrees. Equal to Rotation Range divided by Number of Projections
@@ -411,6 +2621,40 @@ properties:
                   - '@id': ada:parameter/labxctTAPP/rotationStepSize
                 schema:name:
                   const: Rotation Step Size
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - title: Exposure Time per Projection
+              description: "Duration of X-ray exposure for each individual projection
+                image frame, in seconds, as registered by the procedure. Set as a
+                deliberate choice for the target sample type and voxel size: longer
+                exposures increase SNR at the cost of total scan time. May be adjusted
+                within procedure-allowed bounds for samples that are unusually dense
+                or unusually transparent. If the exposure time was varied across samples
+                within the same procedure or session, report the full range applied
+                (e.g., 0.5\u20132 s)."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/exposureTimePerProjection
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/exposureTimePerProjection
+                schema:name:
+                  const: Exposure Time per Projection
                 schema:value:
                   anyOf:
                   - type: number
@@ -468,6 +2712,61 @@ properties:
                   - '@id': ada:parameter/labxctTAPP/detectorBinning
                 schema:name:
                   const: Detector Binning
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Rotation Mode
+              description: Whether projection images are acquired during continuous
+                sample rotation (faster; may introduce slight motion blur at high
+                rotation speeds) or at discrete step positions with the stage stationary
+                during each exposure (stop-and-shoot; eliminates motion blur). Continuous
+                rotation has been associated with sub-volume rotational mismatch artifacts
+                in multi-volume stitching workflows (Eckley et al. 2025).
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/rotationMode
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/rotationMode
+                schema:name:
+                  const: Rotation Mode
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Target Selection Criteria
+              description: "The rules governing which part of the sample is analysed,
+                and why. Covers the criteria applied when choosing grains, aliquots,
+                spots, or a region of interest \u2014 size, morphology, clarity, freedom
+                from inclusions or alteration, phase identity, or spatial position.
+                Distinct from Target Material, which states the material type the
+                procedure is designed for: this field states how, within such a sample,
+                the analysed portion is picked out."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/targetSelectionCriteria
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/targetSelectionCriteria
+                schema:name:
+                  const: Target Selection Criteria
                 schema:value:
                   type: string
               required:
@@ -572,6 +2871,30 @@ properties:
                   - '@id': ada:parameter/labxctTAPP/ctNumberCalibration
                 schema:name:
                   const: CT Number Calibration
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Segmentation Method
+              description: General approach used to separate distinct phases or features
+                in the reconstructed CT volume. The method must be reported for any
+                quantitative result to be reproducible.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/segmentationMethod
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/segmentationMethod
+                schema:name:
+                  const: Segmentation Method
                 schema:value:
                   type: string
               required:
@@ -807,33 +3130,6 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Sample Preparation Notes
-              description: Any preparation steps applied to the sample before scanning,
-                including cleaning, trimming, consolidation, or drying. XCT is typically
-                non-destructive with no surface preparation required; note any exceptions.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/labxctTAPP/samplePreparationNotes
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/labxctTAPP/samplePreparationNotes
-                schema:name:
-                  const: Sample Preparation Notes
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: X-ray Power
               description: "X-ray tube power in watts (W) registered by the procedure.
                 Derivable as voltage (kV) \xD7 current (mA) = kV \xD7 \xB5A / 1000.
@@ -938,6 +3234,70 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
+              title: Rotation Range
+              description: "Total angular range over which projection images are acquired,
+                in degrees. Full 360\xB0 rotation is standard for cone-beam lab XCT.
+                180\xB0 rotation (half-scan) is sometimes used for faster acquisition
+                but may introduce additional artifacts."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/rotationRange
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/rotationRange
+                schema:name:
+                  const: Rotation Range
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Number of Projections
+              description: Total number of equally-spaced projection images acquired
+                over the full rotation range. More projections improve reconstruction
+                quality by reducing under-sampling streak artifacts but increase scan
+                time. For Mode B (multi-volume stitching), this is the number per
+                sub-volume.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/numberOfProjections
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/numberOfProjections
+                schema:name:
+                  const: Number of Projections
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
               title: Rotation Step Size
               description: Angular increment between successive projection images,
                 in degrees. Equal to Rotation Range divided by Number of Projections
@@ -957,6 +3317,43 @@ properties:
                   - '@id': ada:parameter/labxctTAPP/rotationStepSize
                 schema:name:
                   const: Rotation Step Size
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Exposure Time per Projection
+              description: "Duration of X-ray exposure for each individual projection
+                image frame, in seconds, as registered by the procedure. Set as a
+                deliberate choice for the target sample type and voxel size: longer
+                exposures increase SNR at the cost of total scan time. May be adjusted
+                within procedure-allowed bounds for samples that are unusually dense
+                or unusually transparent. If the exposure time was varied across samples
+                within the same procedure or session, report the full range applied
+                (e.g., 0.5\u20132 s)."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/exposureTimePerProjection
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/exposureTimePerProjection
+                schema:name:
+                  const: Exposure Time per Projection
                 schema:value:
                   anyOf:
                   - type: number
@@ -1020,6 +3417,67 @@ properties:
                   - '@id': ada:parameter/labxctTAPP/detectorBinning
                 schema:name:
                   const: Detector Binning
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Rotation Mode
+              description: Whether projection images are acquired during continuous
+                sample rotation (faster; may introduce slight motion blur at high
+                rotation speeds) or at discrete step positions with the stage stationary
+                during each exposure (stop-and-shoot; eliminates motion blur). Continuous
+                rotation has been associated with sub-volume rotational mismatch artifacts
+                in multi-volume stitching workflows (Eckley et al. 2025).
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/rotationMode
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/rotationMode
+                schema:name:
+                  const: Rotation Mode
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Target Selection Criteria
+              description: "The rules governing which part of the sample is analysed,
+                and why. Covers the criteria applied when choosing grains, aliquots,
+                spots, or a region of interest \u2014 size, morphology, clarity, freedom
+                from inclusions or alteration, phase identity, or spatial position.
+                Distinct from Target Material, which states the material type the
+                procedure is designed for: this field states how, within such a sample,
+                the analysed portion is picked out."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/targetSelectionCriteria
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/targetSelectionCriteria
+                schema:name:
+                  const: Target Selection Criteria
                 schema:value:
                   type: string
               required:
@@ -1136,6 +3594,33 @@ properties:
                   - '@id': ada:parameter/labxctTAPP/ctNumberCalibration
                 schema:name:
                   const: CT Number Calibration
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Segmentation Method
+              description: General approach used to separate distinct phases or features
+                in the reconstructed CT volume. The method must be reported for any
+                quantitative result to be reproducible.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/labxctTAPP/segmentationMethod
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/labxctTAPP/segmentationMethod
+                schema:name:
+                  const: Segmentation Method
                 schema:value:
                   type: string
               required:
@@ -1364,175 +3849,6 @@ properties:
               - schema:value
             minContains: 0
             maxContains: 1
-        prov:used:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                required:
-                - bios:computationalTool
-              then:
-                properties:
-                  bios:computationalTool:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: acquisition
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Instrument control and data acquisition
-                                  software used to collect raw projection images,
-                                  including version number. Separate from reconstruction
-                                  and segmentation software.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: dataReduction
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Software used for image segmentation,
-                                  phase identification, and quantitative 3D analysis
-                                  after reconstruction. Report all packages used,
-                                  with version numbers.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        required:
-                        - ada:toolRole
-            - if:
-                required:
-                - schema:instrument
-              then:
-                properties:
-                  schema:instrument:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              schema:additionalType:
-                                contains:
-                                  const: XCT
-                            required:
-                            - schema:additionalType
-                          then:
-                            properties:
-                              ada:acceleratingVoltage:
-                                description: "X-ray tube accelerating voltage in kilovolts
-                                  (kV) registered by the procedure. Determines the
-                                  maximum X-ray photon energy and controls penetration
-                                  depth and phase contrast. Higher voltages provide
-                                  greater penetration for dense or large samples;
-                                  lower voltages improve contrast between low-density
-                                  phases. If the voltage was varied across samples
-                                  within the same procedure or session, report the
-                                  full range applied (e.g., 90\u2013115 kV). Note:
-                                  some sources report this parameter as 'X keV' (maximum
-                                  Bremsstrahlung photon energy) rather than 'X kV'
-                                  (tube voltage). For polychromatic lab XCT, these
-                                  are numerically equivalent: E_max [keV] = V [kV].
-                                  Record the value as originally reported, and add
-                                  a parenthetical note if the unit used is keV."
-                                anyOf:
-                                - type: number
-                                - type: string
-                              ada:tubeCurrent:
-                                description: "X-ray tube current in microamperes (\xB5A)
-                                  registered by the procedure. Controls photon flux
-                                  and therefore projection image SNR. Higher current
-                                  improves SNR but increases thermal loading on the
-                                  source and may increase focal spot size. If the
-                                  current was varied across samples within the same
-                                  procedure or session, report the full range applied
-                                  (e.g., 65\u2013115 \xB5A)."
-                                anyOf:
-                                - type: number
-                                - type: string
-                              ada:xRayPreFilter:
-                                description: Material and thickness of the beam-hardening
-                                  filter placed between the X-ray source and the sample.
-                                  Hardens the beam by attenuating low-energy photons,
-                                  reducing beam hardening artifacts and improving
-                                  CT number stability across the sample. Both filter
-                                  material and thickness must be reported. Instrument-proprietary
-                                  filter codes should be decoded where possible.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                              ada:voxelSize:
-                                description: "Isotropic voxel edge length of the reconstructed
-                                  3D volume in micrometres. The procedure registers
-                                  the target voxel size, set based on the smallest
-                                  feature to be resolved (target voxel size \u2264
-                                  ~1/3 of that feature size; see the criterion recorded
-                                  under Partial Volume Effect Criteria). At analysis
-                                  level, record the achieved voxel size as reported
-                                  by the reconstruction software, which may differ
-                                  slightly from the target due to final geometric
-                                  calibration."
-                                anyOf:
-                                - type: number
-                                - type: string
-                    allOf:
-                    - contains:
-                        properties:
-                          schema:additionalType:
-                            contains:
-                              const: XCT
-                        required:
-                        - schema:additionalType
-        ada:rotationRange:
-          description: "Total angular range over which projection images are acquired,
-            in degrees. Full 360\xB0 rotation is standard for cone-beam lab XCT. 180\xB0
-            rotation (half-scan) is sometimes used for faster acquisition but may
-            introduce additional artifacts."
-          anyOf:
-          - type: number
-          - type: string
-        ada:numberOfProjections:
-          description: Total number of equally-spaced projection images acquired over
-            the full rotation range. More projections improve reconstruction quality
-            by reducing under-sampling streak artifacts but increase scan time. For
-            Mode B (multi-volume stitching), this is the number per sub-volume.
-          anyOf:
-          - type: integer
-          - type: string
-        ada:exposureTimePerProjection:
-          description: "Duration of X-ray exposure for each individual projection
-            image frame, in seconds, as registered by the procedure. Set as a deliberate
-            choice for the target sample type and voxel size: longer exposures increase
-            SNR at the cost of total scan time. May be adjusted within procedure-allowed
-            bounds for samples that are unusually dense or unusually transparent.
-            If the exposure time was varied across samples within the same procedure
-            or session, report the full range applied (e.g., 0.5\u20132 s)."
-          anyOf:
-          - type: number
-          - type: string
         schema:actionProcess:
           type: object
           properties:
@@ -1541,6 +3857,24 @@ properties:
               items:
                 type: object
                 allOf:
+                - if:
+                    properties:
+                      schema:name:
+                        const: Sample preparation
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:description:
+                        description: Any preparation steps applied to the sample before
+                          scanning, including cleaning, trimming, consolidation, or
+                          drying. XCT is typically non-destructive with no surface
+                          preparation required; note any exceptions.
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
                 - if:
                     properties:
                       schema:name:
@@ -1746,35 +4080,395 @@ properties:
                       const: Data reduction
                   required:
                   - schema:name
-        ada:rotationMode:
-          description: Whether projection images are acquired during continuous sample
-            rotation (faster; may introduce slight motion blur at high rotation speeds)
-            or at discrete step positions with the stage stationary during each exposure
-            (stop-and-shoot; eliminates motion blur). Continuous rotation has been
-            associated with sub-volume rotational mismatch artifacts in multi-volume
-            stitching workflows (Eckley et al. 2025).
-          type: string
-          enum:
-          - Step rotation (stop-and-shoot)
-          - Continuous rotation
-          - N/A
-          - None
-          - missing
-        ada:segmentationMethod:
-          description: General approach used to separate distinct phases or features
-            in the reconstructed CT volume. The method must be reported for any quantitative
-            result to be reproducible.
-          anyOf:
-          - type: string
-            enum:
-            - Global threshold (single CT number boundary)
-            - Multi-threshold (separate CT number range per phase)
-            - Manual threshold per phase
-            - 'Semi-automated: threshold + morphological filtering'
-            - N/A
-            - None
-            - missing
-          - type: string
+        prov:used:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                required:
+                - bios:computationalTool
+              then:
+                properties:
+                  bios:computationalTool:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                      - type: object
+                        allOf:
+                        - if:
+                            properties:
+                              ada:toolRole:
+                                const: acquisition
+                            required:
+                            - ada:toolRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: Instrument control, automation and data
+                                  acquisition software used to collect the raw data,
+                                  including version number. Distinct from Data Processing
+                                  Software(s), which covers everything applied to
+                                  the data after acquisition.
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                        - if:
+                            properties:
+                              ada:toolRole:
+                                const: dataReduction
+                            required:
+                            - ada:toolRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: All software applied to the data after
+                                  acquisition in order to produce the reported quantities,
+                                  including version numbers. List every package used.
+                                  Distinct from Acquisition Software, which controls
+                                  the instrument and collects the raw data.
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                        required:
+                        - ada:toolRole
+            - if:
+                required:
+                - schema:instrument
+              then:
+                properties:
+                  schema:instrument:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                      - type: object
+                        allOf:
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: XCT
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - title: Accelerating Voltage
+                                    description: "X-ray tube accelerating voltage
+                                      in kilovolts (kV) registered by the procedure.
+                                      Determines the maximum X-ray photon energy and
+                                      controls penetration depth and phase contrast.
+                                      Higher voltages provide greater penetration
+                                      for dense or large samples; lower voltages improve
+                                      contrast between low-density phases. If the
+                                      voltage was varied across samples within the
+                                      same procedure or session, report the full range
+                                      applied (e.g., 90\u2013115 kV). Note: some sources
+                                      report this parameter as 'X keV' (maximum Bremsstrahlung
+                                      photon energy) rather than 'X kV' (tube voltage).
+                                      For polychromatic lab XCT, these are numerically
+                                      equivalent: E_max [keV] = V [kV]. Record the
+                                      value as originally reported, and add a parenthetical
+                                      note if the unit used is keV."
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  - title: Tube Current
+                                    description: "X-ray tube current in microamperes
+                                      (\xB5A) registered by the procedure. Controls
+                                      photon flux and therefore projection image SNR.
+                                      Higher current improves SNR but increases thermal
+                                      loading on the source and may increase focal
+                                      spot size. If the current was varied across
+                                      samples within the same procedure or session,
+                                      report the full range applied (e.g., 65\u2013115
+                                      \xB5A)."
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/tubeCurrent
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/tubeCurrent
+                                      schema:name:
+                                        const: Tube Current
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  - title: X-ray Pre-filter
+                                    description: Material and thickness of the beam-hardening
+                                      filter placed between the X-ray source and the
+                                      sample. Hardens the beam by attenuating low-energy
+                                      photons, reducing beam hardening artifacts and
+                                      improving CT number stability across the sample.
+                                      Both filter material and thickness must be reported.
+                                      Instrument-proprietary filter codes should be
+                                      decoded where possible.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/xRayPreFilter
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/xRayPreFilter
+                                      schema:name:
+                                        const: X-ray Pre-filter
+                                      schema:value:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                  - title: Voxel Size
+                                    description: "Isotropic voxel edge length of the
+                                      reconstructed 3D volume in micrometres. The
+                                      procedure registers the target voxel size, set
+                                      based on the smallest feature to be resolved
+                                      (target voxel size \u2264 ~1/3 of that feature
+                                      size; see the criterion recorded under Partial
+                                      Volume Effect Criteria). At analysis level,
+                                      record the achieved voxel size as reported by
+                                      the reconstruction software, which may differ
+                                      slightly from the target due to final geometric
+                                      calibration."
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/voxelSize
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/voxelSize
+                                      schema:name:
+                                        const: Voxel Size
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                allOf:
+                                - contains:
+                                    title: Accelerating Voltage
+                                    description: "X-ray tube accelerating voltage
+                                      in kilovolts (kV) registered by the procedure.
+                                      Determines the maximum X-ray photon energy and
+                                      controls penetration depth and phase contrast.
+                                      Higher voltages provide greater penetration
+                                      for dense or large samples; lower voltages improve
+                                      contrast between low-density phases. If the
+                                      voltage was varied across samples within the
+                                      same procedure or session, report the full range
+                                      applied (e.g., 90\u2013115 kV). Note: some sources
+                                      report this parameter as 'X keV' (maximum Bremsstrahlung
+                                      photon energy) rather than 'X kV' (tube voltage).
+                                      For polychromatic lab XCT, these are numerically
+                                      equivalent: E_max [keV] = V [kV]. Record the
+                                      value as originally reported, and add a parenthetical
+                                      note if the unit used is keV."
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    title: Tube Current
+                                    description: "X-ray tube current in microamperes
+                                      (\xB5A) registered by the procedure. Controls
+                                      photon flux and therefore projection image SNR.
+                                      Higher current improves SNR but increases thermal
+                                      loading on the source and may increase focal
+                                      spot size. If the current was varied across
+                                      samples within the same procedure or session,
+                                      report the full range applied (e.g., 65\u2013115
+                                      \xB5A)."
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/tubeCurrent
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/tubeCurrent
+                                      schema:name:
+                                        const: Tube Current
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    title: X-ray Pre-filter
+                                    description: Material and thickness of the beam-hardening
+                                      filter placed between the X-ray source and the
+                                      sample. Hardens the beam by attenuating low-energy
+                                      photons, reducing beam hardening artifacts and
+                                      improving CT number stability across the sample.
+                                      Both filter material and thickness must be reported.
+                                      Instrument-proprietary filter codes should be
+                                      decoded where possible.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/xRayPreFilter
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/xRayPreFilter
+                                      schema:name:
+                                        const: X-ray Pre-filter
+                                      schema:value:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    title: Voxel Size
+                                    description: "Isotropic voxel edge length of the
+                                      reconstructed 3D volume in micrometres. The
+                                      procedure registers the target voxel size, set
+                                      based on the smallest feature to be resolved
+                                      (target voxel size \u2264 ~1/3 of that feature
+                                      size; see the criterion recorded under Partial
+                                      Volume Effect Criteria). At analysis level,
+                                      record the achieved voxel size as reported by
+                                      the reconstruction software, which may differ
+                                      slightly from the target due to final geometric
+                                      calibration."
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/labxctTAPP/voxelSize
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/labxctTAPP/voxelSize
+                                      schema:name:
+                                        const: Voxel Size
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
+                    allOf:
+                    - contains:
+                        properties:
+                          schema:additionalType:
+                            contains:
+                              const: XCT
+                        required:
+                        - schema:additionalType
         schema:description:
           description: "Any procedure- or analysis-specific information not captured
             by a structured field anywhere in this TAPP \u2014 including anomalies,
@@ -1782,6 +4476,14 @@ properties:
             supplementary context. Scope is the whole document, not Group 6: this
             is the last field of the TAPP and covers all six groups. Use sparingly;
             a structured field is preferred for anything that can be formally categorised."
+          type: string
+        schema:identifier:
+          description: "Identifier for the analytical session this record describes
+            \u2014 the laboratory's own run, sequence or batch identifier as generated
+            by the instrument or acquisition software. The analysis record corresponds
+            to one session, which may cover several samples, and this is the link
+            back to the raw instrument files. Distinct from any persistent identifier
+            a repository mints on submission."
           type: string
   schema:measurementTechnique:
     type: array
@@ -2288,8 +4990,8 @@ required:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/XCT/detail/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/XCT/detail/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/schema.yaml)
 
 
 # JSON-LD Context
@@ -2319,7 +5021,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld)
 
 ## Sources
 

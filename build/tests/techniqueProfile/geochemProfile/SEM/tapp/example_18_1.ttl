@@ -20,9 +20,15 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
     schema1:instrument [ a schema1:Product,
@@ -32,12 +38,12 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -48,8 +54,8 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ] ;
+                        "BSEDetector" ;
+                    schema1:name "N/A" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
             schema1:model [ a schema1:ProductModel ;
@@ -72,15 +78,32 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
             schema1:target [ schema1:name "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
+    ada:clAcquisitionMode "missing" ;
+    ada:clIntegrationTimeDefault -9999 ;
+    ada:clWavelengthRange -9999 ;
+    ada:ebsdDetectorConfiguration "missing" ;
+    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdStepSizeDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
+    ada:imageRegistration3DDefault "missing" ;
+    ada:liftOutMethod "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
+    ada:workingDistanceDefault "8 mm" ;
     bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ] .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "High vacuum" ;
+    schema1:name "Chamber Pressure" ;
+    schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
 

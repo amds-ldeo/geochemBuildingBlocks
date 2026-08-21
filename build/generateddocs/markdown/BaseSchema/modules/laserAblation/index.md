@@ -73,7 +73,7 @@ The procedure half of the LaserAblation module, with every property populated. G
       "ada": "https://ada.astromat.org/metadata/",
       "schema": "http://schema.org/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/laserAblation/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/context.jsonld"
   ],
   "schema:instrument": [
     {
@@ -150,7 +150,7 @@ The analysis half of the LaserAblation module, with every property populated. Ge
       "prov": "http://www.w3.org/ns/prov#",
       "schema": "http://schema.org/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/laserAblation/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/context.jsonld"
   ],
   "prov:wasGeneratedBy": [
     {
@@ -358,7 +358,7 @@ $defs:
                         type: array
                         items:
                           allOf:
-                          - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
                           - type: object
                             allOf:
                             - if:
@@ -463,8 +463,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/laserAblation/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/laserAblation/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml)
 
 
 # JSON-LD Context
@@ -481,7 +481,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/laserAblation/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/context.jsonld)
 
 ## Sources
 

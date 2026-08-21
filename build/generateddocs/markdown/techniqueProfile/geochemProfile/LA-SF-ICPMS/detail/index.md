@@ -97,7 +97,7 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -311,7 +311,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -525,7 +525,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -726,7 +726,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -893,7 +893,7 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1039,7 +1039,7 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1200,7 +1200,7 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2727,7 +2727,7 @@ properties:
                     type: array
                     items:
                       allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
                       - type: object
                         allOf:
                         - if:
@@ -3664,7 +3664,7 @@ properties:
                     type: array
                     items:
                       allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
                       - type: object
                         allOf:
                         - if:
@@ -3712,7 +3712,7 @@ properties:
                     type: array
                     items:
                       allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent
                       - type: object
                         allOf:
                         - if:
@@ -4031,8 +4031,8 @@ required:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/schema.yaml)
 
 
 # JSON-LD Context
@@ -4062,7 +4062,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/context.jsonld)
 
 ## Sources
 

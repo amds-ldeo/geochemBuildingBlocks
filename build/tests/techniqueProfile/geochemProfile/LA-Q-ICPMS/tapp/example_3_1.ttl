@@ -14,6 +14,11 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -23,12 +28,7 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -39,13 +39,29 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
             schema1:name "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ] ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "Laser Ablation System" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)" ] ;
+            schema1:name "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)" ;
+            ada:laserFluenceDefault "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")" ;
+            ada:laserRepetitionRateDefault "7 Hz" ;
+            ada:laserSpotGeometryDefault "40 µm circular (silicate glass)" ;
+            ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" ],
+        [ a schema1:Product,
+                schema1:Thing ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "ICPMS" ;
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
+                        "Interface Cone" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Collision Reaction Cell" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -55,27 +71,11 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
+                        "ICP Source" ;
                     schema1:name "missing" ] ;
             schema1:model [ a schema1:ProductModel ;
                     schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)" ] ;
-            schema1:name "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)" ;
-            ada:laserFluenceDefault "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")" ;
-            ada:laserRepetitionRateDefault "7 Hz" ;
-            ada:laserSpotGeometryDefault "40 µm circular (silicate glass)" ;
-            ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" ] ;
+            schema1:name "example instrumentName" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;

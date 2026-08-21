@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-19",
+  "dateOfLastChange": "2026-08-21",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -28,7 +28,7 @@
   ],
   "shaclShapes": {
     "ogch.BaseSchema.structuredData": [
-      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/structuredData/rules.shacl"
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/structuredData/rules.shacl"
     ],
     "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
@@ -62,18 +62,18 @@
     ]
   },
   "dependsOn": [
-    "cdif.bbr.metadata.cdifDataType.objectReference",
-    "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure"
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure",
+    "cdif.bbr.metadata.cdifDataType.objectReference"
   ],
-  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/structuredData/context.jsonld",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/context.jsonld",
   "schema": {
-    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/structuredData/schema.yaml",
-    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/structuredData/schema.json"
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/schema.json"
   },
-  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/structuredData/schema.yaml",
-  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/structuredData/context.jsonld",
-  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/structuredData/resolvedProperties.json",
-  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/structuredData/",
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/structuredData/schema.yaml",
+  "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/structuredData/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/structuredData/",
   "validationPassed": false,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/structuredData/",
   "description": "# Structured Data File Type\n\nDescribes a container/array data file (e.g. HDF5, NeXus) that is a member of an ADA\nproduct bundle (`schema:distribution.hasPart`) and whose internal layout is described\nby a CDIF DataStructure via `cdi:isStructuredBy`. Typed as `ada:structuredData` and\n`cdi:PhysicalDataSet`.\n\nThis is the **bundle-part analog of the monolithic single-file `cdi:isStructuredBy`\npattern**: the structure-description pattern is chosen by the file's *encoding*, not by\nits position in the distribution.\n\n- **Tabular text** files (CSV, fixed-width) use `tabularData` \u2014 CSVW/DDI-CDI layout plus\n  per-column `cdif:hasPhysicalMapping`.\n- **Container/array** files (HDF5, NeXus) use `structuredData` \u2014 a `cdi:DataStructure`\n  (Dimensional / Long / Wide / DataStructure) attached with `cdi:isStructuredBy`, whose\n  components carry their own physical mappings (LocatorMapping).\n\nThe structure may be stated inline, or referenced by `@id` from a structure declared once\nand shared across several parts of the same layout.\n",
@@ -90,21 +90,21 @@
       "snippets": [
         {
           "language": "json",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/structuredData/example_1_1.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/structuredData/example_1_1.json",
           "sizeBytes": 657,
           "code": "{\n  \"@id\": \"ex:file-map-cube-001\",\n  \"@type\": [\"schema:MediaObject\", \"ada:structuredData\", \"cdi:PhysicalDataSet\"],\n  \"schema:name\": \"elemental_map_cube.h5\",\n  \"schema:encodingFormat\": [\"application/x-hdf5\"],\n  \"ada:componentType\": \"ada:other\",\n  \"cdi:isStructuredBy\": {\n    \"@id\": \"ex:struct-map-cube-001\",\n    \"@type\": [\"cdi:DimensionalDataStructure\"],\n    \"schema:name\": \"Elemental map cube structure\",\n    \"cdi:has_DataStructureComponent\": [\n      {\"@type\": [\"cdi:MeasureComponent\"], \"cdif:name\": [\"intensity\"]},\n      {\"@type\": [\"cdi:DimensionComponent\"], \"cdif:name\": [\"x\"]},\n      {\"@type\": [\"cdi:DimensionComponent\"], \"cdif:name\": [\"y\"]}\n    ]\n  }\n}\n"
         },
         {
           "language": "jsonld",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/structuredData/example_1_1.jsonld",
-          "sizeBytes": 1254,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\",\n      \"cdif\": \"https://cdif.org/0.1/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/structuredData/context.jsonld\"\n  ],\n  \"@id\": \"ex:file-map-cube-001\",\n  \"@type\": [\n    \"schema:MediaObject\",\n    \"ada:structuredData\",\n    \"cdi:PhysicalDataSet\"\n  ],\n  \"schema:name\": \"elemental_map_cube.h5\",\n  \"schema:encodingFormat\": [\n    \"application/x-hdf5\"\n  ],\n  \"ada:componentType\": \"ada:other\",\n  \"cdi:isStructuredBy\": {\n    \"@id\": \"ex:struct-map-cube-001\",\n    \"@type\": [\n      \"cdi:DimensionalDataStructure\"\n    ],\n    \"schema:name\": \"Elemental map cube structure\",\n    \"cdi:has_DataStructureComponent\": [\n      {\n        \"@type\": [\n          \"cdi:MeasureComponent\"\n        ],\n        \"cdif:name\": [\n          \"intensity\"\n        ]\n      },\n      {\n        \"@type\": [\n          \"cdi:DimensionComponent\"\n        ],\n        \"cdif:name\": [\n          \"x\"\n        ]\n      },\n      {\n        \"@type\": [\n          \"cdi:DimensionComponent\"\n        ],\n        \"cdif:name\": [\n          \"y\"\n        ]\n      }\n    ]\n  }\n}"
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/structuredData/example_1_1.jsonld",
+          "sizeBytes": 1228,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\",\n      \"cdif\": \"https://cdif.org/0.1/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/context.jsonld\"\n  ],\n  \"@id\": \"ex:file-map-cube-001\",\n  \"@type\": [\n    \"schema:MediaObject\",\n    \"ada:structuredData\",\n    \"cdi:PhysicalDataSet\"\n  ],\n  \"schema:name\": \"elemental_map_cube.h5\",\n  \"schema:encodingFormat\": [\n    \"application/x-hdf5\"\n  ],\n  \"ada:componentType\": \"ada:other\",\n  \"cdi:isStructuredBy\": {\n    \"@id\": \"ex:struct-map-cube-001\",\n    \"@type\": [\n      \"cdi:DimensionalDataStructure\"\n    ],\n    \"schema:name\": \"Elemental map cube structure\",\n    \"cdi:has_DataStructureComponent\": [\n      {\n        \"@type\": [\n          \"cdi:MeasureComponent\"\n        ],\n        \"cdif:name\": [\n          \"intensity\"\n        ]\n      },\n      {\n        \"@type\": [\n          \"cdi:DimensionComponent\"\n        ],\n        \"cdif:name\": [\n          \"x\"\n        ]\n      },\n      {\n        \"@type\": [\n          \"cdi:DimensionComponent\"\n        ],\n        \"cdif:name\": [\n          \"y\"\n        ]\n      }\n    ]\n  }\n}"
         },
         {
           "language": "ttl",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/structuredData/example_1_1.ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/structuredData/example_1_1.ttl",
           "sizeBytes": 829,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .\n@prefix cdif: <https://cdif.org/0.1/> .\n@prefix schema1: <http://schema.org/> .\n\n<ex:file-map-cube-001> a cdi:PhysicalDataSet,\n        schema1:MediaObject,\n        ada:structuredData ;\n    cdi:isStructuredBy <ex:struct-map-cube-001> ;\n    schema1:encodingFormat \"application/x-hdf5\" ;\n    schema1:name \"elemental_map_cube.h5\" ;\n    ada:componentType \"ada:other\" .\n\n<ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;\n    cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;\n            cdif:name \"y\" ],\n        [ a cdi:DimensionComponent ;\n            cdif:name \"x\" ],\n        [ a cdi:MeasureComponent ;\n            cdif:name \"intensity\" ] ;\n    schema1:name \"Elemental map cube structure\" .\n\n"
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .\n@prefix cdif: <https://cdif.org/0.1/> .\n@prefix schema1: <http://schema.org/> .\n\n<ex:file-map-cube-001> a cdi:PhysicalDataSet,\n        schema1:MediaObject,\n        ada:structuredData ;\n    cdi:isStructuredBy <ex:struct-map-cube-001> ;\n    schema1:encodingFormat \"application/x-hdf5\" ;\n    schema1:name \"elemental_map_cube.h5\" ;\n    ada:componentType \"ada:other\" .\n\n<ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;\n    cdi:has_DataStructureComponent [ a cdi:MeasureComponent ;\n            cdif:name \"intensity\" ],\n        [ a cdi:DimensionComponent ;\n            cdif:name \"y\" ],\n        [ a cdi:DimensionComponent ;\n            cdif:name \"x\" ] ;\n    schema1:name \"Elemental map cube structure\" .\n\n"
         }
       ]
     }

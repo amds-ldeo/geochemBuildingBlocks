@@ -1,0 +1,128 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Richard2019-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Nikon XTH 320/225" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "160 kV" ;
+            ada:tubeCurrentDefault "71 µA (Ag target)" ;
+            ada:voxelSizeDefault "25 µm" ;
+            ada:xRayPreFilterDefault "None (conditions did not require filtering)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "U. Strathclyde, Glasgow, UK" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Richard2019-2" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Synthetic quartz monocrystal with aqueous fluid inclusions" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "None (conditions did not saturate detector; not required)" ;
+    ada:detectorType "Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm)" ;
+    ada:exposureTimePerProjectionDefault "0.708 s" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "3141" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Manual grayscale threshold" ;
+    ada:targetFeature "Fluid inclusion morphology and phase volumes" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "Microfocus multi-metal target (225 kV)" ;
+    bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:description "1 frame per projection" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Phase identified by grayscale contrast (vapor darker, liquid brighter)" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "3 × 5 × 2 cm" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual threshold: vapor = darker, liquid = brighter pixels; specific values N" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.14e+01 ;
+    schema1:description "11.4 W" ;
+    schema1:name "X-ray Power" ;
+    schema1:valueName "xRayPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "2000 × 2000 pixels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> a schema1:PropertyValue ;
+    schema1:description "0.2 × 0.2 mm cell size" ;
+    schema1:name "Detector Pixel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> ;
+    schema1:unitText "example value" ;
+    schema1:value 2e-01 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
+    schema1:name "X-ray Tube Anode Material" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
+    schema1:value "Silver (for Sample B)" .
+

@@ -45,9 +45,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -60,7 +58,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -93,9 +91,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -118,11 +114,9 @@ ex:detail-Garvie2008 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -164,9 +158,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -179,7 +171,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -212,9 +204,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -237,11 +227,9 @@ ex:detail-Garvie2008-2 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -283,9 +271,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -298,7 +284,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -331,9 +317,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -356,11 +340,9 @@ ex:detail-Genge2025 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -402,9 +384,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -417,7 +397,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -450,9 +430,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -475,11 +453,9 @@ ex:detail-Genge2025-2 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -521,9 +497,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -536,7 +510,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -569,9 +543,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -594,11 +566,9 @@ ex:detail-Genge2025-3 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -640,9 +610,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -655,7 +623,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -688,9 +656,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -713,11 +679,9 @@ ex:detail-Gucsik2013 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -759,9 +723,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -774,7 +736,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -807,9 +769,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -832,11 +792,9 @@ ex:detail-Gucsik2013-2 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -878,9 +836,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -893,7 +849,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -926,9 +882,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -951,11 +905,9 @@ ex:detail-Izawa2010 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -997,9 +949,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -1012,7 +962,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1045,9 +995,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -1070,11 +1018,9 @@ ex:detail-Izawa2010-2 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -1116,9 +1062,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -1131,7 +1075,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1164,9 +1108,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -1189,11 +1131,9 @@ ex:detail-Izawa2010-3 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -1235,9 +1175,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -1250,7 +1188,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1283,9 +1221,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -1308,11 +1244,9 @@ ex:detail-Izawa2010-4 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -1354,9 +1288,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -1369,7 +1301,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1402,9 +1334,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -1427,11 +1357,9 @@ ex:detail-Izawa2010-5 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -1473,9 +1401,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -1488,7 +1414,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1521,9 +1447,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -1546,11 +1470,9 @@ ex:detail-Liu2017 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -1592,9 +1514,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -1607,7 +1527,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1640,9 +1560,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -1665,11 +1583,9 @@ ex:detail-Liu2017-2 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -1711,9 +1627,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -1726,7 +1640,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1759,9 +1673,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -1784,11 +1696,9 @@ ex:detail-Liu2017-3 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -1830,9 +1740,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -1845,7 +1753,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1878,9 +1786,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -1903,11 +1809,9 @@ ex:detail-Ma2017 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "Section 126A (USNM 7908)" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -1949,9 +1853,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": 0.3,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -1964,7 +1866,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1997,9 +1899,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": 0.3,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -2022,11 +1922,9 @@ ex:detail-Ma2017-2 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation 3e-01 ;
-    ada:phaseList "missing" ;
     ada:sampleName "Section 126A (USNM 7908)" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -2068,9 +1966,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -2083,7 +1979,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2116,9 +2012,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -2141,11 +2035,9 @@ ex:detail-Pascucci2026 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -2187,9 +2079,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -2202,7 +2092,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2235,9 +2125,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -2260,11 +2148,9 @@ ex:detail-Pascucci2026-2 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -2306,9 +2192,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -2321,7 +2205,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2354,9 +2238,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -2379,11 +2261,9 @@ ex:detail-Pascucci2026-3 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -2425,9 +2305,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -2440,7 +2318,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2473,9 +2351,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -2498,11 +2374,9 @@ ex:detail-Pascucci2026-4 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -2544,9 +2418,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -2559,7 +2431,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2592,9 +2464,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -2617,11 +2487,9 @@ ex:detail-Zhou2017 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "SC; HBC" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -2663,9 +2531,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -2678,7 +2544,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2711,9 +2577,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -2736,11 +2600,9 @@ ex:detail-Zega2025 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -2782,9 +2644,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -2797,7 +2657,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2830,9 +2690,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -2855,11 +2713,9 @@ ex:detail-Zega2025-2 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -2901,9 +2757,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -2916,7 +2770,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2949,9 +2803,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -2974,11 +2826,9 @@ ex:detail-Zega2025-3 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -3020,9 +2870,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -3035,7 +2883,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3068,9 +2916,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -3093,11 +2939,9 @@ ex:detail-Zega2025-4 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -3139,9 +2983,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -3154,7 +2996,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3187,9 +3029,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -3212,11 +3052,9 @@ ex:detail-Zega2025-5 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -3258,9 +3096,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -3273,7 +3109,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3306,9 +3142,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -3331,11 +3165,9 @@ ex:detail-Zega2025-6 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -3377,9 +3209,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -3392,7 +3222,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3425,9 +3255,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -3450,11 +3278,9 @@ ex:detail-Zega2025-7 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -3496,9 +3322,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -3511,7 +3335,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3544,9 +3368,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -3569,11 +3391,9 @@ ex:detail-Zega2025-8 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -3615,9 +3435,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -3630,7 +3448,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3663,9 +3481,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -3688,11 +3504,9 @@ ex:detail-Zega2025-9 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -3734,9 +3548,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -3749,7 +3561,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3782,9 +3594,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -3807,11 +3617,9 @@ ex:detail-Barnes2025 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "OREX-501018-100" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -3853,9 +3661,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -3868,7 +3674,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3901,9 +3707,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -3926,11 +3730,9 @@ ex:detail-Barnes2025-2 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -3972,9 +3774,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -3987,7 +3787,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4020,9 +3820,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -4045,11 +3843,9 @@ ex:detail-Barnes2025-3 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -4091,9 +3887,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 
 ```
@@ -4106,7 +3900,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4139,9 +3933,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imagePixelSize": -9999,
   "ada:meanAngularDeviation": -9999,
   "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing",
-  "ada:phaseList": "missing",
-  "ada:stepSize": -9999
+  "ada:indexingMethod": "missing"
 }
 ```
 
@@ -4164,11 +3956,9 @@ ex:detail-Barnes2025-4 a ada:SEMImage ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
     ada:meanAngularDeviation -9999 ;
-    ada:phaseList "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stepSize -9999 .
+    ada:sessionIdentifier "missing" .
 
 
 ```
@@ -4198,6 +3988,14 @@ properties:
             schema:identifier:
               description: Persistent identifier for the laboratory (e.g., ROR ID).
               type: string
+        schema:identifier:
+          description: "Identifier for the analytical session this record describes
+            \u2014 the laboratory's own run, sequence or batch identifier as generated
+            by the instrument or acquisition software. The analysis record corresponds
+            to one session, which may cover several samples, and this is the link
+            back to the raw instrument files. Distinct from any persistent identifier
+            a repository mints on submission."
+          type: string
         schema:startDate:
           description: 'Date on which the analytical session began. For sessions spanning
             multiple days, use the date of the first session. Format: YYYY-MM-DD.'
@@ -4404,97 +4202,51 @@ properties:
                     - type: array
                       items:
                         type: string
+                  schema:identifier:
+                    description: Globally unique, persistent identifier for each sample
+                      listed in Sample Name. IGSN (International Geo Sample Number)
+                      is the recommended standard for geological and cosmochemical
+                      samples, as used by Astromat, EarthChem and SESAR. Where a sample
+                      and its sub-samples are separately registered, record the identifier
+                      at the level actually analysed.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
                   schema:additionalProperty:
                     type: array
                     items:
-                      anyOf:
-                      - title: Sample Persistent Identifier
-                        description: Globally unique, persistent identifier for each
-                          sample listed in Sample Name. IGSN (International Geo Sample
-                          Number) is the recommended standard for geological and cosmochemical
-                          samples, as used by Astromat, EarthChem and SESAR. Where
-                          a sample and its sub-samples are separately registered,
-                          record the identifier at the level actually analysed.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semImagingTAPP/samplePersistentIdentifier
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semImagingTAPP/samplePersistentIdentifier
-                          schema:name:
-                            const: Sample Persistent Identifier
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                      - title: Pre-Analysis Imaging and Screening
-                        description: Imaging or other characterisation performed before
-                          the measurement in order to select or locate the analysed
-                          target, including the technique, instrument and settings
-                          used, and how individual analyses are linked back to the
-                          images. Distinct from any imaging the procedure performs
-                          as its own measurement. Where the imaging is performed on
-                          a separate instrument, it should also be recorded in the
-                          Group 1 coupling fields.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening
-                          schema:name:
-                            const: Pre-Analysis Imaging and Screening
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
+                      title: Pre-Analysis Imaging and Screening
+                      description: Imaging or other characterisation performed before
+                        the measurement in order to select or locate the analysed
+                        target, including the technique, instrument and settings used,
+                        and how individual analyses are linked back to the images.
+                        Distinct from any imaging the procedure performs as its own
+                        measurement. Where the imaging is performed on a separate
+                        instrument, it should also be recorded in the Group 1 coupling
+                        fields.
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening
+                        '@type':
+                          const:
+                          - schema:PropertyValue
+                        schema:propertyID:
+                          const:
+                          - '@id': ada:parameter/semImagingTAPP/preAnalysisImagingAndScreening
+                        schema:name:
+                          const: Pre-Analysis Imaging and Screening
+                        schema:value:
+                          type: string
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:propertyID
+                      - schema:name
+                      - schema:value
                     allOf:
-                    - contains:
-                        title: Sample Persistent Identifier
-                        description: Globally unique, persistent identifier for each
-                          sample listed in Sample Name. IGSN (International Geo Sample
-                          Number) is the recommended standard for geological and cosmochemical
-                          samples, as used by Astromat, EarthChem and SESAR. Where
-                          a sample and its sub-samples are separately registered,
-                          record the identifier at the level actually analysed.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semImagingTAPP/samplePersistentIdentifier
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semImagingTAPP/samplePersistentIdentifier
-                          schema:name:
-                            const: Sample Persistent Identifier
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                      minContains: 0
-                      maxContains: 1
                     - contains:
                         title: Pre-Analysis Imaging and Screening
                         description: Imaging or other characterisation performed before
@@ -4535,112 +4287,38 @@ properties:
                     const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
               required:
               - '@type'
-        prov:used:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                required:
-                - bios:computationalTool
-              then:
-                properties:
-                  bios:computationalTool:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: acquisition
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Software used to control the SEM and
-                                  acquire data, including version number. For FIB-SEM
-                                  3D tomography, include the automated slice-and-view
-                                  module name and version.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: dataReduction
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Software used for post-acquisition data
-                                  reduction and analysis. List all packages with version
-                                  numbers.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        required:
-                        - ada:toolRole
-            - if:
-                required:
-                - schema:instrument
-              then:
-                properties:
-                  schema:instrument:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              schema:additionalType:
-                                contains:
-                                  const: SEM
-                            required:
-                            - schema:additionalType
-                          then:
-                            properties:
-                              ada:acceleratingVoltage:
-                                description: Electron beam accelerating voltage in
-                                  kilovolts. Affects X-ray generation depth (EDS/WDS),
-                                  EBSD pattern quality, imaging resolution, and beam
-                                  penetration. Low voltages (1-5 kV) improve surface
-                                  sensitivity and reduce beam damage; high voltages
-                                  (15-20 kV) improve X-ray generation for quantitative
-                                  analysis.
-                                anyOf:
-                                - type: number
-                                - type: string
-                              ada:workingDistance:
-                                description: Distance between the objective lens pole
-                                  piece and the specimen surface in millimetres. Affects
-                                  spatial resolution, depth of focus, EDS X-ray take-off
-                                  angle, and EBSD geometry.
-                                anyOf:
-                                - type: number
-                                - type: string
-                    allOf:
-                    - contains:
-                        properties:
-                          schema:additionalType:
-                            contains:
-                              const: SEM
-                        required:
-                        - schema:additionalType
         schema:additionalProperty:
           type: array
           items:
             anyOf:
+            - title: Target Selection Criteria
+              description: "The rules governing which part of the sample is analysed,
+                and why. Covers the criteria applied when choosing grains, aliquots,
+                spots, or a region of interest \u2014 size, morphology, clarity, freedom
+                from inclusions or alteration, phase identity, or spatial position.
+                Distinct from Target Material, which states the material type the
+                procedure is designed for: this field states how, within such a sample,
+                the analysed portion is picked out."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/targetSelectionCriteria
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semImagingTAPP/targetSelectionCriteria
+                schema:name:
+                  const: Target Selection Criteria
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: Chamber Pressure
               description: Chamber pressure and gas type during analysis. Required
                 for variable pressure (VP-SEM) and environmental SEM (ESEM) modes.
@@ -4725,6 +4403,83 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
+            - title: CL Integration Time
+              description: Acquisition time per pixel (hyperspectral map mode) or
+                per spectrum (spectral point mode), in ms or s. Longer integration
+                improves signal-to-noise but increases beam dose and acquisition time.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/clIntegrationTime
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semImagingTAPP/clIntegrationTime
+                schema:name:
+                  const: CL Integration Time
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: EBSD Step Size
+              description: "Distance between adjacent EBSD measurement points in the
+                map in nm or \xB5m. Must be smaller than the smallest grain of interest
+                to resolve grain boundary positions and intragrain orientation gradients."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/ebsdStepSize
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semImagingTAPP/ebsdStepSize
+                schema:name:
+                  const: EBSD Step Size
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: EBSD Phase List
+              description: Mineral phases included in the EBSD reference pattern library
+                for this procedure. The procedure specifies the expected phase suite
+                for the target material; analysts may add phases for specific sample
+                compositions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/ebsdPhaseList
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semImagingTAPP/ebsdPhaseList
+                schema:name:
+                  const: EBSD Phase List
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: CL Wavelength Calibration Reference
               description: Reference light source or standard material used to calibrate
                 the wavelength axis of the CL spectrometer. Required for quantitative
@@ -4750,6 +4505,37 @@ properties:
               - schema:name
               - schema:value
           allOf:
+          - contains:
+              title: Target Selection Criteria
+              description: "The rules governing which part of the sample is analysed,
+                and why. Covers the criteria applied when choosing grains, aliquots,
+                spots, or a region of interest \u2014 size, morphology, clarity, freedom
+                from inclusions or alteration, phase identity, or spatial position.
+                Distinct from Target Material, which states the material type the
+                procedure is designed for: this field states how, within such a sample,
+                the analysed portion is picked out."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/targetSelectionCriteria
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semImagingTAPP/targetSelectionCriteria
+                schema:name:
+                  const: Target Selection Criteria
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
           - contains:
               title: Chamber Pressure
               description: Chamber pressure and gas type during analysis. Required
@@ -4844,6 +4630,92 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
+              title: CL Integration Time
+              description: Acquisition time per pixel (hyperspectral map mode) or
+                per spectrum (spectral point mode), in ms or s. Longer integration
+                improves signal-to-noise but increases beam dose and acquisition time.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/clIntegrationTime
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semImagingTAPP/clIntegrationTime
+                schema:name:
+                  const: CL Integration Time
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: EBSD Step Size
+              description: "Distance between adjacent EBSD measurement points in the
+                map in nm or \xB5m. Must be smaller than the smallest grain of interest
+                to resolve grain boundary positions and intragrain orientation gradients."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/ebsdStepSize
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semImagingTAPP/ebsdStepSize
+                schema:name:
+                  const: EBSD Step Size
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: EBSD Phase List
+              description: Mineral phases included in the EBSD reference pattern library
+                for this procedure. The procedure specifies the expected phase suite
+                for the target material; analysts may add phases for specific sample
+                compositions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semImagingTAPP/ebsdPhaseList
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semImagingTAPP/ebsdPhaseList
+                schema:name:
+                  const: EBSD Phase List
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
               title: CL Wavelength Calibration Reference
               description: Reference light source or standard material used to calibrate
                 the wavelength axis of the CL spectrometer. Required for quantitative
@@ -4870,13 +4742,229 @@ properties:
               - schema:value
             minContains: 0
             maxContains: 1
-        ada:clIntegrationTime:
-          description: Acquisition time per pixel (hyperspectral map mode) or per
-            spectrum (spectral point mode), in ms or s. Longer integration improves
-            signal-to-noise but increases beam dose and acquisition time.
-          anyOf:
-          - type: number
-          - type: string
+        prov:used:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                required:
+                - bios:computationalTool
+              then:
+                properties:
+                  bios:computationalTool:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                      - type: object
+                        allOf:
+                        - if:
+                            properties:
+                              ada:toolRole:
+                                const: acquisition
+                            required:
+                            - ada:toolRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: Instrument control, automation and data
+                                  acquisition software used to collect the raw data,
+                                  including version number. Distinct from Data Processing
+                                  Software(s), which covers everything applied to
+                                  the data after acquisition.
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                        - if:
+                            properties:
+                              ada:toolRole:
+                                const: dataReduction
+                            required:
+                            - ada:toolRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: All software applied to the data after
+                                  acquisition in order to produce the reported quantities,
+                                  including version numbers. List every package used.
+                                  Distinct from Acquisition Software, which controls
+                                  the instrument and collects the raw data.
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                        required:
+                        - ada:toolRole
+            - if:
+                required:
+                - schema:instrument
+              then:
+                properties:
+                  schema:instrument:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                      - type: object
+                        allOf:
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: SEM
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - title: Accelerating Voltage
+                                    description: Electron beam accelerating voltage
+                                      in kilovolts. Affects X-ray generation depth
+                                      (EDS/WDS), EBSD pattern quality, imaging resolution,
+                                      and beam penetration. Low voltages (1-5 kV)
+                                      improve surface sensitivity and reduce beam
+                                      damage; high voltages (15-20 kV) improve X-ray
+                                      generation for quantitative analysis.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semImagingTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semImagingTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  - title: Working Distance
+                                    description: Distance between the objective lens
+                                      pole piece and the specimen surface in millimetres.
+                                      Affects spatial resolution, depth of focus,
+                                      EDS X-ray take-off angle, and EBSD geometry.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semImagingTAPP/workingDistance
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semImagingTAPP/workingDistance
+                                      schema:name:
+                                        const: Working Distance
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                allOf:
+                                - contains:
+                                    title: Accelerating Voltage
+                                    description: Electron beam accelerating voltage
+                                      in kilovolts. Affects X-ray generation depth
+                                      (EDS/WDS), EBSD pattern quality, imaging resolution,
+                                      and beam penetration. Low voltages (1-5 kV)
+                                      improve surface sensitivity and reduce beam
+                                      damage; high voltages (15-20 kV) improve X-ray
+                                      generation for quantitative analysis.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semImagingTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semImagingTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    title: Working Distance
+                                    description: Distance between the objective lens
+                                      pole piece and the specimen surface in millimetres.
+                                      Affects spatial resolution, depth of focus,
+                                      EDS X-ray take-off angle, and EBSD geometry.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semImagingTAPP/workingDistance
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semImagingTAPP/workingDistance
+                                      schema:name:
+                                        const: Working Distance
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
+                    allOf:
+                    - contains:
+                        properties:
+                          schema:additionalType:
+                            contains:
+                              const: SEM
+                        required:
+                        - schema:additionalType
         schema:description:
           description: "Any procedure- or analysis-specific information not captured
             by a structured field anywhere in this TAPP \u2014 including anomalies,
@@ -5011,18 +5099,6 @@ properties:
               - type: array
                 items:
                   type: string
-  ada:clWavelengthRange:
-    description: Diffraction grating specification for spectral or hyperspectral CL
-      acquisition, including groove density and blaze wavelength. Not applicable to
-      panchromatic-only acquisition.
-    type: string
-  ada:stepSize:
-    description: "Distance between adjacent EBSD measurement points in the map in
-      nm or \xB5m. Must be smaller than the smallest grain of interest to resolve
-      grain boundary positions and intragrain orientation gradients."
-    anyOf:
-    - type: number
-    - type: string
   ada:frameTime:
     description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
       Longer frame time improves pattern quality and indexing rate but increases total
@@ -5030,11 +5106,6 @@ properties:
     anyOf:
     - type: number
     - type: string
-  ada:phaseList:
-    description: Mineral phases included in the EBSD reference pattern library for
-      this procedure. The procedure specifies the expected phase suite for the target
-      material; analysts may add phases for specific sample compositions.
-    type: string
   ada:indexingMethod:
     description: Algorithm used to index EBSD diffraction patterns and assign crystal
       orientations. Hough-transform methods fit Kikuchi band positions analytically;
@@ -5071,8 +5142,6 @@ properties:
     - type: string
 required:
 - schema:funding
-- ada:stepSize
-- ada:phaseList
 - ada:indexingMethod
 - ada:meanAngularDeviation
 - ada:indexingRate
@@ -5081,8 +5150,8 @@ required:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/schema.yaml)
 
 
 # JSON-LD Context
@@ -5112,7 +5181,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld)
 
 ## Sources
 

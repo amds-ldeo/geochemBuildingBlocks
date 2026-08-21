@@ -15,46 +15,15 @@
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Garvie2008-2",
-  "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v17.xlsx).",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SE Imaging (same instrument, pre- and post-FIB milling)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Carbonaceous nanoglobules, Tagish Lake (C2) meteorite (HCl/HF acid residue concentrate)"
-          ]
-        }
-      ]
-    }
+  "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v22.csv).",
+  "ada:analyticalMode": [
+    "TEM Sample Preparation"
   ],
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
+        "ada:coarseMillingConditionsDefault": "30 kV, 10 pA Ga beam",
         "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
         "@type": [
           "cdi:Activity",
@@ -75,12 +44,35 @@
           "bios:LabProcess"
         ],
         "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion Milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
       }
     ],
     "@type": [
       "schema:HowTo"
     ]
   },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SE Imaging (same instrument, pre- and post-FIB milling)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -89,18 +81,6 @@
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
-      "schema:manufacturer": {
-        "schema:name": "FEI / Thermo Fisher Scientific",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "Nova 200 NanoLab DualBeam",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
       "schema:hasPart": [
         {
           "schema:additionalType": [
@@ -113,6 +93,19 @@
           "@type": [
             "schema:Product",
             "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "BSEDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
           ],
           "schema:name": "missing"
         },
@@ -141,21 +134,20 @@
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "FEI / Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "Nova 200 NanoLab DualBeam",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -163,9 +155,30 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "TEM Sample Preparation"
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Carbonaceous nanoglobules, Tagish Lake (C2) meteorite (HCl/HF acid residue concentrate)"
+          ]
+        }
+      ]
+    }
   ],
+  "ada:workingDistanceDefault": "5.4 mm (eucentric height for electron and ion columns)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -175,12 +188,21 @@
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
+  "ada:clAcquisitionMode": "missing",
+  "ada:clIntegrationTimeDefault": -9999,
+  "ada:clWavelengthRange": -9999,
+  "ada:ebsdDetectorConfiguration": "missing",
+  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdStepSizeDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
+  "ada:imageRegistration3DDefault": "missing",
+  "ada:liftOutMethod": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",

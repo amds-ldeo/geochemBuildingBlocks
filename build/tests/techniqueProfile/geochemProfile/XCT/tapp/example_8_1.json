@@ -1,0 +1,214 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Glavin2023",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Glavin2023",
+  "schema:description": "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "CM2 carbonaceous chondrite (Murchison)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Radiation dose assessment (not mineralogy)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Glass vial placed in scanner"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Tungsten"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2000 \u00d7 2000 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToObjectDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToObjectDistanceDefault",
+      "schema:name": "Source-to-Object Distance (SOD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 39.22,
+      "schema:description": "39.22 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToDetectorDistanceDefault",
+      "schema:name": "Source-to-Detector Distance (SDD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 679.51,
+      "schema:description": "679.51 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationStepSizeDefault",
+      "schema:name": "Rotation Step Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.115,
+      "schema:description": "0.115\u00b0"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8,
+      "schema:description": "8 frames averaged per projection"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Chips (~10.3 g) crushed with mortar and pestle; vortex mixed 3 min; split into two ~4.6 g portions",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "180 kV nano-focus tungsten transmission source (~1 \u00b5m spot size)",
+  "ada:detectorType": "2000 \u00d7 2000 pixel Perkin Elmer flat panel CCD",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Nikon CTAgentPro v5.4 (FBP algorithm)"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)",
+      "ada:tubeCurrentDefault": "38 \u00b5A",
+      "ada:xRayPreFilterDefault": "None (intentionally unfiltered; worst-case dose experiment)",
+      "ada:voxelSizeDefault": "11.54 \u00b5m (cubic voxel edge)",
+      "schema:model": {
+        "schema:name": "Nikon XTH 320",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationRangeDefault": "360\u00b0 (continuous)",
+  "ada:numberOfProjectionsDefault": "3141",
+  "ada:exposureTimePerProjectionDefault": "1.00 s per frame",
+  "ada:rotationModeDefault": "N/A",
+  "ada:reconstructionAlgorithm": "Filtered back projection (FBP)",
+  "ada:beamHardeningCorrectionMethod": "None (intentionally unfiltered; no software BHC mentioned)",
+  "ada:outputDataFormatDefault": "TIFF (continuous series of 2D TIFF images)",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}

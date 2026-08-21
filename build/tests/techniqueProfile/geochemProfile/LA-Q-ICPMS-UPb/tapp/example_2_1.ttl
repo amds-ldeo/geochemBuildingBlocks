@@ -41,39 +41,6 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
             schema1:name "NSFC; Chinese Academy of Sciences" ] ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/detectorConfiguration>,
-                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/icpTuningDefault>,
-                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting>,
-                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/memoryEffectMitigationDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/coolantGasFlowRateDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/rfPowerDefault> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserPulseDuration> ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "Laser Ablation System" ;
@@ -83,7 +50,40 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
             ada:laserFluenceDefault "6.79 J cm⁻²" ;
             ada:laserRepetitionRateDefault "1 Hz" ;
             ada:laserSpotGeometryDefault "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)" ;
-            ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" ] ;
+            ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/detectorConfiguration>,
+                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/icpTuningDefault>,
+                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting>,
+                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/memoryEffectMitigationDefault> ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "ICPMS" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Interface Cone" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Collision Reaction Cell" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/coolantGasFlowRateDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/rfPowerDefault> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ICP Source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Torch" ;
+                    schema1:name "missing" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)" ] ;
+            schema1:name "example instrumentName" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;

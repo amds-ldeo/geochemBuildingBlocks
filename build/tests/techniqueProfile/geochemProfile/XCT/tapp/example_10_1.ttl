@@ -1,0 +1,117 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Richard2019 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "Zeiss Xradia 510 Versa" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "30 kV" ;
+            ada:voxelSizeDefault "2.06 µm/px" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Lab. de Microtomografía de Rayos X, UNAM, Mexico" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Richard2019" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Olivine phenocryst with silicate melt inclusion" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "missing" ;
+    ada:detectorType "CCD ANDOR camera (1080 × 1080 px, 32-bit)" ;
+    ada:exposureTimePerProjectionDefault "8 s" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "1601" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "missing" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Grayscale threshold range selection (ImageJ)" ;
+    ada:targetFeature "Silicate melt inclusion morphology and phase volumes" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "missing" ;
+    bios:computationalTool [ schema1:name "ImageJ; Avizo 9.2" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 200 ;
+    schema1:description "~200 reference (blank) images taken; number of frames averaged per projection N" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "32-bit (ZEISS XRM output)" ;
+    schema1:name "Output Bit Depth" ;
+    schema1:valueName "outputBitDepthDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Phase identified by grayscale contrast (vapor vs. silicate/mineral)" ;
+    schema1:name "Phase Identification Method" ;
+    schema1:valueName "phaseIdentificationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "~1 mm olivine" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Threshold range selected to include all voxels of one phase while excluding adjacent phases; specific values N" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "1080 × 1080 pixels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective> a schema1:PropertyValue ;
+    schema1:name "Optical Objective" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective> ;
+    schema1:value "4.0× magnification" .
+

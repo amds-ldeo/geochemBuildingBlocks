@@ -34,7 +34,7 @@ NanoSIMS detail with isotope and phase tracking for presolar grain analysis.
     {
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/context.jsonld"
   ],
   "@type": [
     "ada:NanoSIMSTabular"
@@ -83,10 +83,10 @@ properties:
     - const: ada:NanoSIMSMap
     x-jsonld-id: https://ada.astromat.org/metadata/componentType
   ada:phaseAnalyzed:
-    $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.yaml
+    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/stringArray/schema.yaml
     x-jsonld-id: https://ada.astromat.org/metadata/phaseAnalyzed
   ada:isotopeAnalyzed:
-    $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/stringArray/schema.yaml
+    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/stringArray/schema.yaml
     x-jsonld-id: https://ada.astromat.org/metadata/isotopeAnalyzed
 required:
 - ada:componentType
@@ -98,8 +98,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/schema.yaml)
 
 
 # JSON-LD Context
@@ -115,7 +115,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/context.jsonld)
 
 ## Sources
 

@@ -21,14 +21,26 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2" ;
+    schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point." ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/clDetectorConfiguration>,
+                <https://ada.astromat.org/metadata/parameter/semTAPP/clGrating> ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "SEM" ;
             schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
@@ -36,12 +48,7 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "BSEDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -67,13 +74,33 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
             schema1:target [ schema1:name "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "CL" ;
-    ada:dwellTimePerPixelDefault -9999 ;
+    ada:clAcquisitionMode "Spectral point" ;
+    ada:clIntegrationTimeDefault -9999 ;
+    ada:clWavelengthRange -9999 ;
+    ada:ebsdDetectorConfiguration "missing" ;
+    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdStepSizeDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
+    ada:imageRegistration3DDefault "missing" ;
+    ada:liftOutMethod "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:wdsDeadTimeCorrection "missing" .
+    ada:wdsDeadTimeCorrection "missing" ;
+    ada:workingDistanceDefault -9999 .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/clDetectorConfiguration> a schema1:PropertyValue ;
+    schema1:name "CL Detector Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semTAPP/clDetectorConfiguration> ;
+    schema1:value "Mini-CL (Gatan, multialkali PMT) for scanning CL images; Oxford MonoCL2 grating monochromator with Hamamatsu R2228 PMT and parabolic mirror (75% efficiency) for spectral CL" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/clGrating> a schema1:PropertyValue ;
+    schema1:name "CL Grating" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semTAPP/clGrating> ;
+    schema1:value "1200 gr/mm, focal length 0.3 m, F/4.2, resolution 0.5 nm, slit width 4 mm (Oxford MonoCL2)" .
 

@@ -55,7 +55,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -158,7 +158,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -261,7 +261,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -364,7 +364,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -467,7 +467,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -570,7 +570,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -673,7 +673,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -776,7 +776,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -879,7 +879,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -982,7 +982,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1085,7 +1085,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1188,7 +1188,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1291,7 +1291,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1394,7 +1394,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1497,7 +1497,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1600,7 +1600,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1703,7 +1703,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1806,7 +1806,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1909,7 +1909,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2012,7 +2012,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2115,7 +2115,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2218,7 +2218,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2321,7 +2321,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2424,7 +2424,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2527,7 +2527,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2630,7 +2630,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2733,7 +2733,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2836,7 +2836,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2939,7 +2939,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3042,7 +3042,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3145,7 +3145,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3248,7 +3248,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3351,7 +3351,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3454,7 +3454,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3557,7 +3557,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3638,6 +3638,14 @@ properties:
             schema:identifier:
               description: Persistent identifier for the laboratory (e.g., ROR ID).
               type: string
+        schema:identifier:
+          description: "Identifier for the analytical session this record describes
+            \u2014 the laboratory's own run, sequence or batch identifier as generated
+            by the instrument or acquisition software. The analysis record corresponds
+            to one session, which may cover several samples, and this is the link
+            back to the raw instrument files. Distinct from any persistent identifier
+            a repository mints on submission."
+          type: string
         schema:startDate:
           description: 'Date on which the analytical session began. For sessions spanning
             multiple days, use the date of the first session. Format: YYYY-MM-DD.'
@@ -3680,33 +3688,61 @@ properties:
                       schema:additionalProperty:
                         type: array
                         items:
-                          title: Protective Coating Deposition
-                          description: 'Type and deposition conditions of the protective
-                            coating applied to the sample surface before FIB milling.
-                            E-beam deposition causes less surface damage than ion-beam
-                            deposition and should be applied as the initial layer.
-                            Typical coatings: platinum (Pt) or carbon (C). State material,
-                            deposition method, beam conditions, and approximate thickness.'
-                          type: object
-                          properties:
-                            '@id':
-                              const: ada:parameter/semFibsemTAPP/protectiveCoatingDeposition
-                            '@type':
-                              const:
-                              - schema:PropertyValue
-                            schema:propertyID:
-                              const:
-                              - '@id': ada:parameter/semFibsemTAPP/protectiveCoatingDeposition
-                            schema:name:
-                              const: Protective Coating Deposition
-                            schema:value:
-                              type: string
-                          required:
-                          - '@id'
-                          - '@type'
-                          - schema:propertyID
-                          - schema:name
-                          - schema:value
+                          anyOf:
+                          - title: Protective Coating Deposition
+                            description: 'Type and deposition conditions of the protective
+                              coating applied to the sample surface before FIB milling.
+                              E-beam deposition causes less surface damage than ion-beam
+                              deposition and should be applied as the initial layer.
+                              Typical coatings: platinum (Pt) or carbon (C). State
+                              material, deposition method, beam conditions, and approximate
+                              thickness.'
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/semFibsemTAPP/protectiveCoatingDeposition
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/semFibsemTAPP/protectiveCoatingDeposition
+                              schema:name:
+                                const: Protective Coating Deposition
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          - title: Coarse Milling Conditions
+                            description: 'Ion beam voltage and current used for bulk
+                              material removal during FIB milling. For TEM specimen
+                              preparation: bulk trenching to isolate the lamella and
+                              intermediate thinning. For 3D tomography: face preparation
+                              and initial slice removal.'
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/semFibsemTAPP/coarseMillingConditions
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/semFibsemTAPP/coarseMillingConditions
+                              schema:name:
+                                const: Coarse Milling Conditions
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
                         allOf:
                         - contains:
                             title: Protective Coating Deposition
@@ -3739,19 +3775,8 @@ properties:
                             - schema:value
                           minContains: 0
                           maxContains: 1
-                - if:
-                    properties:
-                      schema:name:
-                        const: Ion milling
-                    required:
-                    - schema:name
-                  then:
-                    properties:
-                      schema:additionalProperty:
-                        type: array
-                        items:
-                          anyOf:
-                          - title: Coarse Milling Conditions
+                        - contains:
+                            title: Coarse Milling Conditions
                             description: 'Ion beam voltage and current used for bulk
                               material removal during FIB milling. For TEM specimen
                               preparation: bulk trenching to isolate the lamella and
@@ -3777,6 +3802,20 @@ properties:
                             - schema:propertyID
                             - schema:name
                             - schema:value
+                          minContains: 0
+                          maxContains: 1
+                - if:
+                    properties:
+                      schema:name:
+                        const: Ion milling
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          anyOf:
                           - title: Fine Polishing Conditions
                             description: Ion beam voltage and current for final thinning
                               and surface polishing of the TEM lamella. Low-voltage
@@ -3860,35 +3899,6 @@ properties:
                             - schema:value
                             - schema:unitText
                         allOf:
-                        - contains:
-                            title: Coarse Milling Conditions
-                            description: 'Ion beam voltage and current used for bulk
-                              material removal during FIB milling. For TEM specimen
-                              preparation: bulk trenching to isolate the lamella and
-                              intermediate thinning. For 3D tomography: face preparation
-                              and initial slice removal.'
-                            type: object
-                            properties:
-                              '@id':
-                                const: ada:parameter/semFibsemTAPP/coarseMillingConditions
-                              '@type':
-                                const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                - '@id': ada:parameter/semFibsemTAPP/coarseMillingConditions
-                              schema:name:
-                                const: Coarse Milling Conditions
-                              schema:value:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:propertyID
-                            - schema:name
-                            - schema:value
-                          minContains: 0
-                          maxContains: 1
                         - contains:
                             title: Fine Polishing Conditions
                             description: Ion beam voltage and current for final thinning
@@ -4113,97 +4123,51 @@ properties:
                     - type: array
                       items:
                         type: string
+                  schema:identifier:
+                    description: Globally unique, persistent identifier for each sample
+                      listed in Sample Name. IGSN (International Geo Sample Number)
+                      is the recommended standard for geological and cosmochemical
+                      samples, as used by Astromat, EarthChem and SESAR. Where a sample
+                      and its sub-samples are separately registered, record the identifier
+                      at the level actually analysed.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
                   schema:additionalProperty:
                     type: array
                     items:
-                      anyOf:
-                      - title: Sample Persistent Identifier
-                        description: Globally unique, persistent identifier for each
-                          sample listed in Sample Name. IGSN (International Geo Sample
-                          Number) is the recommended standard for geological and cosmochemical
-                          samples, as used by Astromat, EarthChem and SESAR. Where
-                          a sample and its sub-samples are separately registered,
-                          record the identifier at the level actually analysed.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/samplePersistentIdentifier
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semFibsemTAPP/samplePersistentIdentifier
-                          schema:name:
-                            const: Sample Persistent Identifier
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                      - title: Pre-Analysis Imaging and Screening
-                        description: Imaging or other characterisation performed before
-                          the measurement in order to select or locate the analysed
-                          target, including the technique, instrument and settings
-                          used, and how individual analyses are linked back to the
-                          images. Distinct from any imaging the procedure performs
-                          as its own measurement. Where the imaging is performed on
-                          a separate instrument, it should also be recorded in the
-                          Group 1 coupling fields.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/preAnalysisImagingAndScreening
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semFibsemTAPP/preAnalysisImagingAndScreening
-                          schema:name:
-                            const: Pre-Analysis Imaging and Screening
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
+                      title: Pre-Analysis Imaging and Screening
+                      description: Imaging or other characterisation performed before
+                        the measurement in order to select or locate the analysed
+                        target, including the technique, instrument and settings used,
+                        and how individual analyses are linked back to the images.
+                        Distinct from any imaging the procedure performs as its own
+                        measurement. Where the imaging is performed on a separate
+                        instrument, it should also be recorded in the Group 1 coupling
+                        fields.
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/semFibsemTAPP/preAnalysisImagingAndScreening
+                        '@type':
+                          const:
+                          - schema:PropertyValue
+                        schema:propertyID:
+                          const:
+                          - '@id': ada:parameter/semFibsemTAPP/preAnalysisImagingAndScreening
+                        schema:name:
+                          const: Pre-Analysis Imaging and Screening
+                        schema:value:
+                          type: string
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:propertyID
+                      - schema:name
+                      - schema:value
                     allOf:
-                    - contains:
-                        title: Sample Persistent Identifier
-                        description: Globally unique, persistent identifier for each
-                          sample listed in Sample Name. IGSN (International Geo Sample
-                          Number) is the recommended standard for geological and cosmochemical
-                          samples, as used by Astromat, EarthChem and SESAR. Where
-                          a sample and its sub-samples are separately registered,
-                          record the identifier at the level actually analysed.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/samplePersistentIdentifier
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semFibsemTAPP/samplePersistentIdentifier
-                          schema:name:
-                            const: Sample Persistent Identifier
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                      minContains: 0
-                      maxContains: 1
                     - contains:
                         title: Pre-Analysis Imaging and Screening
                         description: Imaging or other characterisation performed before
@@ -4244,141 +4208,149 @@ properties:
                     const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
               required:
               - '@type'
-        prov:used:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                required:
-                - bios:computationalTool
-              then:
-                properties:
-                  bios:computationalTool:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: acquisition
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Software used to control the SEM and
-                                  acquire data, including version number. For FIB-SEM
-                                  3D tomography, include the automated slice-and-view
-                                  module name and version.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: dataReduction
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Software used for post-acquisition data
-                                  reduction and analysis. List all packages with version
-                                  numbers.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        required:
-                        - ada:toolRole
-            - if:
-                required:
-                - schema:instrument
-              then:
-                properties:
-                  schema:instrument:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              schema:additionalType:
-                                contains:
-                                  const: SEM
-                            required:
-                            - schema:additionalType
-                          then:
-                            properties:
-                              ada:acceleratingVoltage:
-                                description: Electron beam accelerating voltage in
-                                  kilovolts. Affects X-ray generation depth (EDS/WDS),
-                                  EBSD pattern quality, imaging resolution, and beam
-                                  penetration. Low voltages (1-5 kV) improve surface
-                                  sensitivity and reduce beam damage; high voltages
-                                  (15-20 kV) improve X-ray generation for quantitative
-                                  analysis.
-                                anyOf:
-                                - type: number
-                                - type: string
-                              ada:workingDistance:
-                                description: Distance between the objective lens pole
-                                  piece and the specimen surface in millimetres. Affects
-                                  spatial resolution, depth of focus, EDS X-ray take-off
-                                  angle, and EBSD geometry.
-                                anyOf:
-                                - type: number
-                                - type: string
-                    allOf:
-                    - contains:
-                        properties:
-                          schema:additionalType:
-                            contains:
-                              const: SEM
-                        required:
-                        - schema:additionalType
         schema:additionalProperty:
           type: array
           items:
-            title: Dwell Time per Pixel
-            description: Time the electron beam dwells on each pixel during raster
-              scanning (imaging modes) or on each step position during compositional
-              mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
-              Longer dwell time improves signal-to-noise and counting statistics but
-              increases total dose and can cause beam damage or contamination on sensitive
-              materials. For WDS mapping, the dwell time is per spectrometer per pixel.
-            type: object
-            properties:
-              '@id':
-                const: ada:parameter/semFibsemTAPP/dwellTimePerPixel
-              '@type':
-                const:
-                - schema:PropertyValue
-              schema:propertyID:
-                const:
-                - '@id': ada:parameter/semFibsemTAPP/dwellTimePerPixel
-              schema:name:
-                const: Dwell Time per Pixel
-              schema:value:
-                anyOf:
-                - type: number
-                - type: string
-            required:
-            - '@id'
-            - '@type'
-            - schema:propertyID
-            - schema:name
-            - schema:value
+            anyOf:
+            - title: Target Selection Criteria
+              description: "The rules governing which part of the sample is analysed,
+                and why. Covers the criteria applied when choosing grains, aliquots,
+                spots, or a region of interest \u2014 size, morphology, clarity, freedom
+                from inclusions or alteration, phase identity, or spatial position.
+                Distinct from Target Material, which states the material type the
+                procedure is designed for: this field states how, within such a sample,
+                the analysed portion is picked out."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semFibsemTAPP/targetSelectionCriteria
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semFibsemTAPP/targetSelectionCriteria
+                schema:name:
+                  const: Target Selection Criteria
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Dwell Time per Pixel
+              description: Time the electron beam dwells on each pixel during raster
+                scanning (imaging modes) or on each step position during compositional
+                mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
+                Longer dwell time improves signal-to-noise and counting statistics
+                but increases total dose and can cause beam damage or contamination
+                on sensitive materials. For WDS mapping, the dwell time is per spectrometer
+                per pixel.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semFibsemTAPP/dwellTimePerPixel
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semFibsemTAPP/dwellTimePerPixel
+                schema:name:
+                  const: Dwell Time per Pixel
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: 3D Image Registration
+              description: Method used to align consecutive SEM image slices in the
+                3D stack to correct for drift, vibration, and curtaining artifacts.
+                Include software used.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semFibsemTAPP/imageRegistration3D
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semFibsemTAPP/imageRegistration3D
+                schema:name:
+                  const: 3D Image Registration
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: 3D Segmentation Method
+              description: Method and software used to segment phases and features
+                in the aligned 3D image stack, transforming the grayscale stack into
+                labelled 3D regions (pores, mineral phases, grain boundaries, organic
+                matter).
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semFibsemTAPP/segmentationMethod3D
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semFibsemTAPP/segmentationMethod3D
+                schema:name:
+                  const: 3D Segmentation Method
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
           allOf:
+          - contains:
+              title: Target Selection Criteria
+              description: "The rules governing which part of the sample is analysed,
+                and why. Covers the criteria applied when choosing grains, aliquots,
+                spots, or a region of interest \u2014 size, morphology, clarity, freedom
+                from inclusions or alteration, phase identity, or spatial position.
+                Distinct from Target Material, which states the material type the
+                procedure is designed for: this field states how, within such a sample,
+                the analysed portion is picked out."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semFibsemTAPP/targetSelectionCriteria
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semFibsemTAPP/targetSelectionCriteria
+                schema:name:
+                  const: Target Selection Criteria
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
           - contains:
               title: Dwell Time per Pixel
               description: Time the electron beam dwells on each pixel during raster
@@ -4412,16 +4384,284 @@ properties:
               - schema:value
             minContains: 0
             maxContains: 1
-        ada:imageRegistration3D:
-          description: Method used to align consecutive SEM image slices in the 3D
-            stack to correct for drift, vibration, and curtaining artifacts. Include
-            software used.
-          type: string
-        ada:segmentationMethod3D:
-          description: Method and software used to segment phases and features in
-            the aligned 3D image stack, transforming the grayscale stack into labelled
-            3D regions (pores, mineral phases, grain boundaries, organic matter).
-          type: string
+          - contains:
+              title: 3D Image Registration
+              description: Method used to align consecutive SEM image slices in the
+                3D stack to correct for drift, vibration, and curtaining artifacts.
+                Include software used.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semFibsemTAPP/imageRegistration3D
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semFibsemTAPP/imageRegistration3D
+                schema:name:
+                  const: 3D Image Registration
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: 3D Segmentation Method
+              description: Method and software used to segment phases and features
+                in the aligned 3D image stack, transforming the grayscale stack into
+                labelled 3D regions (pores, mineral phases, grain boundaries, organic
+                matter).
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semFibsemTAPP/segmentationMethod3D
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semFibsemTAPP/segmentationMethod3D
+                schema:name:
+                  const: 3D Segmentation Method
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+        prov:used:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                required:
+                - bios:computationalTool
+              then:
+                properties:
+                  bios:computationalTool:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                      - type: object
+                        allOf:
+                        - if:
+                            properties:
+                              ada:toolRole:
+                                const: acquisition
+                            required:
+                            - ada:toolRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: Instrument control, automation and data
+                                  acquisition software used to collect the raw data,
+                                  including version number. Distinct from Data Processing
+                                  Software(s), which covers everything applied to
+                                  the data after acquisition.
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                        - if:
+                            properties:
+                              ada:toolRole:
+                                const: dataReduction
+                            required:
+                            - ada:toolRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: All software applied to the data after
+                                  acquisition in order to produce the reported quantities,
+                                  including version numbers. List every package used.
+                                  Distinct from Acquisition Software, which controls
+                                  the instrument and collects the raw data.
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                        required:
+                        - ada:toolRole
+            - if:
+                required:
+                - schema:instrument
+              then:
+                properties:
+                  schema:instrument:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                      - type: object
+                        allOf:
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: SEM
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - title: Accelerating Voltage
+                                    description: Electron beam accelerating voltage
+                                      in kilovolts. Affects X-ray generation depth
+                                      (EDS/WDS), EBSD pattern quality, imaging resolution,
+                                      and beam penetration. Low voltages (1-5 kV)
+                                      improve surface sensitivity and reduce beam
+                                      damage; high voltages (15-20 kV) improve X-ray
+                                      generation for quantitative analysis.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semFibsemTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semFibsemTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  - title: Working Distance
+                                    description: Distance between the objective lens
+                                      pole piece and the specimen surface in millimetres.
+                                      Affects spatial resolution, depth of focus,
+                                      EDS X-ray take-off angle, and EBSD geometry.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semFibsemTAPP/workingDistance
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semFibsemTAPP/workingDistance
+                                      schema:name:
+                                        const: Working Distance
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                allOf:
+                                - contains:
+                                    title: Accelerating Voltage
+                                    description: Electron beam accelerating voltage
+                                      in kilovolts. Affects X-ray generation depth
+                                      (EDS/WDS), EBSD pattern quality, imaging resolution,
+                                      and beam penetration. Low voltages (1-5 kV)
+                                      improve surface sensitivity and reduce beam
+                                      damage; high voltages (15-20 kV) improve X-ray
+                                      generation for quantitative analysis.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semFibsemTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semFibsemTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    title: Working Distance
+                                    description: Distance between the objective lens
+                                      pole piece and the specimen surface in millimetres.
+                                      Affects spatial resolution, depth of focus,
+                                      EDS X-ray take-off angle, and EBSD geometry.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semFibsemTAPP/workingDistance
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semFibsemTAPP/workingDistance
+                                      schema:name:
+                                        const: Working Distance
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
+                    allOf:
+                    - contains:
+                        properties:
+                          schema:additionalType:
+                            contains:
+                              const: SEM
+                        required:
+                        - schema:additionalType
         schema:description:
           description: "Any procedure- or analysis-specific information not captured
             by a structured field anywhere in this TAPP \u2014 including anomalies,
@@ -4569,8 +4809,8 @@ required:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/schema.yaml)
 
 
 # JSON-LD Context
@@ -4600,7 +4840,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/context.jsonld)
 
 ## Sources
 

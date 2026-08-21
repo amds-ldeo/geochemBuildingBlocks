@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-19",
+  "dateOfLastChange": "2026-08-21",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -28,7 +28,7 @@
   ],
   "shaclShapes": {
     "ogch.BaseSchema.dataCube": [
-      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/dataCube/rules.shacl"
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/dataCube/rules.shacl"
     ],
     "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
@@ -46,15 +46,15 @@
   "dependsOn": [
     "cdif.bbr.metadata.cdifDataType.cdifDataCube"
   ],
-  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/context.jsonld",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/context.jsonld",
   "schema": {
-    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema.yaml",
-    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema.json"
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema.json"
   },
-  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/dataCube/schema.yaml",
-  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/dataCube/context.jsonld",
-  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/resolvedProperties.json",
-  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/dataCube/",
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/dataCube/schema.yaml",
+  "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/dataCube/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/dataCube/",
   "validationPassed": false,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/dataCube/",
   "description": "# Data Cube Type\n\nDescribes multidimensional data structures in ADA metadata. Typed as `ada:dataCube` and `cdi:DimensionalDataStructure`. Supports DimensionComponent, MeasureComponent, and AttributeComponent with value domain specifications and value mappings.\n",
@@ -70,19 +70,19 @@
       "snippets": [
         {
           "language": "json",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/dataCube/example_1_1.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/dataCube/example_1_1.json",
           "sizeBytes": 185,
           "code": "{\n  \"@type\": [\"ada:dataCube\", \"cdi:StructuredDataSet\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMEDSElementalMapsCube\"\n  },\n  \"ada:dataComponentResource\": \"cube_SEMEDS_001.hdf5\"\n}\n"
         },
         {
           "language": "jsonld",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/dataCube/example_1_1.jsonld",
-          "sizeBytes": 521,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:dataCube\",\n    \"cdi:StructuredDataSet\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMEDSElementalMapsCube\"\n  },\n  \"ada:dataComponentResource\": \"cube_SEMEDS_001.hdf5\"\n}"
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/dataCube/example_1_1.jsonld",
+          "sizeBytes": 495,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:dataCube\",\n    \"cdi:StructuredDataSet\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMEDSElementalMapsCube\"\n  },\n  \"ada:dataComponentResource\": \"cube_SEMEDS_001.hdf5\"\n}"
         },
         {
           "language": "ttl",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/dataCube/example_1_1.ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/dataCube/example_1_1.ttl",
           "sizeBytes": 289,
           "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .\n\n[] a cdi:StructuredDataSet,\n        ada:dataCube ;\n    ada:componentType [ a ada:SEMEDSElementalMapsCube ] ;\n    ada:dataComponentResource \"cube_SEMEDS_001.hdf5\" .\n\n"
         }

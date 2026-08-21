@@ -202,12 +202,12 @@
       "description": "Instrument specification(s) for this method: a single instrument object, or an array of instruments when the method uses more than one (e.g. LA-ICP-MS = a laser ablation system plus the ICP-MS). Use schema:hasPart for instrument sub-components (spectrometers, detectors, ICP source, sample introduction system). Path-driven technique overlays select a specific instrument by schema:additionalType and constrain its sub-component tree.",
       "anyOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.json"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.json"
         },
         {
           "type": "array",
           "items": {
-            "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.json"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.json"
           }
         }
       ],
@@ -232,7 +232,7 @@
     "schema:location": {
       "title": "Laboratory",
       "description": "Laboratory where this method was developed. Optional; omit for methods that are instrument-generic.",
-      "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/laboratory/schema.json",
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.json",
       "x-jsonld-id": "http://schema.org/location"
     },
     "schema:creator": {
@@ -580,7 +580,7 @@
           "description": "Instrument or equipment used in this step.",
           "anyOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.json"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.json"
             },
             {
               "type": "object",

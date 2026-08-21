@@ -1,0 +1,245 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Eckley2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Eckley2024",
+  "schema:description": "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "C-type asteroid particle (Bennu, OSIRIS-REx)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Internal structure; mineralogy (reconnaissance scan)",
+  "ada:xRaySourceConfiguration": "180 kV transmission source",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial"
+        }
+      ],
+      "schema:name": "X-ray Tube Anode Material",
+      "schema:value": "Tungsten"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/xRayPowerDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "xRayPowerDefault",
+      "schema:name": "X-ray Power",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3.0,
+      "schema:description": "3.0 W"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToObjectDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToObjectDistanceDefault",
+      "schema:name": "Source-to-Object Distance (SOD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 20.39,
+      "schema:description": "20.39 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/sourceToDetectorDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sourceToDetectorDistanceDefault",
+      "schema:name": "Source-to-Detector Distance (SDD)",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 679.51,
+      "schema:description": "679.51 mm"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "framesAveragedPerProjectionDefault",
+      "schema:name": "Frames Averaged per Projection",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 frame"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorBinningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectorBinningDefault",
+      "schema:name": "Detector Binning",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "1\u00d71 (no binning)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "beamHardeningCorrectionParameterDefault",
+      "schema:name": "Beam Hardening Correction Parameter",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Preset 4"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/outputBitDepthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "outputBitDepthDefault",
+      "schema:name": "Output Bit Depth",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "16-bit (full grayscale range)"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Nikon CTPro3D v5.4"
+    }
+  ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "110 kV",
+      "ada:tubeCurrentDefault": "27 \u00b5A",
+      "ada:xRayPreFilterDefault": "0.25 mm aluminum",
+      "ada:voxelSizeDefault": "6.00 \u00b5m",
+      "schema:model": {
+        "schema:name": "Nikon XT H 320",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:numberOfProjectionsDefault": "4000",
+  "ada:exposureTimePerProjectionDefault": "4.00 s",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "flatFieldCorrectionDefault",
+            "schema:name": "Flat Field Correction",
+            "ada:dataType": "boolean",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Flux normalization: no"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:rotationModeDefault": "Continuous rotation",
+  "ada:beamHardeningCorrectionMethod": "Hardware filter (0.25 mm Al) + software BHC preset",
+  "ada:outputDataFormatDefault": "TIFF (16-bit, 928 slices)",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:detectorType": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}

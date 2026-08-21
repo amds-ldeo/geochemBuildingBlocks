@@ -15,27 +15,98 @@ ex:temTAPP-Matsumoto2021-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "FIB lift-out (Ga) + ion mill" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-STEM (Kyushu JEOL JEM-ARM200F) (publication column of TEM_TAPP_v17.xlsx)." ;
+    schema1:description "\"ARM\" designation implies probe Cs-correction (JEOL naming convention) but corrector type/details not stated; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM." ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "TEM" ;
-            schema1:name "missing" ] ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ImagingDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EELSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
+                    schema1:description "JEOL JED-2300T EDX detector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "AberrationCorrector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "4DSTEMDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Monochromator" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:name "missing" ] ;
+            schema1:manufacturer [ a schema1:Organization ;
+                    schema1:name "JEOL" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "JEOL JEM-ARM200F" ] ;
+            schema1:name "example instrumentName" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Ultramicroscopy Research Center, Kyushu University, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
-    schema1:name "JEOL JEM-ARM200F" ;
-    ada:acceleratingVoltageDefault "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analyticalSubModeDefault "missing" ;
-    ada:calibrationFactorAndDeterminationMethodDefault "missing" ;
+    schema1:name "tem protocol — Matsumoto2021-3" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Lunar soil grains (iron sulfides: troilite, NC-pyrrhotite; pyroxene; Apollo 11 soil 10084; Apollo 17 soil 78481,49)" ] ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "SEM (JSM-7001F, Kyushu Univ, 2.0 kV secondary electron imaging) surveyed grain surfaces and selected iron sulfide targets; SEM-EDX (Oxford Inca X-act) identified mineral phases on grain surface; FIB (FEI Helios NanoLab G3 CX, Kyoto Univ) prepared electron-transparent foil (e-beam Pt 5 kV + Ga+ Pt 30 kV; thinned to ~100 nm; cleaned at 5 kV Ga+); additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) performed after FIB" ;
+                    schema1:name "SEM (JSM-7001F); SEM-EDX (Oxford Inca X-act); FIB (FEI Helios NanoLab G3 CX)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:defaultAnalytes "Ca",
+                "Fe",
+                "Mg",
+                "O",
+                "Pt",
+                "S",
+                "Si" ] ;
+    ada:analyticalSubModeDefault "ADF" ;
     ada:cameraLengthDefault -9999 ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:convergenceSemiAngle -9999 ;
     ada:edsAcquisitionModeDefault "Spectrum image (map)" ;
     ada:edsCalibrationStandardDefault "missing" ;
@@ -43,12 +114,17 @@ ex:temTAPP-Matsumoto2021-3 a cdi:Activity,
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
-    ada:eelsEdgesDefault "missing" ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "HR-STEM + FFT: imaging of (001) plane stacking and distortions in iron sulfides; qualitative lattice fringe analysis (no explicit d-spacing phase matching stated)" ;
-    ada:reportedVariablesAndUnits "missing" ;
+    ada:phaseIdentificationMethod "N/A" ;
     ada:samplingUnit "missing" ;
-    ada:spectroscopicDetectorDefault "missing" ;
+    ada:spectroscopicDetectorDefault "EDS only" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)" ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:valueName "samplePreparationDetailsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 

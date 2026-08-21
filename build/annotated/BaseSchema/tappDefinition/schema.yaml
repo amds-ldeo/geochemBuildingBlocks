@@ -166,10 +166,10 @@ properties:
       system). Path-driven technique overlays select a specific instrument by schema:additionalType
       and constrain its sub-component tree.'
     anyOf:
-    - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
     - type: array
       items:
-        $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
     x-jsonld-id: http://schema.org/instrument
   bios:computationalTool:
     description: Software tools used for data acquisition, reduction, and processing.
@@ -190,7 +190,7 @@ properties:
     title: Laboratory
     description: Laboratory where this method was developed. Optional; omit for methods
       that are instrument-generic.
-    $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/laboratory/schema.yaml
+    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
     x-jsonld-id: http://schema.org/location
   schema:creator:
     title: Method Author
@@ -484,7 +484,7 @@ $defs:
       schema:instrument:
         description: Instrument or equipment used in this step.
         anyOf:
-        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
         - type: object
           additionalProperties: false
           properties:

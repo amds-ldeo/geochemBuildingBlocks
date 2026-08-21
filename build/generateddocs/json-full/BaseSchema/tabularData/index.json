@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-19",
+  "dateOfLastChange": "2026-08-21",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -28,7 +28,7 @@
   ],
   "shaclShapes": {
     "ogch.BaseSchema.tabularData": [
-      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/tabularData/rules.shacl"
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/rules.shacl"
     ],
     "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
@@ -43,22 +43,22 @@
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
     ],
     "ogch.BaseSchema.spatialRegistration": [
-      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/spatialRegistration/rules.shacl"
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
     ]
   },
   "dependsOn": [
     "cdif.bbr.metadata.cdifDataType.cdifTabularData",
     "ogch.BaseSchema.spatialRegistration"
   ],
-  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tabularData/context.jsonld",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/context.jsonld",
   "schema": {
-    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tabularData/schema.yaml",
-    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tabularData/schema.json"
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.json"
   },
-  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/tabularData/schema.yaml",
-  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/tabularData/context.jsonld",
-  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tabularData/resolvedProperties.json",
-  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/tabularData/",
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/schema.yaml",
+  "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/",
   "validationPassed": false,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/tabularData/",
   "description": "# Tabular Data Type\n\nDescribes tabular/structured data files in ADA metadata. Typed as `cdi:PhysicalDataSet` and `ada:tabularData`. Supports DDI-CDI WideDataStructure for column layout description, spatial registration, and various analytical technique-specific component types.\n",
@@ -74,26 +74,26 @@
       "snippets": [
         {
           "language": "json",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/tabularData/example_1_1.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/tabularData/example_1_1.json",
           "sizeBytes": 240,
           "code": "{\n  \"@type\": [\"cdi:TabularTextDataSet\", \"ada:tabularData\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:MCICPMSTabular\"\n  },\n  \"cdi:isDelimited\": true,\n  \"ada:xCoordCol\": \"X_um\",\n  \"ada:yCoordCol\": \"Y_um\",\n  \"ada:coordUnits\": \"micrometer\"\n}\n"
         },
         {
           "language": "jsonld",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/tabularData/example_1_1.jsonld",
-          "sizeBytes": 579,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tabularData/context.jsonld\"\n  ],\n  \"@type\": [\n    \"cdi:TabularTextDataSet\",\n    \"ada:tabularData\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:MCICPMSTabular\"\n  },\n  \"cdi:isDelimited\": true,\n  \"ada:xCoordCol\": \"X_um\",\n  \"ada:yCoordCol\": \"Y_um\",\n  \"ada:coordUnits\": \"micrometer\"\n}"
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/tabularData/example_1_1.jsonld",
+          "sizeBytes": 553,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/context.jsonld\"\n  ],\n  \"@type\": [\n    \"cdi:TabularTextDataSet\",\n    \"ada:tabularData\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:MCICPMSTabular\"\n  },\n  \"cdi:isDelimited\": true,\n  \"ada:xCoordCol\": \"X_um\",\n  \"ada:yCoordCol\": \"Y_um\",\n  \"ada:coordUnits\": \"micrometer\"\n}"
         },
         {
           "language": "ttl",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/tabularData/example_1_1.ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/tabularData/example_1_1.ttl",
           "sizeBytes": 395,
           "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a cdi:TabularTextDataSet,\n        ada:tabularData ;\n    cdi:isDelimited true ;\n    ada:componentType [ a ada:MCICPMSTabular ] ;\n    ada:coordUnits \"micrometer\" ;\n    ada:xCoordCol \"X_um\" ;\n    ada:yCoordCol \"Y_um\" .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Tabular Data Type\ndescription: Tabular data type aligned with CDIF 2026 schema using DDI-CDI and CSVW\n  properties. Typed as cdi:TabularTextDataSet and ada:tabularData.\nallOf:\n- type: object\n  properties:\n    '@type':\n      type: array\n      items:\n        type: string\n      minItems: 2\n      allOf:\n      - contains:\n          const: cdi:TabularTextDataSet\n      - contains:\n          const: ada:tabularData\n    ada:componentType:\n      type: string\n      enum:\n      - ada:AMSProcessedData\n      - ada:AMSRawData\n      - ada:ARGTCaptionData\n      - ada:ARGTRawData\n      - ada:ARGTSummaryData\n      - ada:DSCHeatFlow\n      - ada:DSCHeatTabular\n      - ada:DSCIndividualMeasurements\n      - ada:DSCProcessedHeatFlux\n      - ada:DSCRawHeatFlux\n      - ada:DSCResultsTabular\n      - ada:EAIRMSProcessedData\n      - ada:EAIRMSRawData\n      - ada:EMPAESPCTabular\n      - ada:EMPAQEATabular\n      - ada:FTICRMSTabular\n      - ada:GPYCProcessedTabular\n      - ada:GPYCRawTabular\n      - ada:HRICPMSProcessed\n      - ada:HRICPMSRaw\n      - ada:ICPOESIntermediateTabular\n      - ada:ICPOESProcessedTabular\n      - ada:ICPOESRawTabular\n      - ada:ICTabular\n      - ada:LAFProcessed\n      - ada:LAFRaw\n      - ada:LAICPMSGeochronTabular\n      - ada:LAICPMSTabular\n      - ada:LITPolarPlotData\n      - ada:LITTabularData\n      - ada:MCICPMSTabular\n      - ada:NGNSMSProcessed\n      - ada:NGNSMSRaw\n      - ada:NanoIRPointData\n      - ada:NanoSIMSRaw\n      - ada:NanoSIMSTabular\n      - ada:PSFDTabular\n      - ada:QICPMSProcessedTabular\n      - ada:QICPMSRawTabular\n      - ada:RAMANRawTabular\n      - ada:RITOFNGMSSpectra\n      - ada:RITOFNGMSTabular\n      - ada:SEMEDSPointData\n      - ada:SEMEDSPointSpectraData\n      - ada:SIMSTabular\n      - ada:STEMEDSTabular\n      - ada:STEMEELSTabular\n      - ada:SVRUECTabular\n      - ada:SVRUECWaveformData\n      - ada:TOFSIMSMassSpectrumData\n      - ada:VNMIRSpectralPoint\n      - ada:XRDTabular\n      description: ADA componentType for a tabular data file, as a single string.\n        Allowed values are constrained at the technique-profile level.\n      x-jsonld-id: https://ada.astromat.org/metadata/componentType\n    ada:xCoordCol:\n      description: The column names are redundant, they are lists in the hasPhysicalMapping\n        array. Include here for convenience.\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/xCoordCol\n    ada:yCoordCol:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/yCoordCol\n    ada:zCoordCol:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/zCoordCol\n    ada:coordUnits:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/coordUnits\n    ada:spatialRegistration:\n      $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/spatialRegistration/schema.yaml\n      x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration\n  required:\n  - '@type'\n  - ada:componentType\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifTabularData/schema.yaml\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Tabular Data Type\ndescription: Tabular data type aligned with CDIF 2026 schema using DDI-CDI and CSVW\n  properties. Typed as cdi:TabularTextDataSet and ada:tabularData.\nallOf:\n- type: object\n  properties:\n    '@type':\n      type: array\n      items:\n        type: string\n      minItems: 2\n      allOf:\n      - contains:\n          const: cdi:TabularTextDataSet\n      - contains:\n          const: ada:tabularData\n    ada:componentType:\n      type: string\n      enum:\n      - ada:AMSProcessedData\n      - ada:AMSRawData\n      - ada:ARGTCaptionData\n      - ada:ARGTRawData\n      - ada:ARGTSummaryData\n      - ada:DSCHeatFlow\n      - ada:DSCHeatTabular\n      - ada:DSCIndividualMeasurements\n      - ada:DSCProcessedHeatFlux\n      - ada:DSCRawHeatFlux\n      - ada:DSCResultsTabular\n      - ada:EAIRMSProcessedData\n      - ada:EAIRMSRawData\n      - ada:EMPAESPCTabular\n      - ada:EMPAQEATabular\n      - ada:FTICRMSTabular\n      - ada:GPYCProcessedTabular\n      - ada:GPYCRawTabular\n      - ada:HRICPMSProcessed\n      - ada:HRICPMSRaw\n      - ada:ICPOESIntermediateTabular\n      - ada:ICPOESProcessedTabular\n      - ada:ICPOESRawTabular\n      - ada:ICTabular\n      - ada:LAFProcessed\n      - ada:LAFRaw\n      - ada:LAICPMSGeochronTabular\n      - ada:LAICPMSTabular\n      - ada:LITPolarPlotData\n      - ada:LITTabularData\n      - ada:MCICPMSTabular\n      - ada:NGNSMSProcessed\n      - ada:NGNSMSRaw\n      - ada:NanoIRPointData\n      - ada:NanoSIMSRaw\n      - ada:NanoSIMSTabular\n      - ada:PSFDTabular\n      - ada:QICPMSProcessedTabular\n      - ada:QICPMSRawTabular\n      - ada:RAMANRawTabular\n      - ada:RITOFNGMSSpectra\n      - ada:RITOFNGMSTabular\n      - ada:SEMEDSPointData\n      - ada:SEMEDSPointSpectraData\n      - ada:SIMSTabular\n      - ada:STEMEDSTabular\n      - ada:STEMEELSTabular\n      - ada:SVRUECTabular\n      - ada:SVRUECWaveformData\n      - ada:TOFSIMSMassSpectrumData\n      - ada:VNMIRSpectralPoint\n      - ada:XRDTabular\n      description: ADA componentType for a tabular data file, as a single string.\n        Allowed values are constrained at the technique-profile level.\n      x-jsonld-id: https://ada.astromat.org/metadata/componentType\n    ada:xCoordCol:\n      description: The column names are redundant, they are lists in the hasPhysicalMapping\n        array. Include here for convenience.\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/xCoordCol\n    ada:yCoordCol:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/yCoordCol\n    ada:zCoordCol:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/zCoordCol\n    ada:coordUnits:\n      type: string\n      x-jsonld-id: https://ada.astromat.org/metadata/coordUnits\n    ada:spatialRegistration:\n      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml\n      x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration\n  required:\n  - '@type'\n  - ada:componentType\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifTabularData/schema.yaml\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\n",
   "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/BaseSchema/tabularData"
 }

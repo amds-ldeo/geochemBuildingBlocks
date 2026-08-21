@@ -1,0 +1,244 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:labxctTAPP-Charles2018",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Charles2018",
+  "schema:description": "labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Robarts Institute, U. Western Ontario"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "CR2 chondrite (NWA 801)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Analysis zone ~3 \u00d7 0.7 \u00d7 4.1 cm"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Chondrule shapes; petrofabric; compaction estimation",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Fixed to motorized gantry along scanner axis"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "10 heads (ring); each 8 \u00d7 8 cm face, 2.46 mm\u00b2 pixels"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorPixelSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorPixelSize"
+        }
+      ],
+      "schema:name": "Detector Pixel Size",
+      "schema:value": 2.46,
+      "schema:unitText": "example value",
+      "schema:description": "2.46 mm\u00b2 per pixel (1.57 mm pitch)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationStepSizeDefault",
+      "schema:name": "Rotation Step Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.4,
+      "schema:description": "0.4\u00b0/view"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ctNumberCalibrationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ctNumberCalibrationDefault",
+      "schema:name": "CT Number Calibration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Hounsfield units \u2014 calibrated with air, water, bone, and Al imaged in same session"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationThresholdValuesOrCriteriaDefault",
+      "schema:name": "Segmentation Threshold Values or Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Chondrule boundaries digitized by coordinate measurement; no global greyscale threshold used"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/voiSelectionCriteriaDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "voiSelectionCriteriaDefault",
+      "schema:name": "VOI Selection Criteria",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Three neighboring zones defined by sample geometry (~8.6 cm\u00b3 total)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/outputBitDepthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "outputBitDepthDefault",
+      "schema:name": "Output Bit Depth",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "16-bit CT values (voxels)"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "None stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Ring-gantry geometry (rotating source, CZT ring detector)",
+  "ada:detectorType": "CdZnTe (CZT) ring detector (10 planar heads, 8\u00d78 cm each, 2.46 mm\u00b2 pixels)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "110 kV",
+      "ada:tubeCurrentDefault": "32 mA",
+      "ada:voxelSizeDefault": "49.8 \u00b5m (edge)",
+      "schema:model": {
+        "schema:name": "GE eXplore speCZT",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationRangeDefault": "360\u00b0",
+  "ada:numberOfProjectionsDefault": "900",
+  "ada:exposureTimePerProjectionDefault": "16 ms",
+  "ada:reconstructionAlgorithm": "Filtered back projection with iterative projection geometry corrections",
+  "ada:segmentationMethodDefault": "Manual coordinate digitization of chondrule boundaries in MicroView (54+ points per chondrule)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "MicroView v2.1.2 and 2.5.0-a5"
+    }
+  ],
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:beamHardeningCorrectionMethod": "missing",
+  "ada:minimumSubVolumeOverlap": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:rotationModeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}

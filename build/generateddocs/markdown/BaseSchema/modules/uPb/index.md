@@ -78,7 +78,7 @@ The procedure half of the UPb module, with every property populated. Generated f
       "ada": "https://ada.astromat.org/metadata/",
       "schema": "http://schema.org/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/uPb/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/context.jsonld"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -111,11 +111,11 @@ The procedure half of the UPb module, with every property populated. Generated f
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:additionalProperty [ schema1:name "Intermediate Daughter Disequilibrium Correction" ;
+[] schema1:actionProcess [ schema1:step [ schema1:name "samplePreparation" ;
+                    ada:chemicalAbrasionConditions "example value" ],
+                [ schema1:additionalProperty [ schema1:name "Intermediate Daughter Disequilibrium Correction" ;
                             schema1:value "example value" ] ;
-                    schema1:name "dataReduction" ],
-                [ schema1:name "samplePreparation" ;
-                    ada:chemicalAbrasionConditions "example value" ] ] ;
+                    schema1:name "dataReduction" ] ] ;
     schema1:additionalProperty [ schema1:name "Discordance Definition and Values" ;
             schema1:value "example value" ] .
 
@@ -267,8 +267,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/uPb/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/uPb/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml)
 
 
 # JSON-LD Context
@@ -284,7 +284,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/uPb/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/context.jsonld)
 
 ## Sources
 

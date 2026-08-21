@@ -314,7 +314,7 @@ their delivery-packaging vocabulary (see adaProduct).
       "prov": "http://www.w3.org/ns/prov#",
       "dcterms": "http://purl.org/dc/terms/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/context.jsonld",
     {
       "schema": "http://schema.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
@@ -727,7 +727,7 @@ allOf:
       items:
         anyOf:
         - type: string
-        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/creativeWork/schema.yaml
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
       x-jsonld-id: http://schema.org/license
     schema:relatedLink:
       type: array
@@ -821,7 +821,7 @@ allOf:
                       type: array
                       minItems: 1
                       items:
-                        $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
                       x-jsonld-id: http://schema.org/instrument
               - if:
                   type: object
@@ -856,10 +856,10 @@ allOf:
                   required:
                   - '@type'
                 then:
-                  $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tappDefinition/schema.yaml
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
             x-jsonld-id: http://www.w3.org/ns/prov#used
           schema:location:
-            $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/laboratory/schema.yaml
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
             x-jsonld-id: http://schema.org/location
           schema:object:
             type: array
@@ -1082,7 +1082,7 @@ allOf:
                 contains:
                   const: cdi:TabularTextDataSet
           then:
-            $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tabularData/schema.yaml
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml
       x-jsonld-id: http://schema.org/distribution
     schema:subjectOf:
       properties:
@@ -1256,8 +1256,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml)
 
 
 # JSON-LD Context
@@ -1290,7 +1290,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/context.jsonld)
 
 ## Sources
 

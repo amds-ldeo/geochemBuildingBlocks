@@ -1,0 +1,136 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:labxctTAPP-Charles2018 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/ctNumberCalibrationDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiSelectionCriteriaDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "XCT" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "GE eXplore speCZT" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "110 kV" ;
+            ada:tubeCurrentDefault "32 mA" ;
+            ada:voxelSizeDefault "49.8 µm (edge)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Robarts Institute, U. Western Ontario" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "missing" ] ;
+    schema1:name "labxct protocol — Charles2018" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "CR2 chondrite (NWA 801)" ],
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
+    ada:applicableSampleDimensionRange "missing" ;
+    ada:beamHardeningCorrectionMethod "missing" ;
+    ada:detectorType "CdZnTe (CZT) ring detector (10 planar heads, 8×8 cm each, 2.46 mm² pixels)" ;
+    ada:exposureTimePerProjectionDefault "16 ms" ;
+    ada:minimumSubVolumeOverlap -9999 ;
+    ada:numberOfProjectionsDefault "900" ;
+    ada:outputDataFormatDefault "missing" ;
+    ada:reconstructionAlgorithm "Filtered back projection with iterative projection geometry corrections" ;
+    ada:rotationModeDefault "missing" ;
+    ada:rotationRangeDefault "360°" ;
+    ada:samplingUnit "missing" ;
+    ada:segmentationMethodDefault "Manual coordinate digitization of chondrule boundaries in MicroView (54+ points per chondrule)" ;
+    ada:targetFeature "Chondrule shapes; petrofabric; compaction estimation" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:xRaySourceConfiguration "Ring-gantry geometry (rotating source, CZT ring detector)" ;
+    bios:computationalTool [ schema1:name "MicroView v2.1.2 and 2.5.0-a5" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/ctNumberCalibrationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Hounsfield units — calibrated with air, water, bone, and Al imaged in same session" ;
+    schema1:name "CT Number Calibration" ;
+    schema1:valueName "ctNumberCalibrationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "16-bit CT values (voxels)" ;
+    schema1:name "Output Bit Depth" ;
+    schema1:valueName "outputBitDepthDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 4e-01 ;
+    schema1:description "0.4°/view" ;
+    schema1:name "Rotation Step Size" ;
+    schema1:valueName "rotationStepSizeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Analysis zone ~3 × 0.7 × 4.1 cm" ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Fixed to motorized gantry along scanner axis" ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Chondrule boundaries digitized by coordinate measurement; no global greyscale threshold used" ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voiSelectionCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Three neighboring zones defined by sample geometry (~8.6 cm³ total)" ;
+    schema1:name "VOI Selection Criteria" ;
+    schema1:valueName "voiSelectionCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
+    schema1:name "Detector Array Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
+    schema1:value "10 heads (ring); each 8 × 8 cm face, 2.46 mm² pixels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> a schema1:PropertyValue ;
+    schema1:description "2.46 mm² per pixel (1.57 mm pitch)" ;
+    schema1:name "Detector Pixel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize> ;
+    schema1:unitText "example value" ;
+    schema1:value 2.46e+00 .
+

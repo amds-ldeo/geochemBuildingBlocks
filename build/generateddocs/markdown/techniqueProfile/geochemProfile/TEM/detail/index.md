@@ -46,49 +46,7 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; HRTEM (TEM Imaging); HAADF-STEM (STEM Imaging)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Line scan; Spectrum image (map)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -101,7 +59,7 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -135,49 +93,7 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; HRTEM (TEM Imaging); HAADF-STEM (STEM Imaging)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Line scan; Spectrum image (map)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -189,9 +105,6 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Chaves2023 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)" ] ;
     schema1:measurementTechnique ex:temTAPP-Chaves2023 ;
@@ -207,22 +120,6 @@ ex:detail-Chaves2023 a ada:TEMImage ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-TEM; HRTEM (TEM Imaging); HAADF-STEM (STEM Imaging)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Line scan; Spectrum image (map)" .
 
 
 ```
@@ -265,116 +162,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Astromat (astromat.org); DOIs in Supplementary Table 1"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
-        }
-      ],
-      "schema:name": "STEM Dwell Time per Pixel",
-      "schema:value": 8,
-      "schema:unitText": "ms"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemScanDimensions",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemScanDimensions"
-        }
-      ],
-      "schema:name": "STEM Scan Dimensions",
-      "schema:value": 512,
-      "schema:unitText": "pixels x pixels"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsEnergyRange",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsEnergyRange"
-        }
-      ],
-      "schema:name": "EDS Energy Range",
-      "schema:value": "20 keV (2048 channels)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied"
-        }
-      ],
-      "schema:name": "Image Processing Methods Applied",
-      "schema:value": "Selective quantification: summed spectra extracted from specific phyllosilicate domains in EDS spectrum images"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -387,7 +175,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -421,116 +209,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Astromat (astromat.org); DOIs in Supplementary Table 1"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
-        }
-      ],
-      "schema:name": "STEM Dwell Time per Pixel",
-      "schema:value": 8,
-      "schema:unitText": "ms"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemScanDimensions",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemScanDimensions"
-        }
-      ],
-      "schema:name": "STEM Scan Dimensions",
-      "schema:value": 512,
-      "schema:unitText": "pixels x pixels"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsEnergyRange",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsEnergyRange"
-        }
-      ],
-      "schema:name": "EDS Energy Range",
-      "schema:value": "20 keV (2048 channels)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied"
-        }
-      ],
-      "schema:name": "Image Processing Methods Applied",
-      "schema:value": "Selective quantification: summed spectra extracted from specific phyllosilicate domains in EDS spectrum images"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -542,14 +221,6 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsEnergyRange>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF" ] ;
     schema1:measurementTechnique ex:temTAPP-Zega2025 ;
@@ -565,49 +236,6 @@ ex:detail-Zega2025 a ada:TEMImage ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> a schema1:PropertyValue ;
-    schema1:name "Coupled Dataset or Publication Reference" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> ;
-    schema1:value "Astromat (astromat.org); DOIs in Supplementary Table 1" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum image (map)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsEnergyRange> a schema1:PropertyValue ;
-    schema1:name "EDS Energy Range" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsEnergyRange> ;
-    schema1:value "20 keV (2048 channels)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> a schema1:PropertyValue ;
-    schema1:name "Image Processing Methods Applied" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
-    schema1:value "Selective quantification: summed spectra extracted from specific phyllosilicate domains in EDS spectrum images" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel> a schema1:PropertyValue ;
-    schema1:name "STEM Dwell Time per Pixel" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel> ;
-    schema1:unitText "ms" ;
-    schema1:value 8 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> a schema1:PropertyValue ;
-    schema1:name "STEM Scan Dimensions" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> ;
-    schema1:unitText "pixels x pixels" ;
-    schema1:value 512 .
 
 
 ```
@@ -650,102 +278,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Astromat (astromat.org); DOIs in Supplementary Table 1"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 80,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM (STEM Imaging)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
-        }
-      ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": "<0.25 nA",
-      "schema:unitText": "pA or nA"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemFrameAveraging",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemFrameAveraging"
-        }
-      ],
-      "schema:name": "STEM Frame Averaging",
-      "schema:value": "Sequential acquisition several minutes to >1 h; combined using Python (light-element volatilization control)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied"
-        }
-      ],
-      "schema:name": "Image Processing Methods Applied",
-      "schema:value": "Sequential map acquisition combined in Python to control light-element volatilization"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -758,7 +291,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -792,102 +325,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Astromat (astromat.org); DOIs in Supplementary Table 1"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 80,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM (STEM Imaging)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
-        }
-      ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": "<0.25 nA",
-      "schema:unitText": "pA or nA"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemFrameAveraging",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemFrameAveraging"
-        }
-      ],
-      "schema:name": "STEM Frame Averaging",
-      "schema:value": "Sequential acquisition several minutes to >1 h; combined using Python (light-element volatilization control)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied"
-        }
-      ],
-      "schema:name": "Image Processing Methods Applied",
-      "schema:value": "Sequential map acquisition combined in Python to control light-element volatilization"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -899,13 +337,6 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-2 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231" ] ;
     schema1:measurementTechnique ex:temTAPP-Zega2025-2 ;
@@ -921,43 +352,6 @@ ex:detail-Zega2025-2 a ada:TEMImage ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 80 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "HAADF-STEM (STEM Imaging)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> a schema1:PropertyValue ;
-    schema1:name "Coupled Dataset or Publication Reference" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> ;
-    schema1:value "Astromat (astromat.org); DOIs in Supplementary Table 1" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum image (map)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> a schema1:PropertyValue ;
-    schema1:name "Image Processing Methods Applied" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
-    schema1:value "Sequential map acquisition combined in Python to control light-element volatilization" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> a schema1:PropertyValue ;
-    schema1:name "STEM Frame Averaging" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> ;
-    schema1:value "Sequential acquisition several minutes to >1 h; combined using Python (light-element volatilization control)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> a schema1:PropertyValue ;
-    schema1:name "STEM Probe Current" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
-    schema1:unitText "pA or nA" ;
-    schema1:value "<0.25 nA" .
 
 
 ```
@@ -1000,88 +394,7 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Astromat (astromat.org); DOIs in Supplementary Table 1"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/haadfCollectionAngles",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/haadfCollectionAngles"
-        }
-      ],
-      "schema:name": "HAADF Collection Angles",
-      "schema:value": "Inner 58 mrad (HAADF)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod"
-        }
-      ],
-      "schema:name": "Diffraction Camera Length Calibration Method",
-      "schema:value": "External standard (AGAR S106 cross grating, 3 mm)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/diffractionCalibrationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/diffractionCalibrationReference"
-        }
-      ],
-      "schema:name": "Diffraction Calibration Reference",
-      "schema:value": "External standard (AGAR S106 cross grating, 3 mm)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -1094,7 +407,7 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1128,88 +441,7 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Astromat (astromat.org); DOIs in Supplementary Table 1"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/haadfCollectionAngles",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/haadfCollectionAngles"
-        }
-      ],
-      "schema:name": "HAADF Collection Angles",
-      "schema:value": "Inner 58 mrad (HAADF)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod"
-        }
-      ],
-      "schema:name": "Diffraction Camera Length Calibration Method",
-      "schema:value": "External standard (AGAR S106 cross grating, 3 mm)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/diffractionCalibrationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/diffractionCalibrationReference"
-        }
-      ],
-      "schema:name": "Diffraction Calibration Reference",
-      "schema:value": "External standard (AGAR S106 cross grating, 3 mm)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -1221,12 +453,6 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-3 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAngles> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473" ] ;
     schema1:measurementTechnique ex:temTAPP-Zega2025-3 ;
@@ -1242,37 +468,6 @@ ex:detail-Zega2025-3 a ada:TEMImage ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> a schema1:PropertyValue ;
-    schema1:name "Coupled Dataset or Publication Reference" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> ;
-    schema1:value "Astromat (astromat.org); DOIs in Supplementary Table 1" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference> a schema1:PropertyValue ;
-    schema1:name "Diffraction Calibration Reference" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference> ;
-    schema1:value "External standard (AGAR S106 cross grating, 3 mm)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod> a schema1:PropertyValue ;
-    schema1:name "Diffraction Camera Length Calibration Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod> ;
-    schema1:value "External standard (AGAR S106 cross grating, 3 mm)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAngles> a schema1:PropertyValue ;
-    schema1:name "HAADF Collection Angles" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAngles> ;
-    schema1:value "Inner 58 mrad (HAADF)" .
 
 
 ```
@@ -1315,116 +510,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Astromat (astromat.org); DOIs in Supplementary Table 1"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
-        }
-      ],
-      "schema:name": "STEM Dwell Time per Pixel",
-      "schema:value": 50,
-      "schema:unitText": "ms"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemScanDimensions",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemScanDimensions"
-        }
-      ],
-      "schema:name": "STEM Scan Dimensions",
-      "schema:value": 256,
-      "schema:unitText": "pixels x pixels"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemFrameAveraging",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemFrameAveraging"
-        }
-      ],
-      "schema:name": "STEM Frame Averaging",
-      "schema:value": "Successive frames until counting statistics <1% for major elements"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsCalibrationStandard",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsCalibrationStandard"
-        }
-      ],
-      "schema:name": "EDS Calibration Standard(s)",
-      "schema:value": "k-factors from well-characterized standards (standards not specified); Thermo System7"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -1437,7 +523,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1471,116 +557,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Astromat (astromat.org); DOIs in Supplementary Table 1"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
-        }
-      ],
-      "schema:name": "STEM Dwell Time per Pixel",
-      "schema:value": 50,
-      "schema:unitText": "ms"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemScanDimensions",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemScanDimensions"
-        }
-      ],
-      "schema:name": "STEM Scan Dimensions",
-      "schema:value": 256,
-      "schema:unitText": "pixels x pixels"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemFrameAveraging",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemFrameAveraging"
-        }
-      ],
-      "schema:name": "STEM Frame Averaging",
-      "schema:value": "Successive frames until counting statistics <1% for major elements"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsCalibrationStandard",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsCalibrationStandard"
-        }
-      ],
-      "schema:name": "EDS Calibration Standard(s)",
-      "schema:value": "k-factors from well-characterized standards (standards not specified); Thermo System7"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -1592,14 +569,6 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-4 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O; NNM10AA11C" ] ;
     schema1:measurementTechnique ex:temTAPP-Zega2025-4 ;
@@ -1615,49 +584,6 @@ ex:detail-Zega2025-4 a ada:TEMImage ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> a schema1:PropertyValue ;
-    schema1:name "Coupled Dataset or Publication Reference" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> ;
-    schema1:value "Astromat (astromat.org); DOIs in Supplementary Table 1" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum image (map)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard> a schema1:PropertyValue ;
-    schema1:name "EDS Calibration Standard(s)" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard> ;
-    schema1:value "k-factors from well-characterized standards (standards not specified); Thermo System7" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel> a schema1:PropertyValue ;
-    schema1:name "STEM Dwell Time per Pixel" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel> ;
-    schema1:unitText "ms" ;
-    schema1:value 50 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> a schema1:PropertyValue ;
-    schema1:name "STEM Frame Averaging" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> ;
-    schema1:value "Successive frames until counting statistics <1% for major elements" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> a schema1:PropertyValue ;
-    schema1:name "STEM Scan Dimensions" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> ;
-    schema1:unitText "pixels x pixels" ;
-    schema1:value 256 .
 
 
 ```
@@ -1700,22 +626,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; DF-TEM; ADF-STEM; SAED (Electron Diffraction)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -1728,7 +639,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1762,22 +673,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; DF-TEM; ADF-STEM; SAED (Electron Diffraction)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -1789,7 +685,6 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Matsumoto2021 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ] ;
     schema1:measurementTechnique ex:temTAPP-Matsumoto2021 ;
@@ -1805,11 +700,6 @@ ex:detail-Matsumoto2021 a ada:TEMImage ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-TEM; DF-TEM; ADF-STEM; SAED (Electron Diffraction)" .
 
 
 ```
@@ -1852,48 +742,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; ADF-STEM; STEM-EDS (line profiles; quantitative)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Line scan; quantitative point analysis"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsCalibrationStandard",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsCalibrationStandard"
-        }
-      ],
-      "schema:name": "EDS Calibration Standard(s)",
-      "schema:value": "Troilite nodule from Cape York iron meteorite (Fe, S); terrestrial millerite from Sanany, Ural, Russia (Ni, S)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -1906,7 +755,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1940,48 +789,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; ADF-STEM; STEM-EDS (line profiles; quantitative)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Line scan; quantitative point analysis"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsCalibrationStandard",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsCalibrationStandard"
-        }
-      ],
-      "schema:name": "EDS Calibration Standard(s)",
-      "schema:value": "Troilite nodule from Cape York iron meteorite (Fe, S); terrestrial millerite from Sanany, Ural, Russia (Ni, S)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -1993,9 +801,6 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Matsumoto2021-2 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ] ;
     schema1:measurementTechnique ex:temTAPP-Matsumoto2021-2 ;
@@ -2011,21 +816,6 @@ ex:detail-Matsumoto2021-2 a ada:TEMImage ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-TEM; ADF-STEM; STEM-EDS (line profiles; quantitative)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Line scan; quantitative point analysis" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard> a schema1:PropertyValue ;
-    schema1:name "EDS Calibration Standard(s)" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard> ;
-    schema1:value "Troilite nodule from Cape York iron meteorite (Fe, S); terrestrial millerite from Sanany, Ural, Russia (Ni, S)" .
 
 
 ```
@@ -2068,35 +858,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -2109,7 +871,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2143,35 +905,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -2183,8 +917,6 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Matsumoto2021-3 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ] ;
     schema1:measurementTechnique ex:temTAPP-Matsumoto2021-3 ;
@@ -2200,16 +932,6 @@ ex:detail-Matsumoto2021-3 a ada:TEMImage ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum image (map)" .
 
 
 ```
@@ -2252,131 +974,7 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-STEM; DF-STEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); STEM-EDS (spectrum imaging)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeDiameter",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeDiameter"
-        }
-      ],
-      "schema:name": "STEM Probe Diameter",
-      "schema:value": 4,
-      "schema:unitText": "nm"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
-        }
-      ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": 9,
-      "schema:unitText": "pA or nA"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
-        }
-      ],
-      "schema:name": "STEM Dwell Time per Pixel",
-      "schema:value": 50,
-      "schema:unitText": "ms"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemScanDimensions",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemScanDimensions"
-        }
-      ],
-      "schema:name": "STEM Scan Dimensions",
-      "schema:value": 256,
-      "schema:unitText": "pixels x pixels"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemFrameAveraging",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemFrameAveraging"
-        }
-      ],
-      "schema:name": "STEM Frame Averaging",
-      "schema:value": "Multiple consecutive spectrum image layers accumulated (target: >10% counting statistics per pixel for major elements)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map); line profile"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterion",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterion"
-        }
-      ],
-      "schema:name": "EDS Counting Statistics / Accumulation Criterion",
-      "schema:value": "Successive layers averaged for >10% counting statistics"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -2389,7 +987,7 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2423,131 +1021,7 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-STEM; DF-STEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); STEM-EDS (spectrum imaging)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeDiameter",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeDiameter"
-        }
-      ],
-      "schema:name": "STEM Probe Diameter",
-      "schema:value": 4,
-      "schema:unitText": "nm"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
-        }
-      ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": 9,
-      "schema:unitText": "pA or nA"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
-        }
-      ],
-      "schema:name": "STEM Dwell Time per Pixel",
-      "schema:value": 50,
-      "schema:unitText": "ms"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemScanDimensions",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemScanDimensions"
-        }
-      ],
-      "schema:name": "STEM Scan Dimensions",
-      "schema:value": 256,
-      "schema:unitText": "pixels x pixels"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemFrameAveraging",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemFrameAveraging"
-        }
-      ],
-      "schema:name": "STEM Frame Averaging",
-      "schema:value": "Multiple consecutive spectrum image layers accumulated (target: >10% counting statistics per pixel for major elements)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map); line profile"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterion",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterion"
-        }
-      ],
-      "schema:name": "EDS Counting Statistics / Accumulation Criterion",
-      "schema:value": "Successive layers averaged for >10% counting statistics"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -2559,15 +1033,6 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-KellerBerger2014 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)" ] ;
     schema1:measurementTechnique ex:temTAPP-KellerBerger2014 ;
@@ -2583,56 +1048,6 @@ ex:detail-KellerBerger2014 a ada:TEMImage ;
     ada:sampleName "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-STEM; DF-STEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); STEM-EDS (spectrum imaging)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum image (map); line profile" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion> a schema1:PropertyValue ;
-    schema1:name "EDS Counting Statistics / Accumulation Criterion" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion> ;
-    schema1:value "Successive layers averaged for >10% counting statistics" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel> a schema1:PropertyValue ;
-    schema1:name "STEM Dwell Time per Pixel" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel> ;
-    schema1:unitText "ms" ;
-    schema1:value 50 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> a schema1:PropertyValue ;
-    schema1:name "STEM Frame Averaging" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> ;
-    schema1:value "Multiple consecutive spectrum image layers accumulated (target: >10% counting statistics per pixel for major elements)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> a schema1:PropertyValue ;
-    schema1:name "STEM Probe Current" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
-    schema1:unitText "pA or nA" ;
-    schema1:value 9 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> a schema1:PropertyValue ;
-    schema1:name "STEM Probe Diameter" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> ;
-    schema1:unitText "nm" ;
-    schema1:value 4 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> a schema1:PropertyValue ;
-    schema1:name "STEM Scan Dimensions" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> ;
-    schema1:unitText "pixels x pixels" ;
-    schema1:value 256 .
 
 
 ```
@@ -2675,89 +1090,7 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Unprocessed SEM and TEM data for Figs. 1–3 available at https://doi.org/10.6084/m9.figshare.25244650"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "CE5C0600YJFM00304 (China National Space Administration allocation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
-        }
-      ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": 1,
-      "schema:unitText": "pA or nA"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -2770,7 +1103,7 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2804,89 +1137,7 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Unprocessed SEM and TEM data for Figs. 1\u20133 available at https://doi.org/10.6084/m9.figshare.25244650"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "CE5C0600YJFM00304 (China National Space Administration allocation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
-        }
-      ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": 1,
-      "schema:unitText": "pA or nA"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -2898,12 +1149,6 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zeng2024 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)" ] ;
     schema1:measurementTechnique ex:temTAPP-Zeng2024 ;
@@ -2919,38 +1164,6 @@ ex:detail-Zeng2024 a ada:TEMImage ;
     ada:sampleName "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> a schema1:PropertyValue ;
-    schema1:name "Coupled Dataset or Publication Reference" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> ;
-    schema1:value "Unprocessed SEM and TEM data for Figs. 1–3 available at https://doi.org/10.6084/m9.figshare.25244650" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum image (map)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> a schema1:PropertyValue ;
-    schema1:name "Sample Persistent Identifier" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> ;
-    schema1:value "CE5C0600YJFM00304 (China National Space Administration allocation number)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> a schema1:PropertyValue ;
-    schema1:name "STEM Probe Current" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
-    schema1:unitText "pA or nA" ;
-    schema1:value 1 .
 
 
 ```
@@ -2993,50 +1206,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 300,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/cameraLength",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/cameraLength"
-        }
-      ],
-      "schema:name": "Camera Length",
-      "schema:value": 295,
-      "schema:unitText": "mm"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -3049,7 +1219,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3083,50 +1253,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 300,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/cameraLength",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/cameraLength"
-        }
-      ],
-      "schema:name": "Camera Length",
-      "schema:value": 295,
-      "schema:unitText": "mm"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -3138,9 +1265,6 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Dobrica2022 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/cameraLength> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ] ;
     schema1:measurementTechnique ex:temTAPP-Dobrica2022 ;
@@ -3156,23 +1280,6 @@ ex:detail-Dobrica2022 a ada:TEMImage ;
     ada:sampleName "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 300 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/cameraLength> a schema1:PropertyValue ;
-    schema1:name "Camera Length" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/cameraLength> ;
-    schema1:unitText "mm" ;
-    schema1:value 295 .
 
 
 ```
@@ -3215,49 +1322,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:edsDetectionLimit": "<0.1 wt% (stated for TEM EDS measurements)",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM (Z-contrast); STEM-EDS (hyperspectral map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (hyperspectral map)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -3270,7 +1335,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3304,49 +1369,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:edsDetectionLimit": "<0.1 wt% (stated for TEM EDS measurements)",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM (Z-contrast); STEM-EDS (hyperspectral map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (hyperspectral map)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -3358,9 +1381,6 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Dobrica2022-2 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ] ;
     schema1:measurementTechnique ex:temTAPP-Dobrica2022-2 ;
@@ -3376,22 +1396,6 @@ ex:detail-Dobrica2022-2 a ada:TEMImage ;
     ada:sampleName "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "HAADF-STEM (Z-contrast); STEM-EDS (hyperspectral map)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum image (hyperspectral map)" .
 
 
 ```
@@ -3434,114 +1438,7 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "TEM data products at AstroMat (DOIs in Table A4 supplementary); full EDS and electron diffraction data in Tables A1–A2 supplementary; data also at Figshare: https://doi.org/10.6084/m9.figshare.29383433.v1"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "OREX-800045-102 (NASA OSIRIS-REx curation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; HAADF-STEM; SAED (Electron Diffraction); STEM-EDS (point; map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/haadfCollectionAngles",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/haadfCollectionAngles"
-        }
-      ],
-      "schema:name": "HAADF Collection Angles",
-      "schema:value": "Convergence semi-angle 10.5 mrad; inner collection semi-angle 58 mrad"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod"
-        }
-      ],
-      "schema:name": "Diffraction Camera Length Calibration Method",
-      "schema:value": "External standard: Cross Grating 3 mm S106 from AGAR (image magnification and camera constant calibrations)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map); point analysis"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/diffractionCalibrationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/diffractionCalibrationReference"
-        }
-      ],
-      "schema:name": "Diffraction Calibration Reference",
-      "schema:value": "AGAR S106 Cross Grating 3 mm (camera constant calibration)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -3554,7 +1451,7 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3588,114 +1485,7 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "TEM data products at AstroMat (DOIs in Table A4 supplementary); full EDS and electron diffraction data in Tables A1\u2013A2 supplementary; data also at Figshare: https://doi.org/10.6084/m9.figshare.29383433.v1"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "OREX-800045-102 (NASA OSIRIS-REx curation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; HAADF-STEM; SAED (Electron Diffraction); STEM-EDS (point; map)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/haadfCollectionAngles",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/haadfCollectionAngles"
-        }
-      ],
-      "schema:name": "HAADF Collection Angles",
-      "schema:value": "Convergence semi-angle 10.5 mrad; inner collection semi-angle 58 mrad"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod"
-        }
-      ],
-      "schema:name": "Diffraction Camera Length Calibration Method",
-      "schema:value": "External standard: Cross Grating 3 mm S106 from AGAR (image magnification and camera constant calibrations)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum image (map); point analysis"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/diffractionCalibrationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/diffractionCalibrationReference"
-        }
-      ],
-      "schema:name": "Diffraction Calibration Reference",
-      "schema:value": "AGAR S106 Cross Grating 3 mm (camera constant calibration)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -3707,14 +1497,6 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Singerling2025 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAngles>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)" ] ;
     schema1:measurementTechnique ex:temTAPP-Singerling2025 ;
@@ -3730,47 +1512,6 @@ ex:detail-Singerling2025 a ada:TEMImage ;
     ada:sampleName "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-TEM; HAADF-STEM; SAED (Electron Diffraction); STEM-EDS (point; map)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> a schema1:PropertyValue ;
-    schema1:name "Coupled Dataset or Publication Reference" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> ;
-    schema1:value "TEM data products at AstroMat (DOIs in Table A4 supplementary); full EDS and electron diffraction data in Tables A1–A2 supplementary; data also at Figshare: https://doi.org/10.6084/m9.figshare.29383433.v1" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference> a schema1:PropertyValue ;
-    schema1:name "Diffraction Calibration Reference" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference> ;
-    schema1:value "AGAR S106 Cross Grating 3 mm (camera constant calibration)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod> a schema1:PropertyValue ;
-    schema1:name "Diffraction Camera Length Calibration Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod> ;
-    schema1:value "External standard: Cross Grating 3 mm S106 from AGAR (image magnification and camera constant calibrations)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum image (map); point analysis" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAngles> a schema1:PropertyValue ;
-    schema1:name "HAADF Collection Angles" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAngles> ;
-    schema1:value "Convergence semi-angle 10.5 mrad; inner collection semi-angle 58 mrad" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> a schema1:PropertyValue ;
-    schema1:name "Sample Persistent Identifier" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> ;
-    schema1:value "OREX-800045-102 (NASA OSIRIS-REx curation number)" .
 
 
 ```
@@ -3813,103 +1554,7 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeDiameter",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeDiameter"
-        }
-      ],
-      "schema:name": "STEM Probe Diameter",
-      "schema:value": 2,
-      "schema:unitText": "nm"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
-        }
-      ],
-      "schema:name": "STEM Dwell Time per Pixel",
-      "schema:value": 50,
-      "schema:unitText": "ms"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemFrameAveraging",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemFrameAveraging"
-        }
-      ],
-      "schema:name": "STEM Frame Averaging",
-      "schema:value": "Successive scans accumulated until major element counts achieved 1% counting statistics"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum imaging (spatially resolved maps and line profiles); successive accumulated scans"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterion",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterion"
-        }
-      ],
-      "schema:name": "EDS Counting Statistics / Accumulation Criterion",
-      "schema:value": "Successive scans accumulated until major element counts achieved 1% counting statistics"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -3922,7 +1567,7 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3956,103 +1601,7 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeDiameter",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeDiameter"
-        }
-      ],
-      "schema:name": "STEM Probe Diameter",
-      "schema:value": 2,
-      "schema:unitText": "nm"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
-        }
-      ],
-      "schema:name": "STEM Dwell Time per Pixel",
-      "schema:value": 50,
-      "schema:unitText": "ms"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemFrameAveraging",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemFrameAveraging"
-        }
-      ],
-      "schema:name": "STEM Frame Averaging",
-      "schema:value": "Successive scans accumulated until major element counts achieved 1% counting statistics"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum imaging (spatially resolved maps and line profiles); successive accumulated scans"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterion",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterion"
-        }
-      ],
-      "schema:name": "EDS Counting Statistics / Accumulation Criterion",
-      "schema:value": "Successive scans accumulated until major element counts achieved 1% counting statistics"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -4064,13 +1613,6 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Thompson2020 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960" ] ;
     schema1:measurementTechnique ex:temTAPP-Thompson2020 ;
@@ -4086,44 +1628,6 @@ ex:detail-Thompson2020 a ada:TEMImage ;
     ada:sampleName "Murchison CM2 (1×, 5× laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm × 3 cm, unpolished)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum imaging (spatially resolved maps and line profiles); successive accumulated scans" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion> a schema1:PropertyValue ;
-    schema1:name "EDS Counting Statistics / Accumulation Criterion" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion> ;
-    schema1:value "Successive scans accumulated until major element counts achieved 1% counting statistics" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel> a schema1:PropertyValue ;
-    schema1:name "STEM Dwell Time per Pixel" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemDwellTimePerPixel> ;
-    schema1:unitText "ms" ;
-    schema1:value 50 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> a schema1:PropertyValue ;
-    schema1:name "STEM Frame Averaging" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> ;
-    schema1:value "Successive scans accumulated until major element counts achieved 1% counting statistics" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> a schema1:PropertyValue ;
-    schema1:name "STEM Probe Diameter" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> ;
-    schema1:unitText "nm" ;
-    schema1:value 2 .
 
 
 ```
@@ -4166,22 +1670,7 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
   "ada:edsDetectionLimit": "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/edsCalibrationStandard",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsCalibrationStandard"
-        }
-      ],
-      "schema:name": "EDS Calibration Standard(s)",
-      "schema:value": "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -4194,7 +1683,7 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4228,22 +1717,7 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
   "ada:edsDetectionLimit": "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/edsCalibrationStandard",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsCalibrationStandard"
-        }
-      ],
-      "schema:name": "EDS Calibration Standard(s)",
-      "schema:value": "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -4255,7 +1729,6 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Xing2023 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "missing" ] ;
     schema1:measurementTechnique ex:temTAPP-Xing2023 ;
@@ -4271,11 +1744,6 @@ ex:detail-Xing2023 a ada:TEMImage ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard> a schema1:PropertyValue ;
-    schema1:name "EDS Calibration Standard(s)" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard> ;
-    schema1:value "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error" .
 
 
 ```
@@ -4318,62 +1786,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "OREX-803173-100 (OSIRIS-REx curation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum imaging (EDS elemental maps); false-color RGB maps"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -4386,7 +1799,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4420,62 +1833,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "OREX-803173-100 (OSIRIS-REx curation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum imaging (EDS elemental maps); false-color RGB maps"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -4487,10 +1845,6 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Seifert2026 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert" ] ;
     schema1:measurementTechnique ex:temTAPP-Seifert2026 ;
@@ -4506,27 +1860,6 @@ ex:detail-Seifert2026 a ada:TEMImage ;
     ada:sampleName "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum imaging (EDS elemental maps); false-color RGB maps" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> a schema1:PropertyValue ;
-    schema1:name "Sample Persistent Identifier" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> ;
-    schema1:value "OREX-803173-100 (OSIRIS-REx curation number)" .
 
 
 ```
@@ -4569,62 +1902,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "OREX-803173-100 (OSIRIS-REx curation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum imaging (EDS elemental maps); false-color maps"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -4637,7 +1915,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4671,62 +1949,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "OREX-803173-100 (OSIRIS-REx curation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum imaging (EDS elemental maps); false-color maps"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -4738,10 +1961,6 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Seifert2026-2 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert" ] ;
     schema1:measurementTechnique ex:temTAPP-Seifert2026-2 ;
@@ -4757,27 +1976,6 @@ ex:detail-Seifert2026-2 a ada:TEMImage ;
     ada:sampleName "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum imaging (EDS elemental maps); false-color maps" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> a schema1:PropertyValue ;
-    schema1:name "Sample Persistent Identifier" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> ;
-    schema1:value "OREX-803173-100 (OSIRIS-REx curation number)" .
 
 
 ```
@@ -4820,75 +2018,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eftemEnergyWindow",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eftemEnergyWindow"
-        }
-      ],
-      "schema:name": "EFTEM Energy Window",
-      "schema:value": "10 eV (Ca M-edge EFTEM centered at 35 eV energy loss)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/selectedAreaApertureSize",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/selectedAreaApertureSize"
-        }
-      ],
-      "schema:name": "Selected-Area Aperture Size",
-      "schema:value": "100 nm (SAED aperture)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied"
-        }
-      ],
-      "schema:name": "Image Processing Methods Applied",
-      "schema:value": "Inverse FFT with spot-pass filter for HRTEM images"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -4901,7 +2031,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4935,75 +2065,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eftemEnergyWindow",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eftemEnergyWindow"
-        }
-      ],
-      "schema:name": "EFTEM Energy Window",
-      "schema:value": "10 eV (Ca M-edge EFTEM centered at 35 eV energy loss)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/selectedAreaApertureSize",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/selectedAreaApertureSize"
-        }
-      ],
-      "schema:name": "Selected-Area Aperture Size",
-      "schema:value": "100 nm (SAED aperture)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied"
-        }
-      ],
-      "schema:name": "Image Processing Methods Applied",
-      "schema:value": "Inverse FFT with spot-pass filter for HRTEM images"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -5015,11 +2077,6 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Cymes2023 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ] ;
     schema1:measurementTechnique ex:temTAPP-Cymes2023 ;
@@ -5035,32 +2092,6 @@ ex:detail-Cymes2023 a ada:TEMImage ;
     ada:sampleName "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow> a schema1:PropertyValue ;
-    schema1:name "EFTEM Energy Window" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow> ;
-    schema1:value "10 eV (Ca M-edge EFTEM centered at 35 eV energy loss)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> a schema1:PropertyValue ;
-    schema1:name "Image Processing Methods Applied" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
-    schema1:value "Inverse FFT with spot-pass filter for HRTEM images" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> a schema1:PropertyValue ;
-    schema1:name "Selected-Area Aperture Size" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> ;
-    schema1:value "100 nm (SAED aperture)" .
 
 
 ```
@@ -5103,156 +2134,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Zenodo repository: 10.5281/zenodo.7439174"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeDiameter",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeDiameter"
-        }
-      ],
-      "schema:name": "STEM Probe Diameter",
-      "schema:value": 0.1,
-      "schema:unitText": "nm"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
-        }
-      ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": 40,
-      "schema:unitText": "pA or nA"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum imaging (SI): simultaneous EELS + EDS at each pixel; both low-loss and core-loss EELS collected"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EELS Acquisition Mode",
-      "schema:value": "Dual EELS spectrum imaging (simultaneous low-loss and core-loss)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsEdges",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEdges"
-        }
-      ],
-      "schema:name": "EELS Edges",
-      "schema:value": "Fe L2,3 edge (700–735 eV); O K-edge (528–550 eV)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum"
-        }
-      ],
-      "schema:name": "EELS Acquisition Time per Spectrum",
-      "schema:value": "Fe (L2,3); O (K)",
-      "schema:unitText": "s"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsEnergyLossRange",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEnergyLossRange"
-        }
-      ],
-      "schema:name": "EELS Energy Loss Range",
-      "schema:value": "Fe (L2,3); O (K)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsEnergyCalibration",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEnergyCalibration"
-        }
-      ],
-      "schema:name": "EELS Energy Calibration",
-      "schema:value": "EELS reference standards collected on same microscope and spectrometer: FeNi metal (Fe⁰); wüstite (FeO) powder (Fe²⁺); synthetic Fe³⁺-bearing glass (Fe³⁺); magnetite Fe₃O₄ (mixed Fe²⁺/Fe³⁺) — Burgess & Stroud (2018b)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -5265,7 +2147,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -5299,156 +2181,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/coupledDatasetOrPublicationReference"
-        }
-      ],
-      "schema:name": "Coupled Dataset or Publication Reference",
-      "schema:value": "Zenodo repository: 10.5281/zenodo.7439174"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeDiameter",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeDiameter"
-        }
-      ],
-      "schema:name": "STEM Probe Diameter",
-      "schema:value": 0.1,
-      "schema:unitText": "nm"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
-        }
-      ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": 40,
-      "schema:unitText": "pA or nA"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "Spectrum imaging (SI): simultaneous EELS + EDS at each pixel; both low-loss and core-loss EELS collected"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EELS Acquisition Mode",
-      "schema:value": "Dual EELS spectrum imaging (simultaneous low-loss and core-loss)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsEdges",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEdges"
-        }
-      ],
-      "schema:name": "EELS Edges",
-      "schema:value": "Fe L2,3 edge (700\u2013735 eV); O K-edge (528\u2013550 eV)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum"
-        }
-      ],
-      "schema:name": "EELS Acquisition Time per Spectrum",
-      "schema:value": "Fe (L2,3); O (K)",
-      "schema:unitText": "s"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsEnergyLossRange",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEnergyLossRange"
-        }
-      ],
-      "schema:name": "EELS Energy Loss Range",
-      "schema:value": "Fe (L2,3); O (K)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsEnergyCalibration",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEnergyCalibration"
-        }
-      ],
-      "schema:name": "EELS Energy Calibration",
-      "schema:value": "EELS reference standards collected on same microscope and spectrometer: FeNi metal (Fe\u2070); w\u00fcstite (FeO) powder (Fe\u00b2\u207a); synthetic Fe\u00b3\u207a-bearing glass (Fe\u00b3\u207a); magnetite Fe\u2083O\u2084 (mixed Fe\u00b2\u207a/Fe\u00b3\u207a) \u2014 Burgess & Stroud (2018b)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -5460,17 +2193,6 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Cymes2023-2 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibration>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ] ;
     schema1:measurementTechnique ex:temTAPP-Cymes2023-2 ;
@@ -5486,65 +2208,6 @@ ex:detail-Cymes2023-2 a ada:TEMImage ;
     ada:sampleName "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> a schema1:PropertyValue ;
-    schema1:name "Coupled Dataset or Publication Reference" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/coupledDatasetOrPublicationReference> ;
-    schema1:value "Zenodo repository: 10.5281/zenodo.7439174" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "Spectrum imaging (SI): simultaneous EELS + EDS at each pixel; both low-loss and core-loss EELS collected" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EELS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode> ;
-    schema1:value "Dual EELS spectrum imaging (simultaneous low-loss and core-loss)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum> a schema1:PropertyValue ;
-    schema1:name "EELS Acquisition Time per Spectrum" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum> ;
-    schema1:unitText "s" ;
-    schema1:value "Fe (L2,3); O (K)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges> a schema1:PropertyValue ;
-    schema1:name "EELS Edges" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges> ;
-    schema1:value "Fe L2,3 edge (700–735 eV); O K-edge (528–550 eV)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibration> a schema1:PropertyValue ;
-    schema1:name "EELS Energy Calibration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibration> ;
-    schema1:value "EELS reference standards collected on same microscope and spectrometer: FeNi metal (Fe⁰); wüstite (FeO) powder (Fe²⁺); synthetic Fe³⁺-bearing glass (Fe³⁺); magnetite Fe₃O₄ (mixed Fe²⁺/Fe³⁺) — Burgess & Stroud (2018b)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange> a schema1:PropertyValue ;
-    schema1:name "EELS Energy Loss Range" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange> ;
-    schema1:value "Fe (L2,3); O (K)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> a schema1:PropertyValue ;
-    schema1:name "STEM Probe Current" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
-    schema1:unitText "pA or nA" ;
-    schema1:value 40 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> a schema1:PropertyValue ;
-    schema1:name "STEM Probe Diameter" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> ;
-    schema1:unitText "nm" ;
-    schema1:value 1e-01 .
 
 
 ```
@@ -5587,62 +2250,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "CE5C0400YJFM00505 (CAS allocation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "EDS chemical mapping (Fe distribution)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -5655,7 +2263,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -5689,62 +2297,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "CE5C0400YJFM00505 (CAS allocation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EDS Acquisition Mode",
-      "schema:value": "EDS chemical mapping (Fe distribution)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -5756,10 +2309,6 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Mo2022 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ] ;
     schema1:measurementTechnique ex:temTAPP-Mo2022 ;
@@ -5775,27 +2324,6 @@ ex:detail-Mo2022 a ada:TEMImage ;
     ada:sampleName "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EDS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
-    schema1:value "EDS chemical mapping (Fe distribution)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> a schema1:PropertyValue ;
-    schema1:name "Sample Persistent Identifier" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> ;
-    schema1:value "CE5C0400YJFM00505 (CAS allocation number)" .
 
 
 ```
@@ -5838,116 +2366,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "CE5C0400YJFM00505 (CAS allocation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
-        }
-      ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": 100,
-      "schema:unitText": "pA or nA"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EELS Acquisition Mode",
-      "schema:value": "Point analysis and line scan EELS"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsEdges",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEdges"
-        }
-      ],
-      "schema:name": "EELS Edges",
-      "schema:value": "Fe L3,2 edge (~707–709 eV; L3 peak at 707.7 eV for Fe⁰, 707.2 eV for Fe²⁺, 709.0 eV for Fe³⁺)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum"
-        }
-      ],
-      "schema:name": "EELS Acquisition Time per Spectrum",
-      "schema:value": "Fe (L3,2)",
-      "schema:unitText": "s"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsEnergyLossRange",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEnergyLossRange"
-        }
-      ],
-      "schema:name": "EELS Energy Loss Range",
-      "schema:value": "Fe (L3,2)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -5960,7 +2379,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -5994,116 +2413,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
   "ada:edsDetectionLimit": "missing",
   "ada:edsDeadTime": -9999,
   "ada:eelsSensitivityAndDetectionLimit": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/samplePersistentIdentifier",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/samplePersistentIdentifier"
-        }
-      ],
-      "schema:name": "Sample Persistent Identifier",
-      "schema:value": "CE5C0400YJFM00505 (CAS allocation number)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-        }
-      ],
-      "schema:name": "Accelerating Voltage",
-      "schema:value": 200,
-      "schema:unitText": "kV"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/analyticalMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/analyticalMode"
-        }
-      ],
-      "schema:name": "Analytical Sub-mode",
-      "schema:value": "HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/stemProbeCurrent",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/stemProbeCurrent"
-        }
-      ],
-      "schema:name": "STEM Probe Current",
-      "schema:value": 100,
-      "schema:unitText": "pA or nA"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsAcquisitionMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsAcquisitionMode"
-        }
-      ],
-      "schema:name": "EELS Acquisition Mode",
-      "schema:value": "Point analysis and line scan EELS"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsEdges",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEdges"
-        }
-      ],
-      "schema:name": "EELS Edges",
-      "schema:value": "Fe L3,2 edge (~707\u2013709 eV; L3 peak at 707.7 eV for Fe\u2070, 707.2 eV for Fe\u00b2\u207a, 709.0 eV for Fe\u00b3\u207a)"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum"
-        }
-      ],
-      "schema:name": "EELS Acquisition Time per Spectrum",
-      "schema:value": "Fe (L3,2)",
-      "schema:unitText": "s"
-    },
-    {
-      "@id": "ada:parameter/temTAPP/eelsEnergyLossRange",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEnergyLossRange"
-        }
-      ],
-      "schema:name": "EELS Energy Loss Range",
-      "schema:value": "Fe (L3,2)"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -6115,14 +2425,6 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Mo2022-2 a ada:TEMImage ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ] ;
     schema1:measurementTechnique ex:temTAPP-Mo2022-2 ;
@@ -6138,49 +2440,6 @@ ex:detail-Mo2022-2 a ada:TEMImage ;
     ada:sampleName "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
-    schema1:name "Accelerating Voltage" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:unitText "kV" ;
-    schema1:value 200 .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> a schema1:PropertyValue ;
-    schema1:name "Analytical Sub-mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalMode> ;
-    schema1:value "HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode> a schema1:PropertyValue ;
-    schema1:name "EELS Acquisition Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode> ;
-    schema1:value "Point analysis and line scan EELS" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum> a schema1:PropertyValue ;
-    schema1:name "EELS Acquisition Time per Spectrum" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum> ;
-    schema1:unitText "s" ;
-    schema1:value "Fe (L3,2)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges> a schema1:PropertyValue ;
-    schema1:name "EELS Edges" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges> ;
-    schema1:value "Fe L3,2 edge (~707–709 eV; L3 peak at 707.7 eV for Fe⁰, 707.2 eV for Fe²⁺, 709.0 eV for Fe³⁺)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange> a schema1:PropertyValue ;
-    schema1:name "EELS Energy Loss Range" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange> ;
-    schema1:value "Fe (L3,2)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> a schema1:PropertyValue ;
-    schema1:name "Sample Persistent Identifier" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePersistentIdentifier> ;
-    schema1:value "CE5C0400YJFM00505 (CAS allocation number)" .
-
-<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> a schema1:PropertyValue ;
-    schema1:name "STEM Probe Current" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
-    schema1:unitText "pA or nA" ;
-    schema1:value 100 .
 
 
 ```
@@ -6234,83 +2493,472 @@ properties:
                     - schema:name
                   then:
                     properties:
-                      schema:description:
-                        description: Primary method by which electron-transparent
-                          sections are prepared from the sample. The procedure documents
-                          the standard approach; analysts record session-specific
-                          details and deviations in Sample Preparation Details.
-                        anyOf:
-                        - type: string
-                          enum:
-                          - FIB lift-out (Ga ion)
-                          - FIB lift-out (Xe plasma)
-                          - FIB lift-out (Ga) + ion mill
-                          - Ultramicrotomy
-                          - Crushing / dispersion on grid
-                          - Ion milling (non-FIB)
-                          - Electropolishing
-                          - Unknown
-                          - N/A
-                          - None
-                          - missing
-                        - type: array
-                          items:
-                            type: string
-                            enum:
-                            - FIB lift-out (Ga ion)
-                            - FIB lift-out (Xe plasma)
-                            - FIB lift-out (Ga) + ion mill
-                            - Ultramicrotomy
-                            - Crushing / dispersion on grid
-                            - Ion milling (non-FIB)
-                            - Electropolishing
-                            - Unknown
-                            - N/A
-                            - None
-                            - missing
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          title: Sample Preparation Details
+                          description: "Detailed description of section preparation
+                            conditions: FIB milling voltages and currents; final thinning
+                            conditions and target foil thickness; protective coating
+                            type and deposition method (e.g., e-beam vs. ion-beam
+                            Pt or C strip \u2014 e-beam deposition causes less surface
+                            damage); any post-FIB surface cleanup (e.g., low-energy
+                            Ar+ ion polishing in a Fischione NanoMill, final 0.5\u20132
+                            kV Ga+ thinning); sample transfer and storage environment
+                            (ambient air, dry N\u2082 atmosphere, vacuum transfer
+                            holder, glovebox); plasma cleaning before loading. Analysts
+                            record session-specific observations and deviations from
+                            the procedure standard. Includes preparation artifacts
+                            noted (Ga implantation, amorphization, curtaining)."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/temTAPP/samplePreparationDetails
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/temTAPP/samplePreparationDetails
+                            schema:name:
+                              const: Sample Preparation Details
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        allOf:
+                        - contains:
+                            title: Sample Preparation Details
+                            description: "Detailed description of section preparation
+                              conditions: FIB milling voltages and currents; final
+                              thinning conditions and target foil thickness; protective
+                              coating type and deposition method (e.g., e-beam vs.
+                              ion-beam Pt or C strip \u2014 e-beam deposition causes
+                              less surface damage); any post-FIB surface cleanup (e.g.,
+                              low-energy Ar+ ion polishing in a Fischione NanoMill,
+                              final 0.5\u20132 kV Ga+ thinning); sample transfer and
+                              storage environment (ambient air, dry N\u2082 atmosphere,
+                              vacuum transfer holder, glovebox); plasma cleaning before
+                              loading. Analysts record session-specific observations
+                              and deviations from the procedure standard. Includes
+                              preparation artifacts noted (Ga implantation, amorphization,
+                              curtaining)."
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/samplePreparationDetails
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/samplePreparationDetails
+                              schema:name:
+                                const: Sample Preparation Details
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
+                - if:
+                    properties:
+                      schema:name:
+                        const: Data Reduction
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          anyOf:
+                          - title: EELS Plural Scattering Correction
+                            description: Method applied to correct for multiple inelastic
+                              scattering events (plural scattering) that broaden edge
+                              fine structure. Critical for specimens thicker than
+                              ~0.5 inelastic mean free paths. Record 'N/A' where EELS
+                              is not listed in Spectroscopic Detector(s).
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/eelsPluralScatteringCorrection
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/eelsPluralScatteringCorrection
+                              schema:name:
+                                const: EELS Plural Scattering Correction
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          - title: Image Processing Methods Applied
+                            description: Image processing steps applied to TEM or
+                              STEM images during or after acquisition. Non-linear
+                              processing steps that could affect quantitative interpretation
+                              should be documented explicitly.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/imageProcessingMethodsApplied
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/imageProcessingMethodsApplied
+                              schema:name:
+                                const: Image Processing Methods Applied
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          - title: Calibration Factor and Determination Method
+                            description: 'An externally-calibrated factor that converts
+                              the measured quantity into the reported quantity, how
+                              it was determined, and its uncertainty. Applies where
+                              the conversion depends on a factor calibrated against
+                              a reference of independently known value, rather than
+                              on the instrument response alone. Distinct from the
+                              fields that name the calibration material and that state
+                              which approach applies to which analyte, where the technique
+                              has them: this field records the resulting factor itself.'
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+                              schema:name:
+                                const: Calibration Factor and Determination Method
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                        allOf:
+                        - contains:
+                            title: EELS Plural Scattering Correction
+                            description: Method applied to correct for multiple inelastic
+                              scattering events (plural scattering) that broaden edge
+                              fine structure. Critical for specimens thicker than
+                              ~0.5 inelastic mean free paths. Record 'N/A' where EELS
+                              is not listed in Spectroscopic Detector(s).
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/eelsPluralScatteringCorrection
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/eelsPluralScatteringCorrection
+                              schema:name:
+                                const: EELS Plural Scattering Correction
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
+                        - contains:
+                            title: Image Processing Methods Applied
+                            description: Image processing steps applied to TEM or
+                              STEM images during or after acquisition. Non-linear
+                              processing steps that could affect quantitative interpretation
+                              should be documented explicitly.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/imageProcessingMethodsApplied
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/imageProcessingMethodsApplied
+                              schema:name:
+                                const: Image Processing Methods Applied
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
+                        - contains:
+                            title: Calibration Factor and Determination Method
+                            description: 'An externally-calibrated factor that converts
+                              the measured quantity into the reported quantity, how
+                              it was determined, and its uncertainty. Applies where
+                              the conversion depends on a factor calibrated against
+                              a reference of independently known value, rather than
+                              on the instrument response alone. Distinct from the
+                              fields that name the calibration material and that state
+                              which approach applies to which analyte, where the technique
+                              has them: this field records the resulting factor itself.'
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+                              schema:name:
+                                const: Calibration Factor and Determination Method
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
+                - if:
+                    properties:
+                      schema:name:
+                        const: Data reduction
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          title: Constants and Reference Values Used
+                          description: Physical constants and reference values used
+                            in data reduction to calculate the final reported quantity
+                            (e.g., decay constants for age calculation, standard isotope
+                            ratios, or other citable reference values used in a correction
+                            or calculation), together with their source. Distinct
+                            from the Group 6 reference-material fields, which document
+                            accepted values for specific calibration/validation materials
+                            rather than universal physical constants. Record "None"
+                            if no citable, revisable physical constants feed into
+                            this procedure's data reduction.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/temTAPP/constantsAndReferenceValuesUsed
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/temTAPP/constantsAndReferenceValuesUsed
+                            schema:name:
+                              const: Constants and Reference Values Used
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        allOf:
+                        - contains:
+                            title: Constants and Reference Values Used
+                            description: Physical constants and reference values used
+                              in data reduction to calculate the final reported quantity
+                              (e.g., decay constants for age calculation, standard
+                              isotope ratios, or other citable reference values used
+                              in a correction or calculation), together with their
+                              source. Distinct from the Group 6 reference-material
+                              fields, which document accepted values for specific
+                              calibration/validation materials rather than universal
+                              physical constants. Record "None" if no citable, revisable
+                              physical constants feed into this procedure's data reduction.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/constantsAndReferenceValuesUsed
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/constantsAndReferenceValuesUsed
+                              schema:name:
+                                const: Constants and Reference Values Used
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
               allOf:
               - contains:
                   properties:
                     schema:name:
-                      const: Sample preparation
+                      const: Data Reduction
                   required:
                   - schema:name
+              - contains:
+                  properties:
+                    schema:name:
+                      const: Data reduction
+                  required:
+                  - schema:name
+        schema:object:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  '@type':
+                    contains:
+                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                required:
+                - '@type'
+              then:
+                properties:
+                  schema:name:
+                    description: "Name or identifier of each sample analysed in this
+                      session, as used in the laboratory \u2014 a sample mount, section
+                      or aliquot counts as one entry where that is what the laboratory
+                      tracks. The analysis record corresponds to one session and may
+                      cover several samples; fields whose Keyed By column declares
+                      'sample' take one value per entry. Should match the identifier
+                      used in associated publications or data tables."
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+                  schema:identifier:
+                    description: Globally unique, persistent identifier for each sample
+                      listed in Sample Name. IGSN (International Geo Sample Number)
+                      is the recommended standard for geological and cosmochemical
+                      samples, as used by Astromat, EarthChem and SESAR. Where a sample
+                      and its sub-samples are separately registered, record the identifier
+                      at the level actually analysed.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      title: Pre-Analysis Imaging and Screening
+                      description: Imaging or other characterisation performed before
+                        the measurement in order to select or locate the analysed
+                        target, including the technique, instrument and settings used,
+                        and how individual analyses are linked back to the images.
+                        Distinct from any imaging the procedure performs as its own
+                        measurement. Where the imaging is performed on a separate
+                        instrument, it should also be recorded in the Group 1 coupling
+                        fields.
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/temTAPP/preAnalysisImagingAndScreening
+                        '@type':
+                          const:
+                          - schema:PropertyValue
+                        schema:propertyID:
+                          const:
+                          - '@id': ada:parameter/temTAPP/preAnalysisImagingAndScreening
+                        schema:name:
+                          const: Pre-Analysis Imaging and Screening
+                        schema:value:
+                          type: string
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:propertyID
+                      - schema:name
+                      - schema:value
+                    allOf:
+                    - contains:
+                        title: Pre-Analysis Imaging and Screening
+                        description: Imaging or other characterisation performed before
+                          the measurement in order to select or locate the analysed
+                          target, including the technique, instrument and settings
+                          used, and how individual analyses are linked back to the
+                          images. Distinct from any imaging the procedure performs
+                          as its own measurement. Where the imaging is performed on
+                          a separate instrument, it should also be recorded in the
+                          Group 1 coupling fields.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/temTAPP/preAnalysisImagingAndScreening
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/temTAPP/preAnalysisImagingAndScreening
+                          schema:name:
+                            const: Pre-Analysis Imaging and Screening
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                      minContains: 0
+                      maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                '@type':
+                  contains:
+                    const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+              required:
+              - '@type'
         schema:additionalProperty:
           type: array
           items:
             anyOf:
-            - title: Sample Preparation Details
-              description: "Detailed description of section preparation conditions:
-                FIB milling voltages and currents; final thinning conditions and target
-                foil thickness; protective coating type and deposition method (e.g.,
-                e-beam vs. ion-beam Pt or C strip \u2014 e-beam deposition causes
-                less surface damage); any post-FIB surface cleanup (e.g., low-energy
-                Ar+ ion polishing in a Fischione NanoMill, final 0.5\u20132 kV Ga+
-                thinning); sample transfer and storage environment (ambient air, dry
-                N\u2082 atmosphere, vacuum transfer holder, glovebox); plasma cleaning
-                before loading. Analysts record session-specific observations and
-                deviations from the procedure standard. Includes preparation artifacts
-                noted (Ga implantation, amorphization, curtaining)."
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/samplePreparationDetails
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/samplePreparationDetails
-                schema:name:
-                  const: Sample Preparation Details
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
             - title: Target Selection Criteria
               description: "The rules governing which part of the sample is analysed,
                 and why. Covers the criteria applied when choosing grains, aliquots,
@@ -6331,34 +2979,6 @@ properties:
                   - '@id': ada:parameter/temTAPP/targetSelectionCriteria
                 schema:name:
                   const: Target Selection Criteria
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Pre-Analysis Imaging and Screening
-              description: Imaging or other characterisation performed before the
-                measurement in order to select or locate the analysed target, including
-                the technique, instrument and settings used, and how individual analyses
-                are linked back to the images. Distinct from any imaging the procedure
-                performs as its own measurement. Where the imaging is performed on
-                a separate instrument, it should also be recorded in the Group 1 coupling
-                fields.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/preAnalysisImagingAndScreening
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/preAnalysisImagingAndScreening
-                schema:name:
-                  const: Pre-Analysis Imaging and Screening
                 schema:value:
                   type: string
               required:
@@ -6415,32 +3035,6 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - title: SAED Pattern Simulation Software
-              description: Software used to simulate electron diffraction patterns
-                for comparison with experimental SAED patterns during phase identification
-                (e.g., SingleCrystal, CrystalMaker, JEMS, DIFPACK). Complements the
-                Acquisition Software field, which covers data collection; simulation
-                software is used at the interpretation and data processing step.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/saedPatternSimulationSoftware
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/saedPatternSimulationSoftware
-                schema:name:
-                  const: SAED Pattern Simulation Software
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
             - title: Analytical Sub-mode
               description: 'Sub-mode(s) of imaging or diffraction performed under
                 this procedure. TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM.
@@ -6451,41 +3045,15 @@ properties:
               type: object
               properties:
                 '@id':
-                  const: ada:parameter/temTAPP/analyticalMode
+                  const: ada:parameter/temTAPP/analyticalSubMode
                 '@type':
                   const:
                   - schema:PropertyValue
                 schema:propertyID:
                   const:
-                  - '@id': ada:parameter/temTAPP/analyticalMode
+                  - '@id': ada:parameter/temTAPP/analyticalSubMode
                 schema:name:
                   const: Analytical Sub-mode
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: TEM Objective Aperture
-              description: Objective aperture diameter used to select the imaging
-                beam condition in TEM mode. In BF-TEM, a small aperture blocks diffracted
-                beams to enhance mass-thickness contrast; in DF-TEM, the aperture
-                is displaced to select a specific diffracted beam; in HRTEM, no aperture
-                is typically used.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/temObjectiveAperture
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/temObjectiveAperture
-                schema:name:
-                  const: TEM Objective Aperture
                 schema:value:
                   type: string
               required:
@@ -7050,79 +3618,6 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - title: EELS Background Subtraction Method
-              description: Method used to subtract the background beneath the ionization
-                edge of interest to extract the net edge signal. Record 'N/A' where
-                EELS is not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsBackgroundSubtractionMethod
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsBackgroundSubtractionMethod
-                schema:name:
-                  const: EELS Background Subtraction Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: EELS Plural Scattering Correction
-              description: Method applied to correct for multiple inelastic scattering
-                events (plural scattering) that broaden edge fine structure. Critical
-                for specimens thicker than ~0.5 inelastic mean free paths. Record
-                'N/A' where EELS is not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsPluralScatteringCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsPluralScatteringCorrection
-                schema:name:
-                  const: EELS Plural Scattering Correction
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Image Processing Methods Applied
-              description: Image processing steps applied to TEM or STEM images during
-                or after acquisition. Non-linear processing steps that could affect
-                quantitative interpretation should be documented explicitly.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/imageProcessingMethodsApplied
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/imageProcessingMethodsApplied
-                schema:name:
-                  const: Image Processing Methods Applied
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
             - title: Specimen Thickness Determination Method
               description: Method used to estimate TEM foil thickness. Required for
                 EELS quantification (log-ratio) and for assessing multiple-scattering
@@ -7139,64 +3634,6 @@ properties:
                   - '@id': ada:parameter/temTAPP/specimenThicknessDeterminationMethod
                 schema:name:
                   const: Specimen Thickness Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
-                schema:name:
-                  const: Calibration Factor and Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Constants and Reference Values Used
-              description: Physical constants and reference values used in data reduction
-                to calculate the final reported quantity (e.g., decay constants for
-                age calculation, standard isotope ratios, or other citable reference
-                values used in a correction or calculation), together with their source.
-                Distinct from the Group 6 reference-material fields, which document
-                accepted values for specific calibration/validation materials rather
-                than universal physical constants. Record "None" if no citable, revisable
-                physical constants feed into this procedure's data reduction.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/constantsAndReferenceValuesUsed
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/constantsAndReferenceValuesUsed
-                schema:name:
-                  const: Constants and Reference Values Used
                 schema:value:
                   type: string
               required:
@@ -7334,67 +3771,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - title: EELS Sensitivity and Detection Limit
-              description: Practical energy resolution (ZLP FWHM measured at operating
-                conditions) and estimated detection limit or minimum detectable concentration
-                for target edges under this procedure. Record 'N/A' where EELS is
-                not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsSensitivityAndDetectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsSensitivityAndDetectionLimit
-                schema:name:
-                  const: EELS Sensitivity and Detection Limit
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
           allOf:
-          - contains:
-              title: Sample Preparation Details
-              description: "Detailed description of section preparation conditions:
-                FIB milling voltages and currents; final thinning conditions and target
-                foil thickness; protective coating type and deposition method (e.g.,
-                e-beam vs. ion-beam Pt or C strip \u2014 e-beam deposition causes
-                less surface damage); any post-FIB surface cleanup (e.g., low-energy
-                Ar+ ion polishing in a Fischione NanoMill, final 0.5\u20132 kV Ga+
-                thinning); sample transfer and storage environment (ambient air, dry
-                N\u2082 atmosphere, vacuum transfer holder, glovebox); plasma cleaning
-                before loading. Analysts record session-specific observations and
-                deviations from the procedure standard. Includes preparation artifacts
-                noted (Ga implantation, amorphization, curtaining)."
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/samplePreparationDetails
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/samplePreparationDetails
-                schema:name:
-                  const: Sample Preparation Details
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
           - contains:
               title: Target Selection Criteria
               description: "The rules governing which part of the sample is analysed,
@@ -7416,37 +3793,6 @@ properties:
                   - '@id': ada:parameter/temTAPP/targetSelectionCriteria
                 schema:name:
                   const: Target Selection Criteria
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Pre-Analysis Imaging and Screening
-              description: Imaging or other characterisation performed before the
-                measurement in order to select or locate the analysed target, including
-                the technique, instrument and settings used, and how individual analyses
-                are linked back to the images. Distinct from any imaging the procedure
-                performs as its own measurement. Where the imaging is performed on
-                a separate instrument, it should also be recorded in the Group 1 coupling
-                fields.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/preAnalysisImagingAndScreening
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/preAnalysisImagingAndScreening
-                schema:name:
-                  const: Pre-Analysis Imaging and Screening
                 schema:value:
                   type: string
               required:
@@ -7512,35 +3858,6 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
-              title: SAED Pattern Simulation Software
-              description: Software used to simulate electron diffraction patterns
-                for comparison with experimental SAED patterns during phase identification
-                (e.g., SingleCrystal, CrystalMaker, JEMS, DIFPACK). Complements the
-                Acquisition Software field, which covers data collection; simulation
-                software is used at the interpretation and data processing step.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/saedPatternSimulationSoftware
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/saedPatternSimulationSoftware
-                schema:name:
-                  const: SAED Pattern Simulation Software
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Analytical Sub-mode
               description: 'Sub-mode(s) of imaging or diffraction performed under
                 this procedure. TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM.
@@ -7551,44 +3868,15 @@ properties:
               type: object
               properties:
                 '@id':
-                  const: ada:parameter/temTAPP/analyticalMode
+                  const: ada:parameter/temTAPP/analyticalSubMode
                 '@type':
                   const:
                   - schema:PropertyValue
                 schema:propertyID:
                   const:
-                  - '@id': ada:parameter/temTAPP/analyticalMode
+                  - '@id': ada:parameter/temTAPP/analyticalSubMode
                 schema:name:
                   const: Analytical Sub-mode
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: TEM Objective Aperture
-              description: Objective aperture diameter used to select the imaging
-                beam condition in TEM mode. In BF-TEM, a small aperture blocks diffracted
-                beams to enhance mass-thickness contrast; in DF-TEM, the aperture
-                is displaced to select a specific diffracted beam; in HRTEM, no aperture
-                is typically used.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/temObjectiveAperture
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/temObjectiveAperture
-                schema:name:
-                  const: TEM Objective Aperture
                 schema:value:
                   type: string
               required:
@@ -8216,88 +4504,6 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
-              title: EELS Background Subtraction Method
-              description: Method used to subtract the background beneath the ionization
-                edge of interest to extract the net edge signal. Record 'N/A' where
-                EELS is not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsBackgroundSubtractionMethod
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsBackgroundSubtractionMethod
-                schema:name:
-                  const: EELS Background Subtraction Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: EELS Plural Scattering Correction
-              description: Method applied to correct for multiple inelastic scattering
-                events (plural scattering) that broaden edge fine structure. Critical
-                for specimens thicker than ~0.5 inelastic mean free paths. Record
-                'N/A' where EELS is not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsPluralScatteringCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsPluralScatteringCorrection
-                schema:name:
-                  const: EELS Plural Scattering Correction
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Image Processing Methods Applied
-              description: Image processing steps applied to TEM or STEM images during
-                or after acquisition. Non-linear processing steps that could affect
-                quantitative interpretation should be documented explicitly.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/imageProcessingMethodsApplied
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/imageProcessingMethodsApplied
-                schema:name:
-                  const: Image Processing Methods Applied
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Specimen Thickness Determination Method
               description: Method used to estimate TEM foil thickness. Required for
                 EELS quantification (log-ratio) and for assessing multiple-scattering
@@ -8314,70 +4520,6 @@ properties:
                   - '@id': ada:parameter/temTAPP/specimenThicknessDeterminationMethod
                 schema:name:
                   const: Specimen Thickness Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
-                schema:name:
-                  const: Calibration Factor and Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Constants and Reference Values Used
-              description: Physical constants and reference values used in data reduction
-                to calculate the final reported quantity (e.g., decay constants for
-                age calculation, standard isotope ratios, or other citable reference
-                values used in a correction or calculation), together with their source.
-                Distinct from the Group 6 reference-material fields, which document
-                accepted values for specific calibration/validation materials rather
-                than universal physical constants. Record "None" if no citable, revisable
-                physical constants feed into this procedure's data reduction.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/constantsAndReferenceValuesUsed
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/constantsAndReferenceValuesUsed
-                schema:name:
-                  const: Constants and Reference Values Used
                 schema:value:
                   type: string
               required:
@@ -8532,81 +4674,6 @@ properties:
               - schema:value
             minContains: 0
             maxContains: 1
-          - contains:
-              title: EELS Sensitivity and Detection Limit
-              description: Practical energy resolution (ZLP FWHM measured at operating
-                conditions) and estimated detection limit or minimum detectable concentration
-                for target edges under this procedure. Record 'N/A' where EELS is
-                not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsSensitivityAndDetectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsSensitivityAndDetectionLimit
-                schema:name:
-                  const: EELS Sensitivity and Detection Limit
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-        schema:object:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  '@type':
-                    contains:
-                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-                required:
-                - '@type'
-              then:
-                properties:
-                  schema:name:
-                    description: "Name or identifier of each sample analysed in this
-                      session, as used in the laboratory \u2014 a sample mount, section
-                      or aliquot counts as one entry where that is what the laboratory
-                      tracks. The analysis record corresponds to one session and may
-                      cover several samples; fields whose Keyed By column declares
-                      'sample' take one value per entry. Should match the identifier
-                      used in associated publications or data tables."
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-                  schema:identifier:
-                    description: Globally unique, persistent identifier for each sample
-                      listed in Sample Name. IGSN (International Geo Sample Number)
-                      is the recommended standard for geological and cosmochemical
-                      samples, as used by Astromat, EarthChem and SESAR. Where a sample
-                      and its sub-samples are separately registered, record the identifier
-                      at the level actually analysed.
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-          allOf:
-          - contains:
-              properties:
-                '@type':
-                  contains:
-                    const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-              required:
-              - '@type'
         prov:used:
           type: array
           items:
@@ -8621,7 +4688,7 @@ properties:
                     type: array
                     items:
                       allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
                       - type: object
                         allOf:
                         - if:
@@ -8633,8 +4700,11 @@ properties:
                           then:
                             properties:
                               schema:name:
-                                description: Data acquisition and microscope control
-                                  software, including version.
+                                description: Instrument control, automation and data
+                                  acquisition software used to collect the raw data,
+                                  including version number. Distinct from Data Processing
+                                  Software(s), which covers everything applied to
+                                  the data after acquisition.
                                 anyOf:
                                 - type: string
                                 - type: array
@@ -8649,11 +4719,11 @@ properties:
                           then:
                             properties:
                               schema:name:
-                                description: All software used for post-acquisition
-                                  data reduction, analysis, and image processing,
-                                  including diffraction analysis, EDS quantification,
-                                  and EELS processing. List all packages with version
-                                  numbers.
+                                description: All software applied to the data after
+                                  acquisition in order to produce the reported quantities,
+                                  including version numbers. List every package used.
+                                  Distinct from Acquisition Software, which controls
+                                  the instrument and collects the raw data.
                                 anyOf:
                                 - type: string
                                 - type: array
@@ -8670,7 +4740,7 @@ properties:
                     type: array
                     items:
                       allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
                       - type: object
                         allOf:
                         - if:
@@ -8682,17 +4752,81 @@ properties:
                             - schema:additionalType
                           then:
                             properties:
-                              ada:acceleratingVoltage:
-                                description: "Electron beam accelerating voltage in
-                                  kilovolts (kV). For beam-sensitive materials (organic
-                                  matter, phyllosilicates), 60\u201380 kV may be used
-                                  to stay below the displacement threshold for C,
-                                  N, O, and S. The procedure specifies the standard
-                                  operating voltage; analysts record and justify deviations.
-                                  Key parameter for the beam damage regime."
-                                anyOf:
-                                - type: number
-                                - type: string
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  title: Accelerating Voltage
+                                  description: "Electron beam accelerating voltage
+                                    in kilovolts (kV). For beam-sensitive materials
+                                    (organic matter, phyllosilicates), 60\u201380
+                                    kV may be used to stay below the displacement
+                                    threshold for C, N, O, and S. The procedure specifies
+                                    the standard operating voltage; analysts record
+                                    and justify deviations. Key parameter for the
+                                    beam damage regime."
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      const: ada:parameter/temTAPP/acceleratingVoltage
+                                    '@type':
+                                      const:
+                                      - schema:PropertyValue
+                                    schema:propertyID:
+                                      const:
+                                      - '@id': ada:parameter/temTAPP/acceleratingVoltage
+                                    schema:name:
+                                      const: Accelerating Voltage
+                                    schema:value:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
+                                    schema:unitText:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                  - schema:unitText
+                                allOf:
+                                - contains:
+                                    title: Accelerating Voltage
+                                    description: "Electron beam accelerating voltage
+                                      in kilovolts (kV). For beam-sensitive materials
+                                      (organic matter, phyllosilicates), 60\u201380
+                                      kV may be used to stay below the displacement
+                                      threshold for C, N, O, and S. The procedure
+                                      specifies the standard operating voltage; analysts
+                                      record and justify deviations. Key parameter
+                                      for the beam damage regime."
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/temTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/temTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
                     allOf:
                     - contains:
                         properties:
@@ -8701,6 +4835,95 @@ properties:
                               const: TEM
                         required:
                         - schema:additionalType
+        schema:used:
+          type: object
+          properties:
+            schema:instrument:
+              type: array
+              items:
+                type: object
+                allOf:
+                - if:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: TEM
+                    required:
+                    - schema:additionalType
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          title: TEM Objective Aperture
+                          description: Objective aperture diameter used to select
+                            the imaging beam condition in TEM mode. In BF-TEM, a small
+                            aperture blocks diffracted beams to enhance mass-thickness
+                            contrast; in DF-TEM, the aperture is displaced to select
+                            a specific diffracted beam; in HRTEM, no aperture is typically
+                            used.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/temTAPP/temObjectiveAperture
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/temTAPP/temObjectiveAperture
+                            schema:name:
+                              const: TEM Objective Aperture
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        allOf:
+                        - contains:
+                            title: TEM Objective Aperture
+                            description: Objective aperture diameter used to select
+                              the imaging beam condition in TEM mode. In BF-TEM, a
+                              small aperture blocks diffracted beams to enhance mass-thickness
+                              contrast; in DF-TEM, the aperture is displaced to select
+                              a specific diffracted beam; in HRTEM, no aperture is
+                              typically used.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/temObjectiveAperture
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/temObjectiveAperture
+                              schema:name:
+                                const: TEM Objective Aperture
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
+        ada:deadTime:
+          description: "Percent dead time reported by the EDS detector during the
+            session \u2014 the fraction of total acquisition time the detector spent
+            processing rather than counting. EDS dead time correction is managed automatically
+            by the detector electronics; this field documents the resulting percentage
+            as a session QC metric. Values above ~40% indicate excessive count rate
+            and may degrade spectral quality and quantitative accuracy. Record 'N/A'
+            where EDS is not listed in Spectroscopic Detector(s)."
+          anyOf:
+          - type: number
+          - type: string
         schema:description:
           description: "Any procedure- or analysis-specific information not captured
             by a structured field anywhere in this TAPP \u2014 including anomalies,
@@ -8708,6 +4931,14 @@ properties:
             supplementary context. Scope is the whole document, not Group 6: this
             is the last field of the TAPP and covers all six groups. Use sparingly;
             a structured field is preferred for anything that can be formally categorised."
+          type: string
+        schema:identifier:
+          description: "Identifier for the analytical session this record describes
+            \u2014 the laboratory's own run, sequence or batch identifier as generated
+            by the instrument or acquisition software. The analysis record corresponds
+            to one session, which may cover several samples, and this is the link
+            back to the raw instrument files. Distinct from any persistent identifier
+            a repository mints on submission."
           type: string
   schema:measurementTechnique:
     type: array
@@ -8834,6 +5065,137 @@ properties:
               - type: array
                 items:
                   type: string
+  schema:variableMeasured:
+    type: array
+    items:
+      type: object
+    allOf:
+    - contains:
+        title: Calibration Factor and Determination Method
+        description: 'An externally-calibrated factor that converts the measured quantity
+          into the reported quantity, how it was determined, and its uncertainty.
+          Applies where the conversion depends on a factor calibrated against a reference
+          of independently known value, rather than on the instrument response alone.
+          Distinct from the fields that name the calibration material and that state
+          which approach applies to which analyte, where the technique has them: this
+          field records the resulting factor itself.'
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+            - '@id': ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+          schema:name:
+            const: Calibration Factor and Determination Method
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      minContains: 0
+      maxContains: 1
+    - contains:
+        title: EDS Detection Limit
+        description: Estimated detection limits by EDS under this procedure's conditions,
+          one per reported concentration variable (one per analyte, these being the
+          same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/temTAPP/edsDetectionLimit
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+            - '@id': ada:parameter/temTAPP/edsDetectionLimit
+          schema:name:
+            const: EDS Detection Limit
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      minContains: 0
+      maxContains: 1
+    - contains:
+        properties:
+          schema:name:
+            const: sensitivityDetectionLimit
+        required:
+        - schema:name
+    - contains:
+        title: Goodness-of-Fit or Dispersion Statistic
+        description: The statistic reported to show whether scatter among the contributing
+          analyses exceeds what analytical uncertainty alone predicts, together with
+          its value. Answers whether a reported aggregate is defensible as a single
+          population. Procedure-level tier is N/A because the value cannot be known
+          before the analysis; the procedure may still state an acceptance threshold,
+          which belongs with the inclusion criteria.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/temTAPP/goodnessOfFitOrDispersionStatistic
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+            - '@id': ada:parameter/temTAPP/goodnessOfFitOrDispersionStatistic
+          schema:name:
+            const: Goodness-of-Fit or Dispersion Statistic
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      minContains: 0
+      maxContains: 1
+  dqv:hasQualityMeasurement:
+    type: array
+    items:
+      type: object
+      allOf:
+      - if:
+          properties:
+            dqv:isMeasurementOf:
+              const: Goodness-of-Fit
+          required:
+          - dqv:isMeasurementOf
+        then:
+          properties:
+            dqv:value:
+              description: The statistic reported to show whether scatter among the
+                contributing analyses exceeds what analytical uncertainty alone predicts,
+                together with its value. Answers whether a reported aggregate is defensible
+                as a single population. Procedure-level tier is N/A because the value
+                cannot be known before the analysis; the procedure may still state
+                an acceptance threshold, which belongs with the inclusion criteria.
+              anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+    allOf:
+    - contains:
+        properties:
+          dqv:isMeasurementOf:
+            const: Goodness-of-Fit
+        required:
+        - dqv:isMeasurementOf
 required:
 - schema:funding
 
@@ -8841,8 +5203,8 @@ required:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/schema.yaml)
 
 
 # JSON-LD Context
@@ -8872,7 +5234,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld)
 
 ## Sources
 

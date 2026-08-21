@@ -16,71 +16,6 @@
   ],
   "schema:name": "sem protocol \u2014 Pascucci2026",
   "schema:description": "10 BSE images acquired at \u00d7138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
-          ]
-        }
-      ]
-    }
-  ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -89,19 +24,21 @@
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
-      "schema:manufacturer": {
-        "schema:name": "Zeiss",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "Supra 40",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
+      "ada:acceleratingVoltageDefault": "20 kV",
       "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "BSEDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "N/A",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ]
+        },
         {
           "schema:additionalType": [
             "Electron source",
@@ -141,22 +78,20 @@
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
-      "ada:acceleratingVoltageDefault": "20 kV",
+      "schema:manufacturer": {
+        "schema:name": "Zeiss",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "Supra 40",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -173,6 +108,96 @@
   "ada:analyticalMode": [
     "N/A"
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "chamberPressureDefault",
+      "schema:name": "Chamber Pressure",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "High vacuum"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion Milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:workingDistanceDefault": "8 mm",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -182,12 +207,21 @@
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
+  "ada:clAcquisitionMode": "missing",
+  "ada:clIntegrationTimeDefault": -9999,
+  "ada:clWavelengthRange": -9999,
+  "ada:ebsdDetectorConfiguration": "missing",
+  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdStepSizeDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
+  "ada:imageRegistration3DDefault": "missing",
+  "ada:liftOutMethod": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",

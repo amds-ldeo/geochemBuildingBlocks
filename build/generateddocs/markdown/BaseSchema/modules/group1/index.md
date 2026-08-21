@@ -89,7 +89,7 @@ The procedure half of the Group1 module, with every property populated. Generate
     {
       "schema": "http://schema.org/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/group1/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/group1/context.jsonld"
   ],
   "schema:name": "example value",
   "schema:measurementTechnique": [
@@ -207,7 +207,7 @@ The analysis half of the Group1 module, with every property populated. Generated
       "prov": "http://www.w3.org/ns/prov#",
       "schema": "http://schema.org/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/group1/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/group1/context.jsonld"
   ],
   "prov:wasGeneratedBy": [
     {
@@ -262,10 +262,10 @@ The analysis half of the Group1 module, with every property populated. Generated
 [] schema1:contributor [ schema1:name "example value" ;
             schema1:roleName "analyst" ] ;
     schema1:measurementTechnique [ schema1:identifier "example value" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledProcedure" ;
-            schema1:target [ schema1:url "example value" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
             schema1:target "example value" ],
+        [ schema1:linkRelationship "coupledProcedure" ;
+            schema1:target [ schema1:url "example value" ] ],
         [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "example value" ;
                     schema1:name "example value" ] ] ;
@@ -599,8 +599,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/group1/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/group1/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/group1/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/group1/schema.yaml)
 
 
 # JSON-LD Context
@@ -616,7 +616,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/group1/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/group1/context.jsonld)
 
 ## Sources
 

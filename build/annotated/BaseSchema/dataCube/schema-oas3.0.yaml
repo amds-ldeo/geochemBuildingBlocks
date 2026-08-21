@@ -18,7 +18,7 @@ x-defs:
         description: Links variables to their physical representation in this dataset.
         items:
           allOf:
-          - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
           - type: object
             properties:
               cdi:locator:
@@ -71,7 +71,7 @@ x-defs:
         description: identifier or name for the data type concept.
         x-jsonld-id: https://w3id.org/cdif/physicalDataType
         allOf:
-        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping/$defs/cdifConceptOrTermOrString
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping/$defs/cdifConceptOrTermOrString
       cdi:numberPattern:
         type: string
         description: Number format pattern for the field (PhysicalMapping.numberPattern).
@@ -118,9 +118,9 @@ x-defs:
         x-jsonld-id: https://w3id.org/cdif/formats_InstanceVariable
     $defs:
       cdifConceptOrTermOrString:
-        $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
       cdifConceptOrTerm:
-        $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
     x-jsonld-prefixes:
       cdif: https://w3id.org/cdif/
       schema: http://schema.org/
@@ -136,7 +136,7 @@ x-defs:
       used for legacy or single-word labels not yet bound to a vocabulary.
     anyOf:
     - type: string
-    - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm:
@@ -152,8 +152,8 @@ x-defs:
         '@id':
           type: string
           description: reference to a skos concept for the data type
-    - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
-    - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTerm/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.definedTerm:
@@ -185,7 +185,7 @@ x-defs:
       schema:identifier:
         anyOf:
         - type: string
-        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
         x-jsonld-id: http://schema.org/identifier
       schema:inDefinedTermSet:
         type: string
@@ -244,32 +244,32 @@ x-defs:
           language should appear at most once.
         anyOf:
         - type: string
-        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
-            $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:altLabel:
         description: Alternative lexical labels (acronyms, abbreviations, spelling
           variants).
         anyOf:
         - type: string
-        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:definition:
         description: Formal explanation of the meaning or purpose of this concept
           scheme.
         anyOf:
         - type: string
-        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:notation:
         description: Classification code or notation for this concept scheme.
         type: array
@@ -279,12 +279,12 @@ x-defs:
         description: General note about the concept scheme.
         anyOf:
         - type: string
-        - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
         - type: array
           items:
             anyOf:
             - type: string
-            - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
       skos:hasTopConcept:
         description: Top-level concepts in this scheme. Each item is a skos:Concept
           (inline or @id reference).
@@ -292,7 +292,7 @@ x-defs:
         minItems: 1
         items:
           anyOf:
-          - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
           - type: object
             additionalProperties: false
             properties:
@@ -414,10 +414,10 @@ x-defs:
               Each language should appear at most once.
             anyOf:
             - type: string
-            - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
             - type: array
               items:
-                $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
           skos:notation:
             description: Classification code for this concept within a scheme (a single
               notation string, consistent with CdifCodelistConcept).
@@ -426,22 +426,22 @@ x-defs:
             description: Formal explanation of the meaning of this concept.
             anyOf:
             - type: string
-            - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
           skos:note:
             description: General note about this concept.
             anyOf:
             - type: string
-            - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/LanguageTaggedValue
           skos:inScheme:
             description: Concept scheme(s) this concept belongs to.
             anyOf:
@@ -467,16 +467,16 @@ x-defs:
             type: array
             items:
               anyOf:
-              - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
-              - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
           skos:narrower:
             description: Narrower (child) concepts in the hierarchy. Items are inline
               concept objects or @id references.
             type: array
             items:
               anyOf:
-              - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
-              - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/ConceptRef
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifConceptScheme/$defs/cdifConcept
         required:
         - '@type'
         - skos:prefLabel
@@ -607,7 +607,7 @@ allOf:
     ada:dataComponentResource:
       type: string
       x-jsonld-id: https://ada.astromat.org/metadata/dataComponentResource
-- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataCube
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataCube
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

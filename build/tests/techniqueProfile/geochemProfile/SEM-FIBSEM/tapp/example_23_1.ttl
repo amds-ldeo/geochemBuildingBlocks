@@ -33,6 +33,16 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "FIBSEM" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Ion Beam Source" ;
+                    schema1:name "missing" ] ;
+            schema1:name "missing" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "SEM" ;
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
@@ -55,17 +65,7 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
             schema1:model [ a schema1:ProductModel ;
                     schema1:name "7600F" ] ;
             schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "FIBSEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Ion Beam Source" ;
-                    schema1:name "missing" ] ;
-            schema1:name "missing" ] ;
+            ada:acceleratingVoltageDefault "15 kV" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -86,6 +86,7 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
             ada:toolRole "acquisition" ] .
 

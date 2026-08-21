@@ -3,10 +3,10 @@ title: FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
 description: 'Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] entries.
-  No ada:analyteTemplate. Generated from TAPPS20260813/Current TAPPs/SEM_FIBSEM_TAPP_v11.xlsx
+  No ada:analyteTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v14.csv
   by tools/build_tapp.py.'
 allOf:
-- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - type: object
   properties:
     schema:name:
@@ -153,7 +153,10 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to analyze.
+                              this procedure is designed to analyse. Used for discoverability
+                              and procedure matching, and because the material type
+                              constrains sample preparation, calibration and matrix-matching
+                              requirements.
                             anyOf:
                             - type: string
                               enum:
@@ -291,6 +294,16 @@ allOf:
                         - ada:fieldScope
                       minContains: 0
                       maxContains: 1
+                  ada:coarseMillingConditionsDefault:
+                    description: 'Ion beam voltage and current used for bulk material
+                      removal during FIB milling. For TEM specimen preparation: bulk
+                      trenching to isolate the lamella and intermediate thinning.
+                      For 3D tomography: face preparation and initial slice removal.'
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
             - if:
                 properties:
                   schema:name:
@@ -303,37 +316,6 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - title: Coarse Milling Conditions
-                        description: 'Ion beam voltage and current used for bulk material
-                          removal during FIB milling. For TEM specimen preparation:
-                          bulk trenching to isolate the lamella and intermediate thinning.
-                          For 3D tomography: face preparation and initial slice removal.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/coarseMillingConditionsDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: coarseMillingConditionsDefault
-                          schema:name:
-                            const: Coarse Milling Conditions
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
                       - title: Fine Polishing Conditions
                         description: Ion beam voltage and current for final thinning
                           and surface polishing of the TEM lamella. Low-voltage polishing
@@ -456,40 +438,6 @@ allOf:
                         - ada:dataType
                         - ada:fieldScope
                     allOf:
-                    - contains:
-                        title: Coarse Milling Conditions
-                        description: 'Ion beam voltage and current used for bulk material
-                          removal during FIB milling. For TEM specimen preparation:
-                          bulk trenching to isolate the lamella and intermediate thinning.
-                          For 3D tomography: face preparation and initial slice removal.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/coarseMillingConditionsDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: coarseMillingConditionsDefault
-                          schema:name:
-                            const: Coarse Milling Conditions
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      minContains: 0
-                      maxContains: 1
                     - contains:
                         title: Fine Polishing Conditions
                         description: Ion beam voltage and current for final thinning
@@ -761,6 +709,14 @@ allOf:
         - None
         - missing
       - type: string
+    ada:targetSelectionCriteriaDefault:
+      description: "The rules governing which part of the sample is analysed, and
+        why. Covers the criteria applied when choosing grains, aliquots, spots, or
+        a region of interest \u2014 size, morphology, clarity, freedom from inclusions
+        or alteration, phase identity, or spatial position. Distinct from Target Material,
+        which states the material type the procedure is designed for: this field states
+        how, within such a sample, the analysed portion is picked out."
+      type: string
     schema:instrument:
       type: array
       items:
@@ -779,7 +735,11 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Make of the instrument used for this procedure.
+                    description: Manufacturer of the instrument that performs the
+                      measurement, recorded as a controlled value so that procedures
+                      can be found by vendor. Where a procedure couples a sample-introduction
+                      system to an analysing instrument, this records the analysing
+                      instrument. Instrument Model gives the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -797,8 +757,11 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Model designation of the SEM or FIB-SEM instrument,
-                      including generation suffix if applicable.
+                    description: Model designation of the instrument that performs
+                      the measurement, including any generation or configuration suffix.
+                      Conventionally written with the manufacturer name included;
+                      Instrument Manufacturer records the vendor separately, as a
+                      controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
               schema:hasPart:
@@ -1082,9 +1045,10 @@ allOf:
           then:
             properties:
               schema:name:
-                description: Software used to control the SEM and acquire data, including
-                  version number. For FIB-SEM 3D tomography, include the automated
-                  slice-and-view module name and version.
+                description: Instrument control, automation and data acquisition software
+                  used to collect the raw data, including version number. Distinct
+                  from Data Processing Software(s), which covers everything applied
+                  to the data after acquisition.
                 anyOf:
                 - type: string
                 - type: array
@@ -1099,8 +1063,10 @@ allOf:
           then:
             properties:
               schema:name:
-                description: Software used for post-acquisition data reduction and
-                  analysis. List all packages with version numbers.
+                description: All software applied to the data after acquisition in
+                  order to produce the reported quantities, including version numbers.
+                  List every package used. Distinct from Acquisition Software, which
+                  controls the instrument and collects the raw data.
                 anyOf:
                 - type: string
                 - type: array
@@ -1111,9 +1077,12 @@ allOf:
     ada:analyticalMode:
       type: array
       items:
-        description: Primary analytical mode(s) executed under this procedure. For
-          multi-mode procedures (e.g., simultaneous BSE + EDS mapping), list all active
-          modes.
+        description: Primary analytical mode(s) executed under this procedure. Records
+          one value for a single-mode procedure and all applicable modes for a multi-mode
+          one. Serves as the procedure-level declaration of measurement type, distinct
+          from the mode flag columns, which state per-field applicability. Required
+          even where a procedure defines no mode flag columns, so that every procedure
+          record is self-describing and comparable across the library.
         type: string
         enum:
         - SE Imaging
@@ -1149,7 +1118,7 @@ allOf:
           type: array
           items:
             anyOf:
-            - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - title: Beam Current
               description: Electron beam probe current. Higher current improves signal-to-noise
                 for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
@@ -1252,6 +1221,7 @@ allOf:
   - schema:name
   - schema:datePublished
   - ada:samplingUnit
+  - ada:targetSelectionCriteriaDefault
   - ada:dwellTimePerPixelDefault
   - ada:imageRegistration3DDefault
   - ada:segmentationMethod3DDefault

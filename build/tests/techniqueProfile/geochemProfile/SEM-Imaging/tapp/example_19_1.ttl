@@ -15,14 +15,14 @@ ex:semImagingTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy)" ;
@@ -74,8 +74,11 @@ ex:semImagingTAPP-Pascucci2026-2 a cdi:Activity,
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:ebsdDetectorConfiguration "missing" ;
+    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ],
         [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;

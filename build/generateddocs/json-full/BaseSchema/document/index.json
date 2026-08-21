@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-19",
+  "dateOfLastChange": "2026-08-21",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -27,18 +27,18 @@
   ],
   "shaclShapes": {
     "ogch.BaseSchema.document": [
-      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/document/rules.shacl"
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/document/rules.shacl"
     ]
   },
-  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/document/context.jsonld",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/context.jsonld",
   "schema": {
-    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/document/schema.yaml",
-    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/document/schema.json"
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/schema.json"
   },
-  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/document/schema.yaml",
-  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/document/context.jsonld",
-  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/document/resolvedProperties.json",
-  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/document/",
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/document/schema.yaml",
+  "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/document/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/document/",
   "validationPassed": false,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/document/",
   "description": "# Document Type\n\nDescribes supplemental documents in ADA metadata including calibration files, method descriptions, log files, processing descriptions, and other supplemental information. Typed as `ada:document` and `schema:DigitalDocument`.\n",
@@ -53,19 +53,19 @@
       "snippets": [
         {
           "language": "json",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/document/example_1_1.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/document/example_1_1.json",
           "sizeBytes": 209,
           "code": "{\n  \"@type\": [\"ada:document\", \"schema:DigitalDocument\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:calibrationFile\"\n  },\n  \"schema:version\": \"1.0\",\n  \"schema:isBasedOn\": \"calibration_original_20230415.pdf\"\n}\n"
         },
         {
           "language": "jsonld",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/document/example_1_1.jsonld",
-          "sizeBytes": 475,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/document/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:document\",\n    \"schema:DigitalDocument\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:calibrationFile\"\n  },\n  \"schema:version\": \"1.0\",\n  \"schema:isBasedOn\": \"calibration_original_20230415.pdf\"\n}"
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/document/example_1_1.jsonld",
+          "sizeBytes": 449,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:document\",\n    \"schema:DigitalDocument\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:calibrationFile\"\n  },\n  \"schema:version\": \"1.0\",\n  \"schema:isBasedOn\": \"calibration_original_20230415.pdf\"\n}"
         },
         {
           "language": "ttl",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/document/example_1_1.ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/document/example_1_1.ttl",
           "sizeBytes": 285,
           "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] a schema1:DigitalDocument,\n        ada:document ;\n    schema1:isBasedOn \"calibration_original_20230415.pdf\" ;\n    schema1:version \"1.0\" ;\n    ada:componentType [ a ada:calibrationFile ] .\n\n"
         }

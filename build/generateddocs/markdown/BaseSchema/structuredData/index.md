@@ -67,7 +67,7 @@ container, not tabular text).
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "cdif": "https://cdif.org/0.1/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/structuredData/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/context.jsonld"
   ],
   "@id": "ex:file-map-cube-001",
   "@type": [
@@ -132,12 +132,12 @@ container, not tabular text).
     ada:componentType "ada:other" .
 
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
-    cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
+    cdi:has_DataStructureComponent [ a cdi:MeasureComponent ;
+            cdif:name "intensity" ],
+        [ a cdi:DimensionComponent ;
             cdif:name "y" ],
         [ a cdi:DimensionComponent ;
-            cdif:name "x" ],
-        [ a cdi:MeasureComponent ;
-            cdif:name "intensity" ] ;
+            cdif:name "x" ] ;
     schema1:name "Elemental map cube structure" .
 
 
@@ -198,8 +198,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/structuredData/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/structuredData/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/schema.yaml)
 
 
 # JSON-LD Context
@@ -220,7 +220,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/structuredData/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/context.jsonld)
 
 ## Sources
 

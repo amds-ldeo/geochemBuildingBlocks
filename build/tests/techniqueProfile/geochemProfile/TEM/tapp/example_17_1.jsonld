@@ -7,7 +7,7 @@
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -24,77 +24,280 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "Hitachi HF5000",
-  "schema:description": "temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF-STEM + dual EDS + TEM/SAED (K-ALFAA UA Hitachi HF5000, probe Cs-corrected) (publication column of TEM_TAPP_v17.xlsx).",
+  "schema:name": "tem protocol \u2014 Seifert2026-2",
+  "schema:description": "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping.",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "STEM"
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), Lunar and Planetary Laboratory, University of Arizona, Tucson, AZ, USA"
   },
-  "schema:measurementTechnique": [
+  "schema:relatedLink": [
     {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM (JEOL 7600F + 7900F with Oxford EDS/EBSD/CL at JSC); EMPA (JEOL 8530 at JSC, 15 kV 20 nA 2 \u00b5m probe)",
+        "schema:description": "Coordinated SEM-EMPA-TEM study of Bennu apatite; TEM provides nanoscale crystallographic and chemical characterization of FIB section from apatite cluster; SAED confirms single-crystal vs. polycrystalline nature"
+      },
       "@type": [
-        "schema:DefinedTerm"
+        "schema:CreativeWork"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
-      "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:acceleratingVoltageDefault": "200 kV",
-  "ada:analyticalMode": [],
-  "ada:convergenceSemiAngle": -9999,
-  "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:cameraLengthDefault": -9999,
-  "ada:edsAcquisitionModeDefault": "Spectrum imaging (EDS elemental maps); false-color maps",
-  "ada:edsQuantificationMethod": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
-  "ada:eelsAcquisitionModeDefault": "missing",
-  "ada:eelsEdgesDefault": "missing",
-  "ada:eelsCollectionSemiAngle": -9999,
-  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
-  "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:phaseIdentificationMethod": "SAED zone-axis patterns measured with Gatan DIFPack; compared to simulated diffraction patterns using SingleCrystal software package; confirms apatite single crystal (Ap.#1) and polycrystalline assemblage (Ap.#2)",
-  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:edsCalibrationStandardDefault": "missing",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Bennu carbonaceous asteroid sample (OSIRIS-REx return); apatite grains in phyllosilicate-rich matrix"
+          ]
+        }
+      ]
+    }
+  ],
   "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
     "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "FIB lift-out (Ga) + ion mill",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "samplePreparationDetailsDefault",
+            "schema:name": "Sample Preparation Details",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "FEI Quanta 3D FEG FIB-SEM at JSC; stair-step milling; in situ extraction; thinned to electron transparency (\u2264100 nm); techniques following Holzapfel et al. 2009, Seifert et al. 2022, Zega et al. 2007"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
       {
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Sample preparation",
+        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data Reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:instrument": [
     {
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
       "schema:additionalType": [
         "TEM",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
-      "schema:name": "missing"
+      "schema:manufacturer": {
+        "schema:name": "Hitachi",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "Hitachi HF5000",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Electron source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Cold-FEG",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "AberrationCorrector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Unknown",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "EDSDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Oxford Instruments X-Max N 100 TLE EDS system; dual 100 mm\u00b2 windowless silicon-drift detectors",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "ImagingDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "BF STEM detector; DF STEM detector; SE STEM detector; Gatan OneView 4k\u00d74k pixel CMOS camera (TEM imaging and SAED)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "4DSTEMDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "EELSSpectrometer",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Monochromator",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "200 kV",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalSubModeDefault": "missing",
-  "ada:spectroscopicDetectorDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "N/A",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "SingleCrystal (CrystalMaker Software)"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "BF-STEM",
+  "ada:edsAcquisitionModeDefault": "N/A",
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "Ca",
+      "P",
+      "Na",
+      "Mn",
+      "O",
+      "Mg",
+      "Si",
+      "F",
+      "Cl",
+      "Fe"
+    ],
+    "ada:analyteColumns": [
+      {
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
+  "ada:phaseIdentificationMethod": "N/A",
+  "ada:cameraLengthDefault": -9999,
+  "ada:convergenceSemiAngle": -9999,
+  "ada:edsCalibrationStandardDefault": "missing",
+  "ada:edsQuantificationMethod": "missing",
+  "ada:eelsAcquisitionModeDefault": "missing",
+  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
+  "ada:eelsCollectionSemiAngle": -9999,
+  "ada:eelsEnergyLossRangeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:stemDwellTimePerPixelDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

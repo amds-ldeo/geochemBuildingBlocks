@@ -15,8 +15,8 @@ ex:semFibsemTAPP-Genge2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -25,8 +25,8 @@ ex:semFibsemTAPP-Genge2025-3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
     schema1:instrument [ a schema1:Product,
@@ -37,6 +37,11 @@ ex:semFibsemTAPP-Genge2025-3 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "SEDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
                     schema1:name "missing" ],
@@ -44,11 +49,6 @@ ex:semFibsemTAPP-Genge2025-3 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -85,5 +85,6 @@ ex:semFibsemTAPP-Genge2025-3 a cdi:Activity,
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
-    ada:segmentationMethod3DDefault "missing" .
+    ada:segmentationMethod3DDefault "missing" ;
+    ada:targetSelectionCriteriaDefault "missing" .
 

@@ -5,8 +5,8 @@ description: Technique-specific profile for Electron Microprobe Analysis (EMPA/E
   (detailEMPA) on the schema:Dataset root, narrows prov:used to the empaTAPP protocol,
   and constrains valid EMPA component types on schema:distribution.hasPart.
 allOf:
-- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml
-- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/EMPA/detail/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/detail/schema.yaml
 - type: object
   properties:
     prov:wasGeneratedBy:
@@ -31,7 +31,7 @@ allOf:
                       type: array
                       minItems: 1
                       items:
-                        $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
               - if:
                   type: object
                   properties:
@@ -41,7 +41,7 @@ allOf:
                   required:
                   - '@type'
                 then:
-                  $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/EMPA/tapp/schema.yaml
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/tapp/schema.yaml
     schema:additionalType:
       description: Must include an EMPA product type identifier.
       contains:
@@ -62,7 +62,7 @@ allOf:
             items:
               type: object
               anyOf:
-              - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
               - properties:
                   ada:componentType:
                     type: string

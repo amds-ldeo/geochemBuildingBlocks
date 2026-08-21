@@ -15,6 +15,11 @@ ex:semTAPP-Ma2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -32,17 +37,17 @@ ex:semTAPP-Ma2017 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
+                        "BSEDetector" ;
+                    schema1:name "N/A" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -70,13 +75,23 @@ ex:semTAPP-Ma2017 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:dwellTimePerPixelDefault -9999 ;
+    ada:clAcquisitionMode "missing" ;
+    ada:clIntegrationTimeDefault -9999 ;
+    ada:clWavelengthRange -9999 ;
+    ada:ebsdDetectorConfiguration "missing" ;
+    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdStepSizeDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
+    ada:imageRegistration3DDefault "missing" ;
+    ada:liftOutMethod "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:wdsDeadTimeCorrection "missing" .
+    ada:wdsDeadTimeCorrection "missing" ;
+    ada:workingDistanceDefault -9999 .
 

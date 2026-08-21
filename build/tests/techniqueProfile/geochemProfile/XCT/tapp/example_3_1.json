@@ -1,0 +1,181 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:labxctTAPP-Neuman2025",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "labxct protocol \u2014 Neuman2025",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v21.csv). Reported detail: ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "missing"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "UTCT Facility, U. Texas"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar regolith (Apollo 17 drive-tube core)"
+          ]
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleDimensionsDefault",
+          "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~35 cm length core"
+        }
+      ]
+    }
+  ],
+  "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Plexiglass tube (vertical); triple-sealed Teflon bag"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/detectorArraySize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/detectorArraySize"
+        }
+      ],
+      "schema:name": "Detector Array Size",
+      "schema:value": "2048 \u00d7 2048 (physical); 4096 \u00d7 4096 (effective, NSI Subpix)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ringArtifactCorrectionMethodDefault",
+      "schema:name": "Ring Artifact Correction Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Post-reconstruction ring corrections applied"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Al inner sleeve triple-sealed in Teflon; stainless-steel outer sleeve removed prior to scan",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "subVolumeStitchingAndRegistrationMethodDefault",
+            "schema:name": "Sub-volume Stitching and Registration Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Digital stitching (method not named); post-reconstruction ring and distortion corrections applied"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",
+  "ada:detectorType": "2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "180 kV",
+      "ada:tubeCurrentDefault": "0.18 mA (180 \u00b5A)",
+      "ada:xRayPreFilterDefault": "0.72 mm Al",
+      "schema:model": {
+        "schema:name": "Custom NSI instrument (North Star Imaging) at UTCT",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:rotationModeDefault": "Continuous rotation",
+  "ada:minimumSubVolumeOverlap": "~380 slices overlap between sub-volumes",
+  "ada:beamHardeningCorrectionMethod": "Software BHC applied during reconstruction",
+  "ada:applicableSampleDimensionRange": "missing",
+  "ada:exposureTimePerProjectionDefault": -9999,
+  "ada:numberOfProjectionsDefault": -9999,
+  "ada:outputDataFormatDefault": "missing",
+  "ada:reconstructionAlgorithm": "missing",
+  "ada:rotationRangeDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:segmentationMethodDefault": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}

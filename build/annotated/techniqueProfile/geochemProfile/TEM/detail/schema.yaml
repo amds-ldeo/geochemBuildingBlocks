@@ -44,83 +44,472 @@ properties:
                     - schema:name
                   then:
                     properties:
-                      schema:description:
-                        description: Primary method by which electron-transparent
-                          sections are prepared from the sample. The procedure documents
-                          the standard approach; analysts record session-specific
-                          details and deviations in Sample Preparation Details.
-                        anyOf:
-                        - type: string
-                          enum:
-                          - FIB lift-out (Ga ion)
-                          - FIB lift-out (Xe plasma)
-                          - FIB lift-out (Ga) + ion mill
-                          - Ultramicrotomy
-                          - Crushing / dispersion on grid
-                          - Ion milling (non-FIB)
-                          - Electropolishing
-                          - Unknown
-                          - N/A
-                          - None
-                          - missing
-                        - type: array
-                          items:
-                            type: string
-                            enum:
-                            - FIB lift-out (Ga ion)
-                            - FIB lift-out (Xe plasma)
-                            - FIB lift-out (Ga) + ion mill
-                            - Ultramicrotomy
-                            - Crushing / dispersion on grid
-                            - Ion milling (non-FIB)
-                            - Electropolishing
-                            - Unknown
-                            - N/A
-                            - None
-                            - missing
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          title: Sample Preparation Details
+                          description: "Detailed description of section preparation
+                            conditions: FIB milling voltages and currents; final thinning
+                            conditions and target foil thickness; protective coating
+                            type and deposition method (e.g., e-beam vs. ion-beam
+                            Pt or C strip \u2014 e-beam deposition causes less surface
+                            damage); any post-FIB surface cleanup (e.g., low-energy
+                            Ar+ ion polishing in a Fischione NanoMill, final 0.5\u20132
+                            kV Ga+ thinning); sample transfer and storage environment
+                            (ambient air, dry N\u2082 atmosphere, vacuum transfer
+                            holder, glovebox); plasma cleaning before loading. Analysts
+                            record session-specific observations and deviations from
+                            the procedure standard. Includes preparation artifacts
+                            noted (Ga implantation, amorphization, curtaining)."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/temTAPP/samplePreparationDetails
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/temTAPP/samplePreparationDetails
+                            schema:name:
+                              const: Sample Preparation Details
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        allOf:
+                        - contains:
+                            title: Sample Preparation Details
+                            description: "Detailed description of section preparation
+                              conditions: FIB milling voltages and currents; final
+                              thinning conditions and target foil thickness; protective
+                              coating type and deposition method (e.g., e-beam vs.
+                              ion-beam Pt or C strip \u2014 e-beam deposition causes
+                              less surface damage); any post-FIB surface cleanup (e.g.,
+                              low-energy Ar+ ion polishing in a Fischione NanoMill,
+                              final 0.5\u20132 kV Ga+ thinning); sample transfer and
+                              storage environment (ambient air, dry N\u2082 atmosphere,
+                              vacuum transfer holder, glovebox); plasma cleaning before
+                              loading. Analysts record session-specific observations
+                              and deviations from the procedure standard. Includes
+                              preparation artifacts noted (Ga implantation, amorphization,
+                              curtaining)."
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/samplePreparationDetails
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/samplePreparationDetails
+                              schema:name:
+                                const: Sample Preparation Details
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
+                - if:
+                    properties:
+                      schema:name:
+                        const: Data Reduction
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          anyOf:
+                          - title: EELS Plural Scattering Correction
+                            description: Method applied to correct for multiple inelastic
+                              scattering events (plural scattering) that broaden edge
+                              fine structure. Critical for specimens thicker than
+                              ~0.5 inelastic mean free paths. Record 'N/A' where EELS
+                              is not listed in Spectroscopic Detector(s).
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/eelsPluralScatteringCorrection
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/eelsPluralScatteringCorrection
+                              schema:name:
+                                const: EELS Plural Scattering Correction
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          - title: Image Processing Methods Applied
+                            description: Image processing steps applied to TEM or
+                              STEM images during or after acquisition. Non-linear
+                              processing steps that could affect quantitative interpretation
+                              should be documented explicitly.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/imageProcessingMethodsApplied
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/imageProcessingMethodsApplied
+                              schema:name:
+                                const: Image Processing Methods Applied
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          - title: Calibration Factor and Determination Method
+                            description: 'An externally-calibrated factor that converts
+                              the measured quantity into the reported quantity, how
+                              it was determined, and its uncertainty. Applies where
+                              the conversion depends on a factor calibrated against
+                              a reference of independently known value, rather than
+                              on the instrument response alone. Distinct from the
+                              fields that name the calibration material and that state
+                              which approach applies to which analyte, where the technique
+                              has them: this field records the resulting factor itself.'
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+                              schema:name:
+                                const: Calibration Factor and Determination Method
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                        allOf:
+                        - contains:
+                            title: EELS Plural Scattering Correction
+                            description: Method applied to correct for multiple inelastic
+                              scattering events (plural scattering) that broaden edge
+                              fine structure. Critical for specimens thicker than
+                              ~0.5 inelastic mean free paths. Record 'N/A' where EELS
+                              is not listed in Spectroscopic Detector(s).
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/eelsPluralScatteringCorrection
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/eelsPluralScatteringCorrection
+                              schema:name:
+                                const: EELS Plural Scattering Correction
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
+                        - contains:
+                            title: Image Processing Methods Applied
+                            description: Image processing steps applied to TEM or
+                              STEM images during or after acquisition. Non-linear
+                              processing steps that could affect quantitative interpretation
+                              should be documented explicitly.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/imageProcessingMethodsApplied
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/imageProcessingMethodsApplied
+                              schema:name:
+                                const: Image Processing Methods Applied
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
+                        - contains:
+                            title: Calibration Factor and Determination Method
+                            description: 'An externally-calibrated factor that converts
+                              the measured quantity into the reported quantity, how
+                              it was determined, and its uncertainty. Applies where
+                              the conversion depends on a factor calibrated against
+                              a reference of independently known value, rather than
+                              on the instrument response alone. Distinct from the
+                              fields that name the calibration material and that state
+                              which approach applies to which analyte, where the technique
+                              has them: this field records the resulting factor itself.'
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+                              schema:name:
+                                const: Calibration Factor and Determination Method
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
+                - if:
+                    properties:
+                      schema:name:
+                        const: Data reduction
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          title: Constants and Reference Values Used
+                          description: Physical constants and reference values used
+                            in data reduction to calculate the final reported quantity
+                            (e.g., decay constants for age calculation, standard isotope
+                            ratios, or other citable reference values used in a correction
+                            or calculation), together with their source. Distinct
+                            from the Group 6 reference-material fields, which document
+                            accepted values for specific calibration/validation materials
+                            rather than universal physical constants. Record "None"
+                            if no citable, revisable physical constants feed into
+                            this procedure's data reduction.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/temTAPP/constantsAndReferenceValuesUsed
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/temTAPP/constantsAndReferenceValuesUsed
+                            schema:name:
+                              const: Constants and Reference Values Used
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        allOf:
+                        - contains:
+                            title: Constants and Reference Values Used
+                            description: Physical constants and reference values used
+                              in data reduction to calculate the final reported quantity
+                              (e.g., decay constants for age calculation, standard
+                              isotope ratios, or other citable reference values used
+                              in a correction or calculation), together with their
+                              source. Distinct from the Group 6 reference-material
+                              fields, which document accepted values for specific
+                              calibration/validation materials rather than universal
+                              physical constants. Record "None" if no citable, revisable
+                              physical constants feed into this procedure's data reduction.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/constantsAndReferenceValuesUsed
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/constantsAndReferenceValuesUsed
+                              schema:name:
+                                const: Constants and Reference Values Used
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
               allOf:
               - contains:
                   properties:
                     schema:name:
-                      const: Sample preparation
+                      const: Data Reduction
                   required:
                   - schema:name
+              - contains:
+                  properties:
+                    schema:name:
+                      const: Data reduction
+                  required:
+                  - schema:name
+        schema:object:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  '@type':
+                    contains:
+                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                required:
+                - '@type'
+              then:
+                properties:
+                  schema:name:
+                    description: "Name or identifier of each sample analysed in this
+                      session, as used in the laboratory \u2014 a sample mount, section
+                      or aliquot counts as one entry where that is what the laboratory
+                      tracks. The analysis record corresponds to one session and may
+                      cover several samples; fields whose Keyed By column declares
+                      'sample' take one value per entry. Should match the identifier
+                      used in associated publications or data tables."
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+                  schema:identifier:
+                    description: Globally unique, persistent identifier for each sample
+                      listed in Sample Name. IGSN (International Geo Sample Number)
+                      is the recommended standard for geological and cosmochemical
+                      samples, as used by Astromat, EarthChem and SESAR. Where a sample
+                      and its sub-samples are separately registered, record the identifier
+                      at the level actually analysed.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      title: Pre-Analysis Imaging and Screening
+                      description: Imaging or other characterisation performed before
+                        the measurement in order to select or locate the analysed
+                        target, including the technique, instrument and settings used,
+                        and how individual analyses are linked back to the images.
+                        Distinct from any imaging the procedure performs as its own
+                        measurement. Where the imaging is performed on a separate
+                        instrument, it should also be recorded in the Group 1 coupling
+                        fields.
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/temTAPP/preAnalysisImagingAndScreening
+                        '@type':
+                          const:
+                          - schema:PropertyValue
+                        schema:propertyID:
+                          const:
+                          - '@id': ada:parameter/temTAPP/preAnalysisImagingAndScreening
+                        schema:name:
+                          const: Pre-Analysis Imaging and Screening
+                        schema:value:
+                          type: string
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:propertyID
+                      - schema:name
+                      - schema:value
+                    allOf:
+                    - contains:
+                        title: Pre-Analysis Imaging and Screening
+                        description: Imaging or other characterisation performed before
+                          the measurement in order to select or locate the analysed
+                          target, including the technique, instrument and settings
+                          used, and how individual analyses are linked back to the
+                          images. Distinct from any imaging the procedure performs
+                          as its own measurement. Where the imaging is performed on
+                          a separate instrument, it should also be recorded in the
+                          Group 1 coupling fields.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/temTAPP/preAnalysisImagingAndScreening
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/temTAPP/preAnalysisImagingAndScreening
+                          schema:name:
+                            const: Pre-Analysis Imaging and Screening
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                      minContains: 0
+                      maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                '@type':
+                  contains:
+                    const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+              required:
+              - '@type'
         schema:additionalProperty:
           type: array
           items:
             anyOf:
-            - title: Sample Preparation Details
-              description: "Detailed description of section preparation conditions:
-                FIB milling voltages and currents; final thinning conditions and target
-                foil thickness; protective coating type and deposition method (e.g.,
-                e-beam vs. ion-beam Pt or C strip \u2014 e-beam deposition causes
-                less surface damage); any post-FIB surface cleanup (e.g., low-energy
-                Ar+ ion polishing in a Fischione NanoMill, final 0.5\u20132 kV Ga+
-                thinning); sample transfer and storage environment (ambient air, dry
-                N\u2082 atmosphere, vacuum transfer holder, glovebox); plasma cleaning
-                before loading. Analysts record session-specific observations and
-                deviations from the procedure standard. Includes preparation artifacts
-                noted (Ga implantation, amorphization, curtaining)."
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/samplePreparationDetails
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/samplePreparationDetails
-                schema:name:
-                  const: Sample Preparation Details
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
             - title: Target Selection Criteria
               description: "The rules governing which part of the sample is analysed,
                 and why. Covers the criteria applied when choosing grains, aliquots,
@@ -141,34 +530,6 @@ properties:
                   - '@id': ada:parameter/temTAPP/targetSelectionCriteria
                 schema:name:
                   const: Target Selection Criteria
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Pre-Analysis Imaging and Screening
-              description: Imaging or other characterisation performed before the
-                measurement in order to select or locate the analysed target, including
-                the technique, instrument and settings used, and how individual analyses
-                are linked back to the images. Distinct from any imaging the procedure
-                performs as its own measurement. Where the imaging is performed on
-                a separate instrument, it should also be recorded in the Group 1 coupling
-                fields.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/preAnalysisImagingAndScreening
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/preAnalysisImagingAndScreening
-                schema:name:
-                  const: Pre-Analysis Imaging and Screening
                 schema:value:
                   type: string
               required:
@@ -225,32 +586,6 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - title: SAED Pattern Simulation Software
-              description: Software used to simulate electron diffraction patterns
-                for comparison with experimental SAED patterns during phase identification
-                (e.g., SingleCrystal, CrystalMaker, JEMS, DIFPACK). Complements the
-                Acquisition Software field, which covers data collection; simulation
-                software is used at the interpretation and data processing step.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/saedPatternSimulationSoftware
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/saedPatternSimulationSoftware
-                schema:name:
-                  const: SAED Pattern Simulation Software
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
             - title: Analytical Sub-mode
               description: 'Sub-mode(s) of imaging or diffraction performed under
                 this procedure. TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM.
@@ -261,41 +596,15 @@ properties:
               type: object
               properties:
                 '@id':
-                  const: ada:parameter/temTAPP/analyticalMode
+                  const: ada:parameter/temTAPP/analyticalSubMode
                 '@type':
                   const:
                   - schema:PropertyValue
                 schema:propertyID:
                   const:
-                  - '@id': ada:parameter/temTAPP/analyticalMode
+                  - '@id': ada:parameter/temTAPP/analyticalSubMode
                 schema:name:
                   const: Analytical Sub-mode
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: TEM Objective Aperture
-              description: Objective aperture diameter used to select the imaging
-                beam condition in TEM mode. In BF-TEM, a small aperture blocks diffracted
-                beams to enhance mass-thickness contrast; in DF-TEM, the aperture
-                is displaced to select a specific diffracted beam; in HRTEM, no aperture
-                is typically used.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/temObjectiveAperture
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/temObjectiveAperture
-                schema:name:
-                  const: TEM Objective Aperture
                 schema:value:
                   type: string
               required:
@@ -860,79 +1169,6 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - title: EELS Background Subtraction Method
-              description: Method used to subtract the background beneath the ionization
-                edge of interest to extract the net edge signal. Record 'N/A' where
-                EELS is not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsBackgroundSubtractionMethod
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsBackgroundSubtractionMethod
-                schema:name:
-                  const: EELS Background Subtraction Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: EELS Plural Scattering Correction
-              description: Method applied to correct for multiple inelastic scattering
-                events (plural scattering) that broaden edge fine structure. Critical
-                for specimens thicker than ~0.5 inelastic mean free paths. Record
-                'N/A' where EELS is not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsPluralScatteringCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsPluralScatteringCorrection
-                schema:name:
-                  const: EELS Plural Scattering Correction
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Image Processing Methods Applied
-              description: Image processing steps applied to TEM or STEM images during
-                or after acquisition. Non-linear processing steps that could affect
-                quantitative interpretation should be documented explicitly.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/imageProcessingMethodsApplied
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/imageProcessingMethodsApplied
-                schema:name:
-                  const: Image Processing Methods Applied
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
             - title: Specimen Thickness Determination Method
               description: Method used to estimate TEM foil thickness. Required for
                 EELS quantification (log-ratio) and for assessing multiple-scattering
@@ -949,64 +1185,6 @@ properties:
                   - '@id': ada:parameter/temTAPP/specimenThicknessDeterminationMethod
                 schema:name:
                   const: Specimen Thickness Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
-                schema:name:
-                  const: Calibration Factor and Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Constants and Reference Values Used
-              description: Physical constants and reference values used in data reduction
-                to calculate the final reported quantity (e.g., decay constants for
-                age calculation, standard isotope ratios, or other citable reference
-                values used in a correction or calculation), together with their source.
-                Distinct from the Group 6 reference-material fields, which document
-                accepted values for specific calibration/validation materials rather
-                than universal physical constants. Record "None" if no citable, revisable
-                physical constants feed into this procedure's data reduction.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/constantsAndReferenceValuesUsed
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/constantsAndReferenceValuesUsed
-                schema:name:
-                  const: Constants and Reference Values Used
                 schema:value:
                   type: string
               required:
@@ -1144,67 +1322,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - title: EELS Sensitivity and Detection Limit
-              description: Practical energy resolution (ZLP FWHM measured at operating
-                conditions) and estimated detection limit or minimum detectable concentration
-                for target edges under this procedure. Record 'N/A' where EELS is
-                not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsSensitivityAndDetectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsSensitivityAndDetectionLimit
-                schema:name:
-                  const: EELS Sensitivity and Detection Limit
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
           allOf:
-          - contains:
-              title: Sample Preparation Details
-              description: "Detailed description of section preparation conditions:
-                FIB milling voltages and currents; final thinning conditions and target
-                foil thickness; protective coating type and deposition method (e.g.,
-                e-beam vs. ion-beam Pt or C strip \u2014 e-beam deposition causes
-                less surface damage); any post-FIB surface cleanup (e.g., low-energy
-                Ar+ ion polishing in a Fischione NanoMill, final 0.5\u20132 kV Ga+
-                thinning); sample transfer and storage environment (ambient air, dry
-                N\u2082 atmosphere, vacuum transfer holder, glovebox); plasma cleaning
-                before loading. Analysts record session-specific observations and
-                deviations from the procedure standard. Includes preparation artifacts
-                noted (Ga implantation, amorphization, curtaining)."
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/samplePreparationDetails
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/samplePreparationDetails
-                schema:name:
-                  const: Sample Preparation Details
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
           - contains:
               title: Target Selection Criteria
               description: "The rules governing which part of the sample is analysed,
@@ -1226,37 +1344,6 @@ properties:
                   - '@id': ada:parameter/temTAPP/targetSelectionCriteria
                 schema:name:
                   const: Target Selection Criteria
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Pre-Analysis Imaging and Screening
-              description: Imaging or other characterisation performed before the
-                measurement in order to select or locate the analysed target, including
-                the technique, instrument and settings used, and how individual analyses
-                are linked back to the images. Distinct from any imaging the procedure
-                performs as its own measurement. Where the imaging is performed on
-                a separate instrument, it should also be recorded in the Group 1 coupling
-                fields.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/preAnalysisImagingAndScreening
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/preAnalysisImagingAndScreening
-                schema:name:
-                  const: Pre-Analysis Imaging and Screening
                 schema:value:
                   type: string
               required:
@@ -1322,35 +1409,6 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
-              title: SAED Pattern Simulation Software
-              description: Software used to simulate electron diffraction patterns
-                for comparison with experimental SAED patterns during phase identification
-                (e.g., SingleCrystal, CrystalMaker, JEMS, DIFPACK). Complements the
-                Acquisition Software field, which covers data collection; simulation
-                software is used at the interpretation and data processing step.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/saedPatternSimulationSoftware
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/saedPatternSimulationSoftware
-                schema:name:
-                  const: SAED Pattern Simulation Software
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Analytical Sub-mode
               description: 'Sub-mode(s) of imaging or diffraction performed under
                 this procedure. TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM.
@@ -1361,44 +1419,15 @@ properties:
               type: object
               properties:
                 '@id':
-                  const: ada:parameter/temTAPP/analyticalMode
+                  const: ada:parameter/temTAPP/analyticalSubMode
                 '@type':
                   const:
                   - schema:PropertyValue
                 schema:propertyID:
                   const:
-                  - '@id': ada:parameter/temTAPP/analyticalMode
+                  - '@id': ada:parameter/temTAPP/analyticalSubMode
                 schema:name:
                   const: Analytical Sub-mode
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: TEM Objective Aperture
-              description: Objective aperture diameter used to select the imaging
-                beam condition in TEM mode. In BF-TEM, a small aperture blocks diffracted
-                beams to enhance mass-thickness contrast; in DF-TEM, the aperture
-                is displaced to select a specific diffracted beam; in HRTEM, no aperture
-                is typically used.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/temObjectiveAperture
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/temObjectiveAperture
-                schema:name:
-                  const: TEM Objective Aperture
                 schema:value:
                   type: string
               required:
@@ -2026,88 +2055,6 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
-              title: EELS Background Subtraction Method
-              description: Method used to subtract the background beneath the ionization
-                edge of interest to extract the net edge signal. Record 'N/A' where
-                EELS is not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsBackgroundSubtractionMethod
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsBackgroundSubtractionMethod
-                schema:name:
-                  const: EELS Background Subtraction Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: EELS Plural Scattering Correction
-              description: Method applied to correct for multiple inelastic scattering
-                events (plural scattering) that broaden edge fine structure. Critical
-                for specimens thicker than ~0.5 inelastic mean free paths. Record
-                'N/A' where EELS is not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsPluralScatteringCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsPluralScatteringCorrection
-                schema:name:
-                  const: EELS Plural Scattering Correction
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Image Processing Methods Applied
-              description: Image processing steps applied to TEM or STEM images during
-                or after acquisition. Non-linear processing steps that could affect
-                quantitative interpretation should be documented explicitly.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/imageProcessingMethodsApplied
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/imageProcessingMethodsApplied
-                schema:name:
-                  const: Image Processing Methods Applied
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Specimen Thickness Determination Method
               description: Method used to estimate TEM foil thickness. Required for
                 EELS quantification (log-ratio) and for assessing multiple-scattering
@@ -2124,70 +2071,6 @@ properties:
                   - '@id': ada:parameter/temTAPP/specimenThicknessDeterminationMethod
                 schema:name:
                   const: Specimen Thickness Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
-                schema:name:
-                  const: Calibration Factor and Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Constants and Reference Values Used
-              description: Physical constants and reference values used in data reduction
-                to calculate the final reported quantity (e.g., decay constants for
-                age calculation, standard isotope ratios, or other citable reference
-                values used in a correction or calculation), together with their source.
-                Distinct from the Group 6 reference-material fields, which document
-                accepted values for specific calibration/validation materials rather
-                than universal physical constants. Record "None" if no citable, revisable
-                physical constants feed into this procedure's data reduction.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/constantsAndReferenceValuesUsed
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/constantsAndReferenceValuesUsed
-                schema:name:
-                  const: Constants and Reference Values Used
                 schema:value:
                   type: string
               required:
@@ -2342,81 +2225,6 @@ properties:
               - schema:value
             minContains: 0
             maxContains: 1
-          - contains:
-              title: EELS Sensitivity and Detection Limit
-              description: Practical energy resolution (ZLP FWHM measured at operating
-                conditions) and estimated detection limit or minimum detectable concentration
-                for target edges under this procedure. Record 'N/A' where EELS is
-                not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/temTAPP/eelsSensitivityAndDetectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/temTAPP/eelsSensitivityAndDetectionLimit
-                schema:name:
-                  const: EELS Sensitivity and Detection Limit
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-        schema:object:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  '@type':
-                    contains:
-                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-                required:
-                - '@type'
-              then:
-                properties:
-                  schema:name:
-                    description: "Name or identifier of each sample analysed in this
-                      session, as used in the laboratory \u2014 a sample mount, section
-                      or aliquot counts as one entry where that is what the laboratory
-                      tracks. The analysis record corresponds to one session and may
-                      cover several samples; fields whose Keyed By column declares
-                      'sample' take one value per entry. Should match the identifier
-                      used in associated publications or data tables."
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-                  schema:identifier:
-                    description: Globally unique, persistent identifier for each sample
-                      listed in Sample Name. IGSN (International Geo Sample Number)
-                      is the recommended standard for geological and cosmochemical
-                      samples, as used by Astromat, EarthChem and SESAR. Where a sample
-                      and its sub-samples are separately registered, record the identifier
-                      at the level actually analysed.
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-          allOf:
-          - contains:
-              properties:
-                '@type':
-                  contains:
-                    const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-              required:
-              - '@type'
         prov:used:
           type: array
           items:
@@ -2431,7 +2239,7 @@ properties:
                     type: array
                     items:
                       allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
                       - type: object
                         allOf:
                         - if:
@@ -2443,8 +2251,11 @@ properties:
                           then:
                             properties:
                               schema:name:
-                                description: Data acquisition and microscope control
-                                  software, including version.
+                                description: Instrument control, automation and data
+                                  acquisition software used to collect the raw data,
+                                  including version number. Distinct from Data Processing
+                                  Software(s), which covers everything applied to
+                                  the data after acquisition.
                                 anyOf:
                                 - type: string
                                 - type: array
@@ -2459,11 +2270,11 @@ properties:
                           then:
                             properties:
                               schema:name:
-                                description: All software used for post-acquisition
-                                  data reduction, analysis, and image processing,
-                                  including diffraction analysis, EDS quantification,
-                                  and EELS processing. List all packages with version
-                                  numbers.
+                                description: All software applied to the data after
+                                  acquisition in order to produce the reported quantities,
+                                  including version numbers. List every package used.
+                                  Distinct from Acquisition Software, which controls
+                                  the instrument and collects the raw data.
                                 anyOf:
                                 - type: string
                                 - type: array
@@ -2480,7 +2291,7 @@ properties:
                     type: array
                     items:
                       allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
                       - type: object
                         allOf:
                         - if:
@@ -2492,17 +2303,81 @@ properties:
                             - schema:additionalType
                           then:
                             properties:
-                              ada:acceleratingVoltage:
-                                description: "Electron beam accelerating voltage in
-                                  kilovolts (kV). For beam-sensitive materials (organic
-                                  matter, phyllosilicates), 60\u201380 kV may be used
-                                  to stay below the displacement threshold for C,
-                                  N, O, and S. The procedure specifies the standard
-                                  operating voltage; analysts record and justify deviations.
-                                  Key parameter for the beam damage regime."
-                                anyOf:
-                                - type: number
-                                - type: string
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  title: Accelerating Voltage
+                                  description: "Electron beam accelerating voltage
+                                    in kilovolts (kV). For beam-sensitive materials
+                                    (organic matter, phyllosilicates), 60\u201380
+                                    kV may be used to stay below the displacement
+                                    threshold for C, N, O, and S. The procedure specifies
+                                    the standard operating voltage; analysts record
+                                    and justify deviations. Key parameter for the
+                                    beam damage regime."
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      const: ada:parameter/temTAPP/acceleratingVoltage
+                                    '@type':
+                                      const:
+                                      - schema:PropertyValue
+                                    schema:propertyID:
+                                      const:
+                                      - '@id': ada:parameter/temTAPP/acceleratingVoltage
+                                    schema:name:
+                                      const: Accelerating Voltage
+                                    schema:value:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
+                                    schema:unitText:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                  - schema:unitText
+                                allOf:
+                                - contains:
+                                    title: Accelerating Voltage
+                                    description: "Electron beam accelerating voltage
+                                      in kilovolts (kV). For beam-sensitive materials
+                                      (organic matter, phyllosilicates), 60\u201380
+                                      kV may be used to stay below the displacement
+                                      threshold for C, N, O, and S. The procedure
+                                      specifies the standard operating voltage; analysts
+                                      record and justify deviations. Key parameter
+                                      for the beam damage regime."
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/temTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/temTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
                     allOf:
                     - contains:
                         properties:
@@ -2511,6 +2386,95 @@ properties:
                               const: TEM
                         required:
                         - schema:additionalType
+        schema:used:
+          type: object
+          properties:
+            schema:instrument:
+              type: array
+              items:
+                type: object
+                allOf:
+                - if:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: TEM
+                    required:
+                    - schema:additionalType
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          title: TEM Objective Aperture
+                          description: Objective aperture diameter used to select
+                            the imaging beam condition in TEM mode. In BF-TEM, a small
+                            aperture blocks diffracted beams to enhance mass-thickness
+                            contrast; in DF-TEM, the aperture is displaced to select
+                            a specific diffracted beam; in HRTEM, no aperture is typically
+                            used.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/temTAPP/temObjectiveAperture
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/temTAPP/temObjectiveAperture
+                            schema:name:
+                              const: TEM Objective Aperture
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        allOf:
+                        - contains:
+                            title: TEM Objective Aperture
+                            description: Objective aperture diameter used to select
+                              the imaging beam condition in TEM mode. In BF-TEM, a
+                              small aperture blocks diffracted beams to enhance mass-thickness
+                              contrast; in DF-TEM, the aperture is displaced to select
+                              a specific diffracted beam; in HRTEM, no aperture is
+                              typically used.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:parameter/temTAPP/temObjectiveAperture
+                              '@type':
+                                const:
+                                - schema:PropertyValue
+                              schema:propertyID:
+                                const:
+                                - '@id': ada:parameter/temTAPP/temObjectiveAperture
+                              schema:name:
+                                const: TEM Objective Aperture
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                          minContains: 0
+                          maxContains: 1
+        ada:deadTime:
+          description: "Percent dead time reported by the EDS detector during the
+            session \u2014 the fraction of total acquisition time the detector spent
+            processing rather than counting. EDS dead time correction is managed automatically
+            by the detector electronics; this field documents the resulting percentage
+            as a session QC metric. Values above ~40% indicate excessive count rate
+            and may degrade spectral quality and quantitative accuracy. Record 'N/A'
+            where EDS is not listed in Spectroscopic Detector(s)."
+          anyOf:
+          - type: number
+          - type: string
         schema:description:
           description: "Any procedure- or analysis-specific information not captured
             by a structured field anywhere in this TAPP \u2014 including anomalies,
@@ -2518,6 +2482,14 @@ properties:
             supplementary context. Scope is the whole document, not Group 6: this
             is the last field of the TAPP and covers all six groups. Use sparingly;
             a structured field is preferred for anything that can be formally categorised."
+          type: string
+        schema:identifier:
+          description: "Identifier for the analytical session this record describes
+            \u2014 the laboratory's own run, sequence or batch identifier as generated
+            by the instrument or acquisition software. The analysis record corresponds
+            to one session, which may cover several samples, and this is the link
+            back to the raw instrument files. Distinct from any persistent identifier
+            a repository mints on submission."
           type: string
   schema:measurementTechnique:
     type: array
@@ -2644,5 +2616,136 @@ properties:
               - type: array
                 items:
                   type: string
+  schema:variableMeasured:
+    type: array
+    items:
+      type: object
+    allOf:
+    - contains:
+        title: Calibration Factor and Determination Method
+        description: 'An externally-calibrated factor that converts the measured quantity
+          into the reported quantity, how it was determined, and its uncertainty.
+          Applies where the conversion depends on a factor calibrated against a reference
+          of independently known value, rather than on the instrument response alone.
+          Distinct from the fields that name the calibration material and that state
+          which approach applies to which analyte, where the technique has them: this
+          field records the resulting factor itself.'
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+            - '@id': ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod
+          schema:name:
+            const: Calibration Factor and Determination Method
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      minContains: 0
+      maxContains: 1
+    - contains:
+        title: EDS Detection Limit
+        description: Estimated detection limits by EDS under this procedure's conditions,
+          one per reported concentration variable (one per analyte, these being the
+          same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/temTAPP/edsDetectionLimit
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+            - '@id': ada:parameter/temTAPP/edsDetectionLimit
+          schema:name:
+            const: EDS Detection Limit
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      minContains: 0
+      maxContains: 1
+    - contains:
+        properties:
+          schema:name:
+            const: sensitivityDetectionLimit
+        required:
+        - schema:name
+    - contains:
+        title: Goodness-of-Fit or Dispersion Statistic
+        description: The statistic reported to show whether scatter among the contributing
+          analyses exceeds what analytical uncertainty alone predicts, together with
+          its value. Answers whether a reported aggregate is defensible as a single
+          population. Procedure-level tier is N/A because the value cannot be known
+          before the analysis; the procedure may still state an acceptance threshold,
+          which belongs with the inclusion criteria.
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/temTAPP/goodnessOfFitOrDispersionStatistic
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+            - '@id': ada:parameter/temTAPP/goodnessOfFitOrDispersionStatistic
+          schema:name:
+            const: Goodness-of-Fit or Dispersion Statistic
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      minContains: 0
+      maxContains: 1
+  dqv:hasQualityMeasurement:
+    type: array
+    items:
+      type: object
+      allOf:
+      - if:
+          properties:
+            dqv:isMeasurementOf:
+              const: Goodness-of-Fit
+          required:
+          - dqv:isMeasurementOf
+        then:
+          properties:
+            dqv:value:
+              description: The statistic reported to show whether scatter among the
+                contributing analyses exceeds what analytical uncertainty alone predicts,
+                together with its value. Answers whether a reported aggregate is defensible
+                as a single population. Procedure-level tier is N/A because the value
+                cannot be known before the analysis; the procedure may still state
+                an acceptance threshold, which belongs with the inclusion criteria.
+              anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+    allOf:
+    - contains:
+        properties:
+          dqv:isMeasurementOf:
+            const: Goodness-of-Fit
+        required:
+        - dqv:isMeasurementOf
 required:
 - schema:funding

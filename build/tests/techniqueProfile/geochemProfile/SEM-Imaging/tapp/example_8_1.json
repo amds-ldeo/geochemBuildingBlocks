@@ -144,6 +144,21 @@
         }
       ],
       "schema:description": "Standard SEM",
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
+            }
+          ],
+          "schema:name": "CL Detector Configuration",
+          "schema:value": "Gatan ChromaCL detector; 4-channel pseudo-color detection (UV: ~300-400nm, Blue: ~400-500nm, Green: ~500-600nm, Red: ~600-850nm including near-IR ~700-850nm); Robinson Backscatter detector also present"
+        }
+      ],
       "ada:acceleratingVoltageDefault": "15\u201320 kV",
       "ada:workingDistanceDefault": "~10 mm",
       "@type": [
@@ -151,32 +166,6 @@
         "schema:Thing"
       ],
       "schema:name": "example instrumentName"
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
-        }
-      ],
-      "schema:name": "CL Detector Configuration",
-      "schema:value": "Gatan ChromaCL detector; 4-channel pseudo-color detection (UV: ~300-400nm, Blue: ~400-500nm, Green: ~500-600nm, Red: ~600-850nm including near-IR ~700-850nm); Robinson Backscatter detector also present"
-    },
-    {
-      "@id": "ada:parameter/semImagingTAPP/chamberPressureDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "High vacuum"
     }
   ],
   "bios:computationalTool": [
@@ -192,6 +181,19 @@
   "ada:analyticalMode": [
     "CL"
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semImagingTAPP/chamberPressureDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "chamberPressureDefault",
+      "schema:name": "Chamber Pressure",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "High vacuum"
+    }
+  ],
   "ada:clAcquisitionMode": "Multi-channel pseudo-color",
   "ada:clWavelengthRange": "300\u2013850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)",
   "ada:clIntegrationTimeDefault": "80\u2013500 ms per pixel (varied based on IR luminescence duration in carbonates)",
@@ -206,7 +208,10 @@
   ],
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:ebsdDetectorConfiguration": "missing",
+  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

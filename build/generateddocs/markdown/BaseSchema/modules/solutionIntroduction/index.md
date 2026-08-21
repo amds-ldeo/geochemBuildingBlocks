@@ -140,7 +140,7 @@ The procedure half of the SolutionIntroduction module, with every property popul
       "bios": "https://bioschemas.org/",
       "schema": "http://schema.org/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/solutionIntroduction/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/context.jsonld"
   ],
   "schema:object": [
     {
@@ -235,25 +235,25 @@ The procedure half of the SolutionIntroduction module, with every property popul
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:additionalProperty [ schema1:name "Digestion Vessel Type" ;
-                            schema1:value "example value" ],
-                        [ schema1:defaultValue "example value" ;
+[] schema1:actionProcess [ schema1:step [ schema1:additionalProperty [ schema1:defaultValue "example value" ;
                             schema1:name "Digestion Duration" ],
-                        [ schema1:defaultValue 1 ;
-                            schema1:name "Digestion Temperature" ],
+                        [ schema1:name "Digestion Vessel Type" ;
+                            schema1:value "example value" ],
                         [ schema1:name "Number of Digestion Steps" ;
-                            schema1:value 1 ] ;
+                            schema1:value 1 ],
+                        [ schema1:defaultValue 1 ;
+                            schema1:name "Digestion Temperature" ] ;
                     schema1:name "sampleDigestion" ;
                     bios:reagent [ schema1:name "example value" ] ] ] ;
-    schema1:additionalProperty [ schema1:name "Desolvation System" ;
-            schema1:value "example value" ],
-        [ schema1:name "Internal Standard Concentration" ;
-            schema1:value 1 ] ;
+    schema1:additionalProperty [ schema1:name "Internal Standard Concentration" ;
+            schema1:value 1 ],
+        [ schema1:name "Desolvation System" ;
+            schema1:value "example value" ] ;
     schema1:instrument [ schema1:additionalType "example value" ;
             schema1:hasPart [ schema1:additionalProperty [ schema1:defaultValue 1 ;
-                            schema1:name "Nebulizer Gas Flow Rate" ],
-                        [ schema1:defaultValue 1 ;
                             schema1:name "Sample Uptake Rate" ],
+                        [ schema1:defaultValue 1 ;
+                            schema1:name "Nebulizer Gas Flow Rate" ],
                         [ schema1:name "Spray Chamber Type and Cooling Temperature" ;
                             schema1:value "example value" ],
                         [ schema1:name "Nebulizer Type" ;
@@ -338,7 +338,7 @@ The analysis half of the SolutionIntroduction module, with every property popula
       "prov": "http://www.w3.org/ns/prov#",
       "schema": "http://schema.org/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/solutionIntroduction/context.jsonld"
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/context.jsonld"
   ],
   "prov:wasGeneratedBy": [
     {
@@ -409,9 +409,9 @@ The analysis half of the SolutionIntroduction module, with every property popula
             schema1:object [ schema1:additionalProperty [ schema1:name "Sample Aliquot Mass or Volume" ;
                             schema1:value 1 ] ] ;
             prov:used [ schema1:additionalType "example value" ;
-                    schema1:hasPart [ schema1:additionalProperty [ schema1:name "Nebulizer Gas Flow Rate" ;
+                    schema1:hasPart [ schema1:additionalProperty [ schema1:name "Sample Uptake Rate" ;
                                     schema1:value 1 ],
-                                [ schema1:name "Sample Uptake Rate" ;
+                                [ schema1:name "Nebulizer Gas Flow Rate" ;
                                     schema1:value 1 ] ;
                             schema1:additionalType "example value" ] ] ] .
 
@@ -1050,8 +1050,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/solutionIntroduction/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml)
 
 
 # JSON-LD Context
@@ -1069,7 +1069,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/modules/solutionIntroduction/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/context.jsonld)
 
 ## Sources
 

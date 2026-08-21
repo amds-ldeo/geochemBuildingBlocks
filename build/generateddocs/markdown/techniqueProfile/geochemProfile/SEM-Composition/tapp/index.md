@@ -156,19 +156,6 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -193,13 +180,13 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -217,7 +204,7 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -361,19 +348,6 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -398,13 +372,13 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -429,14 +403,14 @@ ex:semCompositionTAPP-Garvie2008 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument [ a schema1:Product,
@@ -447,16 +421,6 @@ ex:semCompositionTAPP-Garvie2008 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
@@ -464,6 +428,11 @@ ex:semCompositionTAPP-Garvie2008 a cdi:Activity,
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "FEI / Thermo Fisher Scientific" ] ;
@@ -488,13 +457,13 @@ ex:semCompositionTAPP-Garvie2008 a cdi:Activity,
             schema1:target [ schema1:name "FIB milling and TEM cross-section preparation (same instrument)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "SE Imaging" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -522,7 +491,7 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Garvie2008-2",
-  "schema:description": "semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -648,19 +617,6 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -684,13 +640,13 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -708,7 +664,7 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -726,7 +682,7 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Garvie2008-2",
-  "schema:description": "semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -852,19 +808,6 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -888,13 +831,13 @@ semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) n
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -919,16 +862,16 @@ ex:semCompositionTAPP-Garvie2008-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_Composition_TAPP_v17.xlsx)." ;
+    schema1:description "semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_Composition_TAPP_v22.csv)." ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -937,8 +880,7 @@ ex:semCompositionTAPP-Garvie2008-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -948,12 +890,8 @@ ex:semCompositionTAPP-Garvie2008-2 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "FEI / Thermo Fisher Scientific" ] ;
@@ -977,13 +915,13 @@ ex:semCompositionTAPP-Garvie2008-2 a cdi:Activity,
             schema1:target [ schema1:name "SE Imaging (same instrument, pre- and post-FIB milling)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -1011,7 +949,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Genge2025",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1107,19 +1045,6 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -1172,13 +1097,13 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -1196,7 +1121,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -1214,7 +1139,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Genge2025",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1310,19 +1235,6 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -1375,13 +1287,13 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -1406,15 +1318,15 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v17.xlsx)." ;
+    schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v22.csv)." ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -1423,23 +1335,18 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -1463,13 +1370,13 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
             schema1:target [ schema1:name "EDS (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "BSE Imaging" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -1497,7 +1404,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Genge2025-2",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1594,19 +1501,6 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -1660,12 +1554,12 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -1683,7 +1577,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -1701,7 +1595,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Genge2025-2",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1798,19 +1692,6 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -1864,12 +1745,12 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -1894,15 +1775,15 @@ ex:semCompositionTAPP-Genge2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v17.xlsx)." ;
+    schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v22.csv)." ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -1911,24 +1792,19 @@ ex:semCompositionTAPP-Genge2025-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
                     schema1:description "Oxford X-Max SDD system" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -1952,13 +1828,13 @@ ex:semCompositionTAPP-Genge2025-2 a cdi:Activity,
             schema1:target [ schema1:name "BSE Imaging (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "EDS" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "XPP (Simplified PAP)" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -2082,19 +1958,6 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -2161,13 +2024,13 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -2185,7 +2048,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -2299,19 +2162,6 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -2378,13 +2228,13 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -2409,13 +2259,13 @@ ex:semCompositionTAPP-Genge2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
@@ -2427,18 +2277,13 @@ ex:semCompositionTAPP-Genge2025-3 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -2467,13 +2312,13 @@ ex:semCompositionTAPP-Genge2025-3 a cdi:Activity,
             schema1:target [ schema1:name "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "EBSD" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
@@ -2599,19 +2444,6 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -2662,13 +2494,13 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -2686,7 +2518,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -2794,19 +2626,6 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -2857,13 +2676,13 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -2905,17 +2724,12 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -2941,13 +2755,13 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
             schema1:target [ schema1:name "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "CL" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -3066,19 +2880,6 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -3130,13 +2931,13 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -3154,7 +2955,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -3263,19 +3064,6 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -3327,13 +3115,13 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -3358,13 +3146,13 @@ ex:semCompositionTAPP-Gucsik2013-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument [ a schema1:Product,
@@ -3381,17 +3169,12 @@ ex:semCompositionTAPP-Gucsik2013-2 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "Electron source" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "JEOL" ] ;
@@ -3413,13 +3196,13 @@ ex:semCompositionTAPP-Gucsik2013-2 a cdi:Activity,
             schema1:target [ schema1:name "CL (same instrument); BSE Imaging (same instrument, same session); EPMA with WDS (JEOL JXA-8900R, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "EDS" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -3573,19 +3356,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "Standard SEM",
@@ -3633,13 +3403,13 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -3657,7 +3427,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -3801,19 +3571,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "Standard SEM",
@@ -3861,13 +3618,13 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -3892,14 +3649,14 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
@@ -3911,8 +3668,7 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Tungsten (W)" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -3922,12 +3678,8 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "Electron source" ;
+                    schema1:description "Tungsten (W)" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Hitachi" ] ;
@@ -3952,13 +3704,13 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
             schema1:target [ schema1:name "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "CL" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
             ada:toolRole "acquisition" ],
@@ -3997,7 +3749,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Izawa2010-2",
-  "schema:description": "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -4093,19 +3845,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -4156,13 +3895,13 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -4180,7 +3919,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -4198,7 +3937,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Izawa2010-2",
-  "schema:description": "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -4294,19 +4033,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -4357,13 +4083,13 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -4396,7 +4122,7 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Composition_TAPP_v17.xlsx)." ;
+    schema1:description "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Composition_TAPP_v22.csv)." ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -4405,22 +4131,17 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -4443,13 +4164,13 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
             schema1:target [ schema1:name "EDS (same instrument); CL (Hitachi S-2500C); BSE Imaging (Leo 1540); micro-XRD; EPMA (out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "BSE Imaging" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -4574,19 +4295,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -4638,12 +4346,12 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -4661,7 +4369,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -4776,19 +4484,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -4840,12 +4535,12 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -4892,11 +4587,6 @@ ex:semCompositionTAPP-Izawa2010-3 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
@@ -4926,13 +4616,13 @@ ex:semCompositionTAPP-Izawa2010-3 a cdi:Activity,
             schema1:target [ schema1:name "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "EDS" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "Map" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -4960,7 +4650,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Izawa2010-4",
-  "schema:description": "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -5056,19 +4746,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -5120,13 +4797,13 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -5144,7 +4821,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -5162,7 +4839,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Izawa2010-4",
-  "schema:description": "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -5258,19 +4935,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -5322,13 +4986,13 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -5361,7 +5025,7 @@ ex:semCompositionTAPP-Izawa2010-4 a cdi:Activity,
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Composition_TAPP_v17.xlsx)." ;
+    schema1:description "semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Composition_TAPP_v22.csv)." ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -5370,23 +5034,18 @@ ex:semCompositionTAPP-Izawa2010-4 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -5409,13 +5068,13 @@ ex:semCompositionTAPP-Izawa2010-4 a cdi:Activity,
             schema1:target [ schema1:name "EDS (same instrument); BSE Imaging (Leo 440); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "BSE Imaging" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -5540,19 +5199,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -5605,12 +5251,12 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -5628,7 +5274,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -5743,19 +5389,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -5808,12 +5441,12 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -5855,11 +5488,6 @@ ex:semCompositionTAPP-Izawa2010-5 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
                     schema1:name "missing" ],
@@ -5895,13 +5523,13 @@ ex:semCompositionTAPP-Izawa2010-5 a cdi:Activity,
             schema1:target [ schema1:name "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "EDS" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "Point / spot" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -5929,7 +5557,7 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Liu2017",
-  "schema:description": "semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -6054,19 +5682,6 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -6091,13 +5706,13 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -6115,7 +5730,7 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -6133,7 +5748,7 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Liu2017",
-  "schema:description": "semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -6258,19 +5873,6 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -6295,13 +5897,13 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -6326,16 +5928,16 @@ ex:semCompositionTAPP-Liu2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_Composition_TAPP_v17.xlsx)." ;
+    schema1:description "semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_Composition_TAPP_v22.csv)." ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -6343,17 +5945,12 @@ ex:semCompositionTAPP-Liu2017 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -6380,13 +5977,13 @@ ex:semCompositionTAPP-Liu2017 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "X-ray CT (Xradia 520 Versa, Carl Zeiss)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
             ada:toolRole "dataReduction" ] .
@@ -6542,19 +6139,6 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -6586,13 +6170,13 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -6610,7 +6194,7 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -6754,19 +6338,6 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -6798,13 +6369,13 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -6848,22 +6419,17 @@ ex:semCompositionTAPP-Liu2017-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Unknown" ] ;
@@ -6885,13 +6451,13 @@ ex:semCompositionTAPP-Liu2017-2 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
@@ -7052,19 +6618,6 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -7097,13 +6650,13 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -7121,7 +6674,7 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -7265,19 +6818,6 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -7310,13 +6850,13 @@ semCompositionTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinsh
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -7360,18 +6900,13 @@ ex:semCompositionTAPP-Liu2017-3 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -7398,13 +6933,13 @@ ex:semCompositionTAPP-Liu2017-3 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
@@ -7565,19 +7100,6 @@ semCompositionTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -7597,13 +7119,13 @@ semCompositionTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -7621,7 +7143,7 @@ semCompositionTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -7765,19 +7287,6 @@ semCompositionTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -7797,13 +7306,13 @@ semCompositionTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -7828,14 +7337,14 @@ ex:semCompositionTAPP-Ma2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
     schema1:instrument [ a schema1:Product,
@@ -7846,23 +7355,18 @@ ex:semCompositionTAPP-Ma2017 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -7884,13 +7388,13 @@ ex:semCompositionTAPP-Ma2017 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -8044,19 +7548,6 @@ semCompositionTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -8076,13 +7567,13 @@ semCompositionTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -8100,7 +7591,7 @@ semCompositionTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -8244,19 +7735,6 @@ semCompositionTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -8276,13 +7754,13 @@ semCompositionTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -8325,7 +7803,7 @@ ex:semCompositionTAPP-Ma2017-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -8336,12 +7814,7 @@ ex:semCompositionTAPP-Ma2017-2 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -8363,13 +7836,13 @@ ex:semCompositionTAPP-Ma2017-2 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -8523,19 +7996,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -8579,13 +8039,13 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -8603,7 +8063,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -8747,19 +8207,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -8803,13 +8250,13 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -8834,14 +8281,14 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
@@ -8853,12 +8300,8 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -8868,8 +8311,7 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -8894,13 +8336,13 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
             schema1:target [ schema1:name "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ] .
@@ -9064,19 +8506,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -9173,69 +8602,12 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/semCompositionTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "wdsSpectrometerChannel",
         "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
         "ada:dataType": "string"
       },
       {
@@ -9362,11 +8734,11 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -9384,7 +8756,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -9529,19 +8901,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -9638,69 +8997,12 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/semCompositionTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "wdsSpectrometerChannel",
         "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
         "ada:dataType": "string"
       },
       {
@@ -9827,11 +9129,11 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -9876,17 +9178,6 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
@@ -9894,6 +9185,12 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
                     schema1:description "Oxford INCA Energy 350; X-ACT LN2-free Silicon Drift Detector (SDD)" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -9928,22 +9225,16 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/secondaryReferenceMaterials>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/techniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsPhaSetting>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsSpectrometerChannel> ;
             ada:defaultAnalytes "Al",
                 "Ca",
@@ -9954,18 +9245,18 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
                 "S",
                 "Si" ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault "30 s live time per spot analysis" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Analyte Estimation Method" ;
@@ -9988,17 +9279,6 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -10013,12 +9293,6 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -10037,21 +9311,10 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -10069,11 +9332,6 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Time-Dependent Intensity Correction" ;
     schema1:valueName "timeDependentIntensityCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
@@ -10245,19 +9503,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -10354,69 +9599,12 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/semCompositionTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "wdsSpectrometerChannel",
         "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
         "ada:dataType": "string"
       },
       {
@@ -10544,10 +9732,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -10565,7 +9753,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -10710,19 +9898,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -10819,69 +9994,12 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/semCompositionTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "wdsSpectrometerChannel",
         "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
         "ada:dataType": "string"
       },
       {
@@ -11009,10 +10127,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -11057,17 +10175,6 @@ ex:semCompositionTAPP-Pascucci2026-3 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
                     schema1:description "Oxford INCA Energy 350; X-ACT LN2-free Silicon Drift Detector (SDD)" ;
                     schema1:name "missing" ],
@@ -11075,6 +10182,12 @@ ex:semCompositionTAPP-Pascucci2026-3 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -11109,22 +10222,16 @@ ex:semCompositionTAPP-Pascucci2026-3 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/secondaryReferenceMaterials>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/techniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsPhaSetting>,
                 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsSpectrometerChannel> ;
             ada:defaultAnalytes "Al (element mapping)",
                 "Ca",
@@ -11135,18 +10242,18 @@ ex:semCompositionTAPP-Pascucci2026-3 a cdi:Activity,
                 "S",
                 "Si" ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "Map" ;
     ada:edsLiveTimePerPointOrPixelDefault "5 ms dwell time per pixel" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault "2.5 µm" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Analyte Estimation Method" ;
@@ -11169,17 +10276,6 @@ ex:semCompositionTAPP-Pascucci2026-3 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -11194,12 +10290,6 @@ ex:semCompositionTAPP-Pascucci2026-3 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -11218,21 +10308,10 @@ ex:semCompositionTAPP-Pascucci2026-3 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -11250,11 +10329,6 @@ ex:semCompositionTAPP-Pascucci2026-3 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Time-Dependent Intensity Correction" ;
     schema1:valueName "timeDependentIntensityCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
@@ -11425,19 +10499,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -11457,13 +10518,13 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -11481,7 +10542,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -11625,19 +10686,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -11657,13 +10705,13 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -11688,14 +10736,14 @@ ex:semCompositionTAPP-Pascucci2026-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects" ;
     schema1:instrument [ a schema1:Product,
@@ -11706,23 +10754,18 @@ ex:semCompositionTAPP-Pascucci2026-4 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Zeiss" ] ;
@@ -11744,13 +10787,13 @@ ex:semCompositionTAPP-Pascucci2026-4 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); EDS (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -11894,19 +10937,6 @@ semCompositionTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Jung
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -11934,13 +10964,13 @@ semCompositionTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Jung
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -11958,7 +10988,7 @@ semCompositionTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Jung
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -12092,19 +11122,6 @@ semCompositionTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Jung
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -12132,13 +11149,13 @@ semCompositionTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Jung
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -12181,17 +11198,12 @@ ex:semCompositionTAPP-Zhou2017 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -12217,13 +11229,13 @@ ex:semCompositionTAPP-Zhou2017 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China" ] ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
             ada:toolRole "dataReduction" ] .
@@ -12379,19 +11391,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -12420,13 +11419,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -12444,7 +11443,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -12588,19 +11587,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -12629,13 +11615,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -12660,14 +11646,14 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²" ;
     schema1:instrument [ a schema1:Product,
@@ -12677,8 +11663,7 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -12688,12 +11673,8 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "JEOL" ] ;
@@ -12717,13 +11698,13 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
             schema1:target [ schema1:name "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
             ada:toolRole "acquisition" ] .
@@ -12753,7 +11734,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Zega2025-2",
-  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -12880,19 +11861,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -12927,11 +11895,11 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -12949,7 +11917,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -12967,7 +11935,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Zega2025-2",
-  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v17.xlsx).",
+  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v22.csv).",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -13094,19 +12062,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -13141,11 +12096,11 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -13179,18 +12134,12 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v17.xlsx)." ;
+    schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v22.csv)." ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "SEM" ;
             schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
@@ -13199,12 +12148,13 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "JEOL" ] ;
@@ -13228,13 +12178,13 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
             schema1:target [ schema1:name "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault "20 to 200 s (per point)" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Oxford AZtec" ;
             ada:toolRole "dataReduction" ],
@@ -13392,19 +12342,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -13423,13 +12360,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -13447,7 +12384,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -13591,19 +12528,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -13622,13 +12546,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -13653,14 +12577,14 @@ ex:semCompositionTAPP-Zega2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
     schema1:instrument [ a schema1:Product,
@@ -13676,11 +12600,6 @@ ex:semCompositionTAPP-Zega2025-3 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -13708,13 +12627,13 @@ ex:semCompositionTAPP-Zega2025-3 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -13868,19 +12787,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -13899,13 +12805,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -13923,7 +12829,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -14067,19 +12973,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -14098,13 +12991,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -14129,14 +13022,14 @@ ex:semCompositionTAPP-Zega2025-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
     schema1:instrument [ a schema1:Product,
@@ -14146,7 +13039,7 @@ ex:semCompositionTAPP-Zega2025-4 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -14157,12 +13050,7 @@ ex:semCompositionTAPP-Zega2025-4 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Hitachi" ] ;
@@ -14184,13 +13072,13 @@ ex:semCompositionTAPP-Zega2025-4 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -14345,19 +13233,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -14390,12 +13265,12 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -14413,7 +13288,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -14558,19 +13433,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -14603,12 +13465,12 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -14650,7 +13512,8 @@ ex:semCompositionTAPP-Zega2025-5 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "EDSDetector" ;
+                    schema1:description "Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -14661,13 +13524,7 @@ ex:semCompositionTAPP-Zega2025-5 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Hitachi" ] ;
@@ -14690,13 +13547,13 @@ ex:semCompositionTAPP-Zega2025-5 a cdi:Activity,
             schema1:target [ schema1:name "SE/BSE Imaging (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "EDS" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "Map" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
             ada:toolRole "dataReduction" ],
@@ -14854,19 +13711,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -14890,13 +13734,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -14914,7 +13758,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -15058,19 +13902,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -15094,13 +13925,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -15143,13 +13974,7 @@ ex:semCompositionTAPP-Zega2025-6 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -15159,7 +13984,8 @@ ex:semCompositionTAPP-Zega2025-6 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Unknown" ] ;
@@ -15183,13 +14009,13 @@ ex:semCompositionTAPP-Zega2025-6 a cdi:Activity,
             schema1:target [ schema1:name "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -15343,19 +14169,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -15379,13 +14192,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -15403,7 +14216,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -15547,19 +14360,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -15583,13 +14383,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -15632,6 +14432,11 @@ ex:semCompositionTAPP-Zega2025-7 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
                     schema1:name "missing" ],
@@ -15639,16 +14444,6 @@ ex:semCompositionTAPP-Zega2025-7 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "Unknown" ] ;
@@ -15672,13 +14467,13 @@ ex:semCompositionTAPP-Zega2025-7 a cdi:Activity,
             schema1:target [ schema1:name "Synchrotron XANES (ALS, Berkeley); TEM analysis" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -15832,19 +14627,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -15868,13 +14650,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -15892,7 +14674,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -16036,19 +14818,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "schema:description": "N/A",
@@ -16072,13 +14841,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -16121,18 +14890,13 @@ ex:semCompositionTAPP-Zega2025-8 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "Electron source" ;
+                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -16161,13 +14925,13 @@ ex:semCompositionTAPP-Zega2025-8 a cdi:Activity,
             schema1:target [ schema1:name "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -16321,19 +15085,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "ada:acceleratingVoltageDefault": "5 keV",
@@ -16356,13 +15107,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -16380,7 +15131,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -16524,19 +15275,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "ada:acceleratingVoltageDefault": "5 keV",
@@ -16559,13 +15297,13 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -16590,14 +15328,14 @@ ex:semCompositionTAPP-Zega2025-9 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:analyticalMode = Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging." ;
     schema1:instrument [ a schema1:Product,
@@ -16607,23 +15345,18 @@ ex:semCompositionTAPP-Zega2025-9 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
                     schema1:description "Unknown" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "WDSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
                     schema1:name "missing" ] ;
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "JEOL" ] ;
@@ -16647,13 +15380,13 @@ ex:semCompositionTAPP-Zega2025-9 a cdi:Activity,
             schema1:target [ schema1:name "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "CL" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -16810,30 +15543,17 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ]
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -16851,7 +15571,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -16998,30 +15718,17 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ]
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -17062,7 +15769,7 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
+                        "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -17072,12 +15779,7 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
+                        "Electron source" ;
                     schema1:name "missing" ] ;
             schema1:name "missing" ] ;
     schema1:location [ a schema1:Place ;
@@ -17096,13 +15798,13 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
             schema1:target [ schema1:name "NanoSIMS isotope mapping (CAMECA NanoSIMS 50L, NASA JSC); presolar grains identified by NanoSIMS then confirmed by SEM-EDS phase characterisation" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "N/A" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -17221,30 +15923,17 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ]
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -17262,7 +15951,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -17371,30 +16060,17 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ]
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -17419,13 +16095,13 @@ ex:semCompositionTAPP-Barnes2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No BSE imaging with FEI Quanta 3D DualBeam or Helios DualBeam at NASA JSC described in this paper (Barnes et al. 2025). BSE mosaic imaging was performed using a Hitachi TM4000plus at the University of Arizona (K-ALFAA) at 15-keV electron beam to identify suitable matrix areas for NanoSIMS analysis (Methods, p.11). No JSC BSE imaging conditions or instrument stated." ;
     schema1:instrument [ a schema1:Product,
@@ -17435,35 +16111,30 @@ ex:semCompositionTAPP-Barnes2025-2 a cdi:Activity,
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
                     schema1:name "missing" ] ;
             schema1:name "missing" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semComposition" ;
             schema1:termCode "SEM" ] ;
     schema1:name "semComposition protocol — Barnes2025-2" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -17582,30 +16253,17 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ]
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -17623,7 +16281,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -17732,30 +16390,17 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ]
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -17780,13 +16425,13 @@ ex:semCompositionTAPP-Barnes2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. FIB-based TEM foil preparation using FEI Helios G4 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
     schema1:instrument [ a schema1:Product,
@@ -17797,11 +16442,6 @@ ex:semCompositionTAPP-Barnes2025-3 a cdi:Activity,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
                         schema1:Thing ;
@@ -17818,13 +16458,13 @@ ex:semCompositionTAPP-Barnes2025-3 a cdi:Activity,
             schema1:name "semComposition" ;
             schema1:termCode "SEM" ] ;
     schema1:name "semComposition protocol — Barnes2025-3" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -17943,30 +16583,17 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ]
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -17984,7 +16611,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -18093,30 +16720,17 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ]
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -18162,11 +16776,6 @@ ex:semCompositionTAPP-Barnes2025-4 a cdi:Activity,
                 [ a schema1:Product,
                         schema1:Thing ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                         "WDSSpectrometer" ;
                     schema1:name "missing" ],
                 [ a schema1:Product,
@@ -18179,13 +16788,13 @@ ex:semCompositionTAPP-Barnes2025-4 a cdi:Activity,
             schema1:name "semComposition" ;
             schema1:termCode "SEM" ] ;
     schema1:name "semComposition protocol — Barnes2025-4" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:samplingUnit "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 
@@ -18197,10 +16806,10 @@ ex:semCompositionTAPP-Barnes2025-4 a cdi:Activity,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)
 description: Scanning electron microscopy compositional microanalysis (EDS/WDS) extension
-  of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/SEM_Composition_TAPP_v17.xlsx
+  of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v22.csv
   via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
-- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - type: object
   properties:
     schema:name:
@@ -18347,7 +16956,10 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to analyze.
+                              this procedure is designed to analyse. Used for discoverability
+                              and procedure matching, and because the material type
+                              constrains sample preparation, calibration and matrix-matching
+                              requirements.
                             anyOf:
                             - type: string
                               enum:
@@ -18423,44 +17035,122 @@ allOf:
                   schema:additionalProperty:
                     type: array
                     items:
-                      title: Constants and Reference Values Used
-                      description: Physical constants and reference values used in
-                        data reduction to calculate the final reported quantity (e.g.,
-                        decay constants for age calculation, standard isotope ratios,
-                        or other citable reference values used in a correction or
-                        calculation), together with their source. Distinct from the
-                        Group 6 reference-material fields, which document accepted
-                        values for specific calibration/validation materials rather
-                        than universal physical constants. Record "None" if no citable,
-                        revisable physical constants feed into this procedure's data
-                        reduction.
-                      type: object
-                      properties:
-                        '@id':
-                          const: ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsedDefault
-                        '@type':
-                          const:
-                          - schema:PropertyValueSpecification
-                        schema:valueName:
-                          const: constantsAndReferenceValuesUsedDefault
-                        schema:name:
-                          const: Constants and Reference Values Used
-                        ada:dataType:
-                          const: string
-                        ada:fieldScope:
-                          const: session
-                        schema:readonlyValue:
-                          const: false
-                        ada:tier:
-                          const: R
-                      required:
-                      - '@id'
-                      - '@type'
-                      - schema:valueName
-                      - schema:name
-                      - ada:dataType
-                      - ada:fieldScope
+                      anyOf:
+                      - title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual analyses
+                          contribute to a reported aggregate result, together with
+                          the outcome of applying them: how many analyses were acquired,
+                          how many were included, and on what grounds any were excluded.
+                          Distinct from within-analysis outlier filtering, which removes
+                          anomalous points inside a single analysis: this field decides
+                          which whole analyses enter the reported value. Criteria
+                          and outcome are combined in one field because neither is
+                          interpretable without the other, following the precision/accuracy
+                          precedent.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semCompositionTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - title: Constants and Reference Values Used
+                        description: Physical constants and reference values used
+                          in data reduction to calculate the final reported quantity
+                          (e.g., decay constants for age calculation, standard isotope
+                          ratios, or other citable reference values used in a correction
+                          or calculation), together with their source. Distinct from
+                          the Group 6 reference-material fields, which document accepted
+                          values for specific calibration/validation materials rather
+                          than universal physical constants. Record "None" if no citable,
+                          revisable physical constants feed into this procedure's
+                          data reduction.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsedDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: constantsAndReferenceValuesUsedDefault
+                          schema:name:
+                            const: Constants and Reference Values Used
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                     allOf:
+                    - contains:
+                        title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual analyses
+                          contribute to a reported aggregate result, together with
+                          the outcome of applying them: how many analyses were acquired,
+                          how many were included, and on what grounds any were excluded.
+                          Distinct from within-analysis outlier filtering, which removes
+                          anomalous points inside a single analysis: this field decides
+                          which whole analyses enter the reported value. Criteria
+                          and outcome are combined in one field because neither is
+                          interpretable without the other, following the precision/accuracy
+                          precedent.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semCompositionTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      minContains: 0
+                      maxContains: 1
                     - contains:
                         title: Constants and Reference Values Used
                         description: Physical constants and reference values used
@@ -18535,6 +17225,14 @@ allOf:
         - None
         - missing
       - type: string
+    ada:targetSelectionCriteriaDefault:
+      description: "The rules governing which part of the sample is analysed, and
+        why. Covers the criteria applied when choosing grains, aliquots, spots, or
+        a region of interest \u2014 size, morphology, clarity, freedom from inclusions
+        or alteration, phase identity, or spatial position. Distinct from Target Material,
+        which states the material type the procedure is designed for: this field states
+        how, within such a sample, the analysed portion is picked out."
+      type: string
     schema:instrument:
       type: array
       items:
@@ -18553,7 +17251,11 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Make of the instrument used for this procedure.
+                    description: Manufacturer of the instrument that performs the
+                      measurement, recorded as a controlled value so that procedures
+                      can be found by vendor. Where a procedure couples a sample-introduction
+                      system to an analysing instrument, this records the analysing
+                      instrument. Instrument Model gives the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -18571,8 +17273,11 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Model designation of the SEM or FIB-SEM instrument,
-                      including generation suffix if applicable.
+                    description: Model designation of the instrument that performs
+                      the measurement, including any generation or configuration suffix.
+                      Conventionally written with the manufacturer name included;
+                      Instrument Manufacturer records the vendor separately, as a
+                      controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
               schema:hasPart:
@@ -18657,62 +17362,12 @@ allOf:
                             items:
                               type: string
                               readOnly: true
-                  - if:
-                      properties:
-                        schema:additionalType:
-                          contains:
-                            const: xrayLine
-                      required:
-                      - schema:additionalType
-                    then:
-                      properties:
-                        schema:name:
-                          description: X-ray emission line measured on each spectrometer
-                            assignment. Line choice affects sensitivity, matrix correction
-                            accuracy, and susceptibility to peak overlap and spectral
-                            interference.
-                          anyOf:
-                          - type: string
-                            enum:
-                            - Ka
-                            - Kb
-                            - La
-                            - Lb
-                            - Lg
-                            - Ma
-                            - Mb
-                            - N/A
-                            - None
-                            - missing
-                            readOnly: true
-                          - type: array
-                            items:
-                              type: string
-                              enum:
-                              - Ka
-                              - Kb
-                              - La
-                              - Lb
-                              - Lg
-                              - Ma
-                              - Mb
-                              - N/A
-                              - None
-                              - missing
-                              readOnly: true
                 allOf:
                 - contains:
                     properties:
                       schema:additionalType:
                         contains:
                           const: Electron source
-                    required:
-                    - schema:additionalType
-                - contains:
-                    properties:
-                      schema:additionalType:
-                        contains:
-                          const: xrayLine
                     required:
                     - schema:additionalType
               schema:description:
@@ -18821,9 +17476,10 @@ allOf:
           then:
             properties:
               schema:name:
-                description: Software used to control the SEM and acquire data, including
-                  version number. For FIB-SEM 3D tomography, include the automated
-                  slice-and-view module name and version.
+                description: Instrument control, automation and data acquisition software
+                  used to collect the raw data, including version number. Distinct
+                  from Data Processing Software(s), which covers everything applied
+                  to the data after acquisition.
                 anyOf:
                 - type: string
                 - type: array
@@ -18838,8 +17494,10 @@ allOf:
           then:
             properties:
               schema:name:
-                description: Software used for post-acquisition data reduction and
-                  analysis. List all packages with version numbers.
+                description: All software applied to the data after acquisition in
+                  order to produce the reported quantities, including version numbers.
+                  List every package used. Distinct from Acquisition Software, which
+                  controls the instrument and collects the raw data.
                 anyOf:
                 - type: string
                 - type: array
@@ -18850,9 +17508,12 @@ allOf:
     ada:analyticalMode:
       type: array
       items:
-        description: Primary analytical mode(s) executed under this procedure. For
-          multi-mode procedures (e.g., simultaneous BSE + EDS mapping), list all active
-          modes.
+        description: Primary analytical mode(s) executed under this procedure. Records
+          one value for a single-mode procedure and all applicable modes for a multi-mode
+          one. Serves as the procedure-level declaration of measurement type, distinct
+          from the mode flag columns, which state per-field applicability. Required
+          even where a procedure defines no mode flag columns, so that every procedure
+          record is self-describing and comparable across the library.
         type: string
         enum:
         - SE Imaging
@@ -18874,7 +17535,7 @@ allOf:
           type: array
           items:
             anyOf:
-            - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - title: Beam Current
               description: Electron beam probe current. Higher current improves signal-to-noise
                 for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
@@ -18941,36 +17602,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Diffracting Crystal
-              description: Analyzing crystal (monochromator) used on each spectrometer
-                assignment. Crystal choice determines the detectable wavelength range
-                and dispersion.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/diffractingCrystal
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: diffractingCrystal
-                schema:name:
-                  const: Diffracting Crystal
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: WDS Spectrometer Channel
               description: "WDS spectrometer position(s) assigned to each analyte,
                 one entry per assignment. An analyte may be assigned to more than
@@ -18994,156 +17625,6 @@ allOf:
                   const: string
                 schema:readonlyValue:
                   const: true
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Proportional Counter / Detector
-              description: Type of detector used on each spectrometer assignment.
-                Affects sensitivity and count rate linearity.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/proportionalCounterDetector
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: proportionalCounterDetector
-                schema:name:
-                  const: Proportional Counter / Detector
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: WDS PHA Setting
-              description: Pulse height analyzer (PHA) setting for the WDS detector.
-                Integral mode accepts all pulses above a threshold; Differential mode
-                selects a narrow energy window to reject higher-order reflections
-                and escape peaks.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/wdsPhaSetting
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: wdsPhaSetting
-                schema:name:
-                  const: WDS PHA Setting
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Peak Counting Time
-              description: Time spent counting X-ray intensity at the peak position,
-                in seconds, on each spectrometer assignment. Procedure specifies standard
-                values; analysts may adjust within procedure-defined bounds.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/peakCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: peakCountingTime
-                schema:name:
-                  const: Peak Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Background Counting Time
-              description: Total time spent counting at off-peak background position(s)
-                in seconds, summed across all background positions.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/backgroundCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundCountingTime
-                schema:name:
-                  const: Background Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Background Position(s)
-              description: Location(s) of off-peak background measurement(s) relative
-                to the peak, in mm or sin-theta, and whether on the high- or low-energy
-                side.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/backgroundPosition
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundPosition
-                schema:name:
-                  const: Background Position(s)
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
                 ada:tier:
                   const: R
                 schema:defaultValue:
@@ -19485,9 +17966,15 @@ allOf:
               - schema:name
               - ada:dataType
             - title: Counting Statistics Error
-              description: 1-sigma uncertainty propagated from counting statistics
-                on peak and background intensities, for each reported concentration
-                variable per analysis.
+              description: "Uncertainty predicted from counting statistics \u2014
+                the theoretical limit set by the Poisson distribution of the counts
+                accumulated \u2014 for each reported quantity per analysis, with the
+                sigma level stated. Derived from the counts on the analyte together
+                with those on any background or blank subtracted from it. Distinct
+                from the scatter actually observed within a measurement or between
+                repeated measurements, which is recorded separately: where a procedure
+                reports both, agreement indicates the measurement is shot-noise limited,
+                and a larger observed scatter indicates a further source of variance."
               type: object
               properties:
                 '@id':
@@ -19587,39 +18074,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Diffracting Crystal
-              description: Analyzing crystal (monochromator) used on each spectrometer
-                assignment. Crystal choice determines the detectable wavelength range
-                and dispersion.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/diffractingCrystal
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: diffractingCrystal
-                schema:name:
-                  const: Diffracting Crystal
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: WDS Spectrometer Channel
               description: "WDS spectrometer position(s) assigned to each analyte,
                 one entry per assignment. An analyte may be assigned to more than
@@ -19643,171 +18097,6 @@ allOf:
                   const: string
                 schema:readonlyValue:
                   const: true
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Proportional Counter / Detector
-              description: Type of detector used on each spectrometer assignment.
-                Affects sensitivity and count rate linearity.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/proportionalCounterDetector
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: proportionalCounterDetector
-                schema:name:
-                  const: Proportional Counter / Detector
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: WDS PHA Setting
-              description: Pulse height analyzer (PHA) setting for the WDS detector.
-                Integral mode accepts all pulses above a threshold; Differential mode
-                selects a narrow energy window to reject higher-order reflections
-                and escape peaks.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/wdsPhaSetting
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: wdsPhaSetting
-                schema:name:
-                  const: WDS PHA Setting
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Peak Counting Time
-              description: Time spent counting X-ray intensity at the peak position,
-                in seconds, on each spectrometer assignment. Procedure specifies standard
-                values; analysts may adjust within procedure-defined bounds.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/peakCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: peakCountingTime
-                schema:name:
-                  const: Peak Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Background Counting Time
-              description: Total time spent counting at off-peak background position(s)
-                in seconds, summed across all background positions.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/backgroundCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundCountingTime
-                schema:name:
-                  const: Background Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Background Position(s)
-              description: Location(s) of off-peak background measurement(s) relative
-                to the peak, in mm or sin-theta, and whether on the high- or low-energy
-                side.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/backgroundPosition
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundPosition
-                schema:name:
-                  const: Background Position(s)
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
                 ada:tier:
                   const: R
                 schema:defaultValue:
@@ -20185,9 +18474,15 @@ allOf:
             maxContains: 1
           - contains:
               title: Counting Statistics Error
-              description: 1-sigma uncertainty propagated from counting statistics
-                on peak and background intensities, for each reported concentration
-                variable per analysis.
+              description: "Uncertainty predicted from counting statistics \u2014
+                the theoretical limit set by the Poisson distribution of the counts
+                accumulated \u2014 for each reported quantity per analysis, with the
+                sigma level stated. Derived from the counts on the analyte together
+                with those on any background or blank subtracted from it. Distinct
+                from the scatter actually observed within a measurement or between
+                repeated measurements, which is recorded separately: where a procedure
+                reports both, agreement indicates the measurement is shot-noise limited,
+                and a larger observed scatter indicates a further source of variance."
               type: object
               properties:
                 '@id':
@@ -20220,7 +18515,7 @@ allOf:
           items:
             anyOf:
             - type: string
-            - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
     schema:additionalProperty:
       type: array
       items:
@@ -20382,35 +18677,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - title: Sequence
-          description: Order in which spectrometer assignments are acquired during
-            point analysis. Relevant for minimizing beam damage (volatile elements
-            measured first) and for sequential multi-channel setups. Not applicable
-            to X-ray mapping, where all assigned spectrometers collect simultaneously
-            at each pixel.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/sequence
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semCompositionTAPP/sequence
-            schema:name:
-              const: Sequence
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
         - title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen
             substitution (F and/or Cl replacing OH) in halogen-bearing phases such
@@ -20642,38 +18908,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          title: Sequence
-          description: Order in which spectrometer assignments are acquired during
-            point analysis. Relevant for minimizing beam damage (volatile elements
-            measured first) and for sequential multi-channel setups. Not applicable
-            to X-ray mapping, where all assigned spectrometers collect simultaneously
-            at each pixel.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/sequence
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semCompositionTAPP/sequence
-            schema:name:
-              const: Sequence
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        minContains: 0
-        maxContains: 1
-      - contains:
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen
             substitution (F and/or Cl replacing OH) in halogen-bearing phases such
@@ -20736,16 +18970,678 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:dwellTimePerPixelDefault:
-      description: Time the electron beam dwells on each pixel during raster scanning
-        (imaging modes) or on each step position during compositional mapping (EDS
-        and WDS mapping modes), in microseconds or milliseconds. Longer dwell time
-        improves signal-to-noise and counting statistics but increases total dose
-        and can cause beam damage or contamination on sensitive materials. For WDS
-        mapping, the dwell time is per spectrometer per pixel.
-      anyOf:
-      - type: number
-      - type: string
+    ada:channelTemplate:
+      type: object
+      properties:
+        ada:channelColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - title: Dwell Time per Pixel
+              description: Time the electron beam dwells on each pixel during raster
+                scanning (imaging modes) or on each step position during compositional
+                mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
+                Longer dwell time improves signal-to-noise and counting statistics
+                but increases total dose and can cause beam damage or contamination
+                on sensitive materials. For WDS mapping, the dwell time is per spectrometer
+                per pixel.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/dwellTimePerPixel
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: dwellTimePerPixel
+                schema:name:
+                  const: Dwell Time per Pixel
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: X-ray Line
+              description: X-ray emission line measured on each spectrometer assignment.
+                Line choice affects sensitivity, matrix correction accuracy, and susceptibility
+                to peak overlap and spectral interference.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/xRayLine
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/semCompositionTAPP/xRayLine
+                schema:name:
+                  const: X-ray Line
+                ada:dataType:
+                  const: string
+                ada:tier:
+                  const: M
+                schema:value:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - ada:dataType
+              - schema:value
+            - title: Diffracting Crystal
+              description: Analyzing crystal (monochromator) used on each spectrometer
+                assignment. Crystal choice determines the detectable wavelength range
+                and dispersion.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                schema:name:
+                  const: Diffracting Crystal
+                ada:dataType:
+                  const: string
+                ada:tier:
+                  const: M
+                schema:value:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - ada:dataType
+              - schema:value
+            - title: Sequence
+              description: Order in which spectrometer assignments are acquired during
+                point analysis. Relevant for minimizing beam damage (volatile elements
+                measured first) and for sequential multi-channel setups. Not applicable
+                to X-ray mapping, where all assigned spectrometers collect simultaneously
+                at each pixel.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/sequence
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/semCompositionTAPP/sequence
+                schema:name:
+                  const: Sequence
+                ada:dataType:
+                  const: integer
+                ada:tier:
+                  const: R
+                schema:value:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - ada:dataType
+            - title: Proportional Counter / Detector
+              description: Type of detector used on each spectrometer assignment.
+                Affects sensitivity and count rate linearity.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                schema:name:
+                  const: Proportional Counter / Detector
+                ada:dataType:
+                  const: string
+                ada:tier:
+                  const: R
+                schema:value:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - ada:dataType
+            - title: WDS PHA Setting
+              description: Pulse height analyzer (PHA) setting for the WDS detector.
+                Integral mode accepts all pulses above a threshold; Differential mode
+                selects a narrow energy window to reject higher-order reflections
+                and escape peaks.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                schema:name:
+                  const: WDS PHA Setting
+                ada:dataType:
+                  const: string
+                ada:tier:
+                  const: R
+                schema:value:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - ada:dataType
+            - title: Peak Counting Time
+              description: Time spent counting X-ray intensity at the peak position,
+                in seconds, on each spectrometer assignment. Procedure specifies standard
+                values; analysts may adjust within procedure-defined bounds.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/peakCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: peakCountingTime
+                schema:name:
+                  const: Peak Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Background Counting Time
+              description: Total time spent counting at off-peak background position(s)
+                in seconds, summed across all background positions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/backgroundCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundCountingTime
+                schema:name:
+                  const: Background Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Background Position(s)
+              description: Location(s) of off-peak background measurement(s) relative
+                to the peak, in mm or sin-theta, and whether on the high- or low-energy
+                side.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/backgroundPosition
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundPosition
+                schema:name:
+                  const: Background Position(s)
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains:
+              title: Dwell Time per Pixel
+              description: Time the electron beam dwells on each pixel during raster
+                scanning (imaging modes) or on each step position during compositional
+                mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
+                Longer dwell time improves signal-to-noise and counting statistics
+                but increases total dose and can cause beam damage or contamination
+                on sensitive materials. For WDS mapping, the dwell time is per spectrometer
+                per pixel.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/dwellTimePerPixel
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: dwellTimePerPixel
+                schema:name:
+                  const: Dwell Time per Pixel
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: X-ray Line
+              description: X-ray emission line measured on each spectrometer assignment.
+                Line choice affects sensitivity, matrix correction accuracy, and susceptibility
+                to peak overlap and spectral interference.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/xRayLine
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/semCompositionTAPP/xRayLine
+                schema:name:
+                  const: X-ray Line
+                ada:dataType:
+                  const: string
+                ada:tier:
+                  const: M
+                schema:value:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - ada:dataType
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Diffracting Crystal
+              description: Analyzing crystal (monochromator) used on each spectrometer
+                assignment. Crystal choice determines the detectable wavelength range
+                and dispersion.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                schema:name:
+                  const: Diffracting Crystal
+                ada:dataType:
+                  const: string
+                ada:tier:
+                  const: M
+                schema:value:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - ada:dataType
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Sequence
+              description: Order in which spectrometer assignments are acquired during
+                point analysis. Relevant for minimizing beam damage (volatile elements
+                measured first) and for sequential multi-channel setups. Not applicable
+                to X-ray mapping, where all assigned spectrometers collect simultaneously
+                at each pixel.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/sequence
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/semCompositionTAPP/sequence
+                schema:name:
+                  const: Sequence
+                ada:dataType:
+                  const: integer
+                ada:tier:
+                  const: R
+                schema:value:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Proportional Counter / Detector
+              description: Type of detector used on each spectrometer assignment.
+                Affects sensitivity and count rate linearity.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                schema:name:
+                  const: Proportional Counter / Detector
+                ada:dataType:
+                  const: string
+                ada:tier:
+                  const: R
+                schema:value:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: WDS PHA Setting
+              description: Pulse height analyzer (PHA) setting for the WDS detector.
+                Integral mode accepts all pulses above a threshold; Differential mode
+                selects a narrow energy window to reject higher-order reflections
+                and escape peaks.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                schema:name:
+                  const: WDS PHA Setting
+                ada:dataType:
+                  const: string
+                ada:tier:
+                  const: R
+                schema:value:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Peak Counting Time
+              description: Time spent counting X-ray intensity at the peak position,
+                in seconds, on each spectrometer assignment. Procedure specifies standard
+                values; analysts may adjust within procedure-defined bounds.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/peakCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: peakCountingTime
+                schema:name:
+                  const: Peak Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Background Counting Time
+              description: Total time spent counting at off-peak background position(s)
+                in seconds, summed across all background positions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/backgroundCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundCountingTime
+                schema:name:
+                  const: Background Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Background Position(s)
+              description: Location(s) of off-peak background measurement(s) relative
+                to the peak, in mm or sin-theta, and whether on the high- or low-energy
+                side.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/semCompositionTAPP/backgroundPosition
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundPosition
+                schema:name:
+                  const: Background Position(s)
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
     ada:edsAcquisitionMode:
       description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam
         point acquisition, linescan (beam stepped along a transect at defined intervals),
@@ -21188,7 +20084,7 @@ allOf:
   - schema:name
   - schema:datePublished
   - ada:samplingUnit
-  - ada:dwellTimePerPixelDefault
+  - ada:targetSelectionCriteriaDefault
   - ada:edsAcquisitionMode
   - ada:edsLiveTimePerPointOrPixelDefault
   - ada:stepSizePixelSizeDefault
@@ -21200,8 +20096,8 @@ allOf:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/schema.yaml)
 
 
 # JSON-LD Context
@@ -21229,7 +20125,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/context.jsonld)
 
 ## Sources
 

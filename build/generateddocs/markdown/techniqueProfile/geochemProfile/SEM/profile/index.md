@@ -418,14 +418,13 @@ and technique component types on the archive distribution. Mock data for validat
   },
   "dqv:hasQualityMeasurement": [
     {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+      "dqv:isMeasurementOf": "EBSD Mean Angular Deviation",
+      "dqv:value": "example ebsdPatternQualityThreshold"
     }
-  ]
+  ],
+  "ada:mapDimensions": 1.0,
+  "ada:voxelSize": "example voxelSizeAndImageStackDimensions",
+  "ada:imageStackDimenstions": "example voxelSizeAndImageStackDimensions"
 }
 
 ```
@@ -440,8 +439,8 @@ description: Path-driven technique-specific profile for ADA SEM (superset) Produ
   on the schema:Dataset root, narrows prov:used to the semTAPP protocol, and constrains
   valid component types on schema:distribution.hasPart.
 allOf:
-- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml
-- $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM/detail/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/detail/schema.yaml
 - type: object
   properties:
     prov:wasGeneratedBy:
@@ -467,7 +466,7 @@ allOf:
                       type: array
                       minItems: 1
                       items:
-                        $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
               - if:
                   type: object
                   properties:
@@ -477,7 +476,7 @@ allOf:
                   required:
                   - '@type'
                 then:
-                  $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
     schema:additionalType:
       description: Must include a SEM product type identifier.
       contains:
@@ -500,7 +499,7 @@ allOf:
             ada:componentType:
               type: string
               anyOf:
-              - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType
               - enum:
                 - ada:SEMImage
                 - ada:BSEImage
@@ -516,7 +515,7 @@ allOf:
               items:
                 type: object
                 anyOf:
-                - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
                 - properties:
                     ada:componentType:
                       type: string
@@ -542,8 +541,8 @@ allOf:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema.yaml)
 
 
 # JSON-LD Context
@@ -576,7 +575,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM/profile/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/context.jsonld)
 
 
 # For developers

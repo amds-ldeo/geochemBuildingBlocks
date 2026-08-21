@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-19",
+  "dateOfLastChange": "2026-08-21",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -28,7 +28,7 @@
   ],
   "shaclShapes": {
     "ogch.BaseSchema.instrument": [
-      "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/instrument/rules.shacl"
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.instrument": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
@@ -61,15 +61,15 @@
   "dependsOn": [
     "cdif.bbr.metadata.schemaorgProperties.instrument"
   ],
-  "ldContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/context.jsonld",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/context.jsonld",
   "schema": {
-    "application/yaml": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml",
-    "application/json": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.json"
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.json"
   },
-  "sourceSchema": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/instrument/schema.yaml",
-  "sourceLdContext": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/instrument/context.jsonld",
-  "resolvedSchemaProperties": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/resolvedProperties.json",
-  "sourceFiles": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/_sources/BaseSchema/instrument/",
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/schema.yaml",
+  "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/",
   "validationPassed": false,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/instrument/",
   "description": "# ADA Analysis Instrument\n\nExtends the core CDIF [instrument](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/) building block for ADA analytical instruments. Instruments are typed as `schema:Thing` + `schema:Product` (from core) with domain-specific classifications in `schema:additionalType` (e.g. `nxs:BaseClass/NXinstrument`, `ada:AMSInstrument`).\n\nInherits all core instrument properties: hierarchical sub-components via `schema:hasPart`, manufacturer, model, ownership, calibration properties, and linked resources.\n",
@@ -84,19 +84,19 @@
       "snippets": [
         {
           "language": "json",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/instrument/example_1_1.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/instrument/example_1_1.json",
           "sizeBytes": 429,
           "code": "{\n  \"@type\": [\"schema:Thing\", \"schema:Product\"],\n  \"schema:name\": \"JEOL JXA-8530F Electron Microprobe\",\n  \"schema:description\": \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\",\n  \"schema:identifier\": \"https://www.wikidata.org/wiki/Q116917974\",\n  \"schema:additionalType\": [\"nxs:BaseClass/NXinstrument\", \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\"]\n}\n"
         },
         {
           "language": "jsonld",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/instrument/example_1_1.jsonld",
-          "sizeBytes": 714,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"https://manual.nexusformat.org/classes/\"\n    },\n    \"https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Thing\",\n    \"schema:Product\"\n  ],\n  \"schema:name\": \"JEOL JXA-8530F Electron Microprobe\",\n  \"schema:description\": \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\",\n  \"schema:identifier\": \"https://www.wikidata.org/wiki/Q116917974\",\n  \"schema:additionalType\": [\n    \"nxs:BaseClass/NXinstrument\",\n    \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\"\n  ]\n}"
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/instrument/example_1_1.jsonld",
+          "sizeBytes": 688,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"https://manual.nexusformat.org/classes/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Thing\",\n    \"schema:Product\"\n  ],\n  \"schema:name\": \"JEOL JXA-8530F Electron Microprobe\",\n  \"schema:description\": \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\",\n  \"schema:identifier\": \"https://www.wikidata.org/wiki/Q116917974\",\n  \"schema:additionalType\": [\n    \"nxs:BaseClass/NXinstrument\",\n    \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\"\n  ]\n}"
         },
         {
           "language": "ttl",
-          "url": "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/tests/BaseSchema/instrument/example_1_1.ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/instrument/example_1_1.ttl",
           "sizeBytes": 477,
           "code": "@prefix schema1: <http://schema.org/> .\n\n[] a schema1:Product,\n        schema1:Thing ;\n    schema1:additionalType \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\",\n        \"nxs:BaseClass/NXinstrument\" ;\n    schema1:description \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\" ;\n    schema1:identifier \"https://www.wikidata.org/wiki/Q116917974\" ;\n    schema1:name \"JEOL JXA-8530F Electron Microprobe\" .\n\n"
         }

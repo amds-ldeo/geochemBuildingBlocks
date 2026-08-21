@@ -7,7 +7,7 @@
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -26,12 +26,6 @@
   ],
   "schema:name": "sem protocol \u2014 Ma2017-2",
   "schema:description": "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
-  },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -42,23 +36,6 @@
         "schema:CreativeWork"
       ],
       "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A"
-          ]
-        }
-      ]
     }
   ],
   "schema:actionProcess": {
@@ -76,21 +53,46 @@
         "schema:position": 1
       },
       {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semTAPP/crystalStructureDatabaseDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "crystalStructureDatabaseDefault",
+            "schema:name": "Crystal Structure Database",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Literature crystal structures: Black et al. 1961 (Cmc21 (Al,Cu)Fe6 for kryachkoite); Zhang et al. 2005 (Pm3m AlCu for stolperite)"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion Milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
       }
     ],
     "@type": [
       "schema:HowTo"
     ]
   },
+  "ada:ebsdPhaseListDefault": "Hollisterite (C2/m FeAl3); kryachkoite (Cmc21 (Al,Cu)Fe6); stolperite (Pm3m AlCu)",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -99,18 +101,6 @@
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
-      "schema:manufacturer": {
-        "schema:name": "Zeiss",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "1550VP",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
       "schema:hasPart": [
         {
           "schema:additionalType": [
@@ -123,6 +113,19 @@
           "@type": [
             "schema:Product",
             "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "BSEDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
           ],
           "schema:name": "missing"
         },
@@ -151,26 +154,48 @@
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Zeiss",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "1550VP",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
       "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A"
+          ]
+        }
+      ]
     }
   ],
   "schema:measurementTechnique": [
@@ -182,14 +207,23 @@
       "schema:termCode": "SEM"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
+  "ada:clAcquisitionMode": "missing",
+  "ada:clIntegrationTimeDefault": -9999,
+  "ada:clWavelengthRange": -9999,
+  "ada:ebsdDetectorConfiguration": "missing",
+  "ada:ebsdStepSizeDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
+  "ada:imageRegistration3DDefault": "missing",
+  "ada:liftOutMethod": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
+  "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
 }

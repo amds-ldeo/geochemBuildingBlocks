@@ -14,46 +14,217 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "JEOL 2500SE 200-kV STEM",
-  "schema:description": "temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM + EDS spectrum imaging (JSC JEOL 2500SE) (publication column of TEM_TAPP_v17.xlsx).",
+  "schema:name": "tem protocol \u2014 KellerBerger2014",
+  "schema:description": "Incident probe diameter 4 nm for spectrum imaging (9 nA); EDS spectrum images: successive layers combined for >10% counting statistics per pixel; solar flare track density ~2\u00d710\u00b9\u2070 cm\u207b\u00b2 in RA-QD02-0211 Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); STEM-EDS (spectrum imaging); ada:edsAcquisitionModeDefault = Spectrum image (map); line profile.",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "TEM/STEM"
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Robert M. Walker Laboratory for Space Science, Code KR, Astromaterials Research and Exploration Science (ARES), NASA Johnson Space Center"
   },
-  "schema:measurementTechnique": [
+  "schema:object": [
     {
       "@type": [
-        "schema:DefinedTerm"
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
       ],
-      "schema:termCode": "TEM/STEM",
-      "schema:name": "TEM/STEM"
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Itokawa olivine regolith grains (RA-QD02-0125, ~37 \u00b5m olivine single crystal; RA-QD02-0211, ~41 \u00b5m olivine single crystal); comparison: Apollo 17 lunar soil 71501 olivine grains (20\u201345 \u00b5m fraction)"
+          ]
+        }
+      ]
     }
   ],
-  "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:acceleratingVoltageDefault": "200 kV",
-  "ada:analyticalMode": [
-    "TEM Imaging",
-    "Electron Diffraction"
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Ultramicrotomy",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "samplePreparationDetailsDefault",
+            "schema:name": "Sample Preparation Details",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Particles embedded in low-viscosity epoxy; thin sections ~60 nm thick prepared by ultramicrotomy"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data Reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "JEOL",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "JEOL 2500SE 200-kV STEM",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "EDSDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Thermo-Noran thin-window energy-dispersive X-ray (EDX) spectrometer",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "4DSTEMDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "AberrationCorrector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "EELSSpectrometer",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Electron source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "ImagingDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Monochromator",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "200 kV",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
   ],
-  "ada:convergenceSemiAngle": -9999,
-  "ada:stemDwellTimePerPixelDefault": "50 \u00b5s/pixel",
-  "ada:cameraLengthDefault": -9999,
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map); line profile",
-  "ada:edsQuantificationMethod": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
-  "ada:eelsAcquisitionModeDefault": "missing",
-  "ada:eelsEdgesDefault": "missing",
-  "ada:eelsCollectionSemiAngle": -9999,
-  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
-  "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:phaseIdentificationMethod": "HRTEM lattice fringes + SAED: metallic npFe0 grains (<5 nm) identified by bcc iron d-spacings (Fig. 6 FFT: iron 110 spacings); pyrrhotite superstructure reflections present in core and absent in disordered rim (SAED + FFT); olivine composition by TEM-EDX (Fo70)",
-  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:edsCalibrationStandardDefault": "missing",
+  "ada:spectroscopicDetectorDefault": "EDS only",
+  "ada:analyticalSubModeDefault": "BF-STEM",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/temTAPP/stemProbeDiameterDefault",
@@ -64,10 +235,8 @@
       "schema:name": "STEM Probe Diameter",
       "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "4 nm",
-      "schema:unitText": "nm"
+      "schema:defaultValue": 4,
+      "schema:description": "4 nm"
     },
     {
       "@id": "ada:parameter/temTAPP/stemProbeCurrentDefault",
@@ -78,10 +247,8 @@
       "schema:name": "STEM Probe Current",
       "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "9 nA",
-      "schema:unitText": "pA or nA"
+      "schema:defaultValue": 9,
+      "schema:description": "9 nA"
     },
     {
       "@id": "ada:parameter/temTAPP/stemScanDimensionsDefault",
@@ -92,10 +259,8 @@
       "schema:name": "STEM Scan Dimensions",
       "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
-      "schema:defaultValue": "256 \u00d7 204 pixels (typical; optimized to limit over- or under-sampling with 4-nm probe)",
-      "schema:unitText": "pixels x pixels"
+      "schema:defaultValue": 256,
+      "schema:description": "256 \u00d7 204 pixels (typical; optimized to limit over- or under-sampling with 4-nm probe)"
     },
     {
       "@id": "ada:parameter/temTAPP/stemFrameAveragingDefault",
@@ -106,8 +271,6 @@
       "schema:name": "STEM Frame Averaging",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
       "schema:defaultValue": "Multiple consecutive spectrum image layers accumulated (target: >10% counting statistics per pixel for major elements)"
     },
     {
@@ -119,45 +282,44 @@
       "schema:name": "EDS Counting Statistics / Accumulation Criterion",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
       "schema:defaultValue": "Successive layers averaged for >10% counting statistics"
     }
   ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
+  "ada:stemDwellTimePerPixelDefault": "50 \u00b5s/pixel",
+  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "Si",
+      "Mg",
+      "Fe",
+      "S",
+      "Al",
+      "Ca",
+      "Ti",
+      "O"
     ],
-    "schema:step": [
+    "ada:analyteColumns": [
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
       }
     ]
   },
-  "schema:instrument": [
-    {
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:additionalType": [
-        "TEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:name": "missing"
-    }
-  ],
-  "ada:analyticalSubModeDefault": "missing",
-  "ada:spectroscopicDetectorDefault": "missing",
+  "ada:phaseIdentificationMethod": "N/A",
+  "ada:cameraLengthDefault": -9999,
+  "ada:convergenceSemiAngle": -9999,
+  "ada:edsCalibrationStandardDefault": "missing",
+  "ada:edsQuantificationMethod": "missing",
+  "ada:eelsAcquisitionModeDefault": "missing",
+  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
+  "ada:eelsCollectionSemiAngle": -9999,
+  "ada:eelsEnergyLossRangeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

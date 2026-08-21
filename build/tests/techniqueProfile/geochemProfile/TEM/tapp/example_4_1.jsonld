@@ -7,7 +7,7 @@
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
@@ -24,47 +24,240 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "ThermoScientific Talos F200-X G2 S/TEM",
-  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v17.xlsx).",
+  "schema:name": "tem protocol \u2014 Zega2025-3",
+  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v21.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "TEM/STEM"
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt"
   },
-  "schema:measurementTechnique": [
+  "schema:relatedLink": [
     {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "None"
+      },
       "@type": [
-        "schema:DefinedTerm"
+        "schema:CreativeWork"
       ],
-      "schema:termCode": "TEM/STEM",
-      "schema:name": "TEM/STEM"
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:acceleratingVoltageDefault": "200 kV",
-  "ada:analyticalMode": [
-    "TEM Imaging",
-    "STEM Imaging",
-    "Electron Diffraction"
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) \u2014 OSIRIS-REx Bennu returned samples"
+          ]
+        }
+      ]
+    }
   ],
-  "ada:convergenceSemiAngle": "10.5 mrad",
-  "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:cameraLengthDefault": -9999,
-  "ada:edsAcquisitionModeDefault": "missing",
-  "ada:edsQuantificationMethod": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
-  "ada:eelsAcquisitionModeDefault": "missing",
-  "ada:eelsEdgesDefault": "missing",
-  "ada:eelsCollectionSemiAngle": -9999,
-  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
-  "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:phaseIdentificationMethod": "Manual d-spacing comparison (SAED patterns; camera constant calibrated with AGAR S106 cross grating)",
-  "ada:calibrationFactorAndDeterminationMethodDefault": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:edsCalibrationStandardDefault": "missing",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Crushing / dispersion on grid",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "samplePreparationDetailsDefault",
+            "schema:name": "Sample Preparation Details",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Grain crushed; ethanol added to powder; copper mesh grid with lacey carbon support touched to suspension until all material picked up"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data Reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "TEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "ThermoFisher Scientific (FEI)",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "ThermoScientific Talos F200-X G2 S/TEM",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "EDSDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Four windowless ThermoScientific EDS silicon drift detectors",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "ImagingDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "ThermoScientific Ceta-S 4096\u00d74096 16 M camera (TEM images and SAED patterns)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "4DSTEMDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "AberrationCorrector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "EELSSpectrometer",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Electron source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Monochromator",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "200 kV",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:spectroscopicDetectorDefault": "EDS only",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "ThermoScientific Velox"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "ThermoScientific Velox"
+    }
+  ],
+  "ada:analyticalSubModeDefault": "BF-TEM",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/temTAPP/haadfCollectionAnglesDefault",
@@ -75,8 +268,6 @@
       "schema:name": "HAADF Collection Angles",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
       "schema:defaultValue": "Inner 58 mrad (HAADF)"
     },
     {
@@ -88,8 +279,6 @@
       "schema:name": "Diffraction Camera Length Calibration Method",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
       "schema:defaultValue": "External standard (AGAR S106 cross grating, 3 mm)"
     },
     {
@@ -101,45 +290,21 @@
       "schema:name": "Diffraction Calibration Reference",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:readonlyValue": false,
-      "ada:tier": "R",
       "schema:defaultValue": "External standard (AGAR S106 cross grating, 3 mm)"
     }
   ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      }
-    ]
-  },
-  "schema:instrument": [
-    {
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:additionalType": [
-        "TEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:name": "missing"
-    }
-  ],
-  "ada:analyticalSubModeDefault": "missing",
-  "ada:spectroscopicDetectorDefault": "missing",
+  "ada:convergenceSemiAngle": "10.5 mrad",
+  "ada:phaseIdentificationMethod": "N/A",
+  "ada:cameraLengthDefault": -9999,
+  "ada:edsAcquisitionModeDefault": "missing",
+  "ada:edsCalibrationStandardDefault": "missing",
+  "ada:edsQuantificationMethod": "missing",
+  "ada:eelsAcquisitionModeDefault": "missing",
+  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
+  "ada:eelsCollectionSemiAngle": -9999,
+  "ada:eelsEnergyLossRangeDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:stemDwellTimePerPixelDefault": -9999,
+  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

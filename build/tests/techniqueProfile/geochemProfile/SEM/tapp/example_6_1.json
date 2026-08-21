@@ -15,42 +15,45 @@
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Gucsik2013",
-  "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) \u2014 standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
+  "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) \u2014 standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point.",
+  "ada:analyticalMode": [
+    "CL"
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:clAcquisitionMode": "Spectral point",
   "schema:instrument": [
     {
       "schema:additionalType": [
         "SEM",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semTAPP/clDetectorConfiguration",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semTAPP/clDetectorConfiguration"
+            }
+          ],
+          "schema:name": "CL Detector Configuration",
+          "schema:value": "Mini-CL (Gatan, multialkali PMT) for scanning CL images; Oxford MonoCL2 grating monochromator with Hamamatsu R2228 PMT and parabolic mirror (75% efficiency) for spectral CL"
+        },
+        {
+          "@id": "ada:parameter/semTAPP/clGrating",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semTAPP/clGrating"
+            }
+          ],
+          "schema:name": "CL Grating",
+          "schema:value": "1200 gr/mm, focal length 0.3 m, F/4.2, resolution 0.5 nm, slit width 4 mm (Oxford MonoCL2)"
         }
       ],
       "schema:manufacturer": {
@@ -66,6 +69,19 @@
         ]
       },
       "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "BSEDetector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing"
+        },
         {
           "@type": [
             "schema:Product",
@@ -104,19 +120,6 @@
             }
           ],
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
         }
       ],
       "@type": [
@@ -126,8 +129,34 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "CL"
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
+          ]
+        }
+      ]
+    }
   ],
   "schema:measurementTechnique": [
     {
@@ -164,17 +193,37 @@
           "bios:LabProcess"
         ],
         "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion Milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
       }
     ]
   },
-  "ada:dwellTimePerPixelDefault": -9999,
+  "ada:clIntegrationTimeDefault": -9999,
+  "ada:clWavelengthRange": -9999,
+  "ada:ebsdDetectorConfiguration": "missing",
+  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdStepSizeDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
+  "ada:imageRegistration3DDefault": "missing",
+  "ada:liftOutMethod": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
+  "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
 }

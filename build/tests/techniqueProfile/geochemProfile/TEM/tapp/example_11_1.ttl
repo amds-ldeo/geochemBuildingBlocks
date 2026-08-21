@@ -15,29 +15,100 @@ ex:temTAPP-Dobrica2022 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "FIB lift-out (Ga) + ion mill" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | STEM + nanodiffraction + EDS (UH Manoa Titan G2) (publication column of TEM_TAPP_v17.xlsx)." ;
+    schema1:description "FIB sections transferred to Cu TEM half-grids (not standard full grids); nanodiffraction used 0.1–0.3 mrad convergence angle in STEM mode (quasi-parallel beam); some carbonate compositions and modulation measurements reported using Molecular Foundry TitanX EDS (see separate column) Reported detail: ada:analyticalSubModeDefault = DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction)." ;
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "TEM" ;
-            schema1:name "missing" ] ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "4DSTEMDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Electron source" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EELSSpectrometer" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "Monochromator" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "EDSDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "ImagingDetector" ;
+                    schema1:name "missing" ],
+                [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                        "AberrationCorrector" ;
+                    schema1:name "missing" ] ;
+            schema1:manufacturer [ a schema1:Organization ;
+                    schema1:name "ThermoFisher Scientific (FEI)" ] ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "FEI Titan G2 analytical (S)TEM" ] ;
+            schema1:name "example instrumentName" ;
+            ada:acceleratingVoltageDefault "300 kV" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Advanced Electron Microscopy Center (AEMC), University of Hawai'i at Manoa, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
-    schema1:name "FEI Titan G2 analytical (S)TEM" ;
-    ada:acceleratingVoltageDefault "300 kV" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analyticalMode "Electron Diffraction",
-        "TEM Imaging" ;
-    ada:analyticalSubModeDefault "missing" ;
-    ada:calibrationFactorAndDeterminationMethodDefault "missing" ;
+    schema1:name "tem protocol — Dobrica2022" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Antarctic micrometeorite 03-36-46 (hydrated fine-grained AMM, H-FgMM, 84×114 µm; carbonates, phyllosilicates, magnetite, sulfides, phosphates; Concordia snow collection 2002 campaign)" ] ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): BSE imaging of polished, C-coated section for mineral identification; FIB preparation of 4 electron-transparent sections (Pt deposition: e-beam first, then ion beam; sections transferred to Cu TEM half-grids with micromanipulator; final thinning at 2 kV, 72 pA with section on TEM grid)" ;
+                    schema1:name "FIB-SEM (Helios 660 dual-beam); SEM-BSE" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:defaultAnalytes "C",
+                "Ca",
+                "Fe",
+                "Mg",
+                "Mn",
+                "O",
+                "P",
+                "S",
+                "Si" ] ;
+    ada:analyticalSubModeDefault "BF-STEM" ;
     ada:cameraLengthDefault "295 mm (stated for nanodiffraction)" ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:convergenceSemiAngle "0.1–0.3 mrad (for nanodiffraction in STEM mode)" ;
     ada:edsAcquisitionModeDefault "missing" ;
     ada:edsCalibrationStandardDefault "missing" ;
@@ -45,12 +116,17 @@ ex:temTAPP-Dobrica2022 a cdi:Activity,
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
-    ada:eelsEdgesDefault "missing" ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "Electron nanodiffraction (STEM mode, 0.1–0.3 mrad convergence, 295 mm camera length) + EDS; SAED for crystallographic characterization; FFT from HRTEM images (dolomite, ankerite, phosphide barringerite); d-spacing comparisons for carbonate phases" ;
-    ada:reportedVariablesAndUnits "missing" ;
+    ada:phaseIdentificationMethod "N/A" ;
     ada:samplingUnit "missing" ;
-    ada:spectroscopicDetectorDefault "missing" ;
+    ada:spectroscopicDetectorDefault "EDS only" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): particle polished and C-coated; Pt deposited by e-beam deposition then by ion beam deposition; sections (~2 µm thick) transferred to Cu TEM half-grids; final thinning at 2 kV, 72 pA with section on TEM grid; 4 FIB sections: UH-001 (carbonate region A), UH-002 (carbonate region B), UH-003 (Ca-phosphates), UH-006 (magnetite)" ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:valueName "samplePreparationDetailsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 

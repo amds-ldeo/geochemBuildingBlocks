@@ -42,7 +42,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -64,7 +64,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -94,7 +94,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -128,9 +128,9 @@ ex:detail-Garvie2008 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -173,7 +173,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -195,7 +195,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -225,7 +225,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -259,9 +259,9 @@ ex:detail-Garvie2008-2 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -304,7 +304,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -326,7 +326,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -356,7 +356,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -390,9 +390,9 @@ ex:detail-Genge2025 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -435,7 +435,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -457,7 +457,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -487,7 +487,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -521,9 +521,9 @@ ex:detail-Genge2025-2 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -566,7 +566,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -588,7 +588,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -618,7 +618,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -652,9 +652,9 @@ ex:detail-Genge2025-3 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -697,7 +697,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -719,7 +719,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -749,7 +749,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -783,9 +783,9 @@ ex:detail-Gucsik2013 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -828,7 +828,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -850,7 +850,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -880,7 +880,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -914,9 +914,9 @@ ex:detail-Gucsik2013-2 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -959,7 +959,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -981,7 +981,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1011,7 +1011,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1045,9 +1045,9 @@ ex:detail-Izawa2010 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -1090,7 +1090,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1112,7 +1112,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1142,7 +1142,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1176,9 +1176,9 @@ ex:detail-Izawa2010-2 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -1221,7 +1221,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1243,7 +1243,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1273,7 +1273,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1307,9 +1307,9 @@ ex:detail-Izawa2010-3 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "~0.5 wt% for most elements" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -1352,7 +1352,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1374,7 +1374,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1404,7 +1404,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1438,9 +1438,9 @@ ex:detail-Izawa2010-4 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -1483,7 +1483,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1505,7 +1505,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1535,7 +1535,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1569,9 +1569,9 @@ ex:detail-Izawa2010-5 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -1614,7 +1614,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1636,7 +1636,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1666,7 +1666,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1700,9 +1700,9 @@ ex:detail-Liu2017 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -1745,7 +1745,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1767,7 +1767,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1797,7 +1797,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1831,9 +1831,9 @@ ex:detail-Liu2017-2 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -1876,7 +1876,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1898,7 +1898,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -1928,7 +1928,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1962,9 +1962,9 @@ ex:detail-Liu2017-3 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -2007,7 +2007,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   ],
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2029,7 +2029,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2059,7 +2059,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   ],
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2093,9 +2093,9 @@ ex:detail-Ma2017 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Section 126A (USNM 7908)" ;
     ada:samplingUnit "missing" ;
@@ -2138,7 +2138,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   ],
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2160,7 +2160,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2190,7 +2190,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   ],
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2224,9 +2224,9 @@ ex:detail-Ma2017-2 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Section 126A (USNM 7908)" ;
     ada:samplingUnit "missing" ;
@@ -2269,7 +2269,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   ],
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2291,7 +2291,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2321,7 +2321,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   ],
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2355,9 +2355,9 @@ ex:detail-Pascucci2026 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
@@ -2400,7 +2400,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   ],
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2422,7 +2422,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2452,7 +2452,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   ],
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2486,9 +2486,9 @@ ex:detail-Pascucci2026-2 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
@@ -2531,7 +2531,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   ],
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": 1024,
+  "ada:mapDimensions": 1024,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2553,7 +2553,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2583,7 +2583,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   ],
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": 1024,
+  "ada:mapDimensions": 1024,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2617,9 +2617,9 @@ ex:detail-Pascucci2026-3 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions 1024 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions 1024 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
@@ -2662,7 +2662,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   ],
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2684,7 +2684,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2714,7 +2714,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   ],
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2748,9 +2748,9 @@ ex:detail-Pascucci2026-4 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
@@ -2793,7 +2793,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   ],
   "ada:sampleName": "SC; HBC",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2815,7 +2815,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2845,7 +2845,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   ],
   "ada:sampleName": "SC; HBC",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2879,9 +2879,9 @@ ex:detail-Zhou2017 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "SC; HBC" ;
     ada:samplingUnit "missing" ;
@@ -2924,7 +2924,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2946,7 +2946,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -2976,7 +2976,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3010,9 +3010,9 @@ ex:detail-Zega2025 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -3055,7 +3055,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3077,7 +3077,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3107,7 +3107,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3141,9 +3141,9 @@ ex:detail-Zega2025-2 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -3186,7 +3186,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3208,7 +3208,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3238,7 +3238,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3272,9 +3272,9 @@ ex:detail-Zega2025-3 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -3317,7 +3317,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3339,7 +3339,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3369,7 +3369,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3403,9 +3403,9 @@ ex:detail-Zega2025-4 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -3448,7 +3448,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3470,7 +3470,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3500,7 +3500,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3534,9 +3534,9 @@ ex:detail-Zega2025-5 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -3579,7 +3579,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3601,7 +3601,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3631,7 +3631,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3665,9 +3665,9 @@ ex:detail-Zega2025-6 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -3710,7 +3710,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3732,7 +3732,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3762,7 +3762,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3796,9 +3796,9 @@ ex:detail-Zega2025-7 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -3841,7 +3841,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3863,7 +3863,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -3893,7 +3893,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3927,9 +3927,9 @@ ex:detail-Zega2025-8 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -3972,7 +3972,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -3994,7 +3994,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4024,7 +4024,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -4058,9 +4058,9 @@ ex:detail-Zega2025-9 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -4103,7 +4103,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   ],
   "ada:sampleName": "OREX-501018-100",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -4125,7 +4125,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4155,7 +4155,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   ],
   "ada:sampleName": "OREX-501018-100",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -4189,9 +4189,9 @@ ex:detail-Barnes2025 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "OREX-501018-100" ;
     ada:samplingUnit "missing" ;
@@ -4234,7 +4234,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -4256,7 +4256,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4286,7 +4286,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -4320,9 +4320,9 @@ ex:detail-Barnes2025-2 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -4365,7 +4365,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -4387,7 +4387,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4417,7 +4417,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -4451,9 +4451,9 @@ ex:detail-Barnes2025-3 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -4496,7 +4496,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -4518,7 +4518,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
     },
-    "https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/"
@@ -4548,7 +4548,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   ],
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
-  "ada:edsMapDimensions": -9999,
+  "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -4582,9 +4582,9 @@ ex:detail-Barnes2025-4 a ada:SEMEDSSpectrum ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
-    ada:edsMapDimensions -9999 ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
+    ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -4616,6 +4616,14 @@ properties:
             schema:identifier:
               description: Persistent identifier for the laboratory (e.g., ROR ID).
               type: string
+        schema:identifier:
+          description: "Identifier for the analytical session this record describes
+            \u2014 the laboratory's own run, sequence or batch identifier as generated
+            by the instrument or acquisition software. The analysis record corresponds
+            to one session, which may cover several samples, and this is the link
+            back to the raw instrument files. Distinct from any persistent identifier
+            a repository mints on submission."
+          type: string
         schema:startDate:
           description: 'Date on which the analytical session began. For sessions spanning
             multiple days, use the date of the first session. Format: YYYY-MM-DD.'
@@ -4772,97 +4780,51 @@ properties:
                     - type: array
                       items:
                         type: string
+                  schema:identifier:
+                    description: Globally unique, persistent identifier for each sample
+                      listed in Sample Name. IGSN (International Geo Sample Number)
+                      is the recommended standard for geological and cosmochemical
+                      samples, as used by Astromat, EarthChem and SESAR. Where a sample
+                      and its sub-samples are separately registered, record the identifier
+                      at the level actually analysed.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
                   schema:additionalProperty:
                     type: array
                     items:
-                      anyOf:
-                      - title: Sample Persistent Identifier
-                        description: Globally unique, persistent identifier for each
-                          sample listed in Sample Name. IGSN (International Geo Sample
-                          Number) is the recommended standard for geological and cosmochemical
-                          samples, as used by Astromat, EarthChem and SESAR. Where
-                          a sample and its sub-samples are separately registered,
-                          record the identifier at the level actually analysed.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semCompositionTAPP/samplePersistentIdentifier
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semCompositionTAPP/samplePersistentIdentifier
-                          schema:name:
-                            const: Sample Persistent Identifier
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                      - title: Pre-Analysis Imaging and Screening
-                        description: Imaging or other characterisation performed before
-                          the measurement in order to select or locate the analysed
-                          target, including the technique, instrument and settings
-                          used, and how individual analyses are linked back to the
-                          images. Distinct from any imaging the procedure performs
-                          as its own measurement. Where the imaging is performed on
-                          a separate instrument, it should also be recorded in the
-                          Group 1 coupling fields.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semCompositionTAPP/preAnalysisImagingAndScreening
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semCompositionTAPP/preAnalysisImagingAndScreening
-                          schema:name:
-                            const: Pre-Analysis Imaging and Screening
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
+                      title: Pre-Analysis Imaging and Screening
+                      description: Imaging or other characterisation performed before
+                        the measurement in order to select or locate the analysed
+                        target, including the technique, instrument and settings used,
+                        and how individual analyses are linked back to the images.
+                        Distinct from any imaging the procedure performs as its own
+                        measurement. Where the imaging is performed on a separate
+                        instrument, it should also be recorded in the Group 1 coupling
+                        fields.
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/semCompositionTAPP/preAnalysisImagingAndScreening
+                        '@type':
+                          const:
+                          - schema:PropertyValue
+                        schema:propertyID:
+                          const:
+                          - '@id': ada:parameter/semCompositionTAPP/preAnalysisImagingAndScreening
+                        schema:name:
+                          const: Pre-Analysis Imaging and Screening
+                        schema:value:
+                          type: string
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:propertyID
+                      - schema:name
+                      - schema:value
                     allOf:
-                    - contains:
-                        title: Sample Persistent Identifier
-                        description: Globally unique, persistent identifier for each
-                          sample listed in Sample Name. IGSN (International Geo Sample
-                          Number) is the recommended standard for geological and cosmochemical
-                          samples, as used by Astromat, EarthChem and SESAR. Where
-                          a sample and its sub-samples are separately registered,
-                          record the identifier at the level actually analysed.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semCompositionTAPP/samplePersistentIdentifier
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semCompositionTAPP/samplePersistentIdentifier
-                          schema:name:
-                            const: Sample Persistent Identifier
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                      minContains: 0
-                      maxContains: 1
                     - contains:
                         title: Pre-Analysis Imaging and Screening
                         description: Imaging or other characterisation performed before
@@ -4903,123 +4865,38 @@ properties:
                     const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
               required:
               - '@type'
-        prov:used:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                required:
-                - bios:computationalTool
-              then:
-                properties:
-                  bios:computationalTool:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: acquisition
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Software used to control the SEM and
-                                  acquire data, including version number. For FIB-SEM
-                                  3D tomography, include the automated slice-and-view
-                                  module name and version.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: dataReduction
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Software used for post-acquisition data
-                                  reduction and analysis. List all packages with version
-                                  numbers.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        required:
-                        - ada:toolRole
-            - if:
-                required:
-                - schema:instrument
-              then:
-                properties:
-                  schema:instrument:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/BaseSchema/instrument/schema.yaml
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              schema:additionalType:
-                                contains:
-                                  const: SEM
-                            required:
-                            - schema:additionalType
-                          then:
-                            properties:
-                              ada:acceleratingVoltage:
-                                description: Electron beam accelerating voltage in
-                                  kilovolts. Affects X-ray generation depth (EDS/WDS),
-                                  EBSD pattern quality, imaging resolution, and beam
-                                  penetration. Low voltages (1-5 kV) improve surface
-                                  sensitivity and reduce beam damage; high voltages
-                                  (15-20 kV) improve X-ray generation for quantitative
-                                  analysis.
-                                anyOf:
-                                - type: number
-                                - type: string
-                              ada:beamDiameter:
-                                description: Nominal electron beam diameter (spot
-                                  size) at the sample surface, in nanometres or micrometres,
-                                  as set by the condenser aperture and working distance.
-                                  Controls the spatial resolution and X-ray excitation
-                                  volume. For mapping modes, the effective spatial
-                                  sampling interval is further defined by Step Size
-                                  / Pixel Size.
-                                anyOf:
-                                - type: number
-                                - type: string
-                              ada:workingDistance:
-                                description: Distance between the objective lens pole
-                                  piece and the specimen surface in millimetres. Affects
-                                  spatial resolution, depth of focus, EDS X-ray take-off
-                                  angle, and EBSD geometry.
-                                anyOf:
-                                - type: number
-                                - type: string
-                    allOf:
-                    - contains:
-                        properties:
-                          schema:additionalType:
-                            contains:
-                              const: SEM
-                        required:
-                        - schema:additionalType
         schema:additionalProperty:
           type: array
           items:
             anyOf:
+            - title: Target Selection Criteria
+              description: "The rules governing which part of the sample is analysed,
+                and why. Covers the criteria applied when choosing grains, aliquots,
+                spots, or a region of interest \u2014 size, morphology, clarity, freedom
+                from inclusions or alteration, phase identity, or spatial position.
+                Distinct from Target Material, which states the material type the
+                procedure is designed for: this field states how, within such a sample,
+                the analysed portion is picked out."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semCompositionTAPP/targetSelectionCriteria
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semCompositionTAPP/targetSelectionCriteria
+                schema:name:
+                  const: Target Selection Criteria
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: Beam Raster Dimensions
               description: "Dimensions of the small area over which the beam is rastered
                 during a single analysis point, reported as width \xD7 height in \xB5m.
@@ -5129,36 +5006,35 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - title: Dwell Time per Pixel
-              description: Time the electron beam dwells on each pixel during raster
-                scanning (imaging modes) or on each step position during compositional
-                mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
-                Longer dwell time improves signal-to-noise and counting statistics
-                but increases total dose and can cause beam damage or contamination
-                on sensitive materials. For WDS mapping, the dwell time is per spectrometer
-                per pixel.
+            - title: EDS Live Time per Point or Pixel
+              description: EDS spectral acquisition live time per analysis point or
+                per pixel in seconds. Longer live time improves counting statistics
+                but increases beam damage risk and total acquisition time.
               type: object
               properties:
                 '@id':
-                  const: ada:parameter/semCompositionTAPP/dwellTimePerPixel
+                  const: ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel
                 '@type':
                   const:
                   - schema:PropertyValue
                 schema:propertyID:
                   const:
-                  - '@id': ada:parameter/semCompositionTAPP/dwellTimePerPixel
+                  - '@id': ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel
                 schema:name:
-                  const: Dwell Time per Pixel
+                  const: EDS Live Time per Point or Pixel
                 schema:value:
                   anyOf:
                   - type: number
                   - type: string
+                schema:unitText:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:propertyID
               - schema:name
               - schema:value
+              - schema:unitText
             - title: Step Size / Pixel Size
               description: "Centre-to-centre distance between adjacent measurement
                 points (WDS mapping) or pixels (EDS mapping) in \xB5m. Defines the
@@ -5212,7 +5088,67 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
+            - title: Procedural Blank Level
+              description: "The measured level of the analytical blank in the session,
+                and \u2014 where the reported quantity is a ratio \u2014 its composition,
+                since a blank subtracted from a ratio biases the result unless its
+                own composition is known. Companion to the blank correction method,
+                which is procedure-level: this field records what was actually measured.
+                Follows the criterion-versus-measurement split the library applies
+                wherever a procedure sets a threshold and an analysis reports a value
+                against it."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semCompositionTAPP/proceduralBlankLevel
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semCompositionTAPP/proceduralBlankLevel
+                schema:name:
+                  const: Procedural Blank Level
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
           allOf:
+          - contains:
+              title: Target Selection Criteria
+              description: "The rules governing which part of the sample is analysed,
+                and why. Covers the criteria applied when choosing grains, aliquots,
+                spots, or a region of interest \u2014 size, morphology, clarity, freedom
+                from inclusions or alteration, phase identity, or spatial position.
+                Distinct from Target Material, which states the material type the
+                procedure is designed for: this field states how, within such a sample,
+                the analysed portion is picked out."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semCompositionTAPP/targetSelectionCriteria
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semCompositionTAPP/targetSelectionCriteria
+                schema:name:
+                  const: Target Selection Criteria
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
           - contains:
               title: Beam Raster Dimensions
               description: "Dimensions of the small area over which the beam is rastered
@@ -5335,36 +5271,35 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Dwell Time per Pixel
-              description: Time the electron beam dwells on each pixel during raster
-                scanning (imaging modes) or on each step position during compositional
-                mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
-                Longer dwell time improves signal-to-noise and counting statistics
-                but increases total dose and can cause beam damage or contamination
-                on sensitive materials. For WDS mapping, the dwell time is per spectrometer
-                per pixel.
+              title: EDS Live Time per Point or Pixel
+              description: EDS spectral acquisition live time per analysis point or
+                per pixel in seconds. Longer live time improves counting statistics
+                but increases beam damage risk and total acquisition time.
               type: object
               properties:
                 '@id':
-                  const: ada:parameter/semCompositionTAPP/dwellTimePerPixel
+                  const: ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel
                 '@type':
                   const:
                   - schema:PropertyValue
                 schema:propertyID:
                   const:
-                  - '@id': ada:parameter/semCompositionTAPP/dwellTimePerPixel
+                  - '@id': ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel
                 schema:name:
-                  const: Dwell Time per Pixel
+                  const: EDS Live Time per Point or Pixel
                 schema:value:
                   anyOf:
                   - type: number
                   - type: string
+                schema:unitText:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:propertyID
               - schema:name
               - schema:value
+              - schema:unitText
             minContains: 0
             maxContains: 1
           - contains:
@@ -5426,10 +5361,333 @@ properties:
               - schema:value
             minContains: 0
             maxContains: 1
-        ada:edsLiveTimePerPointOrPixel:
-          description: EDS spectral acquisition live time per analysis point or per
-            pixel in seconds. Longer live time improves counting statistics but increases
-            beam damage risk and total acquisition time.
+          - contains:
+              title: Procedural Blank Level
+              description: "The measured level of the analytical blank in the session,
+                and \u2014 where the reported quantity is a ratio \u2014 its composition,
+                since a blank subtracted from a ratio biases the result unless its
+                own composition is known. Companion to the blank correction method,
+                which is procedure-level: this field records what was actually measured.
+                Follows the criterion-versus-measurement split the library applies
+                wherever a procedure sets a threshold and an analysis reports a value
+                against it."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/semCompositionTAPP/proceduralBlankLevel
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/semCompositionTAPP/proceduralBlankLevel
+                schema:name:
+                  const: Procedural Blank Level
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+        prov:used:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                required:
+                - bios:computationalTool
+              then:
+                properties:
+                  bios:computationalTool:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                      - type: object
+                        allOf:
+                        - if:
+                            properties:
+                              ada:toolRole:
+                                const: acquisition
+                            required:
+                            - ada:toolRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: Instrument control, automation and data
+                                  acquisition software used to collect the raw data,
+                                  including version number. Distinct from Data Processing
+                                  Software(s), which covers everything applied to
+                                  the data after acquisition.
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                        - if:
+                            properties:
+                              ada:toolRole:
+                                const: dataReduction
+                            required:
+                            - ada:toolRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: All software applied to the data after
+                                  acquisition in order to produce the reported quantities,
+                                  including version numbers. List every package used.
+                                  Distinct from Acquisition Software, which controls
+                                  the instrument and collects the raw data.
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                        required:
+                        - ada:toolRole
+            - if:
+                required:
+                - schema:instrument
+              then:
+                properties:
+                  schema:instrument:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                      - type: object
+                        allOf:
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: SEM
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - title: Accelerating Voltage
+                                    description: Electron beam accelerating voltage
+                                      in kilovolts. Affects X-ray generation depth
+                                      (EDS/WDS), EBSD pattern quality, imaging resolution,
+                                      and beam penetration. Low voltages (1-5 kV)
+                                      improve surface sensitivity and reduce beam
+                                      damage; high voltages (15-20 kV) improve X-ray
+                                      generation for quantitative analysis.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semCompositionTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semCompositionTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  - title: Beam Diameter
+                                    description: Nominal electron beam diameter (spot
+                                      size) at the sample surface, in nanometres or
+                                      micrometres, as set by the condenser aperture
+                                      and working distance. Controls the spatial resolution
+                                      and X-ray excitation volume. For mapping modes,
+                                      the effective spatial sampling interval is further
+                                      defined by Step Size / Pixel Size.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semCompositionTAPP/beamDiameter
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semCompositionTAPP/beamDiameter
+                                      schema:name:
+                                        const: Beam Diameter
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                  - title: Working Distance
+                                    description: Distance between the objective lens
+                                      pole piece and the specimen surface in millimetres.
+                                      Affects spatial resolution, depth of focus,
+                                      EDS X-ray take-off angle, and EBSD geometry.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semCompositionTAPP/workingDistance
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semCompositionTAPP/workingDistance
+                                      schema:name:
+                                        const: Working Distance
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                allOf:
+                                - contains:
+                                    title: Accelerating Voltage
+                                    description: Electron beam accelerating voltage
+                                      in kilovolts. Affects X-ray generation depth
+                                      (EDS/WDS), EBSD pattern quality, imaging resolution,
+                                      and beam penetration. Low voltages (1-5 kV)
+                                      improve surface sensitivity and reduce beam
+                                      damage; high voltages (15-20 kV) improve X-ray
+                                      generation for quantitative analysis.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semCompositionTAPP/acceleratingVoltage
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semCompositionTAPP/acceleratingVoltage
+                                      schema:name:
+                                        const: Accelerating Voltage
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    title: Beam Diameter
+                                    description: Nominal electron beam diameter (spot
+                                      size) at the sample surface, in nanometres or
+                                      micrometres, as set by the condenser aperture
+                                      and working distance. Controls the spatial resolution
+                                      and X-ray excitation volume. For mapping modes,
+                                      the effective spatial sampling interval is further
+                                      defined by Step Size / Pixel Size.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semCompositionTAPP/beamDiameter
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semCompositionTAPP/beamDiameter
+                                      schema:name:
+                                        const: Beam Diameter
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    title: Working Distance
+                                    description: Distance between the objective lens
+                                      pole piece and the specimen surface in millimetres.
+                                      Affects spatial resolution, depth of focus,
+                                      EDS X-ray take-off angle, and EBSD geometry.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/semCompositionTAPP/workingDistance
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/semCompositionTAPP/workingDistance
+                                      schema:name:
+                                        const: Working Distance
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
+                    allOf:
+                    - contains:
+                        properties:
+                          schema:additionalType:
+                            contains:
+                              const: SEM
+                        required:
+                        - schema:additionalType
+        ada:deadTime:
+          description: "Percent dead time reported by the EDS detector during the
+            session \u2014 the fraction of total acquisition time the detector spent
+            processing rather than counting. EDS dead time correction is managed automatically
+            by the detector electronics; this field documents the resulting percentage
+            as a session QC metric. Values above ~40% indicate excessive count rate
+            and may degrade spectral quality and quantitative accuracy. Unlike WDS
+            dead time (see WDS Dead Time Correction), no user-selectable correction
+            algorithm is required."
           anyOf:
           - type: number
           - type: string
@@ -5567,6 +5825,75 @@ properties:
               - type: array
                 items:
                   type: string
+  ada:mapDimensions:
+    description: Number of pixels in the EDS map in the X and Y directions. Determined
+      at analysis time based on the area of interest and selected pixel size.
+    anyOf:
+    - type: number
+    - type: string
+  schema:additionalProperty:
+    type: array
+    items:
+      title: Map Area
+      description: "Physical area covered by the map in \xB5m\xB2 or mm\xB2, calculated
+        as (map width in pixels \xD7 step size) \xD7 (map height in pixels \xD7 step
+        size). Complements the map's pixel-grid dimensions by recording the physical
+        scale of the mapped region; useful for direct comparison across datasets acquired
+        with different step sizes."
+      type: object
+      properties:
+        '@id':
+          const: ada:parameter/semCompositionTAPP/mapArea
+        '@type':
+          const:
+          - schema:PropertyValue
+        schema:propertyID:
+          const:
+          - '@id': ada:parameter/semCompositionTAPP/mapArea
+        schema:name:
+          const: Map Area
+        schema:value:
+          anyOf:
+          - type: number
+          - type: string
+      required:
+      - '@id'
+      - '@type'
+      - schema:propertyID
+      - schema:name
+      - schema:value
+    allOf:
+    - contains:
+        title: Map Area
+        description: "Physical area covered by the map in \xB5m\xB2 or mm\xB2, calculated
+          as (map width in pixels \xD7 step size) \xD7 (map height in pixels \xD7
+          step size). Complements the map's pixel-grid dimensions by recording the
+          physical scale of the mapped region; useful for direct comparison across
+          datasets acquired with different step sizes."
+        type: object
+        properties:
+          '@id':
+            const: ada:parameter/semCompositionTAPP/mapArea
+          '@type':
+            const:
+            - schema:PropertyValue
+          schema:propertyID:
+            const:
+            - '@id': ada:parameter/semCompositionTAPP/mapArea
+          schema:name:
+            const: Map Area
+          schema:value:
+            anyOf:
+            - type: number
+            - type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      minContains: 0
+      maxContains: 1
   schema:variableMeasured:
     type: array
     items:
@@ -5837,13 +6164,14 @@ properties:
       maxContains: 1
 required:
 - schema:funding
+- ada:mapDimensions
 
 ```
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/schema.yaml)
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/schema.yaml)
 
 
 # JSON-LD Context
@@ -5873,7 +6201,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/amds-ldeo/geochemBuildingBlocks/undefined/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld)
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld)
 
 ## Sources
 
