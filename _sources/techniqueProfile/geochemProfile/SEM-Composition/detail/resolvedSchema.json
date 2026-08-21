@@ -1491,8 +1491,24 @@
                                             ]
                                           },
                                           "schema:inDefinedTermSet": {
-                                            "type": "string",
-                                            "description": "Name for the controlled vocabulary responsible for this keyword."
+                                            "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "object",
+                                                "required": [
+                                                  "@id"
+                                                ],
+                                                "additionalProperties": false,
+                                                "properties": {
+                                                  "@id": {
+                                                    "type": "string"
+                                                  }
+                                                }
+                                              }
+                                            ]
                                           },
                                           "schema:termCode": {
                                             "type": "string",
@@ -1664,8 +1680,24 @@
                                                         ]
                                                       },
                                                       "schema:inDefinedTermSet": {
-                                                        "type": "string",
-                                                        "description": "Name for the controlled vocabulary responsible for this keyword."
+                                                        "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                                                        "anyOf": [
+                                                          {
+                                                            "type": "string"
+                                                          },
+                                                          {
+                                                            "type": "object",
+                                                            "required": [
+                                                              "@id"
+                                                            ],
+                                                            "additionalProperties": false,
+                                                            "properties": {
+                                                              "@id": {
+                                                                "type": "string"
+                                                              }
+                                                            }
+                                                          }
+                                                        ]
                                                       },
                                                       "schema:termCode": {
                                                         "type": "string",
@@ -2586,8 +2618,24 @@
                                                             ]
                                                           },
                                                           "schema:inDefinedTermSet": {
-                                                            "type": "string",
-                                                            "description": "Name for the controlled vocabulary responsible for this keyword."
+                                                            "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                                                            "anyOf": [
+                                                              {
+                                                                "type": "string"
+                                                              },
+                                                              {
+                                                                "type": "object",
+                                                                "required": [
+                                                                  "@id"
+                                                                ],
+                                                                "additionalProperties": false,
+                                                                "properties": {
+                                                                  "@id": {
+                                                                    "type": "string"
+                                                                  }
+                                                                }
+                                                              }
+                                                            ]
                                                           },
                                                           "schema:termCode": {
                                                             "type": "string",
@@ -3947,8 +3995,24 @@
                   ]
                 },
                 "schema:inDefinedTermSet": {
-                  "type": "string",
-                  "description": "Name for the controlled vocabulary responsible for this keyword."
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
                 },
                 "schema:termCode": {
                   "type": "string",
@@ -4132,12 +4196,20 @@
                   "type": "object",
                   "properties": {
                     "@type": {
+                      "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
                       "contains": {
-                        "const": "schema:PropertyValue"
+                        "anyOf": [
+                          {
+                            "const": "schema:PropertyValue"
+                          },
+                          {
+                            "const": "schema:PropertyValueSpecification"
+                          }
+                        ]
                       },
                       "minItems": 1
                     },
@@ -4428,12 +4500,20 @@
                     "type": "object",
                     "properties": {
                       "@type": {
+                        "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
                         "type": "array",
                         "items": {
                           "type": "string"
                         },
                         "contains": {
-                          "const": "schema:PropertyValue"
+                          "anyOf": [
+                            {
+                              "const": "schema:PropertyValue"
+                            },
+                            {
+                              "const": "schema:PropertyValueSpecification"
+                            }
+                          ]
                         },
                         "minItems": 1
                       },
@@ -4690,8 +4770,24 @@
               ]
             },
             "schema:inDefinedTermSet": {
-              "type": "string",
-              "description": "Name for the controlled vocabulary responsible for this keyword."
+              "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
             },
             "schema:termCode": {
               "type": "string",
@@ -4822,8 +4918,24 @@
           ]
         },
         "schema:inDefinedTermSet": {
-          "type": "string",
-          "description": "Name for the controlled vocabulary responsible for this keyword."
+          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
         },
         "schema:termCode": {
           "type": "string",
@@ -5022,8 +5134,24 @@
                       ]
                     },
                     "schema:inDefinedTermSet": {
-                      "type": "string",
-                      "description": "Name for the controlled vocabulary responsible for this keyword."
+                      "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
                     },
                     "schema:termCode": {
                       "type": "string",
@@ -5222,12 +5350,20 @@
                   "type": "object",
                   "properties": {
                     "@type": {
+                      "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
                       "contains": {
-                        "const": "schema:PropertyValue"
+                        "anyOf": [
+                          {
+                            "const": "schema:PropertyValue"
+                          },
+                          {
+                            "const": "schema:PropertyValueSpecification"
+                          }
+                        ]
                       },
                       "minItems": 1
                     },
@@ -5494,12 +5630,20 @@
                     "type": "object",
                     "properties": {
                       "@type": {
+                        "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
                         "type": "array",
                         "items": {
                           "type": "string"
                         },
                         "contains": {
-                          "const": "schema:PropertyValue"
+                          "anyOf": [
+                            {
+                              "const": "schema:PropertyValue"
+                            },
+                            {
+                              "const": "schema:PropertyValueSpecification"
+                            }
+                          ]
                         },
                         "minItems": 1
                       },
@@ -5848,8 +5992,24 @@
                       ]
                     },
                     "schema:inDefinedTermSet": {
-                      "type": "string",
-                      "description": "Name for the controlled vocabulary responsible for this keyword."
+                      "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
                     },
                     "schema:termCode": {
                       "type": "string",
@@ -6048,12 +6208,20 @@
                   "type": "object",
                   "properties": {
                     "@type": {
+                      "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
                       "contains": {
-                        "const": "schema:PropertyValue"
+                        "anyOf": [
+                          {
+                            "const": "schema:PropertyValue"
+                          },
+                          {
+                            "const": "schema:PropertyValueSpecification"
+                          }
+                        ]
                       },
                       "minItems": 1
                     },
@@ -6563,8 +6731,24 @@
                     ]
                   },
                   "schema:inDefinedTermSet": {
-                    "type": "string",
-                    "description": "Name for the controlled vocabulary responsible for this keyword."
+                    "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
                   },
                   "schema:termCode": {
                     "type": "string",
@@ -6719,8 +6903,24 @@
                   ]
                 },
                 "schema:inDefinedTermSet": {
-                  "type": "string",
-                  "description": "Name for the controlled vocabulary responsible for this keyword."
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
                 },
                 "schema:termCode": {
                   "type": "string",
@@ -6881,8 +7081,24 @@
           ]
         },
         "schema:inDefinedTermSet": {
-          "type": "string",
-          "description": "Name for the controlled vocabulary responsible for this keyword."
+          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
         },
         "schema:termCode": {
           "type": "string",
@@ -7031,8 +7247,24 @@
                   ]
                 },
                 "schema:inDefinedTermSet": {
-                  "type": "string",
-                  "description": "Name for the controlled vocabulary responsible for this keyword."
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
                 },
                 "schema:termCode": {
                   "type": "string",
@@ -7719,8 +7951,24 @@
                             ]
                           },
                           "schema:inDefinedTermSet": {
-                            "type": "string",
-                            "description": "Name for the controlled vocabulary responsible for this keyword."
+                            "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                  "@id": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            ]
                           },
                           "schema:termCode": {
                             "type": "string",
@@ -7892,8 +8140,24 @@
                                         ]
                                       },
                                       "schema:inDefinedTermSet": {
-                                        "type": "string",
-                                        "description": "Name for the controlled vocabulary responsible for this keyword."
+                                        "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                                        "anyOf": [
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "object",
+                                            "required": [
+                                              "@id"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                              "@id": {
+                                                "type": "string"
+                                              }
+                                            }
+                                          }
+                                        ]
                                       },
                                       "schema:termCode": {
                                         "type": "string",
@@ -8814,8 +9078,24 @@
                                             ]
                                           },
                                           "schema:inDefinedTermSet": {
-                                            "type": "string",
-                                            "description": "Name for the controlled vocabulary responsible for this keyword."
+                                            "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "object",
+                                                "required": [
+                                                  "@id"
+                                                ],
+                                                "additionalProperties": false,
+                                                "properties": {
+                                                  "@id": {
+                                                    "type": "string"
+                                                  }
+                                                }
+                                              }
+                                            ]
                                           },
                                           "schema:termCode": {
                                             "type": "string",
@@ -9756,8 +10036,24 @@
                         ]
                       },
                       "schema:inDefinedTermSet": {
-                        "type": "string",
-                        "description": "Name for the controlled vocabulary responsible for this keyword."
+                        "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
                       },
                       "schema:termCode": {
                         "type": "string",
@@ -9891,8 +10187,24 @@
                         ]
                       },
                       "schema:inDefinedTermSet": {
-                        "type": "string",
-                        "description": "Name for the controlled vocabulary responsible for this keyword."
+                        "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
                       },
                       "schema:termCode": {
                         "type": "string",
