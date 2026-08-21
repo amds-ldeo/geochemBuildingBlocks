@@ -32,7 +32,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 # group-by-technique layout: each TAPP lives at techniqueProfile/<tech>/{tapp,detail,profile};
 # catalogs+vocab under registry/; base schemas under BaseSchema/.
 TECH_DIR = {
-    "empaTAPP": "EMPA", "geochronTAPP": "Geochron", "laicpmsTAPP": "LA-ICPMS", "labxctTAPP": "XCT",
+    "empaTAPP": "EMPA", "laicpmsTAPP": "LA-ICPMS", "labxctTAPP": "XCT",
     "semTAPP": "SEM", "semImagingTAPP": "SEM-Imaging", "semFibsemTAPP": "SEM-FIBSEM",
     "semCompositionTAPP": "SEM-Composition", "solutionQicpmsTAPP": "Solution-Q-ICPMS",
     "solutionSficpmsTAPP": "Solution-SF-ICPMS", "temTAPP": "TEM",

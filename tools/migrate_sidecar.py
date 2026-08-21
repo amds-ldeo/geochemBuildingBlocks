@@ -67,6 +67,13 @@ ALIASES = {
     # Software. The single most widespread rename in this delivery: 15 of 16 tables.
     "Data Reduction Software": "Data Processing Software(s)",
 
+    # Solution Q-ICP-MS v17 -> v34, the only DROPPED item in the Solution trio. The new table's
+    # Description is the old one almost verbatim - old: "Number of complete mass scans (sweeps)
+    # accumulated per analytical replicate."; new: "Number of complete mass scans accumulated per
+    # analytical replicate. A scan - also called a sweep or mass cycle - ...", which names the old
+    # term explicitly. Same quantity, renamed to the term the other Solution tables already use.
+    "Mass Cycles per Replicate": "Number of Scans per Replicate",
+
     # "Specific masses monitored in this procedure, grouped by the analyte element they serve where
     # they serve one. Covers atomic isotopes and, where a reaction cell shifts an analyte onto a
     # different mass, the product mass actually measured." Two olds, one new — the generalisation

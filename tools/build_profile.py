@@ -13,7 +13,7 @@ The example is synthesised by overlaying the technique's detail -P0 (which satis
 overlay) onto the adaProduct scaffolding of the LA-ICPMS example, then swapping the technique-specific
 componentType / additionalType / conformsTo.
 
-    python tools/build_profile.py <tapp>              # e.g. geochronTAPP
+    python tools/build_profile.py <tapp>              # e.g. semTAPP
     python tools/build_profile.py <tapp> --validate
 """
 import copy
@@ -40,10 +40,6 @@ def _profile_dir(tapp):
 # per-TAPP profile config: dir name, detail short, conformsTo @id, additionalType product strings,
 # titles. componentType enum is pulled from the TAPP CFG at build time.
 PROFILES = {
-    "geochronTAPP": dict(dir="Geochron", short="GEOCHRON", cid="adaGeochron",
-        addtype=["Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry",
-                 "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
-        title="ADA LA-ICP-MS Geochronology Product Profile"),
     "labxctTAPP": dict(dir="Lab-XCT", short="LABXCT", cid="adaLabXCT",
         addtype=["X-ray Computed Tomography (XCT) Image Collection", "X-ray computed tomography"],
         title="ADA Lab-XCT Product Profile"),
@@ -69,6 +65,32 @@ PROFILES = {
         addtype=["High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Processed",
                  "High-resolution inductively coupled plasma mass spectrometry"],
         title="ADA Solution SF-ICP-MS Product Profile"),
+    # --- Laser-ablation and Solution MC profiles (added 2026-08-21) ------------------------------
+    # addtype[0] is written into the generated example's schema:additionalType, so every value here
+    # must already exist in adaProduct's controlled list - these are taken from it verbatim, not
+    # coined. NOTE: that list has no laser-ablation MC product string, so LA-MC and Solution-MC both
+    # take the generic MCICPMS one; they stay distinct by conformsTo, componentType and detail.
+    "laQicpmsTAPP": dict(dir="LA-Q-ICPMS", short="LAQICPMS", cid="adaLAQICPMS",
+        addtype=["Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed", "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-Q-ICP-MS Product Profile"),
+    "laSficpmsTAPP": dict(dir="LA-SF-ICPMS", short="LASFICPMS", cid="adaLASFICPMS",
+        addtype=["Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed", "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-SF-ICP-MS Product Profile"),
+    "laMcicpmsTAPP": dict(dir="LA-MC-ICPMS", short="LAMCICPMS", cid="adaLAMCICPMS",
+        addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-MC-ICP-MS Product Profile"),
+    "laQicpmsUPbTAPP": dict(dir="LA-Q-ICPMS-UPb", short="LAQICPMSUPB", cid="adaLAQICPMSUPb",
+        addtype=["Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed", "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-Q-ICP-MS U-Pb Geochronology Product Profile"),
+    "laSficpmsUPbTAPP": dict(dir="LA-SF-ICPMS-UPb", short="LASFICPMSUPB", cid="adaLASFICPMSUPb",
+        addtype=["Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed", "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-SF-ICP-MS U-Pb Geochronology Product Profile"),
+    "laMcicpmsUPbTAPP": dict(dir="LA-MC-ICPMS-UPb", short="LAMCICPMSUPB", cid="adaLAMCICPMSUPb",
+        addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-MC-ICP-MS U-Pb Geochronology Product Profile"),
+    "solutionMcicpmsTAPP": dict(dir="Solution-MC-ICPMS", short="SOLUTIONMCICPMS", cid="adaSolutionMCICPMS",
+        addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA Solution MC-ICP-MS Product Profile"),
 }
 
 CID_BASE = "https://w3id.org/geochem/metadata/profiles/"

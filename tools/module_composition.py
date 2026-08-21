@@ -27,10 +27,11 @@ import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BBDIR = os.path.join(ROOT, "_sources", "BaseSchema", "modules")
-# module name -> building-block directory, mirroring build_module_bb.DIRNAME
-DIRNAME = {"ReportingCore": "reportingCore", "LaserAblation": "laserAblation",
-           "SolutionIntroduction": "solutionIntroduction", "MCICPMS": "mcIcpms",
-           "UPb": "uPb", "Geochronology": "geochronology", "ArAr": "arAr", "Group1": "group1"}
+# The directory a module BB lives in. Imported from build_module_bb rather than mirrored: the two
+# copies drifted the moment a new module arrived - this one still lowercased TargetSelection to
+# `targetselection` after the builder had been taught lowerCamelCase, so composition emitted a $ref
+# to a directory that does not exist. One definition, one behaviour.
+from build_module_bb import DIRNAME, dirname
 SIDE = {"MethodDefinition": "Procedure", "Dataset": "Analysis"}
 _BB_CACHE = {}
 
@@ -38,7 +39,7 @@ _BB_CACHE = {}
 def _bb(name):
     """The generated building block's schema, or None if it was never built."""
     if name not in _BB_CACHE:
-        p = os.path.join(BBDIR, DIRNAME.get(name, name.lower()), "schema.yaml")
+        p = os.path.join(BBDIR, dirname(name), "schema.yaml")
         _BB_CACHE[name] = yaml.safe_load(open(p, encoding="utf-8")) if os.path.exists(p) else None
     return _BB_CACHE[name]
 
@@ -168,7 +169,7 @@ def ref_objects(refs, root, depth=4):
     up = "../" * depth
     out = []
     for name, defs in refs:
-        d = DIRNAME.get(name, name.lower())
+        d = dirname(name)
         for dn in defs:
             if dn.endswith("Identification"):
                 if SIDE[root] not in dn:

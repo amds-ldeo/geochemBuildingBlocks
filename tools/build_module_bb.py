@@ -59,6 +59,17 @@ DEF_BLURB = {
 DIRNAME = {"ReportingCore": "reportingCore", "LaserAblation": "laserAblation",
            "SolutionIntroduction": "solutionIntroduction", "MCICPMS": "mcIcpms",
            "UPb": "uPb", "Geochronology": "geochronology", "ArAr": "arAr", "Group1": "group1"}
+
+
+def dirname(name):
+    """Directory for a module BB: lowerCamelCase, matching every other building block here.
+
+    DIRNAME carries the irregular ones (MCICPMS -> mcIcpms, UPb -> uPb). Everything else lowers
+    only the FIRST character - `name.lower()` was the old fallback and turned TargetSelection into
+    `targetselection`, which reads as a different naming convention from its siblings and is
+    painful to correct once anything $refs it.
+    """
+    return DIRNAME.get(name, name[:1].lower() + name[1:])
 PREFIX_IRI = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/",
               "prov": "http://www.w3.org/ns/prov#", "bios": "https://bioschemas.org/",
               "dqv": "http://www.w3.org/ns/dqv#",
@@ -114,7 +125,7 @@ def build_schema(name, only=None):
     # a Basic tier, on a path that is a single top-level direct property.
     required = {"MethodDefinition": [], "Dataset": []}
     shacl_top = {"MethodDefinition": set(), "Dataset": set()}
-    used, placed, unplaced = set(), 0, []
+    used, placed, unplaced, params = set(), 0, [], []
     for item, (P, A, dt, desc) in meta.items():
         paths = spec.get(item, {}).get("path")
         paths = ([paths] if isinstance(paths, str) else list(paths or []))
@@ -130,6 +141,11 @@ def build_schema(name, only=None):
             # module_composition._is_composable. 54 of the 105 module paths remain, all 22 of
             # Group1's among them.
             if "schema:additionalProperty" in path:
+                # Collected, not composed. See emit_parameter_defs: the module publishes one $def
+                # per parameter so a technique can UNION them into its own anyOf. Nothing $refs
+                # these yet - wiring that is a separate, reviewable step - so emitting them changes
+                # no technique schema today.
+                params.append((item, P, A, dt, desc, path))
                 continue
             parsed = spp.parse(path)
             require = (P == "Basic") if parsed.root == "MethodDefinition" else (A == "Basic")
@@ -157,6 +173,7 @@ def build_schema(name, only=None):
                 sch = {**sch, "required": sorted(required[r])}
             out[r] = sch
     return out, {"fields": len(meta), "placed": placed, "unplaced": unplaced,
+                 "param_defs": emit_parameter_defs(name, params), "params": params,
                  "prefixes": sorted(used & set(PREFIX_IRI)),
                  "shacl_top": {r: sorted(v) for r, v in shacl_top.items()}}
 
@@ -209,7 +226,7 @@ def render(name, defs, stats, composed_by):
 
 
 def write_bb(name, doc, stats, composed_by):
-    d = os.path.join(BBDIR, DIRNAME.get(name, name.lower()))
+    d = os.path.join(BBDIR, dirname(name))
     os.makedirs(d, exist_ok=True)
     with open(os.path.join(d, "schema.yaml"), "w", encoding="utf-8", newline="\n") as f:
         yaml.safe_dump(doc, f, sort_keys=False, allow_unicode=True, width=100)
@@ -283,13 +300,83 @@ def _sample(sch):
     return "example value"
 
 
+def emit_parameter_defs(module, params):
+    """One $def per parameter the module declares, keyed Param_<Side>_<name>.
+
+    A module $def cannot CONSTRAIN schema:additionalProperty - the technique already closes that
+    array with an anyOf over its own parameters, and allOf would make the two unsatisfiable
+    together. It can however PUBLISH a branch that a technique unions into its own anyOf, which is
+    what these are for.
+
+    SHAPE IS NOT DEFINED HERE. A parameter has two established shapes, and which one applies is
+    decided by the side it sits on, not by the module:
+
+      Procedure  -> build_tapp.param_template_def  (schema:PropertyValueSpecification, the
+                    method-level template: schema:valueName, ada:dataType, ada:fieldScope,
+                    schema:readonlyValue, ada:tier)
+      Analysis   -> build_tapp.param_value_def     (schema:PropertyValue, the per-dataset value:
+                    schema:propertyID, schema:value)
+
+    Both carry schema:unitText whenever the Data Type column names a unit - required on the value
+    side, a const on the template side. Delegating rather than restating the shape here is the
+    point: an earlier hand-rolled variant emitted a hybrid of the two (ada:dataType and
+    schema:valueName on BOTH sides, no propertyID, no unitText), which made every module parameter
+    differ structurally from the technique parameter it duplicates - 181 spurious conflicts that
+    were one defect, not 181 decisions.
+
+    IDENTITY. A technique mints `ada:parameter/<TAPP>/<name>`, so the same logical parameter exists
+    once per consuming TAPP. A module-owned parameter gets ONE identity instead:
+    `ada:parameter/module/<Module>/<name>`. Adopting it changes the @id wherever a module supplies
+    the parameter; that was settled deliberately in favour of single identity.
+    """
+    import re as _re
+    import build_tapp as bt
+
+    out = {}
+    for item, P, A, dt, desc, path in params:
+        side = "Procedure" if path.startswith("$MethodDefinition") else "Analysis"
+        m = _re.search(r"schema:additionalProperty\[schema:name='([^']*)'\]", path)
+        label = m.group(1) if m else item
+        vname = _re.sub(r"[^A-Za-z0-9]+", " ", label).title().replace(" ", "")
+        vname = vname[:1].lower() + vname[1:]
+        b = {"item": label, "name": vname, "P": P, "A": A, "desc": desc or label,
+             "jtype": bt.jtype(dt), "unit": bt.unit(dt)}
+        # The canonical emitters read PARAM_BASE (the @id stem) and CFG["prefix"] (the registry
+        # $def key) from build_tapp module state, which configure() sets per TECHNIQUE. A module is
+        # not a technique, so stand in for that state across the call and restore it after.
+        saved_base, saved_cfg = bt.PARAM_BASE, bt.CFG
+        bt.PARAM_BASE = "ada:parameter/module/%s" % module
+        bt.CFG = {"prefix": "module"}
+        try:
+            emit = bt.param_template_def if side == "Procedure" else bt.param_value_def
+            _key, block = emit(b, None)
+        finally:
+            bt.PARAM_BASE, bt.CFG = saved_base, saved_cfg
+        out["Param_%s_%s" % (side, vname)] = next(iter(block.values()))
+    return out
+
+
 def write_examples(d, name, doc):
     import jsonschema
     ex, problems = [], []
     for defname, sub in doc["$defs"].items():
+        if defname.startswith("Param_"):
+            continue          # a published parameter branch, not an instance shape
         inst = _sample(sub)
-        errs = list(jsonschema.Draft202012Validator(
-            {"$schema": "https://json-schema.org/draft/2020-12/schema", **sub}).iter_errors(inst))
+        # A module $def may $ref a sibling building block by relative path
+        # (../../geochemProduct/schema.yaml#/$defs/UsedComputationalTool). jsonschema cannot follow
+        # a relative FILE ref - it falls back to urllib and raises Unresolvable - so the sample is
+        # checked against the module's own constraints and any cross-BB ref is left to the resolved
+        # schema, which is where those refs are inlined and where CI checks them. Reporting an
+        # unresolvable ref as an example PROBLEM would be reporting a limitation of this check.
+        try:
+            errs = list(jsonschema.Draft202012Validator(
+                {"$schema": "https://json-schema.org/draft/2020-12/schema", **sub}).iter_errors(inst))
+        except Exception as e:
+            if "Unresolvable" not in type(e).__name__ and "Unresolvable" not in str(e):
+                raise
+            errs = []
+            problems.append((defname, "not checked here: cross-BB $ref (%s)" % str(e)[-60:]))
         if errs:
             problems.append((defname, errs[0].message[:120]))
         side = "procedure" if defname.startswith("Procedure") else "analysis"
@@ -355,6 +442,8 @@ _TARGET = {"ProcedureIdentification": "https://ada.astromat.org/metadata/TAPPDef
 def write_shacl(d, name, doc, stats):
     body = [_SHACL_HEAD]
     for defname, sub in doc["$defs"].items():
+        if defname.startswith("Param_"):
+            continue          # published parameter branch: no target class, no sample
         # top-level containers implied by this side's Basic fields, so a module whose required
         # field is nested still yields a real shape rather than none
         root = "MethodDefinition" if defname.startswith("Procedure") else "Dataset"
@@ -390,6 +479,8 @@ def write_description(d, name, doc, stats, composed_by):
              "`adaProduct`.", "", "## The two `$defs`", "",
              "| `$def` | composed into | properties | required |", "|---|---|---|---|"]
     for defname, sub in doc["$defs"].items():
+        if defname.startswith("Param_"):
+            continue          # published parameter branch: no target class, no sample
         into = "a TAPP schema (`prov:Plan`)" if defname.startswith("Procedure") \
             else "a technique detail (`schema:Dataset`)"
         lines.append(f"| `{defname}` | {into} | {len(sub.get('properties') or {})} | "
@@ -403,7 +494,7 @@ def write_description(d, name, doc, stats, composed_by):
         lines += [f"- {u}" for u in stats["unplaced"]] + [""]
     lines += ["## Composing it", "", "```yaml", "allOf:",
               "- $ref: ../../../BaseSchema/tappDefinition/schema.yaml",
-              f"- $ref: ../../../BaseSchema/modules/{DIRNAME.get(name, name.lower())}/schema.yaml"
+              f"- $ref: ../../../BaseSchema/modules/{dirname(name)}/schema.yaml"
               "#/$defs/ProcedureIdentification", "- type: object",
               "  properties: {}   # only what this technique itself owns", "```", "",
               "`allOf` composes constraints and cannot relax them: a technique composing this "
@@ -439,6 +530,21 @@ def main():
             print(f"{name:<22s} skipped (composed by no table in the manifest)")
             continue
         whole, stats = build_schema(name)
+        if not whole and stats.get("param_defs"):
+            # Every placement is a parameter, so there is no root $def to build - but the module
+            # still has something to publish. Blank and CalibrationFactor are entirely this: one
+            # field each, both parameters. Reporting them as "unplaced" conflated them with
+            # Geochronology/UPb, whose fields have no placement anywhere; these have placements
+            # that a module cannot CONSTRAIN, only publish.
+            print(f"{name:<22s} parameters only — {len(stats['param_defs'])} published, "
+                  f"no root $def (a module cannot constrain schema:additionalProperty)")
+            doc = render(name, {}, stats, usage[name])
+            doc.setdefault("$defs", {}).update(stats["param_defs"])
+            if a.write:
+                d = write_bb(name, doc, stats, usage[name])
+                write_description(d, name, doc, stats, usage[name])
+                print(f"{'':22s} wrote {os.path.relpath(d, ROOT)}")
+            continue
         if not whole:
             print(f"{name:<22s} CANNOT GENERATE — all {stats['fields']} fields unplaced "
                   f"({', '.join(stats['unplaced'][:4])}{'…' if len(stats['unplaced']) > 4 else ''})")
@@ -464,6 +570,10 @@ def main():
             defs[key] = (r, sch, f"{name} (all blocks)" if blocks else name)
 
         doc = render(name, defs, stats, usage[name])
+        # Published for a technique to union into its own parameter anyOf. Added AFTER render so
+        # they bypass the root->$def mapping, which only knows MethodDefinition/Dataset.
+        if stats.get("param_defs"):
+            doc.setdefault("$defs", {}).update(stats["param_defs"])
         halves = ", ".join(defs)
         print(f"{name:<22s} {stats['fields']:2d} fields, {stats['placed']:2d} paths -> {halves}"
               f"{'   unplaced: ' + ', '.join(stats['unplaced']) if stats['unplaced'] else ''}")
