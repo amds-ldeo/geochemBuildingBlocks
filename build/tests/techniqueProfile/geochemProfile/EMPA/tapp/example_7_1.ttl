@@ -29,13 +29,6 @@ ex:empaTAPP-P6 a cdi:Activity,
     schema1:instrument [ a schema1:Product,
                 schema1:Thing ;
             schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
                 "EPMA" ;
             schema1:hasPart [ a schema1:Product,
                         schema1:Thing ;
@@ -60,7 +53,14 @@ ex:empaTAPP-P6 a cdi:Activity,
             schema1:manufacturer [ a schema1:Organization ;
                     schema1:name "JEOL" ] ;
             schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ] ;
+            ada:acceleratingVoltageDefault "15 kV" ],
+        [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+                "SEM" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")" ] ;
+            schema1:name "example instrumentName" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
