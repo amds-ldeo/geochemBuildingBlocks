@@ -27,6 +27,7 @@ $defs:
                 schema:additionalType:
                   contains:
                     const: Laser Ablation System
+                  schema:inDefinedTermSet: ada:vocab/instrumentType
               required:
               - schema:additionalType
             then:
@@ -96,6 +97,7 @@ $defs:
               schema:additionalType:
                 contains:
                   const: Laser Ablation System
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
         x-jsonld-id: http://schema.org/instrument
@@ -171,6 +173,7 @@ $defs:
                                   schema:additionalType:
                                     contains:
                                       const: Laser Ablation System
+                                    schema:inDefinedTermSet: ada:vocab/instrumentType
                                 required:
                                 - schema:additionalType
                               then:
@@ -259,6 +262,367 @@ $defs:
         x-jsonld-id: https://ada.astromat.org/metadata/spotDiameterMeasured
     required:
     - ada:spotDiameterMeasured
+  Param_Analysis_preAblationSurfaceTreatment:
+    title: Pre Ablation Surface Treatment
+    description: Procedure applied immediately before each analysis to remove surface
+      contamination or condition the sample surface. Distinct from general sample
+      preparation. For spot analysis, pre-ablation pulses are discarded before signal
+      acquisition begins. For mapping, this step is typically omitted as the large
+      area ablated averages out surface effects.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/preAblationSurfaceTreatment
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/module/LaserAblation/preAblationSurfaceTreatment
+        x-jsonld-id: http://schema.org/propertyID
+      schema:name:
+        const: Pre Ablation Surface Treatment
+        x-jsonld-id: http://schema.org/name
+      schema:value:
+        type: string
+        x-jsonld-id: http://schema.org/value
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  Param_Procedure_preAblationSurfaceTreatment:
+    title: Pre Ablation Surface Treatment
+    description: Procedure applied immediately before each analysis to remove surface
+      contamination or condition the sample surface. Distinct from general sample
+      preparation. For spot analysis, pre-ablation pulses are discarded before signal
+      acquisition begins. For mapping, this step is typically omitted as the large
+      area ablated averages out surface effects.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAblationSurfaceTreatmentDefault
+        x-jsonld-id: http://schema.org/valueName
+      schema:name:
+        const: Pre Ablation Surface Treatment
+        x-jsonld-id: http://schema.org/name
+      ada:dataType:
+        const: string
+        x-jsonld-id: https://ada.astromat.org/metadata/dataType
+      ada:fieldScope:
+        const: session
+        x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
+      schema:readonlyValue:
+        const: false
+        x-jsonld-id: http://schema.org/readonlyValue
+      ada:tier:
+        const: R
+        x-jsonld-id: https://ada.astromat.org/metadata/tier
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  Param_Analysis_laserEnergy:
+    title: Laser Energy
+    description: "Laser pulse energy in millijoules as set at the laser output or
+      measured at the sample surface. Less commonly reported than fluence because
+      it does not account for spot area. Report only when the system displays energy
+      directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
+      in Default Laser Fluence."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/laserEnergy
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/module/LaserAblation/laserEnergy
+        x-jsonld-id: http://schema.org/propertyID
+      schema:name:
+        const: Laser Energy
+        x-jsonld-id: http://schema.org/name
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+        x-jsonld-id: http://schema.org/value
+      schema:unitText:
+        type: string
+        x-jsonld-id: http://schema.org/unitText
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  Param_Procedure_laserEnergy:
+    title: Laser Energy
+    description: "Laser pulse energy in millijoules as set at the laser output or
+      measured at the sample surface. Less commonly reported than fluence because
+      it does not account for spot area. Report only when the system displays energy
+      directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
+      in Default Laser Fluence."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/laserEnergyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: laserEnergyDefault
+        x-jsonld-id: http://schema.org/valueName
+      schema:name:
+        const: Laser Energy
+        x-jsonld-id: http://schema.org/name
+      ada:dataType:
+        const: number
+        x-jsonld-id: https://ada.astromat.org/metadata/dataType
+      ada:fieldScope:
+        const: session
+        x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
+      schema:readonlyValue:
+        const: false
+        x-jsonld-id: http://schema.org/readonlyValue
+      ada:tier:
+        const: R
+        x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:unitText:
+        const: mJ
+        x-jsonld-id: http://schema.org/unitText
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  Param_Procedure_laserBeamEnergyProfile:
+    title: Laser Beam Energy Profile
+    description: Spatial energy distribution of the laser beam at the sample surface,
+      and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces
+      more uniform ablation craters and more reproducible crater morphology than a
+      Gaussian beam. This is a fixed hardware property of the laser system.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/laserBeamEnergyProfile
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: laserBeamEnergyProfile
+        x-jsonld-id: http://schema.org/valueName
+      schema:name:
+        const: Laser Beam Energy Profile
+        x-jsonld-id: http://schema.org/name
+      ada:dataType:
+        const: string
+        x-jsonld-id: https://ada.astromat.org/metadata/dataType
+      ada:fieldScope:
+        const: session
+        x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
+      schema:readonlyValue:
+        const: true
+        x-jsonld-id: http://schema.org/readonlyValue
+      ada:tier:
+        const: R
+        x-jsonld-id: https://ada.astromat.org/metadata/tier
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  Param_Procedure_laserPulseDuration:
+    title: Laser Pulse Duration
+    description: 'Duration of each individual laser pulse, including units. Pulse
+      duration determines the ablation regime: nanosecond (ns) pulses involve significant
+      thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal
+      and substantially reduce elemental fractionation and matrix effects. This is
+      a fixed hardware property of the laser system.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/laserPulseDuration
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: laserPulseDuration
+        x-jsonld-id: http://schema.org/valueName
+      schema:name:
+        const: Laser Pulse Duration
+        x-jsonld-id: http://schema.org/name
+      ada:dataType:
+        const: string
+        x-jsonld-id: https://ada.astromat.org/metadata/dataType
+      ada:fieldScope:
+        const: session
+        x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
+      schema:readonlyValue:
+        const: true
+        x-jsonld-id: http://schema.org/readonlyValue
+      ada:tier:
+        const: R
+        x-jsonld-id: https://ada.astromat.org/metadata/tier
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  Param_Analysis_transectRateMappingRateOrStepSize:
+    title: Transect Rate Mapping Rate or Step Size
+    description: "For continuous line scan (transect) and raster mapping: the stage
+      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
+      that, together with spot size and repetition rate, determines spatial resolution
+      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
+      may be reported as an alternative when scan speed is session-variable. For stepped
+      line profiles: the distance between successive spot positions in \xB5m."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize
+        x-jsonld-id: http://schema.org/propertyID
+      schema:name:
+        const: Transect Rate Mapping Rate or Step Size
+        x-jsonld-id: http://schema.org/name
+      schema:value:
+        type: string
+        x-jsonld-id: http://schema.org/value
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  Param_Procedure_transectRateMappingRateOrStepSize:
+    title: Transect Rate Mapping Rate or Step Size
+    description: "For continuous line scan (transect) and raster mapping: the stage
+      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
+      that, together with spot size and repetition rate, determines spatial resolution
+      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
+      may be reported as an alternative when scan speed is session-variable. For stepped
+      line profiles: the distance between successive spot positions in \xB5m."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: transectRateMappingRateOrStepSizeDefault
+        x-jsonld-id: http://schema.org/valueName
+      schema:name:
+        const: Transect Rate Mapping Rate or Step Size
+        x-jsonld-id: http://schema.org/name
+      ada:dataType:
+        const: string
+        x-jsonld-id: https://ada.astromat.org/metadata/dataType
+      ada:fieldScope:
+        const: session
+        x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
+      schema:readonlyValue:
+        const: false
+        x-jsonld-id: http://schema.org/readonlyValue
+      ada:tier:
+        const: R
+        x-jsonld-id: https://ada.astromat.org/metadata/tier
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  Param_Analysis_transectLength:
+    title: Transect Length
+    description: Total length of the transect line analysed in micrometres. This is
+      an analysis-level parameter because it depends on the size of the feature of
+      interest rather than being fixed in the procedure. The procedure fixes scan
+      speed (captured in Transect Rate, Mapping Rate or Step Size); transect length
+      is determined at analysis time based on grain or feature size.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/transectLength
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/module/LaserAblation/transectLength
+        x-jsonld-id: http://schema.org/propertyID
+      schema:name:
+        const: Transect Length
+        x-jsonld-id: http://schema.org/name
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+        x-jsonld-id: http://schema.org/value
+      schema:unitText:
+        type: string
+        x-jsonld-id: http://schema.org/unitText
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  Param_Analysis_mappedAreaDescription:
+    title: Mapped area description
+    description: "Location of the analysis on the sample surface. For spot and transect
+      analysis: stage coordinates (X, Y in \xB5m) or a description relative to a named
+      reference feature (e.g., mineral rim, inclusion boundary). For mapping: coordinates
+      of the map corner(s) or centre, plus map dimensions. Enables spatial reconstruction
+      and co-registration with other analytical images."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/module/LaserAblation/mappedAreaDescription
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/module/LaserAblation/mappedAreaDescription
+        x-jsonld-id: http://schema.org/propertyID
+      schema:name:
+        const: Mapped area description
+        x-jsonld-id: http://schema.org/name
+      schema:value:
+        type: string
+        x-jsonld-id: http://schema.org/value
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
 x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
   prov: http://www.w3.org/ns/prov#

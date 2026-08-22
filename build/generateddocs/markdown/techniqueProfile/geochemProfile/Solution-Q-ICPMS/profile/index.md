@@ -193,7 +193,8 @@ and technique component types on the archive distribution. Mock data for validat
               "schema:name": "Example ADA Instrument",
               "schema:identifier": [
                 "ex:instrument-ada-001"
-              ]
+              ],
+              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
             }
           ]
         }
@@ -266,6 +267,23 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
+      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -420,14 +438,6 @@ and technique component types on the archive distribution. Mock data for validat
     {
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "example oxideProduction"
-    },
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }

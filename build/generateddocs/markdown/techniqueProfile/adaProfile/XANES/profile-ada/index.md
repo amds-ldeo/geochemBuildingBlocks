@@ -236,7 +236,8 @@ Mock data for validation and testing.
               "schema:name": "Example XANES Instrument",
               "schema:identifier": [
                 "ex:instrument-xanes-001"
-              ]
+              ],
+              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
             }
           ]
         }
@@ -652,7 +653,8 @@ Mock data for validation and testing.
               "schema:name": "Example XANES Instrument",
               "schema:identifier": [
                 "ex:instrument-xanes-001"
-              ]
+              ],
+              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
             }
           ]
         }
@@ -976,13 +978,7 @@ ex:adaXANES-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument [ a schema1:Product,
-                                schema1:Thing ;
-                            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                                "ada:XANESInstrument",
-                                "nxs:BaseClass/NXinstrument" ;
-                            schema1:identifier "ex:instrument-xanes-001" ;
-                            schema1:name "Example XANES Instrument" ] ] ] .
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] .
 
 ex:adaXANES-file-001 a schema1:ImageObject,
         schema1:MediaObject,
@@ -1053,6 +1049,14 @@ ex:adaXANES-var-002 a cdi:InstanceVariable,
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/position_x" ;
     schema1:unitText "micrometer" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
+
+<https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ada:XANESInstrument",
+        "nxs:BaseClass/NXinstrument" ;
+    schema1:identifier "ex:instrument-xanes-001" ;
+    schema1:name "Example XANES Instrument" .
 
 
 ```

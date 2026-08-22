@@ -34,39 +34,8 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
             schema1:name "Mittlefehldt" ] ;
     schema1:datePublished "missing" ;
     schema1:description "Many instrument parameters lost during extended lab shutdown; 75 µm spot size in medium resolution mode on sector-field ICP-MS is unusual combination for olivine trace elements; 25 Mg IS from EPMA is standard approach" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "New Wave UP-193 (solid state, 193 nm)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserSpotGeometryDefault "75 µm circular" ;
-            ada:laserType "193 nm solid-state (New Wave UP-193)" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS",
-                "Single-collector sector-field (SF-ICP-MS)" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -147,7 +116,7 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
     ada:secondaryReferenceMaterialDefault "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)" ;
     ada:signalIntegrationIntervalMethod "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "Excel spreadsheets developed by C.-T. A. Lee (Rice University)" ;
             ada:toolRole "dataReduction" ] .
@@ -245,6 +214,47 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
     schema1:valueName "spikeOutlierFilteringApproachDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector sector-field (SF-ICP-MS)" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "New Wave UP-193 (solid state, 193 nm)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:laserSpotGeometryDefault "75 µm circular" ;
+    ada:laserType "193 nm solid-state (New Wave UP-193)" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
     schema1:name "Multi-Run Sequential Analysis Design" ;

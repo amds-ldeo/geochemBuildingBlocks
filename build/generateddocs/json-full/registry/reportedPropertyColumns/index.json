@@ -1,0 +1,42 @@
+
+
+{
+  "itemIdentifier": "ogch.registry.reportedPropertyColumns",
+  "$schema": "metaschema.yaml",
+  "name": "Reported-Property-Column Specification Registry",
+  "abstract": "Registry of reusable schema:PropertyValueSpecification reported-property column definitions derived from technique TAPP workbooks. Each $def constrains one column of the reported-property table -- the variables a procedure REPORTS, as distinct from the analytes and channels it acquires. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the register.",
+  "isTypeLibrary": true,
+  "status": "under-development",
+  "dateTimeAddition": "2026-08-13T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-08-22",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "tapp",
+    "reportedPropertyColumn",
+    "registry"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {},
+  "schema": {
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/reportedPropertyColumns/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/reportedPropertyColumns/schema.json"
+  },
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/registry/reportedPropertyColumns/schema.yaml",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/registry/reportedPropertyColumns/",
+  "validationPassed": true,
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA Reported-Property Column Specification Registry\ndescription: Registry of reusable schema:PropertyValueSpecification reported-property\n  column definitions derived from technique TAPP workbooks. Each $def constrains one\n  column of the reported-property table -- the variables a procedure REPORTS, as distinct\n  from the analytes and channels it acquires. TAPP building blocks reference these\n  definitions via fragment $refs so they resolve locally through the building-block\n  register. The root only hosts $defs; it has no instantiable properties of its own.\ntype: object\n$defs:\n  laMcicpms_detectionLimitMethod:\n    title: Detection Limit Method\n    description: Reference or description of the method used to calculate session\n      detection limits. Mandatory at analysis level. Must be consistent with the method\n      applied to generate the Detection Limit values reported above.\n    type: object\n    properties:\n      '@id':\n        const: ada:reportedPropertyColumn/laMcicpmsTAPP/detectionLimitMethod\n      '@type':\n        const:\n        - schema:PropertyValueSpecification\n      schema:valueName:\n        const: detectionLimitMethod\n      schema:name:\n        const: Detection Limit Method\n      ada:dataType:\n        const: uri\n      schema:readonlyValue:\n        const: true\n      ada:tier:\n        const: M\n      schema:defaultValue:\n        type: string\n    required:\n    - '@id'\n    - '@type'\n    - schema:valueName\n    - schema:name\n    - ada:dataType\n    - schema:defaultValue\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/registry/reportedPropertyColumns"
+}

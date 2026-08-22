@@ -14,6 +14,12 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
                     schema1:name "Sample preparation" ;
@@ -22,13 +28,7 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAdditionDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -37,45 +37,8 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     schema1:description "Analysis of quenched experimental glasses from high-pressure (1 GPa) piston-cylinder experiments; Au and Cu solubility measurements; smooth time-resolved signals indicate fully dissolved Au (no micronuggets)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ] ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)" ] ;
-            schema1:name "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)" ;
-            ada:laserFluenceDefault "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")" ;
-            ada:laserRepetitionRateDefault "7 Hz" ;
-            ada:laserSpotGeometryDefault "40 µm circular (silicate glass)" ;
-            ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -139,7 +102,7 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "Time-resolved LA-ICP-MS signal inspected; micronuggets identified from spikes in Au signal and excluded from integration to obtain smooth signals (verified by Fig. 1 in paper)" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
@@ -242,6 +205,55 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     schema1:valueName "spikeOutlierFilteringApproachDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)" ] ;
+    schema1:name "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)" ;
+    ada:laserFluenceDefault "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")" ;
+    ada:laserRepetitionRateDefault "7 Hz" ;
+    ada:laserSpotGeometryDefault "40 µm circular (silicate glass)" ;
+    ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
     schema1:name "Multi-Run Sequential Analysis Design" ;

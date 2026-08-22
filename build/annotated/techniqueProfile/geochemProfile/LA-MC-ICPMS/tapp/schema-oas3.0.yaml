@@ -1441,6 +1441,16 @@ x-defs:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
     - type: object
       properties:
+        '@id':
+          description: 'Identifier for this instrument within the record. REQUIRED:
+            an instrument has to be referenceable. A monitored species names the instrument
+            (or the instrument part) that reports it, and a dataset variable points
+            back at the device that produced it; neither is expressible while the
+            instrument is an anonymous object. A document-scoped identifier suffices,
+            but a resolvable one is better wherever the lab has a persistent identifier
+            for the device.'
+          type: string
+          minLength: 1
         schema:additionalType:
           description: 'Domain-specific instrument type classifications. Should include
             a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific
@@ -1487,10 +1497,21 @@ x-defs:
             anyOf:
             - type: object
               required:
+              - '@id'
               - '@type'
               - schema:name
               - schema:additionalType
               properties:
+                '@id':
+                  description: 'Identifier for this component within the record. REQUIRED
+                    on an INLINE component for the same reason it is required on the
+                    instrument: a monitored species names the part that reports it
+                    -- a Faraday cup, a spectrometer, a detector -- and an anonymous
+                    object cannot be referenced. The sibling branch of this anyOf
+                    is the by-reference form, a bare {"@id": ...} pointing at a component
+                    described elsewhere.'
+                  type: string
+                  minLength: 1
                 '@type':
                   type: array
                   items:
@@ -1528,6 +1549,7 @@ x-defs:
                   type: string
           x-jsonld-id: http://schema.org/hasPart
       required:
+      - '@id'
       - schema:additionalType
     x-jsonld-prefixes:
       schema: http://schema.org/
@@ -2916,6 +2938,7 @@ allOf:
                 contains:
                   enum:
                   - Laser Ablation System
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -3148,6 +3171,7 @@ allOf:
                 contains:
                   enum:
                   - ICPMS
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -3163,6 +3187,7 @@ allOf:
                           contains:
                             enum:
                             - ICP Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -3500,6 +3525,7 @@ allOf:
                           contains:
                             enum:
                             - Collision Reaction Cell
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -3940,6 +3966,7 @@ allOf:
                           contains:
                             enum:
                             - Collector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -3971,20 +3998,23 @@ allOf:
                                   - ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValue
-                                schema:propertyID:
+                                  - - schema:PropertyValueSpecification
+                                schema:valueName:
                                   enum:
-                                  - - '@id': ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
+                                  - faradayCupAmplifierResistorValues
                                 schema:name:
                                   enum:
                                   - Faraday Cup Amplifier Resistor Values
                                 ada:dataType:
                                   enum:
                                   - string
+                                schema:readonlyValue:
+                                  enum:
+                                  - true
                                 ada:tier:
                                   enum:
                                   - M
-                                schema:value:
+                                schema:defaultValue:
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -3993,10 +4023,10 @@ allOf:
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
                               - ada:dataType
-                              - schema:value
+                              - schema:defaultValue
                             - title: Faraday Cup Gain Calibration Method
                               description: 'Method used to calibrate the relative
                                 gain (amplification factor) of each Faraday cup amplifier
@@ -4017,20 +4047,23 @@ allOf:
                                   - ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValue
-                                schema:propertyID:
+                                  - - schema:PropertyValueSpecification
+                                schema:valueName:
                                   enum:
-                                  - - '@id': ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
+                                  - faradayCupGainCalibrationMethod
                                 schema:name:
                                   enum:
                                   - Faraday Cup Gain Calibration Method
                                 ada:dataType:
                                   enum:
                                   - string
+                                schema:readonlyValue:
+                                  enum:
+                                  - true
                                 ada:tier:
                                   enum:
                                   - M
-                                schema:value:
+                                schema:defaultValue:
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -4039,10 +4072,10 @@ allOf:
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
                               - ada:dataType
-                              - schema:value
+                              - schema:defaultValue
                             - title: Integration Time per Cycle
                               description: "Duration of signal integration per measurement
                                 cycle (seconds). Determines counting statistics per
@@ -4105,20 +4138,23 @@ allOf:
                                   - ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValue
-                                schema:propertyID:
+                                  - - schema:PropertyValueSpecification
+                                schema:valueName:
                                   enum:
-                                  - - '@id': ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+                                  - interferenceCorrectionMethod
                                 schema:name:
                                   enum:
                                   - Interference Correction Method
                                 ada:dataType:
                                   enum:
                                   - string
+                                schema:readonlyValue:
+                                  enum:
+                                  - true
                                 ada:tier:
                                   enum:
                                   - M
-                                schema:value:
+                                schema:defaultValue:
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -4127,10 +4163,10 @@ allOf:
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
                               - ada:dataType
-                              - schema:value
+                              - schema:defaultValue
                             - title: Interfering Species
                               description: Elemental or molecular species (oxides,
                                 argides, doubly charged ions) overlapping with the
@@ -4142,20 +4178,23 @@ allOf:
                                   - ada:channelColumn/laMcicpmsTAPP/interferingSpecies
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValue
-                                schema:propertyID:
+                                  - - schema:PropertyValueSpecification
+                                schema:valueName:
                                   enum:
-                                  - - '@id': ada:channelColumn/laMcicpmsTAPP/interferingSpecies
+                                  - interferingSpecies
                                 schema:name:
                                   enum:
                                   - Interfering Species
                                 ada:dataType:
                                   enum:
                                   - string
+                                schema:readonlyValue:
+                                  enum:
+                                  - true
                                 ada:tier:
                                   enum:
                                   - M
-                                schema:value:
+                                schema:defaultValue:
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -4164,10 +4203,10 @@ allOf:
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
                               - ada:dataType
-                              - schema:value
+                              - schema:defaultValue
                             - title: Ion Counter Dead Time
                               description: Dead time of each ion-counting detector
                                 channel, used in the dead-time correction applied
@@ -4228,20 +4267,23 @@ allOf:
                                   - ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValue
-                                schema:propertyID:
+                                  - - schema:PropertyValueSpecification
+                                schema:valueName:
                                   enum:
-                                  - - '@id': ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment
+                                  - massResolutionAssignment
                                 schema:name:
                                   enum:
                                   - Mass Resolution Assignment
                                 ada:dataType:
                                   enum:
                                   - string
+                                schema:readonlyValue:
+                                  enum:
+                                  - true
                                 ada:tier:
                                   enum:
                                   - M
-                                schema:value:
+                                schema:defaultValue:
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -4250,10 +4292,10 @@ allOf:
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
                               - ada:dataType
-                              - schema:value
+                              - schema:defaultValue
                           allOf:
                           - contains:
                               title: Faraday Cup Amplifier Resistor Values
@@ -4273,20 +4315,23 @@ allOf:
                                   - ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValue
-                                schema:propertyID:
+                                  - - schema:PropertyValueSpecification
+                                schema:valueName:
                                   enum:
-                                  - - '@id': ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
+                                  - faradayCupAmplifierResistorValues
                                 schema:name:
                                   enum:
                                   - Faraday Cup Amplifier Resistor Values
                                 ada:dataType:
                                   enum:
                                   - string
+                                schema:readonlyValue:
+                                  enum:
+                                  - true
                                 ada:tier:
                                   enum:
                                   - M
-                                schema:value:
+                                schema:defaultValue:
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -4295,10 +4340,10 @@ allOf:
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
                               - ada:dataType
-                              - schema:value
+                              - schema:defaultValue
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -4322,20 +4367,23 @@ allOf:
                                   - ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValue
-                                schema:propertyID:
+                                  - - schema:PropertyValueSpecification
+                                schema:valueName:
                                   enum:
-                                  - - '@id': ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
+                                  - faradayCupGainCalibrationMethod
                                 schema:name:
                                   enum:
                                   - Faraday Cup Gain Calibration Method
                                 ada:dataType:
                                   enum:
                                   - string
+                                schema:readonlyValue:
+                                  enum:
+                                  - true
                                 ada:tier:
                                   enum:
                                   - M
-                                schema:value:
+                                schema:defaultValue:
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -4344,10 +4392,10 @@ allOf:
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
                               - ada:dataType
-                              - schema:value
+                              - schema:defaultValue
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -4416,20 +4464,23 @@ allOf:
                                   - ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValue
-                                schema:propertyID:
+                                  - - schema:PropertyValueSpecification
+                                schema:valueName:
                                   enum:
-                                  - - '@id': ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+                                  - interferenceCorrectionMethod
                                 schema:name:
                                   enum:
                                   - Interference Correction Method
                                 ada:dataType:
                                   enum:
                                   - string
+                                schema:readonlyValue:
+                                  enum:
+                                  - true
                                 ada:tier:
                                   enum:
                                   - M
-                                schema:value:
+                                schema:defaultValue:
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -4438,10 +4489,10 @@ allOf:
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
                               - ada:dataType
-                              - schema:value
+                              - schema:defaultValue
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -4456,20 +4507,23 @@ allOf:
                                   - ada:channelColumn/laMcicpmsTAPP/interferingSpecies
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValue
-                                schema:propertyID:
+                                  - - schema:PropertyValueSpecification
+                                schema:valueName:
                                   enum:
-                                  - - '@id': ada:channelColumn/laMcicpmsTAPP/interferingSpecies
+                                  - interferingSpecies
                                 schema:name:
                                   enum:
                                   - Interfering Species
                                 ada:dataType:
                                   enum:
                                   - string
+                                schema:readonlyValue:
+                                  enum:
+                                  - true
                                 ada:tier:
                                   enum:
                                   - M
-                                schema:value:
+                                schema:defaultValue:
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -4478,10 +4532,10 @@ allOf:
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
                               - ada:dataType
-                              - schema:value
+                              - schema:defaultValue
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -4548,20 +4602,23 @@ allOf:
                                   - ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValue
-                                schema:propertyID:
+                                  - - schema:PropertyValueSpecification
+                                schema:valueName:
                                   enum:
-                                  - - '@id': ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment
+                                  - massResolutionAssignment
                                 schema:name:
                                   enum:
                                   - Mass Resolution Assignment
                                 ada:dataType:
                                   enum:
                                   - string
+                                schema:readonlyValue:
+                                  enum:
+                                  - true
                                 ada:tier:
                                   enum:
                                   - M
-                                schema:value:
+                                schema:defaultValue:
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -4570,10 +4627,10 @@ allOf:
                               required:
                               - '@id'
                               - '@type'
-                              - schema:propertyID
+                              - schema:valueName
                               - schema:name
                               - ada:dataType
-                              - schema:value
+                              - schema:defaultValue
                             minContains: 0
                             maxContains: 1
                         schema:additionalProperty:
@@ -4653,6 +4710,7 @@ allOf:
                           contains:
                             enum:
                             - Interface Cone
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -4788,6 +4846,7 @@ allOf:
                           contains:
                             enum:
                             - Torch
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -4896,6 +4955,7 @@ allOf:
                         contains:
                           enum:
                           - ICP Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -4904,6 +4964,7 @@ allOf:
                         contains:
                           enum:
                           - Collision Reaction Cell
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -4912,6 +4973,7 @@ allOf:
                         contains:
                           enum:
                           - Collector
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -4920,6 +4982,7 @@ allOf:
                         contains:
                           enum:
                           - Interface Cone
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
               schema:additionalProperty:
@@ -5464,6 +5527,7 @@ allOf:
               contains:
                 enum:
                 - Laser Ablation System
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
       - contains:
@@ -5472,6 +5536,7 @@ allOf:
               contains:
                 enum:
                 - ICPMS
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     ada:ablationSpotDurationDefault:
@@ -8130,6 +8195,21 @@ allOf:
       type: array
       items:
         anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
         - title: Calibration Factor and Determination Method
           description: 'An externally-calibrated factor that converts the measured
             quantity into the reported quantity, how it was determined, and its uncertainty.
@@ -8221,6 +8301,7 @@ allOf:
             '@type':
               enum:
               - - schema:PropertyValue
+                - cdi:InstanceVariable
             schema:propertyID:
               enum:
               - - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
@@ -8484,6 +8565,7 @@ allOf:
             '@type':
               enum:
               - - schema:PropertyValue
+                - cdi:InstanceVariable
             schema:propertyID:
               enum:
               - - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod

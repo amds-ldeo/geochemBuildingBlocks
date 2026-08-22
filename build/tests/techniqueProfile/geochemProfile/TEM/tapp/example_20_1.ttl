@@ -15,8 +15,8 @@ ex:temTAPP-Mo2022 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
@@ -27,61 +27,16 @@ ex:temTAPP-Mo2022 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "HAADF-STEM detector; DF TEM detector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Unknown" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "FEI Talos F200X" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Suzhou Institute of Nano-tech and Nano-bionics (SINANO), Chinese Academy of Sciences, Suzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "STEM" ] ;
+            schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Mo2022" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -124,4 +79,72 @@ ex:temTAPP-Mo2022 a cdi:Activity,
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "FEI/Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "FEI Talos F200X" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "HAADF-STEM detector; DF TEM detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 

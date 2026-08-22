@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol \u2014 Zega2025-9",
-  "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <\u00d7500 to minimize hotspot effect Reported detail: ada:analyticalMode = Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging.",
+  "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <\u00d7500 to minimize hotspot effect",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -125,7 +125,7 @@
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -135,6 +135,7 @@
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -143,12 +144,13 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -156,12 +158,13 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "ada:acceleratingVoltageDefault": "5 keV",
@@ -169,9 +172,11 @@
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     },
     {
+      "@id": "ex:instrument/FIBSEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -195,13 +200,14 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
         }
       ]
     }
   ],
   "ada:analyticalMode": [
-    "CL"
+    "Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -209,7 +215,7 @@
         "schema:DefinedTerm"
       ],
       "schema:name": "semFibsem",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semFibsem"
     }
   ],
   "ada:dwellTimePerPixelDefault": -9999,

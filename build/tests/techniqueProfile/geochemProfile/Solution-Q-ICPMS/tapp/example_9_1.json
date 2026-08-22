@@ -1,0 +1,558 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:solutionQicpmsTAPP-P8",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "solutionQicpms protocol \u2014 P8",
+  "schema:description": "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v34.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution Q-ICP-MS (triple-quadrupole platform)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Institute of Science Tokyo"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Carbonaceous asteroid particles (Ryugu, Hayabusa2 TD1) and the Allende chondrite"
+          ]
+        },
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 1.478,
+          "schema:description": "1.478-4.325 mg per particle; 4-10% aliquot taken for Group-1"
+        }
+      ]
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
+              }
+            ],
+            "schema:name": "Isotope Dilution Data Reduction Method",
+            "schema:value": "ID-IS method of Kagami and Yokoyama (2021); isotope dilution for Ti, Zr, Mo, Hf and W"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      },
+      {
+        "schema:name": "Sample digestion",
+        "bios:reagent": [
+          {
+            "schema:name": "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionVesselType",
+            "schema:name": "Digestion Vessel Type",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "PFA hexagonal cap vials (6 mL, Savillex), tightly capped with polypropylene wrenches to maintain high-pressure conditions"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "numberOfDigestionSteps",
+            "schema:name": "Number of Digestion Steps",
+            "ada:dataType": "integer",
+            "ada:fieldScope": "session",
+            "schema:value": "Four heating stages are described"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionTemperatureDefault",
+            "schema:name": "Digestion Temperature",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 120,
+            "schema:description": "120 C, then 220 C, then 100 C; second stage 150 C; final 80 C"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionDurationDefault",
+            "schema:name": "Digestion Duration",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "3 h ultrasonic agitation, 12 h at 120 C, 5 days at 220 C, 1 day at 150 C, 1 day at 80 C"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:finalSolutionMatrix": "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF",
+  "ada:isotopeDilutionSpike": "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "ICPMS",
+        "Triple quadrupole (ICP-MS/MS)",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "iCAP TQ",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "KED (kinetic energy discrimination, He gas)",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
+                }
+              ],
+              "schema:name": "Collision Gas Type",
+              "schema:value": "He"
+            },
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
+                }
+              ],
+              "schema:name": "Reaction Gas Type",
+              "schema:value": "N/A \u2014 KED only"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Sample Introduction System",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "54 elements: Li",
+      "Be",
+      "Sc",
+      "Ga",
+      "As",
+      "Se",
+      "Rb",
+      "Sr",
+      "Y",
+      "Ag",
+      "Cd",
+      "In",
+      "Cs",
+      "Ba",
+      "La-Lu",
+      "Tl",
+      "Pb",
+      "Bi",
+      "Th",
+      "U",
+      "Na",
+      "Mg",
+      "Al",
+      "P",
+      "K",
+      "Ca",
+      "V",
+      "Cr",
+      "Mn",
+      "Fe",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ti",
+      "Zr",
+      "Nb",
+      "Hf",
+      "Ta",
+      "Mo",
+      "W"
+    ],
+    "ada:analyteColumns": [
+      {
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimit",
+        "schema:name": "Detection Limit",
+        "ada:dataType": "number"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimitMethod",
+        "schema:name": "Detection Limit Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "limitOfQuantificationMethod",
+        "schema:name": "Limit of Quantification (LOQ) Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:channelTemplate": {
+    "ada:defaultChannels": [
+      "54 elements measured in three groups: Group-1 trace elements",
+      "Group-2 major and minor elements",
+      "Group-3 HFSE plus Mo and W"
+    ],
+    "ada:channelColumns": [
+      {
+        "schema:valueName": "channel",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:internalStandardElement": "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta",
+  "ada:perAnalyteCalibrationStrategy": [
+    "N/A"
+  ],
+  "ada:primaryStandardNameDefault": "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3",
+  "ada:secondaryReferenceMaterialDefault": [
+    "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure"
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Elemental abundances, CI-normalised ratios"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
+  "ada:samplingUnit": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende",
+  "ada:blankBackgroundCorrectionMethod": "missing",
+  "ada:calibrationMeasurementFrequency": "missing",
+  "ada:chromatographicSeparationApplied": "missing",
+  "ada:driftCorrectionMethod": "missing",
+  "ada:internalStandardApproach": "missing",
+  "ada:massCyclesPerReplicate": -9999,
+  "ada:numberOfReplicatesPerSample": -9999,
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:sampleSequenceDesign": "missing",
+  "ada:signalCollectionMode": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:washTimeBetweenSamples": -9999,
+  "schema:datePublished": "missing"
+}

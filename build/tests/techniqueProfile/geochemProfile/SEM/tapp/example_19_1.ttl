@@ -15,14 +15,14 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -32,43 +32,12 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy)" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Oxford INCA Energy 350; X-ACT LN2-free Silicon Drift Detector (SDD)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Supra 40" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "20 kV" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "sem" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "sem" ] ;
     schema1:name "sem protocol — Pascucci2026-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -110,7 +79,7 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
                 "Ni",
                 "S",
                 "Si" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "Spot analysis" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -130,10 +99,10 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Analyte Estimation Method" ;
@@ -222,6 +191,47 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/EDS-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ZEISS (Carl Zeiss)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Supra 40" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "20 kV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Oxford INCA Energy 350; X-ACT LN2-free Silicon Drift Detector (SDD)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> a schema1:PropertyValue ;
     schema1:name "EDS Spectral Processing Type" ;

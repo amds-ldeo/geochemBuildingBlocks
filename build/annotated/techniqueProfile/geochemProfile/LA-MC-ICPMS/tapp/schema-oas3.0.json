@@ -1830,6 +1830,11 @@
         {
           "type": "object",
           "properties": {
+            "@id": {
+              "description": "Identifier for this instrument within the record. REQUIRED: an instrument has to be referenceable. A monitored species names the instrument (or the instrument part) that reports it, and a dataset variable points back at the device that produced it; neither is expressible while the instrument is an anonymous object. A document-scoped identifier suffices, but a resolvable one is better wherever the lab has a persistent identifier for the device.",
+              "type": "string",
+              "minLength": 1
+            },
             "schema:additionalType": {
               "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
               "type": "array",
@@ -1876,11 +1881,17 @@
                   {
                     "type": "object",
                     "required": [
+                      "@id",
                       "@type",
                       "schema:name",
                       "schema:additionalType"
                     ],
                     "properties": {
+                      "@id": {
+                        "description": "Identifier for this component within the record. REQUIRED on an INLINE component for the same reason it is required on the instrument: a monitored species names the part that reports it -- a Faraday cup, a spectrometer, a detector -- and an anonymous object cannot be referenced. The sibling branch of this anyOf is the by-reference form, a bare {\"@id\": ...} pointing at a component described elsewhere.",
+                        "type": "string",
+                        "minLength": 1
+                      },
                       "@type": {
                         "type": "array",
                         "items": {
@@ -1947,6 +1958,7 @@
             }
           },
           "required": [
+            "@id",
             "schema:additionalType"
           ]
         }
@@ -4041,7 +4053,8 @@
                         "enum": [
                           "Laser Ablation System"
                         ]
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -4376,7 +4389,8 @@
                         "enum": [
                           "ICPMS"
                         ]
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -4398,7 +4412,8 @@
                                     "enum": [
                                       "ICP Source"
                                     ]
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -4879,7 +4894,8 @@
                                     "enum": [
                                       "Collision Reaction Cell"
                                     ]
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -5486,7 +5502,8 @@
                                     "enum": [
                                       "Collector"
                                     ]
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -5525,17 +5542,13 @@
                                           "@type": {
                                             "enum": [
                                               [
-                                                "schema:PropertyValue"
+                                                "schema:PropertyValueSpecification"
                                               ]
                                             ]
                                           },
-                                          "schema:propertyID": {
+                                          "schema:valueName": {
                                             "enum": [
-                                              [
-                                                {
-                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues"
-                                                }
-                                              ]
+                                              "faradayCupAmplifierResistorValues"
                                             ]
                                           },
                                           "schema:name": {
@@ -5548,12 +5561,17 @@
                                               "string"
                                             ]
                                           },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
                                           "ada:tier": {
                                             "enum": [
                                               "M"
                                             ]
                                           },
-                                          "schema:value": {
+                                          "schema:defaultValue": {
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -5570,10 +5588,10 @@
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
                                           "ada:dataType",
-                                          "schema:value"
+                                          "schema:defaultValue"
                                         ]
                                       },
                                       {
@@ -5589,17 +5607,13 @@
                                           "@type": {
                                             "enum": [
                                               [
-                                                "schema:PropertyValue"
+                                                "schema:PropertyValueSpecification"
                                               ]
                                             ]
                                           },
-                                          "schema:propertyID": {
+                                          "schema:valueName": {
                                             "enum": [
-                                              [
-                                                {
-                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod"
-                                                }
-                                              ]
+                                              "faradayCupGainCalibrationMethod"
                                             ]
                                           },
                                           "schema:name": {
@@ -5612,12 +5626,17 @@
                                               "string"
                                             ]
                                           },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
                                           "ada:tier": {
                                             "enum": [
                                               "M"
                                             ]
                                           },
-                                          "schema:value": {
+                                          "schema:defaultValue": {
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -5634,10 +5653,10 @@
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
                                           "ada:dataType",
-                                          "schema:value"
+                                          "schema:defaultValue"
                                         ]
                                       },
                                       {
@@ -5728,17 +5747,13 @@
                                           "@type": {
                                             "enum": [
                                               [
-                                                "schema:PropertyValue"
+                                                "schema:PropertyValueSpecification"
                                               ]
                                             ]
                                           },
-                                          "schema:propertyID": {
+                                          "schema:valueName": {
                                             "enum": [
-                                              [
-                                                {
-                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod"
-                                                }
-                                              ]
+                                              "interferenceCorrectionMethod"
                                             ]
                                           },
                                           "schema:name": {
@@ -5751,12 +5766,17 @@
                                               "string"
                                             ]
                                           },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
                                           "ada:tier": {
                                             "enum": [
                                               "M"
                                             ]
                                           },
-                                          "schema:value": {
+                                          "schema:defaultValue": {
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -5773,10 +5793,10 @@
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
                                           "ada:dataType",
-                                          "schema:value"
+                                          "schema:defaultValue"
                                         ]
                                       },
                                       {
@@ -5792,17 +5812,13 @@
                                           "@type": {
                                             "enum": [
                                               [
-                                                "schema:PropertyValue"
+                                                "schema:PropertyValueSpecification"
                                               ]
                                             ]
                                           },
-                                          "schema:propertyID": {
+                                          "schema:valueName": {
                                             "enum": [
-                                              [
-                                                {
-                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/interferingSpecies"
-                                                }
-                                              ]
+                                              "interferingSpecies"
                                             ]
                                           },
                                           "schema:name": {
@@ -5815,12 +5831,17 @@
                                               "string"
                                             ]
                                           },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
                                           "ada:tier": {
                                             "enum": [
                                               "M"
                                             ]
                                           },
-                                          "schema:value": {
+                                          "schema:defaultValue": {
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -5837,10 +5858,10 @@
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
                                           "ada:dataType",
-                                          "schema:value"
+                                          "schema:defaultValue"
                                         ]
                                       },
                                       {
@@ -5931,17 +5952,13 @@
                                           "@type": {
                                             "enum": [
                                               [
-                                                "schema:PropertyValue"
+                                                "schema:PropertyValueSpecification"
                                               ]
                                             ]
                                           },
-                                          "schema:propertyID": {
+                                          "schema:valueName": {
                                             "enum": [
-                                              [
-                                                {
-                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment"
-                                                }
-                                              ]
+                                              "massResolutionAssignment"
                                             ]
                                           },
                                           "schema:name": {
@@ -5954,12 +5971,17 @@
                                               "string"
                                             ]
                                           },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
                                           "ada:tier": {
                                             "enum": [
                                               "M"
                                             ]
                                           },
-                                          "schema:value": {
+                                          "schema:defaultValue": {
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -5976,10 +5998,10 @@
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
                                           "ada:dataType",
-                                          "schema:value"
+                                          "schema:defaultValue"
                                         ]
                                       }
                                     ]
@@ -5999,17 +6021,13 @@
                                           "@type": {
                                             "enum": [
                                               [
-                                                "schema:PropertyValue"
+                                                "schema:PropertyValueSpecification"
                                               ]
                                             ]
                                           },
-                                          "schema:propertyID": {
+                                          "schema:valueName": {
                                             "enum": [
-                                              [
-                                                {
-                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues"
-                                                }
-                                              ]
+                                              "faradayCupAmplifierResistorValues"
                                             ]
                                           },
                                           "schema:name": {
@@ -6022,12 +6040,17 @@
                                               "string"
                                             ]
                                           },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
                                           "ada:tier": {
                                             "enum": [
                                               "M"
                                             ]
                                           },
-                                          "schema:value": {
+                                          "schema:defaultValue": {
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -6044,10 +6067,10 @@
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
                                           "ada:dataType",
-                                          "schema:value"
+                                          "schema:defaultValue"
                                         ]
                                       },
                                       "minContains": 0,
@@ -6067,17 +6090,13 @@
                                           "@type": {
                                             "enum": [
                                               [
-                                                "schema:PropertyValue"
+                                                "schema:PropertyValueSpecification"
                                               ]
                                             ]
                                           },
-                                          "schema:propertyID": {
+                                          "schema:valueName": {
                                             "enum": [
-                                              [
-                                                {
-                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod"
-                                                }
-                                              ]
+                                              "faradayCupGainCalibrationMethod"
                                             ]
                                           },
                                           "schema:name": {
@@ -6090,12 +6109,17 @@
                                               "string"
                                             ]
                                           },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
                                           "ada:tier": {
                                             "enum": [
                                               "M"
                                             ]
                                           },
-                                          "schema:value": {
+                                          "schema:defaultValue": {
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -6112,10 +6136,10 @@
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
                                           "ada:dataType",
-                                          "schema:value"
+                                          "schema:defaultValue"
                                         ]
                                       },
                                       "minContains": 0,
@@ -6214,17 +6238,13 @@
                                           "@type": {
                                             "enum": [
                                               [
-                                                "schema:PropertyValue"
+                                                "schema:PropertyValueSpecification"
                                               ]
                                             ]
                                           },
-                                          "schema:propertyID": {
+                                          "schema:valueName": {
                                             "enum": [
-                                              [
-                                                {
-                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod"
-                                                }
-                                              ]
+                                              "interferenceCorrectionMethod"
                                             ]
                                           },
                                           "schema:name": {
@@ -6237,12 +6257,17 @@
                                               "string"
                                             ]
                                           },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
                                           "ada:tier": {
                                             "enum": [
                                               "M"
                                             ]
                                           },
-                                          "schema:value": {
+                                          "schema:defaultValue": {
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -6259,10 +6284,10 @@
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
                                           "ada:dataType",
-                                          "schema:value"
+                                          "schema:defaultValue"
                                         ]
                                       },
                                       "minContains": 0,
@@ -6282,17 +6307,13 @@
                                           "@type": {
                                             "enum": [
                                               [
-                                                "schema:PropertyValue"
+                                                "schema:PropertyValueSpecification"
                                               ]
                                             ]
                                           },
-                                          "schema:propertyID": {
+                                          "schema:valueName": {
                                             "enum": [
-                                              [
-                                                {
-                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/interferingSpecies"
-                                                }
-                                              ]
+                                              "interferingSpecies"
                                             ]
                                           },
                                           "schema:name": {
@@ -6305,12 +6326,17 @@
                                               "string"
                                             ]
                                           },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
                                           "ada:tier": {
                                             "enum": [
                                               "M"
                                             ]
                                           },
-                                          "schema:value": {
+                                          "schema:defaultValue": {
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -6327,10 +6353,10 @@
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
                                           "ada:dataType",
-                                          "schema:value"
+                                          "schema:defaultValue"
                                         ]
                                       },
                                       "minContains": 0,
@@ -6429,17 +6455,13 @@
                                           "@type": {
                                             "enum": [
                                               [
-                                                "schema:PropertyValue"
+                                                "schema:PropertyValueSpecification"
                                               ]
                                             ]
                                           },
-                                          "schema:propertyID": {
+                                          "schema:valueName": {
                                             "enum": [
-                                              [
-                                                {
-                                                  "@id": "ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment"
-                                                }
-                                              ]
+                                              "massResolutionAssignment"
                                             ]
                                           },
                                           "schema:name": {
@@ -6452,12 +6474,17 @@
                                               "string"
                                             ]
                                           },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
                                           "ada:tier": {
                                             "enum": [
                                               "M"
                                             ]
                                           },
-                                          "schema:value": {
+                                          "schema:defaultValue": {
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -6474,10 +6501,10 @@
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
                                           "ada:dataType",
-                                          "schema:value"
+                                          "schema:defaultValue"
                                         ]
                                       },
                                       "minContains": 0,
@@ -6593,7 +6620,8 @@
                                     "enum": [
                                       "Interface Cone"
                                     ]
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -6806,7 +6834,8 @@
                                     "enum": [
                                       "Torch"
                                     ]
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -6960,7 +6989,8 @@
                                   "enum": [
                                     "ICP Source"
                                   ]
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -6976,7 +7006,8 @@
                                   "enum": [
                                     "Collision Reaction Cell"
                                   ]
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -6992,7 +7023,8 @@
                                   "enum": [
                                     "Collector"
                                   ]
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -7008,7 +7040,8 @@
                                   "enum": [
                                     "Interface Cone"
                                   ]
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -7803,7 +7836,8 @@
                       "enum": [
                         "Laser Ablation System"
                       ]
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -7819,7 +7853,8 @@
                       "enum": [
                         "ICPMS"
                       ]
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -11657,6 +11692,25 @@
           "items": {
             "anyOf": [
               {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
                 "title": "Calibration Factor and Determination Method",
                 "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
                 "type": "object",
@@ -11780,7 +11834,8 @@
                   "@type": {
                     "enum": [
                       [
-                        "schema:PropertyValue"
+                        "schema:PropertyValue",
+                        "cdi:InstanceVariable"
                       ]
                     ]
                   },
@@ -12159,7 +12214,8 @@
                   "@type": {
                     "enum": [
                       [
-                        "schema:PropertyValue"
+                        "schema:PropertyValue",
+                        "cdi:InstanceVariable"
                       ]
                     ]
                   },

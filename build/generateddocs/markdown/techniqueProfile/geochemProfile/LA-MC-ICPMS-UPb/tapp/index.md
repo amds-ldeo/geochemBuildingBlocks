@@ -2933,6 +2933,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: Laser Ablation System
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -3193,6 +3194,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: ICPMS
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -3678,6 +3680,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Interface Cone
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -3804,6 +3807,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Torch
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -3900,6 +3904,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Collision Reaction Cell
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -4295,6 +4300,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Collector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -4460,6 +4466,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: ICP Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -4745,6 +4752,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Interface Cone
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -4752,6 +4760,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Collision Reaction Cell
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -4759,6 +4768,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Collector
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -4766,6 +4776,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: ICP Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
       allOf:
@@ -4774,6 +4785,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: Laser Ablation System
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
       - contains:
@@ -4781,6 +4793,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: ICPMS
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     bios:computationalTool:

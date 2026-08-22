@@ -50,12 +50,13 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -63,12 +64,13 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -76,31 +78,20 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -120,6 +111,7 @@
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -187,25 +179,6 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -232,16 +205,6 @@
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -282,16 +245,6 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -300,15 +253,6 @@
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -327,24 +271,6 @@
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -443,11 +369,10 @@
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",

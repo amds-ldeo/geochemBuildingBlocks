@@ -177,6 +177,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -230,7 +231,8 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -243,7 +245,8 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -256,13 +259,15 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -483,7 +488,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
   "ada:samplingUnit": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -666,6 +671,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -719,7 +725,8 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -732,7 +739,8 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -745,13 +753,15 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -972,7 +982,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
   "ada:samplingUnit": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -1017,39 +1027,8 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
             schema1:name "Zhang, Chabot, Rubin, Humayun et al." ] ;
     schema1:datePublished "missing" ;
     schema1:description "Raster scans used for main element dataset (23 elements); separate spot analyses on 5 irons for more precise Ge abundances (150 µm spot, 50 Hz, 20 s); two different analysis modes represent distinct protocols but are reported in same paper Reported detail: ada:ablationSamplingMode = Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "ESI New Wave UP193FX (193 nm Nd:YAG frequency-quintupled solid state)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserRepetitionRateDefault "Raster: 50 Hz; Spot (Ge): 50 Hz" ;
-            ada:laserSpotGeometryDefault "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1063,13 +1042,13 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
                     schema1:value "Iron meteorite metal (kamacite + taenite); pyroxene-bearing pallasite metal" ],
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
@@ -1138,7 +1117,7 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
     ada:samplingUnit "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
@@ -1248,6 +1227,47 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
     schema1:valueName "uncertaintyPropagationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "ESI New Wave UP193FX (193 nm Nd:YAG frequency-quintupled solid state)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:laserRepetitionRateDefault "Raster: 50 Hz; Spot (Ge): 50 Hz" ;
+    ada:laserSpotGeometryDefault "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration> a schema1:PropertyValue ;
     schema1:name "Detector Configuration" ;
@@ -1462,7 +1482,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -1505,6 +1526,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -1557,6 +1579,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -1570,7 +1593,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -1625,6 +1649,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -1856,7 +1881,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -2075,7 +2100,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -2118,6 +2144,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -2170,6 +2197,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -2183,7 +2211,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -2238,6 +2267,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -2469,7 +2499,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -2493,11 +2523,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
@@ -2509,7 +2534,12 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "PMG thick sections polished; HELEX II two-volume cell; C-coated for SEM then coating removed before LA" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/plasmaMakeUpGasAdditionDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethodDefault> ;
@@ -2519,49 +2549,8 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:description "Pallasite olivine 2D mapping in cool plasma mode (800 W) is a core methodological innovation; total of 8 PMG meteorites mapped; P-rich veinlets excluded from olivine averages; Fa# values verified against EMPA (Fig. 5A)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Planet Topers (BELSPO Interuniversity Attraction Poles); FWO postdoctoral fellowship for SCh; FWO \"Excellence of Science\" (ET-HoME ID 30442502); FWO/BOF-UGent; Alexander von Humboldt Foundation; FWO/BELSPO/VUB for SG and PC" ] ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/icpTuningDefault>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/memoryEffectMitigationDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Double-focusing sector field ICP-MS (explicitly stated: \"Thermo Scientific Element XR double-focusing sector field ICP-MS unit\")",
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/coolantGasFlowRateDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/plasmaThermalMode>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/rfPowerDefault> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interfaceConeConfiguration> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/laserPulseDuration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
-            schema1:name "HELEX II two-volume ablation cell" ;
-            ada:laserFluenceDefault "5–7 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "20 Hz" ;
-            ada:laserSpotGeometryDefault "20×20 µm square" ;
-            ada:laserType "193 nm ArF excimer; pulse duration ~5 ns" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2637,7 +2626,7 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     ada:secondaryReferenceMaterialDefault "MPI-DING glasses: GOR132-G, StHs6/80-G, T1-G; USGS: BCR-2G, BHVO-2G — measured as unknowns alongside samples and compared to GeoReM preferred values (Table 1 and Section 3.3)" ;
     ada:signalIntegrationIntervalMethod "Manual visual inspection of time-resolved signal per line; anomalous spikes (inclusions, cracks, veinlets) excluded; P-rich veinlet regions identified and excluded from olivine averages" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C1)" ;
             ada:toolRole "dataReduction" ] .
@@ -2800,6 +2789,57 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:valueName "uncertaintyPropagationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Double-focusing sector field ICP-MS (explicitly stated: \"Thermo Scientific Element XR double-focusing sector field ICP-MS unit\")",
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/coolantGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interfaceConeConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
+    schema1:name "HELEX II two-volume ablation cell" ;
+    ada:laserFluenceDefault "5–7 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "20 Hz" ;
+    ada:laserSpotGeometryDefault "20×20 µm square" ;
+    ada:laserType "193 nm ArF excimer; pulse duration ~5 ns" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration> a schema1:PropertyValue ;
     schema1:name "Detector Configuration" ;
@@ -3042,7 +3082,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -3085,6 +3126,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -3137,6 +3179,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -3150,7 +3193,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -3205,6 +3249,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -3465,7 +3510,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -3697,7 +3742,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -3740,6 +3786,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -3792,6 +3839,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -3805,7 +3853,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -3860,6 +3909,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -4120,7 +4170,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -4144,6 +4194,14 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run" ;
@@ -4153,15 +4211,7 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/plasmaMakeUpGasAdditionDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSizeDefault>,
@@ -4172,49 +4222,8 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
     schema1:description "Multi-run sequential design is the key methodological innovation: Run 1 (major elements, 30 µm, MR) provides Cr IS for Run 2 (trace elements, 130 µm, LR); pre-ablation pass removes surface contamination before Run 1 Reported detail: ada:ablationSamplingMode = Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/icpTuningDefault>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/memoryEffectMitigationDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Double-focusing sector field ICP-MS (explicitly stated)",
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/coolantGasFlowRateDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/plasmaThermalMode>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/rfPowerDefault> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interfaceConeConfiguration> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/laserPulseDuration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
-            schema1:name "HELEX II two-volume ablation cell" ;
-            ada:laserFluenceDefault "Run 1 (major): 4.72 J cm⁻²; Run 2 (trace): 4.72 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "Run 1 (major): 20 Hz; Run 2 (trace): 40 Hz" ;
-            ada:laserSpotGeometryDefault "Run 1 (major): 30 µm circular; Run 2 (trace): 130 µm circular" ;
-            ada:laserType "193 nm ArF excimer; pulse duration ~5 ns" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4305,7 +4314,7 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
     ada:secondaryReferenceMaterialDefault "Same GRM set measured as unknowns for accuracy assessment" ;
     ada:signalIntegrationIntervalMethod "Time-resolved signals inspected manually; unstable intervals at start and end discarded; Cr heterogeneities and inclusion signals (elevated P, Ca, Co, Ni) identified and excluded from integration" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C2)" ;
             ada:toolRole "dataReduction" ] .
@@ -4475,6 +4484,57 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
     schema1:valueName "uncertaintyPropagationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Double-focusing sector field ICP-MS (explicitly stated)",
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/coolantGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interfaceConeConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
+    schema1:name "HELEX II two-volume ablation cell" ;
+    ada:laserFluenceDefault "Run 1 (major): 4.72 J cm⁻²; Run 2 (trace): 4.72 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "Run 1 (major): 20 Hz; Run 2 (trace): 40 Hz" ;
+    ada:laserSpotGeometryDefault "Run 1 (major): 30 µm circular; Run 2 (trace): 130 µm circular" ;
+    ada:laserType "193 nm ArF excimer; pulse duration ~5 ns" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration> a schema1:PropertyValue ;
     schema1:name "Detector Configuration" ;
@@ -4709,7 +4769,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -4752,6 +4813,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -4804,6 +4866,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -4817,7 +4880,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -4872,6 +4936,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -5121,7 +5186,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -5340,7 +5405,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -5383,6 +5449,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -5435,6 +5502,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -5448,7 +5516,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -5503,6 +5572,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -5752,7 +5822,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -5777,6 +5847,11 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "PMG thick sections polished; same as olivine mapping preparation" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -5787,12 +5862,7 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a cdi:Activity,
                         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/plasmaMakeUpGasAdditionDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethodDefault> ;
@@ -5802,49 +5872,8 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a cdi:Activity,
     schema1:description "Phosphate phase identification used LA-ICP-MS data combined with EMPA and µXRF (Fig. D9); merrillite, stanfieldite, farringtonite distinguished by REE patterns; oxide sum normalization applied to phosphate (not olivine IS approach)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/icpTuningDefault>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/memoryEffectMitigationDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Double-focusing sector field ICP-MS (explicitly stated)",
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interfaceConeConfiguration> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/coolantGasFlowRateDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/plasmaThermalMode>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/rfPowerDefault> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/laserPulseDuration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
-            schema1:name "HELEX II two-volume ablation cell" ;
-            ada:laserFluenceDefault "3.5 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "20 Hz" ;
-            ada:laserSpotGeometryDefault "110 µm circular (spot mode)" ;
-            ada:laserType "193 nm ArF excimer; pulse duration ~5 ns" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5936,7 +5965,7 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a cdi:Activity,
     ada:secondaryReferenceMaterialDefault "Same MPI-DING and USGS glasses measured as unknowns for accuracy assessment" ;
     ada:signalIntegrationIntervalMethod "Anomalous time steps excluded (inclusions, cracks, heterogeneity); manual inspection" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C3)" ;
             ada:toolRole "dataReduction" ] .
@@ -6092,6 +6121,57 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a cdi:Activity,
     schema1:valueName "uncertaintyPropagationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Double-focusing sector field ICP-MS (explicitly stated)",
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/coolantGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interfaceConeConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
+    schema1:name "HELEX II two-volume ablation cell" ;
+    ada:laserFluenceDefault "3.5 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "20 Hz" ;
+    ada:laserSpotGeometryDefault "110 µm circular (spot mode)" ;
+    ada:laserType "193 nm ArF excimer; pulse duration ~5 ns" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration> a schema1:PropertyValue ;
     schema1:name "Detector Configuration" ;
@@ -6279,6 +6359,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -6320,7 +6401,8 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -6333,7 +6415,8 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -6346,13 +6429,15 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -6569,7 +6654,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -6741,6 +6826,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -6782,7 +6868,8 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -6795,7 +6882,8 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -6808,13 +6896,15 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -7031,7 +7121,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -7075,39 +7165,8 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
             schema1:name "Mittlefehldt" ] ;
     schema1:datePublished "missing" ;
     schema1:description "Many instrument parameters lost during extended lab shutdown; 75 µm spot size in medium resolution mode on sector-field ICP-MS is unusual combination for olivine trace elements; 25 Mg IS from EPMA is standard approach" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "New Wave UP-193 (solid state, 193 nm)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserSpotGeometryDefault "75 µm circular" ;
-            ada:laserType "193 nm solid-state (New Wave UP-193)" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS",
-                "Single-collector sector-field (SF-ICP-MS)" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -7188,7 +7247,7 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
     ada:secondaryReferenceMaterialDefault "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)" ;
     ada:signalIntegrationIntervalMethod "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "Excel spreadsheets developed by C.-T. A. Lee (Rice University)" ;
             ada:toolRole "dataReduction" ] .
@@ -7286,6 +7345,47 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
     schema1:valueName "spikeOutlierFilteringApproachDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector sector-field (SF-ICP-MS)" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "New Wave UP-193 (solid state, 193 nm)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:laserSpotGeometryDefault "75 µm circular" ;
+    ada:laserType "193 nm solid-state (New Wave UP-193)" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
     schema1:name "Multi-Run Sequential Analysis Design" ;
@@ -7504,7 +7604,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -7547,6 +7648,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -7586,6 +7688,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -7599,7 +7702,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -7643,6 +7747,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -7869,7 +7974,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -8092,7 +8197,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -8135,6 +8241,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -8174,6 +8281,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -8187,7 +8295,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -8231,6 +8340,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -8457,7 +8567,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -8481,13 +8591,6 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
                     schema1:name "Sample preparation" ;
@@ -8497,7 +8600,14 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/guardElectrode> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/plasmaMakeUpGasAdditionDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -8506,47 +8616,8 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
     schema1:description "Key innovations: (1) use of two measurement standards (NIST SRM 612 + North Chile) with yield correction in iolite 3D DRS; (2) Fe+Ni+Co=100% normalization eliminates need for EPMA IS; Cr results not quantitative due to argide interferences" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "FAPESP (São Paulo Research Foundation); CNPq" ] ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/icpTuningDefault>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS",
-                "Sector field (SF-ICP-MS) (explicitly stated: \"sector field inductively coupled plasma mass spectrometer\")" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interfaceConeConfiguration> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/coolantGasFlowRateDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/rfPowerDefault> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/laserPulseDuration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Teledyne Excite 193 (193 nm ArF excimer)" ] ;
-            schema1:name "HelEx II two-volume sample cell" ;
-            ada:laserFluenceDefault "7 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "10 Hz" ;
-            ada:laserSpotGeometryDefault "150 µm circular" ;
-            ada:laserType "193 nm ArF excimer; pulse duration 4 ns" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -8626,7 +8697,7 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
     ada:secondaryReferenceMaterialDefault "North Chile Filomena measured as unknown on different days over 4 months to assess intermediate precision (Table 3 and Fig. 2)" ;
     ada:signalIntegrationIntervalMethod "Time-resolved LA-ICP-MS signals inspected per analysis; background interval (20 s) and ablation interval (40 s) selected; no automated spike exclusion described" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
             ada:toolRole "dataReduction" ] .
@@ -8761,6 +8832,55 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
     schema1:valueName "signalSmoothingDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Sector field (SF-ICP-MS) (explicitly stated: \"sector field inductively coupled plasma mass spectrometer\")" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/coolantGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interfaceConeConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Teledyne Excite 193 (193 nm ArF excimer)" ] ;
+    schema1:name "HelEx II two-volume sample cell" ;
+    ada:laserFluenceDefault "7 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "10 Hz" ;
+    ada:laserSpotGeometryDefault "150 µm circular" ;
+    ada:laserType "193 nm ArF excimer; pulse duration 4 ns" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration> a schema1:PropertyValue ;
     schema1:name "Detector Configuration" ;
@@ -8999,7 +9119,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -9042,6 +9163,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -9081,6 +9203,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -9094,7 +9217,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -9138,6 +9262,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -9361,7 +9486,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -9584,7 +9709,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -9627,6 +9753,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -9666,6 +9793,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -9679,7 +9807,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -9723,6 +9852,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -9946,7 +10076,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -9970,16 +10100,16 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/guardElectrode> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
@@ -9995,47 +10125,8 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
     schema1:description "Elemental mapping used as classification tool even without prior knowledge of structural variations (kamacite vs. plessite); demonstrates LA-ICP-MS mapping applicability for iron meteorite classification" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "FAPESP; CNPq" ] ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/laserPulseDuration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Teledyne Excite 193 (193 nm ArF excimer)" ] ;
-            schema1:name "HelEx II two-volume sample cell" ;
-            ada:laserFluenceDefault "7 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "10 Hz" ;
-            ada:laserSpotGeometryDefault "150 µm square (mapping mode)" ;
-            ada:laserType "193 nm ArF excimer; pulse duration 4 ns" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/icpTuningDefault>,
-                <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS",
-                "Sector field (SF-ICP-MS) (explicitly stated)" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/coolantGasFlowRateDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/rfPowerDefault> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interfaceConeConfiguration> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -10114,7 +10205,7 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
     ada:secondaryReferenceMaterialDefault "North Chile and NIST SRM 612 measured before and after mapping session as QC materials" ;
     ada:signalIntegrationIntervalMethod "Same procedure as spot protocol; signal integration for mapping not separately described" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
             ada:toolRole "dataReduction" ] .
@@ -10256,6 +10347,55 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
     schema1:valueName "transectRateMappingRateOrStepSizeDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Sector field (SF-ICP-MS) (explicitly stated)" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/coolantGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interfaceConeConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Teledyne Excite 193 (193 nm ArF excimer)" ] ;
+    schema1:name "HelEx II two-volume sample cell" ;
+    ada:laserFluenceDefault "7 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "10 Hz" ;
+    ada:laserSpotGeometryDefault "150 µm square (mapping mode)" ;
+    ada:laserType "193 nm ArF excimer; pulse duration 4 ns" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration> a schema1:PropertyValue ;
     schema1:name "Detector Configuration" ;
@@ -13047,6 +13187,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: Laser Ablation System
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -13307,6 +13448,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: ICPMS
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -13788,6 +13930,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Interface Cone
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -13914,6 +14057,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Torch
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -14010,6 +14154,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: ICP Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -14306,6 +14451,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Collision Reaction Cell
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -14609,6 +14755,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Collector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -14730,6 +14877,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Interface Cone
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -14737,6 +14885,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: ICP Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
       allOf:
@@ -14745,6 +14894,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: Laser Ablation System
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
       - contains:
@@ -14752,6 +14902,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: ICPMS
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     bios:computationalTool:
@@ -15789,9 +15940,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:totalIntegrationTimePerOutputDataPointDefault:
-      type: string
-      readOnly: true
     ada:backgroundCountTimeDefault:
       description: Total time spent measuring gas blank (background signal with laser
         off or shutter closed) before each ablation event, in seconds. For spot and
@@ -15988,6 +16136,15 @@ allOf:
     ada:dwellTimesDefault:
       type: string
       readOnly: true
+    ada:totalIntegrationTimePerOutputDataPointDefault:
+      description: "Total duty-cycle time for one complete mass-scan sweep \u2014
+        the sum of all per-isotope dwell times plus inter-mass settling times. Sets
+        the time resolution of the downhole signal, and is not recoverable from Dwell
+        Time per Mass alone because settling time is not captured there. Applies to
+        sequential (quadrupole and single-collector sector-field) acquisition."
+      anyOf:
+      - type: number
+      - type: string
     ada:gasBlank:
       type: string
       readOnly: true
@@ -16011,7 +16168,6 @@ allOf:
   - ada:analysisSequenceDefault
   - ada:massResolutionAssignment
   - ada:ionCounterDeadTimeDefault
-  - ada:totalIntegrationTimePerOutputDataPointDefault
   - ada:backgroundCountTimeDefault
   - ada:internalStandardApproach
   - ada:internalStandardElement
@@ -16023,6 +16179,7 @@ allOf:
   - ada:ageModelDefault
   - ada:primaryStandardNameDefault
   - ada:calibrationMeasurementFrequency
+  - ada:totalIntegrationTimePerOutputDataPointDefault
 
 ```
 

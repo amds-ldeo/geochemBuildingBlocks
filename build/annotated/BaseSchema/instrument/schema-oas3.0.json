@@ -1771,6 +1771,11 @@
     {
       "type": "object",
       "properties": {
+        "@id": {
+          "description": "Identifier for this instrument within the record. REQUIRED: an instrument has to be referenceable. A monitored species names the instrument (or the instrument part) that reports it, and a dataset variable points back at the device that produced it; neither is expressible while the instrument is an anonymous object. A document-scoped identifier suffices, but a resolvable one is better wherever the lab has a persistent identifier for the device.",
+          "type": "string",
+          "minLength": 1
+        },
         "schema:additionalType": {
           "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
           "type": "array",
@@ -1817,11 +1822,17 @@
               {
                 "type": "object",
                 "required": [
+                  "@id",
                   "@type",
                   "schema:name",
                   "schema:additionalType"
                 ],
                 "properties": {
+                  "@id": {
+                    "description": "Identifier for this component within the record. REQUIRED on an INLINE component for the same reason it is required on the instrument: a monitored species names the part that reports it -- a Faraday cup, a spectrometer, a detector -- and an anonymous object cannot be referenced. The sibling branch of this anyOf is the by-reference form, a bare {\"@id\": ...} pointing at a component described elsewhere.",
+                    "type": "string",
+                    "minLength": 1
+                  },
                   "@type": {
                     "type": "array",
                     "items": {
@@ -1888,6 +1899,7 @@
         }
       },
       "required": [
+        "@id",
         "schema:additionalType"
       ]
     }

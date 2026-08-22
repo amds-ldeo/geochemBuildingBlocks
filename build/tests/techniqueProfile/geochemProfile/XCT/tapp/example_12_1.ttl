@@ -15,14 +15,14 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -32,21 +32,12 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nikon XTH 320/225" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "160 kV" ;
-            ada:tubeCurrentDefault "46 µA (Ag target)" ;
-            ada:voxelSizeDefault "7.7 µm" ;
-            ada:xRayPreFilterDefault "None (conditions did not require filtering)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "U. Strathclyde, Glasgow, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Richard2019-3" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -108,6 +99,24 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
     schema1:valueName "xRayPowerDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320/225" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "160 kV" ;
+    ada:tubeCurrentDefault "46 µA (Ag target)" ;
+    ada:voxelSizeDefault "7.7 µm" ;
+    ada:xRayPreFilterDefault "None (conditions did not require filtering)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;

@@ -24,38 +24,12 @@ ex:semImagingTAPP-Genge2025 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v14.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "VP-SEM / ESEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "ZEISS 1550VP" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "10 kV" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Genge2025" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -77,4 +51,38 @@ ex:semImagingTAPP-Genge2025 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "VP-SEM / ESEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "ZEISS 1550VP" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "10 kV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 

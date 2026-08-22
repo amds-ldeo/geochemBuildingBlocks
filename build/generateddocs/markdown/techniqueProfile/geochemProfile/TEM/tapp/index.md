@@ -152,7 +152,7 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -162,6 +162,7 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -170,12 +171,13 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -183,12 +185,13 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -196,12 +199,13 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -209,12 +213,13 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -222,12 +227,13 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -240,7 +246,8 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -248,7 +255,22 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -439,7 +461,7 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -449,6 +471,7 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -457,12 +480,13 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -470,12 +494,13 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -483,12 +508,13 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -496,12 +522,13 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -509,12 +536,13 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -527,7 +555,8 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -535,7 +564,22 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -592,13 +636,6 @@ ex:temTAPP-Chaves2023 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga ion)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data Reduction" ;
                     schema1:position 3 ],
@@ -606,55 +643,18 @@ ex:temTAPP-Chaves2023 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "FIB lift-out (Ga ion)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Probe size <1 nm stated for STEM-EDS maps and profiles (Sec 2.6) Reported detail: ada:analyticalSubModeDefault = BF-TEM; HRTEM (TEM Imaging); HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Line scan; Spectrum image (map)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Super-X EDS system; four silicon drift detectors (SDD)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "ThermoFisher Scientific (FEI)" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "FEI Talos 200 kV" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Purdue University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -701,6 +701,73 @@ ex:temTAPP-Chaves2023 a cdi:Activity,
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ThermoFisher Scientific (FEI)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "FEI Talos 200 kV" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Super-X EDS system; four silicon drift detectors (SDD)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -862,7 +929,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -872,11 +939,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -886,11 +954,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -900,11 +969,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -914,11 +984,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -928,6 +999,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -936,12 +1008,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -954,7 +1027,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 keV",
@@ -962,7 +1036,22 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS and EELS",
@@ -1205,7 +1294,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1215,11 +1304,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1229,11 +1319,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1243,11 +1334,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1257,11 +1349,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1271,6 +1364,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -1279,12 +1373,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -1297,7 +1392,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 keV",
@@ -1305,7 +1401,22 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS and EELS",
@@ -1401,13 +1512,6 @@ ex:temTAPP-Zega2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga ion)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
@@ -1416,61 +1520,20 @@ ex:temTAPP-Zega2025 a cdi:Activity,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "FIB lift-out (Ga ion)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsEnergyRangeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensionsDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Oxford Instruments X-Max N100 TLE EDS; dual 100 mm² windowless SDDs; Ω = 2.0 sr" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:description "Probe Cs-corrected (STEM)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "BF, DF, SE STEM detectors; Gatan OneView 4096×4096 CMOS camera" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:description "Gatan Quantum EELS (post-column)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Cold-FEG" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Hitachi" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Hitachi HF5000 (200 keV)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 keV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1548,6 +1611,77 @@ ex:temTAPP-Zega2025 a cdi:Activity,
     schema1:valueName "stemScanDimensionsDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Hitachi" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Hitachi HF5000 (200 keV)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 keV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:description "Probe Cs-corrected (STEM)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Oxford Instruments X-Max N100 TLE EDS; dual 100 mm² windowless SDDs; Ω = 2.0 sr" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:description "Gatan Quantum EELS (post-column)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Cold-FEG" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "BF, DF, SE STEM detectors; Gatan OneView 4096×4096 CMOS camera" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -1709,7 +1843,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1719,6 +1853,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -1727,12 +1862,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -1740,12 +1876,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -1753,12 +1890,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -1766,12 +1904,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -1779,12 +1918,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -1797,7 +1937,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "80–300 keV (range; specific voltage per dataset not stated)",
@@ -1805,7 +1946,22 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -2023,7 +2179,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -2033,6 +2189,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -2041,12 +2198,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -2054,12 +2212,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -2067,12 +2226,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -2080,12 +2240,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -2093,12 +2254,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -2111,7 +2273,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "80\u2013300 keV (range; specific voltage per dataset not stated)",
@@ -2119,7 +2282,22 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -2210,52 +2388,8 @@ ex:temTAPP-Zega2025-2 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Beam energy range 80–300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Bruker quad SDD; Ω = 0.6 sr" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "ThermoFisher Scientific (FEI)" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "FEI TitanX" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "80–300 keV (range; specific voltage per dataset not stated)" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2317,6 +2451,73 @@ ex:temTAPP-Zega2025-2 a cdi:Activity,
     schema1:valueName "stemProbeCurrentDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ThermoFisher Scientific (FEI)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "FEI TitanX" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "80–300 keV (range; specific voltage per dataset not stated)" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Bruker quad SDD; Ω = 0.6 sr" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -2450,7 +2651,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ThermoFisher Scientific (FEI)",
+        "schema:name": "ThermoFisher Scientific",
         "@type": [
           "schema:Organization"
         ]
@@ -2464,7 +2665,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -2474,11 +2675,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -2488,6 +2690,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -2496,12 +2699,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -2509,12 +2713,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -2522,12 +2727,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -2535,12 +2741,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -2553,7 +2760,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -2561,7 +2769,22 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -2765,7 +2988,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ThermoFisher Scientific (FEI)",
+        "schema:name": "ThermoFisher Scientific",
         "@type": [
           "schema:Organization"
         ]
@@ -2779,7 +3002,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -2789,11 +3012,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -2803,6 +3027,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -2811,12 +3036,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -2824,12 +3050,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -2837,12 +3064,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -2850,12 +3078,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -2868,7 +3097,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -2876,7 +3106,22 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -2962,13 +3207,13 @@ ex:temTAPP-Zega2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
@@ -2981,53 +3226,8 @@ ex:temTAPP-Zega2025-3 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v21.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "ThermoScientific Ceta-S 4096×4096 16 M camera (TEM images and SAED patterns)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Four windowless ThermoScientific EDS silicon drift detectors" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "ThermoFisher Scientific (FEI)" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "ThermoScientific Talos F200-X G2 S/TEM" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3058,9 +3258,9 @@ ex:temTAPP-Zega2025-3 a cdi:Activity,
     ada:stemDwellTimePerPixelDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "ThermoScientific Velox" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ schema1:name "ThermoScientific Velox" ;
-            ada:toolRole "dataReduction" ] .
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "External standard (AGAR S106 cross grating, 3 mm)" ;
@@ -3089,6 +3289,74 @@ ex:temTAPP-Zega2025-3 a cdi:Activity,
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ThermoFisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "ThermoScientific Talos F200-X G2 S/TEM" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Four windowless ThermoScientific EDS silicon drift detectors" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "ThermoScientific Ceta-S 4096×4096 16 M camera (TEM images and SAED patterns)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -3237,7 +3505,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -3247,11 +3515,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -3261,11 +3530,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -3275,6 +3545,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -3283,12 +3554,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -3296,12 +3568,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -3309,12 +3582,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -3327,7 +3601,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -3335,7 +3610,22 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS and EELS",
@@ -3544,7 +3834,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -3554,11 +3844,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -3568,11 +3859,12 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -3582,6 +3874,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -3590,12 +3883,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -3603,12 +3897,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -3616,12 +3911,13 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -3634,7 +3930,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -3642,7 +3939,22 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS and EELS",
@@ -3736,54 +4048,8 @@ ex:temTAPP-Zega2025-4 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensionsDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:description "Gatan Tridiem GIF" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "JEOL 70 mm² SDD" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "BF, DF, SE STEM detectors; Gatan OneView 4096×4096 CMOS camera (HRTEM and electron diffraction)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL 2500SE (200 kV)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES Division, NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3814,10 +4080,10 @@ ex:temTAPP-Zega2025-4 a cdi:Activity,
     ada:spectroscopicDetectorDefault "EDS and EELS" ;
     ada:stemDwellTimePerPixelDefault "50 µs" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    bios:computationalTool [ schema1:name "Thermo System7" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Thermo System7 (EDS quantification)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Thermo System7 (EDS quantification)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Thermo System7" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Quanta3D600 dual-beam FIB-SEM; e-beam C cap 0.5–1 µm + ion-beam C cap 2–3 µm; milling 30 kV Ga+ → 16 kV → 5 kV final; ~100 nm thick; ion-beam Pt weld to Cu half grids" ;
@@ -3840,6 +4106,75 @@ ex:temTAPP-Zega2025-4 a cdi:Activity,
     schema1:valueName "stemScanDimensionsDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL 2500SE (200 kV)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "JEOL 70 mm² SDD" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:description "Gatan Tridiem GIF" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "BF, DF, SE STEM detectors; Gatan OneView 4096×4096 CMOS camera (HRTEM and electron diffraction)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -3992,12 +4327,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -4005,12 +4341,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -4018,12 +4355,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -4031,12 +4369,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -4044,12 +4383,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -4057,12 +4397,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -4075,14 +4416,30 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:analyticalSubModeDefault": "BF-TEM",
@@ -4260,12 +4617,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -4273,12 +4631,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -4286,12 +4645,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -4299,12 +4659,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -4312,12 +4673,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -4325,12 +4687,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -4343,14 +4706,30 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:analyticalSubModeDefault": "BF-TEM",
@@ -4390,6 +4769,11 @@ ex:temTAPP-Matsumoto2021 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga) + ion mill" ;
@@ -4398,59 +4782,12 @@ ex:temTAPP-Matsumoto2021 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data Reduction" ;
                     schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional cleaning step after FIB thinning Reported detail: ada:analyticalSubModeDefault = BF-TEM; DF-TEM; ADF-STEM; SAED (Electron Diffraction)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "ThermoFisher Scientific (FEI)" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "FEI Tecnai G2 FEG" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute for Geosciences, Friedrich Schiller University Jena, Germany" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4488,6 +4825,71 @@ ex:temTAPP-Matsumoto2021 a cdi:Activity,
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ThermoFisher Scientific (FEI)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "FEI Tecnai G2 FEG" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -4636,7 +5038,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -4646,6 +5048,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -4654,12 +5057,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -4667,12 +5071,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -4680,12 +5085,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -4693,12 +5099,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -4706,12 +5113,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -4724,14 +5132,30 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -4923,7 +5347,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -4933,6 +5357,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -4941,12 +5366,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -4954,12 +5380,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -4967,12 +5394,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -4980,12 +5408,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -4993,12 +5422,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -5011,14 +5441,30 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -5093,51 +5539,8 @@ ex:temTAPP-Matsumoto2021-2 a cdi:Activity,
                     schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "k-factor standards: troilite (Cape York iron meteorite) for Fe and S; millerite (Sanany, Ural, Russia) for Ni and S; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = BF-TEM; ADF-STEM; STEM-EDS (line profiles; quantitative); ada:edsAcquisitionModeDefault = Line scan; quantitative point analysis; ada:edsQuantificationMethod = Cliff-Lorimer (thin film approximation); k-factors calibrated from reference standards." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "JEOL JED-2300 EDX detector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL JEM-3200FSK" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Ultramicroscopy Research Center, Kyushu University, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5185,6 +5588,72 @@ ex:temTAPP-Matsumoto2021-2 a cdi:Activity,
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL JEM-3200FSK" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "JEOL JED-2300 EDX detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -5333,7 +5802,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -5343,6 +5812,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -5351,12 +5821,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -5364,12 +5835,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -5377,12 +5849,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -5390,12 +5863,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -5403,12 +5877,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -5421,14 +5896,30 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -5624,7 +6115,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -5634,6 +6125,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -5642,12 +6134,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -5655,12 +6148,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -5668,12 +6162,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -5681,12 +6176,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -5694,12 +6190,13 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -5712,14 +6209,30 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -5786,63 +6299,20 @@ ex:temTAPP-Matsumoto2021-3 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga) + ion mill" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "\"ARM\" designation implies probe Cs-correction (JEOL naming convention) but corrector type/details not stated; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "JEOL JED-2300T EDX detector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL JEM-ARM200F" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Ultramicroscopy Research Center, Kyushu University, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5894,6 +6364,72 @@ ex:temTAPP-Matsumoto2021-3 a cdi:Activity,
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL JEM-ARM200F" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "JEOL JED-2300T EDX detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -6029,7 +6565,7 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -6039,6 +6575,7 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -6047,12 +6584,13 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -6060,12 +6598,13 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -6073,12 +6612,13 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -6086,12 +6626,13 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -6099,12 +6640,13 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -6117,7 +6659,8 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -6125,7 +6668,22 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -6369,7 +6927,7 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -6379,6 +6937,7 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -6387,12 +6946,13 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -6400,12 +6960,13 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -6413,12 +6974,13 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -6426,12 +6988,13 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -6439,12 +7002,13 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -6457,7 +7021,8 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -6465,7 +7030,22 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -6593,16 +7173,16 @@ ex:temTAPP-KellerBerger2014 a cdi:Activity,
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Ultramicrotomy" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault>,
@@ -6610,52 +7190,8 @@ ex:temTAPP-KellerBerger2014 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensionsDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Incident probe diameter 4 nm for spectrum imaging (9 nA); EDS spectrum images: successive layers combined for >10% counting statistics per pixel; solar flare track density ~2×10¹⁰ cm⁻² in RA-QD02-0211 Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); STEM-EDS (spectrum imaging); ada:edsAcquisitionModeDefault = Spectrum image (map); line profile." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Thermo-Noran thin-window energy-dispersive X-ray (EDX) spectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL 2500SE 200-kV STEM" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Robert M. Walker Laboratory for Space Science, Code KR, Astromaterials Research and Exploration Science (ARES), NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -6741,6 +7277,73 @@ ex:temTAPP-KellerBerger2014 a cdi:Activity,
     schema1:valueName "stemScanDimensionsDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL 2500SE 200-kV STEM" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Thermo-Noran thin-window energy-dispersive X-ray (EDX) spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -6889,7 +7492,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -6899,6 +7502,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -6907,12 +7511,13 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -6920,12 +7525,13 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -6933,12 +7539,13 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -6946,12 +7553,13 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -6959,12 +7567,13 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -6977,7 +7586,8 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -6985,7 +7595,22 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -7201,7 +7826,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -7211,6 +7836,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -7219,12 +7845,13 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -7232,12 +7859,13 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -7245,12 +7873,13 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -7258,12 +7887,13 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -7271,12 +7901,13 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -7289,7 +7920,8 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -7297,7 +7929,22 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -7384,65 +8031,21 @@ ex:temTAPP-Zeng2024 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga) + ion mill" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "EDS quantification via Velox 2.14 using Brown-Powell ionization cross-section model; FIB foil preparation and STEM imaging at 30 kV/0.4 nA also performed on FEI Scios FIB/SEM (Institute of Geochemistry, CAS) as a coupled step prior to TEM analysis on Talos F200S Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Bruker xflash 6T 30 silicon drift detector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "ThermoFisher Scientific (FEI)" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "FEI Talos F200S" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Analysis and Test Center, Guangdong University of Technology, Guangzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -7502,6 +8105,73 @@ ex:temTAPP-Zeng2024 a cdi:Activity,
     schema1:valueName "stemProbeCurrentDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ThermoFisher Scientific (FEI)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "FEI Talos F200S" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Bruker xflash 6T 30 silicon drift detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -7655,12 +8325,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -7668,12 +8339,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -7681,12 +8353,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -7694,12 +8367,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -7707,12 +8381,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -7720,12 +8395,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -7738,14 +8414,30 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -7948,12 +8640,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -7961,12 +8654,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -7974,12 +8668,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -7987,12 +8682,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -8000,12 +8696,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -8013,12 +8710,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -8031,14 +8729,30 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -8107,63 +8821,20 @@ ex:temTAPP-Dobrica2022 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga) + ion mill" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "FIB sections transferred to Cu TEM half-grids (not standard full grids); nanodiffraction used 0.1–0.3 mrad convergence angle in STEM mode (quasi-parallel beam); some carbonate compositions and modulation measurements reported using Molecular Foundry TitanX EDS (see separate column) Reported detail: ada:analyticalSubModeDefault = DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "ThermoFisher Scientific (FEI)" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "FEI Titan G2 analytical (S)TEM" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "300 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Advanced Electron Microscopy Center (AEMC), University of Hawai'i at Manoa, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -8217,6 +8888,72 @@ ex:temTAPP-Dobrica2022 a cdi:Activity,
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ThermoFisher Scientific (FEI)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "FEI Titan G2 analytical (S)TEM" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "300 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -8365,7 +9102,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -8375,6 +9112,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -8383,12 +9121,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -8396,12 +9135,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -8409,12 +9149,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -8422,12 +9163,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -8435,12 +9177,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -8453,7 +9196,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV (EDS maps acquired at 200 kV; instrument range 80–300 kV)",
@@ -8461,7 +9205,22 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -8680,7 +9439,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -8690,6 +9449,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -8698,12 +9458,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -8711,12 +9472,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -8724,12 +9486,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -8737,12 +9500,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -8750,12 +9514,13 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -8768,7 +9533,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV (EDS maps acquired at 200 kV; instrument range 80\u2013300 kV)",
@@ -8776,7 +9542,22 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -8861,11 +9642,9 @@ ex:temTAPP-Dobrica2022-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -8873,58 +9652,16 @@ ex:temTAPP-Dobrica2022-2 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "EDS analysis areas 5–10 nm (Molecular Foundry); compositions displayed as color-coded maps in Esprit 1.9; O abundances noted as subject to variable self-absorption; compositions normalized to 100% Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (Z-contrast); STEM-EDS (hyperspectral map); ada:edsAcquisitionModeDefault = Spectrum image (hyperspectral map)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Four windowless silicon drift detectors (SDD); 0.7 sr solid angle" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "ThermoFisher Scientific (FEI)" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "FEI TitanX 80–300 kV (\"ChemiSTEM\")" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV (EDS maps acquired at 200 kV; instrument range 80–300 kV)" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -8989,6 +9726,73 @@ ex:temTAPP-Dobrica2022-2 a cdi:Activity,
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ThermoFisher Scientific (FEI)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "FEI TitanX 80–300 kV (\"ChemiSTEM\")" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV (EDS maps acquired at 200 kV; instrument range 80–300 kV)" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Four windowless silicon drift detectors (SDD); 0.7 sr solid angle" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -9110,7 +9914,7 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "Thermo Scientific (TS)",
         "@type": [
           "schema:Organization"
         ]
@@ -9124,7 +9928,7 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9134,11 +9938,12 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9148,6 +9953,7 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -9156,12 +9962,13 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -9169,12 +9976,13 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -9182,12 +9990,13 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -9195,12 +10004,13 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -9213,7 +10023,8 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -9221,7 +10032,22 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -9437,7 +10263,7 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "Thermo Scientific (TS)",
         "@type": [
           "schema:Organization"
         ]
@@ -9451,7 +10277,7 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9461,11 +10287,12 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9475,6 +10302,7 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -9483,12 +10311,13 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -9496,12 +10325,13 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -9509,12 +10339,13 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -9522,12 +10353,13 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -9540,7 +10372,8 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -9548,7 +10381,22 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -9657,6 +10505,13 @@ ex:temTAPP-Singerling2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Crushing / dispersion on grid" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data Reduction" ;
                     schema1:position 3 ],
@@ -9664,66 +10519,14 @@ ex:temTAPP-Singerling2025 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Crushing / dispersion on grid" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Na,Ca carbonate grains extremely beam-sensitive: amorphized under electron beam; samples re-analyzed in 4 sessions (Dec 2023 – Dec 2024) to track terrestrial alteration; NO FIB used (authors note FIB may destroy beam-sensitive Na,Ca carbonates); underlying TEM data deposited at AstroMat (Table A4 supplementary); note: same Goethe lab and instrument (Talos F200X G2) as in Zega2025 Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; SAED (Electron Diffraction); STEM-EDS (point; map); ada:edsAcquisitionModeDefault = Spectrum image (map); point analysis; ada:edsQuantificationMethod = Cliff-Lorimer (k-factor) method; no absorption corrections." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "TS Ceta-S 4k × 4k 16M camera (TEM images and SAED)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Super-X G2 EDS system: four windowless silicon drift detectors; collection solid angle up to 0.9 srad" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Unknown" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Thermo Scientific Talos F200X G2 S/TEM" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University, Frankfurt, Germany" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -9798,6 +10601,74 @@ ex:temTAPP-Singerling2025 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Scientific (TS)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Scientific Talos F200X G2 S/TEM" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Super-X G2 EDS system: four windowless silicon drift detectors; collection solid angle up to 0.9 srad" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "TS Ceta-S 4k × 4k 16M camera (TEM images and SAED)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 
 ```
 
@@ -9829,7 +10700,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "STEM"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging"
     }
   ],
   "schema:location": {
@@ -9945,7 +10816,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9955,11 +10826,12 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9969,11 +10841,12 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9983,6 +10856,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -9991,12 +10865,13 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -10004,12 +10879,13 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -10017,12 +10893,13 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -10035,7 +10912,8 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -10043,7 +10921,22 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -10159,7 +11052,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "STEM"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging"
     }
   ],
   "schema:location": {
@@ -10275,7 +11168,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -10285,11 +11178,12 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -10299,11 +11193,12 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -10313,6 +11208,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -10321,12 +11217,13 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -10334,12 +11231,13 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -10347,12 +11245,13 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -10365,7 +11264,8 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -10373,7 +11273,22 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -10472,6 +11387,11 @@ ex:temTAPP-Thompson2020 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -10480,69 +11400,18 @@ ex:temTAPP-Thompson2020 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga) + ion mill" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "STEM probe diameter = 2 nm (used for EDS spectrum imaging); 1% counting statistics criterion for EDX accumulation. Same instrument (JEOL 2500SE at ARES JSC) as KellerBerger2014. Phase ID relies entirely on HRTEM+FFT (no SAED used). Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "BF detector; DF (ADF) detector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Thin-window Thermo energy-dispersive X-ray spectrometer; 50 mm² detector; configured for large solid-angle X-ray collection" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL 2500SE" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "STEM" ] ;
+            schema1:termCode "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging" ] ;
     schema1:name "tem protocol — Thompson2020" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -10612,6 +11481,75 @@ ex:temTAPP-Thompson2020 a cdi:Activity,
     schema1:valueName "stemProbeDiameterDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL 2500SE" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Thin-window Thermo energy-dispersive X-ray spectrometer; 50 mm² detector; configured for large solid-angle X-ray collection" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "BF detector; DF (ADF) detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -10702,11 +11640,12 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
         "schema:DefinedTerm"
       ],
       "schema:name": "tem",
-      "schema:termCode": "TEM"
+      "schema:termCode": "tem"
     }
   ],
   "schema:instrument": [
     {
+      "@id": "ex:instrument/TEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -10725,12 +11664,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -10738,12 +11678,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -10751,12 +11692,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -10764,12 +11706,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -10777,12 +11720,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -10790,12 +11734,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -10808,9 +11753,24 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ]
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:analyticalSubModeDefault": "missing",
@@ -10923,11 +11883,12 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
         "schema:DefinedTerm"
       ],
       "schema:name": "tem",
-      "schema:termCode": "TEM"
+      "schema:termCode": "tem"
     }
   ],
   "schema:instrument": [
     {
+      "@id": "ex:instrument/TEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -10946,12 +11907,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -10959,12 +11921,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -10972,12 +11935,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -10985,12 +11949,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -10998,12 +11963,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -11011,12 +11977,13 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Imaging-Detector"
         },
         {
           "@type": [
@@ -11029,9 +11996,24 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ]
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:analyticalSubModeDefault": "missing",
@@ -11069,14 +12051,14 @@ ex:temTAPP-Xing2023 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Ultramicrotomy" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -11085,49 +12067,11 @@ ex:temTAPP-Xing2023 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Review paper — no original analytical data. Key points: (1) FIB is dominant sample prep method in NEPS; plasma cleaning recommended to reduce contamination. (2) Aberration-corrected HAADF-STEM enables atomic-resolution phase ID. (3) Cryo-TEM holder recommended for beam-sensitive samples (clay minerals, Fe-Mn oxyhydroxides). (4) EDS detection limit ~1000 ppm; EELS preferred for trace elements and valence state analysis. DOI: 10.1021/acsearthspacechem.2c00278" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ] ;
-            schema1:name "missing" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "tem" ;
-            schema1:termCode "TEM" ] ;
+            schema1:termCode "tem" ] ;
     schema1:name "tem protocol — Xing2023" ;
     ada:analyticalSubModeDefault "missing" ;
     ada:cameraLengthDefault -9999 ;
@@ -11151,6 +12095,67 @@ ex:temTAPP-Xing2023 a cdi:Activity,
     schema1:valueName "edsDetectionLimitDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -11183,7 +12188,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "STEM"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -11299,7 +12304,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11309,11 +12314,12 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11323,11 +12329,12 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11337,6 +12344,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -11345,12 +12353,13 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -11358,12 +12367,13 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -11371,12 +12381,13 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -11389,7 +12400,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -11397,7 +12409,22 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -11480,7 +12507,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "STEM"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -11596,7 +12623,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11606,11 +12633,12 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11620,11 +12648,12 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11634,6 +12663,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -11642,12 +12672,13 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -11655,12 +12686,13 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -11668,12 +12700,13 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -11686,7 +12719,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -11694,7 +12728,22 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -11776,58 +12825,12 @@ ex:temTAPP-Seifert2026 a cdi:Activity,
                     schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5–7 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "JEOL 60 mm² silicon-drift detector (SDD) for EDS" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "BF STEM detector; DF STEM detector; SE STEM detector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL 2500SE" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Electron Beam Analysis Laboratories, ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "STEM" ] ;
+            schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Seifert2026" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -11879,6 +12882,75 @@ ex:temTAPP-Seifert2026 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL 2500SE" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "JEOL 60 mm² silicon-drift detector (SDD) for EDS" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "BF STEM detector; DF STEM detector; SE STEM detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 
 ```
 
@@ -11910,7 +12982,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "STEM"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -12026,7 +13098,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12036,11 +13108,12 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12050,11 +13123,12 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12064,11 +13138,12 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12078,6 +13153,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -12086,12 +13162,13 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -12099,12 +13176,13 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -12117,7 +13195,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -12125,7 +13204,22 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -12218,7 +13312,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "STEM"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -12334,7 +13428,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12344,11 +13438,12 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12358,11 +13453,12 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12372,11 +13468,12 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12386,6 +13483,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -12394,12 +13492,13 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -12407,12 +13506,13 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -12425,7 +13525,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -12433,7 +13534,22 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -12509,11 +13625,6 @@ ex:temTAPP-Seifert2026-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data Reduction" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
@@ -12522,62 +13633,20 @@ ex:temTAPP-Seifert2026-2 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga) + ion mill" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Cold-FEG" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "BF STEM detector; DF STEM detector; SE STEM detector; Gatan OneView 4k×4k pixel CMOS camera (TEM imaging and SAED)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Oxford Instruments X-Max N 100 TLE EDS system; dual 100 mm² windowless silicon-drift detectors" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Hitachi" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Hitachi HF5000" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), Lunar and Planetary Laboratory, University of Arizona, Tucson, AZ, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "STEM" ] ;
+            schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Seifert2026-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -12621,10 +13690,10 @@ ex:temTAPP-Seifert2026-2 a cdi:Activity,
     ada:spectroscopicDetectorDefault "N/A" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    bios:computationalTool [ schema1:name "SingleCrystal (CrystalMaker Software)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "SingleCrystal (CrystalMaker Software)" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Quanta 3D FEG FIB-SEM at JSC; stair-step milling; in situ extraction; thinned to electron transparency (≤100 nm); techniques following Holzapfel et al. 2009, Seifert et al. 2022, Zega et al. 2007" ;
@@ -12632,6 +13701,76 @@ ex:temTAPP-Seifert2026-2 a cdi:Activity,
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Hitachi" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Hitachi HF5000" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Oxford Instruments X-Max N 100 TLE EDS system; dual 100 mm² windowless silicon-drift detectors" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Cold-FEG" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "BF STEM detector; DF STEM detector; SE STEM detector; Gatan OneView 4k×4k pixel CMOS camera (TEM imaging and SAED)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -12664,7 +13803,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM"
+      "schema:termCode": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)"
     }
   ],
   "schema:location": {
@@ -12793,7 +13932,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12803,11 +13942,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12817,6 +13957,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -12825,12 +13966,13 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -12838,12 +13980,13 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -12851,12 +13994,13 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -12864,12 +14008,13 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -12882,7 +14027,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 keV",
@@ -12890,7 +14036,22 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "bios:computationalTool": [
@@ -12978,7 +14139,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM"
+      "schema:termCode": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)"
     }
   ],
   "schema:location": {
@@ -13107,7 +14268,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13117,11 +14278,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13131,6 +14293,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -13139,12 +14302,13 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -13152,12 +14316,13 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -13165,12 +14330,13 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -13178,12 +14344,13 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -13196,7 +14363,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 keV",
@@ -13204,7 +14372,22 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "bios:computationalTool": [
@@ -13274,15 +14457,15 @@ ex:temTAPP-Cymes2023 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data Reduction" ;
                     schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
@@ -13294,57 +14477,12 @@ ex:temTAPP-Cymes2023 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSizeDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2₁/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N₂ and baked 140°C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning. Reported detail: ada:analyticalSubModeDefault = BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM; ada:phaseIdentificationMethod = SAED zone-axis patterns; simulated SAED patterns using SingleCrystal (CrystalMaker Software); HRTEM lattice fringe imaging + FFT; inverse FFT with spot-pass filter (lattice deformation visualization)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "BF TEM detector; Gatan OneView CMOS camera (TEM imaging, SAED, HRTEM)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:description "JEOL in-column Omega energy filter (EFTEM mode; 10-eV slit; used for Ca M-edge mapping at 35 eV energy loss)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL JEM-2200FS" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 keV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "TEM" ] ;
+            schema1:termCode "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)" ] ;
     schema1:name "tem protocol — Cymes2023" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -13402,6 +14540,74 @@ ex:temTAPP-Cymes2023 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL JEM-2200FS" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 keV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:description "JEOL in-column Omega energy filter (EFTEM mode; 10-eV slit; used for Ca M-edge mapping at 35 eV energy loss)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "BF TEM detector; Gatan OneView CMOS camera (TEM imaging, SAED, HRTEM)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 
 ```
 
@@ -13433,7 +14639,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "STEM"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
     }
   ],
   "schema:location": {
@@ -13549,7 +14755,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13559,11 +14765,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13573,11 +14780,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13587,11 +14795,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13601,11 +14810,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13615,6 +14825,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -13623,12 +14834,13 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -13641,7 +14853,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 keV",
@@ -13649,7 +14862,22 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -13799,7 +15027,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "STEM"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
     }
   ],
   "schema:location": {
@@ -13915,7 +15143,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13925,11 +15153,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13939,11 +15168,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13953,11 +15183,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13967,11 +15198,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13981,6 +15213,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -13989,12 +15222,13 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -14007,7 +15241,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 keV",
@@ -14015,7 +15250,22 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -14152,16 +15402,16 @@ ex:temTAPP-Cymes2023-2 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga) + ion mill" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibrationDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyDispersion>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution>,
@@ -14169,60 +15419,12 @@ ex:temTAPP-Cymes2023-2 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Nion UltraSTEM200-X at NRL; dedicated aberration-corrected STEM; cold-FEG; 0.1 nm probe diameter; 40 pA; 200 keV. Gatan Enfinium ER Dual EELS (simultaneous low-loss + core-loss spectrum imaging). Bruker X-Flash windowless SDD EDS (0.7 sr). EELS Fe³⁺/ΣFe quantified by integral I(L3)/I(L2) ratio → Van Aken & Liebscher (2002) universal calibration curve. Oxidation state maps by MLLS fitting with 2 reference spectra; Fe⁰+Fe²⁺ not separated by MLLS (overlapping L3 peaks); Fe⁰ identified by anti-correlation with O K-edge. EDS: Cliff-Lorimer; detector-specific k-factors; 60% O assumed; no absorption correction. Coordinated with JEOL JEM-2200FS (same FIB section). EELS + EDS acquisition details in supplementary Fig. S1. Data deposited at Zenodo: 10.5281/zenodo.7439174. Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging; ada:edsQuantificationMethod = Cliff-Lorimer method with detector-specific k-factors; no absorption correction (sample thin); pyroxene compositions calculated with assumed O stoichiometry of 60%." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Cold-FEG" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:description "Gatan Enfinium ER Dual EELS spectrometer (simultaneous low-loss and core-loss)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Bruker X-Flash windowless silicon-drift detector (SDD); 0.7 sr solid angle" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "HAADF-STEM detector (DigiScan)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Nion" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nion UltraSTEM200-X" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 keV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "STEM" ] ;
+            schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping" ] ;
     schema1:name "tem protocol — Cymes2023-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -14295,6 +15497,77 @@ ex:temTAPP-Cymes2023-2 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nion" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nion UltraSTEM200-X" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 keV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Bruker X-Flash windowless silicon-drift detector (SDD); 0.7 sr solid angle" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:description "Gatan Enfinium ER Dual EELS spectrometer (simultaneous low-loss and core-loss)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Cold-FEG" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "HAADF-STEM detector (DigiScan)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyDispersion> a schema1:PropertyValue ;
     schema1:description "Double-arctan continuum removal (for Fe L2,3 white-line integration)" ;
     schema1:name "EELS Energy Dispersion" ;
@@ -14340,7 +15613,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "STEM"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -14442,7 +15715,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "FEI/Thermo Fisher Scientific",
         "@type": [
           "schema:Organization"
         ]
@@ -14456,7 +15729,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -14466,11 +15739,12 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -14480,6 +15754,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -14488,12 +15763,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -14501,12 +15777,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -14514,12 +15791,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -14527,12 +15805,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -14545,7 +15824,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -14553,7 +15833,22 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -14628,7 +15923,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "STEM"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -14730,7 +16025,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "FEI/Thermo Fisher Scientific",
         "@type": [
           "schema:Organization"
         ]
@@ -14744,7 +16039,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -14754,11 +16049,12 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -14768,6 +16064,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -14776,12 +16073,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -14789,12 +16087,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -14802,12 +16101,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -14815,12 +16115,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -14833,7 +16134,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -14841,7 +16143,22 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -14899,8 +16216,8 @@ ex:temTAPP-Mo2022 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
@@ -14911,61 +16228,16 @@ ex:temTAPP-Mo2022 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "HAADF-STEM detector; DF TEM detector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Unknown" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "FEI Talos F200X" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Suzhou Institute of Nano-tech and Nano-bionics (SINANO), Chinese Academy of Sciences, Suzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "STEM" ] ;
+            schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Mo2022" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -15009,6 +16281,74 @@ ex:temTAPP-Mo2022 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "FEI/Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "FEI Talos F200X" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "HAADF-STEM detector; DF TEM detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 
 ```
 
@@ -15040,7 +16380,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM"
+      "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
     }
   ],
   "schema:location": {
@@ -15156,7 +16496,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -15166,11 +16506,12 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -15180,6 +16521,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -15188,12 +16530,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -15201,12 +16544,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -15214,12 +16558,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -15227,12 +16572,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -15245,7 +16591,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -15253,7 +16600,22 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -15358,7 +16720,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM"
+      "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
     }
   ],
   "schema:location": {
@@ -15474,7 +16836,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -15484,11 +16846,12 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -15498,6 +16861,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -15506,12 +16870,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -15519,12 +16884,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -15532,12 +16898,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EDS-Detector"
         },
         {
           "@type": [
@@ -15545,12 +16912,13 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -15563,7 +16931,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -15571,7 +16940,22 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -15663,71 +17047,26 @@ ex:temTAPP-Mo2022-2 a cdi:Activity,
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga) + ion mill" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Hitachi HF5000 at Shanghai Institute of Ceramics CAS; 200 kV; 100 pA; Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer. Energy resolution: 0.5–0.7 eV FWHM at ZLP. Fe L3,2 edge: L3 peak positions 707.7 eV (Fe⁰), 707.2 eV (Fe²⁺), 709.0 eV (Fe³⁺). EELS acquired in DualEELS mode; 10 s point analysis, 18 s line scan. Reference standards: Fe metal + troilite (L6 ordinary chondrite GRV051874) for Fe⁰/Fe²⁺; terrestrial hematite for Fe³⁺; wüstite and hematite from Yao et al. 2018 (AES refs). ZLP aligned before spectral comparison. Background and continuum removal methods not stated. Valence state ID is qualitative (peak position + lineshape). Coordinated with FEI Talos F200X (EDS at SINANO) and PHI 700/710 Auger nanoprobe. Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan; ada:eelsAcquisitionModeDefault = Point analysis and line scan EELS." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "HAADF-STEM detector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:description "Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Hitachi" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Hitachi HF5000" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "TEM" ] ;
+            schema1:termCode "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis" ] ;
     schema1:name "tem protocol — Mo2022-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -15779,6 +17118,74 @@ ex:temTAPP-Mo2022-2 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Hitachi" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Hitachi HF5000" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:description "Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "HAADF-STEM detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution> a schema1:PropertyValue ;
     schema1:name "EELS Energy Resolution" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution> ;
@@ -15800,121 +17207,11 @@ description: 'Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extens
   TAPPs/TEM_TAPP_v21.csv by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
-    schema:name:
-      description: "A short descriptive name for this analytical procedure, including
-        a version number. Should identify the instrument, the technique, and the scope
-        of what is measured \u2014 analyte, material, or feature."
-      type: string
-      readOnly: true
-    schema:measurementTechnique:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:termCode:
-            description: Top-level analytical technique identifier.
-            type: string
-            enum:
-            - TEM
-            - STEM
-            - TEM/STEM
-            - N/A
-            - None
-            - missing
-            readOnly: true
-    schema:creator:
-      type: object
-      properties:
-        schema:name:
-          description: Person(s) or laboratory responsible for developing and registering
-            this procedure. ORCID recommended for individuals.
-          type: string
-          readOnly: true
-    schema:location:
-      type: object
-      properties:
-        schema:name:
-          description: Name of the laboratory or institution hosting the instrument.
-          type: string
-        schema:identifier:
-          description: Persistent identifier for the laboratory (e.g., ROR ID).
-          type: string
-    schema:datePublished:
-      description: First date this procedure configuration was used in production.
-      type: string
-      readOnly: true
-    schema:funding:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:name:
-            description: Grants and other funding sources that supported instrument
-              acquisition, major upgrades, procedure development, and associated personnel
-              time. Include grant numbers and funding agencies where applicable.
-            type: string
-            readOnly: true
-    schema:relatedLink:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: techniquePublication
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: DOI or URL for peer-reviewed publications or technical
-                      reports describing, validating, or benchmarking this procedure.
-                    type: string
-                    readOnly: true
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: coupledTechnique
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: "Other analytical techniques applied to the same
-                      sample(s) whose results are intended to be interpreted together
-                      with data from this procedure. Document coupling with any technique
-                      whose results are functionally linked to this dataset \u2014
-                      providing calibration inputs, complementary spatial context,
-                      or required companion measurements. Use the same controlled
-                      vocabulary as the Technique field. Enter \"None\" if no coupling
-                      is intended."
-                    anyOf:
-                    - type: string
-                      enum:
-                      - NanoSIMS; STXM; Raman
-                      - None
-                      - N/A
-                      - missing
-                    - type: string
-                  schema:description:
-                    description: "Description of how this procedure is coupled with
-                      the technique(s) listed above. Include: (1) the functional relationship
-                      \u2014 what data or context flows between techniques, or how
-                      results are combined (e.g. which output from the coupled technique
-                      serves as input to data reduction for this technique); and (2)
-                      the analytical sequence \u2014 which technique is performed
-                      first and why (e.g. non-destructive before destructive). Required
-                      when Coupled Technique(s) is not \"None\"."
-                    type: string
     schema:object:
       type: array
       items:
@@ -15975,40 +17272,7 @@ allOf:
                     required:
                     - schema:name
                 - contains:
-                    title: Pre-Analysis Imaging and Screening
-                    description: Imaging or other characterisation performed before
-                      the measurement in order to select or locate the analysed target,
-                      including the technique, instrument and settings used, and how
-                      individual analyses are linked back to the images. Distinct
-                      from any imaging the procedure performs as its own measurement.
-                      Where the imaging is performed on a separate instrument, it
-                      should also be recorded in the Group 1 coupling fields.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/temTAPP/preAnalysisImagingAndScreeningDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: preAnalysisImagingAndScreeningDefault
-                      schema:name:
-                        const: Pre-Analysis Imaging and Screening
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                   minContains: 0
                   maxContains: 1
       allOf:
@@ -16328,159 +17592,15 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses
-                          contribute to a reported aggregate result, together with
-                          the outcome of applying them: how many analyses were acquired,
-                          how many were included, and on what grounds any were excluded.
-                          Distinct from within-analysis outlier filtering, which removes
-                          anomalous points inside a single analysis: this field decides
-                          which whole analyses enter the reported value. Criteria
-                          and outcome are combined in one field because neither is
-                          interpretable without the other, following the precision/accuracy
-                          precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/temTAPP/analysisInclusionAndRejectionCriteriaDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: analysisInclusionAndRejectionCriteriaDefault
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - title: Constants and Reference Values Used
-                        description: Physical constants and reference values used
-                          in data reduction to calculate the final reported quantity
-                          (e.g., decay constants for age calculation, standard isotope
-                          ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from
-                          the Group 6 reference-material fields, which document accepted
-                          values for specific calibration/validation materials rather
-                          than universal physical constants. Record "None" if no citable,
-                          revisable physical constants feed into this procedure's
-                          data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/temTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains:
-                        title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses
-                          contribute to a reported aggregate result, together with
-                          the outcome of applying them: how many analyses were acquired,
-                          how many were included, and on what grounds any were excluded.
-                          Distinct from within-analysis outlier filtering, which removes
-                          anomalous points inside a single analysis: this field decides
-                          which whole analyses enter the reported value. Criteria
-                          and outcome are combined in one field because neither is
-                          interpretable without the other, following the precision/accuracy
-                          precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/temTAPP/analysisInclusionAndRejectionCriteriaDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: analysisInclusionAndRejectionCriteriaDefault
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Constants and Reference Values Used
-                        description: Physical constants and reference values used
-                          in data reduction to calculate the final reported quantity
-                          (e.g., decay constants for age calculation, standard isotope
-                          ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from
-                          the Group 6 reference-material fields, which document accepted
-                          values for specific calibration/validation materials rather
-                          than universal physical constants. Record "None" if no citable,
-                          revisable physical constants feed into this procedure's
-                          data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/temTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -16502,35 +17622,6 @@ allOf:
                   const: Data reduction
               required:
               - schema:name
-    ada:samplingUnit:
-      description: "The physical subdivision of the sample to which one row of reported
-        values corresponds \u2014 the unit that is analysed and reported, as distinct
-        from the sample as a whole. State the unit type at procedure level and the
-        units actually analysed at analysis level. Where units nest (e.g. confined
-        tracks within grains), state both levels."
-      anyOf:
-      - type: string
-        enum:
-        - Whole sample
-        - Aliquot
-        - Grain
-        - Spot
-        - Analysis point
-        - Phase
-        - Sub-volume
-        - Region of interest
-        - N/A
-        - None
-        - missing
-      - type: string
-    ada:targetSelectionCriteriaDefault:
-      description: "The rules governing which part of the sample is analysed, and
-        why. Covers the criteria applied when choosing grains, aliquots, spots, or
-        a region of interest \u2014 size, morphology, clarity, freedom from inclusions
-        or alteration, phase identity, or spatial position. Distinct from Target Material,
-        which states the material type the procedure is designed for: this field states
-        how, within such a sample, the analysed portion is picked out."
-      type: string
     schema:instrument:
       type: array
       items:
@@ -16541,42 +17632,11 @@ allOf:
               schema:additionalType:
                 contains:
                   const: TEM
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
             properties:
-              schema:manufacturer:
-                type: object
-                properties:
-                  schema:name:
-                    description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
-                    type: string
-                    enum:
-                    - JEOL
-                    - ThermoFisher Scientific (FEI)
-                    - Hitachi
-                    - Nion
-                    - Zeiss
-                    - Unknown
-                    - N/A
-                    - None
-                    - missing
-                    readOnly: true
-              schema:model:
-                type: object
-                properties:
-                  schema:name:
-                    description: Model designation of the instrument that performs
-                      the measurement, including any generation or configuration suffix.
-                      Conventionally written with the manufacturer name included;
-                      Instrument Manufacturer records the vendor separately, as a
-                      controlled value, so that procedures remain findable by vendor.
-                    type: string
-                    readOnly: true
               schema:hasPart:
                 type: array
                 items:
@@ -16586,7 +17646,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: Electron source
+                            const: Electron Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -16624,7 +17685,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: AberrationCorrector
+                            const: Aberration Corrector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -16666,6 +17728,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Monochromator
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -16703,7 +17766,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: EDSDetector
+                            const: EDS Detector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -16724,7 +17788,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: EELSSpectrometer
+                            const: EELS Spectrometer
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -16745,7 +17810,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: ImagingDetector
+                            const: Imaging Detector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -16766,7 +17832,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: 4DSTEMDetector
+                            const: 4D-STEM Detector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -16789,21 +17856,24 @@ allOf:
                     properties:
                       schema:additionalType:
                         contains:
-                          const: Electron source
+                          const: Electron Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
                     properties:
                       schema:additionalType:
                         contains:
-                          const: AberrationCorrector
+                          const: Aberration Corrector
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
                     properties:
                       schema:additionalType:
                         contains:
-                          const: EDSDetector
+                          const: EDS Detector
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
               ada:acceleratingVoltageDefault:
@@ -16893,6 +17963,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: TEM
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     schema:additionalProperty:
@@ -18427,34 +19498,17 @@ allOf:
         - if:
             properties:
               ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Instrument control, automation and data acquisition software
-                  used to collect the raw data, including version number. Distinct
-                  from Data Processing Software(s), which covers everything applied
-                  to the data after acquisition.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
                 const: dataReduction
             required:
             - ada:toolRole
           then:
             properties:
               schema:name:
-                description: All software applied to the data after acquisition in
-                  order to produce the reported quantities, including version numbers.
-                  List every package used. Distinct from Acquisition Software, which
-                  controls the instrument and collects the raw data.
+                description: Software used to simulate electron diffraction patterns
+                  for comparison with experimental SAED patterns during phase identification
+                  (e.g., SingleCrystal, CrystalMaker, JEMS, DIFPACK). Complements
+                  the Acquisition Software field, which covers data collection; simulation
+                  software is used at the interpretation and data processing step.
                 anyOf:
                 - type: string
                 - type: array
@@ -18462,23 +19516,6 @@ allOf:
                     type: string
         required:
         - ada:toolRole
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Primary analytical mode(s) executed under this procedure. Records
-          one value for a single-mode procedure and all applicable modes for a multi-mode
-          one. Serves as the procedure-level declaration of measurement type, distinct
-          from the mode flag columns, which state per-field applicability. Required
-          even where a procedure defines no mode flag columns, so that every procedure
-          record is self-describing and comparable across the library.
-        type: string
-        enum:
-        - TEM Imaging
-        - STEM Imaging
-        - Electron Diffraction
-        - STEM Imaging; Electron Diffraction
-        - missing
-        readOnly: true
     ada:analyticalSubModeDefault:
       description: 'Sub-mode(s) of imaging or diffraction performed under this procedure.
         TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM. STEM Imaging options: HAADF,
@@ -18560,29 +19597,6 @@ allOf:
       - None
       - missing
       readOnly: true
-    ada:analyteTemplate:
-      type: object
-      properties:
-        ada:defaultAnalytes:
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
-    ada:reportedProperties:
-      type: array
-      items:
-        description: "The final variable(s) this procedure reports and their units
-          \u2014 distinct from the fields recording what was *acquired* rather than
-          what is reported. A procedure may acquire many channels and report a small
-          number of derived quantities; without this field a data consumer cannot
-          tell which. Record every reported variable, including intermediate quantities
-          reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U
-          date). Where a reported variable is a nominal property with no magnitude
-          (e.g. a mineral identification), record the variable and give the unit as
-          'N/A \u2014 nominal property'."
-        type: string
-        readOnly: true
     ada:eelsAcquisitionModeDefault:
       description: Mode of EELS data acquisition. Record 'N/A' where EELS is not listed
         in Spectroscopic Detector(s).
@@ -18799,6 +19813,21 @@ allOf:
       type: array
       items:
         anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
         - title: Calibration Factor and Determination Method
           description: 'An externally-calibrated factor that converts the measured
             quantity into the reported quantity, how it was determined, and its uncertainty.
@@ -18940,19 +19969,7 @@ allOf:
         EPMA; many procedures rely on manufacturer k-factors without external calibration.
         Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
       type: string
-    schema:description:
-      description: "Any procedure- or analysis-specific information not captured by
-        a structured field anywhere in this TAPP \u2014 including anomalies, deviations
-        from the registered procedure, instrument modifications, and supplementary
-        context. Scope is the whole document, not Group 6: this is the last field
-        of the TAPP and covers all six groups. Use sparingly; a structured field is
-        preferred for anything that can be formally categorised."
-      type: string
   required:
-  - schema:name
-  - schema:datePublished
-  - ada:samplingUnit
-  - ada:targetSelectionCriteriaDefault
   - ada:spectroscopicDetectorDefault
   - ada:analyticalSubModeDefault
   - ada:convergenceSemiAngle

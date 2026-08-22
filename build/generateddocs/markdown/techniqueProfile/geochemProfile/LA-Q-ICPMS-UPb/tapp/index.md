@@ -202,6 +202,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -245,6 +246,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -284,6 +286,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -297,7 +300,8 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -310,7 +314,8 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -330,6 +335,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -557,7 +563,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -765,6 +771,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -808,6 +815,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
         },
         {
@@ -847,6 +855,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -860,7 +869,8 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -873,7 +883,8 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -893,6 +904,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -1120,7 +1132,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -1144,11 +1156,6 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -1158,7 +1165,12 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAdditionDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/uncertaintyPropagationMethodDefault> ;
@@ -1168,50 +1180,8 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
     schema1:description "fs laser (260 nm Ti:sapphire) essential for HSE measurement in metal (reduces elemental fractionation and matrix effects); IVB iron meteorite standards (Warburton Range + Tawallah Valley) as matrix-matched standards for iron meteorite metal" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "JSPS KAKENHI; Tokyo Institute of Technology" ] ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserPulseDuration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserFluenceDefault "12 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "20 Hz" ;
-            ada:laserSpotGeometryDefault "30 µm circular" ;
-            ada:laserType "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS",
-                "Single-collector quadrupole (Q-ICP-MS)" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interfaceConeConfiguration> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/coolantGasFlowRateDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/rfPowerDefault> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Thermo Scientific X-series 2 (Q-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1292,7 +1262,7 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "Time-resolved signals monitored; analyses with elevated Mg, Si, P, S (inclusion indicators) excluded; stable signal intervals used for integration" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
@@ -1418,6 +1388,60 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
     schema1:valueName "uncertaintyPropagationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Scientific X-series 2 (Q-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/coolantGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interfaceConeConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:laserFluenceDefault "12 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "20 Hz" ;
+    ada:laserSpotGeometryDefault "30 µm circular" ;
+    ada:laserType "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interfaceConeConfiguration> a schema1:PropertyValue ;
     schema1:name "Interface Cone Configuration" ;
@@ -1655,6 +1679,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -1756,6 +1781,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -1769,7 +1795,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -1782,7 +1809,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -1795,13 +1823,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -2032,7 +2062,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -2264,6 +2294,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -2365,6 +2396,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
         },
         {
@@ -2378,7 +2410,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -2391,7 +2424,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -2404,13 +2438,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -2641,7 +2677,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -2665,11 +2701,6 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -2682,7 +2713,12 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Li-borate fusion: 350 mg Li₂B₄O₇ + 10 mg powdered sample fused in Pt-Au crucible (M4 automatic fluxer); glass surface cleaned with ethanol before LA" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Xue, Li, Wang et al." ] ;
@@ -2690,51 +2726,8 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     schema1:description "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser Reported detail: ada:ablationSamplingMode = Spot (stationary; single spot at 1 Hz)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NSFC; Chinese Academy of Sciences" ] ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserPulseDuration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserFluenceDefault "6.79 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "1 Hz" ;
-            ada:laserSpotGeometryDefault "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)" ;
-            ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/detectorConfiguration>,
-                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/icpTuningDefault>,
-                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting>,
-                <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/memoryEffectMitigationDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/coolantGasFlowRateDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/rfPowerDefault> ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2829,7 +2822,7 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "Iolite 4 (Paton et al. 2011)" ;
             ada:toolRole "dataReduction" ] .
@@ -2978,6 +2971,61 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     schema1:valueName "spikeOutlierFilteringApproachDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/detectorConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/coolantGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:laserFluenceDefault "6.79 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "1 Hz" ;
+    ada:laserSpotGeometryDefault "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)" ;
+    ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/detectorConfiguration> a schema1:PropertyValue ;
     schema1:name "Detector Configuration" ;
@@ -3165,7 +3213,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -3205,7 +3254,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -3218,7 +3268,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -3231,7 +3282,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -3244,13 +3296,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -3453,7 +3507,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -3635,7 +3689,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -3675,7 +3730,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -3688,7 +3744,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -3701,7 +3758,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -3714,13 +3772,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -3923,7 +3983,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -3947,6 +4007,12 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
                     schema1:name "Sample preparation" ;
@@ -3955,13 +4021,7 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAdditionDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -3970,45 +4030,8 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     schema1:description "Analysis of quenched experimental glasses from high-pressure (1 GPa) piston-cylinder experiments; Au and Cu solubility measurements; smooth time-resolved signals indicate fully dissolved Au (no micronuggets)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ] ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)" ] ;
-            schema1:name "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)" ;
-            ada:laserFluenceDefault "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")" ;
-            ada:laserRepetitionRateDefault "7 Hz" ;
-            ada:laserSpotGeometryDefault "40 µm circular (silicate glass)" ;
-            ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4072,7 +4095,7 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "Time-resolved LA-ICP-MS signal inspected; micronuggets identified from spikes in Au signal and excluded from integration to obtain smooth signals (verified by Fig. 1 in paper)" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
@@ -4175,6 +4198,55 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     schema1:valueName "spikeOutlierFilteringApproachDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)" ] ;
+    schema1:name "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)" ;
+    ada:laserFluenceDefault "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")" ;
+    ada:laserRepetitionRateDefault "7 Hz" ;
+    ada:laserSpotGeometryDefault "40 µm circular (silicate glass)" ;
+    ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
     schema1:name "Multi-Run Sequential Analysis Design" ;
@@ -4352,7 +4424,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -4392,7 +4465,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -4405,7 +4479,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -4418,7 +4493,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -4431,13 +4507,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -4639,7 +4717,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -4821,7 +4899,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
       "@type": [
         "schema:Product",
         "schema:Thing"
-      ]
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     },
     {
       "schema:additionalType": [
@@ -4861,7 +4940,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -4874,7 +4954,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -4887,7 +4968,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -4900,13 +4982,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -5108,7 +5192,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -5132,10 +5216,10 @@ ex:laQicpmsUPbTAPP-Liu2025-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:description "Same capsule section as silicate glass; sulfide grains ≥20 µm selected by SEM-BSE" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -5143,10 +5227,10 @@ ex:laQicpmsUPbTAPP-Liu2025-2 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Same capsule section as silicate glass; sulfide grains ≥20 µm selected by SEM-BSE" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAdditionDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -5155,45 +5239,8 @@ ex:laQicpmsUPbTAPP-Liu2025-2 a cdi:Activity,
     schema1:description "Analysis of quenched experimental pyrrhotite (Fe₁₋ₓS) from same piston-cylinder experiments; 20 µm spot required due to small grain size (5–50 µm); same instrument and analytical session as glass protocol" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ] ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)" ] ;
-            schema1:name "Cetac Analyte HE system (same as silicate glass protocol)" ;
-            ada:laserFluenceDefault "~2.5 J cm⁻²" ;
-            ada:laserRepetitionRateDefault "7 Hz" ;
-            ada:laserSpotGeometryDefault "20 µm circular (sulfide; grain sizes >20 µm selected)" ;
-            ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5256,7 +5303,7 @@ ex:laQicpmsUPbTAPP-Liu2025-2 a cdi:Activity,
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "Same approach as glass; micronugget identification from Au signal spikes critical for sulfide analyses" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
@@ -5359,6 +5406,55 @@ ex:laQicpmsUPbTAPP-Liu2025-2 a cdi:Activity,
     schema1:valueName "spikeOutlierFilteringApproachDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/massResolutionSetting> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)" ] ;
+    schema1:name "Cetac Analyte HE system (same as silicate glass protocol)" ;
+    ada:laserFluenceDefault "~2.5 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "7 Hz" ;
+    ada:laserSpotGeometryDefault "20 µm circular (sulfide; grain sizes >20 µm selected)" ;
+    ada:laserType "193 nm (CetacAnalyte HE; ns pulse)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
     schema1:name "Multi-Run Sequential Analysis Design" ;
@@ -5493,6 +5589,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -5520,7 +5617,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -5533,7 +5631,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -5546,7 +5645,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -5559,13 +5659,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -5657,7 +5759,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -5796,6 +5898,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -5823,7 +5926,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -5836,7 +5940,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -5849,7 +5954,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -5862,13 +5968,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -5960,7 +6068,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -5985,60 +6093,23 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:datePublished "missing" ;
     schema1:description "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserEnergyDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "GeoLasPro (193 nm Excimer laser-ablation system; manufacturer not stated by name; GeoLasPro is a Lambda Physik/Coherent product)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserFluenceDefault "7–10 J/m² (stated in paper; units as written; likely a typographic error for J/cm²)" ;
-            ada:laserRepetitionRateDefault "5 Hz" ;
-            ada:laserSpotGeometryDefault "24 and 32 µm diameter (commonly used for silicates and glass); 90 µm (some olivine analyses to evaluate low REE signal sampling)" ;
-            ada:laserType "193 nm Excimer (ArF excimer)" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Agilent 7500ce ICP-MS" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -6083,7 +6154,7 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "Time-lapse plots of each spot examined; only the plateau region used to quantify trace element abundances" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
             ada:toolRole "dataReduction" ] .
@@ -6102,6 +6173,55 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
     schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7500ce ICP-MS" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserEnergyDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "GeoLasPro (193 nm Excimer laser-ablation system; manufacturer not stated by name; GeoLasPro is a Lambda Physik/Coherent product)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:laserFluenceDefault "7–10 J/m² (stated in paper; units as written; likely a typographic error for J/cm²)" ;
+    ada:laserRepetitionRateDefault "5 Hz" ;
+    ada:laserSpotGeometryDefault "24 and 32 µm diameter (commonly used for silicates and glass); 90 µm (some olivine analyses to evaluate low REE signal sampling)" ;
+    ada:laserType "193 nm Excimer (ArF excimer)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
     schema1:name "Multi-Run Sequential Analysis Design" ;
@@ -6236,6 +6356,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -6263,7 +6384,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -6276,7 +6398,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -6289,7 +6412,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -6302,13 +6426,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -6400,7 +6526,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -6539,6 +6665,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     },
     {
@@ -6566,7 +6693,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -6579,7 +6707,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -6592,7 +6721,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -6605,13 +6735,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
     }
   ],
@@ -6703,7 +6835,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "missing",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
@@ -6733,55 +6865,18 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:datePublished "missing" ;
     schema1:description "N/A — see silicate column for general notes" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "ICPMS" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Interface Cone" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Torch" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ICP Source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Collision Reaction Cell" ;
-                    schema1:name "missing" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Agilent 7500ce ICP-MS" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserEnergyDefault> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "Laser Ablation System" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:laserFluenceDefault "7–10 J/m² (same as silicate protocol)" ;
-            ada:laserRepetitionRateDefault "5 Hz" ;
-            ada:laserSpotGeometryDefault "~24 µm diameter" ;
-            ada:laserType "193 nm Excimer (ArF excimer)" ] ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -6826,7 +6921,7 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "Time-lapse plots examined; only plateau region used (same as silicate protocol)" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008)" ;
             ada:toolRole "dataReduction" ] .
@@ -6845,6 +6940,55 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
     schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7500ce ICP-MS" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserEnergyDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:laserFluenceDefault "7–10 J/m² (same as silicate protocol)" ;
+    ada:laserRepetitionRateDefault "5 Hz" ;
+    ada:laserSpotGeometryDefault "~24 µm diameter" ;
+    ada:laserType "193 nm Excimer (ArF excimer)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
     schema1:name "Multi-Run Sequential Analysis Design" ;
@@ -9597,6 +9741,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: Laser Ablation System
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -9857,6 +10002,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: ICPMS
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -10340,6 +10486,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Interface Cone
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -10466,6 +10613,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Torch
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -10562,6 +10710,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Collision Reaction Cell
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -10939,6 +11088,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: ICP Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -11235,6 +11385,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Collector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -11356,6 +11507,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Interface Cone
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -11363,6 +11515,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Collision Reaction Cell
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -11370,6 +11523,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: ICP Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
       allOf:
@@ -11378,6 +11532,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: Laser Ablation System
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
       - contains:
@@ -11385,6 +11540,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: ICPMS
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     bios:computationalTool:
@@ -12427,9 +12583,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:totalIntegrationTimePerOutputDataPointDefault:
-      type: string
-      readOnly: true
     ada:backgroundCountTimeDefault:
       description: Total time spent measuring gas blank (background signal with laser
         off or shutter closed) before each ablation event, in seconds. For spot and
@@ -12623,6 +12776,15 @@ allOf:
     ada:dwellTimesDefault:
       type: string
       readOnly: true
+    ada:totalIntegrationTimePerOutputDataPointDefault:
+      description: "Total duty-cycle time for one complete mass-scan sweep \u2014
+        the sum of all per-isotope dwell times plus inter-mass settling times. Sets
+        the time resolution of the downhole signal, and is not recoverable from Dwell
+        Time per Mass alone because settling time is not captured there. Applies to
+        sequential (quadrupole and single-collector sector-field) acquisition."
+      anyOf:
+      - type: number
+      - type: string
     ada:gasBlank:
       type: string
       readOnly: true
@@ -12646,7 +12808,6 @@ allOf:
   - ada:analysisSequenceDefault
   - ada:signalCollectionMode
   - ada:ionCounterDeadTimeDefault
-  - ada:totalIntegrationTimePerOutputDataPointDefault
   - ada:backgroundCountTimeDefault
   - ada:internalStandardApproach
   - ada:internalStandardElement
@@ -12658,6 +12819,7 @@ allOf:
   - ada:ageModelDefault
   - ada:primaryStandardNameDefault
   - ada:calibrationMeasurementFrequency
+  - ada:totalIntegrationTimePerOutputDataPointDefault
 
 ```
 

@@ -193,7 +193,8 @@ and technique component types on the archive distribution. Mock data for validat
               "schema:name": "Example ADA Instrument",
               "schema:identifier": [
                 "ex:instrument-ada-001"
-              ]
+              ],
+              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
             }
           ]
         }

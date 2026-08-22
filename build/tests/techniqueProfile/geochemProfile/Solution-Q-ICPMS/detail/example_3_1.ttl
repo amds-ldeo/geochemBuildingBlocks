@@ -1,0 +1,31 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Agilent7500 a ada:SolutionICPMSTabular ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7500 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule stated. 113Cd was excluded as a determination channel -- \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\" -- which is a channel decision, not an analysis-inclusion decision" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "% recovery relative to certified/consensus values for USGS/GSJ/NIST RMs (stated section 3)" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)" ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "\"Total dissolution blanks for the ultrasonic bath and bomb digestions were similar at <16 pg for each element (n = 4)\"; per-element blanks Cd 16 pg, In <0.2 pg, Tl 4 pg, Bi 3 pg" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses" ;
+    ada:samplingUnit "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"" ;
+    ada:sessionIdentifier "N -- \"an average of eight sessions\" referenced; no session identifier stated" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated standard and RM analyses (stated section 2)" .
+

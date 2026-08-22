@@ -2,1556 +2,952 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: EPMA/EMPA Analysis Detail
 description: Dataset-level analysis-instance detail for EPMA/EMPA, reusing CDIF/schema.org
   slots on the schema:Dataset root.
-type: object
-properties:
-  prov:wasGeneratedBy:
-    type: array
-    items:
-      type: object
-      properties:
-        prov:used:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                required:
-                - schema:instrument
-              then:
-                properties:
-                  schema:instrument:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              schema:additionalType:
-                                contains:
-                                  const: EPMA
-                            required:
-                            - schema:additionalType
-                          then:
-                            properties:
-                              schema:additionalProperty:
-                                type: array
-                                items:
-                                  anyOf:
-                                  - title: Accelerating Voltage
-                                    description: Electron beam accelerating voltage
-                                      in kilovolts (kV). The procedure specifies the
-                                      standard operating voltage; analysts record
-                                      and justify any deviations.
-                                    type: object
-                                    properties:
-                                      '@id':
-                                        const: ada:parameter/empaTAPP/acceleratingVoltage
-                                      '@type':
-                                        const:
-                                        - schema:PropertyValue
-                                      schema:propertyID:
-                                        const:
-                                        - '@id': ada:parameter/empaTAPP/acceleratingVoltage
-                                      schema:name:
-                                        const: Accelerating Voltage
-                                      schema:value:
-                                        anyOf:
-                                        - type: number
-                                        - type: string
-                                      schema:unitText:
-                                        type: string
-                                    required:
-                                    - '@id'
-                                    - '@type'
-                                    - schema:propertyID
-                                    - schema:name
-                                    - schema:value
-                                    - schema:unitText
-                                  - title: Beam Diameter
-                                    description: Diameter of the electron beam in
-                                      micrometers. 0 indicates a fully focused beam.
-                                      Document defocused diameter when used to minimize
-                                      beam damage or improve spatial averaging for
-                                      beam-sensitive phases.
-                                    type: object
-                                    properties:
-                                      '@id':
-                                        const: ada:parameter/empaTAPP/beamDiameter
-                                      '@type':
-                                        const:
-                                        - schema:PropertyValue
-                                      schema:propertyID:
-                                        const:
-                                        - '@id': ada:parameter/empaTAPP/beamDiameter
-                                      schema:name:
-                                        const: Beam Diameter
-                                      schema:value:
-                                        anyOf:
-                                        - type: number
-                                        - type: string
-                                      schema:unitText:
-                                        type: string
-                                    required:
-                                    - '@id'
-                                    - '@type'
-                                    - schema:propertyID
-                                    - schema:name
-                                    - schema:value
-                                    - schema:unitText
-                                allOf:
-                                - contains:
-                                    title: Accelerating Voltage
-                                    description: Electron beam accelerating voltage
-                                      in kilovolts (kV). The procedure specifies the
-                                      standard operating voltage; analysts record
-                                      and justify any deviations.
-                                    type: object
-                                    properties:
-                                      '@id':
-                                        const: ada:parameter/empaTAPP/acceleratingVoltage
-                                      '@type':
-                                        const:
-                                        - schema:PropertyValue
-                                      schema:propertyID:
-                                        const:
-                                        - '@id': ada:parameter/empaTAPP/acceleratingVoltage
-                                      schema:name:
-                                        const: Accelerating Voltage
-                                      schema:value:
-                                        anyOf:
-                                        - type: number
-                                        - type: string
-                                      schema:unitText:
-                                        type: string
-                                    required:
-                                    - '@id'
-                                    - '@type'
-                                    - schema:propertyID
-                                    - schema:name
-                                    - schema:value
-                                    - schema:unitText
-                                  minContains: 0
-                                  maxContains: 1
-                                - contains:
-                                    title: Beam Diameter
-                                    description: Diameter of the electron beam in
-                                      micrometers. 0 indicates a fully focused beam.
-                                      Document defocused diameter when used to minimize
-                                      beam damage or improve spatial averaging for
-                                      beam-sensitive phases.
-                                    type: object
-                                    properties:
-                                      '@id':
-                                        const: ada:parameter/empaTAPP/beamDiameter
-                                      '@type':
-                                        const:
-                                        - schema:PropertyValue
-                                      schema:propertyID:
-                                        const:
-                                        - '@id': ada:parameter/empaTAPP/beamDiameter
-                                      schema:name:
-                                        const: Beam Diameter
-                                      schema:value:
-                                        anyOf:
-                                        - type: number
-                                        - type: string
-                                      schema:unitText:
-                                        type: string
-                                    required:
-                                    - '@id'
-                                    - '@type'
-                                    - schema:propertyID
-                                    - schema:name
-                                    - schema:value
-                                    - schema:unitText
-                                  minContains: 0
-                                  maxContains: 1
-                    allOf:
-                    - contains:
-                        properties:
-                          schema:additionalType:
-                            contains:
-                              const: EPMA
-                        required:
-                        - schema:additionalType
-            - if:
-                required:
-                - bios:computationalTool
-              then:
-                properties:
-                  bios:computationalTool:
-                    type: array
-                    items:
-                      allOf:
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-                      - type: object
-                        allOf:
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: acquisition
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: Instrument control, automation and data
-                                  acquisition software used to collect the raw data,
-                                  including version number. Distinct from Data Processing
-                                  Software(s), which covers everything applied to
-                                  the data after acquisition.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        - if:
-                            properties:
-                              ada:toolRole:
-                                const: dataReduction
-                            required:
-                            - ada:toolRole
-                          then:
-                            properties:
-                              schema:name:
-                                description: All software applied to the data after
-                                  acquisition in order to produce the reported quantities,
-                                  including version numbers. List every package used.
-                                  Distinct from Acquisition Software, which controls
-                                  the instrument and collects the raw data.
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                        required:
-                        - ada:toolRole
-        schema:description:
-          description: "Any procedure- or analysis-specific information not captured
-            by a structured field anywhere in this TAPP \u2014 including anomalies,
-            deviations from the registered procedure, instrument modifications, and
-            supplementary context. Scope is the whole document, not Group 6: this
-            is the last field of the TAPP and covers all six groups. Use sparingly;
-            a structured field is preferred for anything that can be formally categorised."
-          type: string
-        schema:endDate:
-          description: 'Date on which the analytical session ended. May equal Analysis
-            Start Date for single-day sessions. Format: YYYY-MM-DD.'
-          type: string
-        schema:startDate:
-          description: 'Date on which the analytical session began. For sessions spanning
-            multiple days, use the date of the first session. Format: YYYY-MM-DD.'
-          type: string
-        schema:additionalProperty:
-          type: array
-          items:
-            anyOf:
-            - title: Beam Damage Minimization
-              description: Measures taken to minimize beam damage, particularly volatilization
-                or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars,
-                phosphates, and carbonates. Document approach, beam conditions used,
-                and phases for which it was applied.
+allOf:
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
+- type: object
+  properties:
+    prov:wasGeneratedBy:
+      type: array
+      items:
+        type: object
+        properties:
+          prov:used:
+            type: array
+            items:
               type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/beamDamageMinimization
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/beamDamageMinimization
-                schema:name:
-                  const: Beam Damage Minimization
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Beam Raster Dimensions
-              description: X x Y dimensions of a small beam raster used at a single
-                analysis point to average a coarse-grained or beam-sensitive phase.
-                Different from X-ray mapping mode; not applicable when mapping.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/beamRasterDimensions
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/beamRasterDimensions
-                schema:name:
-                  const: Beam Raster Dimensions
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            - title: Drift Correction
-              description: Method used to monitor and correct for instrument drift
-                (beam current drift, spectrometer drift) during the analytical session.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/driftCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/driftCorrection
-                schema:name:
-                  const: Drift Correction
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Dwell Time per Pixel
-              description: 'Time spent acquiring X-ray signal at each pixel during
-                X-ray mapping, in milliseconds. For WDS: one value per spectrometer
-                assignment per pixel. For EDS: total live-time per spectrum per pixel,
-                a single value.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/dwellTimePerPixel
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/dwellTimePerPixel
-                schema:name:
-                  const: Dwell Time per Pixel
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            - title: EDS Live Time per Point or Pixel
-              description: EDS spectral acquisition live time per analysis point in
-                seconds. Previously referred to as "EDS Acquisition Time" in this
-                TAPP and commonly used under that name in EPMA and SEM-EDS contexts.
-                Renamed to align with TEM-EDS usage, where the per-point vs. per-pixel
-                distinction (point/line mode vs. spectrum image) is explicit. In EPMA,
-                acquisition is always per point.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
-                schema:name:
-                  const: EDS Live Time per Point or Pixel
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            - title: Halogen Correction on Oxygen
-              description: Whether oxygen content was adjusted to account for halogen
-                substitution (F and/or Cl replacing OH) in halogen-bearing phases
-                such as apatite, amphibole, and mica, where oxygen is calculated by
-                stoichiometry.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/halogenCorrectionOnOxygen
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/halogenCorrectionOnOxygen
-                schema:name:
-                  const: Halogen Correction on Oxygen
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Step Size / Pixel Size
-              description: Distance between adjacent measurement points in the X-ray
-                map in micrometers, defining the spatial resolution. Report both X
-                and Y step if they differ.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/stepSizePixelSize
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/stepSizePixelSize
-                schema:name:
-                  const: Step Size / Pixel Size
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            - title: Target Selection Criteria
-              description: "The rules governing which part of the sample is analysed,
-                and why. Covers the criteria applied when choosing grains, aliquots,
-                spots, or a region of interest \u2014 size, morphology, clarity, freedom
-                from inclusions or alteration, phase identity, or spatial position.
-                Distinct from Target Material, which states the material type the
-                procedure is designed for: this field states how, within such a sample,
-                the analysed portion is picked out."
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/targetSelectionCriteria
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/targetSelectionCriteria
-                schema:name:
-                  const: Target Selection Criteria
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            - title: Procedural Blank Level
-              description: "The measured level of the analytical blank in the session,
-                and \u2014 where the reported quantity is a ratio \u2014 its composition,
-                since a blank subtracted from a ratio biases the result unless its
-                own composition is known. Companion to the blank correction method,
-                which is procedure-level: this field records what was actually measured.
-                Follows the criterion-versus-measurement split the library applies
-                wherever a procedure sets a threshold and an analysis reports a value
-                against it."
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/proceduralBlankLevel
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/proceduralBlankLevel
-                schema:name:
-                  const: Procedural Blank Level
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-          allOf:
-          - contains:
-              title: Beam Damage Minimization
-              description: Measures taken to minimize beam damage, particularly volatilization
-                or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars,
-                phosphates, and carbonates. Document approach, beam conditions used,
-                and phases for which it was applied.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/beamDamageMinimization
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/beamDamageMinimization
-                schema:name:
-                  const: Beam Damage Minimization
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Beam Raster Dimensions
-              description: X x Y dimensions of a small beam raster used at a single
-                analysis point to average a coarse-grained or beam-sensitive phase.
-                Different from X-ray mapping mode; not applicable when mapping.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/beamRasterDimensions
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/beamRasterDimensions
-                schema:name:
-                  const: Beam Raster Dimensions
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Drift Correction
-              description: Method used to monitor and correct for instrument drift
-                (beam current drift, spectrometer drift) during the analytical session.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/driftCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/driftCorrection
-                schema:name:
-                  const: Drift Correction
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Dwell Time per Pixel
-              description: 'Time spent acquiring X-ray signal at each pixel during
-                X-ray mapping, in milliseconds. For WDS: one value per spectrometer
-                assignment per pixel. For EDS: total live-time per spectrum per pixel,
-                a single value.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/dwellTimePerPixel
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/dwellTimePerPixel
-                schema:name:
-                  const: Dwell Time per Pixel
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: EDS Live Time per Point or Pixel
-              description: EDS spectral acquisition live time per analysis point in
-                seconds. Previously referred to as "EDS Acquisition Time" in this
-                TAPP and commonly used under that name in EPMA and SEM-EDS contexts.
-                Renamed to align with TEM-EDS usage, where the per-point vs. per-pixel
-                distinction (point/line mode vs. spectrum image) is explicit. In EPMA,
-                acquisition is always per point.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
-                schema:name:
-                  const: EDS Live Time per Point or Pixel
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Halogen Correction on Oxygen
-              description: Whether oxygen content was adjusted to account for halogen
-                substitution (F and/or Cl replacing OH) in halogen-bearing phases
-                such as apatite, amphibole, and mica, where oxygen is calculated by
-                stoichiometry.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/halogenCorrectionOnOxygen
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/halogenCorrectionOnOxygen
-                schema:name:
-                  const: Halogen Correction on Oxygen
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Step Size / Pixel Size
-              description: Distance between adjacent measurement points in the X-ray
-                map in micrometers, defining the spatial resolution. Report both X
-                and Y step if they differ.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/stepSizePixelSize
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/stepSizePixelSize
-                schema:name:
-                  const: Step Size / Pixel Size
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Target Selection Criteria
-              description: "The rules governing which part of the sample is analysed,
-                and why. Covers the criteria applied when choosing grains, aliquots,
-                spots, or a region of interest \u2014 size, morphology, clarity, freedom
-                from inclusions or alteration, phase identity, or spatial position.
-                Distinct from Target Material, which states the material type the
-                procedure is designed for: this field states how, within such a sample,
-                the analysed portion is picked out."
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/targetSelectionCriteria
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/targetSelectionCriteria
-                schema:name:
-                  const: Target Selection Criteria
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Procedural Blank Level
-              description: "The measured level of the analytical blank in the session,
-                and \u2014 where the reported quantity is a ratio \u2014 its composition,
-                since a blank subtracted from a ratio biases the result unless its
-                own composition is known. Companion to the blank correction method,
-                which is procedure-level: this field records what was actually measured.
-                Follows the criterion-versus-measurement split the library applies
-                wherever a procedure sets a threshold and an analysis reports a value
-                against it."
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/empaTAPP/proceduralBlankLevel
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/empaTAPP/proceduralBlankLevel
-                schema:name:
-                  const: Procedural Blank Level
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-        schema:object:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  '@type':
-                    contains:
-                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-                required:
-                - '@type'
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      title: Pre-Analysis Imaging and Screening
-                      description: Imaging or other characterisation performed before
-                        the measurement in order to select or locate the analysed
-                        target, including the technique, instrument and settings used,
-                        and how individual analyses are linked back to the images.
-                        Distinct from any imaging the procedure performs as its own
-                        measurement. Where the imaging is performed on a separate
-                        instrument, it should also be recorded in the Group 1 coupling
-                        fields.
-                      type: object
-                      properties:
-                        '@id':
-                          const: ada:parameter/empaTAPP/preAnalysisImagingAndScreening
-                        '@type':
-                          const:
-                          - schema:PropertyValue
-                        schema:propertyID:
-                          const:
-                          - '@id': ada:parameter/empaTAPP/preAnalysisImagingAndScreening
-                        schema:name:
-                          const: Pre-Analysis Imaging and Screening
-                        schema:value:
-                          type: string
-                      required:
-                      - '@id'
-                      - '@type'
-                      - schema:propertyID
-                      - schema:name
-                      - schema:value
-                    allOf:
-                    - contains:
-                        title: Pre-Analysis Imaging and Screening
-                        description: Imaging or other characterisation performed before
-                          the measurement in order to select or locate the analysed
-                          target, including the technique, instrument and settings
-                          used, and how individual analyses are linked back to the
-                          images. Distinct from any imaging the procedure performs
-                          as its own measurement. Where the imaging is performed on
-                          a separate instrument, it should also be recorded in the
-                          Group 1 coupling fields.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/empaTAPP/preAnalysisImagingAndScreening
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/empaTAPP/preAnalysisImagingAndScreening
-                          schema:name:
-                            const: Pre-Analysis Imaging and Screening
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                      minContains: 0
-                      maxContains: 1
-                  schema:name:
-                    description: "Name or identifier of each sample analysed in this
-                      session, as used in the laboratory \u2014 a sample mount, section
-                      or aliquot counts as one entry where that is what the laboratory
-                      tracks. The analysis record corresponds to one session and may
-                      cover several samples; fields whose Keyed By column declares
-                      'sample' take one value per entry. Should match the identifier
-                      used in associated publications or data tables."
-                    anyOf:
-                    - type: string
-                    - type: array
+              allOf:
+              - if:
+                  required:
+                  - schema:instrument
+                then:
+                  properties:
+                    schema:instrument:
+                      type: array
                       items:
-                        type: string
-                  schema:identifier:
-                    description: Globally unique, persistent identifier for each sample
-                      listed in Sample Name. IGSN (International Geo Sample Number)
-                      is the recommended standard for geological and cosmochemical
-                      samples, as used by Astromat, EarthChem and SESAR. Where a sample
-                      and its sub-samples are separately registered, record the identifier
-                      at the level actually analysed.
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-          allOf:
-          - contains:
-              properties:
-                '@type':
-                  contains:
-                    const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-              required:
-              - '@type'
-        schema:location:
-          type: object
-          properties:
-            schema:name:
-              description: Name of the laboratory or institution hosting the instrument.
-              type: string
-            schema:identifier:
-              description: Persistent identifier for the laboratory (e.g., ROR ID).
-              type: string
-        schema:actionProcess:
-          type: object
-          properties:
-            schema:step:
-              type: array
-              items:
+                        allOf:
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                        - type: object
+                          allOf:
+                          - if:
+                              properties:
+                                schema:additionalType:
+                                  contains:
+                                    const: EPMA
+                                  schema:inDefinedTermSet: ada:vocab/instrumentType
+                              required:
+                              - schema:additionalType
+                            then:
+                              properties:
+                                schema:additionalProperty:
+                                  type: array
+                                  items:
+                                    anyOf:
+                                    - title: Accelerating Voltage
+                                      description: Electron beam accelerating voltage
+                                        in kilovolts (kV). The procedure specifies
+                                        the standard operating voltage; analysts record
+                                        and justify any deviations.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/empaTAPP/acceleratingVoltage
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/empaTAPP/acceleratingVoltage
+                                        schema:name:
+                                          const: Accelerating Voltage
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
+                                    - title: Beam Diameter
+                                      description: Diameter of the electron beam in
+                                        micrometers. 0 indicates a fully focused beam.
+                                        Document defocused diameter when used to minimize
+                                        beam damage or improve spatial averaging for
+                                        beam-sensitive phases.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/empaTAPP/beamDiameter
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/empaTAPP/beamDiameter
+                                        schema:name:
+                                          const: Beam Diameter
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
+                                  allOf:
+                                  - contains:
+                                      title: Accelerating Voltage
+                                      description: Electron beam accelerating voltage
+                                        in kilovolts (kV). The procedure specifies
+                                        the standard operating voltage; analysts record
+                                        and justify any deviations.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/empaTAPP/acceleratingVoltage
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/empaTAPP/acceleratingVoltage
+                                        schema:name:
+                                          const: Accelerating Voltage
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains:
+                                      title: Beam Diameter
+                                      description: Diameter of the electron beam in
+                                        micrometers. 0 indicates a fully focused beam.
+                                        Document defocused diameter when used to minimize
+                                        beam damage or improve spatial averaging for
+                                        beam-sensitive phases.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/empaTAPP/beamDiameter
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/empaTAPP/beamDiameter
+                                        schema:name:
+                                          const: Beam Diameter
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
+                                    minContains: 0
+                                    maxContains: 1
+                      allOf:
+                      - contains:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: EPMA
+                              schema:inDefinedTermSet: ada:vocab/instrumentType
+                          required:
+                          - schema:additionalType
+          schema:additionalProperty:
+            type: array
+            items:
+              anyOf:
+              - title: Beam Damage Minimization
+                description: Measures taken to minimize beam damage, particularly
+                  volatilization or migration of Na, K, F, and Cl in hydrous minerals,
+                  glasses, feldspars, phosphates, and carbonates. Document approach,
+                  beam conditions used, and phases for which it was applied.
                 type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/beamDamageMinimization
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/beamDamageMinimization
+                  schema:name:
+                    const: Beam Damage Minimization
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+              - title: Beam Raster Dimensions
+                description: X x Y dimensions of a small beam raster used at a single
+                  analysis point to average a coarse-grained or beam-sensitive phase.
+                  Different from X-ray mapping mode; not applicable when mapping.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/beamRasterDimensions
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/beamRasterDimensions
+                  schema:name:
+                    const: Beam Raster Dimensions
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - title: Drift Correction
+                description: Method used to monitor and correct for instrument drift
+                  (beam current drift, spectrometer drift) during the analytical session.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/driftCorrection
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/driftCorrection
+                  schema:name:
+                    const: Drift Correction
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+              - title: EDS Live Time per Point or Pixel
+                description: EDS spectral acquisition live time per analysis point
+                  in seconds. Previously referred to as "EDS Acquisition Time" in
+                  this TAPP and commonly used under that name in EPMA and SEM-EDS
+                  contexts. Renamed to align with TEM-EDS usage, where the per-point
+                  vs. per-pixel distinction (point/line mode vs. spectrum image) is
+                  explicit. In EPMA, acquisition is always per point.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
+                  schema:name:
+                    const: EDS Live Time per Point or Pixel
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - title: Halogen Correction on Oxygen
+                description: Whether oxygen content was adjusted to account for halogen
+                  substitution (F and/or Cl replacing OH) in halogen-bearing phases
+                  such as apatite, amphibole, and mica, where oxygen is calculated
+                  by stoichiometry.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/halogenCorrectionOnOxygen
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/halogenCorrectionOnOxygen
+                  schema:name:
+                    const: Halogen Correction on Oxygen
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+              - title: Step Size / Pixel Size
+                description: Distance between adjacent measurement points in the X-ray
+                  map in micrometers, defining the spatial resolution. Report both
+                  X and Y step if they differ.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/stepSizePixelSize
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/stepSizePixelSize
+                  schema:name:
+                    const: Step Size / Pixel Size
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+            allOf:
+            - contains:
+                title: Beam Damage Minimization
+                description: Measures taken to minimize beam damage, particularly
+                  volatilization or migration of Na, K, F, and Cl in hydrous minerals,
+                  glasses, feldspars, phosphates, and carbonates. Document approach,
+                  beam conditions used, and phases for which it was applied.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/beamDamageMinimization
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/beamDamageMinimization
+                  schema:name:
+                    const: Beam Damage Minimization
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+              minContains: 0
+              maxContains: 1
+            - contains:
+                title: Beam Raster Dimensions
+                description: X x Y dimensions of a small beam raster used at a single
+                  analysis point to average a coarse-grained or beam-sensitive phase.
+                  Different from X-ray mapping mode; not applicable when mapping.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/beamRasterDimensions
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/beamRasterDimensions
+                  schema:name:
+                    const: Beam Raster Dimensions
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              minContains: 0
+              maxContains: 1
+            - contains:
+                title: Drift Correction
+                description: Method used to monitor and correct for instrument drift
+                  (beam current drift, spectrometer drift) during the analytical session.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/driftCorrection
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/driftCorrection
+                  schema:name:
+                    const: Drift Correction
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+              minContains: 0
+              maxContains: 1
+            - contains:
+                title: EDS Live Time per Point or Pixel
+                description: EDS spectral acquisition live time per analysis point
+                  in seconds. Previously referred to as "EDS Acquisition Time" in
+                  this TAPP and commonly used under that name in EPMA and SEM-EDS
+                  contexts. Renamed to align with TEM-EDS usage, where the per-point
+                  vs. per-pixel distinction (point/line mode vs. spectrum image) is
+                  explicit. In EPMA, acquisition is always per point.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
+                  schema:name:
+                    const: EDS Live Time per Point or Pixel
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              minContains: 0
+              maxContains: 1
+            - contains:
+                title: Halogen Correction on Oxygen
+                description: Whether oxygen content was adjusted to account for halogen
+                  substitution (F and/or Cl replacing OH) in halogen-bearing phases
+                  such as apatite, amphibole, and mica, where oxygen is calculated
+                  by stoichiometry.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/halogenCorrectionOnOxygen
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/halogenCorrectionOnOxygen
+                  schema:name:
+                    const: Halogen Correction on Oxygen
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+              minContains: 0
+              maxContains: 1
+            - contains:
+                title: Step Size / Pixel Size
+                description: Distance between adjacent measurement points in the X-ray
+                  map in micrometers, defining the spatial resolution. Report both
+                  X and Y step if they differ.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/stepSizePixelSize
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/stepSizePixelSize
+                  schema:name:
+                    const: Step Size / Pixel Size
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              minContains: 0
+              maxContains: 1
+            - contains:
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+              minContains: 0
+              maxContains: 1
+            - contains:
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+              minContains: 0
+              maxContains: 1
+          schema:object:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    '@type':
+                      contains:
+                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  required:
+                  - '@type'
+                then:
+                  properties:
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                      allOf:
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                        minContains: 0
+                        maxContains: 1
+          schema:actionProcess:
+            type: object
+            properties:
+              schema:step:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                  - if:
+                      properties:
+                        schema:name:
+                          const: Sample preparation
+                      required:
+                      - schema:name
+                    then:
+                      properties:
+                        schema:description:
+                          description: Description of how samples were prepared for
+                            analysis under this procedure (mounting, polishing, coating).
+                            Analysts may document session-specific variations from
+                            the procedure standard.
+                          anyOf:
+                          - type: string
+                          - type: array
+                            items:
+                              type: string
+                  - if:
+                      properties:
+                        schema:name:
+                          const: Data reduction
+                      required:
+                      - schema:name
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            anyOf:
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                          allOf:
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                            minContains: 0
+                            maxContains: 1
                 allOf:
-                - if:
+                - contains:
                     properties:
                       schema:name:
                         const: Sample preparation
                     required:
                     - schema:name
-                  then:
-                    properties:
-                      schema:description:
-                        description: Description of how samples were prepared for
-                          analysis under this procedure (mounting, polishing, coating).
-                          Analysts may document session-specific variations from the
-                          procedure standard.
-                        anyOf:
-                        - type: string
-                        - type: array
-                          items:
-                            type: string
-                - if:
+                - contains:
                     properties:
                       schema:name:
                         const: Data reduction
                     required:
                     - schema:name
-                  then:
-                    properties:
-                      schema:additionalProperty:
-                        type: array
-                        items:
-                          anyOf:
-                          - title: Calibration Factor and Determination Method
-                            description: 'An externally-calibrated factor that converts
-                              the measured quantity into the reported quantity, how
-                              it was determined, and its uncertainty. Applies where
-                              the conversion depends on a factor calibrated against
-                              a reference of independently known value, rather than
-                              on the instrument response alone. Distinct from the
-                              fields that name the calibration material and that state
-                              which approach applies to which analyte, where the technique
-                              has them: this field records the resulting factor itself.'
-                            type: object
-                            properties:
-                              '@id':
-                                const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-                              '@type':
-                                const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-                              schema:name:
-                                const: Calibration Factor and Determination Method
-                              schema:value:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:propertyID
-                            - schema:name
-                            - schema:value
-                          - title: Constants and Reference Values Used
-                            description: Physical constants and reference values used
-                              in data reduction to calculate the final reported quantity
-                              (e.g., decay constants for age calculation, standard
-                              isotope ratios, or other citable reference values used
-                              in a correction or calculation), together with their
-                              source. Distinct from the Group 6 reference-material
-                              fields, which document accepted values for specific
-                              calibration/validation materials rather than universal
-                              physical constants. Record "None" if no citable, revisable
-                              physical constants feed into this procedure's data reduction.
-                            type: object
-                            properties:
-                              '@id':
-                                const: ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
-                              '@type':
-                                const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                - '@id': ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
-                              schema:name:
-                                const: Constants and Reference Values Used
-                              schema:value:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:propertyID
-                            - schema:name
-                            - schema:value
-                        allOf:
-                        - contains:
-                            title: Calibration Factor and Determination Method
-                            description: 'An externally-calibrated factor that converts
-                              the measured quantity into the reported quantity, how
-                              it was determined, and its uncertainty. Applies where
-                              the conversion depends on a factor calibrated against
-                              a reference of independently known value, rather than
-                              on the instrument response alone. Distinct from the
-                              fields that name the calibration material and that state
-                              which approach applies to which analyte, where the technique
-                              has them: this field records the resulting factor itself.'
-                            type: object
-                            properties:
-                              '@id':
-                                const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-                              '@type':
-                                const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-                              schema:name:
-                                const: Calibration Factor and Determination Method
-                              schema:value:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:propertyID
-                            - schema:name
-                            - schema:value
-                          minContains: 0
-                          maxContains: 1
-                        - contains:
-                            title: Constants and Reference Values Used
-                            description: Physical constants and reference values used
-                              in data reduction to calculate the final reported quantity
-                              (e.g., decay constants for age calculation, standard
-                              isotope ratios, or other citable reference values used
-                              in a correction or calculation), together with their
-                              source. Distinct from the Group 6 reference-material
-                              fields, which document accepted values for specific
-                              calibration/validation materials rather than universal
-                              physical constants. Record "None" if no citable, revisable
-                              physical constants feed into this procedure's data reduction.
-                            type: object
-                            properties:
-                              '@id':
-                                const: ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
-                              '@type':
-                                const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                - '@id': ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
-                              schema:name:
-                                const: Constants and Reference Values Used
-                              schema:value:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:propertyID
-                            - schema:name
-                            - schema:value
-                          minContains: 0
-                          maxContains: 1
-              allOf:
-              - contains:
-                  properties:
-                    schema:name:
-                      const: Sample preparation
-                  required:
-                  - schema:name
-              - contains:
-                  properties:
-                    schema:name:
-                      const: Data reduction
-                  required:
-                  - schema:name
-        ada:deadTime:
-          description: "Percent dead time reported by the EDS detector during the
-            session \u2014 the fraction of total acquisition time the detector spent
-            processing rather than counting. EDS dead time correction is managed automatically
-            by the detector electronics; this field documents the resulting percentage
-            as a session QC metric. Values above ~40% indicate excessive count rate
-            and may degrade spectral quality and quantitative accuracy. Unlike WDS
-            dead time (see WDS Dead Time Correction), no user-selectable correction
-            algorithm is required."
-          anyOf:
-          - type: number
-          - type: string
-        schema:identifier:
-          description: "Identifier for the analytical session this record describes
-            \u2014 the laboratory's own run, sequence or batch identifier as generated
-            by the instrument or acquisition software. The analysis record corresponds
-            to one session, which may cover several samples, and this is the link
-            back to the raw instrument files. Distinct from any persistent identifier
-            a repository mints on submission."
-          type: string
-  schema:contributor:
-    type: array
-    items:
-      type: object
-      allOf:
-      - if:
-          properties:
-            schema:roleName:
-              const: analyst
+          ada:deadTime:
+            description: "Percent dead time reported by the EDS detector during the
+              session \u2014 the fraction of total acquisition time the detector spent
+              processing rather than counting. EDS dead time correction is managed
+              automatically by the detector electronics; this field documents the
+              resulting percentage as a session QC metric. Values above ~40% indicate
+              excessive count rate and may degrade spectral quality and quantitative
+              accuracy. Unlike WDS dead time (see WDS Dead Time Correction), no user-selectable
+              correction algorithm is required."
+            anyOf:
+            - type: number
+            - type: string
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
           required:
-          - schema:roleName
-        then:
+          - '@type'
           properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - title: Detection Limit
+          description: Method detection limit at 99% confidence (3-sigma), one per
+            reported concentration variable (one per analyte, these being the same
+            set), derived from counting statistics on peak and background. Include
+            the method and the resulting value for each.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/detectionLimit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/detectionLimit
             schema:name:
-              description: Name(s) of the analyst(s) who performed the analysis session.
-                ORCID is recommended for persistent identification.
-              anyOf:
-              - type: string
-              - type: array
-                items:
-                  type: string
-    allOf:
-    - contains:
-        properties:
-          schema:roleName:
-            const: analyst
-        required:
-        - schema:roleName
-  schema:relatedLink:
-    type: array
-    items:
-      type: object
+              const: Detection Limit
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - title: Normalization / Standards-Based Correction
+          description: Post-acquisition normalization applied using secondary reference
+            materials to correct for session-to-session calibration drift.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - title: Calibration Factor and Determination Method
+          description: 'An externally-calibrated factor that converts the measured
+            quantity into the reported quantity, how it was determined, and its uncertainty.
+            Applies where the conversion depends on a factor calibrated against a
+            reference of independently known value, rather than on the instrument
+            response alone. Distinct from the fields that name the calibration material
+            and that state which approach applies to which analyte, where the technique
+            has them: this field records the resulting factor itself.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
+            schema:name:
+              const: Calibration Factor and Determination Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
       allOf:
-      - if:
+      - contains:
+          title: Detection Limit
+          description: Method detection limit at 99% confidence (3-sigma), one per
+            reported concentration variable (one per analyte, these being the same
+            set), derived from counting statistics on peak and background. Include
+            the method and the resulting value for each.
+          type: object
           properties:
-            schema:linkRelationship:
-              const: coupledDataset
+            '@id':
+              const: ada:parameter/empaTAPP/detectionLimit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/detectionLimit
+            schema:name:
+              const: Detection Limit
+            schema:value:
+              type: string
           required:
-          - schema:linkRelationship
-        then:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Normalization / Standards-Based Correction
+          description: Post-acquisition normalization applied using secondary reference
+            materials to correct for session-to-session calibration drift.
+          type: object
           properties:
-            schema:target:
-              description: 'DOI or other persistent identifier for the co-registered
-                dataset or publication where both datasets are reported together.
-                Accepts: a dedicated dataset DOI (if separately deposited), a shared
-                dataset DOI (if co-submitted in the same package), or a publication
-                DOI. Use "same submission" if the coupled dataset is included in this
-                data package, or "pending" if not yet assigned. If coupling is documented
-                through a shared sample identifier only, that information is already
-                captured in Sample Persistent Identifier (Group 2).'
+            '@id':
+              const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Calibration Factor and Determination Method
+          description: 'An externally-calibrated factor that converts the measured
+            quantity into the reported quantity, how it was determined, and its uncertainty.
+            Applies where the conversion depends on a factor calibrated against a
+            reference of independently known value, rather than on the instrument
+            response alone. Distinct from the fields that name the calibration material
+            and that state which approach applies to which analyte, where the technique
+            has them: this field records the resulting factor itself.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
+            schema:name:
+              const: Calibration Factor and Determination Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        minContains: 0
+        maxContains: 1
+    schema:additionalProperty:
+      type: array
+      items:
+        anyOf:
+        - title: Map Area
+          description: Physical dimensions of the mapped region in micrometers (X
+            x Y). Determined at analysis time based on the sample feature or region
+            of interest.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/mapArea
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/mapArea
+            schema:name:
+              const: Map Area
+            schema:value:
               anyOf:
+              - type: number
               - type: string
-              - type: array
-                items:
-                  type: string
-      - if:
-          properties:
-            schema:linkRelationship:
-              const: coupledProcedure
+            schema:unitText:
+              type: string
           required:
-          - schema:linkRelationship
-        then:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+        - title: Map Dimensions
+          description: Number of pixels in the X-ray map in the X and Y directions.
+            Determined at analysis time based on the area of interest and selected
+            step size.
+          type: object
           properties:
-            schema:target:
-              type: object
-              properties:
-                schema:url:
-                  description: Registered procedure DOI for the coupled technique
-                    named above. Provides a stable, citable link to the companion
-                    method independent of whether a dataset has been deposited. If
-                    the coupled procedure has not yet been registered, enter the DOI
-                    of a publication describing the coupled method, or "pending".
-                    Enter "None" if no coupling is planned.
-                  type: string
-      - if:
-          properties:
-            schema:linkRelationship:
-              const: coupledTechnique
+            '@id':
+              const: ada:parameter/empaTAPP/mapDimensions
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/mapDimensions
+            schema:name:
+              const: Map Dimensions
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
           required:
-          - schema:linkRelationship
-        then:
-          properties:
-            schema:target:
-              type: object
-              properties:
-                schema:name:
-                  description: "Other analytical techniques applied to the same sample(s)
-                    whose results are intended to be interpreted together with data
-                    from this procedure. Document coupling with any technique whose
-                    results are functionally linked to this dataset \u2014 providing
-                    calibration inputs, complementary spatial context, or required
-                    companion measurements. Use the same controlled vocabulary as
-                    the Technique field. Enter \"None\" if no coupling is intended."
-                  anyOf:
-                  - type: string
-                    enum:
-                    - EBSD
-                    - SEM-EDS
-                    - NanoSIMS
-                    - None
-                    - N/A
-                    - missing
-                  - type: string
-                schema:description:
-                  description: "Description of how this procedure is coupled with
-                    the technique(s) listed above. Include: (1) the functional relationship
-                    \u2014 what data or context flows between techniques, or how results
-                    are combined (e.g. which output from the coupled technique serves
-                    as input to data reduction for this technique); and (2) the analytical
-                    sequence \u2014 which technique is performed first and why (e.g.
-                    non-destructive before destructive). Required when Coupled Technique(s)
-                    is not \"None\"."
-                  type: string
-  schema:funding:
-    type: array
-  schema:variableMeasured:
-    type: array
-    items:
-      anyOf:
-      - title: Normalization / Standards-Based Correction
-        description: Post-acquisition normalization applied using secondary reference
-          materials to correct for session-to-session calibration drift.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-            - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-          schema:name:
-            const: Normalization / Standards-Based Correction
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      - title: Calibration Factor and Determination Method
-        description: 'An externally-calibrated factor that converts the measured quantity
-          into the reported quantity, how it was determined, and its uncertainty.
-          Applies where the conversion depends on a factor calibrated against a reference
-          of independently known value, rather than on the instrument response alone.
-          Distinct from the fields that name the calibration material and that state
-          which approach applies to which analyte, where the technique has them: this
-          field records the resulting factor itself.'
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-            - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-          schema:name:
-            const: Calibration Factor and Determination Method
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      - title: Goodness-of-Fit or Dispersion Statistic
-        description: The statistic reported to show whether scatter among the contributing
-          analyses exceeds what analytical uncertainty alone predicts, together with
-          its value. Answers whether a reported aggregate is defensible as a single
-          population. Procedure-level tier is N/A because the value cannot be known
-          before the analysis; the procedure may still state an acceptance threshold,
-          which belongs with the inclusion criteria.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/empaTAPP/goodnessOfFitOrDispersionStatistic
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-            - '@id': ada:parameter/empaTAPP/goodnessOfFitOrDispersionStatistic
-          schema:name:
-            const: Goodness-of-Fit or Dispersion Statistic
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-    allOf:
-    - contains:
-        title: Normalization / Standards-Based Correction
-        description: Post-acquisition normalization applied using secondary reference
-          materials to correct for session-to-session calibration drift.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-            - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-          schema:name:
-            const: Normalization / Standards-Based Correction
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      minContains: 0
-      maxContains: 1
-    - contains:
-        title: Calibration Factor and Determination Method
-        description: 'An externally-calibrated factor that converts the measured quantity
-          into the reported quantity, how it was determined, and its uncertainty.
-          Applies where the conversion depends on a factor calibrated against a reference
-          of independently known value, rather than on the instrument response alone.
-          Distinct from the fields that name the calibration material and that state
-          which approach applies to which analyte, where the technique has them: this
-          field records the resulting factor itself.'
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-            - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-          schema:name:
-            const: Calibration Factor and Determination Method
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      minContains: 0
-      maxContains: 1
-    - contains:
-        title: Goodness-of-Fit or Dispersion Statistic
-        description: The statistic reported to show whether scatter among the contributing
-          analyses exceeds what analytical uncertainty alone predicts, together with
-          its value. Answers whether a reported aggregate is defensible as a single
-          population. Procedure-level tier is N/A because the value cannot be known
-          before the analysis; the procedure may still state an acceptance threshold,
-          which belongs with the inclusion criteria.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/empaTAPP/goodnessOfFitOrDispersionStatistic
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-            - '@id': ada:parameter/empaTAPP/goodnessOfFitOrDispersionStatistic
-          schema:name:
-            const: Goodness-of-Fit or Dispersion Statistic
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      minContains: 0
-      maxContains: 1
-  schema:measurementTechnique:
-    type: array
-    items:
-      type: object
-      properties:
-        schema:identifier:
-          description: DOI or unique persistent identifier for the registered procedure
-            used in this analysis, generated upon procedure submission to a data repository.
-            This field is mandatory when submitting analytical data, to encourage
-            formal procedure registration and ensure traceability. If a DOI has been
-            applied for but not yet minted, enter "pending".
-          type: string
-  schema:additionalProperty:
-    type: array
-    items:
-      anyOf:
-      - title: Map Area
-        description: Physical dimensions of the mapped region in micrometers (X x
-          Y). Determined at analysis time based on the sample feature or region of
-          interest.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/empaTAPP/mapArea
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-            - '@id': ada:parameter/empaTAPP/mapArea
-          schema:name:
-            const: Map Area
-          schema:value:
-            anyOf:
-            - type: number
-            - type: string
-          schema:unitText:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-        - schema:unitText
-      - title: Map Dimensions
-        description: Number of pixels in the X-ray map in the X and Y directions.
-          Determined at analysis time based on the area of interest and selected step
-          size.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/empaTAPP/mapDimensions
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-            - '@id': ada:parameter/empaTAPP/mapDimensions
-          schema:name:
-            const: Map Dimensions
-          schema:value:
-            anyOf:
-            - type: number
-            - type: string
-          schema:unitText:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-        - schema:unitText
-    allOf:
-    - contains:
-        title: Map Area
-        description: Physical dimensions of the mapped region in micrometers (X x
-          Y). Determined at analysis time based on the sample feature or region of
-          interest.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/empaTAPP/mapArea
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-            - '@id': ada:parameter/empaTAPP/mapArea
-          schema:name:
-            const: Map Area
-          schema:value:
-            anyOf:
-            - type: number
-            - type: string
-          schema:unitText:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-        - schema:unitText
-      minContains: 0
-      maxContains: 1
-    - contains:
-        title: Map Dimensions
-        description: Number of pixels in the X-ray map in the X and Y directions.
-          Determined at analysis time based on the area of interest and selected step
-          size.
-        type: object
-        properties:
-          '@id':
-            const: ada:parameter/empaTAPP/mapDimensions
-          '@type':
-            const:
-            - schema:PropertyValue
-          schema:propertyID:
-            const:
-            - '@id': ada:parameter/empaTAPP/mapDimensions
-          schema:name:
-            const: Map Dimensions
-          schema:value:
-            anyOf:
-            - type: number
-            - type: string
-          schema:unitText:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-        - schema:unitText
-      minContains: 0
-      maxContains: 1
-  dqv:hasQualityMeasurement:
-    type: array
-    items:
-      type: object
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
       allOf:
-      - if:
+      - contains:
+          title: Map Area
+          description: Physical dimensions of the mapped region in micrometers (X
+            x Y). Determined at analysis time based on the sample feature or region
+            of interest.
+          type: object
           properties:
-            dqv:isMeasurementOf:
-              const: Goodness-of-Fit
-          required:
-          - dqv:isMeasurementOf
-        then:
-          properties:
-            dqv:value:
-              description: The statistic reported to show whether scatter among the
-                contributing analyses exceeds what analytical uncertainty alone predicts,
-                together with its value. Answers whether a reported aggregate is defensible
-                as a single population. Procedure-level tier is N/A because the value
-                cannot be known before the analysis; the procedure may still state
-                an acceptance threshold, which belongs with the inclusion criteria.
+            '@id':
+              const: ada:parameter/empaTAPP/mapArea
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/mapArea
+            schema:name:
+              const: Map Area
+            schema:value:
               anyOf:
+              - type: number
               - type: string
-              - type: array
-                items:
-                  type: string
-    allOf:
-    - contains:
-        properties:
-          dqv:isMeasurementOf:
-            const: Goodness-of-Fit
-        required:
-        - dqv:isMeasurementOf
-required:
-- schema:funding
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Map Dimensions
+          description: Number of pixels in the X-ray map in the X and Y directions.
+            Determined at analysis time based on the area of interest and selected
+            step size.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/mapDimensions
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/mapDimensions
+            schema:name:
+              const: Map Dimensions
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+        minContains: 0
+        maxContains: 1

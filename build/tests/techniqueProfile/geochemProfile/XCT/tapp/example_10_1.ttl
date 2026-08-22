@@ -15,14 +15,14 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
@@ -31,19 +31,12 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Zeiss Xradia 510 Versa" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "30 kV" ;
-            ada:voxelSizeDefault "2.06 µm/px" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Lab. de Microtomografía de Rayos X, UNAM, Mexico" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Richard2019" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -104,6 +97,22 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
     schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Zeiss Xradia 510 Versa" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "30 kV" ;
+    ada:voxelSizeDefault "2.06 µm/px" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;

@@ -9,6 +9,16 @@ x-defs:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
     - type: object
       properties:
+        '@id':
+          description: 'Identifier for this instrument within the record. REQUIRED:
+            an instrument has to be referenceable. A monitored species names the instrument
+            (or the instrument part) that reports it, and a dataset variable points
+            back at the device that produced it; neither is expressible while the
+            instrument is an anonymous object. A document-scoped identifier suffices,
+            but a resolvable one is better wherever the lab has a persistent identifier
+            for the device.'
+          type: string
+          minLength: 1
         schema:additionalType:
           description: 'Domain-specific instrument type classifications. Should include
             a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific
@@ -55,10 +65,21 @@ x-defs:
             anyOf:
             - type: object
               required:
+              - '@id'
               - '@type'
               - schema:name
               - schema:additionalType
               properties:
+                '@id':
+                  description: 'Identifier for this component within the record. REQUIRED
+                    on an INLINE component for the same reason it is required on the
+                    instrument: a monitored species names the part that reports it
+                    -- a Faraday cup, a spectrometer, a detector -- and an anonymous
+                    object cannot be referenced. The sibling branch of this anyOf
+                    is the by-reference form, a bare {"@id": ...} pointing at a component
+                    described elsewhere.'
+                  type: string
+                  minLength: 1
                 '@type':
                   type: array
                   items:
@@ -96,6 +117,7 @@ x-defs:
                   type: string
           x-jsonld-id: http://schema.org/hasPart
       required:
+      - '@id'
       - schema:additionalType
     x-jsonld-prefixes:
       schema: http://schema.org/
@@ -5745,12 +5767,26 @@ x-defs:
         type: array
         items:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTermOrString
-        description: Essentially the same as schema:propertyID. References to concepts
-          that this variable measures or represents. When the dataset's distribution
-          carries cdi:isStructuredBy (CDIF Data Structure profile), cdif:uses references
-          the RepresentedVariable that supplies the represented-variable-level properties
-          below, which are then NOT duplicated on the InstanceVariable.
+        description: Essentially the same as schema:propertyID. References to the
+          concept(s) that this variable measures or represents. Concepts only -- to
+          point at the RepresentedVariable that supplies the represented-variable-level
+          properties, use cdif:isDefinedBy_RepresentedVariable. Splitting the two
+          targets follows the CDIF convention of disambiguating the polymorphic DDI-CDI
+          role names by target, so each JSON key has a single value type; it also
+          keeps cdif:uses type-compatible with canonical cdi:uses on InstanceVariable,
+          which is valued by a Concept.
         x-jsonld-id: https://w3id.org/cdif/uses
+      cdif:isDefinedBy_RepresentedVariable:
+        description: 'The RepresentedVariable this InstanceVariable instantiates.
+          A reference only (@id, nothing else): the point of the link is that the
+          represented-variable-level properties are defined once on the RepresentedVariable
+          and NOT duplicated here, so an inline copy would defeat it. Same property
+          name as on cdifDataStructureComponent, which carries the equivalent link
+          within a data structure; that one also accepts an inline RepresentedVariable
+          because a structure may define one that exists nowhere else.'
+        x-jsonld-id: https://w3id.org/cdif/isDefinedBy_RepresentedVariable
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
       cdi:function:
         type: array
         items:
@@ -9612,6 +9648,71 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
+            - title: Ablation Duration per Spot
+              description: 'Total on-sample ablation (signal acquisition) time per
+                individual spot in seconds, as set in the acquisition method. This
+                is a procedure-level parameter for spot analysis: it reflects the
+                deliberate trade-off between signal accumulation (longer = lower LOD),
+                sample consumption, and session throughput. For transect analysis,
+                the equivalent procedure-level parameter is scan speed (captured in
+                Transect Rate, Mapping Rate or Step Size). For mapping analysis, total
+                acquisition time is sample-area-dependent and therefore analysis-level,
+                not captured here.'
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/ablationDurationPerSpot
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/ablationDurationPerSpot
+                schema:name:
+                  enum:
+                  - Ablation Duration per Spot
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - title: Ablation Pit Depth and Ablation Rate
+              description: Depth of the ablation pit produced under the registered
+                laser conditions, the method used to measure it, and the resulting
+                per-pulse ablation rate. Sets the achievable depth resolution and
+                governs downhole elemental fractionation. For transect and mapping
+                the equivalent quantity is trench depth under the same conditions.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/ablationPitDepthAndAblationRate
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/ablationPitDepthAndAblationRate
+                schema:name:
+                  enum:
+                  - Ablation Pit Depth and Ablation Rate
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: Transect Rate, Mapping Rate or Step Size
               description: "For continuous line scan (transect) and raster mapping:
                 the stage translation speed in \xB5m s\u207B\xB9. This is the procedure-level
@@ -9642,6 +9743,63 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
+            - title: Raster Line Spacing (Mapping Only)
+              description: Distance between adjacent raster lines in a 2D elemental
+                map, measured perpendicular to the scan direction, in micrometres.
+                Together with spot size, this determines whether adjacent lines are
+                contiguous (line spacing = spot size), overlapping (line spacing <
+                spot size), or have gaps (line spacing > spot size). Applies to raster
+                mapping only.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/rasterLineSpacing
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/rasterLineSpacing
+                schema:name:
+                  enum:
+                  - Raster Line Spacing (Mapping Only)
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Carrier Gas and Flow Rate
+              description: "Gas used to transport ablated aerosol from the ablation
+                cell to the ICP-MS torch, with the procedure-registered target flow
+                rate(s). Helium is standard for most UV laser systems due to superior
+                aerosol transport. Flow rates are procedure targets; actual session
+                values may be adjusted within \xB110% during tuning."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/carrierGasAndFlowRate
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/carrierGasAndFlowRate
+                schema:name:
+                  enum:
+                  - Carrier Gas and Flow Rate
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: Plasma / Make-up Gas Addition
               description: "Additional gas(es) mixed into the carrier stream downstream
                 of the ablation cell, with the procedure-registered target flow rate.
@@ -9662,6 +9820,33 @@ properties:
                 schema:name:
                   enum:
                   - Plasma / Make-up Gas Addition
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Analysis Sequence
+              description: Repeating order of primary calibration standard(s), quality
+                control standard(s), and unknown analyses within a measurement session.
+                Editable to allow minor adjustments while maintaining the bracketing
+                strategy defined in the procedure.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/analysisSequence
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/analysisSequence
+                schema:name:
+                  enum:
+                  - Analysis Sequence
                 schema:value:
                   type: string
               required:
@@ -9723,6 +9908,41 @@ properties:
                 schema:name:
                   enum:
                   - Total Integration Time per Output Data Point
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - title: Background Count Time
+              description: Total time spent measuring gas blank (background signal
+                with laser off or shutter closed) before each ablation event, in seconds.
+                For spot and transect analysis, a discrete background interval is
+                measured before each ablation. For mapping, background is typically
+                measured once per raster line or at the start of a map session rather
+                than before each individual pixel. Editable to allow session-specific
+                adjustment.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/backgroundCountTime
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/backgroundCountTime
+                schema:name:
+                  enum:
+                  - Background Count Time
                 schema:value:
                   anyOf:
                   - type: number
@@ -9996,6 +10216,77 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
+              title: Ablation Duration per Spot
+              description: 'Total on-sample ablation (signal acquisition) time per
+                individual spot in seconds, as set in the acquisition method. This
+                is a procedure-level parameter for spot analysis: it reflects the
+                deliberate trade-off between signal accumulation (longer = lower LOD),
+                sample consumption, and session throughput. For transect analysis,
+                the equivalent procedure-level parameter is scan speed (captured in
+                Transect Rate, Mapping Rate or Step Size). For mapping analysis, total
+                acquisition time is sample-area-dependent and therefore analysis-level,
+                not captured here.'
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/ablationDurationPerSpot
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/ablationDurationPerSpot
+                schema:name:
+                  enum:
+                  - Ablation Duration per Spot
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Ablation Pit Depth and Ablation Rate
+              description: Depth of the ablation pit produced under the registered
+                laser conditions, the method used to measure it, and the resulting
+                per-pulse ablation rate. Sets the achievable depth resolution and
+                governs downhole elemental fractionation. For transect and mapping
+                the equivalent quantity is trench depth under the same conditions.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/ablationPitDepthAndAblationRate
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/ablationPitDepthAndAblationRate
+                schema:name:
+                  enum:
+                  - Ablation Pit Depth and Ablation Rate
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
               title: Transect Rate, Mapping Rate or Step Size
               description: "For continuous line scan (transect) and raster mapping:
                 the stage translation speed in \xB5m s\u207B\xB9. This is the procedure-level
@@ -10029,6 +10320,69 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
+              title: Raster Line Spacing (Mapping Only)
+              description: Distance between adjacent raster lines in a 2D elemental
+                map, measured perpendicular to the scan direction, in micrometres.
+                Together with spot size, this determines whether adjacent lines are
+                contiguous (line spacing = spot size), overlapping (line spacing <
+                spot size), or have gaps (line spacing > spot size). Applies to raster
+                mapping only.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/rasterLineSpacing
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/rasterLineSpacing
+                schema:name:
+                  enum:
+                  - Raster Line Spacing (Mapping Only)
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Carrier Gas and Flow Rate
+              description: "Gas used to transport ablated aerosol from the ablation
+                cell to the ICP-MS torch, with the procedure-registered target flow
+                rate(s). Helium is standard for most UV laser systems due to superior
+                aerosol transport. Flow rates are procedure targets; actual session
+                values may be adjusted within \xB110% during tuning."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/carrierGasAndFlowRate
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/carrierGasAndFlowRate
+                schema:name:
+                  enum:
+                  - Carrier Gas and Flow Rate
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
               title: Plasma / Make-up Gas Addition
               description: "Additional gas(es) mixed into the carrier stream downstream
                 of the ablation cell, with the procedure-registered target flow rate.
@@ -10049,6 +10403,36 @@ properties:
                 schema:name:
                   enum:
                   - Plasma / Make-up Gas Addition
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Analysis Sequence
+              description: Repeating order of primary calibration standard(s), quality
+                control standard(s), and unknown analyses within a measurement session.
+                Editable to allow minor adjustments while maintaining the bracketing
+                strategy defined in the procedure.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/analysisSequence
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/analysisSequence
+                schema:name:
+                  enum:
+                  - Analysis Sequence
                 schema:value:
                   type: string
               required:
@@ -10116,6 +10500,44 @@ properties:
                 schema:name:
                   enum:
                   - Total Integration Time per Output Data Point
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Background Count Time
+              description: Total time spent measuring gas blank (background signal
+                with laser off or shutter closed) before each ablation event, in seconds.
+                For spot and transect analysis, a discrete background interval is
+                measured before each ablation. For mapping, background is typically
+                measured once per raster line or at the start of a map session rather
+                than before each individual pixel. Editable to allow session-specific
+                adjustment.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laSficpmsTAPP/backgroundCountTime
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laSficpmsTAPP/backgroundCountTime
+                schema:name:
+                  enum:
+                  - Background Count Time
                 schema:value:
                   anyOf:
                   - type: number
@@ -10364,6 +10786,7 @@ properties:
                                 contains:
                                   enum:
                                   - ICPMS
+                                schema:inDefinedTermSet: ada:vocab/instrumentType
                             required:
                             - schema:additionalType
                           then:
@@ -10388,6 +10811,7 @@ properties:
                                           contains:
                                             enum:
                                             - Torch
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                     then:
@@ -10472,6 +10896,7 @@ properties:
                                           contains:
                                             enum:
                                             - ICP Source
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                     then:
@@ -10710,6 +11135,7 @@ properties:
                                           contains:
                                             enum:
                                             - Collision Reaction Cell
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                     then:
@@ -10879,6 +11305,7 @@ properties:
                                         contains:
                                           enum:
                                           - ICP Source
+                                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                     required:
                                     - schema:additionalType
                               schema:additionalProperty:
@@ -11207,6 +11634,7 @@ properties:
                                 contains:
                                   enum:
                                   - Laser Ablation System
+                                schema:inDefinedTermSet: ada:vocab/instrumentType
                             required:
                             - schema:additionalType
                           then:
@@ -11329,6 +11757,7 @@ properties:
                             contains:
                               enum:
                               - ICPMS
+                            schema:inDefinedTermSet: ada:vocab/instrumentType
                         required:
                         - schema:additionalType
                     - contains:
@@ -11337,6 +11766,7 @@ properties:
                             contains:
                               enum:
                               - Laser Ablation System
+                            schema:inDefinedTermSet: ada:vocab/instrumentType
                         required:
                         - schema:additionalType
             - if:
@@ -11447,55 +11877,6 @@ properties:
                                     type: string
                         required:
                         - ada:reagentRole
-        ada:ablationSpotDuration:
-          description: 'Total on-sample ablation (signal acquisition) time per individual
-            spot in seconds, as set in the acquisition method. This is a procedure-level
-            parameter for spot analysis: it reflects the deliberate trade-off between
-            signal accumulation (longer = lower LOD), sample consumption, and session
-            throughput. For transect analysis, the equivalent procedure-level parameter
-            is scan speed (captured in Transect Rate, Mapping Rate or Step Size).
-            For mapping analysis, total acquisition time is sample-area-dependent
-            and therefore analysis-level, not captured here.'
-          anyOf:
-          - type: number
-          - type: string
-        ada:ablationPitDepthRate:
-          description: Depth of the ablation pit produced under the registered laser
-            conditions, the method used to measure it, and the resulting per-pulse
-            ablation rate. Sets the achievable depth resolution and governs downhole
-            elemental fractionation. For transect and mapping the equivalent quantity
-            is trench depth under the same conditions.
-          type: string
-        ada:rasterLineSpacing:
-          description: Distance between adjacent raster lines in a 2D elemental map,
-            measured perpendicular to the scan direction, in micrometres. Together
-            with spot size, this determines whether adjacent lines are contiguous
-            (line spacing = spot size), overlapping (line spacing < spot size), or
-            have gaps (line spacing > spot size). Applies to raster mapping only.
-          type: string
-        ada:carrierGasFlowRate:
-          description: "Gas used to transport ablated aerosol from the ablation cell
-            to the ICP-MS torch, with the procedure-registered target flow rate(s).
-            Helium is standard for most UV laser systems due to superior aerosol transport.
-            Flow rates are procedure targets; actual session values may be adjusted
-            within \xB110% during tuning."
-          type: string
-        ada:analysisSequence:
-          description: Repeating order of primary calibration standard(s), quality
-            control standard(s), and unknown analyses within a measurement session.
-            Editable to allow minor adjustments while maintaining the bracketing strategy
-            defined in the procedure.
-          type: string
-        ada:backgroundCountTime:
-          description: Total time spent measuring gas blank (background signal with
-            laser off or shutter closed) before each ablation event, in seconds. For
-            spot and transect analysis, a discrete background interval is measured
-            before each ablation. For mapping, background is typically measured once
-            per raster line or at the start of a map session rather than before each
-            individual pixel. Editable to allow session-specific adjustment.
-          anyOf:
-          - type: number
-          - type: string
         schema:description:
           description: "Any procedure- or analysis-specific information not captured
             by a structured field anywhere in this TAPP \u2014 including anomalies,

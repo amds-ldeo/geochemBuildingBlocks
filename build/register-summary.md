@@ -52,11 +52,29 @@ Non-standard file formats approved for ADA submission. Defines properties: @type
 
 Pixel coordinate system registration for images and maps. Defines properties: basemap, originX, originY, originZ, coordDef, coordUnits, pixelUnits, pixelScaleX, pixelScaleY, originLocation.
 
+### `ogch.BaseSchema.modules.aggregation` — TAPP Composition Module: Aggregation
+
+**Type:** schema
+
+The shared Aggregation block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 2 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+
+### `ogch.BaseSchema.modules.blank` — TAPP Composition Module: Blank
+
+**Type:** schema
+
+The shared Blank block of the 2026-08-11 TAPP library, composed by 12 of the sixteen delivery tables. 1 owned fields over 0 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+
+### `ogch.BaseSchema.modules.calibrationFactor` — TAPP Composition Module: CalibrationFactor
+
+**Type:** schema
+
+The shared CalibrationFactor block of the 2026-08-11 TAPP library, composed by 14 of the sixteen delivery tables. 1 owned fields over 0 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+
 ### `ogch.BaseSchema.modules.geochronology` — TAPP Composition Module: Geochronology
 
 **Type:** schema
 
-The shared Geochronology block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 6 owned fields over 3 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared Geochronology block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 6 owned fields over 5 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.group1` — TAPP Composition Module: Group1
 
@@ -80,19 +98,31 @@ The shared ReportingCore block of the 2026-08-11 TAPP library, composed by 16 of
 
 **Type:** schema
 
-The shared SolutionIntroduction block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 16 owned fields over 21 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared SolutionIntroduction block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 16 owned fields over 5 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+
+### `ogch.BaseSchema.modules.targetSelection` — TAPP Composition Module: TargetSelection
+
+**Type:** schema
+
+The shared TargetSelection block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 2 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.uPb` — TAPP Composition Module: UPb
 
 **Type:** schema
 
-The shared UPb block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 3 owned fields over 3 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared UPb block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 3 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.registry.analyteColumns` — Analyte-Column Specification Registry
 
 **Type:** schema
 
 Registry of reusable schema:PropertyValueSpecification analyte-column definitions derived from technique TAPP spreadsheets. Hosts one $def per analyte-table reporting column. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the register.
+
+### `ogch.registry.channelColumns` — Channel-Column Specification Registry
+
+**Type:** schema
+
+Registry of reusable schema:PropertyValueSpecification channel column definitions derived from technique TAPP workbooks. Each $def constrains one column of the channel table, a channel being an instrument selection position -- a mass, a Faraday cup, an energy-loss edge, an X-ray line -- as distinct from the analyte measured on it. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the register.
 
 ### `ogch.registry.parameterTemplates` — Method-Parameter Template Registry
 
@@ -105,6 +135,12 @@ Registry of reusable schema:PropertyValueSpecification method-parameter template
 **Type:** schema
 
 Registry of reusable schema:PropertyValue parameter-value definitions derived from technique TAPP spreadsheets. Hosts one $def per per-dataset parameter value (e.g. acceleratingVoltage, beamDiameter, BeamRasterDimension, reportedAnalyte). Detail building blocks reference these definitions via fragment $refs so they resolve locally through the register.
+
+### `ogch.registry.reportedPropertyColumns` — Reported-Property-Column Specification Registry
+
+**Type:** schema
+
+Registry of reusable schema:PropertyValueSpecification reported-property column definitions derived from technique TAPP workbooks. Each $def constrains one column of the reported-property table -- the variables a procedure REPORTS, as distinct from the analytes and channels it acquires. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the register.
 
 ### `ogch.techniqueProfile.adaProfile.ARGT.detail` — ARGT Instrument Detail
 
@@ -262,11 +298,11 @@ A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as cdi
 
 Generic geochemistry analytical product metadata base: composes the CDIF core, data-description, manifest, and provenance profiles with the analytical surface (analysis events, variables measured, distributions, coverage). Extended by archive-specific delivery profiles such as adaProduct.
 
-### `ogch.techniqueProfile.geochemProfile.EMPA.tapp` — EMPA Technique-Aligned Protocol Profile (empaTAPP)
+### `ogch.BaseSchema.modules.analyte` — TAPP Composition Module: Analyte
 
 **Type:** schema
 
-EMPA-specific extension of the base TAPP definition. Adds EPMA top-level properties (beam mode, accelerating voltage, matrix correction method), a parameter vocabulary, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Vocabularies, parameter templates, and analyte-column templates ship as separate JSON files under vocab/, parameters/, and analyteColumns/ for maintainability.
+The shared Analyte block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 1 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.tapp` — LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)
 
@@ -304,71 +340,17 @@ Laser-ablation sector-field (high-resolution) ICP-MS extension of the base TAPP 
 
 Laser-ablation sector-field ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-SF-ICP-MS_UPb_TAPP_v17.csv via the path-driven pipeline.
 
-### `ogch.techniqueProfile.geochemProfile.SEM.tapp` — SEM Technique-Aligned Protocol Profile (semTAPP)
-
-**Type:** schema
-
-Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from docs/SEM_TAPP_v4.xlsx via the path-driven pipeline.
-
-### `ogch.techniqueProfile.geochemProfile.SEM-Composition.tapp` — SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)
-
-**Type:** schema
-
-Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from docs/SEM_Composition_TAPP_v4.xlsx via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
-
-### `ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp` — FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
-
-**Type:** schema
-
-Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate. Generated from docs/SEM_FIBSEM_TAPP_v4.xlsx by tools/build_tapp.py.
-
-### `ogch.techniqueProfile.geochemProfile.SEM-Imaging.tapp` — SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)
-
-**Type:** schema
-
-Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate (imaging has no per-element analyte axis). Generated from docs/SEM_Imaging_TAPP_v4.xlsx by tools/build_tapp.py.
-
-### `ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.tapp` — Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)
-
-**Type:** schema
-
-Solution multi-collector ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.csv via the path-driven pipeline.
-
-### `ogch.techniqueProfile.geochemProfile.Solution-Q-ICPMS.tapp` — Solution Q-ICP-MS Technique-Aligned Protocol Profile (solutionQicpmsTAPP)
-
-**Type:** schema
-
-Solution quadrupole ICP-MS extension of the base TAPP definition, generated from docs/Solution_Q-ICP-MS_TAPP_v5.xlsx via the path-driven pipeline.
-
-### `ogch.techniqueProfile.geochemProfile.Solution-SF-ICPMS.tapp` — Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)
-
-**Type:** schema
-
-Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from docs/Solution_SF-ICP-MS_TAPP_v5.xlsx via the path-driven pipeline.
-
-### `ogch.techniqueProfile.geochemProfile.TEM.tapp` — TEM Technique-Aligned Protocol Profile (temTAPP)
-
-**Type:** schema
-
-Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from docs/TEM_TAPP_v7.xlsx by tools/build_tapp.py.
-
-### `ogch.techniqueProfile.geochemProfile.XCT.tapp` — Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)
-
-**Type:** schema
-
-Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Adds XCT protocol-level acquisition/processing defaults as top-level ada: properties and an ada:methodParameters vocabulary of session-adjustable parameter templates. XCT has no per-element analyte axis, so no analyteTemplate is defined. Vocabularies and parameter templates ship as separate files under vocab/ and parameterTemplates/.
-
 ### `ogch.BaseSchema.adaProduct` — ADA Product Profile
 
 **Type:** schema
 
 Top-level ADA product metadata profile composing all ADA building blocks
 
-### `ogch.techniqueProfile.geochemProfile.EMPA.detail` — EMPA Instrument Detail
+### `ogch.BaseSchema.modules.core` — TAPP Composition Module: Core
 
 **Type:** schema
 
-Electron Microprobe Analysis instrument-specific detail properties. Defines properties: @type, spectrometersUsed, signalUsed.
+The shared Core block of the 2026-08-11 TAPP library, composed by 16 of the sixteen delivery tables. 30 owned fields over 35 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.detail` — LA-MC-ICP-MS Analysis Detail
 
@@ -405,60 +387,6 @@ Dataset-level analysis-instance detail for LA-SF-ICP-MS, reusing CDIF/schema.org
 **Type:** schema
 
 Dataset-level analysis-instance detail for LA-SF-ICP-MS U-Pb geochronology, reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.SEM.detail` — SEM Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for SEM (superset), reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.SEM-Composition.detail` — SEM Composition Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for SEM composition (EDS/WDS), reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.detail` — FIB-SEM Analysis Detail
-
-**Type:** schema
-
-Detail block for FIB-SEM hasPart items. Discriminates on ada:componentType, carries analysis-level required properties and an @id reference to a registered semFibsemTAPP definition, and per-dataset schema:additionalProperty entries constrained via $refs to the parameterValues registry plus a catch-all. Generated by tools/build_tapp.py.
-
-### `ogch.techniqueProfile.geochemProfile.SEM-Imaging.detail` — SEM Imaging Analysis Detail
-
-**Type:** schema
-
-Detail block for SEM imaging hasPart items. Discriminates on ada:componentType, carries analysis-level required properties and an @id reference to a registered semImagingTAPP definition, and per-dataset schema:additionalProperty entries constrained via $refs to the parameterValues registry plus a catch-all. Generated by tools/build_tapp.py.
-
-### `ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.detail` — Solution MC-ICP-MS Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for solution MC-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.Solution-Q-ICPMS.detail` — Solution Q-ICP-MS Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for solution Q-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.Solution-SF-ICPMS.detail` — Solution SF-ICP-MS Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for solution SF-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.TEM.detail` — TEM Analysis Detail
-
-**Type:** schema
-
-Detail block for TEM hasPart items. Discriminates on ada:componentType, carries analysis-level required properties and an @id reference to a registered temTAPP definition, and per-dataset schema:additionalProperty entries constrained via $refs to the parameterValues registry plus a catch-all. Generated by tools/build_tapp.py.
-
-### `ogch.techniqueProfile.geochemProfile.XCT.detail` — Lab-XCT Analysis Detail
-
-**Type:** schema
-
-Laboratory X-ray computed tomography analysis-specific detail properties. Discriminates on ada:componentType (XCTVolume, XCTProjectionImageSet, XCTSegmentationVolume, XCTRenderedImage, XCTQuantitativeTabular), carries analysis-level required properties (analyst, dates, sample, VOI) and per-dataset schema:additionalProperty values referencing the labxctTAPP parameterValues registry.
 
 ### `ogch.techniqueProfile.adaProfile.AIVA.profile-ada` — ADA AIVA Profile
 
@@ -670,11 +598,167 @@ Technique-specific profile for Transmission Electron Microscopy (TEM) products
 
 Technique-specific profile for X-ray Computed Tomography (XCT) products
 
-### `ogch.techniqueProfile.geochemProfile.EMPA.profile` — EMPA Geochem Profile
+### `ogch.techniqueProfile.geochemProfile.EMPA.detail` — EMPA Instrument Detail
 
 **Type:** schema
 
-Technique-specific dataset profile for EMPA. Extends adaProduct with constraints on schema:measurementTechnique (pointing at empaTAPP) and schema:distribution.schema:hasPart (allowing detailEMPA entries).
+Electron Microprobe Analysis instrument-specific detail properties. Defines properties: @type, spectrometersUsed, signalUsed.
+
+### `ogch.techniqueProfile.geochemProfile.EMPA.tapp` — EMPA Technique-Aligned Protocol Profile (empaTAPP)
+
+**Type:** schema
+
+EMPA-specific extension of the base TAPP definition. Adds EPMA top-level properties (beam mode, accelerating voltage, matrix correction method), a parameter vocabulary, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Vocabularies, parameter templates, and analyte-column templates ship as separate JSON files under vocab/, parameters/, and analyteColumns/ for maintainability.
+
+### `ogch.techniqueProfile.geochemProfile.SEM.detail` — SEM Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for SEM (superset), reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.SEM.tapp` — SEM Technique-Aligned Protocol Profile (semTAPP)
+
+**Type:** schema
+
+Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from docs/SEM_TAPP_v4.xlsx via the path-driven pipeline.
+
+### `ogch.techniqueProfile.geochemProfile.SEM-Composition.detail` — SEM Composition Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for SEM composition (EDS/WDS), reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.SEM-Composition.tapp` — SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)
+
+**Type:** schema
+
+Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from docs/SEM_Composition_TAPP_v4.xlsx via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
+
+### `ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.detail` — FIB-SEM Analysis Detail
+
+**Type:** schema
+
+Detail block for FIB-SEM hasPart items. Discriminates on ada:componentType, carries analysis-level required properties and an @id reference to a registered semFibsemTAPP definition, and per-dataset schema:additionalProperty entries constrained via $refs to the parameterValues registry plus a catch-all. Generated by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp` — FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
+
+**Type:** schema
+
+Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate. Generated from docs/SEM_FIBSEM_TAPP_v4.xlsx by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.SEM-Imaging.detail` — SEM Imaging Analysis Detail
+
+**Type:** schema
+
+Detail block for SEM imaging hasPart items. Discriminates on ada:componentType, carries analysis-level required properties and an @id reference to a registered semImagingTAPP definition, and per-dataset schema:additionalProperty entries constrained via $refs to the parameterValues registry plus a catch-all. Generated by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.SEM-Imaging.tapp` — SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)
+
+**Type:** schema
+
+Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate (imaging has no per-element analyte axis). Generated from docs/SEM_Imaging_TAPP_v4.xlsx by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.detail` — Solution MC-ICP-MS Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for solution MC-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.tapp` — Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)
+
+**Type:** schema
+
+Solution multi-collector ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.csv via the path-driven pipeline.
+
+### `ogch.techniqueProfile.geochemProfile.Solution-Q-ICPMS.detail` — Solution Q-ICP-MS Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for solution Q-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.Solution-Q-ICPMS.tapp` — Solution Q-ICP-MS Technique-Aligned Protocol Profile (solutionQicpmsTAPP)
+
+**Type:** schema
+
+Solution quadrupole ICP-MS extension of the base TAPP definition, generated from docs/Solution_Q-ICP-MS_TAPP_v5.xlsx via the path-driven pipeline.
+
+### `ogch.techniqueProfile.geochemProfile.Solution-SF-ICPMS.detail` — Solution SF-ICP-MS Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for solution SF-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.Solution-SF-ICPMS.tapp` — Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)
+
+**Type:** schema
+
+Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from docs/Solution_SF-ICP-MS_TAPP_v5.xlsx via the path-driven pipeline.
+
+### `ogch.techniqueProfile.geochemProfile.TEM.detail` — TEM Analysis Detail
+
+**Type:** schema
+
+Detail block for TEM hasPart items. Discriminates on ada:componentType, carries analysis-level required properties and an @id reference to a registered temTAPP definition, and per-dataset schema:additionalProperty entries constrained via $refs to the parameterValues registry plus a catch-all. Generated by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.TEM.tapp` — TEM Technique-Aligned Protocol Profile (temTAPP)
+
+**Type:** schema
+
+Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from docs/TEM_TAPP_v7.xlsx by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.XCT.detail` — Lab-XCT Analysis Detail
+
+**Type:** schema
+
+Laboratory X-ray computed tomography analysis-specific detail properties. Discriminates on ada:componentType (XCTVolume, XCTProjectionImageSet, XCTSegmentationVolume, XCTRenderedImage, XCTQuantitativeTabular), carries analysis-level required properties (analyst, dates, sample, VOI) and per-dataset schema:additionalProperty values referencing the labxctTAPP parameterValues registry.
+
+### `ogch.techniqueProfile.geochemProfile.XCT.tapp` — Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)
+
+**Type:** schema
+
+Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Adds XCT protocol-level acquisition/processing defaults as top-level ada: properties and an ada:methodParameters vocabulary of session-adjustable parameter templates. XCT has no per-element analyte axis, so no analyteTemplate is defined. Vocabularies and parameter templates ship as separate files under vocab/ and parameterTemplates/.
+
+### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.profile` — ADA LA-MC-ICP-MS Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA LA-MC-ICP-MS Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.profile` — ADA LA-MC-ICP-MS U-Pb Geochronology Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA LA-MC-ICP-MS U-Pb Geochronology Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.profile` — ADA LA-Q-ICP-MS Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA LA-Q-ICP-MS Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS-UPb.profile` — ADA LA-Q-ICP-MS U-Pb Geochronology Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA LA-Q-ICP-MS U-Pb Geochronology Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS.profile` — ADA LA-SF-ICP-MS Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA LA-SF-ICP-MS Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.profile` — ADA LA-SF-ICP-MS U-Pb Geochronology Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA LA-SF-ICP-MS U-Pb Geochronology Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.EMPA.profile` — ADA EMPA Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA EMPA Product Profile.
 
 ### `ogch.techniqueProfile.geochemProfile.SEM.profile` — ADA SEM (superset) Product Profile
 
@@ -700,6 +784,12 @@ Path-driven ADA product profile for ADA FIB-SEM Product Profile.
 
 Path-driven ADA product profile for ADA SEM Imaging Product Profile.
 
+### `ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.profile` — ADA Solution MC-ICP-MS Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA Solution MC-ICP-MS Product Profile.
+
 ### `ogch.techniqueProfile.geochemProfile.Solution-Q-ICPMS.profile` — ADA Solution Q-ICP-MS Product Profile
 
 **Type:** schema
@@ -711,6 +801,12 @@ Path-driven ADA product profile for ADA Solution Q-ICP-MS Product Profile.
 **Type:** schema
 
 Path-driven ADA product profile for ADA Solution SF-ICP-MS Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.TEM.profile` — ADA TEM Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA TEM Product Profile.
 
 ### `ogch.techniqueProfile.geochemProfile.XCT.profile` — ADA Lab-XCT Product Profile
 

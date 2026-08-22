@@ -15,52 +15,19 @@ ex:empaTAPP-P6 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "missing" ;
     schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. EDS spectrometer present but not used for quantitative analyses. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "5 wavelength-dispersive spectrometers (JEOL)" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -72,12 +39,12 @@ ex:empaTAPP-P6 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Phyllosilicate (matrix) | Oxide (magnetite, ilmenite) | Sulfide (pyrrhotite, pentlandite) | Carbonate (dolomite, magnesite) | Phosphate (Ca phosphate, Na-Mg hydrous phosphate)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -91,27 +58,19 @@ ex:empaTAPP-P6 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "F (explicitly stated)",
                 "full analyte list N in methods" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -146,17 +105,6 @@ ex:empaTAPP-P6 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -171,12 +119,6 @@ ex:empaTAPP-P6 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -201,21 +143,10 @@ ex:empaTAPP-P6 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -229,15 +160,43 @@ ex:empaTAPP-P6 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "5 wavelength-dispersive spectrometers (JEOL)" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")" ] ;
+    schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> a schema1:PropertyValue ;
     schema1:name "Stage Scan vs. Beam Scan" ;

@@ -1,0 +1,260 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Bulk powder; for the Si aliquot, NaOH fusion in silver crucibles" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "Cr/Mg route: 6 M HCl loading, 10 M HCl pretreatment, 0.5 M HCl, 0.5 M HNO3, 1 M HF, 6 M HCl elutions; Si route: NaOH fusion then Milli-Q water and HNO3" ] ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
+    schema1:datePublished "missing" ;
+    schema1:description "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v30.csv)." ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/SEM> ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "Solution MC-ICP-MS" ] ;
+    schema1:name "solutionMcicpms protocol — P10" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Bulk chondrite powders" ] ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "ICP-MS for Sr and Rb weathering assessment; Si isotopes on a separate NaOH-fusion aliquot" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
+            ada:defaultAnalytes "Cr and Mg",
+                "Fe" ] ;
+    ada:analyticalMode "Solution nebulisation (continuous)" ;
+    ada:blankBackgroundCorrectionMethod "N/A" ;
+    ada:calibrationMeasurementFrequency "missing" ;
+    ada:chromatographicSeparationApplied "Yes — AG1-X8 anion (1 ml) for Fe, then AG50-X12 cation (1 ml) twice for Cr and Mg" ;
+    ada:finalSolutionMatrix "0.5 M HNO3 (Cr); 6 M HCl elution of the final Cr cut" ;
+    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
+    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
+    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
+    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:perAnalyteCalibrationStrategy "N/A" ;
+    ada:primaryStandardNameDefault "IRMM-014, SRM979, DTS-2b" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "µ-notation Fe relative to IRMM-014, Cr relative to SRM979, Mg relative to DTS-2b" ;
+            ada:reportedPropertyColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
+    ada:sampleSequenceDesign "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value" ;
+    ada:samplingUnit "Fraction of a bulk digestion — \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"" ;
+    ada:secondaryReferenceMaterialDefault "BHVO2 and DTS-2b, \"processed alongside the samples\"" ;
+    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:washTimeBetweenSamples -9999 .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimit" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Detection Limit Method" ;
+    schema1:valueName "detectionLimitMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Limit of Quantification (LOQ) Method" ;
+    schema1:valueName "limitOfQuantificationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Partially — \"the mean ... of ten individual standard-bracketed sample analyses\"; \"Samples were typically analysed two to four times\". No rejection rule stated" ;
+    schema1:name "Analysis Inclusion and Rejection Criteria" ;
+    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
+    schema1:name "Desolvation System" ;
+    schema1:value "ESI Apex HF with an actively cooled membrane unit (Cr); ESI Apex Omega (Mg)" ;
+    schema1:valueName "desolvationSystem" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "3 h (Cr(VI) speciation), >1 week at room temperature (Cr(III) speciation), 13 min (NaOH fusion)" ;
+    schema1:name "Digestion Duration" ;
+    schema1:valueName "digestionDurationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 130 ;
+    schema1:description "130 °C for the 10 M HCl Cr(VI) speciation step; 720 °C for the NaOH fusion" ;
+    schema1:name "Digestion Temperature" ;
+    schema1:valueName "digestionTemperatureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal Standard Concentration" ;
+    schema1:value "N/A — no added internal standard element" ;
+    schema1:valueName "internalStandardConcentration" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 30 ;
+    schema1:description "30 µl/min for Cr and for Mg" ;
+    schema1:name "Sample Uptake Rate" ;
+    schema1:valueName "sampleUptakeRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "None — \"The samples were measured without the use of an auxiliary gas to the introduction system to reduce gas-based interferences\"" ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:valueName "makeUpGasAndFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/rfPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Stated qualitatively — measured \"at low radiofrequency power and sample gas inflow\" to reduce gas-based interferences" ;
+    schema1:name "RF Power" ;
+    schema1:valueName "rfPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/massResolutionSetting> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
+        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neoma" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "49Ti, 51V, 56Fe alongside 50Cr, 52Cr, 53Cr, 54Cr; 24Mg, 25Mg, 26Mg" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/interfaceConeConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:name "example instrumentName" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/interfaceConeConfiguration> a schema1:PropertyValue ;
+    schema1:name "Interface Cone Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/interfaceConeConfiguration> ;
+    schema1:value "A Jet and X cone" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> a schema1:PropertyValue ;
+    schema1:name "Isotope Dilution Data Reduction Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+    schema1:value "N/A — no isotope dilution applied" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/massResolutionSetting> a schema1:PropertyValue ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/massResolutionSetting> ;
+    schema1:value "Medium resolution, M/ΔM > 6,000" .
+

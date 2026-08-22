@@ -1,0 +1,278 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "29 M HF; after conversion to a chloride matrix for U-Pb. Zr aliquots taken up in 3 M HNO3 + 0.5 M HF" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
+        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethodDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT (publication column of Solution_MC-ICP-MS_TAPP_v30.csv)." ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/SEM> ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Massachusetts Institute of Technology" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "Solution MC-ICP-MS" ] ;
+    schema1:name "solutionMcicpms protocol — Tissot2020" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Single zircon and baddeleyite crystals, and bulk rock" ],
+                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes" ;
+                    schema1:name "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
+            ada:defaultAnalytes "Zr" ] ;
+    ada:analyticalMode "Solution nebulisation (continuous)" ;
+    ada:blankBackgroundCorrectionMethod "N/A" ;
+    ada:calibrationMeasurementFrequency "Every sample — \"Each sample measurement was individually bracketed\"" ;
+    ada:chromatographicSeparationApplied "Yes — AG-1X for U-Pb; Ln-Spec (~300 µl, 25–50 µm) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks" ;
+    ada:finalSolutionMatrix "0.59 M HNO3 + 0.28 M HF, samples and bracketing standards matched in matrix and at 60 ng/g total Zr" ;
+    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
+    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
+    ada:isotopeDilutionSpike "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio" ;
+    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:primaryStandardNameDefault "ZrNIST" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "δ9x/90ZrNIST in permil — δ91/90Zr, δ92/90Zr, δ94/90Zr and δ96/90Zr" ;
+            ada:reportedPropertyColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
+    ada:sampleSequenceDesign "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank" ;
+    ada:samplingUnit "Single crystal — \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"" ;
+    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:washTimeBetweenSamples -9999 ;
+    bios:computationalTool [ schema1:name "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimit" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Detection Limit Method" ;
+    schema1:valueName "detectionLimitMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Limit of Quantification (LOQ) Method" ;
+    schema1:valueName "limitOfQuantificationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Partially — Table 1 records \"Number of times the same purified Zr solution was measured independently in the MC-ICP-MS\" and \"Reported values are weighted means of all replicate\" analyses. No rejection rule stated" ;
+    schema1:name "Analysis Inclusion and Rejection Criteria" ;
+    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "238U/235U = 137.818 (45), 18O/16O = 0.00205 (44), and α = 0.18 ± 0.02%/amu from repeat NBS-981 analyses; U decay constants of (47); Th/U[magma] = 2.8 ± 1.0 for the initial 230Th disequilibrium correction" ;
+    schema1:name "Constants Reference Values" ;
+    schema1:valueName "constantsReferenceValuesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
+    schema1:name "Desolvation System" ;
+    schema1:value "Cetac Aridus II — \"Analyses were conducted in dry plasma mode\"" ;
+    schema1:valueName "desolvationSystem" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Zircon 48 hours (U-Pb) and 60 hours (Zr isotopes)" ;
+    schema1:name "Digestion Duration" ;
+    schema1:valueName "digestionDurationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 215 ;
+    schema1:description "215 °C" ;
+    schema1:name "Digestion Temperature" ;
+    schema1:valueName "digestionTemperatureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> a schema1:PropertyValueSpecification ;
+    schema1:name "Digestion Vessel Type" ;
+    schema1:value "\"clean Teflon microcapsules\" inside \"a large-volume Parr digestion vessel\"" ;
+    schema1:valueName "digestionVesselType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal Standard Concentration" ;
+    schema1:value "N/A — no added internal standard element" ;
+    schema1:valueName "internalStandardConcentration" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType> a schema1:PropertyValueSpecification ;
+    schema1:name "Nebulizer Type" ;
+    schema1:value "Cetac Aridus II desolvator nebulizer" ;
+    schema1:valueName "nebulizerType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 50 ;
+    schema1:description "Single crystals; ~50 µl (5% of sample) taken for concentration measurement" ;
+    schema1:name "Sample Aliquot Mass or Volume" ;
+    schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "On-peak-zero acid blank before each sample \"to account for blank contribution as well as any 'memory' effects from the Aridus II sample introduction system during the run\"" ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:valueName "memoryEffectMitigationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "External reproducibility of the spiked ZrNIST measurements from each run adopted per determination, compared against internal counting-statistics uncertainty" ;
+    schema1:name "Uncertainty Propagation Method" ;
+    schema1:valueName "uncertaintyPropagationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
+        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nu Plasma II" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "Masses 90, 91, 92, 93, 94, 95, 96 and 98 \"measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block\"" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/plasmaThermalMode> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nu Instruments — \"a Nu Plasma II MC-ICP-MS fitted with an enhanced sensitivity interface\"" ] ;
+    schema1:name "example instrumentName" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> a schema1:PropertyValue ;
+    schema1:name "Isotope Dilution Data Reduction Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+    schema1:value "Double-spike inversion, Rmeas = [p·RSpike + (1−p)·RStd·(Mx/Mn)^α]·(Mx/Mi)^β, solved by weighted minimisation over four ratios" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/plasmaThermalMode> a schema1:PropertyValue ;
+    schema1:name "Plasma Thermal Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/plasmaThermalMode> ;
+    schema1:value "Dry plasma — \"Analyses were conducted in dry plasma mode using a Cetac Aridus II desolvator nebulizer\"" .
+

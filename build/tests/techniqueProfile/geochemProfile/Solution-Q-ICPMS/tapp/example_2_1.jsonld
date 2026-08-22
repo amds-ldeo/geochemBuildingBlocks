@@ -1,0 +1,621 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:solutionQicpmsTAPP-P1",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "solutionQicpms protocol \u2014 P1",
+  "schema:description": "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2); ada:perAnalyteCalibrationStrategy = External calibration with matrix-matched standards at 100 ppm Ca (stated section 2); ada:blankBackgroundCorrectionMethod = On-peak zero (stated implicitly; calibration standards include procedural blank equivalent).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution Q-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "University of Cambridge (affiliation)"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "ICP-AES (for initial [Ca] determination; stated section 2)",
+        "schema:description": "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Foraminifera calcite (benthic and planktonic species; stated abstract)"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Foraminifera shells cleaned mechanically and chemically then dissolved; no grinding (stated section 2)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
+              }
+            ],
+            "schema:name": "Isotope Dilution Data Reduction Method",
+            "schema:value": "None"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated"
+          },
+          {
+            "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "constantsReferenceValuesDefault",
+            "schema:name": "Constants Reference Values",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Natural isotopic abundances used to select isotopes and derive correction factors: the Li standard \"was artificially depleted of 7Li (92.32% vs 92.48% for natural)\"; \"The natural abundance of 11B (80.17%) is also different from values of foraminiferal samples which are expected to be 80.40-80.43% if assumed to have d11B ratios of 25-27 permil\", giving \"correction factors (0.9983 for Li and 0.9968-0.9971 for B)\"; 111Cd 12.8%, 112Cd 24.1%, 114Cd 28.7%, 238U 99.3%"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      },
+      {
+        "schema:name": "Sample digestion",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "numberOfDigestionSteps",
+            "schema:name": "Number of Digestion Steps",
+            "ada:dataType": "integer",
+            "ada:fieldScope": "session",
+            "schema:value": 1,
+            "schema:description": "1 (simple dissolution; stated section 2)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:finalSolutionMatrix": "0.075 M HNO3 at 100 ppm Ca (stated section 2)",
+  "ada:chromatographicSeparationApplied": "None (direct analysis of dissolved foraminifera)",
+  "ada:isotopeDilutionSpike": "None",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "PerkinElmer Elan DRC II (stated section 2 and Table 1)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
+            }
+          ],
+          "schema:name": "Mass Resolution Setting",
+          "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
+        },
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "memoryEffectMitigationDefault",
+          "schema:name": "Memory Effect Mitigation",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "60 s wash between samples (stated Table 1)"
+        }
+      ],
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "STD (standard mode, no gas)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+        },
+        {
+          "schema:additionalType": [
+            "Sample Introduction System",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/nebulizerType",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "nebulizerType",
+              "schema:name": "Nebulizer Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "Glass Expansion Micromist FM005 (stated section 2 and Table 1)"
+            },
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "sprayChamberTypeAndCoolingTemperature",
+              "schema:name": "Spray Chamber Type and Cooling Temperature",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "Cyclonic quartz spray chamber (stated Table 1)"
+            },
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "sampleUptakeRateDefault",
+              "schema:name": "Sample Uptake Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 60,
+              "schema:description": "~60 uL/min (stated Table 1; 0.03 mm ID pump tubing)"
+            },
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "nebulizerGasFlowRateDefault",
+              "schema:name": "Nebulizer Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 0.99,
+              "schema:description": "0.99-1.02 L/min (Table 1)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/rfPowerDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "rfPowerDefault",
+              "schema:name": "RF Power",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 1300,
+              "schema:description": "1300 W (Table 1)"
+            },
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "coolantGasFlowRateDefault",
+              "schema:name": "Coolant (Plasma) Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 15,
+              "schema:description": "15 L/min (Table 1)"
+            },
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "auxiliaryGasFlowRateDefault",
+              "schema:name": "Auxiliary Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 1.2,
+              "schema:description": "1.2 L/min (Table 1)"
+            },
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
+                }
+              ],
+              "schema:name": "Plasma Thermal Mode",
+              "schema:value": "Normal plasma (1300 W; Table 1)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "PerkinElmer -- \"a Perkin-Elmer Elan DRC II instrument\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "desolvationSystem",
+      "schema:name": "Desolvation System",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "None"
+    }
+  ],
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "9 Me/Ca ratios: Li",
+      "B",
+      "Mg",
+      "Al",
+      "Mn",
+      "Zn",
+      "Sr",
+      "Cd",
+      "U relative to Ca (stated Table 1)"
+    ],
+    "ada:analyteColumns": [
+      {
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimit",
+        "schema:name": "Detection Limit",
+        "ada:dataType": "number"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimitMethod",
+        "schema:name": "Detection Limit Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "limitOfQuantificationMethod",
+        "schema:name": "Limit of Quantification (LOQ) Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:channelTemplate": {
+    "ada:defaultChannels": [
+      "7Li",
+      "11B",
+      "25Mg",
+      "46Ca",
+      "27Al",
+      "55Mn",
+      "66Zn",
+      "87Sr",
+      "111Cd",
+      "238U (Table 1)"
+    ],
+    "ada:channelColumns": [
+      {
+        "schema:valueName": "channel",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:massCyclesPerReplicate": "250 sweeps per replicate (Table 1)",
+  "ada:numberOfReplicatesPerSample": "6 replicates (Table 1)",
+  "ada:washTimeBetweenSamples": "60 s (Table 1)",
+  "ada:signalCollectionMode": "Peak hopping",
+  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2)",
+  "ada:oxideProductionMethodAndThreshold": "CeO/Ce < 3% (stated section 2)",
+  "ada:driftCorrectionMethod": "Standard bracketing",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration (all analytes)"
+  ],
+  "ada:blankBackgroundCorrectionMethod": "Procedural blank",
+  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler"
+  ],
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Element/Ca ratios: Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (umol/mol); U/Ca (nmol/mol)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
+  "ada:samplingUnit": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
+  "ada:calibrationMeasurementFrequency": "missing",
+  "ada:internalStandardApproach": "missing",
+  "ada:sampleSequenceDesign": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
+  "schema:datePublished": "missing"
+}

@@ -7,6 +7,1294 @@ Dataset-level analysis-instance detail for solution Q-ICP-MS, reusing CDIF/schem
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example Gao2008
+detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Gao2008",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-Gao2008"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "AGV-1 (andesite), BHVO-1 (basalt), G-2 (granite), SCO-1 (shale), GSR-5 (shale); GSR-6 and \"another eighteen international\" RMs; worldwide loess and Chinese upper-crustal composites",
+  "ada:samplingUnit": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "Per-element blanks in ppb with standard deviation, n = 5 (e.g. B 0.39 +/- 0.26; Zn 0.80 +/- 0.56; Pb 0.043 +/- 0.020; V 0.50 +/- 0.38)",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "%RSD of repeated standard measurements (stated section 3.1)",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to USGS/GSCA certified/consensus values (stated section 3.2, Tables 2-3)",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Gao2008",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-Gao2008"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "AGV-1 (andesite), BHVO-1 (basalt), G-2 (granite), SCO-1 (shale), GSR-5 (shale); GSR-6 and \"another eighteen international\" RMs; worldwide loess and Chinese upper-crustal composites",
+  "ada:samplingUnit": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "Per-element blanks in ppb with standard deviation, n = 5 (e.g. B 0.39 +/- 0.26; Zn 0.80 +/- 0.56; Pb 0.043 +/- 0.020; V 0.50 +/- 0.38)",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "%RSD of repeated standard measurements (stated section 3.1)",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to USGS/GSCA certified/consensus values (stated section 3.2, Tables 2-3)",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Gao2008 a ada:SolutionICPMSTabular ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionQicpmsTAPP-Gao2008 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "% recovery relative to USGS/GSCA certified/consensus values (stated section 3.2, Tables 2-3)" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit -9999 ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "Per-element blanks in ppb with standard deviation, n = 5 (e.g. B 0.39 +/- 0.26; Zn 0.80 +/- 0.56; Pb 0.043 +/- 0.020; V 0.50 +/- 0.38)" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "AGV-1 (andesite), BHVO-1 (basalt), G-2 (granite), SCO-1 (shale), GSR-5 (shale); GSR-6 and \"another eighteen international\" RMs; worldwide loess and Chinese upper-crustal composites" ;
+    ada:samplingUnit "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml" ;
+    ada:sessionIdentifier "missing" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated standard measurements (stated section 3.1)" .
+
+
+```
+
+
+### detail example P1
+detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambridge.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P1",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-P1"
+    }
+  ],
+  "ada:sessionIdentifier": "N -- \"a typical run (~5 hr)\" referenced; no run identifier stated",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods",
+  "ada:samplingUnit": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": 6,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "Reported as blank contribution relative to typical foraminiferal test ratios: \"<1% for Ca, Mg, Sr and Li; higher blanks were observed for Cd (<2%), and U (<5%) ... and for Zn (<4%)\"; \"The B blank was substantially decreased to ~5% by the employment of a quartz spray chamber, compared with ~30% when using a glass spray chamber\"",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "Comparison with published inter-lab values for Me/Ca ratios (stated section 3)",
+  "ada:goodnessOfFitOrDispersionStatistic": "N for the quantity this field defines. A calibration-curve fit statistic is reported -- \"The calibration curves determined from multiple standards are linear and R2 are usually greater than 0.999\" -- which measures the fit of the calibration, not whether scatter among contributing analyses exceeds analytical uncertainty"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P1",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-P1"
+    }
+  ],
+  "ada:sessionIdentifier": "N -- \"a typical run (~5 hr)\" referenced; no run identifier stated",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods",
+  "ada:samplingUnit": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": 6,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "Reported as blank contribution relative to typical foraminiferal test ratios: \"<1% for Ca, Mg, Sr and Li; higher blanks were observed for Cd (<2%), and U (<5%) ... and for Zn (<4%)\"; \"The B blank was substantially decreased to ~5% by the employment of a quartz spray chamber, compared with ~30% when using a glass spray chamber\"",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "Comparison with published inter-lab values for Me/Ca ratios (stated section 3)",
+  "ada:goodnessOfFitOrDispersionStatistic": "N for the quantity this field defines. A calibration-curve fit statistic is reported -- \"The calibration curves determined from multiple standards are linear and R2 are usually greater than 0.999\" -- which measures the fit of the calibration, not whether scatter among contributing analyses exceeds analytical uncertainty"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-P1 a ada:SolutionICPMSTabular ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionQicpmsTAPP-P1 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "Comparison with published inter-lab values for Me/Ca ratios (stated section 3)" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit -9999 ;
+    ada:goodnessOfFitOrDispersionStatistic "N for the quantity this field defines. A calibration-curve fit statistic is reported -- \"The calibration curves determined from multiple standards are linear and R2 are usually greater than 0.999\" -- which measures the fit of the calibration, not whether scatter among contributing analyses exceeds analytical uncertainty" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:numberOfReplicates 6 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "Reported as blank contribution relative to typical foraminiferal test ratios: \"<1% for Ca, Mg, Sr and Li; higher blanks were observed for Cd (<2%), and U (<5%) ... and for Zn (<4%)\"; \"The B blank was substantially decreased to ~5% by the employment of a quartz spray chamber, compared with ~30% when using a glass spray chamber\"" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods" ;
+    ada:samplingUnit "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)" ;
+    ada:sessionIdentifier "N -- \"a typical run (~5 hr)\" referenced; no run identifier stated" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+
+```
+
+
+### detail example Agilent7500
+detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Agilent7500",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-Agilent7500"
+    }
+  ],
+  "ada:sessionIdentifier": "N -- \"an average of eight sessions\" referenced; no session identifier stated",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses",
+  "ada:samplingUnit": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "\"Total dissolution blanks for the ultrasonic bath and bomb digestions were similar at <16 pg for each element (n = 4)\"; per-element blanks Cd 16 pg, In <0.2 pg, Tl 4 pg, Bi 3 pg",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule stated. 113Cd was excluded as a determination channel -- \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\" -- which is a channel decision, not an analysis-inclusion decision",
+  "ada:detectionLimit": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)",
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "%RSD of repeated standard and RM analyses (stated section 2)",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to certified/consensus values for USGS/GSJ/NIST RMs (stated section 3)",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Agilent7500",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-Agilent7500"
+    }
+  ],
+  "ada:sessionIdentifier": "N -- \"an average of eight sessions\" referenced; no session identifier stated",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses",
+  "ada:samplingUnit": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "\"Total dissolution blanks for the ultrasonic bath and bomb digestions were similar at <16 pg for each element (n = 4)\"; per-element blanks Cd 16 pg, In <0.2 pg, Tl 4 pg, Bi 3 pg",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule stated. 113Cd was excluded as a determination channel -- \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\" -- which is a channel decision, not an analysis-inclusion decision",
+  "ada:detectionLimit": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)",
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "%RSD of repeated standard and RM analyses (stated section 2)",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to certified/consensus values for USGS/GSJ/NIST RMs (stated section 3)",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Agilent7500 a ada:SolutionICPMSTabular ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7500 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule stated. 113Cd was excluded as a determination channel -- \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\" -- which is a channel decision, not an analysis-inclusion decision" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "% recovery relative to certified/consensus values for USGS/GSJ/NIST RMs (stated section 3)" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)" ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "\"Total dissolution blanks for the ultrasonic bath and bomb digestions were similar at <16 pg for each element (n = 4)\"; per-element blanks Cd 16 pg, In <0.2 pg, Tl 4 pg, Bi 3 pg" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses" ;
+    ada:samplingUnit "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"" ;
+    ada:sessionIdentifier "N -- \"an average of eight sessions\" referenced; no session identifier stated" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated standard and RM analyses (stated section 2)" .
+
+
+```
+
+
+### detail example Agilent7900
+detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Agilent7900",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-Agilent7900"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "PCA 02010, B-7904, LON 94101 and further CM/CY chondrites",
+  "ada:samplingUnit": "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "missing",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Agilent7900",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-Agilent7900"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "PCA 02010, B-7904, LON 94101 and further CM/CY chondrites",
+  "ada:samplingUnit": "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "missing",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Agilent7900 a ada:SolutionICPMSTabular ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7900 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "missing" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit -9999 ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "missing" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "PCA 02010, B-7904, LON 94101 and further CM/CY chondrites" ;
+    ada:samplingUnit "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure" ;
+    ada:sessionIdentifier "missing" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+
+```
+
+
+### detail example Agilent7500-2
+detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Agilent7500-2",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-Agilent7500-2"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
+  "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "Blanks in spike solutions (pg g-1) and total procedural blank (pg) tabulated per element; \"Blank effects for Ti, Zr, Mo, Hf and Ta from the Ca-Al-Mg solutions and the total procedure were <0.2% and negligible. The blank effects for Sn and Sb ... were 0.4-9% and 0.2-6%\" [sec 2.4]; \"Blank corrections using the values shown in Table 4 were applied to all analyses. The blank corrections were usually <1% in basalt and andesite analyses and <4% in peridotite reference materials\" [sec 3.6]",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to USGS/GSJ certified values (stated section 3)",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Agilent7500-2",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-Agilent7500-2"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
+  "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "Blanks in spike solutions (pg g-1) and total procedural blank (pg) tabulated per element; \"Blank effects for Ti, Zr, Mo, Hf and Ta from the Ca-Al-Mg solutions and the total procedure were <0.2% and negligible. The blank effects for Sn and Sb ... were 0.4-9% and 0.2-6%\" [sec 2.4]; \"Blank corrections using the values shown in Table 4 were applied to all analyses. The blank corrections were usually <1% in basalt and andesite analyses and <4% in peridotite reference materials\" [sec 3.6]",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to USGS/GSJ certified values (stated section 3)",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Agilent7500-2 a ada:SolutionICPMSTabular ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7500-2 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "% recovery relative to USGS/GSJ certified values (stated section 3)" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit -9999 ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "Blanks in spike solutions (pg g-1) and total procedural blank (pg) tabulated per element; \"Blank effects for Ti, Zr, Mo, Hf and Ta from the Ca-Al-Mg solutions and the total procedure were <0.2% and negligible. The blank effects for Sn and Sb ... were 0.4-9% and 0.2-6%\" [sec 2.4]; \"Blank corrections using the values shown in Table 4 were applied to all analyses. The blank corrections were usually <1% in basalt and andesite analyses and <4% in peridotite reference materials\" [sec 3.6]" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)" ;
+    ada:samplingUnit "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites" ;
+    ada:sessionIdentifier "missing" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+
+```
+
+
+### detail example Agilent8800
+detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Agilent8800",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-Agilent8800"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "N — SPM isotherm experiment at 1000 mg/L",
+  "ada:samplingUnit": "missing",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "Recovery on NCS 73307 total digestions 94 +/- 17% (N = 3)",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Agilent8800",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-Agilent8800"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "N \u2014 SPM isotherm experiment at 1000 mg/L",
+  "ada:samplingUnit": "missing",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "Recovery on NCS 73307 total digestions 94 +/- 17% (N = 3)",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Agilent8800 a ada:SolutionICPMSTabular ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent8800 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "Recovery on NCS 73307 total digestions 94 +/- 17% (N = 3)" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit -9999 ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "missing" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "N — SPM isotherm experiment at 1000 mg/L" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "missing" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+
+```
+
+
+### detail example P6
+detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P6",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-P6"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "Selective extraction fractions F1-F4 and F4N; CRM NCS 73307",
+  "ada:samplingUnit": "Weighed sediment aliquot — 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "Three blanks run for each extraction; 126Xe contribution from 2% HNO3 analytical blanks noted",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:detectionLimit": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD",
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "Recoveries: NIST 1643f 95 +/- 5% (N = 5) in KED mode and 89 +/- 10% (N = 5) in O2 mode; NCS 73307 99 +/- 14% (N = 4) in KED and 70 +/- 19% (N = 4) in O2 mode",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P6",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-P6"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "Selective extraction fractions F1-F4 and F4N; CRM NCS 73307",
+  "ada:samplingUnit": "Weighed sediment aliquot \u2014 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "Three blanks run for each extraction; 126Xe contribution from 2% HNO3 analytical blanks noted",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:detectionLimit": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD",
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "Recoveries: NIST 1643f 95 +/- 5% (N = 5) in KED mode and 89 +/- 10% (N = 5) in O2 mode; NCS 73307 99 +/- 14% (N = 4) in KED and 70 +/- 19% (N = 4) in O2 mode",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-P6 a ada:SolutionICPMSTabular ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionQicpmsTAPP-P6 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "Recoveries: NIST 1643f 95 +/- 5% (N = 5) in KED mode and 89 +/- 10% (N = 5) in O2 mode; NCS 73307 99 +/- 14% (N = 4) in KED and 70 +/- 19% (N = 4) in O2 mode" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD" ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "Three blanks run for each extraction; 126Xe contribution from 2% HNO3 analytical blanks noted" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "Selective extraction fractions F1-F4 and F4N; CRM NCS 73307" ;
+    ada:samplingUnit "Weighed sediment aliquot — 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction" ;
+    ada:sessionIdentifier "missing" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+
+```
+
+
+### detail example P7
+detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P7",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-P7"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "N — sorption kinetics and isotherm solutions; CRMs CRM-TMDW and NIST 1643f",
+  "ada:samplingUnit": "N — sub-sampled water aliquots",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:detectionLimit": "LOD 0.01 ug L-1 (N = 10)",
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "Recoveries 98-... % on CRM-TMDW and NIST 1643f",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P7",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-P7"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "N \u2014 sorption kinetics and isotherm solutions; CRMs CRM-TMDW and NIST 1643f",
+  "ada:samplingUnit": "N \u2014 sub-sampled water aliquots",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:detectionLimit": "LOD 0.01 ug L-1 (N = 10)",
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "Recoveries 98-... % on CRM-TMDW and NIST 1643f",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-P7 a ada:SolutionICPMSTabular ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionQicpmsTAPP-P7 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "Recoveries 98-... % on CRM-TMDW and NIST 1643f" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit "LOD 0.01 ug L-1 (N = 10)" ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "missing" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "N — sorption kinetics and isotherm solutions; CRMs CRM-TMDW and NIST 1643f" ;
+    ada:samplingUnit "N — sub-sampled water aliquots" ;
+    ada:sessionIdentifier "missing" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+
+```
+
+
+### detail example P8
+detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P8",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-P8"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "Ryugu particles A0066, A0238, A0247, A0256, A0259, A0268, A0301, A0313; Smithsonian Allende powder",
+  "ada:samplingUnit": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "N — blank data stated to be in the supplementary material; Ta and W blank contributions exceeded 30%",
+  "ada:analysisInclusionAndRejectionCriteria": "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "missing",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P8",
+  "@type": [
+    "ada:SolutionICPMSTabular"
+  ],
+  "ada:componentType": "ada:SolutionICPMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:solutionQicpmsTAPP-P8"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "missing"
+    }
+  ],
+  "ada:sampleName": "Ryugu particles A0066, A0238, A0247, A0256, A0259, A0268, A0301, A0313; Smithsonian Allende powder",
+  "ada:samplingUnit": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende",
+  "ada:sampleDescription": "missing",
+  "ada:numberOfReplicates": -9999,
+  "ada:oxideProduction": "missing",
+  "ada:signalIntegrationTime": -9999,
+  "ada:proceduralBlankLevel": "N \u2014 blank data stated to be in the supplementary material; Ta and W blank contributions exceeded 30%",
+  "ada:analysisInclusionAndRejectionCriteria": "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'",
+  "ada:detectionLimit": -9999,
+  "ada:limitOfQuantificationMethod": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "missing",
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-P8 a ada:SolutionICPMSTabular ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionQicpmsTAPP-P8 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "missing" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit -9999 ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "N — blank data stated to be in the supplementary material; Ta and W blank contributions exceeded 30%" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "Ryugu particles A0066, A0238, A0247, A0256, A0259, A0268, A0301, A0313; Smithsonian Allende powder" ;
+    ada:samplingUnit "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende" ;
+    ada:sessionIdentifier "missing" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml
@@ -15,9 +1303,8 @@ title: Solution Q-ICP-MS Analysis Detail
 description: Dataset-level analysis-instance detail for solution Q-ICP-MS, reusing
   CDIF/schema.org slots on the schema:Dataset root.
 allOf:
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/group1/schema.yaml#/$defs/AnalysisIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/reportingCore/schema.yaml#/$defs/AggregationQc_Analysis
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
     prov:wasGeneratedBy:
@@ -39,18 +1326,6 @@ allOf:
                   - '@type'
                 then:
                   properties:
-                    schema:identifier:
-                      description: Globally unique, persistent identifier for each
-                        sample listed in Sample Name. IGSN (International Geo Sample
-                        Number) is the recommended standard for geological and cosmochemical
-                        samples, as used by Astromat, EarthChem and SESAR. Where a
-                        sample and its sub-samples are separately registered, record
-                        the identifier at the level actually analysed.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
                     schema:description:
                       description: Brief description of sample provenance, form, or
                         preparation state relevant to this analysis.
@@ -62,82 +1337,12 @@ allOf:
                     schema:additionalProperty:
                       type: array
                       items:
-                        title: Sample Aliquot Mass or Volume
-                        description: Mass (mg) of solid material digested or volume
-                          (mL) of liquid taken for dissolution. Used for yield calculations
-                          and concentration back-calculation.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
-                          schema:name:
-                            const: Sample Aliquot Mass or Volume
-                          schema:value:
-                            anyOf:
-                            - type: number
-                            - type: string
-                          schema:unitText:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        - schema:unitText
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleAliquotMassOrVolume
                       allOf:
                       - contains:
-                          title: Sample Aliquot Mass or Volume
-                          description: Mass (mg) of solid material digested or volume
-                            (mL) of liquid taken for dissolution. Used for yield calculations
-                            and concentration back-calculation.
-                          type: object
-                          properties:
-                            '@id':
-                              const: ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
-                            '@type':
-                              const:
-                              - schema:PropertyValue
-                            schema:propertyID:
-                              const:
-                              - '@id': ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
-                            schema:name:
-                              const: Sample Aliquot Mass or Volume
-                            schema:value:
-                              anyOf:
-                              - type: number
-                              - type: string
-                            schema:unitText:
-                              type: string
-                          required:
-                          - '@id'
-                          - '@type'
-                          - schema:propertyID
-                          - schema:name
-                          - schema:value
-                          - schema:unitText
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleAliquotMassOrVolume
                         minContains: 0
                         maxContains: 1
-                    schema:name:
-                      description: "Name or identifier of each sample analysed in
-                        this session, as used in the laboratory \u2014 a sample mount,
-                        section or aliquot counts as one entry where that is what
-                        the laboratory tracks. The analysis record corresponds to
-                        one session and may cover several samples; fields whose Keyed
-                        By column declares 'sample' take one value per entry. Should
-                        match the identifier used in associated publications or data
-                        tables."
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
             allOf:
             - contains:
                 properties:
@@ -166,115 +1371,15 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - title: Digestion Temperature
-                              description: "Temperature at which acid digestion was
-                                carried out (\xB0C). Procedure specifies the target
-                                temperature."
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/digestionTemperature
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/digestionTemperature
-                                schema:name:
-                                  const: Digestion Temperature
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
-                                schema:unitText:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              - schema:unitText
-                            - title: Digestion Duration
-                              description: Duration of the primary acid digestion
-                                step (hours or days).
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/digestionDuration
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/digestionDuration
-                                schema:name:
-                                  const: Digestion Duration
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionTemperature
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionDuration
                           allOf:
                           - contains:
-                              title: Digestion Temperature
-                              description: "Temperature at which acid digestion was
-                                carried out (\xB0C). Procedure specifies the target
-                                temperature."
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/digestionTemperature
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/digestionTemperature
-                                schema:name:
-                                  const: Digestion Temperature
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
-                                schema:unitText:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              - schema:unitText
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionTemperature
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Digestion Duration
-                              description: Duration of the primary acid digestion
-                                step (hours or days).
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/digestionDuration
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/digestionDuration
-                                schema:name:
-                                  const: Digestion Duration
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionDuration
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -396,38 +1501,7 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - title: Constants and Reference Values Used
-                              description: Physical constants and reference values
-                                used in data reduction to calculate the final reported
-                                quantity (e.g., decay constants for age calculation,
-                                standard isotope ratios, or other citable reference
-                                values used in a correction or calculation), together
-                                with their source. Distinct from the Group 6 reference-material
-                                fields, which document accepted values for specific
-                                calibration/validation materials rather than universal
-                                physical constants. Record "None" if no citable, revisable
-                                physical constants feed into this procedure's data
-                                reduction.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed
-                                schema:name:
-                                  const: Constants and Reference Values Used
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
                           - contains:
                               title: Spike / Outlier Filtering Approach
@@ -549,38 +1623,7 @@ allOf:
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Constants and Reference Values Used
-                              description: Physical constants and reference values
-                                used in data reduction to calculate the final reported
-                                quantity (e.g., decay constants for age calculation,
-                                standard isotope ratios, or other citable reference
-                                values used in a correction or calculation), together
-                                with their source. Distinct from the Group 6 reference-material
-                                fields, which document accepted values for specific
-                                calibration/validation materials rather than universal
-                                physical constants. Record "None" if no citable, revisable
-                                physical constants feed into this procedure's data
-                                reduction.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed
-                                schema:name:
-                                  const: Constants and Reference Values Used
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                             minContains: 0
                             maxContains: 1
                 allOf:
@@ -618,6 +1661,7 @@ allOf:
                                 schema:additionalType:
                                   contains:
                                     const: ICPMS
+                                  schema:inDefinedTermSet: ada:vocab/instrumentType
                               required:
                               - schema:additionalType
                             then:
@@ -641,6 +1685,7 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: Torch
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
@@ -721,6 +1766,7 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: Sample Introduction System
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
@@ -729,88 +1775,41 @@ allOf:
                                             type: array
                                             items:
                                               anyOf:
-                                              - title: Sample Uptake Rate
-                                                description: "Peristaltic pump speed
-                                                  or self-aspiration flow rate for
-                                                  sample introduction (\xB5L/min or
-                                                  mL/min)."
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleUptakeRate
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_nebulizerGasFlowRate
+                                              - title: Make-up Gas and Flow Rate
+                                                description: "Supplementary gas added
+                                                  to the sample-carrying stream between
+                                                  the sample introduction system and
+                                                  the plasma, with its identity and
+                                                  the procedure-registered target
+                                                  flow rate. Argon make-up is standard
+                                                  and maintains total gas delivery
+                                                  where the carrier flow alone is
+                                                  insufficient \u2014 downstream of
+                                                  an ablation cell, or of a desolvation
+                                                  system that has removed solvent
+                                                  load. Small nitrogen or hydrogen
+                                                  additions are also made here to
+                                                  enhance sensitivity for some elements;
+                                                  record them with their own flow,
+                                                  whose unit commonly differs from
+                                                  the make-up flow. Record 'None'
+                                                  explicitly where no supplementary
+                                                  gas is added, to distinguish it
+                                                  from not reported."
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
+                                                    const: ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRate
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
+                                                    - '@id': ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRate
                                                   schema:name:
-                                                    const: Sample Uptake Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - title: Nebulizer Gas Flow Rate
-                                                description: Flow rate of the carrier
-                                                  argon gas delivered through the
-                                                  nebulizer (L/min). Controls aerosol
-                                                  transport and strongly influences
-                                                  signal sensitivity and stability.
-                                                  Adjusted daily to optimize signal.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
-                                                  schema:name:
-                                                    const: Nebulizer Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - title: Make-up Gas Flow Rate
-                                                description: Supplementary argon flow
-                                                  added downstream of a desolvation
-                                                  system to maintain total gas delivery
-                                                  to the plasma (L/min). Record 'N/A'
-                                                  if no desolvation system is used.
-                                                  Record 'N/A' where Desolvation System
-                                                  is 'None'.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate
-                                                  schema:name:
-                                                    const: Make-up Gas Flow Rate
+                                                    const: Make-up Gas and Flow Rate
                                                   schema:value:
                                                     anyOf:
                                                     - type: number
@@ -826,94 +1825,47 @@ allOf:
                                                 - schema:unitText
                                             allOf:
                                             - contains:
-                                                title: Sample Uptake Rate
-                                                description: "Peristaltic pump speed
-                                                  or self-aspiration flow rate for
-                                                  sample introduction (\xB5L/min or
-                                                  mL/min)."
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
-                                                  schema:name:
-                                                    const: Sample Uptake Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleUptakeRate
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
-                                                title: Nebulizer Gas Flow Rate
-                                                description: Flow rate of the carrier
-                                                  argon gas delivered through the
-                                                  nebulizer (L/min). Controls aerosol
-                                                  transport and strongly influences
-                                                  signal sensitivity and stability.
-                                                  Adjusted daily to optimize signal.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
-                                                  schema:name:
-                                                    const: Nebulizer Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_nebulizerGasFlowRate
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
-                                                title: Make-up Gas Flow Rate
-                                                description: Supplementary argon flow
-                                                  added downstream of a desolvation
-                                                  system to maintain total gas delivery
-                                                  to the plasma (L/min). Record 'N/A'
-                                                  if no desolvation system is used.
-                                                  Record 'N/A' where Desolvation System
-                                                  is 'None'.
+                                                title: Make-up Gas and Flow Rate
+                                                description: "Supplementary gas added
+                                                  to the sample-carrying stream between
+                                                  the sample introduction system and
+                                                  the plasma, with its identity and
+                                                  the procedure-registered target
+                                                  flow rate. Argon make-up is standard
+                                                  and maintains total gas delivery
+                                                  where the carrier flow alone is
+                                                  insufficient \u2014 downstream of
+                                                  an ablation cell, or of a desolvation
+                                                  system that has removed solvent
+                                                  load. Small nitrogen or hydrogen
+                                                  additions are also made here to
+                                                  enhance sensitivity for some elements;
+                                                  record them with their own flow,
+                                                  whose unit commonly differs from
+                                                  the make-up flow. Record 'None'
+                                                  explicitly where no supplementary
+                                                  gas is added, to distinguish it
+                                                  from not reported."
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate
+                                                    const: ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRate
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:parameter/solutionQicpmsTAPP/makeUpGasFlowRate
+                                                    - '@id': ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRate
                                                   schema:name:
-                                                    const: Make-up Gas Flow Rate
+                                                    const: Make-up Gas and Flow Rate
                                                   schema:value:
                                                     anyOf:
                                                     - type: number
@@ -934,6 +1886,7 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: ICP Source
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
@@ -1137,6 +2090,7 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: Collision Reaction Cell
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
@@ -1363,6 +2317,7 @@ allOf:
                                         schema:additionalType:
                                           contains:
                                             const: Sample Introduction System
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                   - contains:
@@ -1370,6 +2325,7 @@ allOf:
                                         schema:additionalType:
                                           contains:
                                             const: ICP Source
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                   - contains:
@@ -1377,6 +2333,7 @@ allOf:
                                         schema:additionalType:
                                           contains:
                                             const: Collision Reaction Cell
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                 schema:additionalProperty:
@@ -1577,58 +2534,9 @@ allOf:
                             schema:additionalType:
                               contains:
                                 const: ICPMS
+                              schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
-              - if:
-                  required:
-                  - bios:computationalTool
-                then:
-                  properties:
-                    bios:computationalTool:
-                      type: array
-                      items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                ada:toolRole:
-                                  const: acquisition
-                              required:
-                              - ada:toolRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: Name and version of the software used
-                                    to control the instrument and acquire raw mass
-                                    spectrum data (e.g., Qtegra, MassLynx).
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          - if:
-                              properties:
-                                ada:toolRole:
-                                  const: dataReduction
-                              required:
-                              - ada:toolRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: 'Name and version of the software used
-                                    for data reduction: blank correction, internal
-                                    standard normalization, calibration, and concentration
-                                    calculation (e.g., Iolite, lab spreadsheet). Include
-                                    version number.'
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          required:
-                          - ada:toolRole
               - if:
                   required:
                   - prov:reagent
@@ -1685,34 +2593,36 @@ allOf:
           schema:additionalProperty:
             type: array
             items:
-              title: Signal Integration Time
-              description: Total integration time per analyte per replicate (s). Determined
-                at analysis time from the actual acquisition.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/solutionQicpmsTAPP/signalIntegrationTime
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/solutionQicpmsTAPP/signalIntegrationTime
-                schema:name:
-                  const: Signal Integration Time
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
+              anyOf:
+              - title: Signal Integration Time
+                description: Total integration time per analyte per replicate (s).
+                  Determined at analysis time from the actual acquisition.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionQicpmsTAPP/signalIntegrationTime
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionQicpmsTAPP/signalIntegrationTime
+                  schema:name:
+                    const: Signal Integration Time
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
             allOf:
             - contains:
                 title: Signal Integration Time
@@ -1745,14 +2655,10 @@ allOf:
                 - schema:unitText
               minContains: 0
               maxContains: 1
-          schema:description:
-            description: "Any procedure- or analysis-specific information not captured
-              by a structured field anywhere in this TAPP \u2014 including anomalies,
-              deviations from the registered procedure, instrument modifications,
-              and supplementary context. Scope is the whole document, not Group 6:
-              this is the last field of the TAPP and covers all six groups. Use sparingly;
-              a structured field is preferred for anything that can be formally categorised."
-            type: string
+            - contains:
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+              minContains: 0
+              maxContains: 1
     dqv:hasQualityMeasurement:
       type: array
       items:
@@ -1797,23 +2703,22 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
+    "ada": "https://ada.astromat.org/metadata/",
+    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/",
-    "dqv": "http://www.w3.org/ns/dqv#",
-    "bios": "https://bioschemas.org/",
-    "wd": "https://www.wikidata.org/entity/",
-    "nxs": "https://manual.nexusformat.org/classes/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "wd": "https://www.wikidata.org/entity/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "cdif": "https://w3id.org/cdif/",
     "ex": "https://example.org/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
-    "csvw": "http://www.w3.org/ns/csvw#",
-    "spdx": "http://spdx.org/rdf/terms#",
-    "geosparql": "http://www.opengis.net/ont/geosparql#",
     "@version": 1.1
   }
 }

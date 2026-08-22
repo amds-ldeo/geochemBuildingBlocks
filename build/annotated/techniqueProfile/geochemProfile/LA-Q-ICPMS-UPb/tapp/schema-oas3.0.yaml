@@ -1441,6 +1441,16 @@ x-defs:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
     - type: object
       properties:
+        '@id':
+          description: 'Identifier for this instrument within the record. REQUIRED:
+            an instrument has to be referenceable. A monitored species names the instrument
+            (or the instrument part) that reports it, and a dataset variable points
+            back at the device that produced it; neither is expressible while the
+            instrument is an anonymous object. A document-scoped identifier suffices,
+            but a resolvable one is better wherever the lab has a persistent identifier
+            for the device.'
+          type: string
+          minLength: 1
         schema:additionalType:
           description: 'Domain-specific instrument type classifications. Should include
             a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific
@@ -1487,10 +1497,21 @@ x-defs:
             anyOf:
             - type: object
               required:
+              - '@id'
               - '@type'
               - schema:name
               - schema:additionalType
               properties:
+                '@id':
+                  description: 'Identifier for this component within the record. REQUIRED
+                    on an INLINE component for the same reason it is required on the
+                    instrument: a monitored species names the part that reports it
+                    -- a Faraday cup, a spectrometer, a detector -- and an anonymous
+                    object cannot be referenced. The sibling branch of this anyOf
+                    is the by-reference form, a bare {"@id": ...} pointing at a component
+                    described elsewhere.'
+                  type: string
+                  minLength: 1
                 '@type':
                   type: array
                   items:
@@ -1528,6 +1549,7 @@ x-defs:
                   type: string
           x-jsonld-id: http://schema.org/hasPart
       required:
+      - '@id'
       - schema:additionalType
     x-jsonld-prefixes:
       schema: http://schema.org/
@@ -6000,6 +6022,7 @@ allOf:
                 contains:
                   enum:
                   - Laser Ablation System
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -6281,6 +6304,7 @@ allOf:
                 contains:
                   enum:
                   - ICPMS
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -6833,6 +6857,7 @@ allOf:
                           contains:
                             enum:
                             - Interface Cone
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -6968,6 +6993,7 @@ allOf:
                           contains:
                             enum:
                             - Torch
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -7075,6 +7101,7 @@ allOf:
                           contains:
                             enum:
                             - Collision Reaction Cell
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -7497,6 +7524,7 @@ allOf:
                           contains:
                             enum:
                             - ICP Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -7834,6 +7862,7 @@ allOf:
                           contains:
                             enum:
                             - Collector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -7964,6 +7993,7 @@ allOf:
                         contains:
                           enum:
                           - Interface Cone
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -7972,6 +8002,7 @@ allOf:
                         contains:
                           enum:
                           - Collision Reaction Cell
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -7980,6 +8011,7 @@ allOf:
                         contains:
                           enum:
                           - ICP Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
       allOf:
@@ -7989,6 +8021,7 @@ allOf:
               contains:
                 enum:
                 - Laser Ablation System
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
       - contains:
@@ -7997,6 +8030,7 @@ allOf:
               contains:
                 enum:
                 - ICPMS
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     bios:computationalTool:
@@ -9169,9 +9203,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:totalIntegrationTimePerOutputDataPointDefault:
-      type: string
-      readOnly: true
     ada:backgroundCountTimeDefault:
       description: Total time spent measuring gas blank (background signal with laser
         off or shutter closed) before each ablation event, in seconds. For spot and
@@ -9365,6 +9396,15 @@ allOf:
     ada:dwellTimesDefault:
       type: string
       readOnly: true
+    ada:totalIntegrationTimePerOutputDataPointDefault:
+      description: "Total duty-cycle time for one complete mass-scan sweep \u2014
+        the sum of all per-isotope dwell times plus inter-mass settling times. Sets
+        the time resolution of the downhole signal, and is not recoverable from Dwell
+        Time per Mass alone because settling time is not captured there. Applies to
+        sequential (quadrupole and single-collector sector-field) acquisition."
+      anyOf:
+      - type: number
+      - type: string
     ada:gasBlank:
       type: string
       readOnly: true
@@ -9388,7 +9428,6 @@ allOf:
   - ada:analysisSequenceDefault
   - ada:signalCollectionMode
   - ada:ionCounterDeadTimeDefault
-  - ada:totalIntegrationTimePerOutputDataPointDefault
   - ada:backgroundCountTimeDefault
   - ada:internalStandardApproach
   - ada:internalStandardElement
@@ -9400,4 +9439,5 @@ allOf:
   - ada:ageModelDefault
   - ada:primaryStandardNameDefault
   - ada:calibrationMeasurementFrequency
+  - ada:totalIntegrationTimePerOutputDataPointDefault
 x-schema-version: https://json-schema.org/draft/2020-12/schema

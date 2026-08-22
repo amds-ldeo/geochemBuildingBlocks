@@ -2762,6 +2762,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: Laser Ablation System
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -3022,6 +3023,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: ICPMS
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -3503,6 +3505,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Interface Cone
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -3629,6 +3632,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Torch
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -3725,6 +3729,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: ICP Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -4021,6 +4026,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Collision Reaction Cell
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -4324,6 +4330,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Collector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -4445,6 +4452,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Interface Cone
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -4452,6 +4460,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: ICP Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
       allOf:
@@ -4460,6 +4469,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: Laser Ablation System
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
       - contains:
@@ -4467,6 +4477,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: ICPMS
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     bios:computationalTool:
@@ -5504,9 +5515,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:totalIntegrationTimePerOutputDataPointDefault:
-      type: string
-      readOnly: true
     ada:backgroundCountTimeDefault:
       description: Total time spent measuring gas blank (background signal with laser
         off or shutter closed) before each ablation event, in seconds. For spot and
@@ -5703,6 +5711,15 @@ allOf:
     ada:dwellTimesDefault:
       type: string
       readOnly: true
+    ada:totalIntegrationTimePerOutputDataPointDefault:
+      description: "Total duty-cycle time for one complete mass-scan sweep \u2014
+        the sum of all per-isotope dwell times plus inter-mass settling times. Sets
+        the time resolution of the downhole signal, and is not recoverable from Dwell
+        Time per Mass alone because settling time is not captured there. Applies to
+        sequential (quadrupole and single-collector sector-field) acquisition."
+      anyOf:
+      - type: number
+      - type: string
     ada:gasBlank:
       type: string
       readOnly: true
@@ -5726,7 +5743,6 @@ allOf:
   - ada:analysisSequenceDefault
   - ada:massResolutionAssignment
   - ada:ionCounterDeadTimeDefault
-  - ada:totalIntegrationTimePerOutputDataPointDefault
   - ada:backgroundCountTimeDefault
   - ada:internalStandardApproach
   - ada:internalStandardElement
@@ -5738,3 +5754,4 @@ allOf:
   - ada:ageModelDefault
   - ada:primaryStandardNameDefault
   - ada:calibrationMeasurementFrequency
+  - ada:totalIntegrationTimePerOutputDataPointDefault

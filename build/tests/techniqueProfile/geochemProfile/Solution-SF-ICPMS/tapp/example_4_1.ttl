@@ -1,0 +1,351 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:solutionSficpmsTAPP-P3 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
+    schema1:datePublished "missing" ;
+    schema1:description "Off-line pre-concentration by chelating resin essential for open-ocean seawater; enriched isotope spikes added before chelation (pre-equilibration); standard addition for Mn and Co (no suitable spike isotope); stated section 2.2 Reported detail: ada:blankBackgroundCorrectionMethod = Procedural blank (stated section 2.1)." ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/SEM> ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "National High Magnetic Field Laboratory (NHMFL), Florida State University (stated section 2.4)" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "Solution SF-ICP-MS" ] ;
+    schema1:name "solutionSficpms protocol — P3" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Open-ocean seawater (stated abstract)" ],
+                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/detectionLimit>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/detectionLimitMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/monitoredMasses>,
+                <https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
+            ada:defaultAnalytes "Cd (111Cd)",
+                "Co (59Co)",
+                "Cu (65Cu)",
+                "Fe (57Fe)",
+                "Mn (55Mn)",
+                "Ni (62Ni)",
+                "Pb (207Pb) in seawater (stated Table 1)",
+                "Zn (68Zn)" ] ;
+    ada:analyticalMode "Solution nebulisation (continuous) -- \"Nebuliser PFA microflow (PFA-100), Elemental Scientific\"; \"Nebuliser sample uptake rate 150 uL min-1\"; \"Autosampler CETAC ASX-100\". The flow-injection manifold of sec 2.2 is the offline pre-concentration step, not the ICP-MS introduction: \"prevented the online coupling of the flow injection system directly to an ICP-MS\"" ;
+    ada:blankBackgroundCorrectionMethod "Procedural blank" ;
+    ada:calibrationMeasurementFrequency "missing" ;
+    ada:chromatographicSeparationApplied "Toyopearl AF-Chelate-650M chelating resin (pre-concentration from seawater; stated section 2.2)" ;
+    ada:driftCorrectionMethod "missing" ;
+    ada:finalSolutionMatrix "1.0 M HNO3 (trace elements eluted from chelating resin in 1 mL; stated section 2.2)" ;
+    ada:internalStandardApproach "missing" ;
+    ada:internalStandardElement "None (ID method used; no external IS; stated section 2.1)" ;
+    ada:isotopeDilutionSpike "57Fe, 62Ni, 65Cu, 68Zn, 111Cd, 207Pb enriched isotope spikes (stated Table 1)" ;
+    ada:numberOfReplicatesPerSample -9999 ;
+    ada:numberOfScansPerReplicate -9999 ;
+    ada:oxideProductionMethodAndThreshold "In (5 ppb) used for LR tuning; oxide rate typically <5% (stated section 2.4)" ;
+    ada:perAnalyteCalibrationStrategy "N/A" ;
+    ada:primaryStandardNameDefault "Commercial standard of natural isotopic abundance (not formally named; stated section 2.4)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Dissolved Mn, Fe, Co, Ni, Cu, Zn, Cd and Pb concentrations in nM" ;
+            ada:reportedPropertyColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
+    ada:sampleSequenceDesign "missing" ;
+    ada:samplingUnit "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\"" ;
+    ada:secondaryReferenceMaterialDefault "NASS-5 (certified seawater); SAFe inter-comparison samples S1 and D2 (stated section 2.4)" ;
+    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:washTimeBetweenSamples -9999 .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimit" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Detection Limit Method" ;
+    schema1:valueName "detectionLimitMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Isobaric Interference Corrections Applied" ;
+    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Limit of Quantification (LOQ) Method" ;
+    schema1:valueName "limitOfQuantificationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Partially -- \"The blank solutions were analysed at least three times on the ICP-MS\"; \"parallel triplicate samples\"; n = 3 for reference materials and n = 5 for the GEOTRACES samples. No acceptance or rejection rule stated" ;
+    schema1:name "Analysis Inclusion and Rejection Criteria" ;
+    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Partially -- \"A mass bias correction factor for each of the six elements was calculated from the measured natural isotopic ratio divided by the true natural isotopic ratio\". The true natural isotopic ratios used, and their source, are not stated" ;
+    schema1:name "Constants Reference Values" ;
+    schema1:valueName "constantsReferenceValuesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
+    schema1:name "Desolvation System" ;
+    schema1:value "None" ;
+    schema1:valueName "desolvationSystem" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.2e+00 ;
+    schema1:description "1.2 L/min (varied and optimized daily; Table 2)" ;
+    schema1:name "Nebulizer Gas Flow Rate" ;
+    schema1:valueName "nebulizerGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType> a schema1:PropertyValueSpecification ;
+    schema1:name "Nebulizer Type" ;
+    schema1:value "PFA microflow PFA-100 (Elemental Scientific; Table 2)" ;
+    schema1:valueName "nebulizerType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 12 ;
+    schema1:description "12 mL seawater (stated section 2.2)" ;
+    schema1:name "Sample Aliquot Mass or Volume" ;
+    schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 150 ;
+    schema1:description "150 uL/min (Table 2)" ;
+    schema1:name "Sample Uptake Rate" ;
+    schema1:valueName "sampleUptakeRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> a schema1:PropertyValueSpecification ;
+    schema1:name "Spray Chamber Type and Cooling Temperature" ;
+    schema1:value "PFA Teflon Savillex 100 mL with internal baffle (Table 2)" ;
+    schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.05e+00 ;
+    schema1:description "1.05 L/min (varied and optimized daily; Table 2)" ;
+    schema1:name "Auxiliary Gas Flow Rate" ;
+    schema1:valueName "auxiliaryGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/coolantGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 13 ;
+    schema1:description "13 L/min (Table 2)" ;
+    schema1:name "Coolant (Plasma) Gas Flow Rate" ;
+    schema1:valueName "coolantGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "LR (R ~300) and MR (R ~4000; stated section 2.4)" ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/rfPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1300 ;
+    schema1:description "1300 W (Table 2)" ;
+    schema1:name "RF Power" ;
+    schema1:valueName "rfPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector sector-field (SF-ICP-MS)" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Finnigan Element I (E1) HR-ICP-MS (stated section 2.4)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/coolantGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/interfaceConeConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific -- \"a Thermo-Finnigan Element I (E1) HR-ICP-MS\"; \"Instrument ThermoFinnigan Element1\"" ] ;
+    schema1:name "example instrumentName" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
+    schema1:name "Detector Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
+    schema1:value "Single SEM, dual mode (stated section 2.4)" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/interfaceConeConfiguration> a schema1:PropertyValue ;
+    schema1:name "Interface Cone Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/interfaceConeConfiguration> ;
+    schema1:value "Ni/Cu sampler (Spectron Inc.) + Ni skimmer (Spectron Inc.; Table 2)" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod> a schema1:PropertyValue ;
+    schema1:name "Isotope Dilution Data Reduction Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod> ;
+    schema1:value "IUPAC isotope dilution equations (stated section 2.1)" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/plasmaThermalMode> a schema1:PropertyValue ;
+    schema1:name "Plasma Thermal Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/plasmaThermalMode> ;
+    schema1:value "Normal plasma (1300 W; Table 2)" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial> a schema1:PropertyValue ;
+    schema1:name "Sampler and Skimmer Cone Material" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial> ;
+    schema1:value "Ni/Cu sampler and Ni skimmer (Table 2)" .
+

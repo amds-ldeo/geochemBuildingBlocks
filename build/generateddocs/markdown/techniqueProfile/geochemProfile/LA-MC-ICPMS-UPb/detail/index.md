@@ -837,6 +837,67 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
+            - title: Ablation Duration per Spot
+              description: 'Total on-sample ablation (signal acquisition) time per
+                individual spot in seconds, as set in the acquisition method. This
+                is a procedure-level parameter for spot analysis: it reflects the
+                deliberate trade-off between signal accumulation (longer = lower LOD),
+                sample consumption, and session throughput. For transect analysis,
+                the equivalent procedure-level parameter is scan speed (captured in
+                Transect Rate, Mapping Rate or Step Size). For mapping analysis, total
+                acquisition time is sample-area-dependent and therefore analysis-level,
+                not captured here.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/ablationDurationPerSpot
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/ablationDurationPerSpot
+                schema:name:
+                  const: Ablation Duration per Spot
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - title: Ablation Pit Depth and Ablation Rate
+              description: Depth of the ablation pit produced under the registered
+                laser conditions, the method used to measure it, and the resulting
+                per-pulse ablation rate. Sets the achievable depth resolution and
+                governs downhole elemental fractionation. For transect and mapping
+                the equivalent quantity is trench depth under the same conditions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/ablationPitDepthAndAblationRate
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/ablationPitDepthAndAblationRate
+                schema:name:
+                  const: Ablation Pit Depth and Ablation Rate
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: Transect Rate, Mapping Rate or Step Size
               description: "For continuous line scan (transect) and raster mapping:
                 the stage translation speed in \xB5m s\u207B\xB9. This is the procedure-level
@@ -857,6 +918,59 @@ properties:
                   - '@id': ada:parameter/laMcicpmsUPbTAPP/transectRateMappingRateOrStepSize
                 schema:name:
                   const: Transect Rate, Mapping Rate or Step Size
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Raster Line Spacing (Mapping Only)
+              description: Distance between adjacent raster lines in a 2D elemental
+                map, measured perpendicular to the scan direction, in micrometres.
+                Together with spot size, this determines whether adjacent lines are
+                contiguous (line spacing = spot size), overlapping (line spacing <
+                spot size), or have gaps (line spacing > spot size). Applies to raster
+                mapping only.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/rasterLineSpacing
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/rasterLineSpacing
+                schema:name:
+                  const: Raster Line Spacing (Mapping Only)
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Carrier Gas and Flow Rate
+              description: "Gas used to transport ablated aerosol from the ablation
+                cell to the ICP-MS torch, with the procedure-registered target flow
+                rate(s). Helium is standard for most UV laser systems due to superior
+                aerosol transport. Flow rates are procedure targets; actual session
+                values may be adjusted within \xB110% during tuning."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/carrierGasAndFlowRate
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/carrierGasAndFlowRate
+                schema:name:
+                  const: Carrier Gas and Flow Rate
                 schema:value:
                   type: string
               required:
@@ -891,6 +1005,31 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
+            - title: Analysis Sequence
+              description: Repeating order of primary calibration standard(s), quality
+                control standard(s), and unknown analyses within a measurement session.
+                Editable to allow minor adjustments while maintaining the bracketing
+                strategy defined in the procedure.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/analysisSequence
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/analysisSequence
+                schema:name:
+                  const: Analysis Sequence
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: Ion Counter Dead Time
               description: Dead time of each ion-counting detector channel, used in
                 the dead-time correction applied to high count rates. Distinct from
@@ -908,6 +1047,39 @@ properties:
                   - '@id': ada:parameter/laMcicpmsUPbTAPP/ionCounterDeadTime
                 schema:name:
                   const: Ion Counter Dead Time
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - title: Background Count Time
+              description: Total time spent measuring gas blank (background signal
+                with laser off or shutter closed) before each ablation event, in seconds.
+                For spot and transect analysis, a discrete background interval is
+                measured before each ablation. For mapping, background is typically
+                measured once per raster line or at the start of a map session rather
+                than before each individual pixel. Editable to allow session-specific
+                adjustment.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/backgroundCountTime
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/backgroundCountTime
+                schema:name:
+                  const: Background Count Time
                 schema:value:
                   anyOf:
                   - type: number
@@ -1197,6 +1369,33 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
+            - title: Reported Date Type
+              description: The kind of date or age the procedure reports. Most dating
+                systems derive several different date types from the same measurements,
+                so a reported age is ambiguous without this. Where more than one type
+                is reported, list all, separated by semicolons. Kohn et al. (2024)
+                carry this as a named required item ("fission-track age type"); the
+                equivalent distinction is required by all five other standards surveyed.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/reportedDateType
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/reportedDateType
+                schema:name:
+                  const: Reported Date Type
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: Inherited or Initial Signal Correction
               description: 'How any non-radiogenic, inherited or pre-existing component
                 of the measured signal was accounted for, including the composition
@@ -1340,6 +1539,28 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
+            - title: Spot Diameter
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/spotDiameter
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/spotDiameter
+                schema:name:
+                  const: Spot Diameter
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: Ablation Pit Depth/Ablation Rate
               description: ''
               type: object
@@ -1376,6 +1597,74 @@ properties:
                   - '@id': ada:parameter/laMcicpmsUPbTAPP/makeUpGasFlow
                 schema:name:
                   const: "Make-up Gas Flow (L min\u207B\xB9)"
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Masses Measured
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/massesMeasured
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/massesMeasured
+                schema:name:
+                  const: Masses Measured
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Integration Time per Peak/Dwell Times; Quadrupole Settling Time
+                Between Mass Jumps
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps
+                schema:name:
+                  const: Integration Time per Peak/Dwell Times; Quadrupole Settling
+                    Time Between Mass Jumps
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Total Integration Time per Output Data Point (s)
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/totalIntegrationTimePerOutputDataPoint
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/totalIntegrationTimePerOutputDataPoint
+                schema:name:
+                  const: Total Integration Time per Output Data Point (s)
                 schema:value:
                   type: string
               required:
@@ -1514,6 +1803,73 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
+              title: Ablation Duration per Spot
+              description: 'Total on-sample ablation (signal acquisition) time per
+                individual spot in seconds, as set in the acquisition method. This
+                is a procedure-level parameter for spot analysis: it reflects the
+                deliberate trade-off between signal accumulation (longer = lower LOD),
+                sample consumption, and session throughput. For transect analysis,
+                the equivalent procedure-level parameter is scan speed (captured in
+                Transect Rate, Mapping Rate or Step Size). For mapping analysis, total
+                acquisition time is sample-area-dependent and therefore analysis-level,
+                not captured here.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/ablationDurationPerSpot
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/ablationDurationPerSpot
+                schema:name:
+                  const: Ablation Duration per Spot
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Ablation Pit Depth and Ablation Rate
+              description: Depth of the ablation pit produced under the registered
+                laser conditions, the method used to measure it, and the resulting
+                per-pulse ablation rate. Sets the achievable depth resolution and
+                governs downhole elemental fractionation. For transect and mapping
+                the equivalent quantity is trench depth under the same conditions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/ablationPitDepthAndAblationRate
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/ablationPitDepthAndAblationRate
+                schema:name:
+                  const: Ablation Pit Depth and Ablation Rate
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
               title: Transect Rate, Mapping Rate or Step Size
               description: "For continuous line scan (transect) and raster mapping:
                 the stage translation speed in \xB5m s\u207B\xB9. This is the procedure-level
@@ -1534,6 +1890,65 @@ properties:
                   - '@id': ada:parameter/laMcicpmsUPbTAPP/transectRateMappingRateOrStepSize
                 schema:name:
                   const: Transect Rate, Mapping Rate or Step Size
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Raster Line Spacing (Mapping Only)
+              description: Distance between adjacent raster lines in a 2D elemental
+                map, measured perpendicular to the scan direction, in micrometres.
+                Together with spot size, this determines whether adjacent lines are
+                contiguous (line spacing = spot size), overlapping (line spacing <
+                spot size), or have gaps (line spacing > spot size). Applies to raster
+                mapping only.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/rasterLineSpacing
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/rasterLineSpacing
+                schema:name:
+                  const: Raster Line Spacing (Mapping Only)
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Carrier Gas and Flow Rate
+              description: "Gas used to transport ablated aerosol from the ablation
+                cell to the ICP-MS torch, with the procedure-registered target flow
+                rate(s). Helium is standard for most UV laser systems due to superior
+                aerosol transport. Flow rates are procedure targets; actual session
+                values may be adjusted within \xB110% during tuning."
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/carrierGasAndFlowRate
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/carrierGasAndFlowRate
+                schema:name:
+                  const: Carrier Gas and Flow Rate
                 schema:value:
                   type: string
               required:
@@ -1574,6 +1989,34 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
+              title: Analysis Sequence
+              description: Repeating order of primary calibration standard(s), quality
+                control standard(s), and unknown analyses within a measurement session.
+                Editable to allow minor adjustments while maintaining the bracketing
+                strategy defined in the procedure.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/analysisSequence
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/analysisSequence
+                schema:name:
+                  const: Analysis Sequence
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
               title: Ion Counter Dead Time
               description: Dead time of each ion-counting detector channel, used in
                 the dead-time correction applied to high count rates. Distinct from
@@ -1591,6 +2034,42 @@ properties:
                   - '@id': ada:parameter/laMcicpmsUPbTAPP/ionCounterDeadTime
                 schema:name:
                   const: Ion Counter Dead Time
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Background Count Time
+              description: Total time spent measuring gas blank (background signal
+                with laser off or shutter closed) before each ablation event, in seconds.
+                For spot and transect analysis, a discrete background interval is
+                measured before each ablation. For mapping, background is typically
+                measured once per raster line or at the start of a map session rather
+                than before each individual pixel. Editable to allow session-specific
+                adjustment.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/backgroundCountTime
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/backgroundCountTime
+                schema:name:
+                  const: Background Count Time
                 schema:value:
                   anyOf:
                   - type: number
@@ -1910,6 +2389,36 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
+              title: Reported Date Type
+              description: The kind of date or age the procedure reports. Most dating
+                systems derive several different date types from the same measurements,
+                so a reported age is ambiguous without this. Where more than one type
+                is reported, list all, separated by semicolons. Kohn et al. (2024)
+                carry this as a named required item ("fission-track age type"); the
+                equivalent distinction is required by all five other standards surveyed.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/reportedDateType
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/reportedDateType
+                schema:name:
+                  const: Reported Date Type
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
               title: Inherited or Initial Signal Correction
               description: 'How any non-radiogenic, inherited or pre-existing component
                 of the measured signal was accounted for, including the composition
@@ -2068,6 +2577,31 @@ properties:
             minContains: 0
             maxContains: 1
           - contains:
+              title: Spot Diameter
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/spotDiameter
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/spotDiameter
+                schema:name:
+                  const: Spot Diameter
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
               title: Ablation Pit Depth/Ablation Rate
               description: ''
               type: object
@@ -2107,6 +2641,83 @@ properties:
                   - '@id': ada:parameter/laMcicpmsUPbTAPP/makeUpGasFlow
                 schema:name:
                   const: "Make-up Gas Flow (L min\u207B\xB9)"
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Masses Measured
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/massesMeasured
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/massesMeasured
+                schema:name:
+                  const: Masses Measured
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Integration Time per Peak/Dwell Times; Quadrupole Settling Time
+                Between Mass Jumps
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps
+                schema:name:
+                  const: Integration Time per Peak/Dwell Times; Quadrupole Settling
+                    Time Between Mass Jumps
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Total Integration Time per Output Data Point (s)
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/totalIntegrationTimePerOutputDataPoint
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/totalIntegrationTimePerOutputDataPoint
+                schema:name:
+                  const: Total Integration Time per Output Data Point (s)
                 schema:value:
                   type: string
               required:
@@ -2214,6 +2825,7 @@ properties:
                               schema:additionalType:
                                 contains:
                                   const: ICPMS
+                                schema:inDefinedTermSet: ada:vocab/instrumentType
                             required:
                             - schema:additionalType
                           then:
@@ -2237,6 +2849,7 @@ properties:
                                         schema:additionalType:
                                           contains:
                                             const: Torch
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                     then:
@@ -2316,6 +2929,7 @@ properties:
                                         schema:additionalType:
                                           contains:
                                             const: ICP Source
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                     then:
@@ -2517,6 +3131,7 @@ properties:
                                         schema:additionalType:
                                           contains:
                                             const: Collision Reaction Cell
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                     then:
@@ -2749,6 +3364,7 @@ properties:
                                       schema:additionalType:
                                         contains:
                                           const: ICP Source
+                                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                     required:
                                     - schema:additionalType
                                 - contains:
@@ -2756,6 +3372,7 @@ properties:
                                       schema:additionalType:
                                         contains:
                                           const: Collision Reaction Cell
+                                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                     required:
                                     - schema:additionalType
                               schema:additionalProperty:
@@ -3067,6 +3684,7 @@ properties:
                               schema:additionalType:
                                 contains:
                                   const: Laser Ablation System
+                                schema:inDefinedTermSet: ada:vocab/instrumentType
                             required:
                             - schema:additionalType
                           then:
@@ -3184,6 +3802,7 @@ properties:
                           schema:additionalType:
                             contains:
                               const: ICPMS
+                            schema:inDefinedTermSet: ada:vocab/instrumentType
                         required:
                         - schema:additionalType
                     - contains:
@@ -3191,6 +3810,7 @@ properties:
                           schema:additionalType:
                             contains:
                               const: Laser Ablation System
+                            schema:inDefinedTermSet: ada:vocab/instrumentType
                         required:
                         - schema:additionalType
             - if:
@@ -3297,55 +3917,6 @@ properties:
                                     type: string
                         required:
                         - ada:reagentRole
-        ada:ablationSpotDuration:
-          description: 'Total on-sample ablation (signal acquisition) time per individual
-            spot in seconds, as set in the acquisition method. This is a procedure-level
-            parameter for spot analysis: it reflects the deliberate trade-off between
-            signal accumulation (longer = lower LOD), sample consumption, and session
-            throughput. For transect analysis, the equivalent procedure-level parameter
-            is scan speed (captured in Transect Rate, Mapping Rate or Step Size).
-            For mapping analysis, total acquisition time is sample-area-dependent
-            and therefore analysis-level, not captured here.'
-          anyOf:
-          - type: number
-          - type: string
-        ada:ablationPitDepthRate:
-          description: Depth of the ablation pit produced under the registered laser
-            conditions, the method used to measure it, and the resulting per-pulse
-            ablation rate. Sets the achievable depth resolution and governs downhole
-            elemental fractionation. For transect and mapping the equivalent quantity
-            is trench depth under the same conditions.
-          type: string
-        ada:rasterLineSpacing:
-          description: Distance between adjacent raster lines in a 2D elemental map,
-            measured perpendicular to the scan direction, in micrometres. Together
-            with spot size, this determines whether adjacent lines are contiguous
-            (line spacing = spot size), overlapping (line spacing < spot size), or
-            have gaps (line spacing > spot size). Applies to raster mapping only.
-          type: string
-        ada:carrierGasFlowRate:
-          description: "Gas used to transport ablated aerosol from the ablation cell
-            to the ICP-MS torch, with the procedure-registered target flow rate(s).
-            Helium is standard for most UV laser systems due to superior aerosol transport.
-            Flow rates are procedure targets; actual session values may be adjusted
-            within \xB110% during tuning."
-          type: string
-        ada:analysisSequence:
-          description: Repeating order of primary calibration standard(s), quality
-            control standard(s), and unknown analyses within a measurement session.
-            Editable to allow minor adjustments while maintaining the bracketing strategy
-            defined in the procedure.
-          type: string
-        ada:backgroundCountTime:
-          description: Total time spent measuring gas blank (background signal with
-            laser off or shutter closed) before each ablation event, in seconds. For
-            spot and transect analysis, a discrete background interval is measured
-            before each ablation. For mapping, background is typically measured once
-            per raster line or at the start of a map session rather than before each
-            individual pixel. Editable to allow session-specific adjustment.
-          anyOf:
-          - type: number
-          - type: string
         schema:description:
           description: "Any procedure- or analysis-specific information not captured
             by a structured field anywhere in this TAPP \u2014 including anomalies,
@@ -3353,14 +3924,6 @@ properties:
             supplementary context. Scope is the whole document, not Group 6: this
             is the last field of the TAPP and covers all six groups. Use sparingly;
             a structured field is preferred for anything that can be formally categorised."
-          type: string
-        ada:spotDiameter:
-          type: string
-        ada:massesMeasured:
-          type: string
-        ada:dwellTimes:
-          type: string
-        ada:totalIntegrationTimePerOutputDataPoint:
           type: string
   schema:measurementTechnique:
     type: array
@@ -3593,28 +4156,6 @@ properties:
             const: Goodness-of-Fit
         required:
         - dqv:isMeasurementOf
-  ada:reportedDateType:
-    type: array
-    items:
-      description: The kind of date or age the procedure reports. Most dating systems
-        derive several different date types from the same measurements, so a reported
-        age is ambiguous without this. Where more than one type is reported, list
-        all, separated by semicolons. Kohn et al. (2024) carry this as a named required
-        item ("fission-track age type"); the equivalent distinction is required by
-        all five other standards surveyed.
-      type: string
-      enum:
-      - Weighted mean 206Pb/238U
-      - Weighted mean 207Pb/235U
-      - Weighted mean 207Pb/206Pb
-      - Concordia upper intercept
-      - Concordia lower intercept
-      - Tera-Wasserburg intercept
-      - Single-grain date
-      - Isochron date
-      - N/A
-      - None
-      - missing
   ada:sensitivityYield:
     type: string
 required:

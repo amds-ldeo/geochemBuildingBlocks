@@ -50,17 +50,18 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       },
       "schema:hasPart": [
         {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "schema:additionalType": [
-            "xrayLine",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "Lb",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ]
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -68,12 +69,13 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -81,31 +83,20 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "WDSSpectrometer",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -125,6 +116,7 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -202,25 +194,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -247,16 +220,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -297,16 +260,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -315,15 +268,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -342,24 +286,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -455,7 +381,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -517,17 +442,18 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       },
       "schema:hasPart": [
         {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "schema:additionalType": [
-            "xrayLine",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "Lb",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ]
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -535,12 +461,13 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -548,31 +475,20 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "WDSSpectrometer",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -592,6 +508,7 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -669,25 +586,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -714,16 +612,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -764,16 +652,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -782,15 +660,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -809,24 +678,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -922,7 +773,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -965,43 +815,8 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "missing" ;
     schema1:description "Ma et al. 2015, Earth Planet. Sci. Lett. — tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "Lb" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ;
-            ada:beamDiameterDefault "Focused (exact diameter N)" ;
-            ada:beamMode "Focused" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix stated)" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Caltech GPS Division Analytical Facility" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1013,12 +828,12 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Silicate mineral (tissintite clinopyroxene, plagioclase, maskelynite) | Oxide | Glass (melt pocket)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Ma et al. 2015, Earth Planet. Sci. Lett. 422:194-205; doi:10.1016/j.epsl.2015.03.057" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -1032,23 +847,16 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Al",
                 "Ca",
                 "Cr",
@@ -1060,7 +868,6 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
                 "Si",
                 "Ti" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -1069,10 +876,10 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Analyte Estimation Method" ;
@@ -1095,17 +902,6 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -1120,12 +916,6 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -1150,21 +940,10 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -1178,15 +957,45 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "Focused (exact diameter N)" ;
+    ada:beamMode "Focused" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix stated)" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -1238,12 +1047,13 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -1251,12 +1061,13 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -1264,31 +1075,20 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -1308,6 +1108,7 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -1375,25 +1176,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1420,16 +1202,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -1470,16 +1242,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1488,15 +1250,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -1515,24 +1268,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -1631,11 +1366,10 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -1702,12 +1436,13 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -1715,12 +1450,13 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -1728,31 +1464,20 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -1772,6 +1497,7 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -1839,25 +1565,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1884,16 +1591,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -1934,16 +1631,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1952,15 +1639,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -1979,24 +1657,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -2095,11 +1755,10 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -2142,48 +1801,13 @@ ex:empaTAPP-P1 a cdi:Activity,
             schema1:name "Sen Hu" ] ;
     schema1:datePublished "missing" ;
     schema1:description "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis WDS only. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per element. Analytical software not stated." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JXA-8100 (stated as \"JEOL JXA-8100\")" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ;
-            ada:beamDiameterDefault "Focused (exact diameter N)" ;
-            ada:beamMode "Focused" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
-            schema1:termCode "N/A" ] ;
+            schema1:termCode "empa" ] ;
     schema1:name "EPMA-WDS Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -2191,12 +1815,12 @@ ex:empaTAPP-P1 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Silicate mineral (coesite, pyroxene, feldspar) | Oxide | Sulfide" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -2210,23 +1834,16 @@ ex:empaTAPP-P1 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Al",
                 "Ca",
                 "Cr",
@@ -2238,7 +1855,6 @@ ex:empaTAPP-P1 a cdi:Activity,
                 "Si",
                 "Ti" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -2271,17 +1887,6 @@ ex:empaTAPP-P1 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -2296,12 +1901,6 @@ ex:empaTAPP-P1 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -2326,21 +1925,10 @@ ex:empaTAPP-P1 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -2354,15 +1942,45 @@ ex:empaTAPP-P1 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "Focused (exact diameter N)" ;
+    ada:beamMode "Focused" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JXA-8100 (stated as \"JEOL JXA-8100\")" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -2414,12 +2032,13 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -2427,12 +2046,13 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -2440,31 +2060,20 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -2484,6 +2093,7 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -2553,25 +2163,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2598,16 +2189,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -2648,16 +2229,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2666,15 +2237,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -2693,24 +2255,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -2750,7 +2294,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:dwellTimePerPixelDefault": "~0.5 s per step (olivine megacryst Ka maps; instrument ambiguous)",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -2811,7 +2354,7 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
@@ -2881,12 +2424,13 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -2894,12 +2438,13 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -2907,31 +2452,20 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -2951,6 +2485,7 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -3020,25 +2555,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3065,16 +2581,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -3115,16 +2621,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3133,15 +2629,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -3160,24 +2647,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -3217,7 +2686,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:dwellTimePerPixelDefault": "~0.5 s per step (olivine megacryst Ka maps; instrument ambiguous)",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -3278,7 +2746,7 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
@@ -3323,48 +2791,13 @@ ex:empaTAPP-P2 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 µm). Olivine megacryst mapping (15 kV, 200 nA, step 2 µm, dwell ~0.5 s) described as \"using the EMP\" — instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Cameca" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ;
-            ada:beamDiameterDefault "1-2 µm (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 µm defocused (maskelynite, phosphate, sulfide, glass)" ;
-            ada:beamMode "Defocused" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "SX100 (stated as \"Cameca SX100\")" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Earth and Planetary Sciences, University of Tennessee, Knoxville" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
-            schema1:termCode "N/A" ] ;
+            schema1:termCode "empa" ] ;
     schema1:name "EPMA Major Element Silicates/Oxides+Mapping, Tissint (U. Tennessee, Cameca SX100)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -3372,12 +2805,12 @@ ex:empaTAPP-P2 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide (chromite, ulvospinel, ilmenite) | Sulfide | Phosphate (merrillite) | Glass (melt pocket)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -3391,23 +2824,16 @@ ex:empaTAPP-P2 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Al",
                 "Ca",
                 "Cr",
@@ -3421,7 +2847,6 @@ ex:empaTAPP-P2 a cdi:Activity,
                 "Si",
                 "Ti" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault "~0.5 s per step (olivine megacryst Ka maps; instrument ambiguous)" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -3452,17 +2877,6 @@ ex:empaTAPP-P2 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -3477,12 +2891,6 @@ ex:empaTAPP-P2 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -3507,21 +2915,10 @@ ex:empaTAPP-P2 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -3535,22 +2932,52 @@ ex:empaTAPP-P2 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Cameca" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "1-2 µm (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 µm defocused (maskelynite, phosphate, sulfide, glass)" ;
+    ada:beamMode "Defocused" .
+
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "SX100 (stated as \"Cameca SX100\")" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -3602,12 +3029,13 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -3615,12 +3043,13 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -3628,31 +3057,20 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -3672,6 +3090,7 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -3741,25 +3160,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3786,16 +3186,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -3836,16 +3226,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3854,15 +3234,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -3881,24 +3252,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -3997,11 +3350,10 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -4069,12 +3421,13 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -4082,12 +3435,13 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -4095,31 +3449,20 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -4139,6 +3482,7 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -4208,25 +3552,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -4253,16 +3578,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -4303,16 +3618,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -4321,15 +3626,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -4348,24 +3644,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -4464,11 +3742,10 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -4511,48 +3788,13 @@ ex:empaTAPP-P3 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JXA-8200 (stated as \"JEOL JXA-8200\")" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ;
-            ada:beamDiameterDefault "1-2 µm (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 µm defocused (maskelynite, phosphate, sulfide, glass)" ;
-            ada:beamMode "Defocused" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Division of Geological and Planetary Sciences, Caltech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
-            schema1:termCode "N/A" ] ;
+            schema1:termCode "empa" ] ;
     schema1:name "EPMA-WDS Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -4579,23 +3821,16 @@ ex:empaTAPP-P3 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Al",
                 "Ca",
                 "Cr",
@@ -4609,7 +3844,6 @@ ex:empaTAPP-P3 a cdi:Activity,
                 "Si",
                 "Ti" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -4640,17 +3874,6 @@ ex:empaTAPP-P3 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -4665,12 +3888,6 @@ ex:empaTAPP-P3 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -4695,21 +3912,10 @@ ex:empaTAPP-P3 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -4723,22 +3929,52 @@ ex:empaTAPP-P3 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "1-2 µm (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 µm defocused (maskelynite, phosphate, sulfide, glass)" ;
+    ada:beamMode "Defocused" .
+
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JXA-8200 (stated as \"JEOL JXA-8200\")" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -4785,17 +4021,18 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       },
       "schema:hasPart": [
         {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "schema:additionalType": [
-            "xrayLine",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "Ka",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ]
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -4803,12 +4040,13 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -4816,31 +4054,20 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "WDSSpectrometer",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -4860,6 +4087,7 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -4937,25 +4165,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -4982,16 +4191,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -5032,16 +4231,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -5050,15 +4239,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -5077,24 +4257,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -5203,7 +4365,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -5265,17 +4426,18 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       },
       "schema:hasPart": [
         {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "schema:additionalType": [
-            "xrayLine",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "Ka",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ]
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -5283,12 +4445,13 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -5296,31 +4459,20 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "WDSSpectrometer",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -5340,6 +4492,7 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -5417,25 +4570,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -5462,16 +4596,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -5512,16 +4636,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -5530,15 +4644,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -5557,24 +4662,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -5683,7 +4770,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -5714,56 +4800,21 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "missing" ;
     schema1:description "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) — liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) — NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix in paper)" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "Ka" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ;
-            ada:beamDiameterDefault "Focused (exact diameter N)" ;
-            ada:beamMode "Focused" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Division of Geological and Planetary Sciences Analytical Facility, Caltech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5775,12 +4826,12 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Silicate mineral (liebermannite, lingunite, maskelynite, augite, pigeonite)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61; doi:10.1111/maps.13000 (file dated 2017)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61; doi:10.1111/maps.13000 (file dated 2017)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -5794,23 +4845,16 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Al",
                 "Ca",
                 "Cr",
@@ -5822,7 +4866,6 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
                 "Si",
                 "Ti" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -5857,17 +4900,6 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -5882,12 +4914,6 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -5912,21 +4938,10 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -5940,22 +4955,52 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Low beam current (5 nA); Na diffusion away from beam still observed in liebermannite" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "Focused (exact diameter N)" ;
+    ada:beamMode "Focused" .
+
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix in paper)" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -6007,12 +5052,13 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -6020,12 +5066,13 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -6033,31 +5080,20 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -6077,6 +5113,7 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -6148,25 +5185,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -6193,16 +5211,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -6243,16 +5251,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -6261,15 +5259,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -6288,24 +5277,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -6361,7 +5332,7 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "schema:actionProcess": {
@@ -6394,7 +5365,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
     ]
   },
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -6462,12 +5432,13 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -6475,12 +5446,13 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -6488,31 +5460,20 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -6532,6 +5493,7 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -6603,25 +5565,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -6648,16 +5591,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -6698,16 +5631,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -6716,15 +5639,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -6743,24 +5657,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -6816,7 +5712,7 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "schema:actionProcess": {
@@ -6849,7 +5745,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
     ]
   },
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -6881,57 +5776,22 @@ ex:empaTAPP-P5 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. Secondary standards: USNM San Carlos olivine (Fo90); Kakanui kaersutite. Detection limits stated per element group." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "SX100 (stated as \"Cameca SX100\")" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Cameca" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "20 kV" ;
-            ada:beamDiameterDefault "1 µm (focused)" ;
-            ada:beamMode "Focused" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES, NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
-            schema1:termCode "N/A" ] ;
+            schema1:termCode "empa" ] ;
     schema1:name "EPMA Major/Minor Element Silicates+Oxides+Sulfides, CI Chondrite (ARES JSC, Cameca SX100)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -6958,23 +5818,16 @@ ex:empaTAPP-P5 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Al",
                 "Ca",
                 "Cr",
@@ -6990,7 +5843,6 @@ ex:empaTAPP-P5 a cdi:Activity,
                 "Ti",
                 "V" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -7021,17 +5873,6 @@ ex:empaTAPP-P5 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -7046,12 +5887,6 @@ ex:empaTAPP-P5 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -7076,21 +5911,10 @@ ex:empaTAPP-P5 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -7104,15 +5928,45 @@ ex:empaTAPP-P5 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Cameca" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "20 kV" ;
+    ada:beamDiameterDefault "1 µm (focused)" ;
+    ada:beamMode "Focused" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "SX100 (stated as \"Cameca SX100\")" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -7158,7 +6012,7 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -7167,7 +6021,8 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         },
         {
           "@type": [
@@ -7175,12 +6030,13 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -7188,31 +6044,20 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -7232,6 +6077,7 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -7301,25 +6147,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7346,16 +6173,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -7396,16 +6213,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7414,15 +6221,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -7441,24 +6239,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -7563,7 +6343,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -7624,7 +6403,7 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -7633,7 +6412,8 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         },
         {
           "@type": [
@@ -7641,12 +6421,13 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -7654,31 +6435,20 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -7698,6 +6468,7 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -7767,25 +6538,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7812,16 +6564,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -7862,16 +6604,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7880,15 +6612,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -7907,24 +6630,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -8029,7 +6734,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -8060,52 +6764,19 @@ ex:empaTAPP-P6 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "missing" ;
     schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. EDS spectrometer present but not used for quantitative analyses. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "5 wavelength-dispersive spectrometers (JEOL)" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -8117,12 +6788,12 @@ ex:empaTAPP-P6 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Phyllosilicate (matrix) | Oxide (magnetite, ilmenite) | Sulfide (pyrrhotite, pentlandite) | Carbonate (dolomite, magnesite) | Phosphate (Ca phosphate, Na-Mg hydrous phosphate)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -8136,27 +6807,19 @@ ex:empaTAPP-P6 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "F (explicitly stated)",
                 "full analyte list N in methods" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -8191,17 +6854,6 @@ ex:empaTAPP-P6 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -8216,12 +6868,6 @@ ex:empaTAPP-P6 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -8246,21 +6892,10 @@ ex:empaTAPP-P6 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -8274,15 +6909,43 @@ ex:empaTAPP-P6 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "5 wavelength-dispersive spectrometers (JEOL)" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")" ] ;
+    schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> a schema1:PropertyValue ;
     schema1:name "Stage Scan vs. Beam Scan" ;
@@ -8339,12 +7002,13 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -8352,12 +7016,13 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -8365,31 +7030,20 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -8409,6 +7063,7 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -8476,25 +7131,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -8521,16 +7157,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -8571,16 +7197,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -8589,15 +7205,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -8616,24 +7223,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -8749,11 +7338,10 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -8821,12 +7409,13 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -8834,12 +7423,13 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -8847,31 +7437,20 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -8891,6 +7470,7 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -8958,25 +7538,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -9003,16 +7564,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -9053,16 +7604,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -9071,15 +7612,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -9098,24 +7630,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -9231,11 +7745,10 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -9267,62 +7780,27 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/empaTAPP/halogenCorrectionOnOxygenDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Logan B. Seifert" ] ;
     schema1:datePublished "missing" ;
     schema1:description "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Halogen correction on O: Yes. Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ;
-            ada:beamDiameterDefault "2 µm (stated as \"2 µm probe size\")" ;
-            ada:beamMode "Focused" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JEOL 8530 EMPA (stated as \"JEOL 8530 EMPA at NASA JSC\"; no F suffix or JXA prefix stated)" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES, NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
-            schema1:termCode "N/A" ] ;
+            schema1:termCode "empa" ] ;
     schema1:name "EPMA Major Element Apatite incl. Halogens, Bennu (ARES JSC, JEOL 8530 EMPA)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -9349,23 +7827,16 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Ca",
                 "Cl",
                 "F",
@@ -9377,7 +7848,6 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
                 "S",
                 "Si" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -9408,17 +7878,6 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -9433,12 +7892,6 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -9463,21 +7916,10 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -9489,16 +7931,6 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Time-Dependent Intensity Correction" ;
     schema1:valueName "timeDependentIntensityCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> a schema1:PropertyValueSpecification ;
@@ -9514,6 +7946,46 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
     schema1:valueName "halogenCorrectionOnOxygenDefault" ;
     ada:dataType "boolean" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "2 µm (stated as \"2 µm probe size\")" ;
+    ada:beamMode "Focused" .
+
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL 8530 EMPA (stated as \"JEOL 8530 EMPA at NASA JSC\"; no F suffix or JXA prefix stated)" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -9565,12 +8037,13 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -9578,12 +8051,13 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -9591,31 +8065,20 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -9635,6 +8098,7 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -9703,25 +8167,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -9748,16 +8193,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -9798,16 +8233,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -9816,15 +8241,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -9843,24 +8259,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -9950,7 +8348,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -10017,12 +8414,13 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -10030,12 +8428,13 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -10043,31 +8442,20 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -10087,6 +8475,7 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -10155,25 +8544,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10200,16 +8570,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -10250,16 +8610,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10268,15 +8618,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -10295,24 +8636,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -10402,7 +8725,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -10433,53 +8755,18 @@ ex:empaTAPP-P8 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ;
-            ada:beamDiameterDefault "Focused (exact diameter N); 2-5 µm defocused (plagioclase and polymorphs)" ;
-            ada:beamMode "Defocused" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JXA-8100 (stated as \"JEOL 8100\")" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory for Mineral Deposits Research, Nanjing University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -10510,23 +8797,16 @@ ex:empaTAPP-P8 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Al",
                 "Ca",
                 "Cr",
@@ -10539,7 +8819,6 @@ ex:empaTAPP-P8 a cdi:Activity,
                 "Si",
                 "Ti" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -10570,17 +8849,6 @@ ex:empaTAPP-P8 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -10595,12 +8863,6 @@ ex:empaTAPP-P8 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -10625,21 +8887,10 @@ ex:empaTAPP-P8 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -10653,15 +8904,45 @@ ex:empaTAPP-P8 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "Focused (exact diameter N); 2-5 µm defocused (plagioclase and polymorphs)" ;
+    ada:beamMode "Defocused" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JXA-8100 (stated as \"JEOL 8100\")" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -10703,7 +8984,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -10713,11 +8994,12 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/EPMA/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -10726,7 +9008,8 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         },
         {
           "@type": [
@@ -10734,25 +9017,13 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         }
       ],
       "schema:manufacturer": {
@@ -10765,6 +9036,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -10784,6 +9056,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -10856,25 +9129,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10901,16 +9155,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -10951,16 +9195,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10969,15 +9203,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -10996,24 +9221,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -11105,11 +9312,10 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -11167,7 +9373,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11177,11 +9383,12 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/EPMA/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11190,7 +9397,8 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         },
         {
           "@type": [
@@ -11198,25 +9406,13 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         }
       ],
       "schema:manufacturer": {
@@ -11229,6 +9425,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -11248,6 +9445,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -11320,25 +9518,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -11365,16 +9544,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -11415,16 +9584,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -11433,15 +9592,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -11460,24 +9610,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -11569,11 +9701,10 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -11605,61 +9736,25 @@ ex:empaTAPP-JEOL8530-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Ir-coated specimens mounted on Ir-coated Parafilm" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Ir-coated specimens mounted on Ir-coated Parafilm" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. McCoy" ] ;
     schema1:datePublished "missing" ;
     schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 µm spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Silicate/oxide analyses: 15 kV, 10 nA, 1 µm spot; broader standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Field Emission (FEG)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "LIFL (Fe Ka, Mn Ka); TAPL (Mg Ka); PETL (Ca Ka) — partial; full config N" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ;
-            ada:beamDiameterDefault "5 µm (carbonates); 1 µm (silicates/oxides)" ;
-            ada:beamMode "Focused" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JXA-8530F Plus (stated as \"JEOL 8530 F+ Hyperprobe Field Emission Electron Probe Microanalyzer\")" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Smithsonian Institution, National Museum of Natural History" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
-            schema1:termCode "N/A" ] ;
+            schema1:termCode "empa" ] ;
     schema1:name "EPMA-WDS Carbonate+Silicate/Oxide Composition, Bennu (Smithsonian, JEOL 8530 F+ Hyperprobe)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -11667,12 +9762,12 @@ ex:empaTAPP-JEOL8530-2 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Carbonate | Oxide | Silicate mineral (Bennu evaporite and host phases)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -11686,23 +9781,16 @@ ex:empaTAPP-JEOL8530-2 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Al",
                 "Ca",
                 "Ca (carbonates)",
@@ -11716,7 +9804,6 @@ ex:empaTAPP-JEOL8530-2 a cdi:Activity,
                 "Si",
                 "Ti" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -11747,17 +9834,6 @@ ex:empaTAPP-JEOL8530-2 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -11772,12 +9848,6 @@ ex:empaTAPP-JEOL8530-2 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -11802,21 +9872,10 @@ ex:empaTAPP-JEOL8530-2 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -11830,15 +9889,46 @@ ex:empaTAPP-JEOL8530-2 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "5 µm (carbonates); 1 µm (silicates/oxides)" ;
+    ada:beamMode "Focused" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Field Emission (FEG)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "LIFL (Fe Ka, Mn Ka); TAPL (Mg Ka); PETL (Ca Ka) — partial; full config N" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JXA-8530F Plus (stated as \"JEOL 8530 F+ Hyperprobe Field Emission Electron Probe Microanalyzer\")" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -11890,12 +9980,13 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -11903,12 +9994,13 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -11916,31 +10008,20 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -11960,6 +10041,7 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -12035,25 +10117,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -12080,16 +10143,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -12130,16 +10183,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -12148,15 +10191,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -12175,24 +10209,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -12287,7 +10303,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -12355,12 +10370,13 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -12368,12 +10384,13 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -12381,31 +10398,20 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -12425,6 +10431,7 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -12500,25 +10507,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -12545,16 +10533,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -12595,16 +10573,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -12613,15 +10581,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -12640,24 +10599,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -12752,7 +10693,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -12796,43 +10736,8 @@ ex:empaTAPP-P10 a cdi:Activity,
             schema1:name "T. J. Zega" ] ;
     schema1:datePublished "missing" ;
     schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 2 of 2: U. Arizona K-ALFAA Cameca SX-100. 20 nm carbon coat. WDS explicitly stated for phosphate analyses. Mg,Na phosphate analyses: 15 kV, 8 nA, 1 µm. Carbonate analyses at K-ALFAA also mentioned; conditions N. Full primary standard suite documented for phosphates and carbonates. Acquisition software and matrix correction method N." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Cameca" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ;
-            ada:beamDiameterDefault "1 µm" ;
-            ada:beamMode "Focused" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "SX-100 (stated as \"Cameca SX-100 electron microprobe located at K-ALFAA\")" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -12844,12 +10749,12 @@ ex:empaTAPP-P10 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Phosphate (Mg,Na phosphate) | Carbonate (Bennu evaporite phases)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -12863,23 +10768,16 @@ ex:empaTAPP-P10 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Al",
                 "Ca",
                 "Cl (phosphates)",
@@ -12894,7 +10792,6 @@ ex:empaTAPP-P10 a cdi:Activity,
                 "S",
                 "Si" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -12925,17 +10822,6 @@ ex:empaTAPP-P10 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -12950,12 +10836,6 @@ ex:empaTAPP-P10 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -12980,21 +10860,10 @@ ex:empaTAPP-P10 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -13008,15 +10877,45 @@ ex:empaTAPP-P10 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Cameca" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "1 µm" ;
+    ada:beamMode "Focused" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "SX-100 (stated as \"Cameca SX-100 electron microprobe located at K-ALFAA\")" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -13068,12 +10967,13 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -13081,12 +10981,13 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -13094,31 +10995,20 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -13138,6 +11028,7 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -13211,7 +11102,7 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "schema:actionProcess": {
@@ -13244,7 +11135,6 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     ]
   },
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -13312,12 +11202,13 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -13325,12 +11216,13 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -13338,31 +11230,20 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -13382,6 +11263,7 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -13455,7 +11337,7 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "schema:actionProcess": {
@@ -13488,7 +11370,6 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     ]
   },
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -13530,48 +11411,13 @@ ex:empaTAPP-P11 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Zega et al. 2025, Nat. Geosci. — mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" — this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s/bg each side. Phosphates: 15 kV, 8 nA, 2 µm defocused, 20 s peak, 10 s/bg each side. Carbonates: 15 kV, 4 nA, 2 µm, 10 s peak, 5 s/bg each side. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Cameca" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ;
-            ada:beamDiameterDefault "Focused (silicates, sulfides, oxides); 2 µm defocused (phosphates, carbonates)" ;
-            ada:beamMode "Defocused" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "SX-100 Ultra (stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\")" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
-            schema1:termCode "N/A" ] ;
+            schema1:termCode "empa" ] ;
     schema1:name "EPMA Major Element Silicates/Sulfides/Oxides/Phosphates/Carbonates, Bennu (K-ALFAA, Cameca SX-100 Ultra)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -13587,7 +11433,6 @@ ex:empaTAPP-P11 a cdi:Activity,
             schema1:target [ schema1:name "Zega et al. 2025, Nat. Geosci.; doi:10.1038/s41561-025-01741-0" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -13605,6 +11450,46 @@ ex:empaTAPP-P11 a cdi:Activity,
     schema1:valueName "beamDamageMinimizationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Cameca" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "Focused (silicates, sulfides, oxides); 2 µm defocused (phosphates, carbonates)" ;
+    ada:beamMode "Defocused" .
+
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "SX-100 Ultra (stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\")" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -13652,7 +11537,7 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13661,7 +11546,8 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         },
         {
           "@type": [
@@ -13669,12 +11555,13 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -13682,31 +11569,20 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -13726,6 +11602,7 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -13803,25 +11680,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -13848,16 +11706,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -13898,16 +11746,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -13916,15 +11754,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -13943,24 +11772,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -14060,11 +11871,10 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -14128,7 +11938,7 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -14137,7 +11947,8 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         },
         {
           "@type": [
@@ -14145,12 +11956,13 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -14158,31 +11970,20 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -14202,6 +12003,7 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -14279,25 +12081,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -14324,16 +12107,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
@@ -14374,16 +12147,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -14392,15 +12155,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
       },
       {
         "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
@@ -14419,24 +12173,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         ],
         "schema:valueName": "timeDependentIntensityCorrection",
         "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
         "ada:dataType": "string"
       }
     ]
@@ -14536,11 +12272,10 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -14583,48 +12318,13 @@ ex:empaTAPP-P12 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si) — unusually short, possibly per-pixel for fast mapping mode. Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JXA-8230 (stated as \"JEOL JXA-8230 electron microprobe analyser (EPMA)\")" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "5 wavelength-dispersive spectrometers (JEOL)" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "20 kV" ;
-            ada:beamDiameterDefault "1 µm (point analysis); 5×5 µm² raster area for carbonates" ;
-            ada:beamMode "Focused" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Centre de Recherches Pétrographiques et Géochimiques (CRPG), Nancy, France" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
-            schema1:termCode "N/A" ] ;
+            schema1:termCode "empa" ] ;
     schema1:name "EPMA Major Element Silicates/Oxides/Carbonates, Bennu Anhydrous Minerals (CRPG Nancy, JEOL JXA-8230)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -14632,12 +12332,12 @@ ex:empaTAPP-P12 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Silicate mineral (olivine, pyroxene) | Oxide | Carbonate (anhydrous minerals in Bennu aggregate particles)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-BSE (JEOL JSM-6510, 15 kV, 3 nA); SEM-EDS (multi-element mapping); SIMS (CAMECA IMS 1270 E7, CRPG); NanoSIMS (K-ALFAA); ICP-MS; MC-ICP-MS; noble gas MS" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-BSE (JEOL JSM-6510, 15 kV, 3 nA); SEM-EDS (multi-element mapping); SIMS (CAMECA IMS 1270 E7, CRPG); NanoSIMS (K-ALFAA); ICP-MS; MC-ICP-MS; noble gas MS" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -14651,23 +12351,16 @@ ex:empaTAPP-P12 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector>,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> ;
+                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "Al",
                 "Ca",
                 "Cr",
@@ -14681,7 +12374,6 @@ ex:empaTAPP-P12 a cdi:Activity,
                 "Si",
                 "Ti" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -14712,17 +12404,6 @@ ex:empaTAPP-P12 a cdi:Activity,
     schema1:valueName "backgroundCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Beam Current" ;
@@ -14737,12 +12418,6 @@ ex:empaTAPP-P12 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
@@ -14767,21 +12442,10 @@ ex:empaTAPP-P12 a cdi:Activity,
     schema1:valueName "interferingElements" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
@@ -14795,16 +12459,6 @@ ex:empaTAPP-P12 a cdi:Activity,
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 5 ;
     schema1:description "5×5 µm² for carbonates" ;
@@ -14812,6 +12466,46 @@ ex:empaTAPP-P12 a cdi:Activity,
     schema1:valueName "beamRasterDimensionsDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "20 kV" ;
+    ada:beamDiameterDefault "1 µm (point analysis); 5×5 µm² raster area for carbonates" ;
+    ada:beamMode "Focused" .
+
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "5 wavelength-dispersive spectrometers (JEOL)" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JXA-8230 (stated as \"JEOL JXA-8230 electron microprobe analyser (EPMA)\")" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -14863,12 +12557,13 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -14876,12 +12571,13 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -14889,31 +12585,20 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -14933,6 +12618,7 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -15017,11 +12703,10 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -15089,12 +12774,13 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
         },
         {
           "@type": [
@@ -15102,12 +12788,13 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source"
         },
         {
           "@type": [
@@ -15115,31 +12802,20 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "WDSSpectrometer",
+            "WDS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "xrayLine",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -15159,6 +12835,7 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -15243,11 +12920,10 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
         "schema:DefinedTerm"
       ],
       "schema:name": "empa",
-      "schema:termCode": "N/A"
+      "schema:termCode": "empa"
     }
   ],
   "ada:detectionLimitMethod": "missing",
-  "ada:dwellTimePerPixelDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -15279,58 +12955,23 @@ ex:empaTAPP-P13 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm) [N5,N6]" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm) [N5,N6]" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not explicitly given; implied Si, Mg, Fe, Ca, Mn, Cr, Ni, Al, Ti from context. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "SX100 (stated as \"CAMECA SX100 electron microprobe\")" ] ;
-            schema1:name "example instrumentName" ],
-        [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "EPMA" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "xrayLine" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Cameca" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "20 kV" ;
-            ada:beamDiameterDefault "1 µm (focused)" ;
-            ada:beamMode "Focused" ] ;
+    schema1:instrument <https://example.org/instrument/EPMA>,
+        <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Natural History Museum (NHM), London, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
-            schema1:termCode "N/A" ] ;
+            schema1:termCode "empa" ] ;
     schema1:name "EPMA Major/Minor Element Anhydrous Silicates, Bennu (NHM London, Cameca SX100)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -15338,15 +12979,14 @@ ex:empaTAPP-P13 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Silicate mineral (olivine, pyroxene) in Bennu aggregate particles" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:detectionLimitMethod "missing" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -15355,6 +12995,46 @@ ex:empaTAPP-P13 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
+
+<https://example.org/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Cameca" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "20 kV" ;
+    ada:beamDiameterDefault "1 µm (focused)" ;
+    ada:beamMode "Focused" .
+
+<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "SX100 (stated as \"CAMECA SX100 electron microprobe\")" ] ;
+    schema1:name "example instrumentName" .
 
 
 ```
@@ -15369,6 +13049,9 @@ description: Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the 
   pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
     schema:instrument:
@@ -15381,6 +13064,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: EPMA
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -15434,7 +13118,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: EDSDetector
+                            const: EDS Detector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -15453,7 +13138,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: Electron source
+                            const: Electron Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -15487,7 +13173,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: WDSSpectrometer
+                            const: WDS Spectrometer
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -15504,177 +13191,27 @@ allOf:
                             items:
                               type: string
                               readOnly: true
-                  - if:
-                      properties:
-                        schema:additionalType:
-                          contains:
-                            const: xrayLine
-                      required:
-                      - schema:additionalType
-                    then:
-                      properties:
-                        schema:name:
-                          description: X-ray emission line measured on each spectrometer
-                            assignment. Line choice affects sensitivity, matrix correction
-                            accuracy, and susceptibility to peak overlap and spectral
-                            interference.
-                          anyOf:
-                          - type: string
-                            enum:
-                            - Ka
-                            - Kb
-                            - La
-                            - Lb
-                            - Lg
-                            - Ma
-                            - Mb
-                            - N/A
-                            - None
-                            - missing
-                            readOnly: true
-                          - type: array
-                            items:
-                              type: string
-                              enum:
-                              - Ka
-                              - Kb
-                              - La
-                              - Lb
-                              - Lg
-                              - Ma
-                              - Mb
-                              - N/A
-                              - None
-                              - missing
-                              readOnly: true
                 allOf:
                 - contains:
                     properties:
                       schema:additionalType:
                         contains:
-                          const: Electron source
+                          const: Electron Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
-                - contains:
-                    properties:
-                      schema:additionalType:
-                        contains:
-                          const: xrayLine
-                    required:
-                    - schema:additionalType
-              schema:manufacturer:
-                type: object
-                properties:
-                  schema:name:
-                    description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
-                    type: string
-                    enum:
-                    - JEOL
-                    - Cameca
-                    - Unknown
-                    - N/A
-                    - None
-                    - missing
-                    readOnly: true
-        - if:
-            properties:
-              schema:additionalType:
-                contains:
-                  const: SEM
-            required:
-            - schema:additionalType
-          then:
-            properties:
-              schema:model:
-                type: object
-                properties:
-                  schema:name:
-                    description: Model designation of the instrument that performs
-                      the measurement, including any generation or configuration suffix.
-                      Conventionally written with the manufacturer name included;
-                      Instrument Manufacturer records the vendor separately, as a
-                      controlled value, so that procedures remain findable by vendor.
-                    type: string
-                    readOnly: true
       allOf:
       - contains:
           properties:
             schema:additionalType:
               contains:
                 const: EPMA
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-      - contains:
-          properties:
-            schema:additionalType:
-              contains:
-                const: SEM
-          required:
-          - schema:additionalType
-    bios:computationalTool:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Instrument control, automation and data acquisition software
-                  used to collect the raw data, including version number. Distinct
-                  from Data Processing Software(s), which covers everything applied
-                  to the data after acquisition.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
-                const: dataReduction
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: All software applied to the data after acquisition in
-                  order to produce the reported quantities, including version numbers.
-                  List every package used. Distinct from Acquisition Software, which
-                  controls the instrument and collects the raw data.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        required:
-        - ada:toolRole
-    schema:description:
-      description: "Any procedure- or analysis-specific information not captured by
-        a structured field anywhere in this TAPP \u2014 including anomalies, deviations
-        from the registered procedure, instrument modifications, and supplementary
-        context. Scope is the whole document, not Group 6: this is the last field
-        of the TAPP and covers all six groups. Use sparingly; a structured field is
-        preferred for anything that can be formally categorised."
-      type: string
     ada:analyteTemplate:
       type: object
       properties:
-        ada:defaultAnalytes:
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
         ada:analyteColumns:
           type: array
           items:
@@ -15801,66 +13338,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Background Counting Time
-              description: Total time spent counting at off-peak background position(s)
-                in seconds, summed across all background positions.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/backgroundCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundCountingTime
-                schema:name:
-                  const: Background Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Background Position(s)
-              description: Location(s) of off-peak background measurement(s) relative
-                to the peak, in mm or sin-theta, and whether on the high- or low-energy
-                side.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/backgroundPosition
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundPosition
-                schema:name:
-                  const: Background Position(s)
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
             - title: Beam Current
               description: Probe current in nanoamperes (nA). Often varies by phase
                 type or analyte; record the procedure-standard value(s).
@@ -15956,36 +13433,6 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: Diffracting Crystal
-              description: Analyzing crystal (monochromator) used on each spectrometer
-                assignment. Crystal choice determines the detectable wavelength range
-                and dispersion.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/diffractingCrystal
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: diffractingCrystal
-                schema:name:
-                  const: Diffracting Crystal
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: EPMA Technique per Analyte
               description: Whether each analyte was measured by WDS or EDS. In a WDS+EDS
                 procedure, some elements may be assigned to WDS and others to EDS.
@@ -16101,38 +13548,6 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: Peak Counting Time
-              description: Time spent counting X-ray intensity at the peak position,
-                in seconds, on each spectrometer assignment. Procedure specifies standard
-                values; analysts may adjust within procedure-defined bounds.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/peakCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: peakCountingTime
-                schema:name:
-                  const: Peak Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: Primary Calibration Standard Name
               description: Name(s) of the primary reference material(s) used for element
                 standardization (intensity calibration). Include the material name,
@@ -16165,34 +13580,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Proportional Counter / Detector
-              description: Type of detector used on each spectrometer assignment.
-                Affects sensitivity and count rate linearity.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/proportionalCounterDetector
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: proportionalCounterDetector
-                schema:name:
-                  const: Proportional Counter / Detector
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
             - title: Secondary Reference Materials
               description: Quality-control reference material(s) analyzed alongside
                 unknowns to verify calibration accuracy. Include material name, assessed
@@ -16243,69 +13630,6 @@ allOf:
                   const: string
                 schema:readonlyValue:
                   const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: WDS PHA Setting
-              description: Pulse height analyzer (PHA) setting for the WDS detector.
-                Integral mode accepts all pulses above a threshold; Differential mode
-                selects a narrow energy window to reject higher-order reflections
-                and escape peaks.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/wdsPhaSetting
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: wdsPhaSetting
-                schema:name:
-                  const: WDS PHA Setting
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: WDS Spectrometer Channel
-              description: "WDS spectrometer position(s) assigned to each analyte,
-                one entry per assignment. An analyte may be assigned to more than
-                one spectrometer with intensities aggregated (aggregate intensity
-                counting), and one spectrometer serves several analytes across a run,
-                so the assignment \u2014 not the analyte \u2014 is the unit carrying
-                the spectrometer setup. Different spectrometers may have different
-                crystal configurations."
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/wdsSpectrometerChannel
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: wdsSpectrometerChannel
-                schema:name:
-                  const: WDS Spectrometer Channel
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
                 ada:tier:
                   const: R
                 schema:defaultValue:
@@ -16451,72 +13775,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Background Counting Time
-              description: Total time spent counting at off-peak background position(s)
-                in seconds, summed across all background positions.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/backgroundCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundCountingTime
-                schema:name:
-                  const: Background Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Background Position(s)
-              description: Location(s) of off-peak background measurement(s) relative
-                to the peak, in mm or sin-theta, and whether on the high- or low-energy
-                side.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/backgroundPosition
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundPosition
-                schema:name:
-                  const: Background Position(s)
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Beam Current
               description: Probe current in nanoamperes (nA). Often varies by phase
                 type or analyte; record the procedure-standard value(s).
@@ -16618,39 +13876,6 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Diffracting Crystal
-              description: Analyzing crystal (monochromator) used on each spectrometer
-                assignment. Crystal choice determines the detectable wavelength range
-                and dispersion.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/diffractingCrystal
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: diffractingCrystal
-                schema:name:
-                  const: Diffracting Crystal
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             minContains: 0
             maxContains: 1
           - contains:
@@ -16781,41 +14006,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Peak Counting Time
-              description: Time spent counting X-ray intensity at the peak position,
-                in seconds, on each spectrometer assignment. Procedure specifies standard
-                values; analysts may adjust within procedure-defined bounds.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/peakCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: peakCountingTime
-                schema:name:
-                  const: Peak Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Primary Calibration Standard Name
               description: Name(s) of the primary reference material(s) used for element
                 standardization (intensity calibration). Include the material name,
@@ -16848,37 +14038,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Proportional Counter / Detector
-              description: Type of detector used on each spectrometer assignment.
-                Affects sensitivity and count rate linearity.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/empaTAPP/proportionalCounterDetector
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: proportionalCounterDetector
-                schema:name:
-                  const: Proportional Counter / Detector
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
             minContains: 0
             maxContains: 1
           - contains:
@@ -16947,8 +14106,267 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
-          - contains:
-              title: WDS PHA Setting
+    ada:channelTemplate:
+      type: object
+      properties:
+        ada:channelColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - title: Background Counting Time
+              description: Total time spent counting at off-peak background position(s)
+                in seconds, summed across all background positions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/backgroundCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundCountingTime
+                schema:name:
+                  const: Background Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Background Position(s)
+              description: Location(s) of off-peak background measurement(s) relative
+                to the peak, in mm or sin-theta, and whether on the high- or low-energy
+                side.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/backgroundPosition
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundPosition
+                schema:name:
+                  const: Background Position(s)
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - title: Diffracting Crystal
+              description: Analyzing crystal (monochromator) used on each spectrometer
+                assignment. Crystal choice determines the detectable wavelength range
+                and dispersion.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/diffractingCrystal
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: diffractingCrystal
+                schema:name:
+                  const: Diffracting Crystal
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Dwell Time per Pixel
+              description: 'Time spent acquiring X-ray signal at each pixel during
+                X-ray mapping, in milliseconds. For WDS: one value per spectrometer
+                assignment per pixel. For EDS: total live-time per spectrum per pixel,
+                a single value.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/dwellTimePerPixel
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: dwellTimePerPixel
+                schema:name:
+                  const: Dwell Time per Pixel
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Peak Counting Time
+              description: Time spent counting X-ray intensity at the peak position,
+                in seconds, on each spectrometer assignment. Procedure specifies standard
+                values; analysts may adjust within procedure-defined bounds.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/peakCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: peakCountingTime
+                schema:name:
+                  const: Peak Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Proportional Counter / Detector
+              description: Type of detector used on each spectrometer assignment.
+                Affects sensitivity and count rate linearity.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/proportionalCounterDetector
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: proportionalCounterDetector
+                schema:name:
+                  const: Proportional Counter / Detector
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - title: Sequence
+              description: Order in which spectrometer assignments are acquired during
+                point analysis. Relevant for minimizing beam damage (volatile elements
+                measured first) and for sequential multi-channel setups. Not applicable
+                to X-ray mapping, where all assigned spectrometers collect simultaneously
+                at each pixel.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/sequence
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: sequence
+                schema:name:
+                  const: Sequence
+                ada:dataType:
+                  const: integer
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - title: WDS PHA Setting
               description: Pulse height analyzer (PHA) setting for the WDS detector.
                 Integral mode accepts all pulses above a threshold; Differential mode
                 selects a narrow energy window to reject higher-order reflections
@@ -16956,7 +14374,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/wdsPhaSetting
+                  const: ada:channelColumn/empaTAPP/wdsPhaSetting
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -16971,7 +14389,120 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - title: X-ray Line
+              description: X-ray emission line measured on each spectrometer assignment.
+                Line choice affects sensitivity, matrix correction accuracy, and susceptibility
+                to peak overlap and spectral interference.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/xRayLine
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: xRayLine
+                schema:name:
+                  const: X-ray Line
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+          allOf:
+          - contains:
+              title: Background Counting Time
+              description: Total time spent counting at off-peak background position(s)
+                in seconds, summed across all background positions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/backgroundCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundCountingTime
+                schema:name:
+                  const: Background Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Background Position(s)
+              description: Location(s) of off-peak background measurement(s) relative
+                to the peak, in mm or sin-theta, and whether on the high- or low-energy
+                side.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/backgroundPosition
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundPosition
+                schema:name:
+                  const: Background Position(s)
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -16981,25 +14512,140 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: WDS Spectrometer Channel
-              description: "WDS spectrometer position(s) assigned to each analyte,
-                one entry per assignment. An analyte may be assigned to more than
-                one spectrometer with intensities aggregated (aggregate intensity
-                counting), and one spectrometer serves several analytes across a run,
-                so the assignment \u2014 not the analyte \u2014 is the unit carrying
-                the spectrometer setup. Different spectrometers may have different
-                crystal configurations."
+              title: Diffracting Crystal
+              description: Analyzing crystal (monochromator) used on each spectrometer
+                assignment. Crystal choice determines the detectable wavelength range
+                and dispersion.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/wdsSpectrometerChannel
+                  const: ada:channelColumn/empaTAPP/diffractingCrystal
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: wdsSpectrometerChannel
+                  const: diffractingCrystal
                 schema:name:
-                  const: WDS Spectrometer Channel
+                  const: Diffracting Crystal
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Dwell Time per Pixel
+              description: 'Time spent acquiring X-ray signal at each pixel during
+                X-ray mapping, in milliseconds. For WDS: one value per spectrometer
+                assignment per pixel. For EDS: total live-time per spectrum per pixel,
+                a single value.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/dwellTimePerPixel
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: dwellTimePerPixel
+                schema:name:
+                  const: Dwell Time per Pixel
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Peak Counting Time
+              description: Time spent counting X-ray intensity at the peak position,
+                in seconds, on each spectrometer assignment. Procedure specifies standard
+                values; analysts may adjust within procedure-defined bounds.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/peakCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: peakCountingTime
+                schema:name:
+                  const: Peak Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Proportional Counter / Detector
+              description: Type of detector used on each spectrometer assignment.
+                Affects sensitivity and count rate linearity.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/proportionalCounterDetector
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: proportionalCounterDetector
+                schema:name:
+                  const: Proportional Counter / Detector
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -17007,7 +14653,11 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -17016,24 +14666,128 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Primary analytical mode(s) executed under this procedure. Records
-          one value for a single-mode procedure and all applicable modes for a multi-mode
-          one. Serves as the procedure-level declaration of measurement type, distinct
-          from the mode flag columns, which state per-field applicability. Required
-          even where a procedure defines no mode flag columns, so that every procedure
-          record is self-describing and comparable across the library.
-        type: string
-        enum:
-        - WDS Point Analysis
-        - EDS Point Analysis
-        - WDS Mapping
-        - EDS Mapping
-        - WDS Point Analysis; EDS Point Analysis
-        - missing
-        readOnly: true
+          - contains:
+              title: Sequence
+              description: Order in which spectrometer assignments are acquired during
+                point analysis. Relevant for minimizing beam damage (volatile elements
+                measured first) and for sequential multi-channel setups. Not applicable
+                to X-ray mapping, where all assigned spectrometers collect simultaneously
+                at each pixel.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/sequence
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: sequence
+                schema:name:
+                  const: Sequence
+                ada:dataType:
+                  const: integer
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: WDS PHA Setting
+              description: Pulse height analyzer (PHA) setting for the WDS detector.
+                Integral mode accepts all pulses above a threshold; Differential mode
+                selects a narrow energy window to reject higher-order reflections
+                and escape peaks.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/wdsPhaSetting
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: wdsPhaSetting
+                schema:name:
+                  const: WDS PHA Setting
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: X-ray Line
+              description: X-ray emission line measured on each spectrometer assignment.
+                Line choice affects sensitivity, matrix correction accuracy, and susceptibility
+                to peak overlap and spectral interference.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/empaTAPP/xRayLine
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: xRayLine
+                schema:name:
+                  const: X-ray Line
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+        ada:defaultChannels:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
     schema:additionalProperty:
       type: array
       items:
@@ -17187,35 +14941,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - title: Sequence
-          description: Order in which spectrometer assignments are acquired during
-            point analysis. Relevant for minimizing beam damage (volatile elements
-            measured first) and for sequential multi-channel setups. Not applicable
-            to X-ray mapping, where all assigned spectrometers collect simultaneously
-            at each pixel.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/sequence
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/sequence
-            schema:name:
-              const: Sequence
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
         - title: Stage Scan vs. Beam Scan
           description: Whether the X-ray map was acquired by moving the sample stage
             (stage scan) or by deflecting the electron beam (beam scan). Stage scan
@@ -17408,38 +15133,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          title: Sequence
-          description: Order in which spectrometer assignments are acquired during
-            point analysis. Relevant for minimizing beam damage (volatile elements
-            measured first) and for sequential multi-channel setups. Not applicable
-            to X-ray mapping, where all assigned spectrometers collect simultaneously
-            at each pixel.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/sequence
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/sequence
-            schema:name:
-              const: Sequence
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        minContains: 0
-        maxContains: 1
-      - contains:
           title: Stage Scan vs. Beam Scan
           description: Whether the X-ray map was acquired by moving the sample stage
             (stage scan) or by deflecting the electron beam (beam scan). Stage scan
@@ -17468,71 +15161,25 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    schema:relatedLink:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: coupledTechnique
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: "Other analytical techniques applied to the same
-                      sample(s) whose results are intended to be interpreted together
-                      with data from this procedure. Document coupling with any technique
-                      whose results are functionally linked to this dataset \u2014
-                      providing calibration inputs, complementary spatial context,
-                      or required companion measurements. Use the same controlled
-                      vocabulary as the Technique field. Enter \"None\" if no coupling
-                      is intended."
-                    anyOf:
-                    - type: string
-                      enum:
-                      - EBSD
-                      - SEM-EDS
-                      - NanoSIMS
-                      - None
-                      - N/A
-                      - missing
-                    - type: string
-                  schema:description:
-                    description: "Description of how this procedure is coupled with
-                      the technique(s) listed above. Include: (1) the functional relationship
-                      \u2014 what data or context flows between techniques, or how
-                      results are combined (e.g. which output from the coupled technique
-                      serves as input to data reduction for this technique); and (2)
-                      the analytical sequence \u2014 which technique is performed
-                      first and why (e.g. non-destructive before destructive). Required
-                      when Coupled Technique(s) is not \"None\"."
-                    type: string
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: techniquePublication
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: DOI or URL for peer-reviewed publications or technical
-                      reports describing, validating, or benchmarking this procedure.
-                    type: string
-                    readOnly: true
     schema:variableMeasured:
       type: array
       items:
         anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
         - title: Detection Limit
           description: Method detection limit at 99% confidence (3-sigma), one per
             reported concentration variable (one per analyte, these being the same
@@ -17575,6 +15222,7 @@ allOf:
             '@type':
               const:
               - schema:PropertyValue
+              - cdi:InstanceVariable
             schema:propertyID:
               const:
               - '@id': ada:parameter/empaTAPP/detectionLimitMethod
@@ -17699,6 +15347,7 @@ allOf:
             '@type':
               const:
               - schema:PropertyValue
+              - cdi:InstanceVariable
             schema:propertyID:
               const:
               - '@id': ada:parameter/empaTAPP/detectionLimitMethod
@@ -17790,13 +15439,6 @@ allOf:
         the analyst should complete this field.
       type: string
       readOnly: true
-    ada:dwellTimePerPixelDefault:
-      description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping,
-        in milliseconds. For WDS: one value per spectrometer assignment per pixel.
-        For EDS: total live-time per spectrum per pixel, a single value.'
-      anyOf:
-      - type: number
-      - type: string
     ada:edsAcquisitionMode:
       description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam
         point acquisition, linescan (beam stepped along a transect at defined intervals),
@@ -17865,40 +15507,7 @@ allOf:
                             readOnly: true
                 allOf:
                 - contains:
-                    title: Pre-Analysis Imaging and Screening
-                    description: Imaging or other characterisation performed before
-                      the measurement in order to select or locate the analysed target,
-                      including the technique, instrument and settings used, and how
-                      individual analyses are linked back to the images. Distinct
-                      from any imaging the procedure performs as its own measurement.
-                      Where the imaging is performed on a separate instrument, it
-                      should also be recorded in the Group 1 coupling fields.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: preAnalysisImagingAndScreeningDefault
-                      schema:name:
-                        const: Pre-Analysis Imaging and Screening
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -17924,47 +15533,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    schema:funding:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:name:
-            description: Grants and other funding sources that supported instrument
-              acquisition, major upgrades, procedure development, and associated personnel
-              time. Include grant numbers and funding agencies where applicable.
-            type: string
-            readOnly: true
-    schema:location:
-      type: object
-      properties:
-        schema:name:
-          description: Name of the laboratory or institution hosting the instrument.
-          type: string
-        schema:identifier:
-          description: Persistent identifier for the laboratory (e.g., ROR ID).
-          type: string
-    ada:samplingUnit:
-      description: "The physical subdivision of the sample to which one row of reported
-        values corresponds \u2014 the unit that is analysed and reported, as distinct
-        from the sample as a whole. State the unit type at procedure level and the
-        units actually analysed at analysis level. Where units nest (e.g. confined
-        tracks within grains), state both levels."
-      anyOf:
-      - type: string
-        enum:
-        - Whole sample
-        - Aliquot
-        - Grain
-        - Spot
-        - Analysis point
-        - Phase
-        - Sub-volume
-        - Region of interest
-        - N/A
-        - None
-        - missing
-      - type: string
     schema:actionProcess:
       type: object
       properties:
@@ -17985,234 +15553,20 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses
-                          contribute to a reported aggregate result, together with
-                          the outcome of applying them: how many analyses were acquired,
-                          how many were included, and on what grounds any were excluded.
-                          Distinct from within-analysis outlier filtering, which removes
-                          anomalous points inside a single analysis: this field decides
-                          which whole analyses enter the reported value. Criteria
-                          and outcome are combined in one field because neither is
-                          interpretable without the other, following the precision/accuracy
-                          precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: analysisInclusionAndRejectionCriteriaDefault
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - title: Calibration Factor and Determination Method
-                        description: 'An externally-calibrated factor that converts
-                          the measured quantity into the reported quantity, how it
-                          was determined, and its uncertainty. Applies where the conversion
-                          depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone.
-                          Distinct from the fields that name the calibration material
-                          and that state which approach applies to which analyte,
-                          where the technique has them: this field records the resulting
-                          factor itself.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: calibrationFactorAndDeterminationMethodDefault
-                          schema:name:
-                            const: Calibration Factor and Determination Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - title: Constants and Reference Values Used
-                        description: Physical constants and reference values used
-                          in data reduction to calculate the final reported quantity
-                          (e.g., decay constants for age calculation, standard isotope
-                          ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from
-                          the Group 6 reference-material fields, which document accepted
-                          values for specific calibration/validation materials rather
-                          than universal physical constants. Record "None" if no citable,
-                          revisable physical constants feed into this procedure's
-                          data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains:
-                        title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses
-                          contribute to a reported aggregate result, together with
-                          the outcome of applying them: how many analyses were acquired,
-                          how many were included, and on what grounds any were excluded.
-                          Distinct from within-analysis outlier filtering, which removes
-                          anomalous points inside a single analysis: this field decides
-                          which whole analyses enter the reported value. Criteria
-                          and outcome are combined in one field because neither is
-                          interpretable without the other, following the precision/accuracy
-                          precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: analysisInclusionAndRejectionCriteriaDefault
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Calibration Factor and Determination Method
-                        description: 'An externally-calibrated factor that converts
-                          the measured quantity into the reported quantity, how it
-                          was determined, and its uncertainty. Applies where the conversion
-                          depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone.
-                          Distinct from the fields that name the calibration material
-                          and that state which approach applies to which analyte,
-                          where the technique has them: this field records the resulting
-                          factor itself.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: calibrationFactorAndDeterminationMethodDefault
-                          schema:name:
-                            const: Calibration Factor and Determination Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Constants and Reference Values Used
-                        description: Physical constants and reference values used
-                          in data reduction to calculate the final reported quantity
-                          (e.g., decay constants for age calculation, standard isotope
-                          ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from
-                          the Group 6 reference-material fields, which document accepted
-                          values for specific calibration/validation materials rather
-                          than universal physical constants. Record "None" if no citable,
-                          revisable physical constants feed into this procedure's
-                          data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
             - if:
@@ -18283,24 +15637,6 @@ allOf:
       - None
       - missing
       readOnly: true
-    schema:creator:
-      type: object
-      properties:
-        schema:name:
-          description: Person(s) or laboratory responsible for developing and registering
-            this procedure. ORCID recommended for individuals.
-          type: string
-          readOnly: true
-    schema:name:
-      description: "A short descriptive name for this analytical procedure, including
-        a version number. Should identify the instrument, the technique, and the scope
-        of what is measured \u2014 analyte, material, or feature."
-      type: string
-      readOnly: true
-    schema:datePublished:
-      description: First date this procedure configuration was used in production.
-      type: string
-      readOnly: true
     ada:stepSizePixelSizeDefault:
       description: Distance between adjacent measurement points in the X-ray map in
         micrometers, defining the spatial resolution. Report both X and Y step if
@@ -18308,22 +15644,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    schema:measurementTechnique:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:termCode:
-            description: Top-level analytical technique identifier.
-            type: string
-            enum:
-            - EPMA-WDS
-            - EPMA-EDS
-            - EPMA-WDS+EDS
-            - N/A
-            - None
-            - missing
-            readOnly: true
     ada:wdsDeadTimeCorrection:
       description: "Method used to correct for WDS proportional counter dead time
         at high count rates. Dead time errors are most significant for major elements
@@ -18347,41 +15667,14 @@ allOf:
       - None
       - missing
       readOnly: true
-    ada:targetSelectionCriteriaDefault:
-      description: "The rules governing which part of the sample is analysed, and
-        why. Covers the criteria applied when choosing grains, aliquots, spots, or
-        a region of interest \u2014 size, morphology, clarity, freedom from inclusions
-        or alteration, phase identity, or spatial position. Distinct from Target Material,
-        which states the material type the procedure is designed for: this field states
-        how, within such a sample, the analysed portion is picked out."
-      type: string
-    ada:reportedProperties:
-      type: array
-      items:
-        description: "The final variable(s) this procedure reports and their units
-          \u2014 distinct from the fields recording what was *acquired* rather than
-          what is reported. A procedure may acquire many channels and report a small
-          number of derived quantities; without this field a data consumer cannot
-          tell which. Record every reported variable, including intermediate quantities
-          reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U
-          date). Where a reported variable is a nominal property with no magnitude
-          (e.g. a mineral identification), record the variable and give the unit as
-          'N/A \u2014 nominal property'."
-        type: string
-        readOnly: true
   required:
   - ada:detectionLimitMethod
-  - ada:dwellTimePerPixelDefault
   - ada:edsAcquisitionMode
   - ada:edsLiveTimePerPointOrPixelDefault
-  - ada:samplingUnit
   - ada:massAbsorptionCoefficients
   - ada:matrixCorrectionMethod
-  - schema:name
-  - schema:datePublished
   - ada:stepSizePixelSizeDefault
   - ada:wdsDeadTimeCorrection
-  - ada:targetSelectionCriteriaDefault
 
 ```
 

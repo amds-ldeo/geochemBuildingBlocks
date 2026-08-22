@@ -31,20 +31,12 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Phoenix Nanotom S" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
-            ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
-            ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Université de Lorraine, France" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Richard2019-4" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -118,6 +110,23 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
     schema1:valueName "sourceToObjectDistanceDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Phoenix Nanotom S" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
+    ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
+    ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;

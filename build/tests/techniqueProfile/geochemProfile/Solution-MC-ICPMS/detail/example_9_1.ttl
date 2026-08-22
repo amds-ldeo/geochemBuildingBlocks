@@ -1,0 +1,45 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-Moynier2017 a ada:SolutionICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach>,
+        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "missing" ] ;
+    schema1:measurementTechnique ex:solutionMcicpmsTAPP-Moynier2017 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "\"any ratio outside 2σ was discarded\" — an explicit rejection rule, applied within a measurement. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\"" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "An aliquot of SRM984 passed through the full chemistry gave δ87Rb = 0.00 ± 0.03‰, \"confirming that no isotope fractionation is caused by the Rb purification procedure\"; Allende duplicate splits agreed at 0.12 ± 0.02‰ and 0.14 ± 0.04‰" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "\"the long-term reproducibility was ±0.01‰ (n = 40)\" from a pure Rb ICP-MS solution run as an external standard each session" ;
+    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:deltaOrEpsilonValueReferenceStandard "NIST SRM984 RbCl; the basalt geostandard BCR-2 used as an alternative bracketing standard in some sessions" ;
+    ada:detectionLimit -9999 ;
+    ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:oxideProduction "missing" ;
+    ada:peakFlatness "missing" ;
+    ada:proceduralBlankLevel "missing" ;
+    ada:sampleDescription "missing" ;
+    ada:sampleName "GS-N, AGV-2, BCR-2, BHVO-2, EW9309 10D, AHANEMO2 D20B; Allende (duplicate splits); NIST SRM984" ;
+    ada:samplingUnit "Weighed powder aliquot — \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"" ;
+    ada:sessionIdentifier "missing" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach> a schema1:PropertyValue ;
+    schema1:name "Spike / Outlier Filtering Approach" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach> ;
+    schema1:value "\"any ratio outside 2σ was discarded\"" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
+    schema1:name "Uncertainty Propagation Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> ;
+    schema1:value "\"Errors are determined from repeated measurements\"" .
+

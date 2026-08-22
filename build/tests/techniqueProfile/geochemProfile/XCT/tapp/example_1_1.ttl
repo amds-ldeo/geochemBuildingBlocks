@@ -33,21 +33,12 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nikon XT H 320" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "110 kV" ;
-            ada:tubeCurrentDefault "27 µA" ;
-            ada:voxelSizeDefault "6.00 µm" ;
-            ada:xRayPreFilterDefault "0.25 mm aluminum" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Eckley2024" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -131,6 +122,24 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
     schema1:valueName "xRayPowerDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XT H 320" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "110 kV" ;
+    ada:tubeCurrentDefault "27 µA" ;
+    ada:voxelSizeDefault "6.00 µm" ;
+    ada:xRayPreFilterDefault "0.25 mm aluminum" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
     schema1:name "X-ray Tube Anode Material" ;

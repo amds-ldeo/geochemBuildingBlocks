@@ -193,7 +193,8 @@ and technique component types on the archive distribution. Mock data for validat
               "schema:name": "Example ADA Instrument",
               "schema:identifier": [
                 "ex:instrument-ada-001"
-              ]
+              ],
+              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
             }
           ]
         }
@@ -266,6 +267,99 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/detectionLimit",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Detection Limit",
+      "schema:description": "Detection Limit reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semTAPP/detectionLimit"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/detectionLimitMethod",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Detection Limit Method",
+      "schema:description": "Detection Limit Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semTAPP/detectionLimitMethod"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Normalization / Standards-Based Correction",
+      "schema:description": "Normalization / Standards-Based Correction reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
+      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [

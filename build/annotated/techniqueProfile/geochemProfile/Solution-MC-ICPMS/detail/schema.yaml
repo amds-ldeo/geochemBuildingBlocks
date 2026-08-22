@@ -3,10 +3,9 @@ title: Solution MC-ICP-MS Analysis Detail
 description: Dataset-level analysis-instance detail for solution MC-ICP-MS, reusing
   CDIF/schema.org slots on the schema:Dataset root.
 allOf:
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/group1/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/AnalysisIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/reportingCore/schema.yaml#/$defs/AggregationQc_Analysis
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
     prov:wasGeneratedBy:
@@ -28,18 +27,6 @@ allOf:
                   - '@type'
                 then:
                   properties:
-                    schema:identifier:
-                      description: Globally unique, persistent identifier for each
-                        sample listed in Sample Name. IGSN (International Geo Sample
-                        Number) is the recommended standard for geological and cosmochemical
-                        samples, as used by Astromat, EarthChem and SESAR. Where a
-                        sample and its sub-samples are separately registered, record
-                        the identifier at the level actually analysed.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
                     schema:description:
                       description: Brief description of sample provenance, form, or
                         preparation state relevant to this analysis.
@@ -51,82 +38,12 @@ allOf:
                     schema:additionalProperty:
                       type: array
                       items:
-                        title: Sample Aliquot Mass or Volume
-                        description: Mass (mg) of solid material digested or volume
-                          (mL) of liquid taken for dissolution. Used for yield calculations
-                          and concentration back-calculation.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
-                          schema:name:
-                            const: Sample Aliquot Mass or Volume
-                          schema:value:
-                            anyOf:
-                            - type: number
-                            - type: string
-                          schema:unitText:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        - schema:unitText
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleAliquotMassOrVolume
                       allOf:
                       - contains:
-                          title: Sample Aliquot Mass or Volume
-                          description: Mass (mg) of solid material digested or volume
-                            (mL) of liquid taken for dissolution. Used for yield calculations
-                            and concentration back-calculation.
-                          type: object
-                          properties:
-                            '@id':
-                              const: ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
-                            '@type':
-                              const:
-                              - schema:PropertyValue
-                            schema:propertyID:
-                              const:
-                              - '@id': ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
-                            schema:name:
-                              const: Sample Aliquot Mass or Volume
-                            schema:value:
-                              anyOf:
-                              - type: number
-                              - type: string
-                            schema:unitText:
-                              type: string
-                          required:
-                          - '@id'
-                          - '@type'
-                          - schema:propertyID
-                          - schema:name
-                          - schema:value
-                          - schema:unitText
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleAliquotMassOrVolume
                         minContains: 0
                         maxContains: 1
-                    schema:name:
-                      description: "Name or identifier of each sample analysed in
-                        this session, as used in the laboratory \u2014 a sample mount,
-                        section or aliquot counts as one entry where that is what
-                        the laboratory tracks. The analysis record corresponds to
-                        one session and may cover several samples; fields whose Keyed
-                        By column declares 'sample' take one value per entry. Should
-                        match the identifier used in associated publications or data
-                        tables."
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
             allOf:
             - contains:
                 properties:
@@ -155,115 +72,15 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - title: Digestion Temperature
-                              description: "Temperature at which acid digestion was
-                                carried out (\xB0C). Procedure specifies the target
-                                temperature."
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionMcicpmsTAPP/digestionTemperature
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionMcicpmsTAPP/digestionTemperature
-                                schema:name:
-                                  const: Digestion Temperature
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
-                                schema:unitText:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              - schema:unitText
-                            - title: Digestion Duration
-                              description: Duration of the primary acid digestion
-                                step (hours or days).
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionMcicpmsTAPP/digestionDuration
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionMcicpmsTAPP/digestionDuration
-                                schema:name:
-                                  const: Digestion Duration
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionTemperature
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionDuration
                           allOf:
                           - contains:
-                              title: Digestion Temperature
-                              description: "Temperature at which acid digestion was
-                                carried out (\xB0C). Procedure specifies the target
-                                temperature."
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionMcicpmsTAPP/digestionTemperature
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionMcicpmsTAPP/digestionTemperature
-                                schema:name:
-                                  const: Digestion Temperature
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
-                                schema:unitText:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              - schema:unitText
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionTemperature
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Digestion Duration
-                              description: Duration of the primary acid digestion
-                                step (hours or days).
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionMcicpmsTAPP/digestionDuration
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionMcicpmsTAPP/digestionDuration
-                                schema:name:
-                                  const: Digestion Duration
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionDuration
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -360,38 +177,7 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - title: Constants and Reference Values Used
-                              description: Physical constants and reference values
-                                used in data reduction to calculate the final reported
-                                quantity (e.g., decay constants for age calculation,
-                                standard isotope ratios, or other citable reference
-                                values used in a correction or calculation), together
-                                with their source. Distinct from the Group 6 reference-material
-                                fields, which document accepted values for specific
-                                calibration/validation materials rather than universal
-                                physical constants. Record "None" if no citable, revisable
-                                physical constants feed into this procedure's data
-                                reduction.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
-                                schema:name:
-                                  const: Constants and Reference Values Used
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
                           - contains:
                               title: Spike / Outlier Filtering Approach
@@ -485,38 +271,7 @@ allOf:
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Constants and Reference Values Used
-                              description: Physical constants and reference values
-                                used in data reduction to calculate the final reported
-                                quantity (e.g., decay constants for age calculation,
-                                standard isotope ratios, or other citable reference
-                                values used in a correction or calculation), together
-                                with their source. Distinct from the Group 6 reference-material
-                                fields, which document accepted values for specific
-                                calibration/validation materials rather than universal
-                                physical constants. Record "None" if no citable, revisable
-                                physical constants feed into this procedure's data
-                                reduction.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
-                                schema:name:
-                                  const: Constants and Reference Values Used
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                             minContains: 0
                             maxContains: 1
                 allOf:
@@ -554,6 +309,7 @@ allOf:
                                 schema:additionalType:
                                   contains:
                                     const: ICPMS
+                                  schema:inDefinedTermSet: ada:vocab/instrumentType
                               required:
                               - schema:additionalType
                             then:
@@ -577,6 +333,7 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: Torch
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
@@ -657,6 +414,7 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: Sample Introduction System
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
@@ -665,88 +423,41 @@ allOf:
                                             type: array
                                             items:
                                               anyOf:
-                                              - title: Sample Uptake Rate
-                                                description: "Peristaltic pump speed
-                                                  or self-aspiration flow rate for
-                                                  sample introduction (\xB5L/min or
-                                                  mL/min)."
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleUptakeRate
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_nebulizerGasFlowRate
+                                              - title: Make-up Gas and Flow Rate
+                                                description: "Supplementary gas added
+                                                  to the sample-carrying stream between
+                                                  the sample introduction system and
+                                                  the plasma, with its identity and
+                                                  the procedure-registered target
+                                                  flow rate. Argon make-up is standard
+                                                  and maintains total gas delivery
+                                                  where the carrier flow alone is
+                                                  insufficient \u2014 downstream of
+                                                  an ablation cell, or of a desolvation
+                                                  system that has removed solvent
+                                                  load. Small nitrogen or hydrogen
+                                                  additions are also made here to
+                                                  enhance sensitivity for some elements;
+                                                  record them with their own flow,
+                                                  whose unit commonly differs from
+                                                  the make-up flow. Record 'None'
+                                                  explicitly where no supplementary
+                                                  gas is added, to distinguish it
+                                                  from not reported."
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
+                                                    const: ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate
                                                   schema:name:
-                                                    const: Sample Uptake Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - title: Nebulizer Gas Flow Rate
-                                                description: Flow rate of the carrier
-                                                  argon gas delivered through the
-                                                  nebulizer (L/min). Controls aerosol
-                                                  transport and strongly influences
-                                                  signal sensitivity and stability.
-                                                  Adjusted daily to optimize signal.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
-                                                  schema:name:
-                                                    const: Nebulizer Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - title: Make-up Gas Flow Rate
-                                                description: Supplementary argon flow
-                                                  added downstream of a desolvation
-                                                  system to maintain total gas delivery
-                                                  to the plasma (L/min). Record 'N/A'
-                                                  if no desolvation system is used.
-                                                  Record 'N/A' where Desolvation System
-                                                  is 'None'.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate
-                                                  schema:name:
-                                                    const: Make-up Gas Flow Rate
+                                                    const: Make-up Gas and Flow Rate
                                                   schema:value:
                                                     anyOf:
                                                     - type: number
@@ -762,94 +473,47 @@ allOf:
                                                 - schema:unitText
                                             allOf:
                                             - contains:
-                                                title: Sample Uptake Rate
-                                                description: "Peristaltic pump speed
-                                                  or self-aspiration flow rate for
-                                                  sample introduction (\xB5L/min or
-                                                  mL/min)."
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
-                                                  schema:name:
-                                                    const: Sample Uptake Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleUptakeRate
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
-                                                title: Nebulizer Gas Flow Rate
-                                                description: Flow rate of the carrier
-                                                  argon gas delivered through the
-                                                  nebulizer (L/min). Controls aerosol
-                                                  transport and strongly influences
-                                                  signal sensitivity and stability.
-                                                  Adjusted daily to optimize signal.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
-                                                  schema:name:
-                                                    const: Nebulizer Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_nebulizerGasFlowRate
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
-                                                title: Make-up Gas Flow Rate
-                                                description: Supplementary argon flow
-                                                  added downstream of a desolvation
-                                                  system to maintain total gas delivery
-                                                  to the plasma (L/min). Record 'N/A'
-                                                  if no desolvation system is used.
-                                                  Record 'N/A' where Desolvation System
-                                                  is 'None'.
+                                                title: Make-up Gas and Flow Rate
+                                                description: "Supplementary gas added
+                                                  to the sample-carrying stream between
+                                                  the sample introduction system and
+                                                  the plasma, with its identity and
+                                                  the procedure-registered target
+                                                  flow rate. Argon make-up is standard
+                                                  and maintains total gas delivery
+                                                  where the carrier flow alone is
+                                                  insufficient \u2014 downstream of
+                                                  an ablation cell, or of a desolvation
+                                                  system that has removed solvent
+                                                  load. Small nitrogen or hydrogen
+                                                  additions are also made here to
+                                                  enhance sensitivity for some elements;
+                                                  record them with their own flow,
+                                                  whose unit commonly differs from
+                                                  the make-up flow. Record 'None'
+                                                  explicitly where no supplementary
+                                                  gas is added, to distinguish it
+                                                  from not reported."
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate
+                                                    const: ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate
+                                                    - '@id': ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate
                                                   schema:name:
-                                                    const: Make-up Gas Flow Rate
+                                                    const: Make-up Gas and Flow Rate
                                                   schema:value:
                                                     anyOf:
                                                     - type: number
@@ -870,6 +534,7 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: ICP Source
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
@@ -1073,6 +738,7 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: Collision Reaction Cell
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
@@ -1309,6 +975,7 @@ allOf:
                                         schema:additionalType:
                                           contains:
                                             const: Sample Introduction System
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                   - contains:
@@ -1316,6 +983,7 @@ allOf:
                                         schema:additionalType:
                                           contains:
                                             const: ICP Source
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                   - contains:
@@ -1323,6 +991,7 @@ allOf:
                                         schema:additionalType:
                                           contains:
                                             const: Collision Reaction Cell
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                 schema:additionalProperty:
@@ -1399,60 +1068,9 @@ allOf:
                             schema:additionalType:
                               contains:
                                 const: ICPMS
+                              schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
-              - if:
-                  required:
-                  - bios:computationalTool
-                then:
-                  properties:
-                    bios:computationalTool:
-                      type: array
-                      items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                ada:toolRole:
-                                  const: acquisition
-                              required:
-                              - ada:toolRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: Name and version of the software used
-                                    to control the instrument and acquire raw multi-collector
-                                    data.
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          - if:
-                              properties:
-                                ada:toolRole:
-                                  const: dataReduction
-                              required:
-                              - ada:toolRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: "Name and version of the software used
-                                    for data reduction: baseline subtraction, gain
-                                    correction, mass bias correction (SSB, double-spike
-                                    inversion, or internal normalization), interference
-                                    corrections, and calculation of isotope ratios,
-                                    \u03B4-values, and concentrations. Include version
-                                    number."
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          required:
-                          - ada:toolRole
               - if:
                   required:
                   - prov:reagent
@@ -1521,35 +1139,37 @@ allOf:
           schema:additionalProperty:
             type: array
             items:
-              title: Signal Integration Time
-              description: "Total integration time per sample solution (s). Calculated
-                from blocks \xD7 cycles per block \xD7 integration time per cycle.
-                Recorded at analysis level as the actual total time used."
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime
-                schema:name:
-                  const: Signal Integration Time
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
+              anyOf:
+              - title: Signal Integration Time
+                description: "Total integration time per sample solution (s). Calculated
+                  from blocks \xD7 cycles per block \xD7 integration time per cycle.
+                  Recorded at analysis level as the actual total time used."
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime
+                  schema:name:
+                    const: Signal Integration Time
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
             allOf:
             - contains:
                 title: Signal Integration Time
@@ -1583,14 +1203,10 @@ allOf:
                 - schema:unitText
               minContains: 0
               maxContains: 1
-          schema:description:
-            description: "Any procedure- or analysis-specific information not captured
-              by a structured field anywhere in this TAPP \u2014 including anomalies,
-              deviations from the registered procedure, instrument modifications,
-              and supplementary context. Scope is the whole document, not Group 6:
-              this is the last field of the TAPP and covers all six groups. Use sparingly;
-              a structured field is preferred for anything that can be formally categorised."
-            type: string
+            - contains:
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+              minContains: 0
+              maxContains: 1
     dqv:hasQualityMeasurement:
       type: array
       items:

@@ -24,31 +24,11 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "WDSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:name "missing" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Astromaterials Research and Exploration Science Division (ARES), NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)" ] ;
     schema1:name "semComposition protocol — Barnes2025" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -59,7 +39,7 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "NanoSIMS isotope mapping (CAMECA NanoSIMS 50L, NASA JSC); presolar grains identified by NanoSIMS then confirmed by SEM-EDS phase characterisation" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "Elemental maps and spot spectra (SEM-EDX) for presolar grain phase identification" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -68,4 +48,31 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
 

@@ -15,13 +15,13 @@ ex:temTAPP-Zega2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
@@ -34,53 +34,8 @@ ex:temTAPP-Zega2025-3 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v21.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "TEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "AberrationCorrector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "ImagingDetector" ;
-                    schema1:description "ThermoScientific Ceta-S 4096×4096 16 M camera (TEM images and SAED patterns)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "4DSTEMDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EELSSpectrometer" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "EDSDetector" ;
-                    schema1:description "Four windowless ThermoScientific EDS silicon drift detectors" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Monochromator" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "ThermoFisher Scientific (FEI)" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "ThermoScientific Talos F200-X G2 S/TEM" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "200 kV" ] ;
+    schema1:instrument <https://example.org/instrument/TEM>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -111,9 +66,9 @@ ex:temTAPP-Zega2025-3 a cdi:Activity,
     ada:stemDwellTimePerPixelDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "ThermoScientific Velox" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ schema1:name "ThermoScientific Velox" ;
-            ada:toolRole "dataReduction" ] .
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "External standard (AGAR S106 cross grating, 3 mm)" ;
@@ -142,4 +97,72 @@ ex:temTAPP-Zega2025-3 a cdi:Activity,
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/instrument/TEM/part/Electron-Source>,
+        <https://example.org/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ThermoFisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "ThermoScientific Talos F200-X G2 S/TEM" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Four windowless ThermoScientific EDS silicon drift detectors" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "ThermoScientific Ceta-S 4096×4096 16 M camera (TEM images and SAED patterns)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 

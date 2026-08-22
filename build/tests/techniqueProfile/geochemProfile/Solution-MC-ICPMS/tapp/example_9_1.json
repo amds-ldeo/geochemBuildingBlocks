@@ -1,0 +1,532 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:solutionMcicpmsTAPP-Moynier2017",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "solutionMcicpms protocol \u2014 Moynier2017",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP (publication column of Solution_MC-ICP-MS_TAPP_v30.csv).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution MC-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Institut de Physique du Globe de Paris"
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Whole-rock terrestrial igneous rocks, chondrites, achondrites and Apollo lunar samples"
+          ]
+        },
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 125,
+          "schema:description": "<=125 mg powder, calculated to yield >20 ng Rb"
+        }
+      ]
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod"
+              }
+            ],
+            "schema:name": "Isotope Dilution Data Reduction Method",
+            "schema:value": "N/A \u2014 no isotope dilution applied"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "\"any ratio outside 2\u03c3 was discarded\" \u2014 an explicit rejection rule, applied within a measurement. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\""
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      },
+      {
+        "schema:name": "Sample digestion",
+        "bios:reagent": [
+          {
+            "schema:name": "\"a mixture of concentrated HF/HNO3\"; after evaporation \"6N HCl was added\" to dissolve fluoride complexes",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionVesselType",
+            "schema:name": "Digestion Vessel Type",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "\"closed Teflon bombs\""
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionTemperatureDefault",
+            "schema:name": "Digestion Temperature",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 130,
+            "schema:description": "130 \u00b0C for both the HF/HNO3 and the 6N HCl steps"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionDurationDefault",
+            "schema:name": "Digestion Duration",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "\">48 h\""
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:finalSolutionMatrix": "0.1N HNO3",
+  "ada:chromatographicSeparationApplied": "Yes \u2014 DGA resin Ca removal (1.8 mL), then AG50 X12 (20 mL and 10 mL) in 3N HCl, then AG50 X8 (1 mL) in 0.5N HCl. Reduces K/Rb by a factor of 200 to K/Rb<2 and gives 88Sr/85Rb<0.005",
+  "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Neptune Plus",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionMcicpmsTAPP/interfaceConeConfiguration",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionMcicpmsTAPP/interfaceConeConfiguration"
+                }
+              ],
+              "schema:name": "Interface Cone Configuration",
+              "schema:value": "Sample cone Jet; skimmer cone H"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Sample Introduction System",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "sampleUptakeRateDefault",
+              "schema:name": "Sample Uptake Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 5,
+              "schema:description": "Peristaltic pump at 5 rpm"
+            },
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "nebulizerGasFlowRateDefault",
+              "schema:name": "Nebulizer Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 1.03,
+              "schema:description": "1.03 L/min (sample gas)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionMcicpmsTAPP/rfPowerDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "rfPowerDefault",
+              "schema:name": "RF Power",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 1200,
+              "schema:description": "1200 W"
+            },
+            {
+              "@id": "ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "coolantGasFlowRateDefault",
+              "schema:name": "Coolant (Plasma) Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 16,
+              "schema:description": "16 L/min"
+            },
+            {
+              "@id": "ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "auxiliaryGasFlowRateDefault",
+              "schema:name": "Auxiliary Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 1.01,
+              "schema:description": "1.01 L/min"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Collector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "L2=84Sr, L1=85Rb, C=86Sr, H1=87Rb+87Sr, H2=88Sr",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collector",
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "desolvationSystem",
+      "schema:name": "Desolvation System",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "APEX, used alongside the spray chamber as an alternative introduction system in different sessions"
+    },
+    {
+      "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "internalStandardConcentration",
+      "schema:name": "Internal Standard Concentration",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:value": "N/A \u2014 no added internal standard element"
+    },
+    {
+      "@id": "ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproachDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spikeOutlierFilteringApproachDefault",
+      "schema:name": "Spike / Outlier Filtering Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\"any ratio outside 2\u03c3 was discarded\""
+    },
+    {
+      "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "uncertaintyPropagationMethodDefault",
+      "schema:name": "Uncertainty Propagation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\"Errors are determined from repeated measurements\""
+    }
+  ],
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "Rb"
+    ],
+    "ada:analyteColumns": [
+      {
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimit",
+        "schema:name": "Detection Limit",
+        "ada:dataType": "number"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimitMethod",
+        "schema:name": "Detection Limit Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "limitOfQuantificationMethod",
+        "schema:name": "Limit of Quantification (LOQ) Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:sampleSequenceDesign": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
+  "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:primaryStandardNameDefault": "NIST SRM984 RbCl; BCR-2 as an alternative bracketing standard in some sessions",
+  "ada:calibrationMeasurementFrequency": "Every sample (bracketing), plus an external pure Rb solution \"during each analytical session\"",
+  "ada:secondaryReferenceMaterialDefault": [
+    "BCR-2, AGV-2, BHVO-2, GS-N and other terrestrial rocks"
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "\u03b487Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard \u2212 1] x 1000"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
+  "ada:samplingUnit": "Weighed powder aliquot \u2014 \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
+  "ada:internalNormalizationElementAndIsotopeRatio": "N/A \u2014 Rb has two stable isotopes; bracketing used instead",
+  "ada:blankBackgroundCorrectionMethod": "missing",
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:washTimeBetweenSamples": -9999,
+  "schema:datePublished": "missing"
+}

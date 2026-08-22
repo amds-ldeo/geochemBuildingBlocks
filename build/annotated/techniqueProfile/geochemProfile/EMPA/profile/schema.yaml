@@ -1,18 +1,19 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: ADA EMPA Product Profile (path-driven)
-description: Technique-specific profile for Electron Microprobe Analysis (EMPA/EPMA)
-  products. Extends the base ADA product profile with the EMPA analysis-instance detail
-  (detailEMPA) on the schema:Dataset root, narrows prov:used to the empaTAPP protocol,
-  and constrains valid EMPA component types on schema:distribution.hasPart.
+title: ADA EMPA Product Profile
+description: Path-driven technique-specific profile for ADA EMPA Product Profile.
+  Extends the base ADA product profile with the EMPA analysis-instance detail on the
+  schema:Dataset root, narrows prov:used to the empaTAPP protocol, and constrains
+  valid component types on schema:distribution.hasPart.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/detail/schema.yaml
 - type: object
   properties:
     prov:wasGeneratedBy:
-      description: "Narrow the base prov:used to the empaTAPP definition \u2014 inline,
-        or by node @id \u2014 alongside the instrument. (Base adaProduct accepts the
-        generic tappDefinition; this profile requires the technique-specific one.)"
+      description: 'Pin the empaTAPP definition and the instrument where prov:used
+        carries them. Constraint-only if/then, never a narrowed anyOf: prov:used items
+        are role-keyed wrappers, and an anyOf here would allOf-merge with the base
+        union and exclude item shapes the base allows.'
       type: array
       items:
         type: object
@@ -43,46 +44,60 @@ allOf:
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/tapp/schema.yaml
     schema:additionalType:
-      description: Must include an EMPA product type identifier.
+      description: Must include a EMPA product type identifier.
       contains:
         enum:
-        - Electron Microprobe Analysis (EMPA) Collection
-        - Electron Microprobe Analysis Image (EMPA)
-        - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
         - Electron Microprobe Analysis (EMPA)
-        - Electron microprobe analysis
+        - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
     schema:distribution:
-      description: Distribution items for empaProfile. Archive hasPart items must
-        have ada:componentType from technique-specific or universal values.
+      description: Each distribution item is EITHER a monolithic single-file dataset
+        whose ada:componentType is a EMPA-specific or universal value (and may carry
+        cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry such
+        a componentType (the ADA/SAMIS archive form).
       type: array
       items:
-        type: object
-        properties:
-          schema:hasPart:
-            items:
-              type: object
+        anyOf:
+        - type: object
+          required:
+          - ada:componentType
+          properties:
+            ada:componentType:
+              type: string
               anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
-              - properties:
-                  ada:componentType:
-                    type: string
-                    enum:
-                    - ada:EMPAImage
-                    - ada:EMPAImageMap
-                    - ada:EMPAQEATabular
-                    - ada:EMPAImageCollection
-                    - ada:EMPAESPCTabular
-                    - ada:EMPAESPCPlot
-                required:
-                - ada:componentType
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType
+              - enum:
+                - ada:EMPAImage
+                - ada:EMPAImageMap
+                - ada:EMPAQEATabular
+                - ada:EMPAImageCollection
+                - ada:EMPAESPCTabular
+                - ada:EMPAESPCPlot
+        - type: object
+          required:
+          - schema:hasPart
+          properties:
+            schema:hasPart:
+              items:
+                type: object
+                anyOf:
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
+                - properties:
+                    ada:componentType:
+                      type: string
+                      enum:
+                      - ada:EMPAImage
+                      - ada:EMPAImageMap
+                      - ada:EMPAQEATabular
+                      - ada:EMPAImageCollection
+                      - ada:EMPAESPCTabular
+                      - ada:EMPAESPCPlot
+                  required:
+                  - ada:componentType
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
           contains:
             type: object
-            required:
-            - '@id'
-            additionalProperties: false
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaEMPA

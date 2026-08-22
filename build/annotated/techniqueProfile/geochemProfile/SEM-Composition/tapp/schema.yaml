@@ -5,121 +5,11 @@ description: Scanning electron microscopy compositional microanalysis (EDS/WDS) 
   via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
-    schema:name:
-      description: "A short descriptive name for this analytical procedure, including
-        a version number. Should identify the instrument, the technique, and the scope
-        of what is measured \u2014 analyte, material, or feature."
-      type: string
-      readOnly: true
-    schema:measurementTechnique:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:termCode:
-            description: Top-level analytical technique identifier.
-            type: string
-            enum:
-            - SEM
-            - SEM/FIB-SEM
-            - N/A
-            - None
-            - missing
-            readOnly: true
-    schema:creator:
-      type: object
-      properties:
-        schema:name:
-          description: Person(s) or laboratory responsible for developing and registering
-            this procedure. ORCID recommended for individuals.
-          type: string
-          readOnly: true
-    schema:location:
-      type: object
-      properties:
-        schema:name:
-          description: Name of the laboratory or institution hosting the instrument.
-          type: string
-        schema:identifier:
-          description: Persistent identifier for the laboratory (e.g., ROR ID).
-          type: string
-    schema:datePublished:
-      description: First date this procedure configuration was used in production.
-      type: string
-      readOnly: true
-    schema:funding:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:name:
-            description: Grants and other funding sources that supported instrument
-              acquisition, major upgrades, procedure development, and associated personnel
-              time. Include grant numbers and funding agencies where applicable.
-            type: string
-            readOnly: true
-    schema:relatedLink:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: techniquePublication
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: DOI or URL for peer-reviewed publications or technical
-                      reports describing, validating, or benchmarking this procedure.
-                    type: string
-                    readOnly: true
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: coupledTechnique
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: "Other analytical techniques applied to the same
-                      sample(s) whose results are intended to be interpreted together
-                      with data from this procedure. Document coupling with any technique
-                      whose results are functionally linked to this dataset \u2014
-                      providing calibration inputs, complementary spatial context,
-                      or required companion measurements. Use the same controlled
-                      vocabulary as the Technique field. Enter \"None\" if no coupling
-                      is intended."
-                    anyOf:
-                    - type: string
-                      enum:
-                      - EPMA; NanoSIMS
-                      - XCT (pre-SEM overview)
-                      - None
-                      - N/A
-                      - missing
-                    - type: string
-                  schema:description:
-                    description: "Description of how this procedure is coupled with
-                      the technique(s) listed above. Include: (1) the functional relationship
-                      \u2014 what data or context flows between techniques, or how
-                      results are combined (e.g. which output from the coupled technique
-                      serves as input to data reduction for this technique); and (2)
-                      the analytical sequence \u2014 which technique is performed
-                      first and why (e.g. non-destructive before destructive). Required
-                      when Coupled Technique(s) is not \"None\"."
-                    type: string
     schema:object:
       type: array
       items:
@@ -231,159 +121,15 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses
-                          contribute to a reported aggregate result, together with
-                          the outcome of applying them: how many analyses were acquired,
-                          how many were included, and on what grounds any were excluded.
-                          Distinct from within-analysis outlier filtering, which removes
-                          anomalous points inside a single analysis: this field decides
-                          which whole analyses enter the reported value. Criteria
-                          and outcome are combined in one field because neither is
-                          interpretable without the other, following the precision/accuracy
-                          precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semCompositionTAPP/analysisInclusionAndRejectionCriteriaDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: analysisInclusionAndRejectionCriteriaDefault
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - title: Constants and Reference Values Used
-                        description: Physical constants and reference values used
-                          in data reduction to calculate the final reported quantity
-                          (e.g., decay constants for age calculation, standard isotope
-                          ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from
-                          the Group 6 reference-material fields, which document accepted
-                          values for specific calibration/validation materials rather
-                          than universal physical constants. Record "None" if no citable,
-                          revisable physical constants feed into this procedure's
-                          data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains:
-                        title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses
-                          contribute to a reported aggregate result, together with
-                          the outcome of applying them: how many analyses were acquired,
-                          how many were included, and on what grounds any were excluded.
-                          Distinct from within-analysis outlier filtering, which removes
-                          anomalous points inside a single analysis: this field decides
-                          which whole analyses enter the reported value. Criteria
-                          and outcome are combined in one field because neither is
-                          interpretable without the other, following the precision/accuracy
-                          precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semCompositionTAPP/analysisInclusionAndRejectionCriteriaDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: analysisInclusionAndRejectionCriteriaDefault
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Constants and Reference Values Used
-                        description: Physical constants and reference values used
-                          in data reduction to calculate the final reported quantity
-                          (e.g., decay constants for age calculation, standard isotope
-                          ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from
-                          the Group 6 reference-material fields, which document accepted
-                          values for specific calibration/validation materials rather
-                          than universal physical constants. Record "None" if no citable,
-                          revisable physical constants feed into this procedure's
-                          data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -399,35 +145,6 @@ allOf:
                   const: Data reduction
               required:
               - schema:name
-    ada:samplingUnit:
-      description: "The physical subdivision of the sample to which one row of reported
-        values corresponds \u2014 the unit that is analysed and reported, as distinct
-        from the sample as a whole. State the unit type at procedure level and the
-        units actually analysed at analysis level. Where units nest (e.g. confined
-        tracks within grains), state both levels."
-      anyOf:
-      - type: string
-        enum:
-        - Whole sample
-        - Aliquot
-        - Grain
-        - Spot
-        - Analysis point
-        - Phase
-        - Sub-volume
-        - Region of interest
-        - N/A
-        - None
-        - missing
-      - type: string
-    ada:targetSelectionCriteriaDefault:
-      description: "The rules governing which part of the sample is analysed, and
-        why. Covers the criteria applied when choosing grains, aliquots, spots, or
-        a region of interest \u2014 size, morphology, clarity, freedom from inclusions
-        or alteration, phase identity, or spatial position. Distinct from Target Material,
-        which states the material type the procedure is designed for: this field states
-        how, within such a sample, the analysed portion is picked out."
-      type: string
     schema:instrument:
       type: array
       items:
@@ -438,43 +155,11 @@ allOf:
               schema:additionalType:
                 contains:
                   const: SEM
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
             properties:
-              schema:manufacturer:
-                type: object
-                properties:
-                  schema:name:
-                    description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
-                    type: string
-                    enum:
-                    - JEOL
-                    - Zeiss
-                    - FEI / Thermo Fisher Scientific
-                    - Hitachi
-                    - Tescan
-                    - Phenom
-                    - Unknown
-                    - N/A
-                    - None
-                    - missing
-                    readOnly: true
-              schema:model:
-                type: object
-                properties:
-                  schema:name:
-                    description: Model designation of the instrument that performs
-                      the measurement, including any generation or configuration suffix.
-                      Conventionally written with the manufacturer name included;
-                      Instrument Manufacturer records the vendor separately, as a
-                      controlled value, so that procedures remain findable by vendor.
-                    type: string
-                    readOnly: true
               schema:hasPart:
                 type: array
                 items:
@@ -484,7 +169,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: Electron source
+                            const: Electron Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -520,7 +206,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: EDSDetector
+                            const: EDS Detector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -540,7 +227,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: WDSSpectrometer
+                            const: WDS Spectrometer
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -562,7 +250,8 @@ allOf:
                     properties:
                       schema:additionalType:
                         contains:
-                          const: Electron source
+                          const: Electron Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
               schema:description:
@@ -655,74 +344,9 @@ allOf:
             schema:additionalType:
               contains:
                 const: SEM
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    bios:computationalTool:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Instrument control, automation and data acquisition software
-                  used to collect the raw data, including version number. Distinct
-                  from Data Processing Software(s), which covers everything applied
-                  to the data after acquisition.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
-                const: dataReduction
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: All software applied to the data after acquisition in
-                  order to produce the reported quantities, including version numbers.
-                  List every package used. Distinct from Acquisition Software, which
-                  controls the instrument and collects the raw data.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        required:
-        - ada:toolRole
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Primary analytical mode(s) executed under this procedure. Records
-          one value for a single-mode procedure and all applicable modes for a multi-mode
-          one. Serves as the procedure-level declaration of measurement type, distinct
-          from the mode flag columns, which state per-field applicability. Required
-          even where a procedure defines no mode flag columns, so that every procedure
-          record is self-describing and comparable across the library.
-        type: string
-        enum:
-        - SE Imaging
-        - BSE Imaging
-        - EDS
-        - SEM-WDS
-        - CL
-        - EBSD
-        - TEM Sample Preparation
-        - 3D Tomography
-        - N/A
-        - None
-        - missing
-        readOnly: true
     ada:analyteTemplate:
       type: object
       properties:
@@ -1705,12 +1329,6 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
-        ada:defaultAnalytes:
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
     schema:additionalProperty:
       type: array
       items:
@@ -1740,6 +1358,8 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -1865,6 +1485,8 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -1956,6 +1578,8 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -2093,6 +1717,8 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -2225,17 +1851,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/xRayLine
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/xRayLine
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: xRayLine
                 schema:name:
                   const: X-ray Line
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - type: string
                   - type: array
@@ -2244,10 +1871,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
             - title: Diffracting Crystal
               description: Analyzing crystal (monochromator) used on each spectrometer
                 assignment. Crystal choice determines the detectable wavelength range
@@ -2258,17 +1885,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/diffractingCrystal
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: diffractingCrystal
                 schema:name:
                   const: Diffracting Crystal
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - type: string
                   - type: array
@@ -2277,10 +1905,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
             - title: Sequence
               description: Order in which spectrometer assignments are acquired during
                 point analysis. Relevant for minimizing beam damage (volatile elements
@@ -2293,17 +1921,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/sequence
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/sequence
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: sequence
                 schema:name:
                   const: Sequence
                 ada:dataType:
                   const: integer
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - anyOf:
                     - type: number
@@ -2316,7 +1945,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             - title: Proportional Counter / Detector
@@ -2328,17 +1957,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: proportionalCounterDetector
                 schema:name:
                   const: Proportional Counter / Detector
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - type: string
                   - type: array
@@ -2347,7 +1977,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             - title: WDS PHA Setting
@@ -2361,17 +1991,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/wdsPhaSetting
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: wdsPhaSetting
                 schema:name:
                   const: WDS PHA Setting
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - type: string
                   - type: array
@@ -2380,7 +2011,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             - title: Peak Counting Time
@@ -2548,17 +2179,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/xRayLine
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/xRayLine
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: xRayLine
                 schema:name:
                   const: X-ray Line
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - type: string
                   - type: array
@@ -2567,10 +2199,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
             minContains: 0
             maxContains: 1
           - contains:
@@ -2584,17 +2216,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/diffractingCrystal
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: diffractingCrystal
                 schema:name:
                   const: Diffracting Crystal
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - type: string
                   - type: array
@@ -2603,10 +2236,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
             minContains: 0
             maxContains: 1
           - contains:
@@ -2622,17 +2255,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/sequence
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/sequence
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: sequence
                 schema:name:
                   const: Sequence
                 ada:dataType:
                   const: integer
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - anyOf:
                     - type: number
@@ -2645,7 +2279,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             minContains: 0
@@ -2660,17 +2294,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: proportionalCounterDetector
                 schema:name:
                   const: Proportional Counter / Detector
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - type: string
                   - type: array
@@ -2679,7 +2314,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             minContains: 0
@@ -2696,17 +2331,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/wdsPhaSetting
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: wdsPhaSetting
                 schema:name:
                   const: WDS PHA Setting
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - type: string
                   - type: array
@@ -2715,7 +2351,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             minContains: 0
@@ -2854,20 +2490,6 @@ allOf:
       - None
       - missing
       readOnly: true
-    ada:reportedProperties:
-      type: array
-      items:
-        description: "The final variable(s) this procedure reports and their units
-          \u2014 distinct from the fields recording what was *acquired* rather than
-          what is reported. A procedure may acquire many channels and report a small
-          number of derived quantities; without this field a data consumer cannot
-          tell which. Record every reported variable, including intermediate quantities
-          reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U
-          date). Where a reported variable is a nominal property with no magnitude
-          (e.g. a mineral identification), record the variable and give the unit as
-          'N/A \u2014 nominal property'."
-        type: string
-        readOnly: true
     ada:edsLiveTimePerPointOrPixelDefault:
       description: EDS spectral acquisition live time per analysis point or per pixel
         in seconds. Longer live time improves counting statistics but increases beam
@@ -2921,6 +2543,21 @@ allOf:
       type: array
       items:
         anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
         - title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference
             materials to correct for session-to-session calibration drift.
@@ -3267,19 +2904,7 @@ allOf:
       - None
       - missing
       readOnly: true
-    schema:description:
-      description: "Any procedure- or analysis-specific information not captured by
-        a structured field anywhere in this TAPP \u2014 including anomalies, deviations
-        from the registered procedure, instrument modifications, and supplementary
-        context. Scope is the whole document, not Group 6: this is the last field
-        of the TAPP and covers all six groups. Use sparingly; a structured field is
-        preferred for anything that can be formally categorised."
-      type: string
   required:
-  - schema:name
-  - schema:datePublished
-  - ada:samplingUnit
-  - ada:targetSelectionCriteriaDefault
   - ada:edsAcquisitionMode
   - ada:edsLiveTimePerPointOrPixelDefault
   - ada:stepSizePixelSizeDefault

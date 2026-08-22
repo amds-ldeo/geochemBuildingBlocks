@@ -1959,6 +1959,16 @@ x-defs:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/ToFSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
     - type: object
       properties:
+        '@id':
+          description: 'Identifier for this instrument within the record. REQUIRED:
+            an instrument has to be referenceable. A monitored species names the instrument
+            (or the instrument part) that reports it, and a dataset variable points
+            back at the device that produced it; neither is expressible while the
+            instrument is an anonymous object. A document-scoped identifier suffices,
+            but a resolvable one is better wherever the lab has a persistent identifier
+            for the device.'
+          type: string
+          minLength: 1
         schema:additionalType:
           description: 'Domain-specific instrument type classifications. Should include
             a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific
@@ -2005,10 +2015,21 @@ x-defs:
             anyOf:
             - type: object
               required:
+              - '@id'
               - '@type'
               - schema:name
               - schema:additionalType
               properties:
+                '@id':
+                  description: 'Identifier for this component within the record. REQUIRED
+                    on an INLINE component for the same reason it is required on the
+                    instrument: a monitored species names the part that reports it
+                    -- a Faraday cup, a spectrometer, a detector -- and an anonymous
+                    object cannot be referenced. The sibling branch of this anyOf
+                    is the by-reference form, a bare {"@id": ...} pointing at a component
+                    described elsewhere.'
+                  type: string
+                  minLength: 1
                 '@type':
                   type: array
                   items:
@@ -2046,6 +2067,7 @@ x-defs:
                   type: string
           x-jsonld-id: http://schema.org/hasPart
       required:
+      - '@id'
       - schema:additionalType
     x-jsonld-prefixes:
       schema: http://schema.org/
@@ -6171,12 +6193,26 @@ x-defs:
         type: array
         items:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/ToFSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTermOrString
-        description: Essentially the same as schema:propertyID. References to concepts
-          that this variable measures or represents. When the dataset's distribution
-          carries cdi:isStructuredBy (CDIF Data Structure profile), cdif:uses references
-          the RepresentedVariable that supplies the represented-variable-level properties
-          below, which are then NOT duplicated on the InstanceVariable.
+        description: Essentially the same as schema:propertyID. References to the
+          concept(s) that this variable measures or represents. Concepts only -- to
+          point at the RepresentedVariable that supplies the represented-variable-level
+          properties, use cdif:isDefinedBy_RepresentedVariable. Splitting the two
+          targets follows the CDIF convention of disambiguating the polymorphic DDI-CDI
+          role names by target, so each JSON key has a single value type; it also
+          keeps cdif:uses type-compatible with canonical cdi:uses on InstanceVariable,
+          which is valued by a Concept.
         x-jsonld-id: https://w3id.org/cdif/uses
+      cdif:isDefinedBy_RepresentedVariable:
+        description: 'The RepresentedVariable this InstanceVariable instantiates.
+          A reference only (@id, nothing else): the point of the link is that the
+          represented-variable-level properties are defined once on the RepresentedVariable
+          and NOT duplicated here, so an inline copy would defeat it. Same property
+          name as on cdifDataStructureComponent, which carries the equivalent link
+          within a data structure; that one also accepts an inline RepresentedVariable
+          because a structure may define one that exists nowhere else.'
+        x-jsonld-id: https://w3id.org/cdif/isDefinedBy_RepresentedVariable
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/ToFSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
       cdi:function:
         type: array
         items:

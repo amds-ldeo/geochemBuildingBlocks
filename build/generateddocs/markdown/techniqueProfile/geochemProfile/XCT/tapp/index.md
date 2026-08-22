@@ -36,7 +36,7 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -188,7 +188,22 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "4000",
@@ -286,7 +301,7 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -438,7 +453,22 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "4000",
@@ -537,21 +567,12 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nikon XT H 320" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "110 kV" ;
-            ada:tubeCurrentDefault "27 µA" ;
-            ada:voxelSizeDefault "6.00 µm" ;
-            ada:xRayPreFilterDefault "0.25 mm aluminum" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Eckley2024" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -636,6 +657,24 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XT H 320" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "110 kV" ;
+    ada:tubeCurrentDefault "27 µA" ;
+    ada:voxelSizeDefault "6.00 µm" ;
+    ada:xRayPreFilterDefault "0.25 mm aluminum" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
     schema1:name "X-ray Tube Anode Material" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
@@ -672,7 +711,7 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -878,7 +917,22 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationRangeDefault": "360°",
@@ -934,7 +988,7 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -1140,7 +1194,22 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationRangeDefault": "360\u00b0",
@@ -1197,21 +1266,12 @@ ex:labxctTAPP-Genge2025 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Zeiss Versa (model not specified)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "90 kV" ;
-            ada:tubeCurrentDefault "89 µA" ;
-            ada:voxelSizeDefault "0.625 µm (A0180-A); 0.672 µm (A0180-B)" ;
-            ada:xRayPreFilterDefault "Inbuilt LE4 filter (beam hardening reduction)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Not stated" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Genge2025" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -1284,6 +1344,24 @@ ex:labxctTAPP-Genge2025 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Zeiss Versa (model not specified)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "90 kV" ;
+    ada:tubeCurrentDefault "89 µA" ;
+    ada:voxelSizeDefault "0.625 µm (A0180-A); 0.672 µm (A0180-B)" ;
+    ada:xRayPreFilterDefault "Inbuilt LE4 filter (beam hardening reduction)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -1330,7 +1408,7 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -1471,7 +1549,22 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -1526,7 +1619,7 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -1667,7 +1760,22 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -1719,20 +1827,12 @@ ex:labxctTAPP-Neuman2025 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v21.csv). Reported detail: ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "180 kV" ;
-            ada:tubeCurrentDefault "0.18 mA (180 µA)" ;
-            ada:xRayPreFilterDefault "0.72 mm Al" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Neuman2025" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -1784,6 +1884,23 @@ ex:labxctTAPP-Neuman2025 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "180 kV" ;
+    ada:tubeCurrentDefault "0.18 mA (180 µA)" ;
+    ada:xRayPreFilterDefault "0.72 mm Al" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -1820,7 +1937,7 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -1960,7 +2077,22 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -2015,7 +2147,7 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -2155,7 +2287,22 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -2192,34 +2339,27 @@ ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Steel outer sleeve retained for scan" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v21.csv). Reported detail: ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "190 kV" ;
-            ada:xRayPreFilterDefault "None (steel sleeve acts as effective filter)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Neuman2025-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -2271,6 +2411,22 @@ ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "190 kV" ;
+    ada:xRayPreFilterDefault "None (steel sleeve acts as effective filter)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -2307,7 +2463,7 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -2356,7 +2512,22 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "schema:actionProcess": {
@@ -2441,7 +2612,7 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -2490,7 +2661,22 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "schema:actionProcess": {
@@ -2567,20 +2753,12 @@ ex:labxctTAPP-Shearer2024 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nikon XTH 320" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "215 kV" ;
-            ada:tubeCurrentDefault "179 mA (possibly typo for µA per source)" ;
-            ada:voxelSizeDefault "38.49 µm voxel edge" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Shearer2024" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -2602,6 +2780,23 @@ ex:labxctTAPP-Shearer2024 a cdi:Activity,
     ada:targetFeature "Internal structure of core vacuum seal container" ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:xRaySourceConfiguration "225 kV multi-metal reflection target source" .
+
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "215 kV" ;
+    ada:tubeCurrentDefault "179 mA (possibly typo for µA per source)" ;
+    ada:voxelSizeDefault "38.49 µm voxel edge" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 
 ```
@@ -2634,7 +2829,7 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -2751,7 +2946,22 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -2807,7 +3017,7 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -2924,7 +3134,22 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -2963,33 +3188,25 @@ ex:labxctTAPP-Shearer2024-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Triple-bagged (Teflon) per ANGSA curation protocol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Triple-bagged (Teflon) per ANGSA curation protocol" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 particles Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nikon XTH 320" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "90 kV (typical; optimized per sample)" ;
-            ada:voxelSizeDefault "2.8–20.6 µm (optimized per sample)" ;
-            ada:xRayPreFilterDefault "0.1–0.25 mm Al (Bennu PE protocol range stated)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Shearer2024-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -3027,6 +3244,23 @@ ex:labxctTAPP-Shearer2024-2 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "90 kV (typical; optimized per sample)" ;
+    ada:voxelSizeDefault "2.8–20.6 µm (optimized per sample)" ;
+    ada:xRayPreFilterDefault "0.1–0.25 mm Al (Bennu PE protocol range stated)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
     schema1:name "X-ray Tube Anode Material" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
@@ -3063,7 +3297,7 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -3218,7 +3452,22 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "3143",
@@ -3275,7 +3524,7 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -3430,7 +3679,22 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "3143",
@@ -3484,19 +3748,12 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nikon Metris XTH 225" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)" ;
-            ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Tomkinson2015" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -3555,6 +3812,22 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon Metris XTH 225" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)" ;
+    ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
     schema1:name "X-ray Tube Anode Material" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
@@ -3591,7 +3864,7 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -3765,7 +4038,22 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationRangeDefault": "360° (continuous)",
@@ -3820,7 +4108,7 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -3994,7 +4282,22 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationRangeDefault": "360\u00b0 (continuous)",
@@ -4032,14 +4335,14 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Chips (~10.3 g) crushed with mortar and pestle; vortex mixed 3 min; split into two ~4.6 g portions" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Chips (~10.3 g) crushed with mortar and pestle; vortex mixed 3 min; split into two ~4.6 g portions" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -4049,21 +4352,12 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nikon XTH 320" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)" ;
-            ada:tubeCurrentDefault "38 µA" ;
-            ada:voxelSizeDefault "11.54 µm (cubic voxel edge)" ;
-            ada:xRayPreFilterDefault "None (intentionally unfiltered; worst-case dose experiment)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Glavin2023" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -4127,6 +4421,24 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)" ;
+    ada:tubeCurrentDefault "38 µA" ;
+    ada:voxelSizeDefault "11.54 µm (cubic voxel edge)" ;
+    ada:xRayPreFilterDefault "None (intentionally unfiltered; worst-case dose experiment)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -4168,7 +4480,7 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -4338,7 +4650,22 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationRangeDefault": "360°",
@@ -4394,7 +4721,7 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -4564,7 +4891,22 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationRangeDefault": "360\u00b0",
@@ -4603,14 +4945,14 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated (fragments purchased from IMCA member)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated (fragments purchased from IMCA member)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -4618,21 +4960,12 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Bruker/Skyscan 1173" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "50 kV" ;
-            ada:tubeCurrentDefault "160 µA" ;
-            ada:voxelSizeDefault "5.34 µm" ;
-            ada:xRayPreFilterDefault "1.0 mm aluminum" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Dias2019" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -4699,6 +5032,24 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Bruker/Skyscan 1173" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "50 kV" ;
+    ada:tubeCurrentDefault "160 µA" ;
+    ada:voxelSizeDefault "5.34 µm" ;
+    ada:xRayPreFilterDefault "1.0 mm aluminum" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -4735,7 +5086,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -4903,7 +5254,22 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "1601",
@@ -4959,7 +5325,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -5127,7 +5493,22 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "1601",
@@ -5166,14 +5547,14 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
@@ -5182,19 +5563,12 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Zeiss Xradia 510 Versa" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "30 kV" ;
-            ada:voxelSizeDefault "2.06 µm/px" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Lab. de Microtomografía de Rayos X, UNAM, Mexico" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Richard2019" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -5256,6 +5630,22 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Zeiss Xradia 510 Versa" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "30 kV" ;
+    ada:voxelSizeDefault "2.06 µm/px" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -5297,7 +5687,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -5484,7 +5874,22 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "3141",
@@ -5539,7 +5944,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -5726,7 +6131,22 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "3141",
@@ -5781,21 +6201,12 @@ ex:labxctTAPP-Richard2019-2 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nikon XTH 320/225" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "160 kV" ;
-            ada:tubeCurrentDefault "71 µA (Ag target)" ;
-            ada:voxelSizeDefault "25 µm" ;
-            ada:xRayPreFilterDefault "None (conditions did not require filtering)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "U. Strathclyde, Glasgow, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Richard2019-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -5858,6 +6269,24 @@ ex:labxctTAPP-Richard2019-2 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320/225" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "160 kV" ;
+    ada:tubeCurrentDefault "71 µA (Ag target)" ;
+    ada:voxelSizeDefault "25 µm" ;
+    ada:xRayPreFilterDefault "None (conditions did not require filtering)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -5906,7 +6335,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -6093,7 +6522,22 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "3141",
@@ -6148,7 +6592,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -6335,7 +6779,22 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "3141",
@@ -6373,14 +6832,14 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -6390,21 +6849,12 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nikon XTH 320/225" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "160 kV" ;
-            ada:tubeCurrentDefault "46 µA (Ag target)" ;
-            ada:voxelSizeDefault "7.7 µm" ;
-            ada:xRayPreFilterDefault "None (conditions did not require filtering)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "U. Strathclyde, Glasgow, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Richard2019-3" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -6467,6 +6917,24 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320/225" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "160 kV" ;
+    ada:tubeCurrentDefault "46 µA (Ag target)" ;
+    ada:voxelSizeDefault "7.7 µm" ;
+    ada:xRayPreFilterDefault "None (conditions did not require filtering)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -6515,7 +6983,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -6690,7 +7158,22 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "1200–2000 (varies by sample)",
@@ -6752,7 +7235,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -6927,7 +7410,22 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "1200\u20132000 (varies by sample)",
@@ -6988,20 +7486,12 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Phoenix Nanotom S" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
-            ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
-            ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Université de Lorraine, France" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Richard2019-4" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -7076,6 +7566,23 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Phoenix Nanotom S" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
+    ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
+    ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -7112,7 +7619,7 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -7214,7 +7721,22 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "schema:additionalProperty": [
@@ -7313,7 +7835,7 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -7415,7 +7937,22 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "schema:additionalProperty": [
@@ -7510,20 +8047,12 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "XRADIA XRM500" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "70 kV" ;
-            ada:tubeCurrentDefault "86 µA" ;
-            ada:voxelSizeDefault "1.923 µm" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CSIRO, Kensington, Western Australia" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Tait2014" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -7583,6 +8112,23 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "XRADIA XRM500" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "70 kV" ;
+    ada:tubeCurrentDefault "86 µA" ;
+    ada:voxelSizeDefault "1.923 µm" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 
 ```
 
@@ -7614,7 +8160,7 @@ labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrit
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Medical CT"
     }
   ],
   "schema:location": {
@@ -7802,7 +8348,22 @@ labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrit
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationRangeDefault": "360°",
@@ -7863,7 +8424,7 @@ labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrit
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "Medical CT"
     }
   ],
   "schema:location": {
@@ -8051,7 +8612,22 @@ labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrit
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:rotationRangeDefault": "360\u00b0",
@@ -8113,20 +8689,12 @@ ex:labxctTAPP-Charles2018 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiSelectionCriteriaDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "GE eXplore speCZT" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "110 kV" ;
-            ada:tubeCurrentDefault "32 mA" ;
-            ada:voxelSizeDefault "49.8 µm (edge)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Robarts Institute, U. Western Ontario" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Medical CT" ] ;
     schema1:name "labxct protocol — Charles2018" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -8202,6 +8770,23 @@ ex:labxctTAPP-Charles2018 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "GE eXplore speCZT" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "110 kV" ;
+    ada:tubeCurrentDefault "32 mA" ;
+    ada:voxelSizeDefault "49.8 µm (edge)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -8245,7 +8830,7 @@ labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "NXCT"
     }
   ],
   "schema:location": {
@@ -8444,7 +9029,22 @@ labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:outputDataFormatDefault": "Raw image slices (available in supplementary material)",
@@ -8499,7 +9099,7 @@ labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "missing"
+      "schema:termCode": "NXCT"
     }
   ],
   "schema:location": {
@@ -8698,7 +9298,22 @@ labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite 
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:outputDataFormatDefault": "Raw image slices (available in supplementary material)",
@@ -8754,20 +9369,12 @@ ex:labxctTAPP-Treiman2022 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiSelectionCriteriaDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "NIST-NeXT System (custom, BT-2 beamline)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "90 keV max (paper reports max Bremsstrahlung photon energy; numerically equivalent to 90 kV tube voltage)" ;
-            ada:voxelSizeDefault "15 µm — NCT value. The paper gives this as the reconstructed voxel dimension of the NCT (neutron) tomograms; no XCT voxel size is stated anywhere in the paper" ;
-            ada:xRayPreFilterDefault "2 mm aluminum" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NIST Center for Neutron Research (NCNR)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "NXCT" ] ;
     schema1:name "labxct protocol — Treiman2022" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -8832,6 +9439,23 @@ ex:labxctTAPP-Treiman2022 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "NIST-NeXT System (custom, BT-2 beamline)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "90 keV max (paper reports max Bremsstrahlung photon energy; numerically equivalent to 90 kV tube voltage)" ;
+    ada:voxelSizeDefault "15 µm — NCT value. The paper gives this as the reconstructed voxel dimension of the NCT (neutron) tomograms; no XCT voxel size is stated anywhere in the paper" ;
+    ada:xRayPreFilterDefault "2 mm aluminum" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> ;
@@ -8864,120 +9488,10 @@ description: 'Laboratory X-ray computed tomography (polychromatic cone-beam) ext
   Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v21.csv by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
-    schema:name:
-      description: "A short descriptive name for this analytical procedure, including
-        a version number. Should identify the instrument, the technique, and the scope
-        of what is measured \u2014 analyte, material, or feature."
-      type: string
-      readOnly: true
-    schema:measurementTechnique:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:termCode:
-            description: Top-level analytical technique identifier.
-            type: string
-            enum:
-            - XCT (laboratory, polychromatic cone-beam)
-            - missing
-            readOnly: true
-    schema:creator:
-      type: object
-      properties:
-        schema:name:
-          description: Person(s) or laboratory responsible for developing and registering
-            this procedure. ORCID recommended for individuals.
-          type: string
-          readOnly: true
-    schema:location:
-      type: object
-      properties:
-        schema:name:
-          description: Name of the laboratory or institution hosting the instrument.
-          type: string
-        schema:identifier:
-          description: Persistent identifier for the laboratory (e.g., ROR ID).
-          type: string
-    schema:datePublished:
-      description: First date this procedure configuration was used in production.
-      type: string
-      readOnly: true
-    schema:funding:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:name:
-            description: Grants and other funding sources that supported instrument
-              acquisition, major upgrades, procedure development, and associated personnel
-              time. Include grant numbers and funding agencies where applicable.
-            type: string
-            readOnly: true
-    schema:relatedLink:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: techniquePublication
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: DOI or URL for peer-reviewed publications or technical
-                      reports describing, validating, or benchmarking this procedure.
-                    type: string
-                    readOnly: true
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: coupledTechnique
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: "Other analytical techniques applied to the same
-                      sample(s) whose results are intended to be interpreted together
-                      with data from this procedure. Document coupling with any technique
-                      whose results are functionally linked to this dataset \u2014
-                      providing calibration inputs, complementary spatial context,
-                      or required companion measurements. Use the same controlled
-                      vocabulary as the Technique field. Enter \"None\" if no coupling
-                      is intended."
-                    anyOf:
-                    - type: string
-                      enum:
-                      - NCT
-                      - EPMA
-                      - LA-ICP-MS
-                      - SIMS
-                      - None
-                      - N/A
-                      - missing
-                    - type: string
-                  schema:description:
-                    description: "Description of how this procedure is coupled with
-                      the technique(s) listed above. Include: (1) the functional relationship
-                      \u2014 what data or context flows between techniques, or how
-                      results are combined (e.g. which output from the coupled technique
-                      serves as input to data reduction for this technique); and (2)
-                      the analytical sequence \u2014 which technique is performed
-                      first and why (e.g. non-destructive before destructive). Required
-                      when Coupled Technique(s) is not \"None\"."
-                    type: string
     schema:object:
       type: array
       items:
@@ -9073,40 +9587,7 @@ allOf:
                   minContains: 0
                   maxContains: 1
                 - contains:
-                    title: Pre-Analysis Imaging and Screening
-                    description: Imaging or other characterisation performed before
-                      the measurement in order to select or locate the analysed target,
-                      including the technique, instrument and settings used, and how
-                      individual analyses are linked back to the images. Distinct
-                      from any imaging the procedure performs as its own measurement.
-                      Where the imaging is performed on a separate instrument, it
-                      should also be recorded in the Group 1 coupling fields.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: preAnalysisImagingAndScreeningDefault
-                      schema:name:
-                        const: Pre-Analysis Imaging and Screening
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                   minContains: 0
                   maxContains: 1
       allOf:
@@ -10626,42 +11107,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - title: Calibration Factor and Determination Method
-                        description: 'An externally-calibrated factor that converts
-                          the measured quantity into the reported quantity, how it
-                          was determined, and its uncertainty. Applies where the conversion
-                          depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone.
-                          Distinct from the fields that name the calibration material
-                          and that state which approach applies to which analyte,
-                          where the technique has them: this field records the resulting
-                          factor itself.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/labxctTAPP/calibrationFactorAndDeterminationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: calibrationFactorAndDeterminationMethodDefault
-                          schema:name:
-                            const: Calibration Factor and Determination Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                       - title: Sub-volume Stitching and Registration Method
                         description: "Method used to register adjacent sub-volume
                           datasets to each other and stitch them into a single continuous
@@ -10697,43 +11143,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - title: Constants and Reference Values Used
-                        description: Physical constants and reference values used
-                          in data reduction to calculate the final reported quantity
-                          (e.g., decay constants for age calculation, standard isotope
-                          ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from
-                          the Group 6 reference-material fields, which document accepted
-                          values for specific calibration/validation materials rather
-                          than universal physical constants. Record "None" if no citable,
-                          revisable physical constants feed into this procedure's
-                          data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/labxctTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains:
                         title: Flat Field Correction
@@ -10772,42 +11182,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Calibration Factor and Determination Method
-                        description: 'An externally-calibrated factor that converts
-                          the measured quantity into the reported quantity, how it
-                          was determined, and its uncertainty. Applies where the conversion
-                          depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone.
-                          Distinct from the fields that name the calibration material
-                          and that state which approach applies to which analyte,
-                          where the technique has them: this field records the resulting
-                          factor itself.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/labxctTAPP/calibrationFactorAndDeterminationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: calibrationFactorAndDeterminationMethodDefault
-                          schema:name:
-                            const: Calibration Factor and Determination Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -10849,43 +11224,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Constants and Reference Values Used
-                        description: Physical constants and reference values used
-                          in data reduction to calculate the final reported quantity
-                          (e.g., decay constants for age calculation, standard isotope
-                          ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from
-                          the Group 6 reference-material fields, which document accepted
-                          values for specific calibration/validation materials rather
-                          than universal physical constants. Record "None" if no citable,
-                          revisable physical constants feed into this procedure's
-                          data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/labxctTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -10938,34 +11277,15 @@ allOf:
         - if:
             properties:
               ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Instrument control, automation and data acquisition software
-                  used to collect the raw data, including version number. Distinct
-                  from Data Processing Software(s), which covers everything applied
-                  to the data after acquisition.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
                 const: dataReduction
             required:
             - ada:toolRole
           then:
             properties:
               schema:name:
-                description: All software applied to the data after acquisition in
-                  order to produce the reported quantities, including version numbers.
-                  List every package used. Distinct from Acquisition Software, which
-                  controls the instrument and collects the raw data.
+                description: Software used to reconstruct 2D projection images into
+                  a 3D CT volume, including version number. Often bundled with the
+                  instrument and proprietary to the manufacturer.
                 anyOf:
                 - type: string
                 - type: array
@@ -10973,22 +11293,6 @@ allOf:
                     type: string
         required:
         - ada:toolRole
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Primary analytical mode(s) executed under this procedure. Records
-          one value for a single-mode procedure and all applicable modes for a multi-mode
-          one. Serves as the procedure-level declaration of measurement type, distinct
-          from the mode flag columns, which state per-field applicability. Required
-          even where a procedure defines no mode flag columns, so that every procedure
-          record is self-describing and comparable across the library.
-        type: string
-        enum:
-        - Single-volume
-        - Multi-volume stitching
-        - Single-volume; Multi-volume stitching
-        - missing
-        readOnly: true
     schema:instrument:
       type: array
       items:
@@ -10999,6 +11303,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: XCT
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -11052,46 +11357,13 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
-              schema:manufacturer:
-                type: object
-                properties:
-                  schema:name:
-                    description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
-                    type: string
-                    enum:
-                    - Nikon
-                    - Zeiss
-                    - Bruker
-                    - GE / Waygate
-                    - North Star Imaging
-                    - RX Solutions
-                    - Custom-built
-                    - Unknown
-                    - N/A
-                    - None
-                    - missing
-                    readOnly: true
-              schema:model:
-                type: object
-                properties:
-                  schema:name:
-                    description: Model designation of the instrument that performs
-                      the measurement, including any generation or configuration suffix.
-                      Conventionally written with the manufacturer name included;
-                      Instrument Manufacturer records the vendor separately, as a
-                      controlled value, so that procedures remain findable by vendor.
-                    type: string
-                    readOnly: true
       allOf:
       - contains:
           properties:
             schema:additionalType:
               contains:
                 const: XCT
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     ada:rotationRangeDefault:
@@ -11135,27 +11407,6 @@ allOf:
       - N/A
       - None
       - missing
-    ada:samplingUnit:
-      description: "The physical subdivision of the sample to which one row of reported
-        values corresponds \u2014 the unit that is analysed and reported, as distinct
-        from the sample as a whole. State the unit type at procedure level and the
-        units actually analysed at analysis level. Where units nest (e.g. confined
-        tracks within grains), state both levels."
-      anyOf:
-      - type: string
-        enum:
-        - Whole sample
-        - Aliquot
-        - Grain
-        - Spot
-        - Analysis point
-        - Phase
-        - Sub-volume
-        - Region of interest
-        - N/A
-        - None
-        - missing
-      - type: string
     ada:minimumSubVolumeOverlap:
       description: Minimum number of reconstructed slices that must overlap between
         adjacent sub-volumes in a stitched dataset. This is a procedure-level quality
@@ -11166,14 +11417,6 @@ allOf:
       - type: integer
       - type: string
       readOnly: true
-    ada:targetSelectionCriteriaDefault:
-      description: "The rules governing which part of the sample is analysed, and
-        why. Covers the criteria applied when choosing grains, aliquots, spots, or
-        a region of interest \u2014 size, morphology, clarity, freedom from inclusions
-        or alteration, phase identity, or spatial position. Distinct from Target Material,
-        which states the material type the procedure is designed for: this field states
-        how, within such a sample, the analysed portion is picked out."
-      type: string
     ada:reconstructionAlgorithm:
       description: Mathematical algorithm used to reconstruct the 3D CT volume from
         2D projection images. The Feldkamp-Davis-Kress (FDK) algorithm is standard
@@ -11238,31 +11481,7 @@ allOf:
         - None
         - missing
       - type: string
-    ada:reportedProperties:
-      type: array
-      items:
-        description: "The final variable(s) this procedure reports and their units
-          \u2014 distinct from the fields recording what was *acquired* rather than
-          what is reported. A procedure may acquire many channels and report a small
-          number of derived quantities; without this field a data consumer cannot
-          tell which. Record every reported variable, including intermediate quantities
-          reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U
-          date). Where a reported variable is a nominal property with no magnitude
-          (e.g. a mineral identification), record the variable and give the unit as
-          'N/A \u2014 nominal property'."
-        type: string
-        readOnly: true
-    schema:description:
-      description: "Any procedure- or analysis-specific information not captured by
-        a structured field anywhere in this TAPP \u2014 including anomalies, deviations
-        from the registered procedure, instrument modifications, and supplementary
-        context. Scope is the whole document, not Group 6: this is the last field
-        of the TAPP and covers all six groups. Use sparingly; a structured field is
-        preferred for anything that can be formally categorised."
-      type: string
   required:
-  - schema:name
-  - schema:datePublished
   - ada:targetFeature
   - ada:applicableSampleDimensionRange
   - ada:xRaySourceConfiguration
@@ -11271,9 +11490,7 @@ allOf:
   - ada:numberOfProjectionsDefault
   - ada:exposureTimePerProjectionDefault
   - ada:rotationModeDefault
-  - ada:samplingUnit
   - ada:minimumSubVolumeOverlap
-  - ada:targetSelectionCriteriaDefault
   - ada:reconstructionAlgorithm
   - ada:beamHardeningCorrectionMethod
   - ada:outputDataFormatDefault

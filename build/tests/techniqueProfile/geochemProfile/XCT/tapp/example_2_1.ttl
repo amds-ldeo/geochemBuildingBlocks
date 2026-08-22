@@ -33,21 +33,12 @@ ex:labxctTAPP-Genge2025 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "XCT" ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Zeiss Versa (model not specified)" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "90 kV" ;
-            ada:tubeCurrentDefault "89 µA" ;
-            ada:voxelSizeDefault "0.625 µm (A0180-A); 0.672 µm (A0180-B)" ;
-            ada:xRayPreFilterDefault "Inbuilt LE4 filter (beam hardening reduction)" ] ;
+    schema1:instrument <https://example.org/instrument/XCT>,
+        <https://example.org/instrument/part/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Not stated" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:termCode "missing" ] ;
+            schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Genge2025" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -119,6 +110,24 @@ ex:labxctTAPP-Genge2025 a cdi:Activity,
     schema1:valueName "sampleMountingMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Zeiss Versa (model not specified)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "90 kV" ;
+    ada:tubeCurrentDefault "89 µA" ;
+    ada:voxelSizeDefault "0.625 µm (A0180-A); 0.672 µm (A0180-B)" ;
+    ada:xRayPreFilterDefault "Inbuilt LE4 filter (beam hardening reduction)" .
+
+<https://example.org/instrument/part/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "SEM" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;

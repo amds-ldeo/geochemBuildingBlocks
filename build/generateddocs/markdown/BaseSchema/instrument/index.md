@@ -85,6 +85,15 @@ allOf:
 - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/instrument/schema.yaml
 - type: object
   properties:
+    '@id':
+      description: 'Identifier for this instrument within the record. REQUIRED: an
+        instrument has to be referenceable. A monitored species names the instrument
+        (or the instrument part) that reports it, and a dataset variable points back
+        at the device that produced it; neither is expressible while the instrument
+        is an anonymous object. A document-scoped identifier suffices, but a resolvable
+        one is better wherever the lab has a persistent identifier for the device.'
+      type: string
+      minLength: 1
     schema:additionalType:
       description: 'Domain-specific instrument type classifications. Should include
         a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific
@@ -129,10 +138,20 @@ allOf:
         anyOf:
         - type: object
           required:
+          - '@id'
           - '@type'
           - schema:name
           - schema:additionalType
           properties:
+            '@id':
+              description: 'Identifier for this component within the record. REQUIRED
+                on an INLINE component for the same reason it is required on the instrument:
+                a monitored species names the part that reports it -- a Faraday cup,
+                a spectrometer, a detector -- and an anonymous object cannot be referenced.
+                The sibling branch of this anyOf is the by-reference form, a bare
+                {"@id": ...} pointing at a component described elsewhere.'
+              type: string
+              minLength: 1
             '@type':
               type: array
               items:
@@ -167,6 +186,7 @@ allOf:
               type: string
       x-jsonld-id: http://schema.org/hasPart
   required:
+  - '@id'
   - schema:additionalType
 x-jsonld-prefixes:
   schema: http://schema.org/

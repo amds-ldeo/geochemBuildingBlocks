@@ -1,0 +1,461 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:solutionQicpmsTAPP-Agilent7900",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "solutionQicpms protocol \u2014 Agilent7900",
+  "schema:description": "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods); ada:perAnalyteCalibrationStrategy = External calibration (stated Methods).",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution Q-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Institut de Physique du Globe de Paris (IPGP), France (affiliation)"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "MC-ICP-MS (Neptune Plus at IPGP; for Zn isotope measurements; stated Methods)",
+        "schema:description": "Same dissolved aliquots analyzed by Q-ICP-MS (major/trace elements, masses 23-75) and MC-ICP-MS (Zn isotopes); stated Methods"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Carbonaceous chondrites (CI, CM, CV, CO, CR, CK, CH, CY, CB types; stated abstract)"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:chromatographicSeparationApplied": "None (direct analysis; stated Methods)",
+  "ada:isotopeDilutionSpike": "None",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Agilent 7900 (stated Methods)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
+            }
+          ],
+          "schema:name": "Mass Resolution Setting",
+          "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
+        }
+      ],
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "KED (kinetic energy discrimination, He gas)",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
+                }
+              ],
+              "schema:name": "Collision Gas Type",
+              "schema:value": "He (stated Methods)"
+            },
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "collisionGasFlowRateDefault",
+              "schema:name": "Collision Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 5,
+              "schema:description": "5 mL/min (stated Methods)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+        },
+        {
+          "schema:additionalType": [
+            "Sample Introduction System",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/nebulizerType",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "nebulizerType",
+              "schema:name": "Nebulizer Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "MicroMist nebulizer (stated Methods)"
+            },
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "sprayChamberTypeAndCoolingTemperature",
+              "schema:name": "Spray Chamber Type and Cooling Temperature",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "Scott spray chamber (stated Methods)"
+            },
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "sampleUptakeRateDefault",
+              "schema:name": "Sample Uptake Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 0.2,
+              "schema:description": "0.2 mL/min (stated Methods)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "Agilent -- \"an Agilent 7900 Quadrupole Inductively Coupled Plasma Mass Spectrometry instrument\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "desolvationSystem",
+      "schema:name": "Desolvation System",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "None"
+    }
+  ],
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "Major and trace elements (masses 23-75, Na to As; stated Methods)"
+    ],
+    "ada:analyteColumns": [
+      {
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimit",
+        "schema:name": "Detection Limit",
+        "ada:dataType": "number"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimitMethod",
+        "schema:name": "Detection Limit Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "limitOfQuantificationMethod",
+        "schema:name": "Limit of Quantification (LOQ) Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:internalStandardElement": "Sc, In, Re (stated Methods)",
+  "ada:internalStandardApproach": "N/A",
+  "ada:driftCorrectionMethod": "IS normalization",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration (all analytes)"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
+              }
+            ],
+            "schema:name": "Isotope Dilution Data Reduction Method",
+            "schema:value": "None"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample digestion",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous) -- \"The sample was introduced into a Scott spray chamber through a MicroMist nebulizer at an uptake rate of 0.2 mL/min\""
+  ],
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Partially -- \"The elemental content of samples was analyzed\"; concentration unit ug/g attested (\"[Zn] = 309 ug/g\", \"144 ug/g\"); the reported variable list is in Tables S1-S2, not in the paper"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
+  "ada:samplingUnit": "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure",
+  "ada:blankBackgroundCorrectionMethod": "missing",
+  "ada:calibrationMeasurementFrequency": "missing",
+  "ada:finalSolutionMatrix": "missing",
+  "ada:massCyclesPerReplicate": -9999,
+  "ada:numberOfReplicatesPerSample": -9999,
+  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:sampleSequenceDesign": "missing",
+  "ada:signalCollectionMode": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:washTimeBetweenSamples": -9999,
+  "schema:datePublished": "missing"
+}

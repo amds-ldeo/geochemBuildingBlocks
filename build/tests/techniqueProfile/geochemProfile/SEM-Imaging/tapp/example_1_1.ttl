@@ -25,39 +25,12 @@ ex:semImagingTAPP-Garvie2008 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "FIB-SEM dual-beam" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "In-lens / TLD (through-the-lens)" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "FEI / Thermo Fisher Scientific" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nova 200 NanoLab DualBeam" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "500 V; 1 kV; 5 kV" ;
-            ada:workingDistanceDefault "0.5–5.4 mm" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Garvie2008" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -79,4 +52,39 @@ ex:semImagingTAPP-Garvie2008 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "FIB-SEM dual-beam" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "FEI" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nova 200 NanoLab DualBeam" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "500 V; 1 kV; 5 kV" ;
+    ada:workingDistanceDefault "0.5–5.4 mm" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "In-lens / TLD (through-the-lens)" .
 

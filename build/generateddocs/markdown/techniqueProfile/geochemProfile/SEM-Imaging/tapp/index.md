@@ -105,7 +105,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI / Thermo Fisher Scientific",
+        "schema:name": "FEI",
         "@type": [
           "schema:Organization"
         ]
@@ -119,7 +119,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -129,11 +129,12 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -142,7 +143,8 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         },
         {
           "@type": [
@@ -150,12 +152,13 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -165,6 +168,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -177,7 +181,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -299,7 +303,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI / Thermo Fisher Scientific",
+        "schema:name": "FEI",
         "@type": [
           "schema:Organization"
         ]
@@ -313,7 +317,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -323,11 +327,12 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -336,7 +341,8 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         },
         {
           "@type": [
@@ -344,12 +350,13 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -359,6 +366,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -371,7 +379,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -417,39 +425,12 @@ ex:semImagingTAPP-Garvie2008 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "FIB-SEM dual-beam" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "In-lens / TLD (through-the-lens)" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "FEI / Thermo Fisher Scientific" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nova 200 NanoLab DualBeam" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "500 V; 1 kV; 5 kV" ;
-            ada:workingDistanceDefault "0.5–5.4 mm" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Garvie2008" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -471,6 +452,41 @@ ex:semImagingTAPP-Garvie2008 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "FIB-SEM dual-beam" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "FEI" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nova 200 NanoLab DualBeam" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "500 V; 1 kV; 5 kV" ;
+    ada:workingDistanceDefault "0.5–5.4 mm" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "In-lens / TLD (through-the-lens)" .
 
 
 ```
@@ -572,7 +588,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI / Thermo Fisher Scientific",
+        "schema:name": "FEI",
         "@type": [
           "schema:Organization"
         ]
@@ -586,7 +602,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -596,6 +612,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -604,12 +621,13 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -617,12 +635,13 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -631,6 +650,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -643,7 +663,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -765,7 +785,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI / Thermo Fisher Scientific",
+        "schema:name": "FEI",
         "@type": [
           "schema:Organization"
         ]
@@ -779,7 +799,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -789,6 +809,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -797,12 +818,13 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -810,12 +832,13 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -824,6 +847,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -836,7 +860,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -882,38 +906,12 @@ ex:semImagingTAPP-Garvie2008-2 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_Imaging_TAPP_v14.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "FIB-SEM dual-beam" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "FEI / Thermo Fisher Scientific" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Nova 200 NanoLab DualBeam" ] ;
-            schema1:name "example instrumentName" ;
-            ada:workingDistanceDefault "5.4 mm (eucentric height for electron and ion columns)" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Garvie2008-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -935,6 +933,40 @@ ex:semImagingTAPP-Garvie2008-2 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "FIB-SEM dual-beam" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "FEI" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nova 200 NanoLab DualBeam" ] ;
+    schema1:name "example instrumentName" ;
+    ada:workingDistanceDefault "5.4 mm (eucentric height for electron and ion columns)" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -1020,7 +1052,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1030,6 +1062,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -1038,12 +1071,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -1051,12 +1085,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -1065,6 +1100,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -1077,7 +1113,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -1212,7 +1248,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1222,6 +1258,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -1230,12 +1267,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -1243,12 +1281,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -1257,6 +1296,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -1269,7 +1309,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -1343,38 +1383,12 @@ ex:semImagingTAPP-Genge2025 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v14.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "VP-SEM / ESEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "ZEISS 1550VP" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "10 kV" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Genge2025" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -1396,6 +1410,40 @@ ex:semImagingTAPP-Genge2025 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "VP-SEM / ESEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "ZEISS 1550VP" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "10 kV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -1481,7 +1529,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1491,6 +1539,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -1499,12 +1548,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -1512,12 +1562,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -1526,6 +1577,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -1538,7 +1590,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -1673,7 +1725,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1683,6 +1735,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -1691,12 +1744,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -1704,12 +1758,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -1718,6 +1773,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -1730,7 +1786,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -1804,38 +1860,12 @@ ex:semImagingTAPP-Genge2025-2 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v14.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "VP-SEM / ESEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "ZEISS 1550VP" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "10 kV" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Genge2025-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -1857,6 +1887,40 @@ ex:semImagingTAPP-Genge2025-2 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "VP-SEM / ESEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "ZEISS 1550VP" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "10 kV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -1942,7 +2006,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -1952,6 +2016,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -1960,12 +2025,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -1973,12 +2039,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -1987,6 +2054,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -2056,7 +2124,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -2161,7 +2229,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -2171,6 +2239,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -2179,12 +2248,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -2192,12 +2262,13 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "VP-SEM / ESEM",
@@ -2206,6 +2277,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -2275,7 +2347,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -2309,50 +2381,24 @@ ex:semImagingTAPP-Genge2025-3 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "VP-SEM / ESEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "ZEISS 1550VP" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "20 kV" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Genge2025-3" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -2389,6 +2435,40 @@ ex:semImagingTAPP-Genge2025-3 a cdi:Activity,
     schema1:valueName "crystalStructureDatabaseDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "VP-SEM / ESEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "ZEISS 1550VP" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "20 kV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -2501,12 +2581,13 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -2514,12 +2595,13 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -2527,18 +2609,20 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -2552,7 +2636,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -2713,12 +2797,13 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -2726,12 +2811,13 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -2739,18 +2825,20 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -2764,7 +2852,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -2837,36 +2925,10 @@ ex:semImagingTAPP-Gucsik2013 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration>,
-                <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clGrating> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "Standard SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JSM-5410LV" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Gucsik2013" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -2888,6 +2950,40 @@ ex:semImagingTAPP-Gucsik2013 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clGrating> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "Standard SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JSM-5410LV" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> a schema1:PropertyValue ;
     schema1:name "CL Detector Configuration" ;
@@ -2983,12 +3079,13 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -2996,12 +3093,13 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -3009,18 +3107,20 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -3033,7 +3133,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -3168,12 +3268,13 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -3181,12 +3282,13 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -3194,18 +3296,20 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -3218,7 +3322,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -3283,44 +3387,19 @@ ex:semImagingTAPP-Gucsik2013-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "Standard SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JSM-5410LV" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Gucsik2013-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -3342,6 +3421,39 @@ ex:semImagingTAPP-Gucsik2013-2 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "Standard SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JSM-5410LV" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -3457,7 +3569,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -3467,6 +3579,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -3475,12 +3588,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -3488,12 +3602,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "Standard SEM",
@@ -3518,6 +3633,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -3556,7 +3672,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:dwellTimePerPixelDefault": -9999,
@@ -3689,7 +3805,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -3699,6 +3815,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -3707,12 +3824,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -3720,12 +3838,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "Standard SEM",
@@ -3750,6 +3869,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -3788,7 +3908,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:dwellTimePerPixelDefault": -9999,
@@ -3821,51 +3941,23 @@ ex:semImagingTAPP-Izawa2010 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "Standard SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Tungsten (W)" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Hitachi" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "S-2500C" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15–20 kV" ;
-            ada:workingDistanceDefault "~10 mm" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Zircon and Accessory Phase Laboratory, University of Western Ontario" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Izawa2010" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -3898,6 +3990,42 @@ ex:semImagingTAPP-Izawa2010 a cdi:Activity,
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "Standard SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Hitachi" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "S-2500C" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15–20 kV" ;
+    ada:workingDistanceDefault "~10 mm" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Tungsten (W)" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> a schema1:PropertyValue ;
     schema1:name "CL Detector Configuration" ;
@@ -3974,7 +4102,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Other: Leo Electron Microscopy (now Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -3993,12 +4121,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -4006,12 +4135,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -4019,18 +4149,20 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -4043,7 +4175,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -4164,7 +4296,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Other: Leo Electron Microscopy (now Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -4183,12 +4315,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -4196,12 +4329,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -4209,18 +4343,20 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -4233,7 +4369,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -4298,45 +4434,21 @@ ex:semImagingTAPP-Izawa2010-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v14.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "Standard SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Leo 440" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Surface Science Western" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Izawa2010-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -4358,6 +4470,38 @@ ex:semImagingTAPP-Izawa2010-2 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "Standard SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Other: Leo Electron Microscopy (now Zeiss)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Leo 440" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -4429,7 +4573,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Other: Leo Electron Microscopy (now Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -4448,12 +4592,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -4461,12 +4606,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -4474,18 +4620,20 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -4498,7 +4646,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -4619,7 +4767,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Other: Leo Electron Microscopy (now Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -4638,12 +4786,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -4651,12 +4800,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -4664,18 +4814,20 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -4688,7 +4840,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -4762,36 +4914,12 @@ ex:semImagingTAPP-Izawa2010-3 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "Standard SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Leo 440" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Surface Science Western" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Izawa2010-3" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -4813,6 +4941,38 @@ ex:semImagingTAPP-Izawa2010-3 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "Standard SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Other: Leo Electron Microscopy (now Zeiss)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Leo 440" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -4898,7 +5058,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -4908,6 +5068,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -4916,12 +5077,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -4929,12 +5091,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -4942,6 +5105,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -4954,7 +5118,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -5089,7 +5253,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -5099,6 +5263,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -5107,12 +5272,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -5120,12 +5286,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -5133,6 +5300,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -5145,7 +5313,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -5210,46 +5378,21 @@ ex:semImagingTAPP-Izawa2010-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v14.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "FIB-SEM dual-beam" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Leo 1540 FIB/SEM CrossBeam" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Izawa2010-4" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -5271,6 +5414,39 @@ ex:semImagingTAPP-Izawa2010-4 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "FIB-SEM dual-beam" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Leo 1540 FIB/SEM CrossBeam" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -5356,7 +5532,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -5366,6 +5542,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -5374,12 +5551,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -5387,12 +5565,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -5400,6 +5579,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -5412,7 +5592,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -5547,7 +5727,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -5557,6 +5737,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -5565,12 +5746,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -5578,12 +5760,13 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -5591,6 +5774,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -5603,7 +5787,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -5677,37 +5861,12 @@ ex:semImagingTAPP-Izawa2010-5 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "FIB-SEM dual-beam" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Leo 1540 FIB/SEM CrossBeam" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Izawa2010-5" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -5729,6 +5888,39 @@ ex:semImagingTAPP-Izawa2010-5 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "FIB-SEM dual-beam" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Leo 1540 FIB/SEM CrossBeam" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -5830,7 +6022,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Carl Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -5848,12 +6040,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -5861,12 +6054,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -5874,18 +6068,20 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -5901,7 +6097,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -6023,7 +6219,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Carl Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -6041,12 +6237,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -6054,12 +6251,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -6067,18 +6265,20 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -6094,7 +6294,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -6140,35 +6340,12 @@ ex:semImagingTAPP-Liu2017 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_Imaging_TAPP_v14.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Crossbeam 540" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Liu2017" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -6191,6 +6368,37 @@ ex:semImagingTAPP-Liu2017 a cdi:Activity,
     ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
             ada:toolRole "dataReduction" ] .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Carl Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Crossbeam 540" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -6292,7 +6500,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "FEI Company, USA",
         "@type": [
           "schema:Organization"
         ]
@@ -6311,12 +6519,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -6324,12 +6533,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -6337,18 +6547,20 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -6371,7 +6583,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -6493,7 +6705,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "FEI Company, USA",
         "@type": [
           "schema:Organization"
         ]
@@ -6512,12 +6724,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -6525,12 +6738,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -6538,18 +6752,20 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -6572,7 +6788,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -6619,36 +6835,12 @@ ex:semImagingTAPP-Liu2017-2 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Unknown" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Quanta 250" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Liu2017-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -6676,6 +6868,38 @@ ex:semImagingTAPP-Liu2017-2 a cdi:Activity,
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "FEI Company, USA" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Quanta 250" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -6777,7 +7001,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Carl Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -6791,7 +7015,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -6801,6 +7025,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -6809,12 +7034,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -6822,12 +7048,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -6835,6 +7062,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -6857,7 +7085,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -6979,7 +7207,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Carl Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -6993,7 +7221,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -7003,6 +7231,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -7011,12 +7240,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -7024,12 +7254,13 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -7037,6 +7268,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -7059,7 +7291,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -7106,37 +7338,12 @@ ex:semImagingTAPP-Liu2017-3 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "SUPRA 55" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Liu2017-3" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -7164,6 +7371,39 @@ ex:semImagingTAPP-Liu2017-3 a cdi:Activity,
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Carl Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "SUPRA 55" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -7265,7 +7505,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -7279,7 +7519,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -7289,11 +7529,12 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -7302,7 +7543,8 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -7310,12 +7552,13 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -7323,6 +7566,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -7332,7 +7576,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -7454,7 +7698,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -7468,7 +7712,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -7478,11 +7722,12 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -7491,7 +7736,8 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -7499,12 +7745,13 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -7512,6 +7759,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -7521,7 +7769,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -7557,47 +7805,22 @@ ex:semImagingTAPP-Ma2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "N/A" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "1550VP" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Ma2017" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -7618,6 +7841,39 @@ ex:semImagingTAPP-Ma2017 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ZEISS (Carl Zeiss)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "1550VP" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "N/A" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -7732,7 +7988,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -7746,7 +8002,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -7756,6 +8012,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -7764,12 +8021,13 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -7777,12 +8035,13 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -7790,6 +8049,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -7800,7 +8060,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -7934,7 +8194,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -7948,7 +8208,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -7958,6 +8218,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -7966,12 +8227,13 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -7979,12 +8241,13 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -7992,6 +8255,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -8002,7 +8266,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -8036,49 +8300,24 @@ ex:semImagingTAPP-Ma2017-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "1550VP" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Ma2017-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -8106,6 +8345,39 @@ ex:semImagingTAPP-Ma2017-2 a cdi:Activity,
     schema1:valueName "crystalStructureDatabaseDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ZEISS (Carl Zeiss)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "1550VP" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -8207,7 +8479,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -8221,7 +8493,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -8231,11 +8503,12 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -8244,7 +8517,8 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -8252,12 +8526,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -8267,6 +8542,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -8277,7 +8553,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "BSE (QBSD mode)"
   ],
   "schema:additionalProperty": [
     {
@@ -8298,7 +8574,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -8420,7 +8696,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -8434,7 +8710,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -8444,11 +8720,12 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -8457,7 +8734,8 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
           "@type": [
             "schema:Product",
             "schema:Thing"
-          ]
+          ],
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -8465,12 +8743,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -8480,6 +8759,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -8490,7 +8770,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "BSE (QBSD mode)"
   ],
   "schema:additionalProperty": [
     {
@@ -8511,7 +8791,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -8558,39 +8838,12 @@ ex:semImagingTAPP-Pascucci2026 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "N/A" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Supra 40" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "20 kV" ;
-            ada:workingDistanceDefault "8 mm" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Pascucci2026" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -8601,7 +8854,7 @@ ex:semImagingTAPP-Pascucci2026 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "BSE (QBSD mode)" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -8621,6 +8874,41 @@ ex:semImagingTAPP-Pascucci2026 a cdi:Activity,
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ZEISS (Carl Zeiss)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Supra 40" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "20 kV" ;
+    ada:workingDistanceDefault "8 mm" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "N/A" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -8722,7 +9010,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -8736,7 +9024,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -8746,6 +9034,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -8754,12 +9043,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -8767,12 +9057,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -8781,6 +9072,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -8795,7 +9087,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Spot analysis"
   ],
   "schema:additionalProperty": [
     {
@@ -8816,7 +9108,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -8938,7 +9230,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -8952,7 +9244,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -8962,6 +9254,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -8970,12 +9263,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -8983,12 +9277,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -8997,6 +9292,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -9011,7 +9307,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Spot analysis"
   ],
   "schema:additionalProperty": [
     {
@@ -9032,7 +9328,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -9079,38 +9375,12 @@ ex:semImagingTAPP-Pascucci2026-2 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy)" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Supra 40" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "20 kV" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Pascucci2026-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -9121,7 +9391,7 @@ ex:semImagingTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "Spot analysis" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -9143,6 +9413,40 @@ ex:semImagingTAPP-Pascucci2026-2 a cdi:Activity,
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ZEISS (Carl Zeiss)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Supra 40" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "20 kV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -9244,7 +9548,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -9258,7 +9562,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9268,6 +9572,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -9276,12 +9581,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -9289,12 +9595,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -9303,6 +9610,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -9317,7 +9625,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Element mapping"
   ],
   "schema:additionalProperty": [
     {
@@ -9338,7 +9646,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -9460,7 +9768,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -9474,7 +9782,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9484,6 +9792,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -9492,12 +9801,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -9505,12 +9815,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -9519,6 +9830,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -9533,7 +9845,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Element mapping"
   ],
   "schema:additionalProperty": [
     {
@@ -9554,7 +9866,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -9590,49 +9902,23 @@ ex:semImagingTAPP-Pascucci2026-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "EDS mapping: 20 kV, 60 µm aperture, 5 ms dwell per pixel, 1024×768 pixels, 2.5 µm pixel size, ~10 h total; element maps co-registered with BSE images" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Supra 40" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "20 kV" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Pascucci2026-3" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -9643,7 +9929,7 @@ ex:semImagingTAPP-Pascucci2026-3 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "Element mapping" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -9665,6 +9951,40 @@ ex:semImagingTAPP-Pascucci2026-3 a cdi:Activity,
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ZEISS (Carl Zeiss)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Supra 40" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "20 kV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -9766,7 +10086,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -9780,7 +10100,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9790,6 +10110,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -9798,12 +10119,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -9811,12 +10133,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -9824,6 +10147,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -9833,7 +10157,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -9955,7 +10279,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "ZEISS (Carl Zeiss)",
         "@type": [
           "schema:Organization"
         ]
@@ -9969,7 +10293,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -9979,6 +10303,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -9987,12 +10312,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -10000,12 +10326,13 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -10013,6 +10340,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -10022,7 +10350,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -10058,47 +10386,22 @@ ex:semImagingTAPP-Pascucci2026-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Zeiss" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Supra 40" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Pascucci2026-4" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -10119,6 +10422,39 @@ ex:semImagingTAPP-Pascucci2026-4 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ZEISS (Carl Zeiss)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Supra 40" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -10208,7 +10544,7 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "FEI (now Thermo Fisher Scientific)",
         "@type": [
           "schema:Organization"
         ]
@@ -10229,12 +10565,13 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -10242,12 +10579,13 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -10255,18 +10593,20 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -10277,7 +10617,7 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Sequential FIB-SEM tomography (serial cross-section imaging)"
   ],
   "schema:measurementTechnique": [
     {
@@ -10285,7 +10625,7 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -10395,7 +10735,7 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "FEI (now Thermo Fisher Scientific)",
         "@type": [
           "schema:Organization"
         ]
@@ -10416,12 +10756,13 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -10429,12 +10770,13 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -10442,18 +10784,20 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -10464,7 +10808,7 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Sequential FIB-SEM tomography (serial cross-section imaging)"
   ],
   "schema:measurementTechnique": [
     {
@@ -10472,7 +10816,7 @@ semImagingTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar 
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -10518,45 +10862,19 @@ ex:semImagingTAPP-Zhou2017 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Unknown" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Helios NanoLab 650" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "2 kV (SEM imaging)" ;
-            ada:workingDistanceDefault "4 mm" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Geosciences, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zhou2017" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China" ] ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "Sequential FIB-SEM tomography (serial cross-section imaging)" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -10569,6 +10887,40 @@ ex:semImagingTAPP-Zhou2017 a cdi:Activity,
     ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
             ada:toolRole "dataReduction" ] .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "FEI (now Thermo Fisher Scientific)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Helios NanoLab 650" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "2 kV (SEM imaging)" ;
+    ada:workingDistanceDefault "4 mm" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -10684,7 +11036,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -10694,6 +11046,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -10702,12 +11055,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -10715,12 +11069,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -10728,6 +11083,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -10738,7 +11094,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Low-angle backscattered electron (BSE) imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -10746,7 +11102,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -10882,7 +11238,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -10892,6 +11248,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -10900,12 +11257,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -10913,12 +11271,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -10926,6 +11285,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -10936,7 +11296,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Low-angle backscattered electron (BSE) imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -10944,7 +11304,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -10990,37 +11350,12 @@ ex:semImagingTAPP-Zega2025 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "7600F" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -11031,7 +11366,7 @@ ex:semImagingTAPP-Zega2025 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "Low-angle backscattered electron (BSE) imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -11044,6 +11379,39 @@ ex:semImagingTAPP-Zega2025 a cdi:Activity,
     ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
             ada:toolRole "acquisition" ] .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "7600F" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -11159,7 +11527,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11169,6 +11537,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -11177,12 +11546,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -11190,12 +11560,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -11203,6 +11574,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -11217,7 +11589,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Point spectra (spot analysis, Point & ID)"
   ],
   "schema:measurementTechnique": [
     {
@@ -11225,7 +11597,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -11361,7 +11733,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11371,6 +11743,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -11379,12 +11752,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -11392,12 +11766,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -11405,6 +11780,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -11419,7 +11795,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Point spectra (spot analysis, Point & ID)"
   ],
   "schema:measurementTechnique": [
     {
@@ -11427,7 +11803,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -11463,47 +11839,22 @@ ex:semImagingTAPP-Zega2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Imaging_TAPP_v14.csv)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "7600F" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "15 kV" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -11514,7 +11865,7 @@ ex:semImagingTAPP-Zega2025-2 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "Point spectra (spot analysis, Point & ID)" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -11525,10 +11876,43 @@ ex:semImagingTAPP-Zega2025-2 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    bios:computationalTool [ schema1:name "Oxford AZtec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford AZtec (Point & ID programme)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford AZtec" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "7600F" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -11644,7 +12028,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11654,6 +12038,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -11662,12 +12047,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -11675,18 +12061,20 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -11696,7 +12084,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -11832,7 +12220,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -11842,6 +12230,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -11850,12 +12239,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -11863,18 +12253,20 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -11884,7 +12276,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -11920,46 +12312,22 @@ ex:semImagingTAPP-Zega2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Hitachi" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "S-4800" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-3" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -11980,6 +12348,38 @@ ex:semImagingTAPP-Zega2025-3 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Hitachi" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "S-4800" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -12095,7 +12495,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12105,6 +12505,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -12113,12 +12514,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -12126,18 +12528,20 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -12147,7 +12551,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -12283,7 +12687,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12293,6 +12697,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -12301,12 +12706,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -12314,18 +12720,20 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -12335,7 +12743,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -12371,46 +12779,22 @@ ex:semImagingTAPP-Zega2025-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Hitachi" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "S-4800" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-4" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -12431,6 +12815,38 @@ ex:semImagingTAPP-Zega2025-4 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Hitachi" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "S-4800" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -12457,7 +12873,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Zega2025-5",
-  "schema:description": "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:analyticalMode = EDS mapping.",
+  "schema:description": "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -12546,7 +12962,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12556,6 +12972,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -12564,12 +12981,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -12577,18 +12995,20 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -12603,7 +13023,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     }
   ],
   "ada:analyticalMode": [
-    "EDS"
+    "EDS mapping"
   ],
   "schema:measurementTechnique": [
     {
@@ -12611,7 +13031,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -12658,7 +13078,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol \u2014 Zega2025-5",
-  "schema:description": "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:analyticalMode = EDS mapping.",
+  "schema:description": "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -12747,7 +13167,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -12757,6 +13177,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -12765,12 +13186,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -12778,18 +13200,20 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -12804,7 +13228,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     }
   ],
   "ada:analyticalMode": [
-    "EDS"
+    "EDS mapping"
   ],
   "schema:measurementTechnique": [
     {
@@ -12812,7 +13236,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -12857,37 +13281,13 @@ ex:semImagingTAPP-Zega2025-5 a cdi:Activity,
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:analyticalMode = EDS mapping." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Hitachi" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "S-4800" ] ;
-            schema1:name "example instrumentName" ] ;
+    schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS" ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-5" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -12898,7 +13298,7 @@ ex:semImagingTAPP-Zega2025-5 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE/BSE Imaging (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "EDS" ;
+    ada:analyticalMode "EDS mapping" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -12909,10 +13309,42 @@ ex:semImagingTAPP-Zega2025-5 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Hitachi" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "S-4800" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -13014,7 +13446,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "Thermo Fisher Scientific (ThermoScientific)",
         "@type": [
           "schema:Organization"
         ]
@@ -13028,7 +13460,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13038,6 +13470,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -13046,12 +13479,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -13059,12 +13493,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -13073,11 +13508,12 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "In-situ FIB lift-out; cross-section lamella preparation for TEM"
   ],
   "schema:measurementTechnique": [
     {
@@ -13085,7 +13521,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -13207,7 +13643,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "Thermo Fisher Scientific (ThermoScientific)",
         "@type": [
           "schema:Organization"
         ]
@@ -13221,7 +13657,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13231,6 +13667,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -13239,12 +13676,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -13252,12 +13690,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -13266,11 +13705,12 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "In-situ FIB lift-out; cross-section lamella preparation for TEM"
   ],
   "schema:measurementTechnique": [
     {
@@ -13278,7 +13718,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -13324,38 +13764,12 @@ ex:semImagingTAPP-Zega2025-6 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Unknown" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Helios G3" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "30 keV (FIB milling and thinning)" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-6" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -13366,7 +13780,7 @@ ex:semImagingTAPP-Zega2025-6 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "In-situ FIB lift-out; cross-section lamella preparation for TEM" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -13377,6 +13791,40 @@ ex:semImagingTAPP-Zega2025-6 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific (ThermoScientific)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Helios G3" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "30 keV (FIB milling and thinning)" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -13478,7 +13926,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "FEI (now Thermo Fisher Scientific)",
         "@type": [
           "schema:Organization"
         ]
@@ -13492,7 +13940,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13502,6 +13950,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -13510,12 +13959,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -13523,12 +13973,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -13537,11 +13988,12 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "In-situ FIB lift-out; lamella preparation for XANES and TEM"
   ],
   "schema:measurementTechnique": [
     {
@@ -13549,7 +14001,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -13671,7 +14123,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "FEI (now Thermo Fisher Scientific)",
         "@type": [
           "schema:Organization"
         ]
@@ -13685,7 +14137,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13695,6 +14147,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -13703,12 +14156,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -13716,12 +14170,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -13730,11 +14185,12 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "In-situ FIB lift-out; lamella preparation for XANES and TEM"
   ],
   "schema:measurementTechnique": [
     {
@@ -13742,7 +14198,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -13778,48 +14234,22 @@ ex:semImagingTAPP-Zega2025-7 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Unknown" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Helios G4 UX" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-7" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -13830,7 +14260,7 @@ ex:semImagingTAPP-Zega2025-7 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Synchrotron XANES (ALS, Berkeley); TEM analysis" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "In-situ FIB lift-out; lamella preparation for XANES and TEM" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -13841,6 +14271,40 @@ ex:semImagingTAPP-Zega2025-7 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "FEI (now Thermo Fisher Scientific)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Helios G4 UX" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -13942,7 +14406,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "FEI (now Thermo Fisher Scientific)",
         "@type": [
           "schema:Organization"
         ]
@@ -13956,7 +14420,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -13966,6 +14430,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -13974,12 +14439,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -13987,12 +14453,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -14001,11 +14468,12 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "In-situ FIB lift-out; cross-section lamella preparation"
   ],
   "schema:measurementTechnique": [
     {
@@ -14013,7 +14481,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -14135,7 +14603,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "FEI (now Thermo Fisher Scientific)",
         "@type": [
           "schema:Organization"
         ]
@@ -14149,7 +14617,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -14159,6 +14627,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -14167,12 +14636,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -14180,12 +14650,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -14194,11 +14665,12 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "In-situ FIB lift-out; cross-section lamella preparation"
   ],
   "schema:measurementTechnique": [
     {
@@ -14206,7 +14678,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -14242,48 +14714,22 @@ ex:semImagingTAPP-Zega2025-8 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:description "N/A" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "Unknown" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "Quanta 3D 600" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-8" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -14294,7 +14740,7 @@ ex:semImagingTAPP-Zega2025-8 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "In-situ FIB lift-out; cross-section lamella preparation" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -14305,6 +14751,40 @@ ex:semImagingTAPP-Zega2025-8 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "FEI (now Thermo Fisher Scientific)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Quanta 3D 600" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -14331,7 +14811,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Zega2025-9",
-  "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:analyticalMode = Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging; ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging.",
+  "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging.",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -14420,7 +14900,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -14430,6 +14910,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -14438,12 +14919,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -14451,12 +14933,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:additionalProperty": [
@@ -14479,11 +14962,12 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
   "ada:analyticalMode": [
-    "CL"
+    "Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging"
   ],
   "ada:clAcquisitionMode": "Panchromatic",
   "schema:measurementTechnique": [
@@ -14492,7 +14976,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clIntegrationTimeDefault": -9999,
@@ -14538,7 +15022,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol \u2014 Zega2025-9",
-  "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <\u00d7500 to minimize hotspot effect Reported detail: ada:analyticalMode = Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging; ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging.",
+  "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <\u00d7500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging.",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -14627,7 +15111,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -14637,6 +15121,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
           "schema:name": "missing"
         },
         {
@@ -14645,12 +15130,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -14658,12 +15144,13 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:additionalProperty": [
@@ -14686,11 +15173,12 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
   "ada:analyticalMode": [
-    "CL"
+    "Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging"
   ],
   "ada:clAcquisitionMode": "Panchromatic",
   "schema:measurementTechnique": [
@@ -14699,7 +15187,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "ada:clIntegrationTimeDefault": -9999,
@@ -14734,48 +15222,22 @@ ex:semImagingTAPP-Zega2025-9 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:analyticalMode = Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging; ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:description "Unknown" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:manufacturer [ a schema1:Organization ;
-                    schema1:name "JEOL" ] ;
-            schema1:model [ a schema1:ProductModel ;
-                    schema1:name "JSM-7000F" ] ;
-            schema1:name "example instrumentName" ;
-            ada:acceleratingVoltageDefault "5 keV" ] ;
+    schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Université Côte d'Azur / Observatoire de la Côte d'Azur, Valbonne, France" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-9" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -14786,7 +15248,7 @@ ex:semImagingTAPP-Zega2025-9 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "CL" ;
+    ada:analyticalMode "Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging" ;
     ada:clAcquisitionMode "Panchromatic" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -14797,6 +15259,40 @@ ex:semImagingTAPP-Zega2025-9 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JSM-7000F" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "5 keV" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> a schema1:PropertyValue ;
     schema1:name "CL Detector Configuration" ;
@@ -14834,8 +15330,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "SEM",
-      "schema:name": "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)"
+      "schema:termCode": "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)"
     }
   ],
   "schema:location": {
@@ -14874,7 +15369,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Elemental maps and spot spectra (SEM-EDX) for presolar grain phase identification"
   ],
   "schema:actionProcess": {
     "@type": [
@@ -14907,6 +15402,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
   },
   "schema:instrument": [
     {
+      "@id": "ex:instrument/SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -14925,12 +15421,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -14938,12 +15435,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -14951,12 +15449,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ]
     }
@@ -15011,8 +15510,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "SEM",
-      "schema:name": "SEM-EDS (Scanning Electron Microscopy\u2013Energy Dispersive X-ray Spectroscopy)"
+      "schema:termCode": "SEM-EDS (Scanning Electron Microscopy\u2013Energy Dispersive X-ray Spectroscopy)"
     }
   ],
   "schema:location": {
@@ -15051,7 +15549,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
     }
   ],
   "ada:analyticalMode": [
-    "N/A"
+    "Elemental maps and spot spectra (SEM-EDX) for presolar grain phase identification"
   ],
   "schema:actionProcess": {
     "@type": [
@@ -15084,6 +15582,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
   },
   "schema:instrument": [
     {
+      "@id": "ex:instrument/SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -15102,12 +15601,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -15115,12 +15615,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -15128,12 +15629,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ]
     }
@@ -15171,40 +15673,20 @@ ex:semImagingTAPP-Barnes2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:name "missing" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Astromaterials Research and Exploration Science Division (ARES), NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)" ] ;
     schema1:name "semImaging protocol — Barnes2025" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -15215,7 +15697,7 @@ ex:semImagingTAPP-Barnes2025 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "NanoSIMS isotope mapping (CAMECA NanoSIMS 50L, NASA JSC); presolar grains identified by NanoSIMS then confirmed by SEM-EDS phase characterisation" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "N/A" ;
+    ada:analyticalMode "Elemental maps and spot spectra (SEM-EDX) for presolar grain phase identification" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -15226,6 +15708,33 @@ ex:semImagingTAPP-Barnes2025 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -15259,7 +15768,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -15293,6 +15802,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
   },
   "schema:instrument": [
     {
+      "@id": "ex:instrument/SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -15311,12 +15821,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -15324,12 +15835,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -15337,12 +15849,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ]
     }
@@ -15398,7 +15911,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -15432,6 +15945,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
   },
   "schema:instrument": [
     {
+      "@id": "ex:instrument/SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -15450,12 +15964,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -15463,12 +15978,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -15476,12 +15992,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ]
     }
@@ -15519,38 +16036,19 @@ ex:semImagingTAPP-Barnes2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No BSE imaging with FEI Quanta 3D DualBeam or Helios DualBeam at NASA JSC described in this paper (Barnes et al. 2025). BSE mosaic imaging was performed using a Hitachi TM4000plus at the University of Arizona (K-ALFAA) at 15-keV electron beam to identify suitable matrix areas for NanoSIMS analysis (Methods, p.11). No JSC BSE imaging conditions or instrument stated." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:name "missing" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Barnes2025-2" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -15562,6 +16060,33 @@ ex:semImagingTAPP-Barnes2025-2 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -15595,7 +16120,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -15629,6 +16154,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
   },
   "schema:instrument": [
     {
+      "@id": "ex:instrument/SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -15647,12 +16173,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -15660,12 +16187,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -15673,12 +16201,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ]
     }
@@ -15734,7 +16263,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -15768,6 +16297,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
   },
   "schema:instrument": [
     {
+      "@id": "ex:instrument/SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -15786,12 +16316,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -15799,12 +16330,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -15812,12 +16344,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ]
     }
@@ -15855,38 +16388,19 @@ ex:semImagingTAPP-Barnes2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. FIB-based TEM foil preparation using FEI Helios G4 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:name "missing" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Barnes2025-3" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -15898,6 +16412,33 @@ ex:semImagingTAPP-Barnes2025-3 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -15931,7 +16472,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -15965,6 +16506,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
   },
   "schema:instrument": [
     {
+      "@id": "ex:instrument/SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -15983,12 +16525,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -15996,12 +16539,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -16009,12 +16553,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ]
     }
@@ -16070,7 +16615,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
         "schema:DefinedTerm"
       ],
       "schema:name": "semImaging",
-      "schema:termCode": "SEM"
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
@@ -16104,6 +16649,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
   },
   "schema:instrument": [
     {
+      "@id": "ex:instrument/SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -16122,12 +16668,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "BSEDetector",
+            "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -16135,12 +16682,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -16148,12 +16696,13 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "SEDetector",
+            "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ]
     }
@@ -16191,38 +16740,19 @@ ex:semImagingTAPP-Barnes2025-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. TEM foil preparation using FEI Helios 660 G3 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
-    schema1:instrument [ a schema1:Product,
-                schema1:Thing ;
-            schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                "SEM" ;
-            schema1:hasPart [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "Electron source" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "BSEDetector" ;
-                    schema1:name "missing" ],
-                [ a schema1:Product,
-                        schema1:Thing ;
-                    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-                        "SEDetector" ;
-                    schema1:name "missing" ] ;
-            schema1:name "missing" ] ;
+    schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
-            schema1:termCode "SEM" ] ;
+            schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Barnes2025-4" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -16234,6 +16764,33 @@ ex:semImagingTAPP-Barnes2025-4 a cdi:Activity,
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
     ada:targetSelectionCriteriaDefault "missing" .
+
+<https://example.org/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/instrument/SEM/part/Electron-Source>,
+        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 
 ```
@@ -16250,121 +16807,10 @@ description: 'Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of
   by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
-    schema:name:
-      description: "A short descriptive name for this analytical procedure, including
-        a version number. Should identify the instrument, the technique, and the scope
-        of what is measured \u2014 analyte, material, or feature."
-      type: string
-      readOnly: true
-    schema:measurementTechnique:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:termCode:
-            description: Top-level analytical technique identifier.
-            type: string
-            enum:
-            - SEM
-            - SEM/FIB-SEM
-            - N/A
-            - None
-            - missing
-            readOnly: true
-    schema:creator:
-      type: object
-      properties:
-        schema:name:
-          description: Person(s) or laboratory responsible for developing and registering
-            this procedure. ORCID recommended for individuals.
-          type: string
-          readOnly: true
-    schema:location:
-      type: object
-      properties:
-        schema:name:
-          description: Name of the laboratory or institution hosting the instrument.
-          type: string
-        schema:identifier:
-          description: Persistent identifier for the laboratory (e.g., ROR ID).
-          type: string
-    schema:datePublished:
-      description: First date this procedure configuration was used in production.
-      type: string
-      readOnly: true
-    schema:funding:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:name:
-            description: Grants and other funding sources that supported instrument
-              acquisition, major upgrades, procedure development, and associated personnel
-              time. Include grant numbers and funding agencies where applicable.
-            type: string
-            readOnly: true
-    schema:relatedLink:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: techniquePublication
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: DOI or URL for peer-reviewed publications or technical
-                      reports describing, validating, or benchmarking this procedure.
-                    type: string
-                    readOnly: true
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: coupledTechnique
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: "Other analytical techniques applied to the same
-                      sample(s) whose results are intended to be interpreted together
-                      with data from this procedure. Document coupling with any technique
-                      whose results are functionally linked to this dataset \u2014
-                      providing calibration inputs, complementary spatial context,
-                      or required companion measurements. Use the same controlled
-                      vocabulary as the Technique field. Enter \"None\" if no coupling
-                      is intended."
-                    anyOf:
-                    - type: string
-                      enum:
-                      - EPMA; NanoSIMS
-                      - XCT (pre-SEM overview)
-                      - None
-                      - N/A
-                      - missing
-                    - type: string
-                  schema:description:
-                    description: "Description of how this procedure is coupled with
-                      the technique(s) listed above. Include: (1) the functional relationship
-                      \u2014 what data or context flows between techniques, or how
-                      results are combined (e.g. which output from the coupled technique
-                      serves as input to data reduction for this technique); and (2)
-                      the analytical sequence \u2014 which technique is performed
-                      first and why (e.g. non-destructive before destructive). Required
-                      when Coupled Technique(s) is not \"None\"."
-                    type: string
     schema:object:
       type: array
       items:
@@ -16505,43 +16951,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - title: Constants and Reference Values Used
-                        description: Physical constants and reference values used
-                          in data reduction to calculate the final reported quantity
-                          (e.g., decay constants for age calculation, standard isotope
-                          ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from
-                          the Group 6 reference-material fields, which document accepted
-                          values for specific calibration/validation materials rather
-                          than universal physical constants. Record "None" if no citable,
-                          revisable physical constants feed into this procedure's
-                          data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains:
                         title: Crystal Structure Database
@@ -16576,43 +16986,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Constants and Reference Values Used
-                        description: Physical constants and reference values used
-                          in data reduction to calculate the final reported quantity
-                          (e.g., decay constants for age calculation, standard isotope
-                          ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from
-                          the Group 6 reference-material fields, which document accepted
-                          values for specific calibration/validation materials rather
-                          than universal physical constants. Record "None" if no citable,
-                          revisable physical constants feed into this procedure's
-                          data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semImagingTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -16628,35 +17002,6 @@ allOf:
                   const: Data reduction
               required:
               - schema:name
-    ada:samplingUnit:
-      description: "The physical subdivision of the sample to which one row of reported
-        values corresponds \u2014 the unit that is analysed and reported, as distinct
-        from the sample as a whole. State the unit type at procedure level and the
-        units actually analysed at analysis level. Where units nest (e.g. confined
-        tracks within grains), state both levels."
-      anyOf:
-      - type: string
-        enum:
-        - Whole sample
-        - Aliquot
-        - Grain
-        - Spot
-        - Analysis point
-        - Phase
-        - Sub-volume
-        - Region of interest
-        - N/A
-        - None
-        - missing
-      - type: string
-    ada:targetSelectionCriteriaDefault:
-      description: "The rules governing which part of the sample is analysed, and
-        why. Covers the criteria applied when choosing grains, aliquots, spots, or
-        a region of interest \u2014 size, morphology, clarity, freedom from inclusions
-        or alteration, phase identity, or spatial position. Distinct from Target Material,
-        which states the material type the procedure is designed for: this field states
-        how, within such a sample, the analysed portion is picked out."
-      type: string
     schema:instrument:
       type: array
       items:
@@ -16667,43 +17012,11 @@ allOf:
               schema:additionalType:
                 contains:
                   const: SEM
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
             properties:
-              schema:manufacturer:
-                type: object
-                properties:
-                  schema:name:
-                    description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
-                    type: string
-                    enum:
-                    - JEOL
-                    - Zeiss
-                    - FEI / Thermo Fisher Scientific
-                    - Hitachi
-                    - Tescan
-                    - Phenom
-                    - Unknown
-                    - N/A
-                    - None
-                    - missing
-                    readOnly: true
-              schema:model:
-                type: object
-                properties:
-                  schema:name:
-                    description: Model designation of the instrument that performs
-                      the measurement, including any generation or configuration suffix.
-                      Conventionally written with the manufacturer name included;
-                      Instrument Manufacturer records the vendor separately, as a
-                      controlled value, so that procedures remain findable by vendor.
-                    type: string
-                    readOnly: true
               schema:hasPart:
                 type: array
                 items:
@@ -16713,7 +17026,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: Electron source
+                            const: Electron Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -16749,7 +17063,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: SEDetector
+                            const: SE Detector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -16788,7 +17103,8 @@ allOf:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: BSEDetector
+                            const: BSE Detector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -16831,21 +17147,24 @@ allOf:
                     properties:
                       schema:additionalType:
                         contains:
-                          const: Electron source
+                          const: Electron Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
                     properties:
                       schema:additionalType:
                         contains:
-                          const: SEDetector
+                          const: SE Detector
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
                     properties:
                       schema:additionalType:
                         contains:
-                          const: BSEDetector
+                          const: BSE Detector
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
               schema:description:
@@ -17014,6 +17333,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: SEM
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     ada:ebsdDetectorConfiguration:
@@ -17022,86 +17342,6 @@ allOf:
         EBSD-EDS systems).
       type: string
       readOnly: true
-    bios:computationalTool:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Instrument control, automation and data acquisition software
-                  used to collect the raw data, including version number. Distinct
-                  from Data Processing Software(s), which covers everything applied
-                  to the data after acquisition.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
-                const: dataReduction
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: All software applied to the data after acquisition in
-                  order to produce the reported quantities, including version numbers.
-                  List every package used. Distinct from Acquisition Software, which
-                  controls the instrument and collects the raw data.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        required:
-        - ada:toolRole
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Primary analytical mode(s) executed under this procedure. Records
-          one value for a single-mode procedure and all applicable modes for a multi-mode
-          one. Serves as the procedure-level declaration of measurement type, distinct
-          from the mode flag columns, which state per-field applicability. Required
-          even where a procedure defines no mode flag columns, so that every procedure
-          record is self-describing and comparable across the library.
-        type: string
-        enum:
-        - SE Imaging
-        - BSE Imaging
-        - EDS
-        - SEM-WDS
-        - CL
-        - EBSD
-        - TEM Sample Preparation
-        - 3D Tomography
-        - N/A
-        - None
-        - missing
-        readOnly: true
-    ada:reportedProperties:
-      type: array
-      items:
-        description: "The final variable(s) this procedure reports and their units
-          \u2014 distinct from the fields recording what was *acquired* rather than
-          what is reported. A procedure may acquire many channels and report a small
-          number of derived quantities; without this field a data consumer cannot
-          tell which. Record every reported variable, including intermediate quantities
-          reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U
-          date). Where a reported variable is a nominal property with no magnitude
-          (e.g. a mineral identification), record the variable and give the unit as
-          'N/A \u2014 nominal property'."
-        type: string
-        readOnly: true
     ada:analyteTemplate:
       type: object
       properties:
@@ -17208,6 +17448,8 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -17239,6 +17481,8 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -17302,6 +17546,8 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -17336,6 +17582,8 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -17437,19 +17685,7 @@ allOf:
         this procedure. The procedure specifies the expected phase suite for the target
         material; analysts may add phases for specific sample compositions.
       type: string
-    schema:description:
-      description: "Any procedure- or analysis-specific information not captured by
-        a structured field anywhere in this TAPP \u2014 including anomalies, deviations
-        from the registered procedure, instrument modifications, and supplementary
-        context. Scope is the whole document, not Group 6: this is the last field
-        of the TAPP and covers all six groups. Use sparingly; a structured field is
-        preferred for anything that can be formally categorised."
-      type: string
   required:
-  - schema:name
-  - schema:datePublished
-  - ada:samplingUnit
-  - ada:targetSelectionCriteriaDefault
   - ada:ebsdDetectorConfiguration
   - ada:dwellTimePerPixelDefault
   - ada:clAcquisitionMode
