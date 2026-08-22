@@ -3,9 +3,8 @@ title: Solution SF-ICP-MS Analysis Detail
 description: Dataset-level analysis-instance detail for solution SF-ICP-MS, reusing CDIF/schema.org slots
   on the schema:Dataset root.
 allOf:
-- $ref: ../../../../BaseSchema/modules/group1/schema.yaml#/$defs/AnalysisIdentification
-- $ref: ../../../../BaseSchema/modules/reportingCore/schema.yaml#/$defs/AggregationQc_Analysis
-- $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/AnalysisIdentification
+- $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
     prov:wasGeneratedBy:
@@ -18,53 +17,6 @@ allOf:
             items:
               type: object
               allOf:
-              - if:
-                  required:
-                  - bios:computationalTool
-                then:
-                  properties:
-                    bios:computationalTool:
-                      type: array
-                      items:
-                        allOf:
-                        - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                ada:toolRole:
-                                  const: acquisition
-                              required:
-                              - ada:toolRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: Name and version of the software used to control the instrument
-                                    and acquire raw mass spectrum data.
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          - if:
-                              properties:
-                                ada:toolRole:
-                                  const: dataReduction
-                              required:
-                              - ada:toolRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: 'Name and version of the software used for data reduction:
-                                    blank correction, internal standard normalization, calibration, and
-                                    concentration calculation. Include version number.'
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          required:
-                          - ada:toolRole
               - if:
                   required:
                   - schema:instrument
@@ -82,6 +34,7 @@ allOf:
                                 schema:additionalType:
                                   contains:
                                     const: ICPMS
+                                  schema:inDefinedTermSet: ada:vocab/instrumentType
                               required:
                               - schema:additionalType
                             then:
@@ -96,6 +49,7 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: ICP Source
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
@@ -209,6 +163,7 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: Sample Introduction System
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
@@ -218,24 +173,31 @@ allOf:
                                             items:
                                               anyOf:
                                               - &id004
-                                                title: Make-up Gas Flow Rate
-                                                description: Supplementary argon flow added downstream
-                                                  of a desolvation system to maintain total gas delivery
-                                                  to the plasma (L/min). Record 'N/A' if no desolvation
-                                                  system is used. Record 'N/A' where Desolvation System
-                                                  is 'None'.
+                                                title: Make-up Gas and Flow Rate
+                                                description: Supplementary gas added to the sample-carrying
+                                                  stream between the sample introduction system and the
+                                                  plasma, with its identity and the procedure-registered
+                                                  target flow rate. Argon make-up is standard and maintains
+                                                  total gas delivery where the carrier flow alone is insufficient
+                                                  — downstream of an ablation cell, or of a desolvation
+                                                  system that has removed solvent load. Small nitrogen
+                                                  or hydrogen additions are also made here to enhance
+                                                  sensitivity for some elements; record them with their
+                                                  own flow, whose unit commonly differs from the make-up
+                                                  flow. Record 'None' explicitly where no supplementary
+                                                  gas is added, to distinguish it from not reported.
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
+                                                    const: ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate
+                                                    - '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate
                                                   schema:name:
-                                                    const: Make-up Gas Flow Rate
+                                                    const: Make-up Gas and Flow Rate
                                                   schema:value:
                                                     anyOf:
                                                     - type: number
@@ -249,74 +211,18 @@ allOf:
                                                 - schema:name
                                                 - schema:value
                                                 - schema:unitText
-                                              - &id005
-                                                title: Nebulizer Gas Flow Rate
-                                                description: Flow rate of the carrier argon gas delivered
-                                                  through the nebulizer (L/min). Controls aerosol transport
-                                                  and strongly influences signal sensitivity and stability.
-                                                  Adjusted daily to optimize signal.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
-                                                  schema:name:
-                                                    const: Nebulizer Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - &id006
-                                                title: Sample Uptake Rate
-                                                description: Peristaltic pump speed or self-aspiration
-                                                  flow rate for sample introduction (µL/min or mL/min).
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
-                                                  schema:name:
-                                                    const: Sample Uptake Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                              - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_nebulizerGasFlowRate
+                                              - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleUptakeRate
                                             allOf:
                                             - contains: *id004
                                               minContains: 0
                                               maxContains: 1
-                                            - contains: *id005
+                                            - contains:
+                                                $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_nebulizerGasFlowRate
                                               minContains: 0
                                               maxContains: 1
-                                            - contains: *id006
+                                            - contains:
+                                                $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleUptakeRate
                                               minContains: 0
                                               maxContains: 1
                                     - if:
@@ -324,13 +230,14 @@ allOf:
                                           schema:additionalType:
                                             contains:
                                               const: Torch
+                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                         required:
                                         - schema:additionalType
                                       then:
                                         properties:
                                           schema:additionalProperty:
                                             type: array
-                                            items: &id007
+                                            items: &id005
                                               title: Torch Depth
                                               description: Distance between the load coil and the sampling
                                                 cone tip (mm), also called injector depth or torch position
@@ -360,7 +267,7 @@ allOf:
                                               - schema:name
                                               - schema:value
                                             allOf:
-                                            - contains: *id007
+                                            - contains: *id005
                                               minContains: 0
                                               maxContains: 1
                                   allOf:
@@ -369,6 +276,7 @@ allOf:
                                         schema:additionalType:
                                           contains:
                                             const: ICP Source
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                   - contains:
@@ -376,13 +284,14 @@ allOf:
                                         schema:additionalType:
                                           contains:
                                             const: Sample Introduction System
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                 schema:additionalProperty:
                                   type: array
                                   items:
                                     anyOf:
-                                    - &id008
+                                    - &id006
                                       title: Doubly-Charged Species Monitor
                                       description: Mass ratio monitored to estimate doubly-charged ion
                                         (M2+) formation during instrument tuning. Doubly-charged ions
@@ -410,7 +319,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id009
+                                    - &id007
                                       title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged ion production
                                         for the monitored species at the time of instrument tuning. Record
@@ -438,7 +347,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id010
+                                    - &id008
                                       title: Mass Resolution Setting
                                       description: Mass resolution mode(s) used in this procedure. Sector-field
                                         instruments allow selection of low resolution (LR; m/Δm ≈ 300–400),
@@ -467,7 +376,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id011
+                                    - &id009
                                       title: Memory Effect Mitigation
                                       description: Procedure applied to identify and minimize carry-over
                                         of high-concentration elements between successive sample introductions.
@@ -498,16 +407,16 @@ allOf:
                                       - schema:name
                                       - schema:value
                                   allOf:
+                                  - contains: *id006
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains: *id007
+                                    minContains: 0
+                                    maxContains: 1
                                   - contains: *id008
                                     minContains: 0
                                     maxContains: 1
                                   - contains: *id009
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains: *id010
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains: *id011
                                     minContains: 0
                                     maxContains: 1
                                 schema:identifier:
@@ -525,6 +434,7 @@ allOf:
                             schema:additionalType:
                               contains:
                                 const: ICPMS
+                              schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
               - if:
@@ -592,17 +502,6 @@ allOf:
                   - '@type'
                 then:
                   properties:
-                    schema:identifier:
-                      description: Globally unique, persistent identifier for each sample listed in Sample
-                        Name. IGSN (International Geo Sample Number) is the recommended standard for geological
-                        and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample
-                        and its sub-samples are separately registered, record the identifier at the level
-                        actually analysed.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
                     schema:description:
                       description: Brief description of sample provenance, form, or preparation state
                         relevant to this analysis.
@@ -613,51 +512,13 @@ allOf:
                           type: string
                     schema:additionalProperty:
                       type: array
-                      items: &id012
-                        title: Sample Aliquot Mass or Volume
-                        description: Mass (mg) of solid material digested or volume (mL) of liquid taken
-                          for dissolution. Used for yield calculations and concentration back-calculation.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume
-                          schema:name:
-                            const: Sample Aliquot Mass or Volume
-                          schema:value:
-                            anyOf:
-                            - type: number
-                            - type: string
-                          schema:unitText:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        - schema:unitText
+                      items:
+                        $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleAliquotMassOrVolume
                       allOf:
-                      - contains: *id012
+                      - contains:
+                          $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleAliquotMassOrVolume
                         minContains: 0
                         maxContains: 1
-                    schema:name:
-                      description: Name or identifier of each sample analysed in this session, as used
-                        in the laboratory — a sample mount, section or aliquot counts as one entry where
-                        that is what the laboratory tracks. The analysis record corresponds to one session
-                        and may cover several samples; fields whose Keyed By column declares 'sample'
-                        take one value per entry. Should match the identifier used in associated publications
-                        or data tables.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          type: string
             allOf:
             - contains:
                 properties:
@@ -686,63 +547,15 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id013
-                              title: Digestion Duration
-                              description: Duration of the primary acid digestion step (hours or days).
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/digestionDuration
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/digestionDuration
-                                schema:name:
-                                  const: Digestion Duration
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - &id014
-                              title: Digestion Temperature
-                              description: Temperature at which acid digestion was carried out (°C). Procedure
-                                specifies the target temperature.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/digestionTemperature
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/digestionTemperature
-                                schema:name:
-                                  const: Digestion Temperature
-                                schema:value:
-                                  anyOf:
-                                  - type: number
-                                  - type: string
-                                schema:unitText:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              - schema:unitText
+                            - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionDuration
+                            - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionTemperature
                           allOf:
-                          - contains: *id013
+                          - contains:
+                              $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionDuration
                             minContains: 0
                             maxContains: 1
-                          - contains: *id014
+                          - contains:
+                              $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionTemperature
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -757,7 +570,7 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id015
+                            - &id010
                               title: Normalization / Standards-Based Correction
                               description: Post-acquisition normalization applied to output concentrations
                                 relative to a reference value (e.g., correction to a BHVO-2 working value).
@@ -781,7 +594,7 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - &id016
+                            - &id011
                               title: Pulse/Analog Detector Nonlinearity Correction
                               description: Whether a correction was applied for nonlinear detector response
                                 at the transition between pulse-counting and analog (and Faraday, for
@@ -811,7 +624,7 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - &id017
+                            - &id012
                               title: Spike / Outlier Filtering Approach
                               description: Criteria used to identify and exclude anomalous replicate measurements
                                 or data points from the calculated mean.
@@ -835,7 +648,7 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - &id018
+                            - &id013
                               title: Uncertainty Propagation Method
                               description: 'The approach used to propagate analytical uncertainty through
                                 the data reduction chain to the final reported value. State which sources
@@ -863,50 +676,22 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - &id019
-                              title: Constants and Reference Values Used
-                              description: Physical constants and reference values used in data reduction
-                                to calculate the final reported quantity (e.g., decay constants for age
-                                calculation, standard isotope ratios, or other citable reference values
-                                used in a correction or calculation), together with their source. Distinct
-                                from the Group 6 reference-material fields, which document accepted values
-                                for specific calibration/validation materials rather than universal physical
-                                constants. Record "None" if no citable, revisable physical constants feed
-                                into this procedure's data reduction.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed
-                                schema:name:
-                                  const: Constants and Reference Values Used
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                            - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
-                          - contains: *id015
+                          - contains: *id010
                             minContains: 0
                             maxContains: 1
-                          - contains: *id016
+                          - contains: *id011
                             minContains: 0
                             maxContains: 1
-                          - contains: *id017
+                          - contains: *id012
                             minContains: 0
                             maxContains: 1
-                          - contains: *id018
+                          - contains: *id013
                             minContains: 0
                             maxContains: 1
-                          - contains: *id019
+                          - contains:
+                              $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                             minContains: 0
                             maxContains: 1
                 allOf:
@@ -924,46 +709,46 @@ allOf:
                     - schema:name
           schema:additionalProperty:
             type: array
-            items: &id020
-              title: Signal Integration Time
-              description: Total integration time per analyte per replicate (s). Determined at analysis
-                time from the actual acquisition.
-              type: object
-              properties:
-                '@id':
-                  const: ada:parameter/solutionSficpmsTAPP/signalIntegrationTime
-                '@type':
-                  const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:parameter/solutionSficpmsTAPP/signalIntegrationTime
-                schema:name:
-                  const: Signal Integration Time
-                schema:value:
-                  anyOf:
-                  - type: number
-                  - type: string
-                schema:unitText:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              - schema:unitText
+            items:
+              anyOf:
+              - &id014
+                title: Signal Integration Time
+                description: Total integration time per analyte per replicate (s). Determined at analysis
+                  time from the actual acquisition.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionSficpmsTAPP/signalIntegrationTime
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionSficpmsTAPP/signalIntegrationTime
+                  schema:name:
+                    const: Signal Integration Time
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
             allOf:
-            - contains: *id020
+            - contains: *id014
               minContains: 0
               maxContains: 1
-          schema:description:
-            description: 'Any procedure- or analysis-specific information not captured by a structured
-              field anywhere in this TAPP — including anomalies, deviations from the registered procedure,
-              instrument modifications, and supplementary context. Scope is the whole document, not Group
-              6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured
-              field is preferred for anything that can be formally categorised.'
-            type: string
+            - contains:
+                $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+              minContains: 0
+              maxContains: 1
     dqv:hasQualityMeasurement:
       type: array
       items:

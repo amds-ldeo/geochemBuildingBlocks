@@ -122,7 +122,7 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ThermoFisher Scientific (FEI)",
+        "schema:name": "ThermoFisher Scientific",
         "@type": [
           "schema:Organization"
         ]
@@ -136,7 +136,7 @@
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "EDSDetector",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -146,11 +146,12 @@
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
           "schema:additionalType": [
-            "ImagingDetector",
+            "Imaging Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
@@ -160,6 +161,7 @@
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/TEM/part/Imaging-Detector",
           "schema:name": "missing"
         },
         {
@@ -168,12 +170,13 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "4DSTEMDetector",
+            "4D-STEM Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/4D-STEM-Detector"
         },
         {
           "@type": [
@@ -181,12 +184,13 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "AberrationCorrector",
+            "Aberration Corrector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Aberration-Corrector"
         },
         {
           "@type": [
@@ -194,12 +198,13 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EELSSpectrometer",
+            "EELS Spectrometer",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/EELS-Spectrometer"
         },
         {
           "@type": [
@@ -207,12 +212,13 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron source",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -225,7 +231,8 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:instrument/TEM/part/Monochromator"
         }
       ],
       "ada:acceleratingVoltageDefault": "200 kV",
@@ -233,7 +240,22 @@
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",

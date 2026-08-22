@@ -9,39 +9,10 @@
   - language: json
     code: |-
       {
-        "schema:object": [
-          {
-            "@type": "example value",
-            "schema:additionalProperty": [
-              {
-                "schema:name": "Sample Aliquot Mass or Volume",
-                "schema:defaultValue": 1
-              }
-            ]
-          }
-        ],
         "schema:actionProcess": {
           "schema:step": [
             {
-              "schema:name": "sampleDigestion",
-              "schema:additionalProperty": [
-                {
-                  "schema:name": "Number of Digestion Steps",
-                  "schema:value": 1
-                },
-                {
-                  "schema:name": "Digestion Vessel Type",
-                  "schema:value": "example value"
-                },
-                {
-                  "schema:name": "Digestion Temperature",
-                  "schema:defaultValue": 1
-                },
-                {
-                  "schema:name": "Digestion Duration",
-                  "schema:defaultValue": "example value"
-                }
-              ],
+              "schema:name": "Sample digestion",
               "bios:reagent": [
                 {
                   "schema:name": "example value"
@@ -53,106 +24,5 @@
         "ada:chromatographicSeparationApplied": "example value",
         "ada:isotopeDilutionSpike": "example value",
         "ada:finalSolutionMatrix": "example value",
-        "schema:instrument": [
-          {
-            "schema:additionalType": "example value",
-            "schema:hasPart": [
-              {
-                "schema:additionalType": "example value",
-                "schema:additionalProperty": [
-                  {
-                    "schema:name": "Nebulizer Type",
-                    "schema:value": "example value"
-                  },
-                  {
-                    "schema:name": "Spray Chamber Type and Cooling Temperature",
-                    "schema:value": "example value"
-                  },
-                  {
-                    "schema:name": "Sample Uptake Rate",
-                    "schema:defaultValue": 1
-                  },
-                  {
-                    "schema:name": "Nebulizer Gas Flow Rate",
-                    "schema:defaultValue": 1
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "schema:additionalProperty": [
-          {
-            "schema:name": "Desolvation System",
-            "schema:value": "example value"
-          },
-          {
-            "schema:name": "Internal Standard Concentration",
-            "schema:value": 1
-          }
-        ],
         "ada:washTimeBetweenSamples": 1
-      }
-- title: SolutionIntroduction composed into an analysis (AnalysisIdentification)
-  content: The analysis half of the SolutionIntroduction module, with every property populated. Generated
-    from the schema, so it tracks the sidecar.
-  prefixes:
-    prov: http://www.w3.org/ns/prov#
-    schema: http://schema.org/
-  snippets:
-  - language: json
-    code: |-
-      {
-        "prov:wasGeneratedBy": [
-          {
-            "schema:object": [
-              {
-                "@type": "example value",
-                "schema:additionalProperty": [
-                  {
-                    "schema:name": "Sample Aliquot Mass or Volume",
-                    "schema:value": 1
-                  }
-                ]
-              }
-            ],
-            "schema:actionProcess": {
-              "schema:step": [
-                {
-                  "schema:name": "sampleDigestion",
-                  "schema:additionalProperty": [
-                    {
-                      "schema:name": "Digestion Temperature",
-                      "schema:value": 1
-                    },
-                    {
-                      "schema:name": "Digestion Duration",
-                      "schema:value": "example value"
-                    }
-                  ]
-                }
-              ]
-            },
-            "prov:used": [
-              {
-                "schema:additionalType": "example value",
-                "schema:hasPart": [
-                  {
-                    "schema:additionalType": "example value",
-                    "schema:additionalProperty": [
-                      {
-                        "schema:name": "Sample Uptake Rate",
-                        "schema:value": 1
-                      },
-                      {
-                        "schema:name": "Nebulizer Gas Flow Rate",
-                        "schema:value": 1
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
       }

@@ -67,7 +67,7 @@ Two standing gotchas that bite spot regenerations:
 
 ## Composition modules
 
-`_sources/BaseSchema/modules/<name>/` (`group1`, `reportingCore`, `laserAblation`, `mcIcpms`, `solutionIntroduction`, `geochronology`, `uPb`) factors fields shared across techniques into module building blocks. Each exposes up to two `$defs`, split by path root: **`ProcedureIdentification`** (from the module's `$MethodDefinition` paths, composed into `tapp/`) and **`AnalysisIdentification`** (from its `$Dataset` paths, composed into `detail/`); `reportingCore` is conditional and exposes one `$def` per block per side (see `docs/REPORTINGCORE_BLOCKS.md`). Four techniques compose modules today: EMPA and the three `Solution-*-ICPMS`.
+`_sources/BaseSchema/modules/<name>/` (`core`, `targetSelection`, `analyte`, `aggregation`, `blank`, `calibrationFactor`, `laserAblation`, `mcIcpms`, `solutionIntroduction`, `geochronology`, `uPb`; plus `group1` and `reportingCore`, which the current manifest composes into nothing) factors fields shared across techniques into module building blocks. Each exposes up to two `$defs`, split by path root: **`ProcedureIdentification`** (from the module's `$MethodDefinition` paths, composed into `tapp/`) and **`AnalysisIdentification`** (from its `$Dataset` paths, composed into `detail/`); `reportingCore` is conditional and exposes one `$def` per block per side (see `docs/REPORTINGCORE_BLOCKS.md`). All 16 techniques in `tapp/composed_tapps.json` compose modules today; membership is matched on the table's **filename**.
 
 A row covered by a module is **dropped from the technique's own overlay** — otherwise the shared field is defined twice and the technique's copy silently wins on any divergence. `tools/module_composition.py` makes that call, and only when the module `$def` demonstrably provides the field (module has it, the field has a placement in the module sidecar, and the `$def` exists).
 
@@ -78,7 +78,30 @@ python tools/build_module_bb.py --write        # module BB from its CSV (tapp/ s
 python tools/draft_module.py --measure         # draft candidate modules, measure what they'd save
 ```
 
-`geochronology` and `uPb` currently generate nothing — their fields have no placement in any technique sidecar, and an empty schema would wrongly assert a conforming procedure carries nothing.
+A module with no placed root fields still emits a BB when it publishes parameters — `blank` and
+`calibrationFactor` are parameter-only. What it must never do is emit an *empty* root `$def`,
+which would wrongly assert that a conforming procedure carries nothing.
+
+### Module parameters: shape and identity
+
+A module publishes parameters as `Param_<Side>_<name>` `$defs`. **Do not restate the parameter
+shape there** — `build_module_bb.emit_parameter_defs()` delegates to the two canonical emitters in
+`build_tapp.py`, chosen by side:
+
+| side | emitter | `@type` | carries |
+|---|---|---|---|
+| `Procedure` (`$MethodDefinition` paths) | `param_template_def` | `schema:PropertyValueSpecification` | `schema:valueName`, `ada:dataType`, `ada:fieldScope`, `schema:readonlyValue`, `ada:tier` |
+| `Analysis` (`$Dataset` paths) | `param_value_def` | `schema:PropertyValue` | `schema:propertyID`, `schema:value` |
+
+Both add **`schema:unitText` whenever the Data Type column names a unit** — required on the value
+side, a `const` on the template side. A hand-rolled variant that emitted a hybrid of the two made
+every module parameter differ structurally from the technique parameter it duplicates: 181 apparent
+conflicts that were one defect. `python tools/module_conflict_check.py --parameters` is the check.
+
+**Identity.** A technique mints `ada:parameter/<TAPP>/<name>`, so one logical parameter exists once
+per consuming TAPP. A module-owned parameter instead gets a single identity,
+`ada:parameter/module/<Module>/<name>` — deliberately, so the shared parameter is one thing. The
+module and technique `$defs` should therefore differ **only** in that `@id`.
 
 > **Module `$ref` depth (`e3a3968d`).** Modules sit at `_sources/BaseSchema/modules/<name>/` — two hops shallower than a technique schema at `_sources/techniqueProfile/geochemProfile/<TECH>/tapp/` — but `build_module_bb.py` reuses `schema_path_emitter`'s technique-depth `REF_MAP`. A BaseSchema target written as `../../../../BaseSchema/X` climbs past the repo root and must be `../../X`; `build_module_bb._reref_module_depth()` does that rewrite. Only the full CI postprocess catches this class of break — `validate_examples.py` does not.
 

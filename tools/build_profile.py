@@ -13,12 +13,13 @@ The example is synthesised by overlaying the technique's detail -P0 (which satis
 overlay) onto the adaProduct scaffolding of the LA-ICPMS example, then swapping the technique-specific
 componentType / additionalType / conformsTo.
 
-    python tools/build_profile.py <tapp>              # e.g. geochronTAPP
+    python tools/build_profile.py <tapp>              # e.g. semTAPP
     python tools/build_profile.py <tapp> --validate
 """
 import copy
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -40,10 +41,6 @@ def _profile_dir(tapp):
 # per-TAPP profile config: dir name, detail short, conformsTo @id, additionalType product strings,
 # titles. componentType enum is pulled from the TAPP CFG at build time.
 PROFILES = {
-    "geochronTAPP": dict(dir="Geochron", short="GEOCHRON", cid="adaGeochron",
-        addtype=["Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry",
-                 "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
-        title="ADA LA-ICP-MS Geochronology Product Profile"),
     "labxctTAPP": dict(dir="Lab-XCT", short="LABXCT", cid="adaLabXCT",
         addtype=["X-ray Computed Tomography (XCT) Image Collection", "X-ray computed tomography"],
         title="ADA Lab-XCT Product Profile"),
@@ -69,6 +66,45 @@ PROFILES = {
         addtype=["High-resolution Inductively Coupled Plasma Mass Spectroscopy (HRICPMS) Processed",
                  "High-resolution inductively coupled plasma mass spectrometry"],
         title="ADA Solution SF-ICP-MS Product Profile"),
+    # --- Laser-ablation and Solution MC profiles (added 2026-08-21) ------------------------------
+    # addtype[0] is written into the generated example's schema:additionalType, so every value here
+    # must already exist in adaProduct's controlled list - these are taken from it verbatim, not
+    # coined. NOTE: that list has no laser-ablation MC product string, so LA-MC and Solution-MC both
+    # take the generic MCICPMS one; they stay distinct by conformsTo, componentType and detail.
+    "laQicpmsTAPP": dict(dir="LA-Q-ICPMS", short="LAQICPMS", cid="adaLAQICPMS",
+        addtype=["Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed", "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-Q-ICP-MS Product Profile"),
+    "laSficpmsTAPP": dict(dir="LA-SF-ICPMS", short="LASFICPMS", cid="adaLASFICPMS",
+        addtype=["Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed", "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-SF-ICP-MS Product Profile"),
+    "laMcicpmsTAPP": dict(dir="LA-MC-ICPMS", short="LAMCICPMS", cid="adaLAMCICPMS",
+        addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-MC-ICP-MS Product Profile"),
+    "laQicpmsUPbTAPP": dict(dir="LA-Q-ICPMS-UPb", short="LAQICPMSUPB", cid="adaLAQICPMSUPb",
+        addtype=["Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed", "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-Q-ICP-MS U-Pb Geochronology Product Profile"),
+    "laSficpmsUPbTAPP": dict(dir="LA-SF-ICPMS-UPb", short="LASFICPMSUPB", cid="adaLASFICPMSUPb",
+        addtype=["Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed", "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-SF-ICP-MS U-Pb Geochronology Product Profile"),
+    "laMcicpmsUPbTAPP": dict(dir="LA-MC-ICPMS-UPb", short="LAMCICPMSUPB", cid="adaLAMCICPMSUPb",
+        addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA LA-MC-ICP-MS U-Pb Geochronology Product Profile"),
+    # EMPA and TEM predate the generator: EMPA already has a hand-made profile/ (cid adaEMPA, kept
+    # verbatim so its published conformsTo URI does not move) and TEM has none yet. Adding them here
+    # brings both under the generator, so a technique regen keeps its profile in step with its own
+    # detail and tapp - EMPA's profile had gone stale against them precisely because it was skipped.
+    "empaTAPP": dict(dir="EMPA", short="EMPA", cid="adaEMPA",
+        addtype=["Electron Microprobe Analysis (EMPA)",
+                 "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)"],
+        title="ADA EMPA Product Profile"),
+    "temTAPP": dict(dir="TEM", short="TEM", cid="adaTEM",
+        addtype=["Scanning Transmission Electron Microscopy (STEM) Image",
+                 "Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy "
+                 "(STEMEDS) Tabular"],
+        title="ADA TEM Product Profile"),
+    "solutionMcicpmsTAPP": dict(dir="Solution-MC-ICPMS", short="SOLUTIONMCICPMS", cid="adaSolutionMCICPMS",
+        addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry"],
+        title="ADA Solution MC-ICP-MS Product Profile"),
 }
 
 CID_BASE = "https://w3id.org/geochem/metadata/profiles/"
@@ -208,7 +244,78 @@ def _example(tapp, cfg, component_types):
             if not any(isinstance(x, dict) and x.get("@id") == pid for x in ct):
                 ct.append({"@id": pid})
         so["dcterms:conformsTo"] = ct
+    _add_required_variables(ex, tapp, cfg)
     return ex
+
+
+def _add_required_variables(ex, tapp, cfg):
+    """Add the reported-property variables the profile `contains`-requires.
+
+    A Basic-tier reported property is required like any other Basic field, so the emitter gives it a
+    hard `contains` on schema:variableMeasured. The scaffold example carries only generic dataset
+    variables (measurement_value, position_x), which satisfy the array's item constraints but not
+    those `contains` clauses.
+
+    Build each variable from the `contains` schema ITSELF. That schema is the analysis VALUE form
+    (schema:PropertyValue) and carries every const the instance must match - unlike the sibling
+    items.anyOf branches, which at the dataset root are the $MethodDefinition TEMPLATE forms
+    (schema:PropertyValueSpecification) and would produce a variable that fails the base shape.
+
+    The const-pinned fields are overlaid onto a clone of a variable the scaffold already carries, so
+    the result also satisfies the base CDIF variable shape (schema:description and friends) without
+    restating it here."""
+    path = os.path.join(_profile_dir(tapp), "resolvedSchema.json")
+    if not os.path.exists(path):
+        return                      # first build: resolve, then re-run to pick these up
+    sch = json.load(open(path, encoding="utf-8"))
+
+    required = {}                   # name -> the contains schema that pins it
+
+    def walk(node, key=""):
+        if isinstance(node, dict):
+            if key == "schema:variableMeasured":
+                for a in (node.get("allOf") or []):
+                    c = a.get("contains")
+                    if not isinstance(c, dict):
+                        continue
+                    nm = ((c.get("properties") or {}).get("schema:name") or {}).get("const")
+                    if not nm:
+                        continue
+                    # A name can be pinned twice: the $MethodDefinition TEMPLATE form
+                    # (schema:PropertyValueSpecification, e.g. detectionLimitDefault) and the
+                    # $Dataset VALUE form. A profile example is a dataset record, and only the value
+                    # form satisfies the base variable shape - so the value form always wins.
+                    t = ((c.get("properties") or {}).get("@type") or {}).get("const") or []
+                    is_value = "schema:PropertyValue" in (t if isinstance(t, list) else [t])
+                    if nm not in required or is_value:
+                        if nm in required and not is_value:
+                            continue
+                        required[nm] = c
+            for k, v in node.items():
+                walk(v, k)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v, key)
+
+    walk(sch)
+    vm = ex.get("schema:variableMeasured") or []
+    if not required or not vm:
+        return
+    template = vm[0]
+    have = {v.get("schema:name") for v in vm if isinstance(v, dict)}
+
+    for nm, c in required.items():
+        if nm in have:
+            continue
+        var = copy.deepcopy(template)
+        var["schema:description"] = "%s reported for this dataset. Example value." % nm
+        var.pop("schema:alternateName", None)
+        for k, v in (c.get("properties") or {}).items():
+            if isinstance(v, dict) and "const" in v:
+                var[k] = copy.deepcopy(v["const"])
+        var.setdefault("schema:name", nm)
+        var["@id"] = var.get("@id") if isinstance(var.get("@id"), str) else "ex:var"
+        ex.setdefault("schema:variableMeasured", []).append(var)
 
 
 def _example_monolithic(ex, cfg, component_types):

@@ -26,7 +26,7 @@
             },
             {
               "ada:toolRole": "dataReduction",
-              "schema:name": "example dataReductionSoftware",
+              "schema:name": "example dataProcessingSoftware",
               "@type": [
                 "schema:SoftwareApplication"
               ]
@@ -98,7 +98,8 @@
                     "schema:Thing",
                     "schema:Product"
                   ],
-                  "schema:name": "example instrumentName"
+                  "schema:name": "example instrumentName",
+                  "@id": "ex:instrument/ICPMS/part/ICP-Source"
                 },
                 {
                   "schema:additionalType": [
@@ -109,27 +110,27 @@
                   ],
                   "schema:additionalProperty": [
                     {
-                      "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate",
+                      "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate",
                       "@type": [
                         "schema:PropertyValue"
                       ],
                       "schema:propertyID": [
                         {
-                          "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasFlowRate"
+                          "@id": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate"
                         }
                       ],
-                      "schema:name": "Make-up Gas Flow Rate",
+                      "schema:name": "Make-up Gas and Flow Rate",
                       "schema:value": 1,
                       "schema:unitText": "example value"
                     },
                     {
-                      "@id": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate",
+                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
                       "@type": [
                         "schema:PropertyValue"
                       ],
                       "schema:propertyID": [
                         {
-                          "@id": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate"
+                          "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
                         }
                       ],
                       "schema:name": "Nebulizer Gas Flow Rate",
@@ -137,13 +138,13 @@
                       "schema:unitText": "example value"
                     },
                     {
-                      "@id": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRate",
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
                       "@type": [
                         "schema:PropertyValue"
                       ],
                       "schema:propertyID": [
                         {
-                          "@id": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRate"
+                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                         }
                       ],
                       "schema:name": "Sample Uptake Rate",
@@ -155,7 +156,8 @@
                     "schema:Thing",
                     "schema:Product"
                   ],
-                  "schema:name": "example instrumentName"
+                  "schema:name": "example instrumentName",
+                  "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
                 },
                 {
                   "schema:additionalType": [
@@ -183,7 +185,8 @@
                     "schema:Thing",
                     "schema:Product"
                   ],
-                  "schema:name": "example instrumentName"
+                  "schema:name": "example instrumentName",
+                  "@id": "ex:instrument/ICPMS/part/Torch"
                 }
               ],
               "schema:additionalProperty": [
@@ -247,7 +250,8 @@
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "example instrumentName"
+              "schema:name": "example instrumentName",
+              "@id": "ex:instrument/ICPMS"
             }
           ]
         },
@@ -281,13 +285,13 @@
           "schema:description": "example sampleDescription",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume",
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
               "@type": [
                 "schema:PropertyValue"
               ],
               "schema:propertyID": [
                 {
-                  "@id": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume"
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
                 }
               ],
               "schema:name": "Sample Aliquot Mass or Volume",
@@ -304,26 +308,26 @@
             "schema:name": "Sample digestion",
             "schema:additionalProperty": [
               {
-                "@id": "ada:parameter/solutionSficpmsTAPP/digestionDuration",
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration",
                 "@type": [
                   "schema:PropertyValue"
                 ],
                 "schema:propertyID": [
                   {
-                    "@id": "ada:parameter/solutionSficpmsTAPP/digestionDuration"
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration"
                   }
                 ],
                 "schema:name": "Digestion Duration",
                 "schema:value": "example value"
               },
               {
-                "@id": "ada:parameter/solutionSficpmsTAPP/digestionTemperature",
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature",
                 "@type": [
                   "schema:PropertyValue"
                 ],
                 "schema:propertyID": [
                   {
-                    "@id": "ada:parameter/solutionSficpmsTAPP/digestionTemperature"
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
                   }
                 ],
                 "schema:name": "Digestion Temperature",
@@ -388,16 +392,16 @@
                 "schema:value": "example value"
               },
               {
-                "@id": "ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed",
+                "@id": "ada:parameter/module/Core/constantsReferenceValues",
                 "@type": [
                   "schema:PropertyValue"
                 ],
                 "schema:propertyID": [
                   {
-                    "@id": "ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed"
+                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
                   }
                 ],
-                "schema:name": "Constants and Reference Values Used",
+                "schema:name": "Constants Reference Values",
                 "schema:value": "example value"
               }
             ]
@@ -425,6 +429,19 @@
           "schema:name": "Signal Integration Time",
           "schema:value": 1,
           "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/module/Blank/proceduralBlankLevel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
+            }
+          ],
+          "schema:name": "Procedural Blank Level",
+          "schema:value": "example value"
         }
       ],
       "schema:description": "example additionalNotes",
@@ -469,14 +486,6 @@
     {
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "example oxideProduction"
-    },
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }

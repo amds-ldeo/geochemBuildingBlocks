@@ -2727,12 +2727,13 @@
       ]
     },
     {
+      "title": "Core on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
         "schema:name": {
           "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "schema:measurementTechnique": {
           "type": "array",
@@ -2741,15 +2742,7 @@
             "properties": {
               "schema:termCode": {
                 "description": "Top-level analytical technique identifier.",
-                "type": "string",
-                "enum": [
-                  "SEM",
-                  "SEM/FIB-SEM",
-                  "N/A",
-                  "None",
-                  "missing"
-                ],
-                "readOnly": true
+                "type": "string"
               }
             }
           }
@@ -2759,8 +2752,7 @@
           "properties": {
             "schema:name": {
               "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
-              "type": "string",
-              "readOnly": true
+              "type": "string"
             }
           }
         },
@@ -2779,8 +2771,7 @@
         },
         "schema:datePublished": {
           "description": "First date this procedure configuration was used in production.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "schema:funding": {
           "type": "array",
@@ -2789,8 +2780,7 @@
             "properties": {
               "schema:name": {
                 "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
-                "type": "string",
-                "readOnly": true
+                "type": "string"
               }
             }
           }
@@ -2818,8 +2808,7 @@
                       "properties": {
                         "schema:name": {
                           "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
-                          "type": "string",
-                          "readOnly": true
+                          "type": "string"
                         }
                       }
                     }
@@ -2844,21 +2833,7 @@
                       "properties": {
                         "schema:name": {
                           "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                          "anyOf": [
-                            {
-                              "type": "string",
-                              "enum": [
-                                "EPMA; NanoSIMS",
-                                "XCT (pre-SEM overview)",
-                                "None",
-                                "N/A",
-                                "missing"
-                              ]
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
+                          "type": "string"
                         },
                         "schema:description": {
                           "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
@@ -2872,6 +2847,210 @@
             ]
           }
         },
+        "ada:samplingUnit": {
+          "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
+          "type": "string"
+        },
+        "schema:instrument": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "SEM"
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:manufacturer": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "schema:model": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:additionalType": {
+                    "contains": {
+                      "const": "SEM"
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                  }
+                },
+                "required": [
+                  "schema:additionalType"
+                ]
+              }
+            }
+          ]
+        },
+        "bios:computationalTool": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ],
+            "required": [
+              "ada:toolRole"
+            ]
+          }
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
+            "type": "string"
+          }
+        },
+        "ada:reportedProperties": {
+          "type": "array",
+          "items": {
+            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+            "type": "string"
+          }
+        },
+        "schema:description": {
+          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ada:samplingUnit",
+        "schema:datePublished",
+        "schema:name"
+      ]
+    },
+    {
+      "title": "TargetSelection on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "ada:targetSelectionCriteriaDefault": {
+          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ada:targetSelectionCriteriaDefault"
+      ]
+    },
+    {
+      "title": "Analyte on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "ada:analyteTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultAnalytes": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
         "schema:object": {
           "type": "array",
           "items": {
@@ -3044,7 +3223,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/semCompositionTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -3080,12 +3259,12 @@
                                 ]
                               },
                               {
-                                "title": "Constants and Reference Values Used",
+                                "title": "Constants Reference Values",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -3093,10 +3272,10 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "constantsReferenceValuesDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -3130,7 +3309,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/semCompositionTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -3170,12 +3349,12 @@
                             },
                             {
                               "contains": {
-                                "title": "Constants and Reference Values Used",
+                                "title": "Constants Reference Values",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -3183,10 +3362,10 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "constantsReferenceValuesDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -3249,34 +3428,6 @@
             }
           }
         },
-        "ada:samplingUnit": {
-          "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Whole sample",
-                "Aliquot",
-                "Grain",
-                "Spot",
-                "Analysis point",
-                "Phase",
-                "Sub-volume",
-                "Region of interest",
-                "N/A",
-                "None",
-                "missing"
-              ]
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:targetSelectionCriteriaDefault": {
-          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-          "type": "string"
-        },
         "schema:instrument": {
           "type": "array",
           "items": {
@@ -3288,7 +3439,8 @@
                     "schema:additionalType": {
                       "contains": {
                         "const": "SEM"
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -3297,38 +3449,6 @@
                 },
                 "then": {
                   "properties": {
-                    "schema:manufacturer": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
-                          "type": "string",
-                          "enum": [
-                            "JEOL",
-                            "Zeiss",
-                            "FEI / Thermo Fisher Scientific",
-                            "Hitachi",
-                            "Tescan",
-                            "Phenom",
-                            "Unknown",
-                            "N/A",
-                            "None",
-                            "missing"
-                          ],
-                          "readOnly": true
-                        }
-                      }
-                    },
-                    "schema:model": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
-                          "type": "string",
-                          "readOnly": true
-                        }
-                      }
-                    },
                     "schema:hasPart": {
                       "type": "array",
                       "items": {
@@ -3339,8 +3459,9 @@
                               "properties": {
                                 "schema:additionalType": {
                                   "contains": {
-                                    "const": "Electron source"
-                                  }
+                                    "const": "Electron Source"
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3393,8 +3514,9 @@
                               "properties": {
                                 "schema:additionalType": {
                                   "contains": {
-                                    "const": "EDSDetector"
-                                  }
+                                    "const": "EDS Detector"
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3427,8 +3549,9 @@
                               "properties": {
                                 "schema:additionalType": {
                                   "contains": {
-                                    "const": "WDSSpectrometer"
-                                  }
+                                    "const": "WDS Spectrometer"
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3464,8 +3587,9 @@
                             "properties": {
                               "schema:additionalType": {
                                 "contains": {
-                                  "const": "Electron source"
-                                }
+                                  "const": "Electron Source"
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -3586,7 +3710,8 @@
                   "schema:additionalType": {
                     "contains": {
                       "const": "SEM"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -3595,98 +3720,6 @@
               }
             }
           ]
-        },
-        "bios:computationalTool": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "ada:toolRole": {
-                      "const": "acquisition"
-                    }
-                  },
-                  "required": [
-                    "ada:toolRole"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:name": {
-                      "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "ada:toolRole": {
-                      "const": "dataReduction"
-                    }
-                  },
-                  "required": [
-                    "ada:toolRole"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:name": {
-                      "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ],
-            "required": [
-              "ada:toolRole"
-            ]
-          }
-        },
-        "ada:analyticalMode": {
-          "type": "array",
-          "items": {
-            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
-            "type": "string",
-            "enum": [
-              "SE Imaging",
-              "BSE Imaging",
-              "EDS",
-              "SEM-WDS",
-              "CL",
-              "EBSD",
-              "TEM Sample Preparation",
-              "3D Tomography",
-              "N/A",
-              "None",
-              "missing"
-            ],
-            "readOnly": true
-          }
         },
         "ada:analyteTemplate": {
           "type": "object",
@@ -5029,19 +5062,6 @@
                   "maxContains": 1
                 }
               ]
-            },
-            "ada:defaultAnalytes": {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/DefinedTerm"
-                  }
-                ]
-              }
             }
           }
         },
@@ -5079,6 +5099,9 @@
                   },
                   "ada:tier": {
                     "const": "R"
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -5238,6 +5261,9 @@
                   },
                   "ada:tier": {
                     "const": "R"
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -5360,6 +5386,9 @@
                   },
                   "ada:tier": {
                     "const": "R"
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -5535,6 +5564,9 @@
                   },
                   "ada:tier": {
                     "const": "R"
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -5757,15 +5789,11 @@
                       },
                       "@type": {
                         "const": [
-                          "schema:PropertyValue"
+                          "schema:PropertyValueSpecification"
                         ]
                       },
-                      "schema:propertyID": {
-                        "const": [
-                          {
-                            "@id": "ada:channelColumn/semCompositionTAPP/xRayLine"
-                          }
-                        ]
+                      "schema:valueName": {
+                        "const": "xRayLine"
                       },
                       "schema:name": {
                         "const": "X-ray Line"
@@ -5773,10 +5801,13 @@
                       "ada:dataType": {
                         "const": "string"
                       },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
                       "ada:tier": {
                         "const": "M"
                       },
-                      "schema:value": {
+                      "schema:defaultValue": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -5793,10 +5824,10 @@
                     "required": [
                       "@id",
                       "@type",
-                      "schema:propertyID",
+                      "schema:valueName",
                       "schema:name",
                       "ada:dataType",
-                      "schema:value"
+                      "schema:defaultValue"
                     ]
                   },
                   {
@@ -5809,15 +5840,11 @@
                       },
                       "@type": {
                         "const": [
-                          "schema:PropertyValue"
+                          "schema:PropertyValueSpecification"
                         ]
                       },
-                      "schema:propertyID": {
-                        "const": [
-                          {
-                            "@id": "ada:channelColumn/semCompositionTAPP/diffractingCrystal"
-                          }
-                        ]
+                      "schema:valueName": {
+                        "const": "diffractingCrystal"
                       },
                       "schema:name": {
                         "const": "Diffracting Crystal"
@@ -5825,10 +5852,13 @@
                       "ada:dataType": {
                         "const": "string"
                       },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
                       "ada:tier": {
                         "const": "M"
                       },
-                      "schema:value": {
+                      "schema:defaultValue": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -5845,10 +5875,10 @@
                     "required": [
                       "@id",
                       "@type",
-                      "schema:propertyID",
+                      "schema:valueName",
                       "schema:name",
                       "ada:dataType",
-                      "schema:value"
+                      "schema:defaultValue"
                     ]
                   },
                   {
@@ -5861,15 +5891,11 @@
                       },
                       "@type": {
                         "const": [
-                          "schema:PropertyValue"
+                          "schema:PropertyValueSpecification"
                         ]
                       },
-                      "schema:propertyID": {
-                        "const": [
-                          {
-                            "@id": "ada:channelColumn/semCompositionTAPP/sequence"
-                          }
-                        ]
+                      "schema:valueName": {
+                        "const": "sequence"
                       },
                       "schema:name": {
                         "const": "Sequence"
@@ -5877,10 +5903,13 @@
                       "ada:dataType": {
                         "const": "integer"
                       },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
                       "ada:tier": {
                         "const": "R"
                       },
-                      "schema:value": {
+                      "schema:defaultValue": {
                         "anyOf": [
                           {
                             "anyOf": [
@@ -5911,7 +5940,7 @@
                     "required": [
                       "@id",
                       "@type",
-                      "schema:propertyID",
+                      "schema:valueName",
                       "schema:name",
                       "ada:dataType"
                     ]
@@ -5926,15 +5955,11 @@
                       },
                       "@type": {
                         "const": [
-                          "schema:PropertyValue"
+                          "schema:PropertyValueSpecification"
                         ]
                       },
-                      "schema:propertyID": {
-                        "const": [
-                          {
-                            "@id": "ada:channelColumn/semCompositionTAPP/proportionalCounterDetector"
-                          }
-                        ]
+                      "schema:valueName": {
+                        "const": "proportionalCounterDetector"
                       },
                       "schema:name": {
                         "const": "Proportional Counter / Detector"
@@ -5942,10 +5967,13 @@
                       "ada:dataType": {
                         "const": "string"
                       },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
                       "ada:tier": {
                         "const": "R"
                       },
-                      "schema:value": {
+                      "schema:defaultValue": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -5962,7 +5990,7 @@
                     "required": [
                       "@id",
                       "@type",
-                      "schema:propertyID",
+                      "schema:valueName",
                       "schema:name",
                       "ada:dataType"
                     ]
@@ -5977,15 +6005,11 @@
                       },
                       "@type": {
                         "const": [
-                          "schema:PropertyValue"
+                          "schema:PropertyValueSpecification"
                         ]
                       },
-                      "schema:propertyID": {
-                        "const": [
-                          {
-                            "@id": "ada:channelColumn/semCompositionTAPP/wdsPhaSetting"
-                          }
-                        ]
+                      "schema:valueName": {
+                        "const": "wdsPhaSetting"
                       },
                       "schema:name": {
                         "const": "WDS PHA Setting"
@@ -5993,10 +6017,13 @@
                       "ada:dataType": {
                         "const": "string"
                       },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
                       "ada:tier": {
                         "const": "R"
                       },
-                      "schema:value": {
+                      "schema:defaultValue": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -6013,7 +6040,7 @@
                     "required": [
                       "@id",
                       "@type",
-                      "schema:propertyID",
+                      "schema:valueName",
                       "schema:name",
                       "ada:dataType"
                     ]
@@ -6281,15 +6308,11 @@
                       },
                       "@type": {
                         "const": [
-                          "schema:PropertyValue"
+                          "schema:PropertyValueSpecification"
                         ]
                       },
-                      "schema:propertyID": {
-                        "const": [
-                          {
-                            "@id": "ada:channelColumn/semCompositionTAPP/xRayLine"
-                          }
-                        ]
+                      "schema:valueName": {
+                        "const": "xRayLine"
                       },
                       "schema:name": {
                         "const": "X-ray Line"
@@ -6297,10 +6320,13 @@
                       "ada:dataType": {
                         "const": "string"
                       },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
                       "ada:tier": {
                         "const": "M"
                       },
-                      "schema:value": {
+                      "schema:defaultValue": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -6317,10 +6343,10 @@
                     "required": [
                       "@id",
                       "@type",
-                      "schema:propertyID",
+                      "schema:valueName",
                       "schema:name",
                       "ada:dataType",
-                      "schema:value"
+                      "schema:defaultValue"
                     ]
                   },
                   "minContains": 0,
@@ -6337,15 +6363,11 @@
                       },
                       "@type": {
                         "const": [
-                          "schema:PropertyValue"
+                          "schema:PropertyValueSpecification"
                         ]
                       },
-                      "schema:propertyID": {
-                        "const": [
-                          {
-                            "@id": "ada:channelColumn/semCompositionTAPP/diffractingCrystal"
-                          }
-                        ]
+                      "schema:valueName": {
+                        "const": "diffractingCrystal"
                       },
                       "schema:name": {
                         "const": "Diffracting Crystal"
@@ -6353,10 +6375,13 @@
                       "ada:dataType": {
                         "const": "string"
                       },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
                       "ada:tier": {
                         "const": "M"
                       },
-                      "schema:value": {
+                      "schema:defaultValue": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -6373,10 +6398,10 @@
                     "required": [
                       "@id",
                       "@type",
-                      "schema:propertyID",
+                      "schema:valueName",
                       "schema:name",
                       "ada:dataType",
-                      "schema:value"
+                      "schema:defaultValue"
                     ]
                   },
                   "minContains": 0,
@@ -6393,15 +6418,11 @@
                       },
                       "@type": {
                         "const": [
-                          "schema:PropertyValue"
+                          "schema:PropertyValueSpecification"
                         ]
                       },
-                      "schema:propertyID": {
-                        "const": [
-                          {
-                            "@id": "ada:channelColumn/semCompositionTAPP/sequence"
-                          }
-                        ]
+                      "schema:valueName": {
+                        "const": "sequence"
                       },
                       "schema:name": {
                         "const": "Sequence"
@@ -6409,10 +6430,13 @@
                       "ada:dataType": {
                         "const": "integer"
                       },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
                       "ada:tier": {
                         "const": "R"
                       },
-                      "schema:value": {
+                      "schema:defaultValue": {
                         "anyOf": [
                           {
                             "anyOf": [
@@ -6443,7 +6467,7 @@
                     "required": [
                       "@id",
                       "@type",
-                      "schema:propertyID",
+                      "schema:valueName",
                       "schema:name",
                       "ada:dataType"
                     ]
@@ -6462,15 +6486,11 @@
                       },
                       "@type": {
                         "const": [
-                          "schema:PropertyValue"
+                          "schema:PropertyValueSpecification"
                         ]
                       },
-                      "schema:propertyID": {
-                        "const": [
-                          {
-                            "@id": "ada:channelColumn/semCompositionTAPP/proportionalCounterDetector"
-                          }
-                        ]
+                      "schema:valueName": {
+                        "const": "proportionalCounterDetector"
                       },
                       "schema:name": {
                         "const": "Proportional Counter / Detector"
@@ -6478,10 +6498,13 @@
                       "ada:dataType": {
                         "const": "string"
                       },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
                       "ada:tier": {
                         "const": "R"
                       },
-                      "schema:value": {
+                      "schema:defaultValue": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -6498,7 +6521,7 @@
                     "required": [
                       "@id",
                       "@type",
-                      "schema:propertyID",
+                      "schema:valueName",
                       "schema:name",
                       "ada:dataType"
                     ]
@@ -6517,15 +6540,11 @@
                       },
                       "@type": {
                         "const": [
-                          "schema:PropertyValue"
+                          "schema:PropertyValueSpecification"
                         ]
                       },
-                      "schema:propertyID": {
-                        "const": [
-                          {
-                            "@id": "ada:channelColumn/semCompositionTAPP/wdsPhaSetting"
-                          }
-                        ]
+                      "schema:valueName": {
+                        "const": "wdsPhaSetting"
                       },
                       "schema:name": {
                         "const": "WDS PHA Setting"
@@ -6533,10 +6552,13 @@
                       "ada:dataType": {
                         "const": "string"
                       },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
                       "ada:tier": {
                         "const": "R"
                       },
-                      "schema:value": {
+                      "schema:defaultValue": {
                         "anyOf": [
                           {
                             "type": "string"
@@ -6553,7 +6575,7 @@
                     "required": [
                       "@id",
                       "@type",
-                      "schema:propertyID",
+                      "schema:valueName",
                       "schema:name",
                       "ada:dataType"
                     ]
@@ -6771,14 +6793,6 @@
           ],
           "readOnly": true
         },
-        "ada:reportedProperties": {
-          "type": "array",
-          "items": {
-            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
-            "type": "string",
-            "readOnly": true
-          }
-        },
         "ada:edsLiveTimePerPointOrPixelDefault": {
           "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds. Longer live time improves counting statistics but increases beam damage risk and total acquisition time.",
           "anyOf": [
@@ -6838,6 +6852,25 @@
           "type": "array",
           "items": {
             "anyOf": [
+              {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
               {
                 "title": "Normalization / Standards-Based Correction",
                 "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
@@ -7289,17 +7322,9 @@
             "missing"
           ],
           "readOnly": true
-        },
-        "schema:description": {
-          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
-          "type": "string"
         }
       },
       "required": [
-        "schema:name",
-        "schema:datePublished",
-        "ada:samplingUnit",
-        "ada:targetSelectionCriteriaDefault",
         "ada:edsAcquisitionMode",
         "ada:edsLiveTimePerPointOrPixelDefault",
         "ada:stepSizePixelSizeDefault",
@@ -9025,6 +9050,11 @@
         {
           "type": "object",
           "properties": {
+            "@id": {
+              "description": "Identifier for this instrument within the record. REQUIRED: an instrument has to be referenceable. A monitored species names the instrument (or the instrument part) that reports it, and a dataset variable points back at the device that produced it; neither is expressible while the instrument is an anonymous object. A document-scoped identifier suffices, but a resolvable one is better wherever the lab has a persistent identifier for the device.",
+              "type": "string",
+              "minLength": 1
+            },
             "schema:additionalType": {
               "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
               "type": "array",
@@ -9068,11 +9098,17 @@
                   {
                     "type": "object",
                     "required": [
+                      "@id",
                       "@type",
                       "schema:name",
                       "schema:additionalType"
                     ],
                     "properties": {
+                      "@id": {
+                        "description": "Identifier for this component within the record. REQUIRED on an INLINE component for the same reason it is required on the instrument: a monitored species names the part that reports it -- a Faraday cup, a spectrometer, a detector -- and an anonymous object cannot be referenced. The sibling branch of this anyOf is the by-reference form, a bare {\"@id\": ...} pointing at a component described elsewhere.",
+                        "type": "string",
+                        "minLength": 1
+                      },
                       "@type": {
                         "type": "array",
                         "items": {
@@ -9130,6 +9166,7 @@
             }
           },
           "required": [
+            "@id",
             "schema:additionalType"
           ]
         }

@@ -2727,12 +2727,13 @@
       ]
     },
     {
+      "title": "Core on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
         "schema:name": {
           "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "schema:measurementTechnique": {
           "type": "array",
@@ -2741,12 +2742,7 @@
             "properties": {
               "schema:termCode": {
                 "description": "Top-level analytical technique identifier.",
-                "type": "string",
-                "enum": [
-                  "XCT (laboratory, polychromatic cone-beam)",
-                  "missing"
-                ],
-                "readOnly": true
+                "type": "string"
               }
             }
           }
@@ -2756,8 +2752,7 @@
           "properties": {
             "schema:name": {
               "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
-              "type": "string",
-              "readOnly": true
+              "type": "string"
             }
           }
         },
@@ -2776,8 +2771,7 @@
         },
         "schema:datePublished": {
           "description": "First date this procedure configuration was used in production.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "schema:funding": {
           "type": "array",
@@ -2786,8 +2780,7 @@
             "properties": {
               "schema:name": {
                 "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
-                "type": "string",
-                "readOnly": true
+                "type": "string"
               }
             }
           }
@@ -2815,8 +2808,7 @@
                       "properties": {
                         "schema:name": {
                           "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
-                          "type": "string",
-                          "readOnly": true
+                          "type": "string"
                         }
                       }
                     }
@@ -2841,23 +2833,7 @@
                       "properties": {
                         "schema:name": {
                           "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                          "anyOf": [
-                            {
-                              "type": "string",
-                              "enum": [
-                                "NCT",
-                                "EPMA",
-                                "LA-ICP-MS",
-                                "SIMS",
-                                "None",
-                                "N/A",
-                                "missing"
-                              ]
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
+                          "type": "string"
                         },
                         "schema:description": {
                           "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
@@ -2871,6 +2847,185 @@
             ]
           }
         },
+        "ada:samplingUnit": {
+          "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
+          "type": "string"
+        },
+        "schema:instrument": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "SEM"
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:manufacturer": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "schema:model": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:additionalType": {
+                    "contains": {
+                      "const": "SEM"
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                  }
+                },
+                "required": [
+                  "schema:additionalType"
+                ]
+              }
+            }
+          ]
+        },
+        "bios:computationalTool": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ],
+            "required": [
+              "ada:toolRole"
+            ]
+          }
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
+            "type": "string"
+          }
+        },
+        "ada:reportedProperties": {
+          "type": "array",
+          "items": {
+            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+            "type": "string"
+          }
+        },
+        "schema:description": {
+          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ada:samplingUnit",
+        "schema:datePublished",
+        "schema:name"
+      ]
+    },
+    {
+      "title": "TargetSelection on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "ada:targetSelectionCriteriaDefault": {
+          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ada:targetSelectionCriteriaDefault"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
         "schema:object": {
           "type": "array",
           "items": {
@@ -3007,7 +3162,7 @@
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/labxctTAPP/preAnalysisImagingAndScreeningDefault"
+                                "const": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault"
                               },
                               "@type": {
                                 "const": [
@@ -5002,7 +5157,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/labxctTAPP/calibrationFactorAndDeterminationMethodDefault"
+                                    "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5079,12 +5234,12 @@
                                 ]
                               },
                               {
-                                "title": "Constants and Reference Values Used",
+                                "title": "Constants Reference Values",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/labxctTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5092,10 +5247,10 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "constantsReferenceValuesDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -5174,7 +5329,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/labxctTAPP/calibrationFactorAndDeterminationMethodDefault"
+                                    "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5259,12 +5414,12 @@
                             },
                             {
                               "contains": {
-                                "title": "Constants and Reference Values Used",
+                                "title": "Constants Reference Values",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/labxctTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5272,10 +5427,10 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "constantsReferenceValuesDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -5375,36 +5530,6 @@
                 "if": {
                   "properties": {
                     "ada:toolRole": {
-                      "const": "acquisition"
-                    }
-                  },
-                  "required": [
-                    "ada:toolRole"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:name": {
-                      "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "ada:toolRole": {
                       "const": "dataReduction"
                     }
                   },
@@ -5415,7 +5540,7 @@
                 "then": {
                   "properties": {
                     "schema:name": {
-                      "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                      "description": "Software used to reconstruct 2D projection images into a 3D CT volume, including version number. Often bundled with the instrument and proprietary to the manufacturer.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -5437,20 +5562,6 @@
             ]
           }
         },
-        "ada:analyticalMode": {
-          "type": "array",
-          "items": {
-            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
-            "type": "string",
-            "enum": [
-              "Single-volume",
-              "Multi-volume stitching",
-              "Single-volume; Multi-volume stitching",
-              "missing"
-            ],
-            "readOnly": true
-          }
-        },
         "schema:instrument": {
           "type": "array",
           "items": {
@@ -5462,7 +5573,8 @@
                     "schema:additionalType": {
                       "contains": {
                         "const": "XCT"
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -5517,39 +5629,6 @@
                           "type": "string"
                         }
                       ]
-                    },
-                    "schema:manufacturer": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
-                          "type": "string",
-                          "enum": [
-                            "Nikon",
-                            "Zeiss",
-                            "Bruker",
-                            "GE / Waygate",
-                            "North Star Imaging",
-                            "RX Solutions",
-                            "Custom-built",
-                            "Unknown",
-                            "N/A",
-                            "None",
-                            "missing"
-                          ],
-                          "readOnly": true
-                        }
-                      }
-                    },
-                    "schema:model": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
-                          "type": "string",
-                          "readOnly": true
-                        }
-                      }
                     }
                   }
                 }
@@ -5563,7 +5642,8 @@
                   "schema:additionalType": {
                     "contains": {
                       "const": "XCT"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -5617,30 +5697,6 @@
             "missing"
           ]
         },
-        "ada:samplingUnit": {
-          "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Whole sample",
-                "Aliquot",
-                "Grain",
-                "Spot",
-                "Analysis point",
-                "Phase",
-                "Sub-volume",
-                "Region of interest",
-                "N/A",
-                "None",
-                "missing"
-              ]
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:minimumSubVolumeOverlap": {
           "description": "Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset. This is a procedure-level quality specification. Eckley et al. (2025) report that 500 slices of overlap were used in the Apollo 73001 stitching workflow, while 180 slices proved insufficient for their cone-beam geometry.",
           "anyOf": [
@@ -5652,10 +5708,6 @@
             }
           ],
           "readOnly": true
-        },
-        "ada:targetSelectionCriteriaDefault": {
-          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-          "type": "string"
         },
         "ada:reconstructionAlgorithm": {
           "description": "Mathematical algorithm used to reconstruct the 3D CT volume from 2D projection images. The Feldkamp-Davis-Kress (FDK) algorithm is standard for cone-beam lab XCT geometry; iterative methods offer better artifact suppression at the cost of computation time.",
@@ -5736,23 +5788,9 @@
               "type": "string"
             }
           ]
-        },
-        "ada:reportedProperties": {
-          "type": "array",
-          "items": {
-            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
-            "type": "string",
-            "readOnly": true
-          }
-        },
-        "schema:description": {
-          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
-          "type": "string"
         }
       },
       "required": [
-        "schema:name",
-        "schema:datePublished",
         "ada:targetFeature",
         "ada:applicableSampleDimensionRange",
         "ada:xRaySourceConfiguration",
@@ -5761,9 +5799,7 @@
         "ada:numberOfProjectionsDefault",
         "ada:exposureTimePerProjectionDefault",
         "ada:rotationModeDefault",
-        "ada:samplingUnit",
         "ada:minimumSubVolumeOverlap",
-        "ada:targetSelectionCriteriaDefault",
         "ada:reconstructionAlgorithm",
         "ada:beamHardeningCorrectionMethod",
         "ada:outputDataFormatDefault",
@@ -7487,6 +7523,11 @@
         {
           "type": "object",
           "properties": {
+            "@id": {
+              "description": "Identifier for this instrument within the record. REQUIRED: an instrument has to be referenceable. A monitored species names the instrument (or the instrument part) that reports it, and a dataset variable points back at the device that produced it; neither is expressible while the instrument is an anonymous object. A document-scoped identifier suffices, but a resolvable one is better wherever the lab has a persistent identifier for the device.",
+              "type": "string",
+              "minLength": 1
+            },
             "schema:additionalType": {
               "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
               "type": "array",
@@ -7530,11 +7571,17 @@
                   {
                     "type": "object",
                     "required": [
+                      "@id",
                       "@type",
                       "schema:name",
                       "schema:additionalType"
                     ],
                     "properties": {
+                      "@id": {
+                        "description": "Identifier for this component within the record. REQUIRED on an INLINE component for the same reason it is required on the instrument: a monitored species names the part that reports it -- a Faraday cup, a spectrometer, a detector -- and an anonymous object cannot be referenced. The sibling branch of this anyOf is the by-reference form, a bare {\"@id\": ...} pointing at a component described elsewhere.",
+                        "type": "string",
+                        "minLength": 1
+                      },
                       "@type": {
                         "type": "array",
                         "items": {
@@ -7592,6 +7639,7 @@
             }
           },
           "required": [
+            "@id",
             "schema:additionalType"
           ]
         }

@@ -313,15 +313,84 @@ def _jsonld_card(sch):
     return sch
 
 
+# A dataset variable that is not one of the TAPP's declared reported properties: any object typed
+# as a CDIF instance variable or a schema:PropertyValue. Kept deliberately loose - the surrounding
+# base schema already constrains the variable's shape; this branch only has to stop the overlay's
+# anyOf from excluding genuine variables.
+CDI_VARIABLE = "cdi:InstanceVariable"
+
+GENERIC_VARIABLE = {
+    "title": "Dataset variable",
+    "description": ("A measured variable of this dataset that is not one of the procedure's declared "
+                    "reported properties. schema:variableMeasured carries the dataset's actual "
+                    "variables; the reported-property branches above are permitted members of it, "
+                    "not the whole of it."),
+    "type": "object",
+    "required": ["@type"],
+    "properties": {"@type": {"type": "array",
+                             "contains": {"enum": ["cdi:InstanceVariable", "schema:PropertyValue"]}}},
+}
+
+
+def _vm_array(root, truncated):
+    """The Arr node the reported-property branch was just inserted into."""
+    node = root
+    for seg in truncated.segments:
+        if seg.is_type or not isinstance(node, (Obj, Arr)):
+            continue
+        node = node.props.get(seg.prop) if isinstance(node, Obj) else None
+        if node is None:
+            return None
+    return node
+
+
+_TERM_SCHEME_CACHE = {}
+
+
+def _term_scheme(consts):
+    """The ada:vocab ConceptScheme a set of selector tokens belongs to, or None.
+
+    The selector token on schema:additionalType is now a controlled term (see
+    tools/build_instrument_codelist.py): the instrument-type and instrument-component-type schemes
+    are generated from these very sidecars. Annotating the emitted constraint with
+    schema:inDefinedTermSet is the convention this repo already uses for componentType - the
+    vocabulary is discoverable and SHACL-checkable without hard-enumerating it in JSON Schema.
+
+    The two schemes are disjoint, so the scheme is identified from the token itself and no extra
+    context has to be threaded through the tree builder. @type tokens (prov:Plan, ...) match neither
+    and are left unannotated.
+    """
+    if not _TERM_SCHEME_CACHE:
+        import json as _json
+        for fn, sid in (("adaInstrumentType.json", "ada:vocab/instrumentType"),
+                        ("adaInstrumentComponentType.json", "ada:vocab/instrumentComponentType")):
+            f = os.path.join(ROOT, "_sources", "registry", "vocab", fn)
+            try:
+                doc = _json.load(open(f, encoding="utf-8"))
+            except Exception:
+                continue
+            for c in doc.get("skos:hasTopConcept") or []:
+                n = c.get("skos:notation")
+                if n:
+                    _TERM_SCHEME_CACHE[n] = sid
+    found = {_TERM_SCHEME_CACHE.get(c) for c in consts}
+    found.discard(None)
+    return found.pop() if len(found) == 1 else None
+
+
 # ---------- serialize IR -> JSON Schema ----------
 def to_schema(node):
     if isinstance(node, Leaf):
         return node.schema
     if isinstance(node, AddlType):
         opts = [{"const": c} for c in node.consts] + ([node.item_leaf] if node.item_leaf else [{"type": "string"}])
-        return {"type": "array",
-                "items": {"anyOf": opts} if len(opts) > 1 else opts[0],
-                "allOf": [{"contains": {"const": c}} for c in node.consts]}
+        out = {"type": "array",
+               "items": {"anyOf": opts} if len(opts) > 1 else opts[0],
+               "allOf": [{"contains": {"const": c}} for c in node.consts]}
+        scheme = _term_scheme(node.consts)
+        if scheme:
+            out["schema:inDefinedTermSet"] = scheme
+        return out
     if isinstance(node, Obj):
         return {"type": "object",
                 "properties": {k: to_schema(v) for k, v in node.props.items()}}
@@ -360,6 +429,13 @@ def to_schema(node):
                     nested = {k: _jsonld_card(to_schema(v)) for k, v in br.props.items() if k != skey}
                     if nested:
                         sel = {"contains": {"const": val}} if skey in ARRAY_VALUED else {"const": val}
+                        # the discriminating token is a controlled term (instrument type /
+                        # instrument component type); annotate the scheme it comes from, the way
+                        # componentType is annotated, so the vocabulary behind the const is
+                        # discoverable rather than an undocumented magic string.
+                        _sch = _term_scheme([val])
+                        if _sch:
+                            sel = dict(sel, **{"schema:inDefinedTermSet": _sch})
                         cond.append({"if": {"properties": {skey: sel}, "required": [skey]},
                                      "then": {"properties": nested}})
                 items = {"type": "object", "allOf": cond} if cond else {"type": "object"}
@@ -385,6 +461,9 @@ def to_schema(node):
                     allof.append({"contains": br.schema, "minContains": 0, "maxContains": 1})
                 elif (skey, val) in node.required:
                     key_c = ({"contains": {"const": val}} if skey in ARRAY_VALUED else {"const": val})
+                    _sch = _term_scheme([val])
+                    if _sch:
+                        key_c = dict(key_c, **{"schema:inDefinedTermSet": _sch})
                     allof.append({"contains": {"properties": {skey: key_c},
                                                "required": [skey]}})
             if allof:
@@ -537,9 +616,9 @@ def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", p
         # property value is permitted to be either a literal or a list; a deliberate exception.
         valtype = {"anyOf": [valtype, {"type": "array", "items": valtype}]}
     if as_value:
-        # A fixed/recorded column value -> schema:PropertyValue (schema:value), mirroring
-        # param_value_def. Used for read-only channel columns on the procedure and for every column
-        # on the $Dataset side (the analysis records the value it actually used, never a default).
+        # A recorded column value -> schema:PropertyValue (schema:value), mirroring param_value_def.
+        # $Dataset side only: the analysis records the value it actually used, never a default. A
+        # procedure-side column is always a specification, however tightly it is fixed.
         props = {
             "@id": {"const": col_id},
             "@type": {"const": ["schema:PropertyValue"]},
@@ -605,6 +684,12 @@ def build(tapp):
     # reports a row as covered when a module $def demonstrably provides it on that root.
     import module_composition as mc
     _, _covered = mc.plan(b.XLSX)
+    # A module publishes its PARAMETERS as separate Param_<Side>_<name> $defs rather than inside its
+    # root $def, because a module cannot constrain schema:additionalProperty - it can only offer a
+    # branch to union in. So a covered parameter row must be REPLACED by the module's branch, not
+    # merely dropped: dropping it removed the parameter from the technique's schema entirely while
+    # its instances still carried it.
+    _param_refs = mc.param_refs(b.XLSX)
     pt_seen, pv_seen = set(), set()
     for item, rec in spec.items():
         m = meta.get(item, {})
@@ -612,7 +697,8 @@ def build(tapp):
         for path in paths:   # usually 1; 2 for a dual-homed editable param (TAPP default + detail value)
             path = normalize_path(path)
             parsed = spp.parse(path)
-            if mc.ms._norm(mc.ms.rename(item)) in _covered[parsed.root]:
+            _key = mc.ms._norm(mc.ms.rename(item))
+            if _key in _covered[parsed.root]:
                 continue                  # the module carries this one
             require = (m.get("P") == "Basic") or (m.get("A") == "Basic")
             # A TAPP-definition property is JSON-Schema readOnly unless it is editable at the dataset
@@ -625,6 +711,30 @@ def build(tapp):
                 if non_type[0].prop not in required[parsed.root]:   # top-level direct prop, Basic tier
                     required[parsed.root].append(non_type[0].prop)
             if _is_addl_param(parsed):
+                # PARAMETER COMPOSITION. module_composition._is_composable excludes
+                # schema:additionalProperty from allOf composition, and rightly so: two universal
+                # constraints on one closed array cannot both hold. But a module parameter does not
+                # need allOf - it needs to be a BRANCH of the technique's own anyOf, which is a
+                # union, not an intersection. Where a module supplies this parameter, reference its
+                # Param_<Side>_<name> $def instead of minting a technique-scoped duplicate. That is
+                # what gives a shared parameter ONE identity (ada:parameter/module/<Module>/<name>)
+                # rather than one per consuming TAPP.
+                _mref = _param_refs.get((_key, parsed.root))
+                # Only compose where the technique puts the parameter in the SAME KIND of slot the
+                # module does. A module parameter lives on schema:additionalProperty; where a
+                # technique instead routes the field to schema:variableMeasured (a reported
+                # property), the module's def is the wrong shape for that slot - it lacks the
+                # cdi:InstanceVariable typing every dataset variable needs - and the wrong thing
+                # semantically. Keep the technique's own def there.
+                if _mref is not None and any(x.prop == "schema:variableMeasured"
+                                             for x in parsed.segments):
+                    _mref = None
+                if _mref is not None:
+                    insert(roots[parsed.root],
+                           spp.ParsedPath(parsed.root, parsed.segments[:-1]),
+                           element=Leaf(dict(_mref)),
+                           require=(m.get("P") == "Basic") or (m.get("A") == "Basic"))
+                    continue
                 bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
                       "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
                       "desc": m.get("desc", ""), "A": m.get("A", "")}
@@ -634,16 +744,46 @@ def build(tapp):
                     ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/parameterTemplates/schema.yaml#/$defs/{name}"}
                 else:
                     name, body = b.param_value_def(bd, pv_seen)
+                    # A reported property sitting on schema:variableMeasured is a DATASET VARIABLE as
+                    # well as a PropertyValue, and the base shape requires @type to contain
+                    # cdi:InstanceVariable. param_value_def pins @type to ["schema:PropertyValue"]
+                    # alone - right for an additionalProperty parameter, but unsatisfiable here: no
+                    # instance could match both that const and the base's contains.
+                    if any(x.prop == "schema:variableMeasured" for x in parsed.segments):
+                        # DISTINCT $def. param_value_def keys by TAPP + bare name, so an item placed
+                        # BOTH on a workflow step and on schema:variableMeasured shares one def -
+                        # and extending @type for the variable placement would impose
+                        # cdi:InstanceVariable on the step parameter too, which then matches no
+                        # branch. Channel columns solve the same collision with an AnalysisValue
+                        # suffix; this is that pattern for reported properties.
+                        vm_name = name + "Variable"
+                        blk = dict(body[name])
+                        blk["properties"] = dict(blk.get("properties") or {})
+                        tc = dict((blk["properties"].get("@type") or {}))
+                        if isinstance(tc.get("const"), list) and CDI_VARIABLE not in tc["const"]:
+                            tc["const"] = tc["const"] + [CDI_VARIABLE]
+                        blk["properties"]["@type"] = tc
+                        body = {vm_name: blk}
+                        name = vm_name
                     registries["parameterValues"].update(body); pv_seen.add(name)
                     ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/parameterValues/schema.yaml#/$defs/{name}"}
                 if read_only:
                     ref["readOnly"] = True   # $ref + sibling keyword is valid in JSON Schema 2020-12
                 truncated = spp.ParsedPath(parsed.root, parsed.segments[:-1])
-                # A reported property is OPTIONAL in the array: it is present only when the procedure
-                # enumerates "Reported Variables and Units"; otherwise the field lives on its workflow
-                # step. So never force `contains` for a schema:variableMeasured entry.
                 vm = any(s.prop == "schema:variableMeasured" for s in parsed.segments)
-                insert(roots[parsed.root], truncated, element=Leaf(ref), require=(require and not vm))
+                # A Basic-tier reported property IS required, exactly like any other Basic field, so
+                # it earns a hard `contains` here too. (This previously suppressed `contains` for
+                # every schema:variableMeasured entry, which made a Basic reported property optional.)
+                insert(roots[parsed.root], truncated, element=Leaf(ref), require=require)
+                if vm:
+                    # schema:variableMeasured is the CDIF slot for the dataset's ACTUAL measured
+                    # variables, which are dataset-specific and arbitrary — not merely the TAPP's
+                    # reported properties. Narrowing `items` to the reported-property branches alone
+                    # made every real variable (measurement_value, position_x) invalid. Permit the
+                    # generic CDIF variable alongside them; the base schema still enforces its shape.
+                    arr = _vm_array(roots[parsed.root], truncated)
+                    if isinstance(arr, Arr) and GENERIC_VARIABLE not in arr.extra_items:
+                        arr.extra_items.append(GENERIC_VARIABLE)
                 continue
             if _is_analyte_column(parsed):
                 cfg = KEYED_TABLES[parsed.segments[-1].prop]
@@ -667,8 +807,16 @@ def build(tapp):
                 # column record a fixed value (schema:PropertyValue); an editable procedure column
                 # registers a default (schema:PropertyValueSpecification). Analyte columns keep the
                 # specification form.
-                as_value = (cfg["registry"] == "channelColumns"
-                            and (parsed.root == "Dataset" or read_only))
+                # A keyed-table COLUMN is a column DEFINITION, and the base (KeyedTableColumn)
+                # types every one of them schema:PropertyValueSpecification. Read-only does not make
+                # a definition into a measurement - it is a property OF the specification, which is
+                # what schema:readonlyValue exists for and which the specification branch already
+                # emits. Routing read-only procedure columns to the value branch contradicted the
+                # base (allOf: PropertyValue const vs a contains for PropertyValueSpecification -
+                # unsatisfiable), and did it only for channels: all 282 analyte columns were already
+                # specifications. The value form is right on the $DATASET side alone, where the
+                # member is not a column definition but the value the analysis actually recorded.
+                as_value = (cfg["registry"] == "channelColumns" and parsed.root == "Dataset")
                 registries.setdefault(cfg["registry"], {})[name] = analyte_column_def(
                     bare, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only,
                     ptier=(m.get("P") or "").strip(), atier=(m.get("A") or "").strip(),
