@@ -280,9 +280,17 @@ def build_example(tapp, values=None, emit_reported_property=False):
             _keep = [_p for _p in _paths if _p and mc._is_composable(_p)]
             if not _keep:
                 continue
-            if _item not in spec:
+            # WHERE THE MODULE COVERS THE ITEM, THE MODULE OWNS THE PLACEMENT. "A technique's own
+            # row wins" was right while modules only added fields, but a covered row is dropped from
+            # the technique's overlay -- so letting the technique's row win here emitted a placement
+            # the schema no longer has, and suppressed the module's. SEM kept its variableMeasured
+            # row for Goodness-of-Fit and so never emitted the module's dqv default, which the
+            # module's Basic tier requires.
+            _k = mc.ms._norm(mc.ms.rename(_item))
+            _owned = any(_k in _covered[_r] for _r in ("MethodDefinition", "Dataset"))
+            if _item not in spec or _owned:
                 _injected.add(_item)
-            spec.setdefault(_item, {**_rec, "path": _keep})   # a technique's own row wins
+                spec[_item] = {**_rec, "path": _keep}
             meta.setdefault(_item, {})
 
     roots = {"MethodDefinition": e.Obj(), "Dataset": e.Obj()}
