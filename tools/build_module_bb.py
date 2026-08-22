@@ -352,7 +352,17 @@ def emit_parameter_defs(module, params):
             _key, block = emit(b, None)
         finally:
             bt.PARAM_BASE, bt.CFG = saved_base, saved_cfg
-        out["Param_%s_%s" % (side, vname)] = next(iter(block.values()))
+        blk = next(iter(block.values()))
+        # A parameter placed on schema:variableMeasured is a DATASET VARIABLE as well as a
+        # PropertyValue: the base shape requires @type to contain cdi:InstanceVariable, and a def
+        # pinning @type to ["schema:PropertyValue"] alone is unsatisfiable there. schema_path_emitter
+        # applies the same rule to technique-minted parameters; a module-supplied one now composes
+        # into the very same slot, so it needs it too.
+        if "schema:variableMeasured" in path:
+            tc = ((blk.get("properties") or {}).get("@type") or {})
+            if isinstance(tc.get("const"), list) and "cdi:InstanceVariable" not in tc["const"]:
+                tc["const"] = tc["const"] + ["cdi:InstanceVariable"]
+        out["Param_%s_%s" % (side, vname)] = blk
     return out
 
 
@@ -388,6 +398,29 @@ def write_examples(d, name, doc):
             "prefixes": {p: PREFIX_IRI[p] for p in sorted(_prefixes_in(inst))},
             "snippets": [{"language": "json", "code": json.dumps(inst, indent=2, ensure_ascii=False)}],
         })
+    # A PARAMETER-ONLY module (blank, calibrationFactor) has no root $def, so the loop above
+    # produces nothing and the module would ship an empty examples.yaml. Its published parameters
+    # are the only instance shape it has, so demonstrate those instead - one example per parameter,
+    # which is exactly what a consuming TAPP unions into its own schema:additionalProperty anyOf.
+    if not ex:
+        for defname, sub in doc["$defs"].items():
+            if not defname.startswith("Param_"):
+                continue
+            inst = _sample(sub)
+            errs = list(jsonschema.Draft202012Validator(
+                {"$schema": "https://json-schema.org/draft/2020-12/schema", **sub}).iter_errors(inst))
+            if errs:
+                problems.append((defname, errs[0].message[:120]))
+            side = "procedure" if defname.startswith("Param_Procedure") else "analysis"
+            ex.append({
+                "title": f"{name} published parameter ({defname})",
+                "content": (f"A parameter the {name} module publishes for the {side} side. The module "
+                            f"places no root fields, so its parameters are what it contributes: a "
+                            f"consuming TAPP unions this branch into its own additionalProperty anyOf."),
+                "prefixes": {pf: PREFIX_IRI[pf] for pf in sorted(_prefixes_in(inst))},
+                "snippets": [{"language": "json", "code": json.dumps(inst, indent=2, ensure_ascii=False)}],
+            })
+
     with open(os.path.join(d, "examples.yaml"), "w", encoding="utf-8", newline="\n") as f:
         yaml.dump(ex, f, Dumper=_BlockDumper, sort_keys=False, allow_unicode=True, width=100)
     return problems
@@ -542,8 +575,13 @@ def main():
             doc.setdefault("$defs", {}).update(stats["param_defs"])
             if a.write:
                 d = write_bb(name, doc, stats, usage[name])
+                # examples too: a BB with none fails the audit, and this module's published
+                # parameters are a perfectly good instance shape to demonstrate.
+                problems = write_examples(d, name, doc)
                 write_description(d, name, doc, stats, usage[name])
                 print(f"{'':22s} wrote {os.path.relpath(d, ROOT)}")
+                for defname, msg in problems:
+                    print(f"{'':22s} EXAMPLE FAILS {defname}: {msg}")
             continue
         if not whole:
             print(f"{name:<22s} CANNOT GENERATE — all {stats['fields']} fields unplaced "

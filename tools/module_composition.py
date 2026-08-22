@@ -190,3 +190,50 @@ if __name__ == "__main__":
               f"covers MD={len(covered['MethodDefinition']):2d} DS={len(covered['Dataset']):2d}")
         for name, defs in refs:
             print(f"      {name}: {', '.join(defs)}")
+
+
+def param_refs(source_path, depth=4):
+    """{(normalized item, root) -> {$ref}} for every PARAMETER a composed module supplies.
+
+    A module publishes its parameters as separate Param_<Side>_<name> $defs, NOT inside its root
+    $def - a module cannot constrain schema:additionalProperty, it can only offer a branch the
+    technique unions into its own anyOf. So a parameter row that plan() reports as covered would,
+    if simply dropped, vanish from the technique's schema altogether while its instances still carry
+    it. This maps such a row to the module branch that replaces it.
+
+    The $def name is derived the same way build_module_bb.emit_parameter_defs derives it: from the
+    schema:name selector of the module sidecar's path, camelised.
+    """
+    import re
+    entry = _manifest_entry(source_path)
+    out = {}
+    if not entry:
+        return out
+    for m in entry.get("modules") or []:
+        name = m.get("name")
+        bb = _bb(name) if name else None
+        if not bb:
+            continue
+        defs = bb.get("$defs") or {}
+        src = os.path.join(ts.modules_dir(), f"Module_{name}.csv")
+        sc = schemapath_io.csv_path(src)
+        if not os.path.exists(sc):
+            continue
+        for r in schemapath_io.read(sc):
+            it = (r.get("Metadata Item") or "").strip()
+            path = (r.get("Schema Path") or "").strip()
+            if not it or not path:
+                continue
+            sel = re.search(r"schema:additionalProperty\[schema:name='([^']*)'\]", path)
+            if not sel:
+                continue                  # not a parameter placement
+            root = "Dataset" if path.startswith("$Dataset") else "MethodDefinition"
+            vname = re.sub(r"[^A-Za-z0-9]+", " ", sel.group(1)).title().replace(" ", "")
+            vname = vname[:1].lower() + vname[1:]
+            dn = f"Param_{SIDE[root]}_{vname}"
+            if dn not in defs:
+                continue
+            up = "../" * depth
+            out[(ms._norm(ms.rename(it)), root)] = {
+                "$ref": f"{up}BaseSchema/modules/{dirname(name)}/schema.yaml#/$defs/{dn}"}
+    return out

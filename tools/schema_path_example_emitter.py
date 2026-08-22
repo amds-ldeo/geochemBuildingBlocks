@@ -15,8 +15,10 @@ consistent. This is the last piece needed to flip a TAPP to path-driven and go g
 """
 import json
 import os
+import copy
 import re
 import sys
+import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
@@ -36,7 +38,13 @@ def instance_from_def(s):
     """A minimal valid instance satisfying a generated registry $def (const -> its value; typed -> a
     placeholder)."""
     if "const" in s:
-        return s["const"]
+        # DEEP COPY, never the const object itself. Returning s["const"] by reference made every
+        # generated instance ALIAS the loaded schema: a later in-place edit of the instance (adding
+        # a @type, filling a value) mutated the schema's own const, and because one $def serves many
+        # examples the damage accumulated across a run - which is how a channel column's
+        # @type const grew from ["schema:PropertyValue"] to ["schema:PropertyValue",
+        # "schema:PropertyValueSpecification"] while the file on disk stayed correct.
+        return copy.deepcopy(s["const"])
     # a resolved column def often nests its shape under allOf (base column shape + pinned consts);
     # merge the members' properties/required so the identifier column instantiates from its consts.
     props, req = dict(s.get("properties") or {}), list(s.get("required") or [])
@@ -55,6 +63,52 @@ def instance_from_def(s):
     if "anyOf" in s:
         return 1 if any(br.get("type") in ("number", "integer") for br in s["anyOf"]) else "example value"
     return "example value"
+
+
+_MODPARAM_CACHE = {}
+
+
+def _module_param_def(item, root):
+    """The module Param_ $def that supplies `item` on `root`, or None.
+
+    Mirrors the composition schema_path_emitter performs, so schema and example agree on which
+    parameters are module-owned and therefore carry ada:parameter/module/<Module>/<name>.
+    """
+    import module_composition as mc
+    key = b.XLSX
+    if key not in _MODPARAM_CACHE:
+        refs = mc.param_refs(b.XLSX)
+        loaded = {}
+        for k, ref in refs.items():
+            path, frag = ref["$ref"].split("#/$defs/")
+            f = os.path.normpath(os.path.join(ROOT, "_sources", path.replace("../", "")))
+            if f not in loaded:
+                try:
+                    loaded[f] = (yaml.safe_load(open(f, encoding="utf-8")) or {}).get("$defs") or {}
+                except Exception:
+                    loaded[f] = {}
+            d = loaded[f].get(frag)
+            if d:
+                _MODPARAM_CACHE.setdefault(key, {})[k] = d
+        _MODPARAM_CACHE.setdefault(key, {})
+    return _MODPARAM_CACHE[key].get((mc.ms._norm(mc.ms.rename(item)), root))
+
+
+def strip_annotation(v, m=None):
+    """Drop a trailing transcription note from a cell destined for a CONTROLLED slot.
+
+    Publication columns carry curator notes in brackets - "Multi-collector sector-field ICP-MS [all
+    columns state \"multi-collector inductively coupled plasma mass spectrometer\"]". Free text can
+    keep them, but a value routed to a controlled term (schema:additionalType, a Controlled-list
+    row) has to match the vocabulary exactly, so the note has to come off. `meaningful()` already
+    strips the [P...] form; this is the general one.
+    """
+    if not isinstance(v, str):
+        return v
+    dt = (m or {}).get("dt", "") or ""
+    if "controlled" not in dt.lower():
+        return v
+    return re.sub(r"\s*\[[^\]]*\]\s*$", "", v).strip() or v
 
 
 def numify(raw, dtype):
@@ -196,19 +250,31 @@ def build_example(tapp, values=None, emit_reported_property=False):
                 # a default-row array: split the transcribed list into members on top-level commas /
                 # semicolons only — a parenthetical like "H3 (⁸⁸Sr) (7 cups monitoring Kr, Rb, …)"
                 # keeps its internal commas rather than being shredded into bogus members.
-                v = values[item]
+                v = strip_annotation(values[item], m)
                 items = _split_top_level(v) if isinstance(v, str) else v
                 e.insert(roots[parsed.root], parsed, items)
                 continue
             if e._is_addl_param(parsed):
-                bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
-                      "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
-                      "desc": m.get("desc", ""), "A": m.get("A", "")}
-                if parsed.segments[-1].prop == "schema:defaultValue":
-                    _, body = b.param_template_def(bd, pt_seen); pt_seen.add(next(iter(body)))
+                # Where a module supplies this parameter, the SCHEMA now references the module's
+                # Param_ $def instead of a technique-scoped one (see schema_path_emitter). The
+                # example has to follow: minting the technique form here would emit
+                # ada:parameter/<TAPP>/<name> against a schema that pins
+                # ada:parameter/module/<Module>/<name>, and match no branch.
+                _mdef = _module_param_def(item, parsed.root)
+                if _mdef is not None and any(x.prop == "schema:variableMeasured"
+                                             for x in parsed.segments):
+                    _mdef = None      # same carve-out as the schema side
+                if _mdef is not None:
+                    elem = instance_from_def(_mdef)
                 else:
-                    _, body = b.param_value_def(bd, pv_seen); pv_seen.add(next(iter(body)))
-                elem = instance_from_def(next(iter(body.values())))
+                    bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
+                          "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
+                          "desc": m.get("desc", ""), "A": m.get("A", "")}
+                    if parsed.segments[-1].prop == "schema:defaultValue":
+                        _, body = b.param_template_def(bd, pt_seen); pt_seen.add(next(iter(body)))
+                    else:
+                        _, body = b.param_value_def(bd, pv_seen); pv_seen.add(next(iter(body)))
+                    elem = instance_from_def(next(iter(body.values())))
                 if pub and isinstance(elem, dict):
                     num, desc = numify(values[item], b.jtype(m.get("dt", "")))
                     elem[parsed.segments[-1].prop] = num          # real default/value, not placeholder
@@ -218,7 +284,7 @@ def build_example(tapp, values=None, emit_reported_property=False):
                 e.insert(roots[parsed.root], trunc, element=e.Leaf(elem))
                 continue
             e.insert(roots[parsed.root], parsed,
-                     values[item] if pub else placeholder(m, item, sidecar))
+                     strip_annotation(values[item], m) if pub else placeholder(m, item, sidecar))
     return {r: e.to_instance(o) for r, o in roots.items()}
 
 
@@ -389,6 +455,31 @@ def fill_required_types(inst, resolved_schema, max_passes=6):
     return filled
 
 
+def _extendable_type(inst, err, rel):
+    """False when the node is an @type array the schema PINS by const.
+
+    The plain-token append exists for stub nodes whose @type the schema builds up from several
+    `contains` clauses (an instrument part that must carry schema:Thing as well as schema:Product).
+    But a node instantiated from a registry $def has its @type fixed by a `const`, and extending
+    that array makes it match NO branch: a channel column pinned to ["schema:PropertyValue"] grew a
+    "schema:PropertyValueSpecification" borrowed from a SIBLING column's contains clause, and then
+    validated against neither. Such nodes are recognisable by carrying their own @id, which is what
+    the const-pinned branches key on.
+    """
+    path = list(err.absolute_path) + list(rel)
+    if not path or path[-1] != "@type":
+        return True
+    # Only an ARRAY ELEMENT is const-pinned this way: a registry-def instance sitting in a
+    # channelColumns / additionalProperty / variableMeasured array. The document ROOT also carries an
+    # @id, and its @type legitimately IS built up from several contains clauses (prov:Plan,
+    # cdi:Activity, ...) - guarding it stripped those and left the root typed by vocabulary terms
+    # alone. So require the owner to be an array member before treating its @type as pinned.
+    if len(path) < 2 or not isinstance(path[-2], int):
+        return True
+    owner = _at(inst, path[:-1])
+    return not (isinstance(owner, dict) and isinstance(owner.get("@id"), str))
+
+
 def fill_structural_gaps(inst, resolved_schema, max_passes=6):
     """Supply the other things a schema path cannot carry, read off the schema the same way.
 
@@ -444,7 +535,7 @@ def fill_structural_gaps(inst, resolved_schema, max_passes=6):
                     # schema:Thing but not schema:Product. Extend rather than replace: the node
                     # already holds types that other branches require.
                     plain = sub.get("const")
-                    if isinstance(plain, str) and plain not in node:
+                    if isinstance(plain, str) and plain not in node and _extendable_type(inst, err, rel):
                         node.append(plain)
                         added += 1
                         break
@@ -464,6 +555,19 @@ def fill_structural_gaps(inst, resolved_schema, max_passes=6):
                         sib = next((x for x in node if isinstance(x, dict) and "@type" in x), None)
                         if sib:
                             stub["@type"] = list(sib["@type"]) if isinstance(sib["@type"], list) else sib["@type"]
+                        # …and the term reference its siblings carry. The instrument-component
+                        # branch requires additionalType to contain the Wikidata scientific-instrument
+                        # IRI; a stub with only its own token matched no branch, so the component the
+                        # sidecar asked for was added and then failed validation.
+                        ref = next((t for x in node if isinstance(x, dict)
+                                    for t in (x.get("schema:additionalType") or [])
+                                    if isinstance(t, dict) and t.get("@id")), None)
+                        if ref:
+                            stub["schema:additionalType"].append(dict(ref))
+                        # the component branch requires schema:name; the comment above assumed a
+                        # later pass would supply it, but nothing does for a nested hasPart. Name it
+                        # after the token that made it necessary.
+                        stub["schema:name"] = at
                         node.append(stub)
                         added += 1
                         break
