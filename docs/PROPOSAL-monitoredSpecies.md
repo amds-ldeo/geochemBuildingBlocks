@@ -1,14 +1,14 @@
 # Proposal: monitored species as dataset variables
 
-**Status: DRAFT for review. Nothing here is implemented.** Property names marked *(proposed)* are
-invented for this draft and are the part to argue with.
+**Status: DRAFT, shape agreed. Nothing here is implemented.** The five open questions in the first
+draft have been settled by the reviewer and are recorded under *Decisions* below.
 
 ## What this is for
 
 A monitored species (a "channel" in the current vocabulary) is an instrument selection position — a
-mass, a Faraday cup, an energy-loss edge, an X-ray line. The reviewer's framing is that **each
-monitored species IS a variable**, and its configuration properties come from three different
-places. Today only two of those three have a home.
+mass, a Faraday cup, an energy-loss edge, an X-ray line. **Each monitored species IS a variable**,
+and its configuration properties come from three different places. Today only two of those three
+have a home.
 
 The base already anticipates this. `tappDefinition.ChannelIdentifierColumn` carries
 `ada:cdifPropertyPath: "#/schema:variableMeasured/schema:name"` and says the variable list "is
@@ -50,12 +50,17 @@ left unplaced. This model is what gives them a home.
 
 ### TAPP side — the species definition
 
-Each monitored species the procedure defines becomes an entry in
-`TappDefinition.schema:variableMeasured`, typed `schema:PropertyValueSpecification`, carrying **its
-own `@id`** and the procedure-fixed column values. That `@id` is what the dataset side points at.
+`ada:channelTemplate` / `ada:defaultChannels` **become the monitored-species list**. Every item in
+that list has a corresponding `schema:variableMeasured` entry, and for user-friendliness the list
+uses the same strings as the `schema:name` of those entries.
+
+Each entry is a `schema:PropertyValueSpecification` carrying **its own `@id`** and the
+procedure-fixed column values. The `@id` is what the dataset side points at.
 
 ```jsonc
 // inside the TappDefinition
+"ada:monitoredSpecies": ["66Zn", "67Zn", "68Zn"],          // matches schema:name below
+
 "schema:variableMeasured": [
   {
     "@id": "ada:monitoredSpecies/solutionQicpmsTAPP/66Zn",
@@ -75,7 +80,10 @@ own `@id`** and the procedure-fixed column values. That `@id` is what the datase
 ]
 ```
 
-`schema:readonlyValue` is what marks a procedure-fixed column — not a change of `@type`. That is the
+The procedure-fixed column **values** live on the species object, not in the template. The template
+defines a data *structure*; the per-species instances of those properties may vary.
+
+`schema:readonlyValue` marks a procedure-fixed column — not a change of `@type`. That is the
 Option A decision already applied to keyed-table columns.
 
 ### `$Dataset` side — the session record
@@ -85,17 +93,19 @@ One `schema:variableMeasured` entry per monitored species actually acquired.
 ```jsonc
 "schema:variableMeasured": [
   {
-    "@id": "ex:session-2026-03-11/species/66Zn",
+    "@id": "_:species-66Zn",
     "@type": ["schema:PropertyValue", "cdi:InstanceVariable"],
     "schema:name": "66Zn",
 
     "schema:alternateName": ["Zn66_cps"],
 
-    "ada:definedBy": { "@id": "ada:monitoredSpecies/solutionQicpmsTAPP/66Zn" },
+    "cdif:isDefinedBy_RepresentedVariable": {
+      "@id": "ada:monitoredSpecies/solutionQicpmsTAPP/66Zn"
+    },
 
-    "ada:reportedBy": { "@id": "ex:session-2026-03-11/instrument/agilent-7900" },
+    "ada:reportedBy": { "@id": "_:instrument-agilent-7900" },
 
-    "ada:targetSpecies": [{ "@id": "ex:session-2026-03-11/analyte/Zn" }],
+    "ada:targetSpecies": [{ "@id": "_:analyte-Zn" }],
 
     "schema:additionalProperty": [
       {
@@ -120,51 +130,62 @@ The five parts, and why each is there:
 1. **`schema:alternateName`** *(proposed)* — the column key in the reported data table. Any
    `cdif:hasPhysicalMapping` tying that column to a file lives here too, never in the TAPP: the TAPP
    defines the species, the dataset says which column reports it.
-2. **`ada:definedBy`** *(proposed)* — an object referent to the `@id` of the TAPP's
-   `schema:variableMeasured` PropertyValueSpecification for this species.
+2. **`cdif:isDefinedBy_RepresentedVariable`** — an object referent to the `@id` of the TAPP's
+   `schema:variableMeasured` PropertyValueSpecification for this species. An **existing CDIF
+   property**, not a new ADA one. `cdi:InstanceVariable` is a subclass of `cdi:RepresentedVariable`,
+   so a reference pointing at an instance variable is well-formed.
 3. **`ada:reportedBy`** *(proposed)* — **a union of instrument and instrument part.** For Q-ICP-MS a
    mass is measured by the single detector, so it points at the instrument; for MC-ICP-MS it points
    at the specific `Collector` part. Both must be expressible.
-4. **`ada:targetSpecies`** *(proposed)* — the analyte(s) this species serves.
+4. **`ada:targetSpecies`** *(proposed)* — the analyte(s) this species serves. A list, 0..\*.
 5. **`schema:additionalProperty`** — session-assigned configuration, and **only** what the TAPP does
-   not already fix read-only. Anything read-only is reached through `ada:definedBy`, not copied.
+   not already fix read-only. Anything read-only is reached through the definition reference, not
+   copied.
 
-## Prerequisites
+## Decisions
 
-1. **Instruments and instrument parts have no `@id` today.** Verified across the examples: a part
+| question | decision |
+|---|---|
+| container for session configuration on a variable | `schema:additionalProperty`, as drafted |
+| reference to the procedure definition | `cdif:isDefinedBy_RepresentedVariable`, an existing CDIF property, in place of a new `ada:definedBy` |
+| species `@id` resolvability | a local identifier for now; a registry for cross-dataset consistency is a long-range goal |
+| `ada:targetSpecies` cardinality | a list, 0..\*, revisable later |
+| where procedure-fixed column values live | on the TAPP species object — the template defines only a structure, and per-species instances may vary |
+| fate of `ada:channelTemplate` / `ada:defaultChannels` | they become the monitored-species list, one entry per `schema:variableMeasured`, using matching `schema:name` strings |
+
+## Dependencies and prerequisites
+
+1. **`cdif:isDefinedBy_RepresentedVariable` on `cdif:instanceVariable`** is being added upstream in
+   `metadataBuildingBlocks`. The property already exists in CDIF (it is carried by
+   `cdifDataStructureComponent`, and 38 occurrences already resolve into this repo's BaseSchema);
+   what is new is its presence on the instance-variable shape. **This work waits on that
+   propagating.**
+2. **`@type: cdi:InstanceVariable` on every `schema:variableMeasured` value object — already
+   satisfied.** Checked: all 130 variableMeasured value objects across the examples carry it, so the
+   reference has a well-typed subject. This came partly from the same work that made a reported
+   property on `variableMeasured` carry both `schema:PropertyValue` and `cdi:InstanceVariable`,
+   since the base requires the latter. No action needed.
+3. **Instruments and instrument parts have no `@id` today.** Verified across the examples: a part
    carries only `@type`, `schema:additionalType`, `schema:name`. `ada:reportedBy` cannot be built
    until they are identified. This is the single largest blocker.
-2. **There is no channel-to-analyte relation.** The analyte domain is its own keyed table, and
+4. **There is no channel-to-analyte relation.** The analyte domain is its own keyed table, and
    nothing relates a channel to the analyte it serves, so `ada:targetSpecies` has no existing basis.
    `Monitored Masses` is keyed `defines: channel per analyte`, which states the relation in prose
    only.
-3. **The schema-path grammar cannot express a `$Dataset` channel placement.** All 43 channel-column
+5. **The schema-path grammar cannot express a `$Dataset` channel placement.** All 43 channel-column
    rows resolve to `$MethodDefinition`.
 
 ## What would change
 
 - **base** (`tappDefinition`, `geochemProduct` / `adaProduct`): a monitored-species variable shape;
-  `@id` on instrument and instrument part; the four reference properties.
+  the monitored-species list replacing `ada:defaultChannels`; `@id` on instrument and instrument
+  part; `ada:reportedBy` and `ada:targetSpecies`.
 - **grammar** (`docs/SCHEMA_PATH_GRAMMAR.md`): a route for session-level channel properties onto
   `$Dataset.schema:variableMeasured[...]`.
 - **generator** (`schema_path_emitter`): emit the species objects, and route channel-keyed rows by
-  tier — read-only to the TAPP definition, editable/session to the dataset.
+  tier — read-only onto the TAPP species object, editable/session onto the dataset.
 - **sidecars**: the session-assignable rows need `$Dataset` placements; four in Solution Q-ICP-MS are
   unplaced today and would be authored directly into this shape.
-
-## Open questions
-
-1. **Is `schema:additionalProperty` the right container for session configuration on a variable**, or
-   should those be direct `ada:` properties on the species object?
-2. **Does the species `@id` need to be resolvable**, or is a document-scoped `ex:` identifier
-   enough? This decides whether minting becomes a registry concern.
-3. **Cardinality of `ada:targetSpecies`** — `Monitored Masses` is keyed "channel per analyte",
-   implying many-to-one, but a mass-shift product may serve one analyte while deriving from another.
-4. **Do the procedure-fixed column values belong on the TAPP species object** (as drafted), or stay
-   in `ada:channelTemplate` with the species object referencing the table? The draft duplicates less
-   but moves data out of the template.
-5. **What becomes of `ada:channelTemplate` / `ada:defaultChannels`** — superseded by the species
-   list, or retained as the column-definition table they are?
 
 ## Appendix — session-assignable channel properties with no `$Dataset` home
 
