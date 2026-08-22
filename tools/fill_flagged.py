@@ -45,10 +45,11 @@ FILLS = {
         "identical in all 8 sidecars that place it",
         "dual-home decision: procedure default + analysis-tier value"),
     "Constants and Reference Values Used": (
-        "geochronTAPP",
-        "authored, and Basic/Editable like every target; the competing temTAPP variant is "
-        "bootstrap-inferred",
-        "data-reduction step parameter, following geochronTAPP"),
+        "empaTAPP",
+        "re-attributed 2026-08-21: the original source, geochronTAPP, has been retired from the "
+        "delivery (refactored into the *_UPb_* TAPPs). empaTAPP carries the same data-reduction "
+        "step pair, and the reviewer confirmed that placement over temTAPP's bare ada: property",
+        "data-reduction step parameter"),
     # --- wave-1 triage, reviewer-decided 2026-08-20. Each was flagged in SEM_Composition and
     # --- already placed elsewhere; the two that had rival placements were decided explicitly.
     "Analysis Inclusion and Rejection Criteria": (
@@ -85,9 +86,11 @@ FILLS = {
         "and an inferred path is not independent evidence",
         "procedure default, following the authored empaTAPP/semTAPP placement"),
     "Reported Variables and Units": (
-        "geochronTAPP",
-        "the only placement; authored as the reported-property pilot",
-        "follows the geochronTAPP reported-property pilot — revisit with that workstream"),
+        "semTAPP",
+        "re-attributed 2026-08-21: geochronTAPP, the reported-property pilot this followed, has "
+        "been retired. The reviewer settled the placement as "
+        "$MethodDefinition.ada:reportedProperties[], which the SEM sidecars carry",
+        "reported-properties list"),
 }
 
 

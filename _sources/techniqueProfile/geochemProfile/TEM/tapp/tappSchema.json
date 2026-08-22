@@ -7,151 +7,17 @@
             "$ref": "../../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
         },
         {
+            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification"
+        },
+        {
+            "$ref": "../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification"
+        },
+        {
+            "$ref": "../../../../BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification"
+        },
+        {
             "type": "object",
             "properties": {
-                "schema:name": {
-                    "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
-                    "type": "string",
-                    "readOnly": true
-                },
-                "schema:measurementTechnique": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "schema:termCode": {
-                                "description": "Top-level analytical technique identifier.",
-                                "type": "string",
-                                "enum": [
-                                    "TEM",
-                                    "STEM",
-                                    "TEM/STEM",
-                                    "N/A",
-                                    "None",
-                                    "missing"
-                                ],
-                                "readOnly": true
-                            }
-                        }
-                    }
-                },
-                "schema:creator": {
-                    "type": "object",
-                    "properties": {
-                        "schema:name": {
-                            "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
-                            "type": "string",
-                            "readOnly": true
-                        }
-                    }
-                },
-                "schema:location": {
-                    "type": "object",
-                    "properties": {
-                        "schema:name": {
-                            "description": "Name of the laboratory or institution hosting the instrument.",
-                            "type": "string"
-                        },
-                        "schema:identifier": {
-                            "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
-                            "type": "string"
-                        }
-                    }
-                },
-                "schema:datePublished": {
-                    "description": "First date this procedure configuration was used in production.",
-                    "type": "string",
-                    "readOnly": true
-                },
-                "schema:funding": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "schema:name": {
-                                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
-                                "type": "string",
-                                "readOnly": true
-                            }
-                        }
-                    }
-                },
-                "schema:relatedLink": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "allOf": [
-                            {
-                                "if": {
-                                    "properties": {
-                                        "schema:linkRelationship": {
-                                            "const": "techniquePublication"
-                                        }
-                                    },
-                                    "required": [
-                                        "schema:linkRelationship"
-                                    ]
-                                },
-                                "then": {
-                                    "properties": {
-                                        "schema:target": {
-                                            "type": "object",
-                                            "properties": {
-                                                "schema:name": {
-                                                    "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
-                                                    "type": "string",
-                                                    "readOnly": true
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "if": {
-                                    "properties": {
-                                        "schema:linkRelationship": {
-                                            "const": "coupledTechnique"
-                                        }
-                                    },
-                                    "required": [
-                                        "schema:linkRelationship"
-                                    ]
-                                },
-                                "then": {
-                                    "properties": {
-                                        "schema:target": {
-                                            "type": "object",
-                                            "properties": {
-                                                "schema:name": {
-                                                    "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                                                    "anyOf": [
-                                                        {
-                                                            "type": "string",
-                                                            "enum": [
-                                                                "NanoSIMS; STXM; Raman",
-                                                                "None",
-                                                                "N/A",
-                                                                "missing"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "type": "string"
-                                                        }
-                                                    ]
-                                                },
-                                                "schema:description": {
-                                                    "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
-                                                    "type": "string"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                },
                 "schema:object": {
                     "type": "array",
                     "items": {
@@ -239,45 +105,7 @@
                                                 },
                                                 {
                                                     "contains": {
-                                                        "title": "Pre-Analysis Imaging and Screening",
-                                                        "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "@id": {
-                                                                "const": "ada:parameter/temTAPP/preAnalysisImagingAndScreeningDefault"
-                                                            },
-                                                            "@type": {
-                                                                "const": [
-                                                                    "schema:PropertyValueSpecification"
-                                                                ]
-                                                            },
-                                                            "schema:valueName": {
-                                                                "const": "preAnalysisImagingAndScreeningDefault"
-                                                            },
-                                                            "schema:name": {
-                                                                "const": "Pre-Analysis Imaging and Screening"
-                                                            },
-                                                            "ada:dataType": {
-                                                                "const": "string"
-                                                            },
-                                                            "ada:fieldScope": {
-                                                                "const": "session"
-                                                            },
-                                                            "schema:readonlyValue": {
-                                                                "const": false
-                                                            },
-                                                            "ada:tier": {
-                                                                "const": "R"
-                                                            }
-                                                        },
-                                                        "required": [
-                                                            "@id",
-                                                            "@type",
-                                                            "schema:valueName",
-                                                            "schema:name",
-                                                            "ada:dataType",
-                                                            "ada:fieldScope"
-                                                        ]
+                                                        "$ref": "../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening"
                                                     },
                                                     "minContains": 0,
                                                     "maxContains": 1
@@ -692,176 +520,24 @@
                                                     "items": {
                                                         "anyOf": [
                                                             {
-                                                                "title": "Analysis Inclusion and Rejection Criteria",
-                                                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/temTAPP/analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Analysis Inclusion and Rejection Criteria"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
                                                             },
                                                             {
-                                                                "title": "Constants and Reference Values Used",
-                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/temTAPP/constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Constants and Reference Values Used"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
                                                             }
                                                         ]
                                                     },
                                                     "allOf": [
                                                         {
                                                             "contains": {
-                                                                "title": "Analysis Inclusion and Rejection Criteria",
-                                                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/temTAPP/analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Analysis Inclusion and Rejection Criteria"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
                                                         },
                                                         {
                                                             "contains": {
-                                                                "title": "Constants and Reference Values Used",
-                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/temTAPP/constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Constants and Reference Values Used"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
@@ -914,34 +590,6 @@
                         }
                     }
                 },
-                "ada:samplingUnit": {
-                    "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "enum": [
-                                "Whole sample",
-                                "Aliquot",
-                                "Grain",
-                                "Spot",
-                                "Analysis point",
-                                "Phase",
-                                "Sub-volume",
-                                "Region of interest",
-                                "N/A",
-                                "None",
-                                "missing"
-                            ]
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "ada:targetSelectionCriteriaDefault": {
-                    "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-                    "type": "string"
-                },
                 "schema:instrument": {
                     "type": "array",
                     "items": {
@@ -953,7 +601,8 @@
                                         "schema:additionalType": {
                                             "contains": {
                                                 "const": "TEM"
-                                            }
+                                            },
+                                            "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                         }
                                     },
                                     "required": [
@@ -962,37 +611,6 @@
                                 },
                                 "then": {
                                     "properties": {
-                                        "schema:manufacturer": {
-                                            "type": "object",
-                                            "properties": {
-                                                "schema:name": {
-                                                    "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
-                                                    "type": "string",
-                                                    "enum": [
-                                                        "JEOL",
-                                                        "ThermoFisher Scientific (FEI)",
-                                                        "Hitachi",
-                                                        "Nion",
-                                                        "Zeiss",
-                                                        "Unknown",
-                                                        "N/A",
-                                                        "None",
-                                                        "missing"
-                                                    ],
-                                                    "readOnly": true
-                                                }
-                                            }
-                                        },
-                                        "schema:model": {
-                                            "type": "object",
-                                            "properties": {
-                                                "schema:name": {
-                                                    "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
-                                                    "type": "string",
-                                                    "readOnly": true
-                                                }
-                                            }
-                                        },
                                         "schema:hasPart": {
                                             "type": "array",
                                             "items": {
@@ -1004,7 +622,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "Electron source"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -1060,7 +679,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "AberrationCorrector"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -1116,7 +736,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "Monochromator"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -1168,7 +789,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "EDSDetector"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -1202,7 +824,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "EELSSpectrometer"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -1236,7 +859,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "ImagingDetector"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -1270,7 +894,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "4DSTEMDetector"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -1307,7 +932,8 @@
                                                             "schema:additionalType": {
                                                                 "contains": {
                                                                     "const": "Electron source"
-                                                                }
+                                                                },
+                                                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                             }
                                                         },
                                                         "required": [
@@ -1321,7 +947,8 @@
                                                             "schema:additionalType": {
                                                                 "contains": {
                                                                     "const": "AberrationCorrector"
-                                                                }
+                                                                },
+                                                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                             }
                                                         },
                                                         "required": [
@@ -1335,7 +962,8 @@
                                                             "schema:additionalType": {
                                                                 "contains": {
                                                                     "const": "EDSDetector"
-                                                                }
+                                                                },
+                                                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                             }
                                                         },
                                                         "required": [
@@ -1459,7 +1087,8 @@
                                     "schema:additionalType": {
                                         "contains": {
                                             "const": "TEM"
-                                        }
+                                        },
+                                        "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                     }
                                 },
                                 "required": [
@@ -3519,36 +3148,6 @@
                                 "if": {
                                     "properties": {
                                         "ada:toolRole": {
-                                            "const": "acquisition"
-                                        }
-                                    },
-                                    "required": [
-                                        "ada:toolRole"
-                                    ]
-                                },
-                                "then": {
-                                    "properties": {
-                                        "schema:name": {
-                                            "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
-                                            "anyOf": [
-                                                {
-                                                    "type": "string"
-                                                },
-                                                {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "if": {
-                                    "properties": {
-                                        "ada:toolRole": {
                                             "const": "dataReduction"
                                         }
                                     },
@@ -3559,7 +3158,7 @@
                                 "then": {
                                     "properties": {
                                         "schema:name": {
-                                            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                                            "description": "Software used to simulate electron diffraction patterns for comparison with experimental SAED patterns during phase identification (e.g., SingleCrystal, CrystalMaker, JEMS, DIFPACK). Complements the Acquisition Software field, which covers data collection; simulation software is used at the interpretation and data processing step.",
                                             "anyOf": [
                                                 {
                                                     "type": "string"
@@ -3579,21 +3178,6 @@
                         "required": [
                             "ada:toolRole"
                         ]
-                    }
-                },
-                "ada:analyticalMode": {
-                    "type": "array",
-                    "items": {
-                        "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
-                        "type": "string",
-                        "enum": [
-                            "TEM Imaging",
-                            "STEM Imaging",
-                            "Electron Diffraction",
-                            "STEM Imaging; Electron Diffraction",
-                            "missing"
-                        ],
-                        "readOnly": true
                     }
                 },
                 "ada:analyticalSubModeDefault": {
@@ -3678,32 +3262,6 @@
                         "missing"
                     ],
                     "readOnly": true
-                },
-                "ada:analyteTemplate": {
-                    "type": "object",
-                    "properties": {
-                        "ada:defaultAnalytes": {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "string"
-                                    },
-                                    {
-                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "ada:reportedProperties": {
-                    "type": "array",
-                    "items": {
-                        "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
-                        "type": "string",
-                        "readOnly": true
-                    }
                 },
                 "ada:eelsAcquisitionModeDefault": {
                     "description": "Mode of EELS data acquisition. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
@@ -4000,6 +3558,25 @@
                     "items": {
                         "anyOf": [
                             {
+                                "title": "Dataset variable",
+                                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                                "type": "object",
+                                "required": [
+                                    "@type"
+                                ],
+                                "properties": {
+                                    "@type": {
+                                        "type": "array",
+                                        "contains": {
+                                            "enum": [
+                                                "cdi:InstanceVariable",
+                                                "schema:PropertyValue"
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
                                 "title": "Calibration Factor and Determination Method",
                                 "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
                                 "type": "object",
@@ -4179,17 +3756,9 @@
                 "ada:edsCalibrationStandardDefault": {
                     "description": "Reference material(s) used to validate EDS quantification or determine experimental k-factors or zeta-factors. TEM-EDS is less standardized than EPMA; many procedures rely on manufacturer k-factors without external calibration. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                     "type": "string"
-                },
-                "schema:description": {
-                    "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
-                    "type": "string"
                 }
             },
             "required": [
-                "schema:name",
-                "schema:datePublished",
-                "ada:samplingUnit",
-                "ada:targetSelectionCriteriaDefault",
                 "ada:spectroscopicDetectorDefault",
                 "ada:analyticalSubModeDefault",
                 "ada:convergenceSemiAngle",

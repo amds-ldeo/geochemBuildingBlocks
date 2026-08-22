@@ -2727,8 +2727,130 @@
       ]
     },
     {
+      "title": "Core on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
+        "schema:name": {
+          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
+          "type": "string"
+        },
+        "schema:measurementTechnique": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:termCode": {
+                "description": "Top-level analytical technique identifier.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "schema:creator": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
+              "type": "string"
+            }
+          }
+        },
+        "schema:location": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Name of the laboratory or institution hosting the instrument.",
+              "type": "string"
+            },
+            "schema:identifier": {
+              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+              "type": "string"
+            }
+          }
+        },
+        "schema:datePublished": {
+          "description": "First date this procedure configuration was used in production.",
+          "type": "string"
+        },
+        "schema:funding": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "schema:relatedLink": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "techniquePublication"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "coupledTechnique"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                          "type": "string"
+                        },
+                        "schema:description": {
+                          "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "ada:samplingUnit": {
+          "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
+          "type": "string"
+        },
         "schema:instrument": {
           "type": "array",
           "items": {
@@ -2739,8 +2861,9 @@
                   "properties": {
                     "schema:additionalType": {
                       "contains": {
-                        "const": "EPMA"
-                      }
+                        "const": "SEM"
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -2749,319 +2872,21 @@
                 },
                 "then": {
                   "properties": {
-                    "ada:acceleratingVoltageDefault": {
-                      "description": "Electron beam accelerating voltage in kilovolts (kV). The procedure specifies the standard operating voltage; analysts record and justify any deviations.",
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    },
-                    "ada:beamDiameterDefault": {
-                      "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    },
-                    "ada:beamMode": {
-                      "description": "Whether the electron beam was stationary-focused, defocused to a fixed diameter, or rastered over a small area during a single-point analysis. For X-ray mapping, beam scanning is controlled by Step Size and Stage Scan vs. Beam Scan fields instead.",
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "enum": [
-                            "Focused",
-                            "Defocused",
-                            "Raster",
-                            "N/A",
-                            "None",
-                            "missing"
-                          ],
-                          "readOnly": true
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string",
-                            "enum": [
-                              "Focused",
-                              "Defocused",
-                              "Raster",
-                              "N/A",
-                              "None",
-                              "missing"
-                            ],
-                            "readOnly": true
-                          }
-                        }
-                      ]
-                    },
-                    "schema:hasPart": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:additionalType": {
-                                  "contains": {
-                                    "const": "EDSDetector"
-                                  }
-                                }
-                              },
-                              "required": [
-                                "schema:additionalType"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:description": {
-                                  "description": "EDS detector type, manufacturer, window type, active area, and detector geometry (take-off angle, position).",
-                                  "anyOf": [
-                                    {
-                                      "type": "string",
-                                      "readOnly": true
-                                    },
-                                    {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string",
-                                        "readOnly": true
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:additionalType": {
-                                  "contains": {
-                                    "const": "Electron source"
-                                  }
-                                }
-                              },
-                              "required": [
-                                "schema:additionalType"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:description": {
-                                  "description": "Type of electron gun used in the instrument.",
-                                  "anyOf": [
-                                    {
-                                      "type": "string",
-                                      "enum": [
-                                        "Field Emission (FEG)",
-                                        "LaB6 / CeB6",
-                                        "Tungsten (W)",
-                                        "Unknown",
-                                        "N/A",
-                                        "None",
-                                        "missing"
-                                      ],
-                                      "readOnly": true
-                                    },
-                                    {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string",
-                                        "enum": [
-                                          "Field Emission (FEG)",
-                                          "LaB6 / CeB6",
-                                          "Tungsten (W)",
-                                          "Unknown",
-                                          "N/A",
-                                          "None",
-                                          "missing"
-                                        ],
-                                        "readOnly": true
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:additionalType": {
-                                  "contains": {
-                                    "const": "WDSSpectrometer"
-                                  }
-                                }
-                              },
-                              "required": [
-                                "schema:additionalType"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:name": {
-                                  "description": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
-                                  "anyOf": [
-                                    {
-                                      "type": "string",
-                                      "readOnly": true
-                                    },
-                                    {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string",
-                                        "readOnly": true
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:additionalType": {
-                                  "contains": {
-                                    "const": "xrayLine"
-                                  }
-                                }
-                              },
-                              "required": [
-                                "schema:additionalType"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:name": {
-                                  "description": "X-ray emission line measured on each spectrometer assignment. Line choice affects sensitivity, matrix correction accuracy, and susceptibility to peak overlap and spectral interference.",
-                                  "anyOf": [
-                                    {
-                                      "type": "string",
-                                      "enum": [
-                                        "Ka",
-                                        "Kb",
-                                        "La",
-                                        "Lb",
-                                        "Lg",
-                                        "Ma",
-                                        "Mb",
-                                        "N/A",
-                                        "None",
-                                        "missing"
-                                      ],
-                                      "readOnly": true
-                                    },
-                                    {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string",
-                                        "enum": [
-                                          "Ka",
-                                          "Kb",
-                                          "La",
-                                          "Lb",
-                                          "Lg",
-                                          "Ma",
-                                          "Mb",
-                                          "N/A",
-                                          "None",
-                                          "missing"
-                                        ],
-                                        "readOnly": true
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      "allOf": [
-                        {
-                          "contains": {
-                            "properties": {
-                              "schema:additionalType": {
-                                "contains": {
-                                  "const": "Electron source"
-                                }
-                              }
-                            },
-                            "required": [
-                              "schema:additionalType"
-                            ]
-                          }
-                        },
-                        {
-                          "contains": {
-                            "properties": {
-                              "schema:additionalType": {
-                                "contains": {
-                                  "const": "xrayLine"
-                                }
-                              }
-                            },
-                            "required": [
-                              "schema:additionalType"
-                            ]
-                          }
-                        }
-                      ]
-                    },
                     "schema:manufacturer": {
                       "type": "object",
                       "properties": {
                         "schema:name": {
                           "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
-                          "type": "string",
-                          "enum": [
-                            "JEOL",
-                            "Cameca",
-                            "Unknown",
-                            "N/A",
-                            "None",
-                            "missing"
-                          ],
-                          "readOnly": true
+                          "type": "string"
                         }
                       }
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "schema:additionalType": {
-                      "contains": {
-                        "const": "SEM"
-                      }
-                    }
-                  },
-                  "required": [
-                    "schema:additionalType"
-                  ]
-                },
-                "then": {
-                  "properties": {
+                    },
                     "schema:model": {
                       "type": "object",
                       "properties": {
                         "schema:name": {
                           "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
-                          "type": "string",
-                          "readOnly": true
+                          "type": "string"
                         }
                       }
                     }
@@ -3076,22 +2901,9 @@
                 "properties": {
                   "schema:additionalType": {
                     "contains": {
-                      "const": "EPMA"
-                    }
-                  }
-                },
-                "required": [
-                  "schema:additionalType"
-                ]
-              }
-            },
-            {
-              "contains": {
-                "properties": {
-                  "schema:additionalType": {
-                    "contains": {
                       "const": "SEM"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -3172,10 +2984,50 @@
             ]
           }
         },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
+            "type": "string"
+          }
+        },
+        "ada:reportedProperties": {
+          "type": "array",
+          "items": {
+            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+            "type": "string"
+          }
+        },
         "schema:description": {
           "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
           "type": "string"
-        },
+        }
+      },
+      "required": [
+        "ada:samplingUnit",
+        "schema:datePublished",
+        "schema:name"
+      ]
+    },
+    {
+      "title": "TargetSelection on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "ada:targetSelectionCriteriaDefault": {
+          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ada:targetSelectionCriteriaDefault"
+      ]
+    },
+    {
+      "title": "Analyte on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
         "ada:analyteTemplate": {
           "type": "object",
           "properties": {
@@ -3191,7 +3043,263 @@
                   }
                 ]
               }
-            },
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema:instrument": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "EPMA"
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "ada:acceleratingVoltageDefault": {
+                      "description": "Electron beam accelerating voltage in kilovolts (kV). The procedure specifies the standard operating voltage; analysts record and justify any deviations.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "ada:beamDiameterDefault": {
+                      "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "ada:beamMode": {
+                      "description": "Whether the electron beam was stationary-focused, defocused to a fixed diameter, or rastered over a small area during a single-point analysis. For X-ray mapping, beam scanning is controlled by Step Size and Stage Scan vs. Beam Scan fields instead.",
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "Focused",
+                            "Defocused",
+                            "Raster",
+                            "N/A",
+                            "None",
+                            "missing"
+                          ],
+                          "readOnly": true
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "Focused",
+                              "Defocused",
+                              "Raster",
+                              "N/A",
+                              "None",
+                              "missing"
+                            ],
+                            "readOnly": true
+                          }
+                        }
+                      ]
+                    },
+                    "schema:hasPart": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "EDSDetector"
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:description": {
+                                  "description": "EDS detector type, manufacturer, window type, active area, and detector geometry (take-off angle, position).",
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "readOnly": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "readOnly": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "Electron source"
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:description": {
+                                  "description": "Type of electron gun used in the instrument.",
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "Field Emission (FEG)",
+                                        "LaB6 / CeB6",
+                                        "Tungsten (W)",
+                                        "Unknown",
+                                        "N/A",
+                                        "None",
+                                        "missing"
+                                      ],
+                                      "readOnly": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "enum": [
+                                          "Field Emission (FEG)",
+                                          "LaB6 / CeB6",
+                                          "Tungsten (W)",
+                                          "Unknown",
+                                          "N/A",
+                                          "None",
+                                          "missing"
+                                        ],
+                                        "readOnly": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "WDSSpectrometer"
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:name": {
+                                  "description": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "readOnly": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "readOnly": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "Electron source"
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:additionalType": {
+                    "contains": {
+                      "const": "EPMA"
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                  }
+                },
+                "required": [
+                  "schema:additionalType"
+                ]
+              }
+            }
+          ]
+        },
+        "ada:analyteTemplate": {
+          "type": "object",
+          "properties": {
             "ada:analyteColumns": {
               "type": "array",
               "items": {
@@ -3402,94 +3510,6 @@
                     ]
                   },
                   {
-                    "title": "Background Counting Time",
-                    "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/backgroundCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Background Counting Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Background Position(s)",
-                    "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/backgroundPosition"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundPosition"
-                      },
-                      "schema:name": {
-                        "const": "Background Position(s)"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
                     "title": "Beam Current",
                     "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard value(s).",
                     "type": "object",
@@ -3615,47 +3635,6 @@
                       "schema:valueName",
                       "schema:name",
                       "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Diffracting Crystal",
-                    "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/diffractingCrystal"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "diffractingCrystal"
-                      },
-                      "schema:name": {
-                        "const": "Diffracting Crystal"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
                     ]
                   },
                   {
@@ -3821,54 +3800,6 @@
                     ]
                   },
                   {
-                    "title": "Peak Counting Time",
-                    "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/peakCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "peakCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Peak Counting Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
                     "title": "Primary Calibration Standard Name",
                     "description": "Name(s) of the primary reference material(s) used for element standardization (intensity calibration). Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
                     "type": "object",
@@ -3907,46 +3838,6 @@
                       "schema:name",
                       "ada:dataType",
                       "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Proportional Counter / Detector",
-                    "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/proportionalCounterDetector"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "proportionalCounterDetector"
-                      },
-                      "schema:name": {
-                        "const": "Proportional Counter / Detector"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
                     ]
                   },
                   {
@@ -4014,86 +3905,6 @@
                       },
                       "schema:readonlyValue": {
                         "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "WDS PHA Setting",
-                    "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/wdsPhaSetting"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "wdsPhaSetting"
-                      },
-                      "schema:name": {
-                        "const": "WDS PHA Setting"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "WDS Spectrometer Channel",
-                    "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "wdsSpectrometerChannel"
-                      },
-                      "schema:name": {
-                        "const": "WDS Spectrometer Channel"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
                       },
                       "ada:tier": {
                         "const": "R"
@@ -4292,102 +4103,6 @@
                 },
                 {
                   "contains": {
-                    "title": "Background Counting Time",
-                    "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/backgroundCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Background Counting Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Background Position(s)",
-                    "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/backgroundPosition"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundPosition"
-                      },
-                      "schema:name": {
-                        "const": "Background Position(s)"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
                     "title": "Beam Current",
                     "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard value(s).",
                     "type": "object",
@@ -4521,51 +4236,6 @@
                       "schema:valueName",
                       "schema:name",
                       "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Diffracting Crystal",
-                    "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/diffractingCrystal"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "diffractingCrystal"
-                      },
-                      "schema:name": {
-                        "const": "Diffracting Crystal"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
                     ]
                   },
                   "minContains": 0,
@@ -4751,58 +4421,6 @@
                 },
                 {
                   "contains": {
-                    "title": "Peak Counting Time",
-                    "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/peakCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "peakCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Peak Counting Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
                     "title": "Primary Calibration Standard Name",
                     "description": "Name(s) of the primary reference material(s) used for element standardization (intensity calibration). Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
                     "type": "object",
@@ -4841,50 +4459,6 @@
                       "schema:name",
                       "ada:dataType",
                       "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Proportional Counter / Detector",
-                    "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/proportionalCounterDetector"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "proportionalCounterDetector"
-                      },
-                      "schema:name": {
-                        "const": "Proportional Counter / Detector"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
                     ]
                   },
                   "minContains": 0,
@@ -4978,15 +4552,474 @@
                   },
                   "minContains": 0,
                   "maxContains": 1
-                },
-                {
-                  "contains": {
+                }
+              ]
+            }
+          }
+        },
+        "ada:channelTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:channelColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors AnalyteIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+                    "allOf": [
+                      {
+                        "$ref": "#/$defs/KeyedTableColumn"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema:valueName": {
+                            "const": "channel"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "schema:readonlyValue": {
+                            "const": true
+                          },
+                          "schema:valueRequired": {
+                            "const": true
+                          },
+                          "ada:tier": {
+                            "const": "M"
+                          },
+                          "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                          }
+                        },
+                        "required": [
+                          "schema:valueName",
+                          "ada:dataType",
+                          "schema:readonlyValue",
+                          "schema:valueRequired",
+                          "ada:tier",
+                          "ada:cdifPropertyPath"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Background Counting Time",
+                    "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/backgroundCountingTime"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "backgroundCountingTime"
+                      },
+                      "schema:name": {
+                        "const": "Background Counting Time"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Background Position(s)",
+                    "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/backgroundPosition"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "backgroundPosition"
+                      },
+                      "schema:name": {
+                        "const": "Background Position(s)"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Diffracting Crystal",
+                    "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/diffractingCrystal"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "diffractingCrystal"
+                      },
+                      "schema:name": {
+                        "const": "Diffracting Crystal"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Dwell Time per Pixel",
+                    "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/dwellTimePerPixel"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "dwellTimePerPixel"
+                      },
+                      "schema:name": {
+                        "const": "Dwell Time per Pixel"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Peak Counting Time",
+                    "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/peakCountingTime"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "peakCountingTime"
+                      },
+                      "schema:name": {
+                        "const": "Peak Counting Time"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Proportional Counter / Detector",
+                    "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/proportionalCounterDetector"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "proportionalCounterDetector"
+                      },
+                      "schema:name": {
+                        "const": "Proportional Counter / Detector"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Sequence",
+                    "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/sequence"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "sequence"
+                      },
+                      "schema:name": {
+                        "const": "Sequence"
+                      },
+                      "ada:dataType": {
+                        "const": "integer"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
                     "title": "WDS PHA Setting",
                     "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/wdsPhaSetting"
+                        "const": "ada:channelColumn/empaTAPP/wdsPhaSetting"
                       },
                       "@type": {
                         "const": [
@@ -5009,7 +5042,191 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "X-ray Line",
+                    "description": "X-ray emission line measured on each spectrometer assignment. Line choice affects sensitivity, matrix correction accuracy, and susceptibility to peak overlap and spectral interference.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/xRayLine"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "xRayLine"
+                      },
+                      "schema:name": {
+                        "const": "X-ray Line"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Background Counting Time",
+                    "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/backgroundCountingTime"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "backgroundCountingTime"
+                      },
+                      "schema:name": {
+                        "const": "Background Counting Time"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Background Position(s)",
+                    "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/backgroundPosition"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "backgroundPosition"
+                      },
+                      "schema:name": {
+                        "const": "Background Position(s)"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -5025,12 +5242,12 @@
                 },
                 {
                   "contains": {
-                    "title": "WDS Spectrometer Channel",
-                    "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
+                    "title": "Diffracting Crystal",
+                    "description": "Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice determines the detectable wavelength range and dispersion.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/empaTAPP/wdsSpectrometerChannel"
+                        "const": "ada:channelColumn/empaTAPP/diffractingCrystal"
                       },
                       "@type": {
                         "const": [
@@ -5038,10 +5255,203 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "wdsSpectrometerChannel"
+                        "const": "diffractingCrystal"
                       },
                       "schema:name": {
-                        "const": "WDS Spectrometer Channel"
+                        "const": "Diffracting Crystal"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Dwell Time per Pixel",
+                    "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/dwellTimePerPixel"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "dwellTimePerPixel"
+                      },
+                      "schema:name": {
+                        "const": "Dwell Time per Pixel"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Peak Counting Time",
+                    "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/peakCountingTime"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "peakCountingTime"
+                      },
+                      "schema:name": {
+                        "const": "Peak Counting Time"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Proportional Counter / Detector",
+                    "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/proportionalCounterDetector"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "proportionalCounterDetector"
+                      },
+                      "schema:name": {
+                        "const": "Proportional Counter / Detector"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -5053,7 +5463,17 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -5066,25 +5486,199 @@
                   },
                   "minContains": 0,
                   "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Sequence",
+                    "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/sequence"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "sequence"
+                      },
+                      "schema:name": {
+                        "const": "Sequence"
+                      },
+                      "ada:dataType": {
+                        "const": "integer"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "WDS PHA Setting",
+                    "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/wdsPhaSetting"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "wdsPhaSetting"
+                      },
+                      "schema:name": {
+                        "const": "WDS PHA Setting"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "X-ray Line",
+                    "description": "X-ray emission line measured on each spectrometer assignment. Line choice affects sensitivity, matrix correction accuracy, and susceptibility to peak overlap and spectral interference.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/empaTAPP/xRayLine"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "xRayLine"
+                      },
+                      "schema:name": {
+                        "const": "X-ray Line"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
                 }
               ]
+            },
+            "ada:defaultChannels": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
+              }
             }
-          }
-        },
-        "ada:analyticalMode": {
-          "type": "array",
-          "items": {
-            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
-            "type": "string",
-            "enum": [
-              "WDS Point Analysis",
-              "EDS Point Analysis",
-              "WDS Mapping",
-              "EDS Mapping",
-              "WDS Point Analysis; EDS Point Analysis",
-              "missing"
-            ],
-            "readOnly": true
           }
         },
         "schema:additionalProperty": {
@@ -5295,49 +5889,6 @@
                 ]
               },
               {
-                "title": "Sequence",
-                "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/sequence"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/sequence"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Sequence"
-                  },
-                  "schema:value": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              {
                 "title": "Stage Scan vs. Beam Scan",
                 "description": "Whether the X-ray map was acquired by moving the sample stage (stage scan) or by deflecting the electron beam (beam scan). Stage scan preserves beam geometry and spot size across the full map but is slower; beam scan is faster but may introduce geometric distortion at large deflections.",
                 "type": "object",
@@ -5601,53 +6152,6 @@
             },
             {
               "contains": {
-                "title": "Sequence",
-                "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/sequence"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/sequence"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Sequence"
-                  },
-                  "schema:value": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Stage Scan vs. Beam Scan",
                 "description": "Whether the X-ray map was acquired by moving the sample stage (stage scan) or by deflecting the electron beam (beam scan). Stage scan preserves beam geometry and spot size across the full map but is slower; beam scan is faster but may introduce geometric distortion at large deflections.",
                 "type": "object",
@@ -5688,88 +6192,29 @@
             }
           ]
         },
-        "schema:relatedLink": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "schema:linkRelationship": {
-                      "const": "coupledTechnique"
-                    }
-                  },
-                  "required": [
-                    "schema:linkRelationship"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:target": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
-                          "anyOf": [
-                            {
-                              "type": "string",
-                              "enum": [
-                                "EBSD",
-                                "SEM-EDS",
-                                "NanoSIMS",
-                                "None",
-                                "N/A",
-                                "missing"
-                              ]
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:description": {
-                          "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "schema:linkRelationship": {
-                      "const": "techniquePublication"
-                    }
-                  },
-                  "required": [
-                    "schema:linkRelationship"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:target": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
-                          "type": "string",
-                          "readOnly": true
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
         "schema:variableMeasured": {
           "type": "array",
           "items": {
             "anyOf": [
+              {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
               {
                 "title": "Detection Limit",
                 "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
@@ -5821,7 +6266,8 @@
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
                     ]
                   },
                   "schema:propertyID": {
@@ -5988,7 +6434,8 @@
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
                     ]
                   },
                   "schema:propertyID": {
@@ -6114,17 +6561,6 @@
           "type": "string",
           "readOnly": true
         },
-        "ada:dwellTimePerPixelDefault": {
-          "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:edsAcquisitionMode": {
           "description": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, linescan (beam stepped along a transect at defined intervals), or area map (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared Analytical Mode. Particularly important when a procedure includes linescans as a distinct acquisition approach not fully captured by the mode flag columns.",
           "type": "string",
@@ -6216,7 +6652,7 @@
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault"
+                                "const": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault"
                               },
                               "@type": {
                                 "const": [
@@ -6301,56 +6737,6 @@
             }
           ]
         },
-        "schema:funding": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "schema:name": {
-                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
-                "type": "string",
-                "readOnly": true
-              }
-            }
-          }
-        },
-        "schema:location": {
-          "type": "object",
-          "properties": {
-            "schema:name": {
-              "description": "Name of the laboratory or institution hosting the instrument.",
-              "type": "string"
-            },
-            "schema:identifier": {
-              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
-              "type": "string"
-            }
-          }
-        },
-        "ada:samplingUnit": {
-          "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Whole sample",
-                "Aliquot",
-                "Grain",
-                "Spot",
-                "Analysis point",
-                "Phase",
-                "Sub-volume",
-                "Region of interest",
-                "N/A",
-                "None",
-                "missing"
-              ]
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "schema:actionProcess": {
           "type": "object",
           "properties": {
@@ -6382,7 +6768,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6423,7 +6809,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
+                                    "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6459,12 +6845,12 @@
                                 ]
                               },
                               {
-                                "title": "Constants and Reference Values Used",
+                                "title": "Constants Reference Values",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6472,10 +6858,10 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "constantsReferenceValuesDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -6509,7 +6895,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6554,7 +6940,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
+                                    "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6594,12 +6980,12 @@
                             },
                             {
                               "contains": {
-                                "title": "Constants and Reference Values Used",
+                                "title": "Constants Reference Values",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6607,10 +6993,10 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "constantsReferenceValuesDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -6740,26 +7126,6 @@
           ],
           "readOnly": true
         },
-        "schema:creator": {
-          "type": "object",
-          "properties": {
-            "schema:name": {
-              "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
-              "type": "string",
-              "readOnly": true
-            }
-          }
-        },
-        "schema:name": {
-          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
-          "type": "string",
-          "readOnly": true
-        },
-        "schema:datePublished": {
-          "description": "First date this procedure configuration was used in production.",
-          "type": "string",
-          "readOnly": true
-        },
         "ada:stepSizePixelSizeDefault": {
           "description": "Distance between adjacent measurement points in the X-ray map in micrometers, defining the spatial resolution. Report both X and Y step if they differ.",
           "anyOf": [
@@ -6770,27 +7136,6 @@
               "type": "string"
             }
           ]
-        },
-        "schema:measurementTechnique": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "schema:termCode": {
-                "description": "Top-level analytical technique identifier.",
-                "type": "string",
-                "enum": [
-                  "EPMA-WDS",
-                  "EPMA-EDS",
-                  "EPMA-WDS+EDS",
-                  "N/A",
-                  "None",
-                  "missing"
-                ],
-                "readOnly": true
-              }
-            }
-          }
         },
         "ada:wdsDeadTimeCorrection": {
           "description": "Method used to correct for WDS proportional counter dead time at high count rates. Dead time errors are most significant for major elements with high count rates (e.g., Si, Fe, Ca). Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion.",
@@ -6809,33 +7154,16 @@
             "missing"
           ],
           "readOnly": true
-        },
-        "ada:targetSelectionCriteriaDefault": {
-          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-          "type": "string"
-        },
-        "ada:reportedProperties": {
-          "type": "array",
-          "items": {
-            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
-            "type": "string",
-            "readOnly": true
-          }
         }
       },
       "required": [
         "ada:detectionLimitMethod",
-        "ada:dwellTimePerPixelDefault",
         "ada:edsAcquisitionMode",
         "ada:edsLiveTimePerPointOrPixelDefault",
-        "ada:samplingUnit",
         "ada:massAbsorptionCoefficients",
         "ada:matrixCorrectionMethod",
-        "schema:name",
-        "schema:datePublished",
         "ada:stepSizePixelSizeDefault",
-        "ada:wdsDeadTimeCorrection",
-        "ada:targetSelectionCriteriaDefault"
+        "ada:wdsDeadTimeCorrection"
       ]
     }
   ],

@@ -231,7 +231,7 @@ TAPP_CONFIGS = {
         # New to the pipeline with the 2026-08-13 delivery. Seeded from solutionQicpmsTAPP, which
         # already places 76% of its fields — the two share the whole solution-introduction and
         # ICP-MS core and differ in the multi-collector detector array.
-        "xlsx": "TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.xlsx",
+        "xlsx": "tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v30.csv",
         "prefix": "solutionMcicpms",
         "component_types": ["ada:SolutionICPMSTabular"],
         "base_items": _IDENTITY_COMMON | {"Analyte"},
@@ -240,14 +240,14 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)",
         "description": ("Solution multi-collector ICP-MS extension of the base TAPP definition, "
-                        "generated from TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.xlsx "
+                        "generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v30.csv "
                         "via the path-driven pipeline."),
         "detail_title": "Solution MC-ICP-MS Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for solution MC-ICP-MS, "
                                "reusing CDIF/schema.org slots on the schema:Dataset root."),
     },
     "solutionQicpmsTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/Solution_Q-ICP-MS_TAPP_v17.xlsx",
+        "xlsx": "tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v34.csv",
         "prefix": "solutionQicpms",
         "component_types": ["ada:SolutionICPMSTabular"],
         "base_items": _IDENTITY_COMMON | {"Analyte"},
@@ -256,13 +256,13 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "Solution Q-ICP-MS Technique-Aligned Protocol Profile (solutionQicpmsTAPP)",
         "description": ("Solution quadrupole ICP-MS extension of the base TAPP definition, generated "
-                        "from TAPPS20260813/Current TAPPs/Solution_Q-ICP-MS_TAPP_v17.xlsx via the path-driven pipeline."),
+                        "from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v34.csv via the path-driven pipeline."),
         "detail_title": "Solution Q-ICP-MS Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for solution Q-ICP-MS, reusing "
                                "CDIF/schema.org slots on the schema:Dataset root."),
     },
     "solutionSficpmsTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/Solution_SF-ICP-MS_TAPP_v18.xlsx",
+        "xlsx": "tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v32.csv",
         "prefix": "solutionSficpms",
         "component_types": ["ada:SolutionICPMSTabular"],
         "base_items": _IDENTITY_COMMON | {"Analyte"},
@@ -271,7 +271,7 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)",
         "description": ("Solution sector-field (high-resolution) ICP-MS extension of the base TAPP "
-                        "definition, generated from TAPPS20260813/Current TAPPs/Solution_SF-ICP-MS_TAPP_v18.xlsx via the "
+                        "definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v32.csv via the "
                         "path-driven pipeline."),
         "detail_title": "Solution SF-ICP-MS Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for solution SF-ICP-MS, reusing "
@@ -457,9 +457,21 @@ def jtype(dt):
     return "string"
 
 
+# A Data Type cell can say a value is dimensioned WITHOUT naming the unit: the SEM family and the
+# Solution tables write "Numeric + unit" (61 cells across the delivery) where EPMA and the LA family
+# write "Numeric (um)". Both assert a unit exists; only the second says which. Returning None for the
+# first suppressed schema:unitText on those parameters, so the same physical quantity was emitted with
+# two different shapes depending on which table it came from - which is what blocked collapsing the
+# duplicates. UNIT_UNNAMED marks "dimensioned, unit not fixed here"; the emitters require unitText for
+# it but do not pin a const.
+UNIT_UNNAMED = "<unnamed unit>"
+
+
 def unit(dt):
     m = re.search(r"\(([^)]+)\)", dt)
-    return m.group(1) if m else None
+    if m:
+        return m.group(1)
+    return UNIT_UNNAMED if re.search(r"\+\s*units?", dt, re.I) else None
 
 
 def meaningful(v):
@@ -575,7 +587,9 @@ def param_template_def(b, existing):
         "ada:tier": {"const": "R"},
     }
     if b.get("unit") and b["unit"] != "free":
-        props["schema:unitText"] = {"const": b["unit"]}
+        # a named unit is pinned; "dimensioned but unnamed" only requires that one be given
+        props["schema:unitText"] = ({"type": "string"} if b["unit"] == UNIT_UNNAMED
+                                    else {"const": b["unit"]})
     return name, {name: {"title": b["item"], "description": b["desc"], "type": "object",
                          "properties": props,
                          "required": ["@id", "@type", "schema:valueName", "schema:name",

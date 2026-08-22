@@ -7,64 +7,6 @@ description: Registry of reusable schema:PropertyValueSpecification reported-pro
   register. The root only hosts $defs; it has no instantiable properties of its own.
 type: object
 $defs:
-  geochron_detectionLimitMethod:
-    title: Detection Limit Method
-    description: Reference or description of the method used to calculate the session detection limit
-      reported above.
-    type: object
-    properties:
-      '@id':
-        const: ada:analyteColumn/geochronTAPP/detectionLimitMethod
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectionLimitMethod
-      schema:name:
-        const: Detection Limit Method
-      ada:dataType:
-        const: uri
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  geochron_limitOfQuantificationMethod:
-    title: Limit of Quantification (LOQ) Method
-    description: 'Reference or description of the method used to calculate the limit of quantification:
-      the lowest concentration reliably measurable with acceptable precision and accuracy.'
-    type: object
-    properties:
-      '@id':
-        const: ada:analyteColumn/geochronTAPP/limitOfQuantificationMethod
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: limitOfQuantificationMethod
-      schema:name:
-        const: Limit of Quantification (LOQ) Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
   laMcicpms_detectionLimitMethod:
     title: Detection Limit Method
     description: Reference or description of the method used to calculate session detection limits. Mandatory

@@ -8,6 +8,320 @@ description: Registry of reusable schema:PropertyValueSpecification channel colu
   no instantiable properties of its own.
 type: object
 $defs:
+  empa_backgroundCountingTime:
+    title: Background Counting Time
+    description: Total time spent counting at off-peak background position(s) in seconds, summed across
+      all background positions.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/empaTAPP/backgroundCountingTime
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: backgroundCountingTime
+      schema:name:
+        const: Background Counting Time
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id001
+          anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items: *id001
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  empa_backgroundPosition:
+    title: Background Position(s)
+    description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta,
+      and whether on the high- or low-energy side.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/empaTAPP/backgroundPosition
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: backgroundPosition
+      schema:name:
+        const: Background Position(s)
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - &id002
+          type: string
+        - type: array
+          items: *id002
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  empa_diffractingCrystal:
+    title: Diffracting Crystal
+    description: Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal choice
+      determines the detectable wavelength range and dispersion.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/empaTAPP/diffractingCrystal
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: diffractingCrystal
+      schema:name:
+        const: Diffracting Crystal
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id003
+          type: string
+        - type: array
+          items: *id003
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  empa_dwellTimePerPixel:
+    title: Dwell Time per Pixel
+    description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds.
+      For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum
+      per pixel, a single value.'
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/empaTAPP/dwellTimePerPixel
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: dwellTimePerPixel
+      schema:name:
+        const: Dwell Time per Pixel
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id004
+          anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items: *id004
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  empa_peakCountingTime:
+    title: Peak Counting Time
+    description: Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer
+      assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/empaTAPP/peakCountingTime
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: peakCountingTime
+      schema:name:
+        const: Peak Counting Time
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id005
+          anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items: *id005
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  empa_proportionalCounterDetector:
+    title: Proportional Counter / Detector
+    description: Type of detector used on each spectrometer assignment. Affects sensitivity and count
+      rate linearity.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/empaTAPP/proportionalCounterDetector
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proportionalCounterDetector
+      schema:name:
+        const: Proportional Counter / Detector
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - &id006
+          type: string
+        - type: array
+          items: *id006
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  empa_sequence:
+    title: Sequence
+    description: Order in which spectrometer assignments are acquired during point analysis. Relevant
+      for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups.
+      Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each
+      pixel.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/empaTAPP/sequence
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sequence
+      schema:name:
+        const: Sequence
+      ada:dataType:
+        const: integer
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - &id007
+          anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items: *id007
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  empa_wdsPhaSetting:
+    title: WDS PHA Setting
+    description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses
+      above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections
+      and escape peaks.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/empaTAPP/wdsPhaSetting
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: wdsPhaSetting
+      schema:name:
+        const: WDS PHA Setting
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - &id008
+          type: string
+        - type: array
+          items: *id008
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  empa_xRayLine:
+    title: X-ray Line
+    description: X-ray emission line measured on each spectrometer assignment. Line choice affects sensitivity,
+      matrix correction accuracy, and susceptibility to peak overlap and spectral interference.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/empaTAPP/xRayLine
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayLine
+      schema:name:
+        const: X-ray Line
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id009
+          type: string
+        - type: array
+          items: *id009
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laMcicpms_faradayCupAmplifierResistorValues:
     title: Faraday Cup Amplifier Resistor Values
     description: Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard
@@ -21,29 +335,30 @@ $defs:
         const: ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: faradayCupAmplifierResistorValues
       schema:name:
         const: Faraday Cup Amplifier Resistor Values
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id001
+        - &id010
           type: string
         - type: array
-          items: *id001
+          items: *id010
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
-    - schema:value
+    - schema:defaultValue
   laMcicpms_faradayCupGainCalibrationMethod:
     title: Faraday Cup Gain Calibration Method
     description: 'Method used to calibrate the relative gain (amplification factor) of each Faraday cup
@@ -59,29 +374,30 @@ $defs:
         const: ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: faradayCupGainCalibrationMethod
       schema:name:
         const: Faraday Cup Gain Calibration Method
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id002
+        - &id011
           type: string
         - type: array
-          items: *id002
+          items: *id011
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
-    - schema:value
+    - schema:defaultValue
   laMcicpms_integrationTimePerCycle:
     title: Integration Time per Cycle
     description: Duration of signal integration per measurement cycle (seconds). Determines counting statistics
@@ -109,12 +425,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id003
+        - &id012
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id003
+          items: *id012
     required:
     - '@id'
     - '@type'
@@ -132,29 +448,30 @@ $defs:
         const: ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferenceCorrectionMethod
       schema:name:
         const: Interference Correction Method
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id004
+        - &id013
           type: string
         - type: array
-          items: *id004
+          items: *id013
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
-    - schema:value
+    - schema:defaultValue
   laMcicpms_interferingSpecies:
     title: Interfering Species
     description: Elemental or molecular species (oxides, argides, doubly charged ions) overlapping with
@@ -165,29 +482,30 @@ $defs:
         const: ada:channelColumn/laMcicpmsTAPP/interferingSpecies
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/laMcicpmsTAPP/interferingSpecies
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: interferingSpecies
       schema:name:
         const: Interfering Species
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id005
+        - &id014
           type: string
         - type: array
-          items: *id005
+          items: *id014
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
-    - schema:value
+    - schema:defaultValue
   laMcicpms_ionCounterDeadTime:
     title: Ion Counter Dead Time
     description: Dead time of each ion-counting detector channel, used in the dead-time correction applied
@@ -211,12 +529,12 @@ $defs:
         const: M
       schema:value:
         anyOf:
-        - &id006
+        - &id015
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id006
+          items: *id015
     required:
     - '@id'
     - '@type'
@@ -236,29 +554,30 @@ $defs:
         const: ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionAssignment
       schema:name:
         const: Mass Resolution Assignment
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id007
+        - &id016
           type: string
         - type: array
-          items: *id007
+          items: *id016
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
-    - schema:value
+    - schema:defaultValue
   semComposition_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds, summed across
@@ -282,12 +601,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id008
+        - &id017
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id008
+          items: *id017
     required:
     - '@id'
     - '@type'
@@ -318,10 +637,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id009
+        - &id018
           type: string
         - type: array
-          items: *id009
+          items: *id018
     required:
     - '@id'
     - '@type'
@@ -338,29 +657,30 @@ $defs:
         const: ada:channelColumn/semCompositionTAPP/diffractingCrystal
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/semCompositionTAPP/diffractingCrystal
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: diffractingCrystal
       schema:name:
         const: Diffracting Crystal
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id010
+        - &id019
           type: string
         - type: array
-          items: *id010
+          items: *id019
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
-    - schema:value
+    - schema:defaultValue
   semComposition_dwellTimePerPixel:
     title: Dwell Time per Pixel
     description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or
@@ -387,12 +707,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id011
+        - &id020
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id011
+          items: *id020
     required:
     - '@id'
     - '@type'
@@ -423,12 +743,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id012
+        - &id021
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id012
+          items: *id021
     required:
     - '@id'
     - '@type'
@@ -446,26 +766,27 @@ $defs:
         const: ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proportionalCounterDetector
       schema:name:
         const: Proportional Counter / Detector
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: R
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id013
+        - &id022
           type: string
         - type: array
-          items: *id013
+          items: *id022
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
   semComposition_sequence:
@@ -480,28 +801,29 @@ $defs:
         const: ada:channelColumn/semCompositionTAPP/sequence
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/semCompositionTAPP/sequence
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sequence
       schema:name:
         const: Sequence
       ada:dataType:
         const: integer
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: R
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id014
+        - &id023
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id014
+          items: *id023
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
   semComposition_wdsPhaSetting:
@@ -515,26 +837,27 @@ $defs:
         const: ada:channelColumn/semCompositionTAPP/wdsPhaSetting
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: wdsPhaSetting
       schema:name:
         const: WDS PHA Setting
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: R
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id015
+        - &id024
           type: string
         - type: array
-          items: *id015
+          items: *id024
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
   semComposition_xRayLine:
@@ -547,29 +870,30 @@ $defs:
         const: ada:channelColumn/semCompositionTAPP/xRayLine
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/semCompositionTAPP/xRayLine
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayLine
       schema:name:
         const: X-ray Line
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id016
+        - &id025
           type: string
         - type: array
-          items: *id016
+          items: *id025
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
-    - schema:value
+    - schema:defaultValue
   sem_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds, summed across
@@ -593,12 +917,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id017
+        - &id026
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id017
+          items: *id026
     required:
     - '@id'
     - '@type'
@@ -629,10 +953,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id018
+        - &id027
           type: string
         - type: array
-          items: *id018
+          items: *id027
     required:
     - '@id'
     - '@type'
@@ -649,29 +973,30 @@ $defs:
         const: ada:channelColumn/semTAPP/diffractingCrystal
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/semTAPP/diffractingCrystal
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: diffractingCrystal
       schema:name:
         const: Diffracting Crystal
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id019
+        - &id028
           type: string
         - type: array
-          items: *id019
+          items: *id028
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
-    - schema:value
+    - schema:defaultValue
   sem_dwellTimePerPixel:
     title: Dwell Time per Pixel
     description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or
@@ -698,12 +1023,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id020
+        - &id029
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id020
+          items: *id029
     required:
     - '@id'
     - '@type'
@@ -734,12 +1059,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id021
+        - &id030
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id021
+          items: *id030
     required:
     - '@id'
     - '@type'
@@ -757,26 +1082,27 @@ $defs:
         const: ada:channelColumn/semTAPP/proportionalCounterDetector
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/semTAPP/proportionalCounterDetector
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proportionalCounterDetector
       schema:name:
         const: Proportional Counter / Detector
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: R
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id022
+        - &id031
           type: string
         - type: array
-          items: *id022
+          items: *id031
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
   sem_sequence:
@@ -791,28 +1117,29 @@ $defs:
         const: ada:channelColumn/semTAPP/sequence
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/semTAPP/sequence
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sequence
       schema:name:
         const: Sequence
       ada:dataType:
         const: integer
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: R
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id023
+        - &id032
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id023
+          items: *id032
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
   sem_wdsPhaSetting:
@@ -826,26 +1153,27 @@ $defs:
         const: ada:channelColumn/semTAPP/wdsPhaSetting
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/semTAPP/wdsPhaSetting
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: wdsPhaSetting
       schema:name:
         const: WDS PHA Setting
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: R
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id024
+        - &id033
           type: string
         - type: array
-          items: *id024
+          items: *id033
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
   sem_xRayLine:
@@ -858,29 +1186,30 @@ $defs:
         const: ada:channelColumn/semTAPP/xRayLine
       '@type':
         const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:channelColumn/semTAPP/xRayLine
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayLine
       schema:name:
         const: X-ray Line
       ada:dataType:
         const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
-      schema:value:
+      schema:defaultValue:
         anyOf:
-        - &id025
+        - &id034
           type: string
         - type: array
-          items: *id025
+          items: *id034
     required:
     - '@id'
     - '@type'
-    - schema:propertyID
+    - schema:valueName
     - schema:name
     - ada:dataType
-    - schema:value
+    - schema:defaultValue
   solutionMcicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
     description: Mathematical approach used to calculate and remove residual interference contributions.
@@ -890,7 +1219,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
+        const: ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -905,7 +1234,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id035
+          type: string
+        - type: array
+          items: *id035
     required:
     - '@id'
     - '@type'
@@ -922,7 +1255,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/interferingSpecies
+        const: ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -937,7 +1270,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id036
+          type: string
+        - type: array
+          items: *id036
     required:
     - '@id'
     - '@type'
@@ -955,7 +1292,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied
+        const: ada:channelColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -970,7 +1307,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id037
+          type: string
+        - type: array
+          items: *id037
     required:
     - '@id'
     - '@type'
@@ -985,7 +1326,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/dwellTimePerMass
+        const: ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1001,8 +1342,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - &id038
+          anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items: *id038
     required:
     - '@id'
     - '@type'
@@ -1018,7 +1363,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
+        const: ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1033,7 +1378,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id039
+          type: string
+        - type: array
+          items: *id039
     required:
     - '@id'
     - '@type'
@@ -1049,7 +1398,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/interferingSpecies
+        const: ada:channelColumn/solutionQicpmsTAPP/interferingSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1064,7 +1413,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id040
+          type: string
+        - type: array
+          items: *id040
     required:
     - '@id'
     - '@type'
@@ -1079,7 +1432,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied
+        const: ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1094,7 +1447,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id041
+          type: string
+        - type: array
+          items: *id041
     required:
     - '@id'
     - '@type'
@@ -1125,10 +1482,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id026
+        - &id042
           type: string
         - type: array
-          items: *id026
+          items: *id042
     required:
     - '@id'
     - '@type'
@@ -1159,10 +1516,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id027
+        - &id043
           type: string
         - type: array
-          items: *id027
+          items: *id043
     required:
     - '@id'
     - '@type'

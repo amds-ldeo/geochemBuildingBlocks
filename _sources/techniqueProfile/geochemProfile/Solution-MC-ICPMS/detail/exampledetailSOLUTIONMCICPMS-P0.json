@@ -32,13 +32,13 @@
           "schema:description": "example sampleDescription",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume",
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
               "@type": [
                 "schema:PropertyValue"
               ],
               "schema:propertyID": [
                 {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
                 }
               ],
               "schema:name": "Sample Aliquot Mass or Volume",
@@ -55,13 +55,13 @@
             "schema:name": "Sample digestion",
             "schema:additionalProperty": [
               {
-                "@id": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature",
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature",
                 "@type": [
                   "schema:PropertyValue"
                 ],
                 "schema:propertyID": [
                   {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
                   }
                 ],
                 "schema:name": "Digestion Temperature",
@@ -69,13 +69,13 @@
                 "schema:unitText": "example value"
               },
               {
-                "@id": "ada:parameter/solutionMcicpmsTAPP/digestionDuration",
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration",
                 "@type": [
                   "schema:PropertyValue"
                 ],
                 "schema:propertyID": [
                   {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration"
                   }
                 ],
                 "schema:name": "Digestion Duration",
@@ -126,16 +126,16 @@
                 "schema:value": "example value"
               },
               {
-                "@id": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed",
+                "@id": "ada:parameter/module/Core/constantsReferenceValues",
                 "@type": [
                   "schema:PropertyValue"
                 ],
                 "schema:propertyID": [
                   {
-                    "@id": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
                   }
                 ],
-                "schema:name": "Constants and Reference Values Used",
+                "schema:name": "Constants Reference Values",
                 "schema:value": "example value"
               }
             ]
@@ -193,13 +193,13 @@
                   ],
                   "schema:additionalProperty": [
                     {
-                      "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate",
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
                       "@type": [
                         "schema:PropertyValue"
                       ],
                       "schema:propertyID": [
                         {
-                          "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
+                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                         }
                       ],
                       "schema:name": "Sample Uptake Rate",
@@ -207,13 +207,13 @@
                       "schema:unitText": "example value"
                     },
                     {
-                      "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate",
+                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
                       "@type": [
                         "schema:PropertyValue"
                       ],
                       "schema:propertyID": [
                         {
-                          "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
+                          "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
                         }
                       ],
                       "schema:name": "Nebulizer Gas Flow Rate",
@@ -221,16 +221,16 @@
                       "schema:unitText": "example value"
                     },
                     {
-                      "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate",
+                      "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate",
                       "@type": [
                         "schema:PropertyValue"
                       ],
                       "schema:propertyID": [
                         {
-                          "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate"
+                          "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate"
                         }
                       ],
-                      "schema:name": "Make-up Gas Flow Rate",
+                      "schema:name": "Make-up Gas and Flow Rate",
                       "schema:value": 1,
                       "schema:unitText": "example value"
                     }
@@ -390,7 +390,7 @@
             },
             {
               "ada:toolRole": "dataReduction",
-              "schema:name": "example dataReductionSoftware",
+              "schema:name": "example dataProcessingSoftware",
               "@type": [
                 "schema:SoftwareApplication"
               ]
@@ -430,6 +430,19 @@
           "schema:name": "Signal Integration Time",
           "schema:value": 1,
           "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/module/Blank/proceduralBlankLevel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
+            }
+          ],
+          "schema:name": "Procedural Blank Level",
+          "schema:value": "example value"
         }
       ],
       "schema:description": "example additionalNotes",
@@ -478,14 +491,6 @@
     {
       "dqv:isMeasurementOf": "Peak Flatness",
       "dqv:value": "example peakFlatness"
-    },
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }

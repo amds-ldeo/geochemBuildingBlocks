@@ -98,11 +98,72 @@ def tiers(path):
     return {ms._norm(ms.rename(i)): (P, A) for i, P, A, _ in ms.source_items(path)}
 
 
+def report_parameters(man, consumers):
+    """What unioning module parameters into each technique's anyOf would change.
+
+    A module cannot CONSTRAIN schema:additionalProperty, so it publishes Param_ $defs a technique
+    would union into its own anyOf instead. `allOf` intersects and cannot relax - but a UNION
+    widens, and it widens silently: an instance carrying a parameter the technique never declared
+    starts validating. This prints that delta before anything is wired, because afterwards it is
+    invisible.
+
+    NEW       the module declares a parameter the table does not. Pure widening.
+    DUPLICATE both declare it. The union needs dedup, or the array gets two branches for one
+              parameter - and the branches differ, because a technique mints
+              ada:parameter/<TAPP>/<name> while a module would mint ada:parameter/module/<Module>/.
+    """
+    import yaml as _yaml
+    BB = os.path.join(ROOT, "_sources", "BaseSchema", "modules")
+    try:
+        from build_module_bb import dirname
+    except Exception:
+        dirname = lambda n: n[:1].lower() + n[1:]
+
+    published = {}
+    for name in sorted(consumers):
+        f = os.path.join(BB, dirname(name), "schema.yaml")
+        if not os.path.exists(f):
+            continue
+        d = _yaml.safe_load(open(f, encoding="utf-8")) or {}
+        published[name] = {k: v for k, v in (d.get("$defs") or {}).items()
+                           if k.startswith("Param_")}
+
+    tot_new = tot_dup = 0
+    print("%-30s %6s %6s %6s   %s" % ("technique", "gains", "NEW", "dup", "modules"))
+    print("-" * 92)
+    for entry in man.get("composed") or []:
+        tab = _table(os.path.dirname(tapp_source.manifest_path()), entry["tapp"])
+        own = set()
+        if tab:
+            own = {ms._norm(i) for i, _, _, _ in ms.source_items(tab)}
+        new, dup, mods = [], [], []
+        for m in entry.get("modules") or []:
+            defs = published.get(m.get("name")) or {}
+            if defs:
+                mods.append(m["name"])
+            for k, v in defs.items():
+                lbl = v.get("title") or k
+                (dup if ms._norm(lbl) in own else new).append((m["name"], lbl))
+        tot_new += len(new); tot_dup += len(dup)
+        t = os.path.basename(entry["tapp"]).replace("_TAPP", "").replace(".csv", "")
+        print("%-30s %6d %6d %6d   %s" % (t[:29], len(new) + len(dup), len(new), len(dup),
+                                          ", ".join(mods)))
+    print("-" * 92)
+    print("%-30s %6d %6d %6d" % ("TOTAL", tot_new + tot_dup, tot_new, tot_dup))
+    print()
+    print("NEW = parameters a technique would begin accepting that its own table never declared.")
+    print("dup = declared by both; the union needs dedup or the array carries two branches for one")
+    print("      parameter, with DIFFERENT @id consts (ada:parameter/<TAPP>/ vs /module/<Module>/).")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--module", action="append")
     ap.add_argument("--verbose", action="store_true")
+    ap.add_argument("--parameters", action="store_true",
+                    help="report what PARAMETER composition would widen, per technique")
     a = ap.parse_args()
 
     # The manifest's `tapp` entries are paths INSIDE the delivery that shipped it, so they resolve
@@ -121,6 +182,9 @@ def main():
         for m in entry.get("modules") or []:
             if m.get("name"):
                 consumers[m["name"]].append((entry["tapp"], m.get("blocks")))
+
+    if a.parameters:
+        return report_parameters(man, consumers)
 
     names = a.module or sorted(consumers)
     grand = collections.Counter()

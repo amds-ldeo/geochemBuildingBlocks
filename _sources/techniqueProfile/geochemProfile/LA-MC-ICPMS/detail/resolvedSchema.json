@@ -9,20 +9,1550 @@
       "items": {
         "type": "object",
         "properties": {
-          "ada:ablationSpotDuration": {
-            "description": "Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method. This is a procedure-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput. For transect analysis, the equivalent procedure-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here.",
-            "anyOf": [
+          "schema:additionalProperty": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "title": "Ablation Duration per Spot",
+                  "description": "Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method. This is a procedure-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput. For transect analysis, the equivalent procedure-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/ablationDurationPerSpot"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/ablationDurationPerSpot"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Ablation Duration per Spot"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:unitText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value",
+                    "schema:unitText"
+                  ]
+                },
+                {
+                  "title": "Ablation Pit Depth and Ablation Rate",
+                  "description": "Depth of the ablation pit produced under the registered laser conditions, the method used to measure it, and the resulting per-pulse ablation rate. Sets the achievable depth resolution and governs downhole elemental fractionation. For transect and mapping the equivalent quantity is trench depth under the same conditions.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/ablationPitDepthAndAblationRate"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/ablationPitDepthAndAblationRate"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Ablation Pit Depth and Ablation Rate"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Analysis Sequence",
+                  "description": "Repeating order of primary calibration standard(s), quality control standard(s), and unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining the bracketing strategy defined in the procedure.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/analysisSequence"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/analysisSequence"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Analysis Sequence"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Background Count Time",
+                  "description": "Total time spent measuring gas blank (background signal with laser off or shutter closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background interval is measured before each ablation. For mapping, background is typically measured once per raster line or at the start of a map session rather than before each individual pixel. Editable to allow session-specific adjustment.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/backgroundCountTime"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/backgroundCountTime"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Background Count Time"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:unitText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value",
+                    "schema:unitText"
+                  ]
+                },
+                {
+                  "title": "Carrier Gas and Flow Rate",
+                  "description": "Gas used to transport ablated aerosol from the ablation cell to the ICP-MS torch, with the procedure-registered target flow rate(s). Helium is standard for most UV laser systems due to superior aerosol transport. Flow rates are procedure targets; actual session values may be adjusted within ±10% during tuning.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/carrierGasAndFlowRate"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/carrierGasAndFlowRate"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Carrier Gas and Flow Rate"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Constants and Reference Values Used",
+                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Constants and Reference Values Used"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Double-Spike Mixing Ratio",
+                  "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal mixing ratio minimizes error propagation through the double-spike inversion; the optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if double-spike method is not used. Record 'N/A' where the procedure does not use a double spike.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/doubleSpikeMixingRatio"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/doubleSpikeMixingRatio"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Double-Spike Mixing Ratio"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Mapping Area",
+                  "description": "Total area covered by the 2D raster map, expressed as width × height in µm or as total area in µm² or mm². This is an analysis-level parameter because it depends on the size of the grain or phase to be mapped. The procedure fixes scan speed, line spacing, and spot size; the map area is chosen at analysis time to cover the target feature.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/mappingArea"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/mappingArea"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Mapping Area"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Number of Blocks per Measurement",
+                  "description": "Number of measurement blocks acquired per sample or standard solution introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks per sample allow inspection of signal stability and within-measurement drift. Procedure specifies the standard number; analyst may adjust for samples with low signal or for high-precision requirements.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Number of Blocks per Measurement"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Number of Cycles per Block",
+                  "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement). Procedure specifies the standard value; analyst may adjust within procedure bounds.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/numberOfCyclesPerBlock"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfCyclesPerBlock"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Number of Cycles per Block"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Number of Replicates",
+                  "description": "Number of replicate analyses performed on the same sample (or same nominal location for spot analysis) in this session. For spot analysis: number of individual spot analyses per grain or location. For transect: number of replicate transect lines. For mapping: number of map acquisitions of the same area (usually 1).",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/numberOfReplicates"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfReplicates"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Number of Replicates"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Plasma / Make-up Gas Addition",
+                  "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAddition"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAddition"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Plasma / Make-up Gas Addition"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Pre-Analysis Imaging and Screening",
+                  "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/preAnalysisImagingAndScreening"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/preAnalysisImagingAndScreening"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Pre-Analysis Imaging and Screening"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Procedural Blank Level",
+                  "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/proceduralBlankLevel"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/proceduralBlankLevel"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Procedural Blank Level"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Raster Line Spacing (Mapping Only)",
+                  "description": "Distance between adjacent raster lines in a 2D elemental map, measured perpendicular to the scan direction, in micrometres. Together with spot size, this determines whether adjacent lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have gaps (line spacing > spot size). Applies to raster mapping only.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/rasterLineSpacing"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/rasterLineSpacing"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Raster Line Spacing (Mapping Only)"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Signal Integration Time",
+                  "description": "Actual integration time used for the ablation signal in this analysis, in seconds. This is an analysis-level outcome determined during data reduction by applying the Signal Integration Interval Method to the time-resolved signal. It is equal to or shorter than the Ablation Duration per Spot because the signal start and end transients are typically discarded. Not applicable to mapping analysis: for mapping, the equivalent concept is the per-pixel cycle time, which is determined by the spectrometer dwell time settings (a procedure-level field) rather than being an analysis-level outcome.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/signalIntegrationTime"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/signalIntegrationTime"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Signal Integration Time"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:unitText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value",
+                    "schema:unitText"
+                  ]
+                },
+                {
+                  "title": "Target Selection Criteria",
+                  "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/targetSelectionCriteria"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/targetSelectionCriteria"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Target Selection Criteria"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                {
+                  "title": "Transect Length",
+                  "description": "Total length of the transect line analysed in micrometres. This is an analysis-level parameter because it depends on the size of the feature of interest rather than being fixed in the procedure. The procedure fixes scan speed (captured in Transect Rate, Mapping Rate or Step Size); transect length is determined at analysis time based on grain or feature size.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/transectLength"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/transectLength"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Transect Length"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:unitText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value",
+                    "schema:unitText"
+                  ]
+                },
+                {
+                  "title": "Transect Rate, Mapping Rate or Step Size",
+                  "description": "For continuous line scan (transect) and raster mapping: the stage translation speed in µm s⁻¹. This is the procedure-level parameter that, together with spot size and repetition rate, determines spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable. For stepped line profiles: the distance between successive spot positions in µm.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Transect Rate, Mapping Rate or Step Size"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                }
+              ]
+            },
+            "allOf": [
               {
-                "type": "number"
+                "contains": {
+                  "title": "Ablation Duration per Spot",
+                  "description": "Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method. This is a procedure-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput. For transect analysis, the equivalent procedure-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/ablationDurationPerSpot"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/ablationDurationPerSpot"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Ablation Duration per Spot"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:unitText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value",
+                    "schema:unitText"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
               },
               {
-                "type": "string"
+                "contains": {
+                  "title": "Ablation Pit Depth and Ablation Rate",
+                  "description": "Depth of the ablation pit produced under the registered laser conditions, the method used to measure it, and the resulting per-pulse ablation rate. Sets the achievable depth resolution and governs downhole elemental fractionation. For transect and mapping the equivalent quantity is trench depth under the same conditions.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/ablationPitDepthAndAblationRate"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/ablationPitDepthAndAblationRate"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Ablation Pit Depth and Ablation Rate"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Analysis Sequence",
+                  "description": "Repeating order of primary calibration standard(s), quality control standard(s), and unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining the bracketing strategy defined in the procedure.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/analysisSequence"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/analysisSequence"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Analysis Sequence"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Background Count Time",
+                  "description": "Total time spent measuring gas blank (background signal with laser off or shutter closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background interval is measured before each ablation. For mapping, background is typically measured once per raster line or at the start of a map session rather than before each individual pixel. Editable to allow session-specific adjustment.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/backgroundCountTime"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/backgroundCountTime"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Background Count Time"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:unitText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value",
+                    "schema:unitText"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Carrier Gas and Flow Rate",
+                  "description": "Gas used to transport ablated aerosol from the ablation cell to the ICP-MS torch, with the procedure-registered target flow rate(s). Helium is standard for most UV laser systems due to superior aerosol transport. Flow rates are procedure targets; actual session values may be adjusted within ±10% during tuning.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/carrierGasAndFlowRate"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/carrierGasAndFlowRate"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Carrier Gas and Flow Rate"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Constants and Reference Values Used",
+                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Constants and Reference Values Used"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Double-Spike Mixing Ratio",
+                  "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal mixing ratio minimizes error propagation through the double-spike inversion; the optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if double-spike method is not used. Record 'N/A' where the procedure does not use a double spike.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/doubleSpikeMixingRatio"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/doubleSpikeMixingRatio"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Double-Spike Mixing Ratio"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Mapping Area",
+                  "description": "Total area covered by the 2D raster map, expressed as width × height in µm or as total area in µm² or mm². This is an analysis-level parameter because it depends on the size of the grain or phase to be mapped. The procedure fixes scan speed, line spacing, and spot size; the map area is chosen at analysis time to cover the target feature.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/mappingArea"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/mappingArea"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Mapping Area"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Number of Blocks per Measurement",
+                  "description": "Number of measurement blocks acquired per sample or standard solution introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks per sample allow inspection of signal stability and within-measurement drift. Procedure specifies the standard number; analyst may adjust for samples with low signal or for high-precision requirements.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Number of Blocks per Measurement"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Number of Cycles per Block",
+                  "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement). Procedure specifies the standard value; analyst may adjust within procedure bounds.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/numberOfCyclesPerBlock"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfCyclesPerBlock"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Number of Cycles per Block"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Number of Replicates",
+                  "description": "Number of replicate analyses performed on the same sample (or same nominal location for spot analysis) in this session. For spot analysis: number of individual spot analyses per grain or location. For transect: number of replicate transect lines. For mapping: number of map acquisitions of the same area (usually 1).",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/numberOfReplicates"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfReplicates"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Number of Replicates"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Plasma / Make-up Gas Addition",
+                  "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAddition"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAddition"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Plasma / Make-up Gas Addition"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Pre-Analysis Imaging and Screening",
+                  "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/preAnalysisImagingAndScreening"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/preAnalysisImagingAndScreening"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Pre-Analysis Imaging and Screening"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Procedural Blank Level",
+                  "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/proceduralBlankLevel"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/proceduralBlankLevel"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Procedural Blank Level"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Raster Line Spacing (Mapping Only)",
+                  "description": "Distance between adjacent raster lines in a 2D elemental map, measured perpendicular to the scan direction, in micrometres. Together with spot size, this determines whether adjacent lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have gaps (line spacing > spot size). Applies to raster mapping only.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/rasterLineSpacing"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/rasterLineSpacing"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Raster Line Spacing (Mapping Only)"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Signal Integration Time",
+                  "description": "Actual integration time used for the ablation signal in this analysis, in seconds. This is an analysis-level outcome determined during data reduction by applying the Signal Integration Interval Method to the time-resolved signal. It is equal to or shorter than the Ablation Duration per Spot because the signal start and end transients are typically discarded. Not applicable to mapping analysis: for mapping, the equivalent concept is the per-pixel cycle time, which is determined by the spectrometer dwell time settings (a procedure-level field) rather than being an analysis-level outcome.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/signalIntegrationTime"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/signalIntegrationTime"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Signal Integration Time"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:unitText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value",
+                    "schema:unitText"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Target Selection Criteria",
+                  "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/targetSelectionCriteria"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/targetSelectionCriteria"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Target Selection Criteria"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Transect Length",
+                  "description": "Total length of the transect line analysed in micrometres. This is an analysis-level parameter because it depends on the size of the feature of interest rather than being fixed in the procedure. The procedure fixes scan speed (captured in Transect Rate, Mapping Rate or Step Size); transect length is determined at analysis time based on grain or feature size.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/transectLength"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/transectLength"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Transect Length"
+                    },
+                    "schema:value": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:unitText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value",
+                    "schema:unitText"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
+              },
+              {
+                "contains": {
+                  "title": "Transect Rate, Mapping Rate or Step Size",
+                  "description": "For continuous line scan (transect) and raster mapping: the stage translation speed in µm s⁻¹. This is the procedure-level parameter that, together with spot size and repetition rate, determines spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable. For stepped line profiles: the distance between successive spot positions in µm.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "const": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize"
+                    },
+                    "@type": {
+                      "const": [
+                        "schema:PropertyValue"
+                      ]
+                    },
+                    "schema:propertyID": {
+                      "const": [
+                        {
+                          "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize"
+                        }
+                      ]
+                    },
+                    "schema:name": {
+                      "const": "Transect Rate, Mapping Rate or Step Size"
+                    },
+                    "schema:value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "@type",
+                    "schema:propertyID",
+                    "schema:name",
+                    "schema:value"
+                  ]
+                },
+                "minContains": 0,
+                "maxContains": 1
               }
             ]
-          },
-          "ada:ablationPitDepthRate": {
-            "description": "Depth of the ablation pit produced under the registered laser conditions, the method used to measure it, and the resulting per-pulse ablation rate. Sets the achievable depth resolution and governs downhole elemental fractionation. For transect and mapping the equivalent quantity is trench depth under the same conditions.",
-            "type": "string"
           },
           "prov:used": {
             "type": "array",
@@ -1810,7 +3340,8 @@
                                       "schema:additionalType": {
                                         "contains": {
                                           "const": "ICPMS"
-                                        }
+                                        },
+                                        "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                       }
                                     },
                                     "required": [
@@ -1830,7 +3361,8 @@
                                                   "schema:additionalType": {
                                                     "contains": {
                                                       "const": "ICP Source"
-                                                    }
+                                                    },
+                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                   }
                                                 },
                                                 "required": [
@@ -2145,7 +3677,8 @@
                                                   "schema:additionalType": {
                                                     "contains": {
                                                       "const": "Collision Reaction Cell"
-                                                    }
+                                                    },
+                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                   }
                                                 },
                                                 "required": [
@@ -2460,7 +3993,8 @@
                                                   "schema:additionalType": {
                                                     "contains": {
                                                       "const": "Collector"
-                                                    }
+                                                    },
+                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                   }
                                                 },
                                                 "required": [
@@ -2759,7 +4293,8 @@
                                                   "schema:additionalType": {
                                                     "contains": {
                                                       "const": "Torch"
-                                                    }
+                                                    },
+                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                   }
                                                 },
                                                 "required": [
@@ -2859,7 +4394,8 @@
                                                 "schema:additionalType": {
                                                   "contains": {
                                                     "const": "ICP Source"
-                                                  }
+                                                  },
+                                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                 }
                                               },
                                               "required": [
@@ -2873,7 +4409,8 @@
                                                 "schema:additionalType": {
                                                   "contains": {
                                                     "const": "Collision Reaction Cell"
-                                                  }
+                                                  },
+                                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                 }
                                               },
                                               "required": [
@@ -2887,7 +4424,8 @@
                                                 "schema:additionalType": {
                                                   "contains": {
                                                     "const": "Collector"
-                                                  }
+                                                  },
+                                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                 }
                                               },
                                               "required": [
@@ -3299,7 +4837,8 @@
                                       "schema:additionalType": {
                                         "contains": {
                                           "const": "Laser Ablation System"
-                                        }
+                                        },
+                                        "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                       }
                                     },
                                     "required": [
@@ -3459,7 +4998,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "ICPMS"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                 }
                               },
                               "required": [
@@ -3473,7 +5013,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Laser Ablation System"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                 }
                               },
                               "required": [
@@ -3910,24 +5451,9 @@
               }
             ]
           },
-          "ada:analysisSequence": {
-            "description": "Repeating order of primary calibration standard(s), quality control standard(s), and unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining the bracketing strategy defined in the procedure.",
-            "type": "string"
-          },
           "schema:startDate": {
             "description": "Date on which the analytical session began. For sessions spanning multiple days, use the date of the first session. Format: YYYY-MM-DD.",
             "type": "string"
-          },
-          "ada:backgroundCountTime": {
-            "description": "Total time spent measuring gas blank (background signal with laser off or shutter closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background interval is measured before each ablation. For mapping, background is typically measured once per raster line or at the start of a map session rather than before each individual pixel. Editable to allow session-specific adjustment.",
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "string"
-              }
-            ]
           },
           "schema:actionProcess": {
             "type": "object",
@@ -4550,1067 +6076,6 @@
               }
             }
           },
-          "ada:carrierGasFlowRate": {
-            "description": "Gas used to transport ablated aerosol from the ablation cell to the ICP-MS torch, with the procedure-registered target flow rate(s). Helium is standard for most UV laser systems due to superior aerosol transport. Flow rates are procedure targets; actual session values may be adjusted within ±10% during tuning.",
-            "type": "string"
-          },
-          "schema:additionalProperty": {
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "title": "Constants and Reference Values Used",
-                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/constantsAndReferenceValuesUsed"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/constantsAndReferenceValuesUsed"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Constants and Reference Values Used"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Double-Spike Mixing Ratio",
-                  "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal mixing ratio minimizes error propagation through the double-spike inversion; the optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if double-spike method is not used. Record 'N/A' where the procedure does not use a double spike.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/doubleSpikeMixingRatio"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/doubleSpikeMixingRatio"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Double-Spike Mixing Ratio"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Mapping Area",
-                  "description": "Total area covered by the 2D raster map, expressed as width × height in µm or as total area in µm² or mm². This is an analysis-level parameter because it depends on the size of the grain or phase to be mapped. The procedure fixes scan speed, line spacing, and spot size; the map area is chosen at analysis time to cover the target feature.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/mappingArea"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/mappingArea"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Mapping Area"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Number of Blocks per Measurement",
-                  "description": "Number of measurement blocks acquired per sample or standard solution introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks per sample allow inspection of signal stability and within-measurement drift. Procedure specifies the standard number; analyst may adjust for samples with low signal or for high-precision requirements.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Number of Blocks per Measurement"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Number of Cycles per Block",
-                  "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement). Procedure specifies the standard value; analyst may adjust within procedure bounds.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/numberOfCyclesPerBlock"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfCyclesPerBlock"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Number of Cycles per Block"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Number of Replicates",
-                  "description": "Number of replicate analyses performed on the same sample (or same nominal location for spot analysis) in this session. For spot analysis: number of individual spot analyses per grain or location. For transect: number of replicate transect lines. For mapping: number of map acquisitions of the same area (usually 1).",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/numberOfReplicates"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfReplicates"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Number of Replicates"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Plasma / Make-up Gas Addition",
-                  "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAddition"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAddition"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Plasma / Make-up Gas Addition"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Pre-Analysis Imaging and Screening",
-                  "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/preAnalysisImagingAndScreening"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/preAnalysisImagingAndScreening"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Pre-Analysis Imaging and Screening"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Procedural Blank Level",
-                  "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/proceduralBlankLevel"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/proceduralBlankLevel"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Procedural Blank Level"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Signal Integration Time",
-                  "description": "Actual integration time used for the ablation signal in this analysis, in seconds. This is an analysis-level outcome determined during data reduction by applying the Signal Integration Interval Method to the time-resolved signal. It is equal to or shorter than the Ablation Duration per Spot because the signal start and end transients are typically discarded. Not applicable to mapping analysis: for mapping, the equivalent concept is the per-pixel cycle time, which is determined by the spectrometer dwell time settings (a procedure-level field) rather than being an analysis-level outcome.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/signalIntegrationTime"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/signalIntegrationTime"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Signal Integration Time"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    },
-                    "schema:unitText": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value",
-                    "schema:unitText"
-                  ]
-                },
-                {
-                  "title": "Target Selection Criteria",
-                  "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/targetSelectionCriteria"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/targetSelectionCriteria"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Target Selection Criteria"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                {
-                  "title": "Transect Length",
-                  "description": "Total length of the transect line analysed in micrometres. This is an analysis-level parameter because it depends on the size of the feature of interest rather than being fixed in the procedure. The procedure fixes scan speed (captured in Transect Rate, Mapping Rate or Step Size); transect length is determined at analysis time based on grain or feature size.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/transectLength"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/transectLength"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Transect Length"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    },
-                    "schema:unitText": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value",
-                    "schema:unitText"
-                  ]
-                },
-                {
-                  "title": "Transect Rate, Mapping Rate or Step Size",
-                  "description": "For continuous line scan (transect) and raster mapping: the stage translation speed in µm s⁻¹. This is the procedure-level parameter that, together with spot size and repetition rate, determines spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable. For stepped line profiles: the distance between successive spot positions in µm.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Transect Rate, Mapping Rate or Step Size"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                }
-              ]
-            },
-            "allOf": [
-              {
-                "contains": {
-                  "title": "Constants and Reference Values Used",
-                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/constantsAndReferenceValuesUsed"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/constantsAndReferenceValuesUsed"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Constants and Reference Values Used"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Double-Spike Mixing Ratio",
-                  "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal mixing ratio minimizes error propagation through the double-spike inversion; the optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if double-spike method is not used. Record 'N/A' where the procedure does not use a double spike.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/doubleSpikeMixingRatio"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/doubleSpikeMixingRatio"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Double-Spike Mixing Ratio"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Mapping Area",
-                  "description": "Total area covered by the 2D raster map, expressed as width × height in µm or as total area in µm² or mm². This is an analysis-level parameter because it depends on the size of the grain or phase to be mapped. The procedure fixes scan speed, line spacing, and spot size; the map area is chosen at analysis time to cover the target feature.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/mappingArea"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/mappingArea"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Mapping Area"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Number of Blocks per Measurement",
-                  "description": "Number of measurement blocks acquired per sample or standard solution introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks per sample allow inspection of signal stability and within-measurement drift. Procedure specifies the standard number; analyst may adjust for samples with low signal or for high-precision requirements.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Number of Blocks per Measurement"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Number of Cycles per Block",
-                  "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement). Procedure specifies the standard value; analyst may adjust within procedure bounds.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/numberOfCyclesPerBlock"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfCyclesPerBlock"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Number of Cycles per Block"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Number of Replicates",
-                  "description": "Number of replicate analyses performed on the same sample (or same nominal location for spot analysis) in this session. For spot analysis: number of individual spot analyses per grain or location. For transect: number of replicate transect lines. For mapping: number of map acquisitions of the same area (usually 1).",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/numberOfReplicates"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/numberOfReplicates"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Number of Replicates"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Plasma / Make-up Gas Addition",
-                  "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAddition"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAddition"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Plasma / Make-up Gas Addition"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Pre-Analysis Imaging and Screening",
-                  "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/preAnalysisImagingAndScreening"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/preAnalysisImagingAndScreening"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Pre-Analysis Imaging and Screening"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Procedural Blank Level",
-                  "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/proceduralBlankLevel"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/proceduralBlankLevel"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Procedural Blank Level"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Signal Integration Time",
-                  "description": "Actual integration time used for the ablation signal in this analysis, in seconds. This is an analysis-level outcome determined during data reduction by applying the Signal Integration Interval Method to the time-resolved signal. It is equal to or shorter than the Ablation Duration per Spot because the signal start and end transients are typically discarded. Not applicable to mapping analysis: for mapping, the equivalent concept is the per-pixel cycle time, which is determined by the spectrometer dwell time settings (a procedure-level field) rather than being an analysis-level outcome.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/signalIntegrationTime"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/signalIntegrationTime"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Signal Integration Time"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    },
-                    "schema:unitText": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value",
-                    "schema:unitText"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Target Selection Criteria",
-                  "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/targetSelectionCriteria"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/targetSelectionCriteria"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Target Selection Criteria"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Transect Length",
-                  "description": "Total length of the transect line analysed in micrometres. This is an analysis-level parameter because it depends on the size of the feature of interest rather than being fixed in the procedure. The procedure fixes scan speed (captured in Transect Rate, Mapping Rate or Step Size); transect length is determined at analysis time based on grain or feature size.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/transectLength"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/transectLength"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Transect Length"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    },
-                    "schema:unitText": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value",
-                    "schema:unitText"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              },
-              {
-                "contains": {
-                  "title": "Transect Rate, Mapping Rate or Step Size",
-                  "description": "For continuous line scan (transect) and raster mapping: the stage translation speed in µm s⁻¹. This is the procedure-level parameter that, together with spot size and repetition rate, determines spatial resolution along the scan direction. For mapping, the mapping rate (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable. For stepped line profiles: the distance between successive spot positions in µm.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Transect Rate, Mapping Rate or Step Size"
-                    },
-                    "schema:value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value"
-                  ]
-                },
-                "minContains": 0,
-                "maxContains": 1
-              }
-            ]
-          },
           "schema:location": {
             "type": "object",
             "properties": {
@@ -5623,10 +6088,6 @@
                 "type": "string"
               }
             }
-          },
-          "ada:rasterLineSpacing": {
-            "description": "Distance between adjacent raster lines in a 2D elemental map, measured perpendicular to the scan direction, in micrometres. Together with spot size, this determines whether adjacent lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have gaps (line spacing > spot size). Applies to raster mapping only.",
-            "type": "string"
           },
           "schema:identifier": {
             "description": "Identifier for the analytical session this record describes — the laboratory's own run, sequence or batch identifier as generated by the instrument or acquisition software. The analysis record corresponds to one session, which may cover several samples, and this is the link back to the raw instrument files. Distinct from any persistent identifier a repository mints on submission.",
@@ -5692,6 +6153,25 @@
       "items": {
         "anyOf": [
           {
+            "title": "Dataset variable",
+            "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+            "type": "object",
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "type": "array",
+                "contains": {
+                  "enum": [
+                    "cdi:InstanceVariable",
+                    "schema:PropertyValue"
+                  ]
+                }
+              }
+            }
+          },
+          {
             "title": "Calibration Factor and Determination Method",
             "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
             "type": "object",
@@ -5701,7 +6181,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -5736,7 +6217,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -5782,7 +6264,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -5817,7 +6300,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -5852,7 +6336,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -5887,7 +6372,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -5926,7 +6412,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -5965,7 +6452,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -6015,7 +6503,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -6054,7 +6543,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -6093,7 +6583,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {
@@ -6132,7 +6623,8 @@
               },
               "@type": {
                 "const": [
-                  "schema:PropertyValue"
+                  "schema:PropertyValue",
+                  "cdi:InstanceVariable"
                 ]
               },
               "schema:propertyID": {

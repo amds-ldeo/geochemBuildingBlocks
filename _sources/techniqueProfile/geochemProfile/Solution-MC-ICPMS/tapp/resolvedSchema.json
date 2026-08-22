@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)",
-  "description": "Solution multi-collector ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/Solution_MC-ICP-MS_TAPP_v16.csv via the path-driven pipeline.",
+  "description": "Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v30.csv via the path-driven pipeline.",
   "properties": {
     "@context": {
       "type": "object",
@@ -2727,7 +2727,7 @@
       ]
     },
     {
-      "title": "Group1 on the procedure",
+      "title": "Core on the procedure",
       "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
@@ -2846,9 +2846,165 @@
               }
             ]
           }
+        },
+        "ada:samplingUnit": {
+          "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
+          "type": "string"
+        },
+        "schema:instrument": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "SEM"
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:manufacturer": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "schema:model": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:additionalType": {
+                    "contains": {
+                      "const": "SEM"
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                  }
+                },
+                "required": [
+                  "schema:additionalType"
+                ]
+              }
+            }
+          ]
+        },
+        "bios:computationalTool": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ],
+            "required": [
+              "ada:toolRole"
+            ]
+          }
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
+            "type": "string"
+          }
+        },
+        "ada:reportedProperties": {
+          "type": "array",
+          "items": {
+            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+            "type": "string"
+          }
+        },
+        "schema:description": {
+          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+          "type": "string"
         }
       },
       "required": [
+        "ada:samplingUnit",
         "schema:datePublished",
         "schema:name"
       ]
@@ -2869,7 +3025,8 @@
                     "schema:additionalType": {
                       "contains": {
                         "const": "ICPMS"
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -2889,7 +3046,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Collector"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -2924,7 +3082,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "Collector"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -2946,7 +3105,8 @@
                   "schema:additionalType": {
                     "contains": {
                       "const": "ICPMS"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -2966,71 +3126,10 @@
       ]
     },
     {
-      "title": "SolutionIntroduction fields on the procedure",
+      "title": "SolutionIntroduction on the procedure",
       "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
-        "schema:object": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "@type": {
-                      "contains": {
-                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                      }
-                    }
-                  },
-                  "required": [
-                    "@type"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:additionalProperty": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:name": {
-                                  "const": "Sample Aliquot Mass or Volume"
-                                }
-                              },
-                              "required": [
-                                "schema:name"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:defaultValue": {
-                                  "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                                  "anyOf": [
-                                    {
-                                      "type": "number"
-                                    },
-                                    {
-                                      "type": "string"
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
         "schema:actionProcess": {
           "type": "object",
           "properties": {
@@ -3043,7 +3142,7 @@
                     "if": {
                       "properties": {
                         "schema:name": {
-                          "const": "sampleDigestion"
+                          "const": "Sample digestion"
                         }
                       },
                       "required": [
@@ -3052,178 +3151,6 @@
                     },
                     "then": {
                       "properties": {
-                        "schema:additionalProperty": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "allOf": [
-                              {
-                                "if": {
-                                  "properties": {
-                                    "schema:name": {
-                                      "const": "Number of Digestion Steps"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                "then": {
-                                  "properties": {
-                                    "schema:value": {
-                                      "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some procedures require multiple sequential steps — for example, an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals, or by an aqua regia reflux to destroy fluoride complexes.",
-                                      "anyOf": [
-                                        {
-                                          "type": "integer"
-                                        },
-                                        {
-                                          "type": "string"
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "if": {
-                                  "properties": {
-                                    "schema:name": {
-                                      "const": "Digestion Vessel Type"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                "then": {
-                                  "properties": {
-                                    "schema:value": {
-                                      "description": "Type of vessel used for acid digestion. Vessel type constrains maximum temperature and pressure and determines suitability for refractory mineral dissolution (e.g., Parr bombs required for complete silicate digestion at high temperatures).",
-                                      "anyOf": [
-                                        {
-                                          "type": "string"
-                                        },
-                                        {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "string"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "if": {
-                                  "properties": {
-                                    "schema:name": {
-                                      "const": "Digestion Temperature"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                "then": {
-                                  "properties": {
-                                    "schema:defaultValue": {
-                                      "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
-                                      "anyOf": [
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "string"
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "if": {
-                                  "properties": {
-                                    "schema:name": {
-                                      "const": "Digestion Duration"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                "then": {
-                                  "properties": {
-                                    "schema:defaultValue": {
-                                      "description": "Duration of the primary acid digestion step (hours or days).",
-                                      "anyOf": [
-                                        {
-                                          "type": "string"
-                                        },
-                                        {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "string"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          },
-                          "allOf": [
-                            {
-                              "contains": {
-                                "properties": {
-                                  "schema:name": {
-                                    "const": "Number of Digestion Steps"
-                                  }
-                                },
-                                "required": [
-                                  "schema:name"
-                                ]
-                              }
-                            },
-                            {
-                              "contains": {
-                                "properties": {
-                                  "schema:name": {
-                                    "const": "Digestion Vessel Type"
-                                  }
-                                },
-                                "required": [
-                                  "schema:name"
-                                ]
-                              }
-                            },
-                            {
-                              "contains": {
-                                "properties": {
-                                  "schema:name": {
-                                    "const": "Digestion Temperature"
-                                  }
-                                },
-                                "required": [
-                                  "schema:name"
-                                ]
-                              }
-                            },
-                            {
-                              "contains": {
-                                "properties": {
-                                  "schema:name": {
-                                    "const": "Digestion Duration"
-                                  }
-                                },
-                                "required": [
-                                  "schema:name"
-                                ]
-                              }
-                            }
-                          ]
-                        },
                         "bios:reagent": {
                           "type": "array",
                           "items": {
@@ -3246,7 +3173,7 @@
                   "contains": {
                     "properties": {
                       "schema:name": {
-                        "const": "sampleDigestion"
+                        "const": "Sample digestion"
                       }
                     },
                     "required": [
@@ -3270,327 +3197,6 @@
           "description": "Acid type and concentration of the final dissolved sample solution introduced to the instrument. Directly affects instrument response and ion transmission. For isotope-ratio procedures, acid molarity must be precisely matched between samples and bracketing standards to avoid matrix-induced mass bias offsets. Procedures targeting HFSE may add trace HF to the final solution to keep those elements in solution.",
           "type": "string"
         },
-        "schema:instrument": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "schema:additionalType": {
-                      "contains": {
-                        "const": "ICPMS"
-                      }
-                    }
-                  },
-                  "required": [
-                    "schema:additionalType"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:hasPart": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:additionalType": {
-                                  "contains": {
-                                    "const": "Sample Introduction System"
-                                  }
-                                }
-                              },
-                              "required": [
-                                "schema:additionalType"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:additionalProperty": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "object",
-                                    "allOf": [
-                                      {
-                                        "if": {
-                                          "properties": {
-                                            "schema:name": {
-                                              "const": "Nebulizer Type"
-                                            }
-                                          },
-                                          "required": [
-                                            "schema:name"
-                                          ]
-                                        },
-                                        "then": {
-                                          "properties": {
-                                            "schema:value": {
-                                              "description": "Type and material of the pneumatic nebulizer used for sample introduction. Affects droplet size distribution and sample introduction efficiency.",
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
-                                            }
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "if": {
-                                          "properties": {
-                                            "schema:name": {
-                                              "const": "Spray Chamber Type and Cooling Temperature"
-                                            }
-                                          },
-                                          "required": [
-                                            "schema:name"
-                                          ]
-                                        },
-                                        "then": {
-                                          "properties": {
-                                            "schema:value": {
-                                              "description": "Type of spray chamber and cooling temperature if thermostatted (°C). Chamber type and temperature control aerosol droplet size and the solvent vapor load reaching the plasma. In some procedures a spray chamber is placed downstream of a desolvating nebulizer to improve signal stability.",
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
-                                            }
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "if": {
-                                          "properties": {
-                                            "schema:name": {
-                                              "const": "Sample Uptake Rate"
-                                            }
-                                          },
-                                          "required": [
-                                            "schema:name"
-                                          ]
-                                        },
-                                        "then": {
-                                          "properties": {
-                                            "schema:defaultValue": {
-                                              "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
-                                              "anyOf": [
-                                                {
-                                                  "type": "number"
-                                                },
-                                                {
-                                                  "type": "string"
-                                                }
-                                              ]
-                                            }
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "if": {
-                                          "properties": {
-                                            "schema:name": {
-                                              "const": "Nebulizer Gas Flow Rate"
-                                            }
-                                          },
-                                          "required": [
-                                            "schema:name"
-                                          ]
-                                        },
-                                        "then": {
-                                          "properties": {
-                                            "schema:defaultValue": {
-                                              "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
-                                              "anyOf": [
-                                                {
-                                                  "type": "number"
-                                                },
-                                                {
-                                                  "type": "string"
-                                                }
-                                              ]
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  },
-                                  "allOf": [
-                                    {
-                                      "contains": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Nebulizer Type"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      }
-                                    },
-                                    {
-                                      "contains": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Spray Chamber Type and Cooling Temperature"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      }
-                                    },
-                                    {
-                                      "contains": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Sample Uptake Rate"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      }
-                                    },
-                                    {
-                                      "contains": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Nebulizer Gas Flow Rate"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      "allOf": [
-                        {
-                          "contains": {
-                            "properties": {
-                              "schema:additionalType": {
-                                "contains": {
-                                  "const": "Sample Introduction System"
-                                }
-                              }
-                            },
-                            "required": [
-                              "schema:additionalType"
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "properties": {
-                  "schema:additionalType": {
-                    "contains": {
-                      "const": "ICPMS"
-                    }
-                  }
-                },
-                "required": [
-                  "schema:additionalType"
-                ]
-              }
-            }
-          ]
-        },
-        "schema:additionalProperty": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "schema:name": {
-                      "const": "Desolvation System"
-                    }
-                  },
-                  "required": [
-                    "schema:name"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:value": {
-                      "description": "Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent load. Lowers oxide production rates and increases sensitivity, and is commonly used for low-abundance analytes or small sample sizes. Note the trade-off: desolvation can introduce additional instrumental mass bias instability relative to wet plasma introduction. Record 'None' if not used.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "schema:name": {
-                      "const": "Internal Standard Concentration"
-                    }
-                  },
-                  "required": [
-                    "schema:name"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:value": {
-                      "description": "Target concentration of internal standard element(s) in all measured solutions (µg/L or ppb). Record 'N/A' where Internal Standard Element is 'None'.",
-                      "anyOf": [
-                        {
-                          "type": "number"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
         "ada:washTimeBetweenSamples": {
           "description": "Duration of instrument rinse between successive sample solutions (seconds). Controls carryover and memory effects. For isotope-ratio work, complete washout is critical to prevent cross-contamination between samples with differing isotopic compositions.",
           "anyOf": [
@@ -3609,6 +3215,31 @@
         "ada:isotopeDilutionSpike",
         "ada:washTimeBetweenSamples"
       ]
+    },
+    {
+      "title": "Analyte on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "ada:analyteTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultAnalytes": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
     },
     {
       "type": "object",
@@ -3654,8 +3285,25 @@
                                 "schema:value": {
                                   "type": "array",
                                   "items": {
-                                    "description": "Type of geological or experimental material being analyzed (e.g., basalt, chondrite, seawater, mineral separate). Constrains the dissolution strategy, chromatographic separation, and matrix-matching requirements.",
-                                    "type": "string",
+                                    "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",
+                                    "anyOf": [
+                                      {
+                                        "type": "string",
+                                        "enum": [
+                                          "Basalt",
+                                          "Chondrite",
+                                          "Seawater",
+                                          "Mineral separate",
+                                          "Synthetic solution",
+                                          "N/A",
+                                          "None",
+                                          "missing"
+                                        ]
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ],
                                     "readOnly": true
                                   }
                                 }
@@ -3684,7 +3332,7 @@
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolumeDefault"
+                                "const": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault"
                               },
                               "@type": {
                                 "const": [
@@ -3812,35 +3460,40 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionVesselType"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionVesselType"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionMcicpmsTAPP/digestionVesselType"
-                                      }
-                                    ]
+                                  "schema:valueName": {
+                                    "const": "digestionVesselType"
                                   },
                                   "schema:name": {
                                     "const": "Digestion Vessel Type"
                                   },
-                                  "schema:value": {
-                                    "type": "string"
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": true
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               {
                                 "title": "Number of Digestion Steps",
@@ -3848,42 +3501,40 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionMcicpmsTAPP/numberOfDigestionSteps"
+                                    "const": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfDigestionSteps"
-                                      }
-                                    ]
+                                  "schema:valueName": {
+                                    "const": "numberOfDigestionSteps"
                                   },
                                   "schema:name": {
                                     "const": "Number of Digestion Steps"
                                   },
-                                  "schema:value": {
-                                    "anyOf": [
-                                      {
-                                        "type": "number"
-                                      },
-                                      {
-                                        "type": "string"
-                                      }
-                                    ]
+                                  "ada:dataType": {
+                                    "const": "integer"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": true
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               {
                                 "title": "Digestion Temperature",
@@ -3891,7 +3542,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionTemperatureDefault"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -3935,7 +3586,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionDurationDefault"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -3980,35 +3631,40 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionVesselType"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionVesselType"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionMcicpmsTAPP/digestionVesselType"
-                                      }
-                                    ]
+                                  "schema:valueName": {
+                                    "const": "digestionVesselType"
                                   },
                                   "schema:name": {
                                     "const": "Digestion Vessel Type"
                                   },
-                                  "schema:value": {
-                                    "type": "string"
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": true
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -4020,42 +3676,40 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionMcicpmsTAPP/numberOfDigestionSteps"
+                                    "const": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfDigestionSteps"
-                                      }
-                                    ]
+                                  "schema:valueName": {
+                                    "const": "numberOfDigestionSteps"
                                   },
                                   "schema:name": {
                                     "const": "Number of Digestion Steps"
                                   },
-                                  "schema:value": {
-                                    "anyOf": [
-                                      {
-                                        "type": "number"
-                                      },
-                                      {
-                                        "type": "string"
-                                      }
-                                    ]
+                                  "ada:dataType": {
+                                    "const": "integer"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": true
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -4067,7 +3721,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionTemperatureDefault"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -4115,7 +3769,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionDurationDefault"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -4350,12 +4004,12 @@
                                 ]
                               },
                               {
-                                "title": "Constants and Reference Values Used",
-                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "title": "Analysis Inclusion and Rejection Criteria",
+                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -4363,10 +4017,51 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Analysis Inclusion and Rejection Criteria"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
+                                "title": "Constants Reference Values",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "constantsReferenceValuesDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -4480,12 +4175,12 @@
                             },
                             {
                               "contains": {
-                                "title": "Constants and Reference Values Used",
-                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "title": "Analysis Inclusion and Rejection Criteria",
+                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -4493,10 +4188,55 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Analysis Inclusion and Rejection Criteria"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Constants Reference Values",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "constantsReferenceValuesDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -4594,7 +4334,8 @@
                     "schema:additionalType": {
                       "contains": {
                         "const": "ICPMS"
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -4603,16 +4344,6 @@
                 },
                 "then": {
                   "properties": {
-                    "schema:model": {
-                      "type": "object",
-                      "properties": {
-                        "schema:name": {
-                          "description": "Manufacturer and model name of the MC-ICP-MS instrument. Determines the collector array geometry, available mass resolution modes, and detector complement.",
-                          "type": "string",
-                          "readOnly": true
-                        }
-                      }
-                    },
                     "schema:additionalProperty": {
                       "type": "array",
                       "items": {
@@ -4694,12 +4425,12 @@
                             ]
                           },
                           {
-                            "title": "Make-up Gas Flow Rate",
-                            "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+                            "title": "Make-up Gas and Flow Rate",
+                            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRateDefault"
+                                "const": "ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRateDefault"
                               },
                               "@type": {
                                 "const": [
@@ -4707,10 +4438,10 @@
                                 ]
                               },
                               "schema:valueName": {
-                                "const": "makeUpGasFlowRateDefault"
+                                "const": "makeUpGasAndFlowRateDefault"
                               },
                               "schema:name": {
-                                "const": "Make-up Gas Flow Rate"
+                                "const": "Make-up Gas and Flow Rate"
                               },
                               "ada:dataType": {
                                 "const": "number"
@@ -4867,12 +4598,12 @@
                         },
                         {
                           "contains": {
-                            "title": "Make-up Gas Flow Rate",
-                            "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+                            "title": "Make-up Gas and Flow Rate",
+                            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRateDefault"
+                                "const": "ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRateDefault"
                               },
                               "@type": {
                                 "const": [
@@ -4880,10 +4611,10 @@
                                 ]
                               },
                               "schema:valueName": {
-                                "const": "makeUpGasFlowRateDefault"
+                                "const": "makeUpGasAndFlowRateDefault"
                               },
                               "schema:name": {
-                                "const": "Make-up Gas Flow Rate"
+                                "const": "Make-up Gas and Flow Rate"
                               },
                               "ada:dataType": {
                                 "const": "number"
@@ -4971,7 +4702,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Torch"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -5096,7 +4828,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Interface Cone"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -5275,7 +5008,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Collision Reaction Cell"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -5764,7 +5498,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Sample Introduction System"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -5783,35 +5518,40 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionMcicpmsTAPP/nebulizerType"
+                                            "const": "ada:parameter/module/SolutionIntroduction/nebulizerType"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerType"
-                                              }
-                                            ]
+                                          "schema:valueName": {
+                                            "const": "nebulizerType"
                                           },
                                           "schema:name": {
                                             "const": "Nebulizer Type"
                                           },
-                                          "schema:value": {
-                                            "type": "string"
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
                                       {
                                         "title": "Spray Chamber Type and Cooling Temperature",
@@ -5819,35 +5559,40 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionMcicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
+                                            "const": "ada:parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionMcicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
-                                              }
-                                            ]
+                                          "schema:valueName": {
+                                            "const": "sprayChamberTypeAndCoolingTemperature"
                                           },
                                           "schema:name": {
                                             "const": "Spray Chamber Type and Cooling Temperature"
                                           },
-                                          "schema:value": {
-                                            "type": "string"
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
                                       {
                                         "title": "Sample Uptake Rate",
@@ -5855,7 +5600,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRateDefault"
+                                            "const": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault"
                                           },
                                           "@type": {
                                             "const": [
@@ -5899,7 +5644,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRateDefault"
+                                            "const": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault"
                                           },
                                           "@type": {
                                             "const": [
@@ -5947,35 +5692,40 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionMcicpmsTAPP/nebulizerType"
+                                            "const": "ada:parameter/module/SolutionIntroduction/nebulizerType"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerType"
-                                              }
-                                            ]
+                                          "schema:valueName": {
+                                            "const": "nebulizerType"
                                           },
                                           "schema:name": {
                                             "const": "Nebulizer Type"
                                           },
-                                          "schema:value": {
-                                            "type": "string"
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
@@ -5987,35 +5737,40 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionMcicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
+                                            "const": "ada:parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionMcicpmsTAPP/sprayChamberTypeAndCoolingTemperature"
-                                              }
-                                            ]
+                                          "schema:valueName": {
+                                            "const": "sprayChamberTypeAndCoolingTemperature"
                                           },
                                           "schema:name": {
                                             "const": "Spray Chamber Type and Cooling Temperature"
                                           },
-                                          "schema:value": {
-                                            "type": "string"
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
@@ -6027,7 +5782,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRateDefault"
+                                            "const": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault"
                                           },
                                           "@type": {
                                             "const": [
@@ -6075,7 +5830,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRateDefault"
+                                            "const": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault"
                                           },
                                           "@type": {
                                             "const": [
@@ -6127,7 +5882,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "ICP Source"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -6509,7 +6265,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "Interface Cone"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -6523,7 +6280,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "Collision Reaction Cell"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -6537,7 +6295,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "Sample Introduction System"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -6551,7 +6310,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "ICP Source"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -6573,7 +6333,8 @@
                   "schema:additionalType": {
                     "contains": {
                       "const": "ICPMS"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -6593,35 +6354,40 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/solutionMcicpmsTAPP/desolvationSystem"
+                    "const": "ada:parameter/module/SolutionIntroduction/desolvationSystem"
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValueSpecification"
                     ]
                   },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/solutionMcicpmsTAPP/desolvationSystem"
-                      }
-                    ]
+                  "schema:valueName": {
+                    "const": "desolvationSystem"
                   },
                   "schema:name": {
                     "const": "Desolvation System"
                   },
-                  "schema:value": {
-                    "type": "string"
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
                   }
                 },
                 "required": [
                   "@id",
                   "@type",
-                  "schema:propertyID",
+                  "schema:valueName",
                   "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               {
                 "title": "Internal Standard Concentration",
@@ -6629,46 +6395,43 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration"
+                    "const": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration"
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValueSpecification"
                     ]
                   },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration"
-                      }
-                    ]
+                  "schema:valueName": {
+                    "const": "internalStandardConcentration"
                   },
                   "schema:name": {
                     "const": "Internal Standard Concentration"
                   },
-                  "schema:value": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
                   },
                   "schema:unitText": {
-                    "type": "string"
+                    "const": "µg/L"
                   }
                 },
                 "required": [
                   "@id",
                   "@type",
-                  "schema:propertyID",
+                  "schema:valueName",
                   "schema:name",
-                  "schema:value",
-                  "schema:unitText"
-                ],
-                "readOnly": true
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               {
                 "title": "Spike / Outlier Filtering Approach",
@@ -6762,35 +6525,40 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/solutionMcicpmsTAPP/desolvationSystem"
+                    "const": "ada:parameter/module/SolutionIntroduction/desolvationSystem"
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValueSpecification"
                     ]
                   },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/solutionMcicpmsTAPP/desolvationSystem"
-                      }
-                    ]
+                  "schema:valueName": {
+                    "const": "desolvationSystem"
                   },
                   "schema:name": {
                     "const": "Desolvation System"
                   },
-                  "schema:value": {
-                    "type": "string"
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
                   }
                 },
                 "required": [
                   "@id",
                   "@type",
-                  "schema:propertyID",
+                  "schema:valueName",
                   "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               "minContains": 0,
               "maxContains": 1
@@ -6802,46 +6570,43 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration"
+                    "const": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration"
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValueSpecification"
                     ]
                   },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration"
-                      }
-                    ]
+                  "schema:valueName": {
+                    "const": "internalStandardConcentration"
                   },
                   "schema:name": {
                     "const": "Internal Standard Concentration"
                   },
-                  "schema:value": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
                   },
                   "schema:unitText": {
-                    "type": "string"
+                    "const": "µg/L"
                   }
                 },
                 "required": [
                   "@id",
                   "@type",
-                  "schema:propertyID",
+                  "schema:valueName",
                   "schema:name",
-                  "schema:value",
-                  "schema:unitText"
-                ],
-                "readOnly": true
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               "minContains": 0,
               "maxContains": 1
@@ -6938,87 +6703,453 @@
             }
           ]
         },
-        "bios:computationalTool": {
+        "ada:sampleSequenceDesign": {
+          "description": "Description of the measurement order within a session: how sample solutions, bracketing standards, secondary reference materials, and blanks are interleaved. For SSB procedures, each sample is bracketed by two standards (standard–sample–standard); the bracketing standard is the same isotopic material as the zero-delta reference. For double-spike procedures, standards are spiked to the same level as samples before analysis.",
+          "type": "string",
+          "readOnly": true
+        },
+        "ada:internalStandardElement": {
+          "description": "Element added at a known concentration to all sample and standard solutions to serve as an internal normalization standard for mass bias correction (SSB + internal normalization procedures). The element must have a known isotopic composition and mass similar to the analyte. Examples: Ni or Cu doping for Fe isotopes (must verify complete matrix separation); Tl for Pb isotopes; Cd for Sb isotopes. Specify element and monitored isotope. Record 'None' if SSB without internal standard or double-spike method is used.",
+          "type": "string",
+          "readOnly": true
+        },
+        "ada:oxideProductionMethodAndThreshold": {
+          "description": "Method used to quantify plasma oxide production and the acceptance threshold applied before commencing analysis. Record both the monitored mass ratio(s) and the maximum allowed threshold(s). Measured values are recorded in Oxide Production. CeO+/Ce+ (m/z 156/140) is the standard monitor proxy. Stricter oxide thresholds may be required for analytes sensitive to oxide interferences (e.g., BaO+ on REE isotopes).",
+          "type": "string",
+          "readOnly": true
+        },
+        "ada:perAnalyteCalibrationStrategy": {
           "type": "array",
           "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "ada:toolRole": {
-                      "const": "acquisition"
-                    }
-                  },
-                  "required": [
-                    "ada:toolRole"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:name": {
-                      "description": "Name and version of the software used to control the instrument and acquire raw multi-collector data.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "ada:toolRole": {
-                      "const": "dataReduction"
-                    }
-                  },
-                  "required": [
-                    "ada:toolRole"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:name": {
-                      "description": "Name and version of the software used for data reduction: baseline subtraction, gain correction, mass bias correction (SSB, double-spike inversion, or internal normalization), interference corrections, and calculation of isotope ratios, δ-values, and concentrations. Include version number.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
+            "description": "Approach used to convert measured ion signals to elemental concentrations, where concentration data are also a product of the procedure (e.g., isotope dilution combined with isotope ratio measurement). For procedures producing isotope ratios only (no concentration output), record 'Not applicable (isotope ratios only)'. For double-spike procedures that simultaneously yield concentrations, record the ID calculation approach. Where different elements use different strategies, record each.",
+            "type": "string",
+            "enum": [
+              "Not applicable (isotope ratios only)",
+              "Isotope dilution via double-spike inversion (concentrations co-determined with isotope ratios)",
+              "IUPAC isotope dilution equations (separate ID spike)",
+              "N/A",
+              "None",
+              "missing"
             ],
-            "required": [
-              "ada:toolRole"
-            ]
+            "readOnly": true
+          }
+        },
+        "ada:signalIntegrationIntervalMethod": {
+          "description": "Method used to define which portion of the acquisition signal is integrated for each measurement. In MC-ICP-MS, all cycles within a block are typically used unless signal instability is detected. Specify the rule for including or excluding individual cycles.",
+          "type": "string",
+          "enum": [
+            "All cycles included unless signal instability detected",
+            "Visual inspection of cycle-by-cycle data; outlier cycles excluded manually",
+            "Automated 2σ outlier rejection per block",
+            "N/A",
+            "None",
+            "missing"
+          ],
+          "readOnly": true
+        },
+        "ada:blankBackgroundCorrectionMethod": {
+          "description": "Method used to subtract instrument background from analytical signals. In MC-ICP-MS, on-peak zero subtraction (aspirating the same acid matrix as samples while measuring background at the analyte masses with beam deflector or from baseline cycles at the start of each block) is standard. For isotope ratio procedures where procedural blank is minor relative to the sample signal, on-peak zero is often sufficient. For low-level analyses, procedural blank must be measured and subtracted.",
+          "type": "string",
+          "enum": [
+            "On-peak zero (acid blank)",
+            "Procedural blank",
+            "On-peak zero + procedural blank",
+            "N/A",
+            "None",
+            "missing"
+          ],
+          "readOnly": true
+        },
+        "ada:channelTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:channelColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors AnalyteIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+                    "allOf": [
+                      {
+                        "$ref": "#/$defs/KeyedTableColumn"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema:valueName": {
+                            "const": "channel"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "schema:readonlyValue": {
+                            "const": true
+                          },
+                          "schema:valueRequired": {
+                            "const": true
+                          },
+                          "ada:tier": {
+                            "const": "M"
+                          },
+                          "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                          }
+                        },
+                        "required": [
+                          "schema:valueName",
+                          "ada:dataType",
+                          "schema:readonlyValue",
+                          "schema:valueRequired",
+                          "ada:tier",
+                          "ada:cdifPropertyPath"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Isobaric Interference Corrections Applied",
+                    "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction, supplementary to any interference suppression achieved by chemical separation or mass resolution. In solution MC-ICP-MS, chemical separation is the primary interference mitigation; mathematical corrections address residual contributions. Common examples: 204Hg on 204Pb; abundance sensitivity tailing of 238U onto 236U and 235U.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "isobaricInterferenceCorrectionsApplied"
+                      },
+                      "schema:name": {
+                        "const": "Isobaric Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Interfering Species",
+                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. Includes direct isobars (e.g., 54Cr+ on 54Fe+, 58Ni+ on 58Fe+), abundance sensitivity tailing (e.g., 238U tail on 235U and 236U in U isotope measurements), and hydride interferences (e.g., 238UH+ at mass 239).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Interference Correction Method",
+                    "description": "Mathematical approach used to calculate and remove residual interference contributions. For direct isobars, interference monitor masses (e.g., 202Hg to correct 204Hg on 204Pb) are measured simultaneously and used with natural abundance ratios to calculate the interference contribution. For abundance sensitivity, the tailing factor is measured using a pure standard.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionMethod"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Isobaric Interference Corrections Applied",
+                    "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction, supplementary to any interference suppression achieved by chemical separation or mass resolution. In solution MC-ICP-MS, chemical separation is the primary interference mitigation; mathematical corrections address residual contributions. Common examples: 204Hg on 204Pb; abundance sensitivity tailing of 238U onto 236U and 235U.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "isobaricInterferenceCorrectionsApplied"
+                      },
+                      "schema:name": {
+                        "const": "Isobaric Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interfering Species",
+                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. Includes direct isobars (e.g., 54Cr+ on 54Fe+, 58Ni+ on 58Fe+), abundance sensitivity tailing (e.g., 238U tail on 235U and 236U in U isotope measurements), and hydride interferences (e.g., 238UH+ at mass 239).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interference Correction Method",
+                    "description": "Mathematical approach used to calculate and remove residual interference contributions. For direct isobars, interference monitor masses (e.g., 202Hg to correct 204Hg on 204Pb) are measured simultaneously and used with natural abundance ratios to calculate the interference contribution. For abundance sensitivity, the tailing factor is measured using a pure standard.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionMethod"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
+            }
+          }
+        },
+        "ada:primaryStandardNameDefault": {
+          "description": "Name and reference material identifier of the isotopic reference standard used as the bracketing standard (SSB) or zero-delta anchor. This is an isotopic composition standard (not a concentration standard): it defines the isotopic composition against which all sample δ or ε values are normalized. Must be a pure, homogeneous, internationally distributed material with well-characterized isotopic composition. For double-spike procedures, also used for spike calibration. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
+          "type": "string"
+        },
+        "ada:calibrationMeasurementFrequency": {
+          "description": "How often the primary isotopic standard is measured relative to unknown samples within a session. For SSB, typically one standard measurement before and one after each sample (standard–sample–standard triplet). Specify the bracketing scheme.",
+          "type": "string",
+          "readOnly": true
+        },
+        "ada:secondaryReferenceMaterialDefault": {
+          "type": "array",
+          "items": {
+            "description": "Reference material(s) measured as unknowns to independently assess analytical accuracy. Specify material name and the isotopic composition reference source (certified value, consensus value, or literature compilation). For isotope ratio procedures, secondary RMs are geological materials with published isotopic compositions (e.g., BHVO-2 for Fe isotopes) or pure isotopic standards of certified composition.",
+            "type": "string"
           }
         },
         "ada:analyteTemplate": {
           "type": "object",
           "properties": {
-            "ada:defaultAnalytes": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {}
-              }
-            },
             "ada:analyteColumns": {
               "type": "array",
               "items": {
@@ -7425,420 +7556,6 @@
                   "maxContains": 1
                 }
               ]
-            }
-          }
-        },
-        "ada:sampleSequenceDesign": {
-          "description": "Description of the measurement order within a session: how sample solutions, bracketing standards, secondary reference materials, and blanks are interleaved. For SSB procedures, each sample is bracketed by two standards (standard–sample–standard); the bracketing standard is the same isotopic material as the zero-delta reference. For double-spike procedures, standards are spiked to the same level as samples before analysis.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:internalStandardElement": {
-          "description": "Element added at a known concentration to all sample and standard solutions to serve as an internal normalization standard for mass bias correction (SSB + internal normalization procedures). The element must have a known isotopic composition and mass similar to the analyte. Examples: Ni or Cu doping for Fe isotopes (must verify complete matrix separation); Tl for Pb isotopes; Cd for Sb isotopes. Specify element and monitored isotope. Record 'None' if SSB without internal standard or double-spike method is used.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:oxideProductionMethodAndThreshold": {
-          "description": "Method used to quantify plasma oxide production and the acceptance threshold applied before commencing analysis. Record both the monitored mass ratio(s) and the maximum allowed threshold(s). Measured values are recorded in Oxide Production. CeO+/Ce+ (m/z 156/140) is the standard monitor proxy. Stricter oxide thresholds may be required for analytes sensitive to oxide interferences (e.g., BaO+ on REE isotopes).",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:perAnalyteCalibrationStrategy": {
-          "type": "array",
-          "items": {
-            "description": "Approach used to convert measured ion signals to elemental concentrations, where concentration data are also a product of the procedure (e.g., isotope dilution combined with isotope ratio measurement). For procedures producing isotope ratios only (no concentration output), record 'Not applicable (isotope ratios only)'. For double-spike procedures that simultaneously yield concentrations, record the ID calculation approach. Where different elements use different strategies, record each.",
-            "type": "string",
-            "enum": [
-              "Not applicable (isotope ratios only)",
-              "Isotope dilution via double-spike inversion (concentrations co-determined with isotope ratios)",
-              "IUPAC isotope dilution equations (separate ID spike)",
-              "N/A",
-              "None",
-              "missing"
-            ],
-            "readOnly": true
-          }
-        },
-        "ada:signalIntegrationIntervalMethod": {
-          "description": "Method used to define which portion of the acquisition signal is integrated for each measurement. In MC-ICP-MS, all cycles within a block are typically used unless signal instability is detected. Specify the rule for including or excluding individual cycles.",
-          "type": "string",
-          "enum": [
-            "All cycles included unless signal instability detected",
-            "Visual inspection of cycle-by-cycle data; outlier cycles excluded manually",
-            "Automated 2σ outlier rejection per block",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
-        },
-        "ada:blankBackgroundCorrectionMethod": {
-          "description": "Method used to subtract instrument background from analytical signals. In MC-ICP-MS, on-peak zero subtraction (aspirating the same acid matrix as samples while measuring background at the analyte masses with beam deflector or from baseline cycles at the start of each block) is standard. For isotope ratio procedures where procedural blank is minor relative to the sample signal, on-peak zero is often sufficient. For low-level analyses, procedural blank must be measured and subtracted.",
-          "type": "string",
-          "enum": [
-            "On-peak zero (acid blank)",
-            "Procedural blank",
-            "On-peak zero + procedural blank",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
-        },
-        "ada:channelTemplate": {
-          "type": "object",
-          "properties": {
-            "ada:channelColumns": {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors AnalyteIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
-                    "allOf": [
-                      {
-                        "$ref": "#/$defs/KeyedTableColumn"
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "schema:valueName": {
-                            "const": "channel"
-                          },
-                          "ada:dataType": {
-                            "const": "string"
-                          },
-                          "schema:readonlyValue": {
-                            "const": true
-                          },
-                          "schema:valueRequired": {
-                            "const": true
-                          },
-                          "ada:tier": {
-                            "const": "M"
-                          },
-                          "ada:cdifPropertyPath": {
-                            "const": "#/schema:variableMeasured/schema:name"
-                          }
-                        },
-                        "required": [
-                          "schema:valueName",
-                          "ada:dataType",
-                          "schema:readonlyValue",
-                          "schema:valueRequired",
-                          "ada:tier",
-                          "ada:cdifPropertyPath"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "title": "Isobaric Interference Corrections Applied",
-                    "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction, supplementary to any interference suppression achieved by chemical separation or mass resolution. In solution MC-ICP-MS, chemical separation is the primary interference mitigation; mathematical corrections address residual contributions. Common examples: 204Hg on 204Pb; abundance sensitivity tailing of 238U onto 236U and 235U.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "isobaricInterferenceCorrectionsApplied"
-                      },
-                      "schema:name": {
-                        "const": "Isobaric Interference Corrections Applied"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Interfering Species",
-                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. Includes direct isobars (e.g., 54Cr+ on 54Fe+, 58Ni+ on 58Fe+), abundance sensitivity tailing (e.g., 238U tail on 235U and 236U in U isotope measurements), and hydride interferences (e.g., 238UH+ at mass 239).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/interferingSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferingSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Interfering Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Interference Correction Method",
-                    "description": "Mathematical approach used to calculate and remove residual interference contributions. For direct isobars, interference monitor masses (e.g., 202Hg to correct 204Hg on 204Pb) are measured simultaneously and used with natural abundance ratios to calculate the interference contribution. For abundance sensitivity, the tailing factor is measured using a pure standard.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferenceCorrectionMethod"
-                      },
-                      "schema:name": {
-                        "const": "Interference Correction Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  }
-                ]
-              },
-              "allOf": [
-                {
-                  "contains": {
-                    "title": "Isobaric Interference Corrections Applied",
-                    "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction, supplementary to any interference suppression achieved by chemical separation or mass resolution. In solution MC-ICP-MS, chemical separation is the primary interference mitigation; mathematical corrections address residual contributions. Common examples: 204Hg on 204Pb; abundance sensitivity tailing of 238U onto 236U and 235U.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/isobaricInterferenceCorrectionsApplied"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "isobaricInterferenceCorrectionsApplied"
-                      },
-                      "schema:name": {
-                        "const": "Isobaric Interference Corrections Applied"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interfering Species",
-                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. Includes direct isobars (e.g., 54Cr+ on 54Fe+, 58Ni+ on 58Fe+), abundance sensitivity tailing (e.g., 238U tail on 235U and 236U in U isotope measurements), and hydride interferences (e.g., 238UH+ at mass 239).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/interferingSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferingSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Interfering Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interference Correction Method",
-                    "description": "Mathematical approach used to calculate and remove residual interference contributions. For direct isobars, interference monitor masses (e.g., 202Hg to correct 204Hg on 204Pb) are measured simultaneously and used with natural abundance ratios to calculate the interference contribution. For abundance sensitivity, the tailing factor is measured using a pure standard.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferenceCorrectionMethod"
-                      },
-                      "schema:name": {
-                        "const": "Interference Correction Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                }
-              ]
-            }
-          }
-        },
-        "ada:primaryStandardNameDefault": {
-          "description": "Name and reference material identifier of the isotopic reference standard used as the bracketing standard (SSB) or zero-delta anchor. This is an isotopic composition standard (not a concentration standard): it defines the isotopic composition against which all sample δ or ε values are normalized. Must be a pure, homogeneous, internationally distributed material with well-characterized isotopic composition. For double-spike procedures, also used for spike calibration. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
-          "type": "string"
-        },
-        "ada:calibrationMeasurementFrequency": {
-          "description": "How often the primary isotopic standard is measured relative to unknown samples within a session. For SSB, typically one standard measurement before and one after each sample (standard–sample–standard triplet). Specify the bracketing scheme.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:secondaryReferenceMaterialDefault": {
-          "type": "array",
-          "items": {
-            "description": "Reference material(s) measured as unknowns to independently assess analytical accuracy. Specify material name and the isotopic composition reference source (certified value, consensus value, or literature compilation). For isotope ratio procedures, secondary RMs are geological materials with published isotopic compositions (e.g., BHVO-2 for Fe isotopes) or pure isotopic standards of certified composition.",
-            "type": "string"
-          }
-        },
-        "schema:description": {
-          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
-          "type": "string"
-        },
-        "ada:analyticalMode": {
-          "type": "array",
-          "items": {
-            "description": "Top-level declaration of the kind of measurement this procedure covers. Solution ICP-MS has a single routine mode — continuous nebulisation of a digested solution — so this TAPP defines no mode flag columns; the field is still required (Rule 3) so that a procedure record is self-describing and comparable with multi-mode TAPPs across the library.",
-            "type": "string",
-            "enum": [
-              "Solution nebulisation (continuous)",
-              "Flow injection",
-              "missing"
-            ],
-            "readOnly": true
-          }
-        },
-        "ada:reportedPropertyTemplate": {
-          "type": "object",
-          "properties": {
-            "ada:defaultReportedProperties": {
-              "type": "array",
-              "items": {
-                "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
-                "type": "string",
-                "readOnly": true
-              }
             }
           }
         }

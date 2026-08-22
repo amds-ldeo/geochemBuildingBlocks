@@ -18,7 +18,7 @@ emitters use, so schema and example stay mutually consistent.
 Prerequisite: run `python tools/build_tapp.py <tapp>` first — that populates the shared parameter
 registries + vocab + gen_index (the TAPP schema $refs those registry $defs).
 
-    python tools/build_pathdriven.py <tapp>          # e.g. geochronTAPP
+    python tools/build_pathdriven.py <tapp>          # e.g. semTAPP
 """
 import copy
 import json

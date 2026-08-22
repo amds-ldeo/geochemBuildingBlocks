@@ -5,7 +5,7 @@
   "description": "Dataset-level analysis-instance detail for solution MC-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.",
   "allOf": [
     {
-      "title": "Group1 on the analysis",
+      "title": "Core on the analysis",
       "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
       "type": "object",
       "properties": {
@@ -37,6 +37,219 @@
               },
               "schema:endDate": {
                 "description": "Date on which the analytical session ended. May equal Analysis Start Date for single-day sessions. Format: YYYY-MM-DD.",
+                "type": "string"
+              },
+              "schema:object": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "@type": {
+                            "contains": {
+                              "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                            }
+                          }
+                        },
+                        "required": [
+                          "@type"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "schema:name": {
+                            "description": "Name or identifier of each sample analysed in this session, as used in the laboratory — a sample mount, section or aliquot counts as one entry where that is what the laboratory tracks. The analysis record corresponds to one session and may cover several samples; fields whose Keyed By column declares 'sample' take one value per entry. Should match the identifier used in associated publications or data tables.",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          },
+                          "schema:identifier": {
+                            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "allOf": [
+                  {
+                    "contains": {
+                      "properties": {
+                        "@type": {
+                          "contains": {
+                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                          }
+                        }
+                      },
+                      "required": [
+                        "@type"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "prov:used": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "if": {
+                        "required": [
+                          "bios:computationalTool"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "bios:computationalTool": {
+                            "type": "array",
+                            "items": {
+                              "allOf": [
+                                {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Computational tool actually used (acquisition, data reduction, or processing).",
+                                  "properties": {
+                                    "@type": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "contains": {
+                                        "const": "schema:SoftwareApplication"
+                                      }
+                                    },
+                                    "@id": {
+                                      "type": "string"
+                                    },
+                                    "schema:name": {
+                                      "type": "string"
+                                    },
+                                    "schema:version": {
+                                      "type": "string"
+                                    },
+                                    "schema:url": {
+                                      "type": "string",
+                                      "format": "uri"
+                                    },
+                                    "schema:description": {
+                                      "type": "string"
+                                    },
+                                    "ada:toolRole": {
+                                      "type": "string",
+                                      "enum": [
+                                        "acquisition",
+                                        "dataReduction",
+                                        "processing",
+                                        "visualization"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "@type",
+                                    "schema:name"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "allOf": [
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "ada:toolRole": {
+                                            "const": "acquisition"
+                                          }
+                                        },
+                                        "required": [
+                                          "ada:toolRole"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "schema:name": {
+                                            "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "ada:toolRole": {
+                                            "const": "dataReduction"
+                                          }
+                                        },
+                                        "required": [
+                                          "ada:toolRole"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "schema:name": {
+                                            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "required": [
+                                    "ada:toolRole"
+                                  ]
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "schema:description": {
+                "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
                 "type": "string"
               }
             }
@@ -266,11 +479,11 @@
       }
     },
     {
-      "title": "ReportingCore · aggregation_qc on the analysis",
+      "title": "Aggregation on the analysis",
       "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
       "type": "object",
       "properties": {
-        "dqv:hasQualityMeasurement": {
+        "schema:variableMeasured": {
           "type": "array",
           "items": {
             "type": "object",
@@ -278,47 +491,17 @@
               {
                 "if": {
                   "properties": {
-                    "dqv:isMeasurementOf": {
-                      "const": "Dispersion Statistic"
+                    "schema:name": {
+                      "const": "Goodness-of-Fit or Dispersion Statistic"
                     }
                   },
                   "required": [
-                    "dqv:isMeasurementOf"
+                    "schema:name"
                   ]
                 },
                 "then": {
                   "properties": {
-                    "dqv:value": {
-                      "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "dqv:isMeasurementOf": {
-                      "const": "Goodness-of-Fit"
-                    }
-                  },
-                  "required": [
-                    "dqv:isMeasurementOf"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "dqv:value": {
+                    "schema:value": {
                       "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
                       "anyOf": [
                         {
@@ -341,24 +524,12 @@
             {
               "contains": {
                 "properties": {
-                  "dqv:isMeasurementOf": {
-                    "const": "Dispersion Statistic"
+                  "schema:name": {
+                    "const": "Goodness-of-Fit or Dispersion Statistic"
                   }
                 },
                 "required": [
-                  "dqv:isMeasurementOf"
-                ]
-              }
-            },
-            {
-              "contains": {
-                "properties": {
-                  "dqv:isMeasurementOf": {
-                    "const": "Goodness-of-Fit"
-                  }
-                },
-                "required": [
-                  "dqv:isMeasurementOf"
+                  "schema:name"
                 ]
               }
             }
@@ -367,8 +538,6 @@
       }
     },
     {
-      "title": "SolutionIntroduction fields on the analysis",
-      "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
       "type": "object",
       "properties": {
         "prov:wasGeneratedBy": {
@@ -396,302 +565,6 @@
                       },
                       "then": {
                         "properties": {
-                          "schema:additionalProperty": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "allOf": [
-                                {
-                                  "if": {
-                                    "properties": {
-                                      "schema:name": {
-                                        "const": "Sample Aliquot Mass or Volume"
-                                      }
-                                    },
-                                    "required": [
-                                      "schema:name"
-                                    ]
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "schema:value": {
-                                        "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                                        "anyOf": [
-                                          {
-                                            "type": "number"
-                                          },
-                                          {
-                                            "type": "string"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "schema:actionProcess": {
-                "type": "object",
-                "properties": {
-                  "schema:step": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "allOf": [
-                        {
-                          "if": {
-                            "properties": {
-                              "schema:name": {
-                                "const": "sampleDigestion"
-                              }
-                            },
-                            "required": [
-                              "schema:name"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "schema:additionalProperty": {
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "allOf": [
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Digestion Temperature"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:value": {
-                                            "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
-                                            "anyOf": [
-                                              {
-                                                "type": "number"
-                                              },
-                                              {
-                                                "type": "string"
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "const": "Digestion Duration"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:name"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:value": {
-                                            "description": "Duration of the primary acid digestion step (hours or days).",
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              "prov:used": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "if": {
-                        "properties": {
-                          "schema:additionalType": {
-                            "contains": {
-                              "const": "ICPMS"
-                            }
-                          }
-                        },
-                        "required": [
-                          "schema:additionalType"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "schema:hasPart": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "allOf": [
-                                {
-                                  "if": {
-                                    "properties": {
-                                      "schema:additionalType": {
-                                        "contains": {
-                                          "const": "Sample Introduction System"
-                                        }
-                                      }
-                                    },
-                                    "required": [
-                                      "schema:additionalType"
-                                    ]
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "schema:additionalProperty": {
-                                        "type": "array",
-                                        "items": {
-                                          "type": "object",
-                                          "allOf": [
-                                            {
-                                              "if": {
-                                                "properties": {
-                                                  "schema:name": {
-                                                    "const": "Sample Uptake Rate"
-                                                  }
-                                                },
-                                                "required": [
-                                                  "schema:name"
-                                                ]
-                                              },
-                                              "then": {
-                                                "properties": {
-                                                  "schema:value": {
-                                                    "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            {
-                                              "if": {
-                                                "properties": {
-                                                  "schema:name": {
-                                                    "const": "Nebulizer Gas Flow Rate"
-                                                  }
-                                                },
-                                                "required": [
-                                                  "schema:name"
-                                                ]
-                                              },
-                                              "then": {
-                                                "properties": {
-                                                  "schema:value": {
-                                                    "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          ]
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "properties": {
-        "prov:wasGeneratedBy": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "schema:object": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "if": {
-                        "properties": {
-                          "@type": {
-                            "contains": {
-                              "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                            }
-                          }
-                        },
-                        "required": [
-                          "@type"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "schema:identifier": {
-                            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            ]
-                          },
                           "schema:description": {
                             "description": "Brief description of sample provenance, form, or preparation state relevant to this analysis.",
                             "anyOf": [
@@ -714,7 +587,7 @@
                               "type": "object",
                               "properties": {
                                 "@id": {
-                                  "const": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
+                                  "const": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
                                 },
                                 "@type": {
                                   "const": [
@@ -724,7 +597,7 @@
                                 "schema:propertyID": {
                                   "const": [
                                     {
-                                      "@id": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
+                                      "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
                                     }
                                   ]
                                 },
@@ -762,7 +635,7 @@
                                   "type": "object",
                                   "properties": {
                                     "@id": {
-                                      "const": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
+                                      "const": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
                                     },
                                     "@type": {
                                       "const": [
@@ -772,7 +645,7 @@
                                     "schema:propertyID": {
                                       "const": [
                                         {
-                                          "@id": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
+                                          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
                                         }
                                       ]
                                     },
@@ -804,20 +677,6 @@
                                 },
                                 "minContains": 0,
                                 "maxContains": 1
-                              }
-                            ]
-                          },
-                          "schema:name": {
-                            "description": "Name or identifier of each sample analysed in this session, as used in the laboratory — a sample mount, section or aliquot counts as one entry where that is what the laboratory tracks. The analysis record corresponds to one session and may cover several samples; fields whose Keyed By column declares 'sample' take one value per entry. Should match the identifier used in associated publications or data tables.",
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
                               }
                             ]
                           }
@@ -874,7 +733,7 @@
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
+                                          "const": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
                                         },
                                         "@type": {
                                           "const": [
@@ -884,7 +743,7 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
+                                              "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
                                             }
                                           ]
                                         },
@@ -920,7 +779,7 @@
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
+                                          "const": "ada:parameter/module/SolutionIntroduction/digestionDuration"
                                         },
                                         "@type": {
                                           "const": [
@@ -930,7 +789,7 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
+                                              "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration"
                                             }
                                           ]
                                         },
@@ -959,7 +818,7 @@
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
+                                          "const": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
                                         },
                                         "@type": {
                                           "const": [
@@ -969,7 +828,7 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
+                                              "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
                                             }
                                           ]
                                         },
@@ -1009,7 +868,7 @@
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
+                                          "const": "ada:parameter/module/SolutionIntroduction/digestionDuration"
                                         },
                                         "@type": {
                                           "const": [
@@ -1019,7 +878,7 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
+                                              "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration"
                                             }
                                           ]
                                         },
@@ -1169,12 +1028,12 @@
                                       ]
                                     },
                                     {
-                                      "title": "Constants and Reference Values Used",
+                                      "title": "Constants Reference Values",
                                       "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                                          "const": "ada:parameter/module/Core/constantsReferenceValues"
                                         },
                                         "@type": {
                                           "const": [
@@ -1184,12 +1043,12 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                                              "@id": "ada:parameter/module/Core/constantsReferenceValues"
                                             }
                                           ]
                                         },
                                         "schema:name": {
-                                          "const": "Constants and Reference Values Used"
+                                          "const": "Constants Reference Values"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -1325,12 +1184,12 @@
                                   },
                                   {
                                     "contains": {
-                                      "title": "Constants and Reference Values Used",
+                                      "title": "Constants Reference Values",
                                       "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                                          "const": "ada:parameter/module/Core/constantsReferenceValues"
                                         },
                                         "@type": {
                                           "const": [
@@ -1340,12 +1199,12 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
+                                              "@id": "ada:parameter/module/Core/constantsReferenceValues"
                                             }
                                           ]
                                         },
                                         "schema:name": {
-                                          "const": "Constants and Reference Values Used"
+                                          "const": "Constants Reference Values"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -1528,7 +1387,7 @@
                                                 "type": "string"
                                               },
                                               {
-                                                "$ref": "#/$defs/Identifier"
+                                                "$ref": "#/$defs/Instrument_Identifier"
                                               }
                                             ]
                                           }
@@ -1539,7 +1398,7 @@
                                           "description": "Landing page URL for this instrument."
                                         },
                                         "schema:manufacturer": {
-                                          "$ref": "#/$defs/Organization",
+                                          "$ref": "#/$defs/Instrument_Organization",
                                           "description": "Organization that manufactured this instrument."
                                         },
                                         "schema:model": {
@@ -1567,7 +1426,7 @@
                                                   "type": "string"
                                                 },
                                                 {
-                                                  "$ref": "#/$defs/Identifier"
+                                                  "$ref": "#/$defs/Instrument_Identifier"
                                                 }
                                               ]
                                             }
@@ -1725,7 +1584,7 @@
                                           }
                                         },
                                         "schema:owner": {
-                                          "$ref": "#/$defs/Organization",
+                                          "$ref": "#/$defs/Instrument_Organization",
                                           "description": "Organization that owns this instrument."
                                         },
                                         "schema:contributor": {
@@ -2463,7 +2322,7 @@
                                           "items": {
                                             "anyOf": [
                                               {
-                                                "$ref": "#/$defs/AdditionalProperty"
+                                                "$ref": "#/$defs/Instrument_AdditionalProperty"
                                               },
                                               {
                                                 "$ref": "#/$defs/AdditionalPropertySpecification"
@@ -2520,7 +2379,7 @@
                                                         "type": "string"
                                                       },
                                                       {
-                                                        "$ref": "#/$defs/Identifier"
+                                                        "$ref": "#/$defs/Instrument_Identifier"
                                                       }
                                                     ]
                                                   },
@@ -2552,7 +2411,7 @@
                                                     "items": {
                                                       "anyOf": [
                                                         {
-                                                          "$ref": "#/$defs/AdditionalProperty"
+                                                          "$ref": "#/$defs/Instrument_AdditionalProperty"
                                                         },
                                                         {
                                                           "$ref": "#/$defs/AdditionalPropertySpecification"
@@ -2561,7 +2420,7 @@
                                                     }
                                                   },
                                                   "schema:manufacturer": {
-                                                    "$ref": "#/$defs/Organization"
+                                                    "$ref": "#/$defs/Instrument_Organization"
                                                   },
                                                   "schema:model": {
                                                     "type": "object",
@@ -2601,7 +2460,7 @@
                                                             "type": "string"
                                                           },
                                                           {
-                                                            "$ref": "#/$defs/Identifier"
+                                                            "$ref": "#/$defs/Instrument_Identifier"
                                                           }
                                                         ]
                                                       }
@@ -3053,7 +2912,8 @@
                                           "schema:additionalType": {
                                             "contains": {
                                               "const": "ICPMS"
-                                            }
+                                            },
+                                            "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                           }
                                         },
                                         "required": [
@@ -3087,7 +2947,8 @@
                                                       "schema:additionalType": {
                                                         "contains": {
                                                           "const": "Torch"
-                                                        }
+                                                        },
+                                                        "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                       }
                                                     },
                                                     "required": [
@@ -3184,7 +3045,8 @@
                                                       "schema:additionalType": {
                                                         "contains": {
                                                           "const": "Sample Introduction System"
-                                                        }
+                                                        },
+                                                        "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                       }
                                                     },
                                                     "required": [
@@ -3203,7 +3065,7 @@
                                                               "type": "object",
                                                               "properties": {
                                                                 "@id": {
-                                                                  "const": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
+                                                                  "const": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                                                                 },
                                                                 "@type": {
                                                                   "const": [
@@ -3213,7 +3075,7 @@
                                                                 "schema:propertyID": {
                                                                   "const": [
                                                                     {
-                                                                      "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
+                                                                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                                                                     }
                                                                   ]
                                                                 },
@@ -3249,7 +3111,7 @@
                                                               "type": "object",
                                                               "properties": {
                                                                 "@id": {
-                                                                  "const": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
+                                                                  "const": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
                                                                 },
                                                                 "@type": {
                                                                   "const": [
@@ -3259,7 +3121,7 @@
                                                                 "schema:propertyID": {
                                                                   "const": [
                                                                     {
-                                                                      "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
+                                                                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
                                                                     }
                                                                   ]
                                                                 },
@@ -3290,12 +3152,12 @@
                                                               ]
                                                             },
                                                             {
-                                                              "title": "Make-up Gas Flow Rate",
-                                                              "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+                                                              "title": "Make-up Gas and Flow Rate",
+                                                              "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
                                                               "type": "object",
                                                               "properties": {
                                                                 "@id": {
-                                                                  "const": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate"
+                                                                  "const": "ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate"
                                                                 },
                                                                 "@type": {
                                                                   "const": [
@@ -3305,12 +3167,12 @@
                                                                 "schema:propertyID": {
                                                                   "const": [
                                                                     {
-                                                                      "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate"
+                                                                      "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate"
                                                                     }
                                                                   ]
                                                                 },
                                                                 "schema:name": {
-                                                                  "const": "Make-up Gas Flow Rate"
+                                                                  "const": "Make-up Gas and Flow Rate"
                                                                 },
                                                                 "schema:value": {
                                                                   "anyOf": [
@@ -3345,7 +3207,7 @@
                                                               "type": "object",
                                                               "properties": {
                                                                 "@id": {
-                                                                  "const": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
+                                                                  "const": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                                                                 },
                                                                 "@type": {
                                                                   "const": [
@@ -3355,7 +3217,7 @@
                                                                 "schema:propertyID": {
                                                                   "const": [
                                                                     {
-                                                                      "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
+                                                                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                                                                     }
                                                                   ]
                                                                 },
@@ -3395,7 +3257,7 @@
                                                               "type": "object",
                                                               "properties": {
                                                                 "@id": {
-                                                                  "const": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
+                                                                  "const": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
                                                                 },
                                                                 "@type": {
                                                                   "const": [
@@ -3405,7 +3267,7 @@
                                                                 "schema:propertyID": {
                                                                   "const": [
                                                                     {
-                                                                      "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
+                                                                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
                                                                     }
                                                                   ]
                                                                 },
@@ -3440,12 +3302,12 @@
                                                           },
                                                           {
                                                             "contains": {
-                                                              "title": "Make-up Gas Flow Rate",
-                                                              "description": "Supplementary argon flow added downstream of a desolvation system to maintain total gas delivery to the plasma (L/min). Record 'N/A' if no desolvation system is used. Record 'N/A' where Desolvation System is 'None'.",
+                                                              "title": "Make-up Gas and Flow Rate",
+                                                              "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
                                                               "type": "object",
                                                               "properties": {
                                                                 "@id": {
-                                                                  "const": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate"
+                                                                  "const": "ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate"
                                                                 },
                                                                 "@type": {
                                                                   "const": [
@@ -3455,12 +3317,12 @@
                                                                 "schema:propertyID": {
                                                                   "const": [
                                                                     {
-                                                                      "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasFlowRate"
+                                                                      "@id": "ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate"
                                                                     }
                                                                   ]
                                                                 },
                                                                 "schema:name": {
-                                                                  "const": "Make-up Gas Flow Rate"
+                                                                  "const": "Make-up Gas and Flow Rate"
                                                                 },
                                                                 "schema:value": {
                                                                   "anyOf": [
@@ -3499,7 +3361,8 @@
                                                       "schema:additionalType": {
                                                         "contains": {
                                                           "const": "ICP Source"
-                                                        }
+                                                        },
+                                                        "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                       }
                                                     },
                                                     "required": [
@@ -3814,7 +3677,8 @@
                                                       "schema:additionalType": {
                                                         "contains": {
                                                           "const": "Collision Reaction Cell"
-                                                        }
+                                                        },
+                                                        "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                       }
                                                     },
                                                     "required": [
@@ -4132,7 +3996,8 @@
                                                     "schema:additionalType": {
                                                       "contains": {
                                                         "const": "Sample Introduction System"
-                                                      }
+                                                      },
+                                                      "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                     }
                                                   },
                                                   "required": [
@@ -4146,7 +4011,8 @@
                                                     "schema:additionalType": {
                                                       "contains": {
                                                         "const": "ICP Source"
-                                                      }
+                                                      },
+                                                      "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                     }
                                                   },
                                                   "required": [
@@ -4160,7 +4026,8 @@
                                                     "schema:additionalType": {
                                                       "contains": {
                                                         "const": "Collision Reaction Cell"
-                                                      }
+                                                      },
+                                                      "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                     }
                                                   },
                                                   "required": [
@@ -4263,7 +4130,8 @@
                                     "schema:additionalType": {
                                       "contains": {
                                         "const": "ICPMS"
-                                      }
+                                      },
+                                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                     }
                                   },
                                   "required": [
@@ -4272,137 +4140,6 @@
                                 }
                               }
                             ]
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "if": {
-                        "required": [
-                          "bios:computationalTool"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "bios:computationalTool": {
-                            "type": "array",
-                            "items": {
-                              "allOf": [
-                                {
-                                  "type": "object",
-                                  "additionalProperties": false,
-                                  "description": "Computational tool actually used (acquisition, data reduction, or processing).",
-                                  "properties": {
-                                    "@type": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      },
-                                      "contains": {
-                                        "const": "schema:SoftwareApplication"
-                                      }
-                                    },
-                                    "@id": {
-                                      "type": "string"
-                                    },
-                                    "schema:name": {
-                                      "type": "string"
-                                    },
-                                    "schema:version": {
-                                      "type": "string"
-                                    },
-                                    "schema:url": {
-                                      "type": "string",
-                                      "format": "uri"
-                                    },
-                                    "schema:description": {
-                                      "type": "string"
-                                    },
-                                    "ada:toolRole": {
-                                      "type": "string",
-                                      "enum": [
-                                        "acquisition",
-                                        "dataReduction",
-                                        "processing",
-                                        "visualization"
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "@type",
-                                    "schema:name"
-                                  ]
-                                },
-                                {
-                                  "type": "object",
-                                  "allOf": [
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "ada:toolRole": {
-                                            "const": "acquisition"
-                                          }
-                                        },
-                                        "required": [
-                                          "ada:toolRole"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "description": "Name and version of the software used to control the instrument and acquire raw multi-collector data.",
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "ada:toolRole": {
-                                            "const": "dataReduction"
-                                          }
-                                        },
-                                        "required": [
-                                          "ada:toolRole"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "description": "Name and version of the software used for data reduction: baseline subtraction, gain correction, mass bias correction (SSB, double-spike inversion, or internal normalization), interference corrections, and calculation of isotope ratios, δ-values, and concentrations. Include version number.",
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ],
-                                  "required": [
-                                    "ada:toolRole"
-                                  ]
-                                }
-                              ]
-                            }
                           }
                         }
                       }
@@ -4599,49 +4336,88 @@
               "schema:additionalProperty": {
                 "type": "array",
                 "items": {
-                  "title": "Signal Integration Time",
-                  "description": "Total integration time per sample solution (s). Calculated from blocks × cycles per block × integration time per cycle. Recorded at analysis level as the actual total time used.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Signal Integration Time"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
+                  "anyOf": [
+                    {
+                      "title": "Signal Integration Time",
+                      "description": "Total integration time per sample solution (s). Calculated from blocks × cycles per block × integration time per cycle. Recorded at analysis level as the actual total time used.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime"
                         },
-                        {
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/signalIntegrationTime"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Signal Integration Time"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
-                    "schema:unitText": {
-                      "type": "string"
+                    {
+                      "title": "Procedural Blank Level",
+                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Procedural Blank Level"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
                     }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value",
-                    "schema:unitText"
                   ]
                 },
                 "allOf": [
@@ -4694,12 +4470,47 @@
                     },
                     "minContains": 0,
                     "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Procedural Blank Level",
+                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Procedural Blank Level"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
                   }
                 ]
-              },
-              "schema:description": {
-                "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
-                "type": "string"
               }
             }
           }
@@ -4760,626 +4571,6 @@
     }
   ],
   "$defs": {
-    "Identifier": {
-      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:PropertyValue"
-          },
-          "minItems": 1
-        },
-        "schema:propertyID": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "@id"
-              ],
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ],
-          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-        },
-        "schema:value": {
-          "type": "string",
-          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-        },
-        "schema:url": {
-          "type": "string",
-          "format": "uri",
-          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-        }
-      },
-      "allOf": [
-        {
-          "required": [
-            "@type"
-          ]
-        },
-        {
-          "anyOf": [
-            {
-              "required": [
-                "schema:value"
-              ]
-            },
-            {
-              "required": [
-                "schema:url"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "Organization": {
-      "type": "object",
-      "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "default": "schema:Organization",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string",
-                "enum": [
-                  "schema:Organization",
-                  "schema:FundingAgency",
-                  "schema:Consortium",
-                  "schema:Corporation",
-                  "schema:EducationalOrganization",
-                  "schema:FundingScheme",
-                  "schema:GovernmentOrganization",
-                  "schema:NGO",
-                  "schema:Project",
-                  "schema:ResearchOrganization"
-                ]
-              }
-            ]
-          },
-          "contains": {
-            "const": "schema:Organization"
-          },
-          "minItems": 1
-        },
-        "schema:additionalType": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/Organization_cdifConceptOrTermOrString"
-          }
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "string label for organization that is meaningful for human users"
-        },
-        "schema:alternateName": {
-          "type": "string",
-          "description": "other labels by which the organization might be known"
-        },
-        "schema:description": {
-          "type": "string"
-        },
-        "schema:identifier": {
-          "description": "identifier for organization",
-          "anyOf": [
-            {
-              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:PropertyValue"
-                  },
-                  "minItems": 1
-                },
-                "schema:propertyID": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "object",
-                      "additionalProperties": false,
-                      "required": [
-                        "@id"
-                      ],
-                      "properties": {
-                        "@id": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  ],
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                },
-                "schema:value": {
-                  "type": "string",
-                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                },
-                "schema:url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                }
-              },
-              "allOf": [
-                {
-                  "required": [
-                    "@type"
-                  ]
-                },
-                {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "schema:value"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:url"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "schema:sameAs": {
-          "type": "array",
-          "description": "other identifiers for the organization",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      },
-      "allOf": [
-        {
-          "required": [
-            "@type"
-          ]
-        },
-        {
-          "anyOf": [
-            {
-              "required": [
-                "schema:name"
-              ]
-            },
-            {
-              "required": [
-                "schema:identifier"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "AdditionalProperty": {
-      "type": "object",
-      "title": "additionalProperty PropertyValue",
-      "description": "PropertyValue values required to define a soft-typed property with a value. ",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:PropertyValue"
-          },
-          "minItems": 1
-        },
-        "schema:propertyID": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              },
-              {
-                "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:DefinedTerm"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "type": "string",
-                    "description": "text label for the term that is useful to human user"
-                  },
-                  "schema:identifier": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-                        "type": "object",
-                        "properties": {
-                          "@type": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "contains": {
-                              "const": "schema:PropertyValue"
-                            },
-                            "minItems": 1
-                          },
-                          "schema:propertyID": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "required": [
-                                  "@id"
-                                ],
-                                "properties": {
-                                  "@id": {
-                                    "type": "string"
-                                  }
-                                }
-                              }
-                            ],
-                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                          },
-                          "schema:value": {
-                            "type": "string",
-                            "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                          },
-                          "schema:url": {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                          }
-                        },
-                        "allOf": [
-                          {
-                            "required": [
-                              "@type"
-                            ]
-                          },
-                          {
-                            "anyOf": [
-                              {
-                                "required": [
-                                  "schema:value"
-                                ]
-                              },
-                              {
-                                "required": [
-                                  "schema:url"
-                                ]
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  "schema:inDefinedTermSet": {
-                    "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "object",
-                        "required": [
-                          "@id"
-                        ],
-                        "additionalProperties": false,
-                        "properties": {
-                          "@id": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "schema:termCode": {
-                    "type": "string",
-                    "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-                  }
-                },
-                "allOf": [
-                  {
-                    "required": [
-                      "@type"
-                    ]
-                  },
-                  {
-                    "anyOf": [
-                      {
-                        "required": [
-                          "schema:name"
-                        ]
-                      },
-                      {
-                        "required": [
-                          "schema:identifier"
-                        ]
-                      },
-                      {
-                        "required": [
-                          "schema:termCode"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          "minItems": 1,
-          "description": "identifier or name for the property concept quantified by the values in this variable slot. Multiple values can specify the property at different levels of granularity."
-        },
-        "schema:name": {
-          "type": "string"
-        },
-        "schema:value": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "number"
-            },
-            {
-              "type": "boolean"
-            },
-            {
-              "type": "object"
-            }
-          ]
-        },
-        "schema:unitCode": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:DefinedTerm"
-                  },
-                  "minItems": 1
-                },
-                "schema:name": {
-                  "type": "string",
-                  "description": "text label for the term that is useful to human user"
-                },
-                "schema:identifier": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-                      "type": "object",
-                      "properties": {
-                        "@type": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "contains": {
-                            "const": "schema:PropertyValue"
-                          },
-                          "minItems": 1
-                        },
-                        "schema:propertyID": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "object",
-                              "additionalProperties": false,
-                              "required": [
-                                "@id"
-                              ],
-                              "properties": {
-                                "@id": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          ],
-                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                        },
-                        "schema:value": {
-                          "type": "string",
-                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                        },
-                        "schema:url": {
-                          "type": "string",
-                          "format": "uri",
-                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                        }
-                      },
-                      "allOf": [
-                        {
-                          "required": [
-                            "@type"
-                          ]
-                        },
-                        {
-                          "anyOf": [
-                            {
-                              "required": [
-                                "schema:value"
-                              ]
-                            },
-                            {
-                              "required": [
-                                "schema:url"
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "schema:inDefinedTermSet": {
-                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "object",
-                      "required": [
-                        "@id"
-                      ],
-                      "additionalProperties": false,
-                      "properties": {
-                        "@id": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "schema:termCode": {
-                  "type": "string",
-                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-                }
-              },
-              "allOf": [
-                {
-                  "required": [
-                    "@type"
-                  ]
-                },
-                {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:identifier"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:termCode"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "schema:unitText": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "schema:name",
-        "schema:value"
-      ]
-    },
-    "AdditionalPropertySpecification": {
-      "type": "object",
-      "title": "additionalProperty PropertyValueSpecification",
-      "description": "A parameter specification (an overridable default) declared on a procedure / plan instrument, typed schema:PropertyValueSpecification; the default sits in schema:defaultValue. Contrast with AdditionalProperty (schema:PropertyValue), the concrete-value form carried by a prov:used analysis-event instrument.",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:PropertyValueSpecification"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@type",
-        "schema:name"
-      ]
-    },
     "CdifInstanceVariable_cdifConceptOrTermOrString": {
       "title": "CDIF Concept-or-Term-or-String",
       "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
@@ -5750,7 +4941,7 @@
                           }
                         },
                         {
-                          "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                          "$ref": "#/$defs/DefinedTerm"
                         }
                       ],
                       "description": "Text description or URI specifying how values for the variable were obtained."
@@ -5775,7 +4966,7 @@
                             }
                           },
                           {
-                            "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                            "$ref": "#/$defs/DefinedTerm"
                           }
                         ]
                       },
@@ -5803,7 +4994,7 @@
                           }
                         },
                         {
-                          "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                          "$ref": "#/$defs/DefinedTerm"
                         }
                       ],
                       "description": "URI or code identifying the unit of measure"
@@ -6054,7 +5245,7 @@
                             }
                           },
                           {
-                            "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                            "$ref": "#/$defs/DefinedTerm"
                           }
                         ],
                         "description": "Text description or URI specifying how values for the variable were obtained."
@@ -6079,7 +5270,7 @@
                               }
                             },
                             {
-                              "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                              "$ref": "#/$defs/DefinedTerm"
                             }
                           ]
                         },
@@ -6107,7 +5298,7 @@
                             }
                           },
                           {
-                            "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                            "$ref": "#/$defs/DefinedTerm"
                           }
                         ],
                         "description": "URI or code identifying the unit of measure"
@@ -6326,7 +5517,7 @@
         }
       ]
     },
-    "VariableMeasured_DefinedTerm": {
+    "DefinedTerm": {
       "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
       "type": "object",
       "properties": {
@@ -6904,7 +6095,7 @@
                           }
                         },
                         {
-                          "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                          "$ref": "#/$defs/DefinedTerm"
                         }
                       ],
                       "description": "Text description or URI specifying how values for the variable were obtained."
@@ -6929,7 +6120,7 @@
                             }
                           },
                           {
-                            "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                            "$ref": "#/$defs/DefinedTerm"
                           }
                         ]
                       },
@@ -6957,7 +6148,7 @@
                           }
                         },
                         {
-                          "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                          "$ref": "#/$defs/DefinedTerm"
                         }
                       ],
                       "description": "URI or code identifying the unit of measure"
@@ -7184,7 +6375,7 @@
                             }
                           },
                           {
-                            "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                            "$ref": "#/$defs/DefinedTerm"
                           }
                         ],
                         "description": "Text description or URI specifying how values for the variable were obtained."
@@ -7209,7 +6400,7 @@
                               }
                             },
                             {
-                              "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                              "$ref": "#/$defs/DefinedTerm"
                             }
                           ]
                         },
@@ -7237,7 +6428,7 @@
                             }
                           },
                           {
-                            "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                            "$ref": "#/$defs/DefinedTerm"
                           }
                         ],
                         "description": "URI or code identifying the unit of measure"
@@ -7762,7 +6953,7 @@
                           }
                         },
                         {
-                          "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                          "$ref": "#/$defs/DefinedTerm"
                         }
                       ],
                       "description": "Text description or URI specifying how values for the variable were obtained."
@@ -7787,7 +6978,7 @@
                             }
                           },
                           {
-                            "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                            "$ref": "#/$defs/DefinedTerm"
                           }
                         ]
                       },
@@ -7815,7 +7006,7 @@
                           }
                         },
                         {
-                          "$ref": "#/$defs/VariableMeasured_DefinedTerm"
+                          "$ref": "#/$defs/DefinedTerm"
                         }
                       ],
                       "description": "URI or code identifying the unit of measure"
@@ -7867,6 +7058,626 @@
         "@type",
         "cdi:for",
         "cdi:statistic"
+      ]
+    },
+    "Instrument_Identifier": {
+      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:PropertyValue"
+          },
+          "minItems": 1
+        },
+        "schema:propertyID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "@id"
+              ],
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+        },
+        "schema:value": {
+          "type": "string",
+          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+        }
+      },
+      "allOf": [
+        {
+          "required": [
+            "@type"
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "schema:value"
+              ]
+            },
+            {
+              "required": [
+                "schema:url"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Instrument_Organization": {
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string"
+        },
+        "@type": {
+          "default": "schema:Organization",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "schema:Organization",
+                  "schema:FundingAgency",
+                  "schema:Consortium",
+                  "schema:Corporation",
+                  "schema:EducationalOrganization",
+                  "schema:FundingScheme",
+                  "schema:GovernmentOrganization",
+                  "schema:NGO",
+                  "schema:Project",
+                  "schema:ResearchOrganization"
+                ]
+              }
+            ]
+          },
+          "contains": {
+            "const": "schema:Organization"
+          },
+          "minItems": 1
+        },
+        "schema:additionalType": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Organization_cdifConceptOrTermOrString"
+          }
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "string label for organization that is meaningful for human users"
+        },
+        "schema:alternateName": {
+          "type": "string",
+          "description": "other labels by which the organization might be known"
+        },
+        "schema:description": {
+          "type": "string"
+        },
+        "schema:identifier": {
+          "description": "identifier for organization",
+          "anyOf": [
+            {
+              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:PropertyValue"
+                  },
+                  "minItems": 1
+                },
+                "schema:propertyID": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                },
+                "schema:value": {
+                  "type": "string",
+                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                },
+                "schema:url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:value"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:url"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "schema:sameAs": {
+          "type": "array",
+          "description": "other identifiers for the organization",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "allOf": [
+        {
+          "required": [
+            "@type"
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "schema:name"
+              ]
+            },
+            {
+              "required": [
+                "schema:identifier"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Instrument_AdditionalProperty": {
+      "type": "object",
+      "title": "additionalProperty PropertyValue",
+      "description": "PropertyValue values required to define a soft-typed property with a value. ",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:PropertyValue"
+          },
+          "minItems": 1
+        },
+        "schema:propertyID": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+                "type": "object",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:DefinedTerm"
+                    },
+                    "minItems": 1
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "text label for the term that is useful to human user"
+                  },
+                  "schema:identifier": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "const": "schema:PropertyValue"
+                            },
+                            "minItems": 1
+                          },
+                          "schema:propertyID": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                          },
+                          "schema:value": {
+                            "type": "string",
+                            "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                          },
+                          "schema:url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                          }
+                        },
+                        "allOf": [
+                          {
+                            "required": [
+                              "@type"
+                            ]
+                          },
+                          {
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "schema:value"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "schema:url"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "schema:termCode": {
+                    "type": "string",
+                    "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                  }
+                },
+                "allOf": [
+                  {
+                    "required": [
+                      "@type"
+                    ]
+                  },
+                  {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "schema:name"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "schema:identifier"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "schema:termCode"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "minItems": 1,
+          "description": "identifier or name for the property concept quantified by the values in this variable slot. Multiple values can specify the property at different levels of granularity."
+        },
+        "schema:name": {
+          "type": "string"
+        },
+        "schema:value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "schema:unitCode": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:DefinedTerm"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "text label for the term that is useful to human user"
+                },
+                "schema:identifier": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "contains": {
+                            "const": "schema:PropertyValue"
+                          },
+                          "minItems": 1
+                        },
+                        "schema:propertyID": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ],
+                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                        },
+                        "schema:value": {
+                          "type": "string",
+                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                        },
+                        "schema:url": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                        }
+                      },
+                      "allOf": [
+                        {
+                          "required": [
+                            "@type"
+                          ]
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "required": [
+                                "schema:value"
+                              ]
+                            },
+                            {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "schema:inDefinedTermSet": {
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "schema:termCode": {
+                  "type": "string",
+                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:identifier"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:termCode"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "schema:unitText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema:name",
+        "schema:value"
+      ]
+    },
+    "AdditionalPropertySpecification": {
+      "type": "object",
+      "title": "additionalProperty PropertyValueSpecification",
+      "description": "A parameter specification (an overridable default) declared on a procedure / plan instrument, typed schema:PropertyValueSpecification; the default sits in schema:defaultValue. Contrast with AdditionalProperty (schema:PropertyValue), the concrete-value form carried by a prov:used analysis-event instrument.",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:PropertyValueSpecification"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type",
+        "schema:name"
       ]
     },
     "TappDefinition_DefinedTerm": {
@@ -8687,7 +8498,7 @@
                             "type": "string"
                           },
                           {
-                            "$ref": "#/$defs/Identifier"
+                            "$ref": "#/$defs/Instrument_Identifier"
                           }
                         ]
                       }
@@ -8698,7 +8509,7 @@
                       "description": "Landing page URL for this instrument."
                     },
                     "schema:manufacturer": {
-                      "$ref": "#/$defs/Organization",
+                      "$ref": "#/$defs/Instrument_Organization",
                       "description": "Organization that manufactured this instrument."
                     },
                     "schema:model": {
@@ -8726,7 +8537,7 @@
                               "type": "string"
                             },
                             {
-                              "$ref": "#/$defs/Identifier"
+                              "$ref": "#/$defs/Instrument_Identifier"
                             }
                           ]
                         }
@@ -8884,7 +8695,7 @@
                       }
                     },
                     "schema:owner": {
-                      "$ref": "#/$defs/Organization",
+                      "$ref": "#/$defs/Instrument_Organization",
                       "description": "Organization that owns this instrument."
                     },
                     "schema:contributor": {
@@ -9622,7 +9433,7 @@
                       "items": {
                         "anyOf": [
                           {
-                            "$ref": "#/$defs/AdditionalProperty"
+                            "$ref": "#/$defs/Instrument_AdditionalProperty"
                           },
                           {
                             "$ref": "#/$defs/AdditionalPropertySpecification"
@@ -9679,7 +9490,7 @@
                                     "type": "string"
                                   },
                                   {
-                                    "$ref": "#/$defs/Identifier"
+                                    "$ref": "#/$defs/Instrument_Identifier"
                                   }
                                 ]
                               },
@@ -9711,7 +9522,7 @@
                                 "items": {
                                   "anyOf": [
                                     {
-                                      "$ref": "#/$defs/AdditionalProperty"
+                                      "$ref": "#/$defs/Instrument_AdditionalProperty"
                                     },
                                     {
                                       "$ref": "#/$defs/AdditionalPropertySpecification"
@@ -9720,7 +9531,7 @@
                                 }
                               },
                               "schema:manufacturer": {
-                                "$ref": "#/$defs/Organization"
+                                "$ref": "#/$defs/Instrument_Organization"
                               },
                               "schema:model": {
                                 "type": "object",
@@ -9760,7 +9571,7 @@
                                         "type": "string"
                                       },
                                       {
-                                        "$ref": "#/$defs/Identifier"
+                                        "$ref": "#/$defs/Instrument_Identifier"
                                       }
                                     ]
                                   }
