@@ -568,6 +568,9 @@ def fill_structural_gaps(inst, resolved_schema, max_passes=6):
                         # later pass would supply it, but nothing does for a nested hasPart. Name it
                         # after the token that made it necessary.
                         stub["schema:name"] = at
+                        # inline components require @id (a monitored species must be able to name
+                        # the part that reports it); derive it from the token that made the stub.
+                        stub["@id"] = "ex:instrument/part/" + re.sub(r"[^A-Za-z0-9]+", "-", str(at)).strip("-")
                         node.append(stub)
                         added += 1
                         break
