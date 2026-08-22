@@ -1211,17 +1211,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/xRayLine
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/xRayLine
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: xRayLine
                 schema:name:
                   const: X-ray Line
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id022
                     type: string
@@ -1230,10 +1231,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
             - &id032
               title: Diffracting Crystal
               description: Analyzing crystal (monochromator) used on each spectrometer assignment. Crystal
@@ -1244,17 +1245,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/diffractingCrystal
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: diffractingCrystal
                 schema:name:
                   const: Diffracting Crystal
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id023
                     type: string
@@ -1263,10 +1265,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
             - &id033
               title: Sequence
               description: Order in which spectrometer assignments are acquired during point analysis.
@@ -1279,17 +1281,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/sequence
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/sequence
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: sequence
                 schema:name:
                   const: Sequence
                 ada:dataType:
                   const: integer
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id024
                     anyOf:
@@ -1300,7 +1303,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             - &id034
@@ -1313,17 +1316,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: proportionalCounterDetector
                 schema:name:
                   const: Proportional Counter / Detector
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id025
                     type: string
@@ -1332,7 +1336,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             - &id035
@@ -1346,17 +1350,18 @@ allOf:
                   const: ada:channelColumn/semCompositionTAPP/wdsPhaSetting
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: wdsPhaSetting
                 schema:name:
                   const: WDS PHA Setting
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id026
                     type: string
@@ -1365,7 +1370,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             - &id036

@@ -729,17 +729,18 @@ allOf:
                   const: ada:channelColumn/empaTAPP/diffractingCrystal
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/empaTAPP/diffractingCrystal
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: diffractingCrystal
                 schema:name:
                   const: Diffracting Crystal
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id017
                     type: string
@@ -748,10 +749,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
             - &id027
               title: Dwell Time per Pixel
               description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds.
@@ -836,17 +837,18 @@ allOf:
                   const: ada:channelColumn/empaTAPP/proportionalCounterDetector
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/empaTAPP/proportionalCounterDetector
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: proportionalCounterDetector
                 schema:name:
                   const: Proportional Counter / Detector
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id020
                     type: string
@@ -855,7 +857,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             - &id030
@@ -870,17 +872,18 @@ allOf:
                   const: ada:channelColumn/empaTAPP/sequence
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/empaTAPP/sequence
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: sequence
                 schema:name:
                   const: Sequence
                 ada:dataType:
                   const: integer
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id021
                     anyOf:
@@ -891,7 +894,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             - &id031
@@ -905,17 +908,18 @@ allOf:
                   const: ada:channelColumn/empaTAPP/wdsPhaSetting
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/empaTAPP/wdsPhaSetting
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: wdsPhaSetting
                 schema:name:
                   const: WDS PHA Setting
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: R
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id022
                     type: string
@@ -924,7 +928,7 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
             - &id032
@@ -938,17 +942,18 @@ allOf:
                   const: ada:channelColumn/empaTAPP/xRayLine
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/empaTAPP/xRayLine
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: xRayLine
                 schema:name:
                   const: X-ray Line
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id023
                     type: string
@@ -957,10 +962,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
           allOf:
           - contains: *id024
             minContains: 0

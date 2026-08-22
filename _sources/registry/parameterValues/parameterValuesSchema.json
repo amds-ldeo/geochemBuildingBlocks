@@ -4,6 +4,1477 @@
     "description": "Registry of reusable schema:PropertyValue parameter-value definitions derived from technique TAPP spreadsheets. Each $def constrains one per-dataset schema:PropertyValue entry. Detail building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
     "type": "object",
     "$defs": {
+        "empa_coupledProcedureDoi": {
+            "title": "Coupled Procedure DOI",
+            "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/coupledProcedureDoi"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/coupledProcedureDoi"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coupled Procedure DOI"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_coupledDatasetOrPublicationReference": {
+            "title": "Coupled Dataset or Publication Reference",
+            "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/coupledDatasetOrPublicationReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/coupledDatasetOrPublicationReference"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coupled Dataset or Publication Reference"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_samplePreparationMethod": {
+            "title": "Sample Preparation Method",
+            "description": "Description of how samples were prepared for analysis under this procedure (mounting, polishing, coating). Analysts may document session-specific variations from the procedure standard.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/samplePreparationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/samplePreparationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Preparation Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_samplePersistentIdentifier": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/samplePersistentIdentifier"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/samplePersistentIdentifier"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_targetSelectionCriteria": {
+            "title": "Target Selection Criteria",
+            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/targetSelectionCriteria"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/targetSelectionCriteria"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Target Selection Criteria"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_preAnalysisImagingAndScreening": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_dataProcessingSoftware": {
+            "title": "Data Processing Software(s)",
+            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/dataProcessingSoftware"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/dataProcessingSoftware"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Data Processing Software(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_acceleratingVoltage": {
+            "title": "Accelerating Voltage",
+            "description": "Electron beam accelerating voltage in kilovolts (kV). The procedure specifies the standard operating voltage; analysts record and justify any deviations.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/acceleratingVoltage"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/acceleratingVoltage"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Accelerating Voltage"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "empa_beamCurrent": {
+            "title": "Beam Current",
+            "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard value(s).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/beamCurrent"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/beamCurrent"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Beam Current"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "empa_beamDiameter": {
+            "title": "Beam Diameter",
+            "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/beamDiameter"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/beamDiameter"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Beam Diameter"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "empa_beamRasterDimensions": {
+            "title": "Beam Raster Dimensions",
+            "description": "X x Y dimensions of a small beam raster used at a single analysis point to average a coarse-grained or beam-sensitive phase. Different from X-ray mapping mode; not applicable when mapping.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/beamRasterDimensions"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Beam Raster Dimensions"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "empa_beamDamageMinimization": {
+            "title": "Beam Damage Minimization",
+            "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/beamDamageMinimization"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Beam Damage Minimization"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_driftCorrection": {
+            "title": "Drift Correction",
+            "description": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/driftCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/driftCorrection"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Drift Correction"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_peakCountingTime": {
+            "title": "Peak Counting Time",
+            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/peakCountingTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/peakCountingTime"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Peak Counting Time"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "empa_backgroundCountingTime": {
+            "title": "Background Counting Time",
+            "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/backgroundCountingTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/backgroundCountingTime"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Background Counting Time"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "empa_backgroundPosition": {
+            "title": "Background Position(s)",
+            "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/backgroundPosition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/backgroundPosition"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Background Position(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_edsLiveTimePerPointOrPixel": {
+            "title": "EDS Live Time per Point or Pixel",
+            "description": "EDS spectral acquisition live time per analysis point in seconds. Previously referred to as \"EDS Acquisition Time\" in this TAPP and commonly used under that name in EPMA and SEM-EDS contexts. Renamed to align with TEM-EDS usage, where the per-point vs. per-pixel distinction (point/line mode vs. spectrum image) is explicit. In EPMA, acquisition is always per point.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "EDS Live Time per Point or Pixel"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "empa_dwellTimePerPixel": {
+            "title": "Dwell Time per Pixel",
+            "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/dwellTimePerPixel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/dwellTimePerPixel"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Dwell Time per Pixel"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "empa_stepSizePixelSize": {
+            "title": "Step Size / Pixel Size",
+            "description": "Distance between adjacent measurement points in the X-ray map in micrometers, defining the spatial resolution. Report both X and Y step if they differ.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/stepSizePixelSize"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/stepSizePixelSize"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Step Size / Pixel Size"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "empa_backgroundCorrectionMethod": {
+            "title": "Background Correction Method",
+            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/backgroundCorrectionMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/backgroundCorrectionMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Background Correction Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_timeDependentIntensityCorrection": {
+            "title": "Time-Dependent Intensity Correction",
+            "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in point analysis; uncommon for X-ray mapping.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/timeDependentIntensityCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/timeDependentIntensityCorrection"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Time-Dependent Intensity Correction"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_halogenCorrectionOnOxygen": {
+            "title": "Halogen Correction on Oxygen",
+            "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Halogen Correction on Oxygen"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_blankCorrection": {
+            "title": "Blank Correction",
+            "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/blankCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/blankCorrection"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Blank Correction"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_normalizationStandardsBasedCorrection": {
+            "title": "Normalization / Standards-Based Correction",
+            "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_calibrationFactorAndDeterminationMethod": {
+            "title": "Calibration Factor and Determination Method",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_constantsAndReferenceValuesUsed": {
+            "title": "Constants and Reference Values Used",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Constants and Reference Values Used"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_primaryCalibrationStandardName": {
+            "title": "Primary Calibration Standard Name",
+            "description": "Name(s) of the primary reference material(s) used for element standardization (intensity calibration). Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/primaryCalibrationStandardName"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/primaryCalibrationStandardName"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Primary Calibration Standard Name"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_secondaryReferenceMaterials": {
+            "title": "Secondary Reference Materials",
+            "description": "Quality-control reference material(s) analyzed alongside unknowns to verify calibration accuracy. Include material name, assessed elements, number of analyses (n), and measured vs. accepted values.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/secondaryReferenceMaterials"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/secondaryReferenceMaterials"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Secondary Reference Materials"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_wdsSpectrometerConfiguration": {
+            "title": "WDS Spectrometer Configuration",
+            "description": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/wdsSpectrometerConfiguration"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/wdsSpectrometerConfiguration"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "WDS Spectrometer Configuration"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_edsDetectorConfiguration": {
+            "title": "EDS Detector Configuration",
+            "description": "EDS detector type, manufacturer, window type, active area, and detector geometry (take-off angle, position).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/edsDetectorConfiguration"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/edsDetectorConfiguration"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "EDS Detector Configuration"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_wdsSpectrometerChannel": {
+            "title": "WDS Spectrometer Channel",
+            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/wdsSpectrometerChannel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/wdsSpectrometerChannel"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "WDS Spectrometer Channel"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_sequence": {
+            "title": "Sequence",
+            "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/sequence"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/sequence"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sequence"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_proportionalCounterDetector": {
+            "title": "Proportional Counter / Detector",
+            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/proportionalCounterDetector"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/proportionalCounterDetector"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Proportional Counter / Detector"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_wdsPhaSetting": {
+            "title": "WDS PHA Setting",
+            "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/wdsPhaSetting"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/wdsPhaSetting"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "WDS PHA Setting"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_stageScanVsBeamScan": {
+            "title": "Stage Scan vs. Beam Scan",
+            "description": "Whether the X-ray map was acquired by moving the sample stage (stage scan) or by deflecting the electron beam (beam scan). Stage scan preserves beam geometry and spot size across the full map but is slower; beam scan is faster but may introduce geometric distortion at large deflections.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/stageScanVsBeamScan"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/stageScanVsBeamScan"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Stage Scan vs. Beam Scan"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_analyteEstimationMethod": {
+            "title": "Analyte Estimation Method",
+            "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/analyteEstimationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/analyteEstimationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Analyte Estimation Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_edsSpectralProcessingType": {
+            "title": "EDS Spectral Processing Type",
+            "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/edsSpectralProcessingType"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/edsSpectralProcessingType"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "EDS Spectral Processing Type"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_interferingElements": {
+            "title": "Interfering Elements",
+            "description": "Element(s) whose X-ray lines overlap with the measured peak for this analyte, requiring a correction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/interferingElements"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/interferingElements"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Interfering Elements"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "empa_interferenceCorrectionStandard": {
+            "title": "Interference Correction Standard",
+            "description": "Reference material used to quantify and calibrate the interference correction for this analyte.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Interference Correction Standard"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laMcicpms_coupledProcedureDoi": {
             "title": "Coupled Procedure DOI",
             "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
@@ -26618,1477 +28089,6 @@
                 },
                 "schema:name": {
                     "const": "EDS Spectral Processing Type"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_coupledProcedureDoi": {
-            "title": "Coupled Procedure DOI",
-            "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/coupledProcedureDoi"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/coupledProcedureDoi"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Coupled Procedure DOI"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_coupledDatasetOrPublicationReference": {
-            "title": "Coupled Dataset or Publication Reference",
-            "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/coupledDatasetOrPublicationReference"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/coupledDatasetOrPublicationReference"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Coupled Dataset or Publication Reference"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_samplePreparationMethod": {
-            "title": "Sample Preparation Method",
-            "description": "Description of how samples were prepared for analysis under this procedure (mounting, polishing, coating). Analysts may document session-specific variations from the procedure standard.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/samplePreparationMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/samplePreparationMethod"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Sample Preparation Method"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_samplePersistentIdentifier": {
-            "title": "Sample Persistent Identifier",
-            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/samplePersistentIdentifier"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/samplePersistentIdentifier"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Sample Persistent Identifier"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_targetSelectionCriteria": {
-            "title": "Target Selection Criteria",
-            "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/targetSelectionCriteria"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/targetSelectionCriteria"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Target Selection Criteria"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_preAnalysisImagingAndScreening": {
-            "title": "Pre-Analysis Imaging and Screening",
-            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Pre-Analysis Imaging and Screening"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_dataProcessingSoftware": {
-            "title": "Data Processing Software(s)",
-            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/dataProcessingSoftware"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/dataProcessingSoftware"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Data Processing Software(s)"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_acceleratingVoltage": {
-            "title": "Accelerating Voltage",
-            "description": "Electron beam accelerating voltage in kilovolts (kV). The procedure specifies the standard operating voltage; analysts record and justify any deviations.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/acceleratingVoltage"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/acceleratingVoltage"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Accelerating Voltage"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "empa_beamCurrent": {
-            "title": "Beam Current",
-            "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard value(s).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/beamCurrent"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/beamCurrent"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Beam Current"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "empa_beamDiameter": {
-            "title": "Beam Diameter",
-            "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/beamDiameter"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/beamDiameter"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Beam Diameter"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "empa_beamRasterDimensions": {
-            "title": "Beam Raster Dimensions",
-            "description": "X x Y dimensions of a small beam raster used at a single analysis point to average a coarse-grained or beam-sensitive phase. Different from X-ray mapping mode; not applicable when mapping.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/beamRasterDimensions"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/beamRasterDimensions"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Beam Raster Dimensions"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "empa_beamDamageMinimization": {
-            "title": "Beam Damage Minimization",
-            "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/beamDamageMinimization"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/beamDamageMinimization"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Beam Damage Minimization"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_driftCorrection": {
-            "title": "Drift Correction",
-            "description": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/driftCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/driftCorrection"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Drift Correction"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_peakCountingTime": {
-            "title": "Peak Counting Time",
-            "description": "Time spent counting X-ray intensity at the peak position, in seconds, on each spectrometer assignment. Procedure specifies standard values; analysts may adjust within procedure-defined bounds.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/peakCountingTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/peakCountingTime"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Peak Counting Time"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "empa_backgroundCountingTime": {
-            "title": "Background Counting Time",
-            "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/backgroundCountingTime"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/backgroundCountingTime"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Background Counting Time"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "empa_backgroundPosition": {
-            "title": "Background Position(s)",
-            "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/backgroundPosition"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/backgroundPosition"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Background Position(s)"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_edsLiveTimePerPointOrPixel": {
-            "title": "EDS Live Time per Point or Pixel",
-            "description": "EDS spectral acquisition live time per analysis point in seconds. Previously referred to as \"EDS Acquisition Time\" in this TAPP and commonly used under that name in EPMA and SEM-EDS contexts. Renamed to align with TEM-EDS usage, where the per-point vs. per-pixel distinction (point/line mode vs. spectrum image) is explicit. In EPMA, acquisition is always per point.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "EDS Live Time per Point or Pixel"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "empa_dwellTimePerPixel": {
-            "title": "Dwell Time per Pixel",
-            "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/dwellTimePerPixel"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/dwellTimePerPixel"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Dwell Time per Pixel"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "empa_stepSizePixelSize": {
-            "title": "Step Size / Pixel Size",
-            "description": "Distance between adjacent measurement points in the X-ray map in micrometers, defining the spatial resolution. Report both X and Y step if they differ.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/stepSizePixelSize"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/stepSizePixelSize"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Step Size / Pixel Size"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "schema:unitText": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value",
-                "schema:unitText"
-            ]
-        },
-        "empa_backgroundCorrectionMethod": {
-            "title": "Background Correction Method",
-            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/backgroundCorrectionMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/backgroundCorrectionMethod"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Background Correction Method"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_timeDependentIntensityCorrection": {
-            "title": "Time-Dependent Intensity Correction",
-            "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most commonly applied in point analysis; uncommon for X-ray mapping.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/timeDependentIntensityCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/timeDependentIntensityCorrection"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Time-Dependent Intensity Correction"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_halogenCorrectionOnOxygen": {
-            "title": "Halogen Correction on Oxygen",
-            "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygen"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Halogen Correction on Oxygen"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_blankCorrection": {
-            "title": "Blank Correction",
-            "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/blankCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/blankCorrection"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Blank Correction"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_normalizationStandardsBasedCorrection": {
-            "title": "Normalization / Standards-Based Correction",
-            "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Normalization / Standards-Based Correction"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_calibrationFactorAndDeterminationMethod": {
-            "title": "Calibration Factor and Determination Method",
-            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_constantsAndReferenceValuesUsed": {
-            "title": "Constants and Reference Values Used",
-            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Constants and Reference Values Used"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_primaryCalibrationStandardName": {
-            "title": "Primary Calibration Standard Name",
-            "description": "Name(s) of the primary reference material(s) used for element standardization (intensity calibration). Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/primaryCalibrationStandardName"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/primaryCalibrationStandardName"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Primary Calibration Standard Name"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_secondaryReferenceMaterials": {
-            "title": "Secondary Reference Materials",
-            "description": "Quality-control reference material(s) analyzed alongside unknowns to verify calibration accuracy. Include material name, assessed elements, number of analyses (n), and measured vs. accepted values.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/secondaryReferenceMaterials"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/secondaryReferenceMaterials"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Secondary Reference Materials"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_wdsSpectrometerConfiguration": {
-            "title": "WDS Spectrometer Configuration",
-            "description": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/wdsSpectrometerConfiguration"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/wdsSpectrometerConfiguration"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "WDS Spectrometer Configuration"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_edsDetectorConfiguration": {
-            "title": "EDS Detector Configuration",
-            "description": "EDS detector type, manufacturer, window type, active area, and detector geometry (take-off angle, position).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/edsDetectorConfiguration"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/edsDetectorConfiguration"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "EDS Detector Configuration"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_wdsSpectrometerChannel": {
-            "title": "WDS Spectrometer Channel",
-            "description": "WDS spectrometer position(s) assigned to each analyte, one entry per assignment. An analyte may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several analytes across a run, so the assignment — not the analyte — is the unit carrying the spectrometer setup. Different spectrometers may have different crystal configurations.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/wdsSpectrometerChannel"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/wdsSpectrometerChannel"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "WDS Spectrometer Channel"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_sequence": {
-            "title": "Sequence",
-            "description": "Order in which spectrometer assignments are acquired during point analysis. Relevant for minimizing beam damage (volatile elements measured first) and for sequential multi-channel setups. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/sequence"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/sequence"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Sequence"
-                },
-                "schema:value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_proportionalCounterDetector": {
-            "title": "Proportional Counter / Detector",
-            "description": "Type of detector used on each spectrometer assignment. Affects sensitivity and count rate linearity.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/proportionalCounterDetector"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/proportionalCounterDetector"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Proportional Counter / Detector"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_wdsPhaSetting": {
-            "title": "WDS PHA Setting",
-            "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/wdsPhaSetting"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/wdsPhaSetting"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "WDS PHA Setting"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_stageScanVsBeamScan": {
-            "title": "Stage Scan vs. Beam Scan",
-            "description": "Whether the X-ray map was acquired by moving the sample stage (stage scan) or by deflecting the electron beam (beam scan). Stage scan preserves beam geometry and spot size across the full map but is slower; beam scan is faster but may introduce geometric distortion at large deflections.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/stageScanVsBeamScan"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/stageScanVsBeamScan"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Stage Scan vs. Beam Scan"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_analyteEstimationMethod": {
-            "title": "Analyte Estimation Method",
-            "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/analyteEstimationMethod"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/analyteEstimationMethod"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Analyte Estimation Method"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_edsSpectralProcessingType": {
-            "title": "EDS Spectral Processing Type",
-            "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/edsSpectralProcessingType"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/edsSpectralProcessingType"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "EDS Spectral Processing Type"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_interferingElements": {
-            "title": "Interfering Elements",
-            "description": "Element(s) whose X-ray lines overlap with the measured peak for this analyte, requiring a correction.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/interferingElements"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/interferingElements"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Interfering Elements"
-                },
-                "schema:value": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:propertyID",
-                "schema:name",
-                "schema:value"
-            ]
-        },
-        "empa_interferenceCorrectionStandard": {
-            "title": "Interference Correction Standard",
-            "description": "Reference material used to quantify and calibrate the interference correction for this analyte.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValue"
-                    ]
-                },
-                "schema:propertyID": {
-                    "const": [
-                        {
-                            "@id": "ada:parameter/empaTAPP/interferenceCorrectionStandard"
-                        }
-                    ]
-                },
-                "schema:name": {
-                    "const": "Interference Correction Standard"
                 },
                 "schema:value": {
                     "type": "string"

@@ -690,7 +690,8 @@
                                         "schema:additionalType": {
                                             "contains": {
                                                 "const": "ICPMS"
-                                            }
+                                            },
+                                            "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                         }
                                     },
                                     "required": [
@@ -1307,7 +1308,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "Torch"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -1432,7 +1434,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "Interface Cone"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -1611,7 +1614,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "Collision Reaction Cell"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -2104,7 +2108,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "Sample Introduction System"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -2171,7 +2176,8 @@
                                                                 "schema:additionalType": {
                                                                     "contains": {
                                                                         "const": "ICP Source"
-                                                                    }
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                                 }
                                                             },
                                                             "required": [
@@ -2553,7 +2559,8 @@
                                                             "schema:additionalType": {
                                                                 "contains": {
                                                                     "const": "Interface Cone"
-                                                                }
+                                                                },
+                                                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                             }
                                                         },
                                                         "required": [
@@ -2567,7 +2574,8 @@
                                                             "schema:additionalType": {
                                                                 "contains": {
                                                                     "const": "Collision Reaction Cell"
-                                                                }
+                                                                },
+                                                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                             }
                                                         },
                                                         "required": [
@@ -2581,7 +2589,8 @@
                                                             "schema:additionalType": {
                                                                 "contains": {
                                                                     "const": "Sample Introduction System"
-                                                                }
+                                                                },
+                                                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                             }
                                                         },
                                                         "required": [
@@ -2595,7 +2604,8 @@
                                                             "schema:additionalType": {
                                                                 "contains": {
                                                                     "const": "ICP Source"
-                                                                }
+                                                                },
+                                                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                                             }
                                                         },
                                                         "required": [
@@ -2617,7 +2627,8 @@
                                     "schema:additionalType": {
                                         "contains": {
                                             "const": "ICPMS"
-                                        }
+                                        },
+                                        "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                     }
                                 },
                                 "required": [
@@ -2926,15 +2937,11 @@
                                             },
                                             "@type": {
                                                 "const": [
-                                                    "schema:PropertyValue"
+                                                    "schema:PropertyValueSpecification"
                                                 ]
                                             },
-                                            "schema:propertyID": {
-                                                "const": [
-                                                    {
-                                                        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied"
-                                                    }
-                                                ]
+                                            "schema:valueName": {
+                                                "const": "isobaricInterferenceCorrectionsApplied"
                                             },
                                             "schema:name": {
                                                 "const": "Isobaric Interference Corrections Applied"
@@ -2942,10 +2949,13 @@
                                             "ada:dataType": {
                                                 "const": "string"
                                             },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
                                             "ada:tier": {
                                                 "const": "M"
                                             },
-                                            "schema:value": {
+                                            "schema:defaultValue": {
                                                 "anyOf": [
                                                     {
                                                         "type": "string"
@@ -2962,10 +2972,10 @@
                                         "required": [
                                             "@id",
                                             "@type",
-                                            "schema:propertyID",
+                                            "schema:valueName",
                                             "schema:name",
                                             "ada:dataType",
-                                            "schema:value"
+                                            "schema:defaultValue"
                                         ]
                                     },
                                     {
@@ -2978,15 +2988,11 @@
                                             },
                                             "@type": {
                                                 "const": [
-                                                    "schema:PropertyValue"
+                                                    "schema:PropertyValueSpecification"
                                                 ]
                                             },
-                                            "schema:propertyID": {
-                                                "const": [
-                                                    {
-                                                        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies"
-                                                    }
-                                                ]
+                                            "schema:valueName": {
+                                                "const": "interferingSpecies"
                                             },
                                             "schema:name": {
                                                 "const": "Interfering Species"
@@ -2994,10 +3000,13 @@
                                             "ada:dataType": {
                                                 "const": "string"
                                             },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
                                             "ada:tier": {
                                                 "const": "M"
                                             },
-                                            "schema:value": {
+                                            "schema:defaultValue": {
                                                 "anyOf": [
                                                     {
                                                         "type": "string"
@@ -3014,10 +3023,10 @@
                                         "required": [
                                             "@id",
                                             "@type",
-                                            "schema:propertyID",
+                                            "schema:valueName",
                                             "schema:name",
                                             "ada:dataType",
-                                            "schema:value"
+                                            "schema:defaultValue"
                                         ]
                                     },
                                     {
@@ -3030,15 +3039,11 @@
                                             },
                                             "@type": {
                                                 "const": [
-                                                    "schema:PropertyValue"
+                                                    "schema:PropertyValueSpecification"
                                                 ]
                                             },
-                                            "schema:propertyID": {
-                                                "const": [
-                                                    {
-                                                        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
-                                                    }
-                                                ]
+                                            "schema:valueName": {
+                                                "const": "interferenceCorrectionMethod"
                                             },
                                             "schema:name": {
                                                 "const": "Interference Correction Method"
@@ -3046,10 +3051,13 @@
                                             "ada:dataType": {
                                                 "const": "string"
                                             },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
                                             "ada:tier": {
                                                 "const": "M"
                                             },
-                                            "schema:value": {
+                                            "schema:defaultValue": {
                                                 "anyOf": [
                                                     {
                                                         "type": "string"
@@ -3066,10 +3074,10 @@
                                         "required": [
                                             "@id",
                                             "@type",
-                                            "schema:propertyID",
+                                            "schema:valueName",
                                             "schema:name",
                                             "ada:dataType",
-                                            "schema:value"
+                                            "schema:defaultValue"
                                         ]
                                     }
                                 ]
@@ -3155,15 +3163,11 @@
                                             },
                                             "@type": {
                                                 "const": [
-                                                    "schema:PropertyValue"
+                                                    "schema:PropertyValueSpecification"
                                                 ]
                                             },
-                                            "schema:propertyID": {
-                                                "const": [
-                                                    {
-                                                        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied"
-                                                    }
-                                                ]
+                                            "schema:valueName": {
+                                                "const": "isobaricInterferenceCorrectionsApplied"
                                             },
                                             "schema:name": {
                                                 "const": "Isobaric Interference Corrections Applied"
@@ -3171,10 +3175,13 @@
                                             "ada:dataType": {
                                                 "const": "string"
                                             },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
                                             "ada:tier": {
                                                 "const": "M"
                                             },
-                                            "schema:value": {
+                                            "schema:defaultValue": {
                                                 "anyOf": [
                                                     {
                                                         "type": "string"
@@ -3191,10 +3198,10 @@
                                         "required": [
                                             "@id",
                                             "@type",
-                                            "schema:propertyID",
+                                            "schema:valueName",
                                             "schema:name",
                                             "ada:dataType",
-                                            "schema:value"
+                                            "schema:defaultValue"
                                         ]
                                     },
                                     "minContains": 0,
@@ -3211,15 +3218,11 @@
                                             },
                                             "@type": {
                                                 "const": [
-                                                    "schema:PropertyValue"
+                                                    "schema:PropertyValueSpecification"
                                                 ]
                                             },
-                                            "schema:propertyID": {
-                                                "const": [
-                                                    {
-                                                        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies"
-                                                    }
-                                                ]
+                                            "schema:valueName": {
+                                                "const": "interferingSpecies"
                                             },
                                             "schema:name": {
                                                 "const": "Interfering Species"
@@ -3227,10 +3230,13 @@
                                             "ada:dataType": {
                                                 "const": "string"
                                             },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
                                             "ada:tier": {
                                                 "const": "M"
                                             },
-                                            "schema:value": {
+                                            "schema:defaultValue": {
                                                 "anyOf": [
                                                     {
                                                         "type": "string"
@@ -3247,10 +3253,10 @@
                                         "required": [
                                             "@id",
                                             "@type",
-                                            "schema:propertyID",
+                                            "schema:valueName",
                                             "schema:name",
                                             "ada:dataType",
-                                            "schema:value"
+                                            "schema:defaultValue"
                                         ]
                                     },
                                     "minContains": 0,
@@ -3267,15 +3273,11 @@
                                             },
                                             "@type": {
                                                 "const": [
-                                                    "schema:PropertyValue"
+                                                    "schema:PropertyValueSpecification"
                                                 ]
                                             },
-                                            "schema:propertyID": {
-                                                "const": [
-                                                    {
-                                                        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
-                                                    }
-                                                ]
+                                            "schema:valueName": {
+                                                "const": "interferenceCorrectionMethod"
                                             },
                                             "schema:name": {
                                                 "const": "Interference Correction Method"
@@ -3283,10 +3285,13 @@
                                             "ada:dataType": {
                                                 "const": "string"
                                             },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
                                             "ada:tier": {
                                                 "const": "M"
                                             },
-                                            "schema:value": {
+                                            "schema:defaultValue": {
                                                 "anyOf": [
                                                     {
                                                         "type": "string"
@@ -3303,10 +3308,10 @@
                                         "required": [
                                             "@id",
                                             "@type",
-                                            "schema:propertyID",
+                                            "schema:valueName",
                                             "schema:name",
                                             "ada:dataType",
-                                            "schema:value"
+                                            "schema:defaultValue"
                                         ]
                                     },
                                     "minContains": 0,

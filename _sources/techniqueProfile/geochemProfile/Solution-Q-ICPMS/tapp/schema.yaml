@@ -1534,17 +1534,18 @@ allOf:
                   const: ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: isobaricInterferenceCorrectionsApplied
                 schema:name:
                   const: Isobaric Interference Corrections Applied
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id018
                     type: string
@@ -1553,10 +1554,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
             - &id023
               title: Interfering Species
               description: List of isobaric or polyatomic species mathematically corrected in data reduction.
@@ -1569,17 +1570,18 @@ allOf:
                   const: ada:channelColumn/solutionQicpmsTAPP/interferingSpecies
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/solutionQicpmsTAPP/interferingSpecies
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferingSpecies
                 schema:name:
                   const: Interfering Species
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id019
                     type: string
@@ -1588,10 +1590,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
             - &id024
               title: Interference Correction Method
               description: Mathematical approach used to calculate and remove interference contributions
@@ -1603,17 +1605,18 @@ allOf:
                   const: ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
-                  - schema:PropertyValue
-                schema:propertyID:
-                  const:
-                  - '@id': ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferenceCorrectionMethod
                 schema:name:
                   const: Interference Correction Method
                 ada:dataType:
                   const: string
+                schema:readonlyValue:
+                  const: true
                 ada:tier:
                   const: M
-                schema:value:
+                schema:defaultValue:
                   anyOf:
                   - &id020
                     type: string
@@ -1622,10 +1625,10 @@ allOf:
               required:
               - '@id'
               - '@type'
-              - schema:propertyID
+              - schema:valueName
               - schema:name
               - ada:dataType
-              - schema:value
+              - schema:defaultValue
           allOf:
           - contains: *id021
             minContains: 0

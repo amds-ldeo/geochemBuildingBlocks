@@ -924,7 +924,6 @@ allOf:
                   '@type':
                     const:
                     - schema:PropertyValue
-                    - cdi:InstanceVariable
                   schema:propertyID:
                     const:
                     - '@id': ada:parameter/temTAPP/edsDetectionLimit
@@ -1285,7 +1284,32 @@ allOf:
           - schema:value
         minContains: 0
         maxContains: 1
-      - contains: *id031
+      - contains:
+          title: EDS Detection Limit
+          description: Estimated detection limits by EDS under this procedure's conditions, one per reported
+            concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS
+            is not listed in Spectroscopic Detector(s).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/edsDetectionLimit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/temTAPP/edsDetectionLimit
+            schema:name:
+              const: EDS Detection Limit
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
         minContains: 0
         maxContains: 1
       - contains:
