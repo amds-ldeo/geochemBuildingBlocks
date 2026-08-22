@@ -46,11 +46,11 @@ Dwell Time per Pixel,Basic,Editable,Numeric (ms),$MethodDefinition.ada:channelTe
 EDS Acquisition Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:edsAcquisitionMode,authored,shared,,
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:defaultValue,keyed,,triage decision (reviewer),sample
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:value,keyed,,triage decision (reviewer),sample
-EDS Detector Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='EDSDetector'].schema:description,authored,divergent,divergence decision applied,
+EDS Detector Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='EDS Detector'].schema:description,authored,divergent,divergence decision applied,
 EDS Live Time per Point or Pixel,Basic,Editable,Numeric (s),$MethodDefinition.ada:edsLiveTimePerPointOrPixelDefault,authored,shared,dual-home decision: protocol default,
 EDS Live Time per Point or Pixel,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Live Time per Point or Pixel'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
 EDS Spectral Processing Type,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='EDS Spectral Processing Type'].schema:value,inferred,shared,,
-Electron Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='Electron source'].schema:description,authored,divergent,divergence decision applied,
+Electron Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='Electron Source'].schema:description,authored,divergent,divergence decision applied,
 EPMA Technique per Analyte,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,,,analyte
 Funding Source for Analysis,N/A,Basic,Text (free),$Dataset.schema:funding,inferred,shared,,
 Funding Source for Procedure Development,Advanced,Read-Only,Text (free),$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name,inferred,shared,,
@@ -94,7 +94,7 @@ Time-Dependent Intensity Correction,Advanced,Editable,Controlled list,$MethodDef
 WDS Dead Time Correction,Basic,Read-Only,Controlled list,$MethodDefinition.ada:wdsDeadTimeCorrection,inferred,shared,,
 WDS PHA Setting,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],authored,shared,,channel
 WDS Spectrometer Channel,Advanced,Read-Only,Text (free),$MethodDefinition.ada:channelTemplate.ada:defaultChannels[],authored,shared,,defines: channel per analyte
-WDS Spectrometer Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='WDSSpectrometer'].schema:name,authored,divergent,divergence decision applied,
+WDS Spectrometer Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='WDS Spectrometer'].schema:name,authored,divergent,divergence decision applied,
 X-ray Line,Basic,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],authored,divergent,divergence decision applied,channel
 Target Selection Criteria,Basic,Editable,Text (free),$MethodDefinition.ada:targetSelectionCriteriaDefault,authored,,new in this revision (needs mapping),
 Target Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Target Selection Criteria'].schema:value,authored,,tier rule: added the missing per-analysis value,

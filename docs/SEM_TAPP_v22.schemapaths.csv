@@ -31,7 +31,7 @@ Beam Mode,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[sc
 Beam Raster Dimensions,Advanced,Editable,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:defaultValue,authored,shared,divergence decision applied,
 Beam Raster Dimensions,Advanced,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
 Blank Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,analyte
-BSE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='BSEDetector'].schema:name,authored,,reviewer: use the instrument hasPart[BSEDetector] form,
+BSE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='BSE Detector'].schema:name,authored,,reviewer: use the instrument hasPart[BSEDetector] form,
 Calibration Factor and Determination Method,Basic,Editable,Text (free),$MethodDefinition.schema:variableMeasured[schema:name='Calibration Factor and Determination Method'].schema:defaultValue,keyed,,,reported property
 Calibration Factor and Determination Method,Basic,Editable,Text (free),$Dataset.schema:variableMeasured[schema:name='Calibration Factor and Determination Method'].schema:value,keyed,,,reported property
 Chamber Pressure,Advanced,Editable,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Chamber Pressure'].schema:defaultValue,authored,,,
@@ -81,12 +81,12 @@ EBSD Step Size,Basic,Editable,Numeric + unit,$MethodDefinition.ada:ebsdStepSizeD
 EBSD Step Size,Basic,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EBSD StepSize'].schema:value,authored,,new in this revision (needs mapping),
 EDS Acquisition Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:edsAcquisitionMode,authored,shared,,
 EDS Dead Time,N/A,Basic,Numeric (%),$Dataset.prov:wasGeneratedBy.ada:deadTime,authored,,reviewer: adopt TEM's ada:deadTime everywhere,
-EDS Detector Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='EDSDetector'].schema:description,authored,divergent,divergence decision applied,
+EDS Detector Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='EDS Detector'].schema:description,authored,divergent,divergence decision applied,
 EDS Live Time per Point or Pixel,Basic,Editable,Numeric (s),$MethodDefinition.ada:edsLiveTimePerPointOrPixelDefault,authored,shared,dual-home decision: protocol default,
 EDS Live Time per Point or Pixel,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Live Time per Point or Pixel'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
 EDS Map Dimensions,N/A,Basic,Numeric pair (pixels x pixels),$Dataset.ada:mapDimensions,authored,,new in this revision (needs mapping),
 EDS Spectral Processing Type,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='EDS Spectral Processing Type'].schema:value,inferred,shared,,
-Electron Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='Electron source'].schema:description,authored,divergent,divergence decision applied,
+Electron Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='Electron Source'].schema:description,authored,divergent,divergence decision applied,
 Fine Polishing Conditions,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:finePolishingConditionsDefault,authored,,,
 Fine Polishing Conditions,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fine Polishing Conditions'].schema.value,authored,,new in this revision (needs mapping),
 Foil Thickness,Basic,Editable,Numeric + unit,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].ada:foilThicknessDefault,authored,,,
@@ -155,7 +155,7 @@ Voxel Size and Image Stack Dimensions,N/A,Basic,Text (free),$Dataset.ada:voxelSi
 WDS Dead Time Correction,Basic,Read-Only,Controlled list,$MethodDefinition.ada:wdsDeadTimeCorrection,inferred,shared,,
 WDS PHA Setting,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
 WDS Spectrometer Channel,Advanced,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,defines: channel per analyte
-WDS Spectrometer Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='WDSSpectrometer'].schema:name,authored,divergent,divergence decision applied,
+WDS Spectrometer Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='WDS Spectrometer'].schema:name,authored,divergent,divergence decision applied,
 Working Distance,Basic,Editable,Numeric (mm),$MethodDefinition.ada:workingDistanceDefault,authored,,,
 Working Distance,Basic,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Working Distance'].schema:value,authored,,new in this revision (needs mapping),
 X-ray Line,Basic,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,divergent,channel keyed table (was mis-mapped),channel

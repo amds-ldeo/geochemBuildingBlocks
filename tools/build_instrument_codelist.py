@@ -23,6 +23,8 @@ import re
 from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 VOCAB = os.path.join(ROOT, "_sources", "registry", "vocab")
 CODELIST_SCHEMA = ("https://cross-domain-interoperability-framework.github.io/"
                    "metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml")
@@ -70,11 +72,34 @@ def pref_label(token):
     return token
 
 
+def _current_sidecars():
+    """Only the sidecar of each technique's WIRED table, plus the module sidecars.
+
+    docs/ keeps superseded revisions alongside current ones (EPMA v20 beside v25), and scanning
+    them published history as vocabulary: `xrayLine` came from EPMA v20 and SEM v17 alone -- the
+    current sidecars had already been corrected to route an X-ray line to the channel table, where a
+    monitored species belongs. It also double-counted every technique in the scope notes. A code
+    list should describe what is in use.
+    """
+    import build_tapp as b
+    import schemapath_io
+    out = []
+    for t in sorted(b.TAPP_CONFIGS):
+        try:
+            b.configure(t)
+        except Exception:
+            continue
+        f = schemapath_io.csv_path(b.XLSX)
+        if os.path.exists(f):
+            out.append(f)
+    out += sorted(glob.glob(os.path.join(ROOT, "docs", "modules", "Module_*.schemapaths.csv")))
+    return sorted(set(out))
+
+
 def scan():
     """(instrument -> {sidecar}, component -> {sidecar}, component -> {host instrument})"""
     inst, comp, hosts = defaultdict(set), defaultdict(set), defaultdict(set)
-    for f in sorted(glob.glob(os.path.join(ROOT, "docs", "*.schemapaths.csv"))
-                    + glob.glob(os.path.join(ROOT, "docs", "modules", "*.schemapaths.csv"))):
+    for f in _current_sidecars():
         tag = os.path.basename(f).replace(".schemapaths.csv", "")
         txt = open(f, encoding="utf-8-sig").read()
         for m in INSTRUMENT.finditer(txt):
@@ -156,16 +181,19 @@ def main():
                 f.write("\n")
             print("     wrote %s" % os.path.relpath(p, ROOT))
 
-    # anomalies worth a human decision rather than silent blessing in a controlled vocabulary
-    odd = [t for t in comp if not re.match(r"^[A-Z0-9]", t)]
-    mixed = [t for t in list(inst) + list(comp) if " " in t] , [t for t in list(inst) + list(comp) if " " not in t and not t.isupper()]
-    print("\nANOMALIES (empirical, not corrected here):")
-    if odd:
-        print("  lowercase-initial component token(s): %s" % ", ".join(sorted(odd)))
-        print("    -> 'xrayLine' is a spectral feature, not hardware; it is the known "
-              "'X-ray Line as instrument part' defect.")
-    print("  token style is inconsistent: Title Case with spaces (%s) vs CamelCase (%s)"
-          % (", ".join(sorted(mixed[0])[:3]), ", ".join(sorted(mixed[1])[:3])))
+    # anomalies worth a human decision rather than silent blessing in a controlled vocabulary.
+    # A single capitalised word (Torch, Collector, Monochromator) is NOT a style problem; only an
+    # internal capital after a lowercase letter is run-together CamelCase.
+    camel = sorted(t for t in list(inst) + list(comp) if re.search(r"[a-z][A-Z]", t))
+    lower = sorted(t for t in list(inst) + list(comp) if t[:1].islower())
+    print("")
+    print("ANOMALIES:")
+    if camel:
+        print("  run-together CamelCase token(s): %s" % ", ".join(camel))
+    if lower:
+        print("  lowercase-initial token(s): %s" % ", ".join(lower))
+    if not camel and not lower:
+        print("  none - every token is Title Case or an accepted abbreviation.")
     if not a.write:
         print("\n(dry run — pass --write)")
     return 0
