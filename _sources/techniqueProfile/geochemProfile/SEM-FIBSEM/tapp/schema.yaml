@@ -385,6 +385,37 @@ allOf:
             - schema:additionalType
           then:
             properties:
+              schema:manufacturer:
+                type: object
+                properties:
+                  schema:name:
+                    description: Manufacturer of the instrument that performs the measurement, recorded
+                      as a controlled value so that procedures can be found by vendor. Where a procedure
+                      couples a sample-introduction system to an analysing instrument, this records the
+                      analysing instrument. Instrument Model gives the specific designation.
+                    type: string
+                    enum:
+                    - JEOL
+                    - Zeiss
+                    - FEI / Thermo Fisher Scientific
+                    - Hitachi
+                    - Tescan
+                    - Phenom
+                    - Unknown
+                    - N/A
+                    - None
+                    - missing
+                    readOnly: true
+              schema:model:
+                type: object
+                properties:
+                  schema:name:
+                    description: Model designation of the instrument that performs the measurement, including
+                      any generation or configuration suffix. Conventionally written with the manufacturer
+                      name included; Instrument Manufacturer records the vendor separately, as a controlled
+                      value, so that procedures remain findable by vendor.
+                    type: string
+                    readOnly: true
               schema:hasPart:
                 type: array
                 items:

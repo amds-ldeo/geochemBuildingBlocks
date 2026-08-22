@@ -1608,6 +1608,16 @@ allOf:
                 - contains: *id030
                   minContains: 0
                   maxContains: 1
+              schema:model:
+                type: object
+                properties:
+                  schema:name:
+                    description: Model designation of the instrument that performs the measurement, including
+                      any generation or configuration suffix. Conventionally written with the manufacturer
+                      name included; Instrument Manufacturer records the vendor separately, as a controlled
+                      value, so that procedures remain findable by vendor.
+                    type: string
+                    readOnly: true
         - if:
             properties:
               schema:additionalType:

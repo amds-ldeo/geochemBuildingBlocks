@@ -18511,6 +18511,58 @@
               }
             }
           ]
+        },
+        "dqv:hasQualityMeasurement": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "dqv:isMeasurementOf": {
+                      "const": "Goodness-of-Fit"
+                    }
+                  },
+                  "required": [
+                    "dqv:isMeasurementOf"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "dqv:value": {
+                      "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "dqv:isMeasurementOf": {
+                    "const": "Goodness-of-Fit"
+                  }
+                },
+                "required": [
+                  "dqv:isMeasurementOf"
+                ]
+              }
+            }
+          ]
         }
       }
     },
@@ -20001,68 +20053,6 @@
                               "ada:samplingUnit": {
                                 "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
                                 "type": "string"
-                              },
-                              "schema:instrument": {
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "allOf": [
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "schema:additionalType": {
-                                            "contains": {
-                                              "const": "SEM"
-                                            },
-                                            "schema:inDefinedTermSet": "ada:vocab/instrumentType"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:additionalType"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:manufacturer": {
-                                            "type": "object",
-                                            "properties": {
-                                              "schema:name": {
-                                                "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
-                                                "type": "string"
-                                              }
-                                            }
-                                          },
-                                          "schema:model": {
-                                            "type": "object",
-                                            "properties": {
-                                              "schema:name": {
-                                                "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
-                                                "type": "string"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ]
-                                },
-                                "allOf": [
-                                  {
-                                    "contains": {
-                                      "properties": {
-                                        "schema:additionalType": {
-                                          "contains": {
-                                            "const": "SEM"
-                                          },
-                                          "schema:inDefinedTermSet": "ada:vocab/instrumentType"
-                                        }
-                                      },
-                                      "required": [
-                                        "schema:additionalType"
-                                      ]
-                                    }
-                                  }
-                                ]
                               },
                               "bios:computationalTool": {
                                 "type": "array",
@@ -24241,6 +24231,16 @@
                                                 "maxContains": 1
                                               }
                                             ]
+                                          },
+                                          "schema:model": {
+                                            "type": "object",
+                                            "properties": {
+                                              "schema:name": {
+                                                "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
+                                                "type": "string",
+                                                "readOnly": true
+                                              }
+                                            }
                                           }
                                         }
                                       }
