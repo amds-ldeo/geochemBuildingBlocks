@@ -616,9 +616,9 @@ def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", p
         # property value is permitted to be either a literal or a list; a deliberate exception.
         valtype = {"anyOf": [valtype, {"type": "array", "items": valtype}]}
     if as_value:
-        # A fixed/recorded column value -> schema:PropertyValue (schema:value), mirroring
-        # param_value_def. Used for read-only channel columns on the procedure and for every column
-        # on the $Dataset side (the analysis records the value it actually used, never a default).
+        # A recorded column value -> schema:PropertyValue (schema:value), mirroring param_value_def.
+        # $Dataset side only: the analysis records the value it actually used, never a default. A
+        # procedure-side column is always a specification, however tightly it is fixed.
         props = {
             "@id": {"const": col_id},
             "@type": {"const": ["schema:PropertyValue"]},
@@ -750,9 +750,21 @@ def build(tapp):
                     # alone - right for an additionalProperty parameter, but unsatisfiable here: no
                     # instance could match both that const and the base's contains.
                     if any(x.prop == "schema:variableMeasured" for x in parsed.segments):
-                        tc = ((body[name].get("properties") or {}).get("@type") or {})
+                        # DISTINCT $def. param_value_def keys by TAPP + bare name, so an item placed
+                        # BOTH on a workflow step and on schema:variableMeasured shares one def -
+                        # and extending @type for the variable placement would impose
+                        # cdi:InstanceVariable on the step parameter too, which then matches no
+                        # branch. Channel columns solve the same collision with an AnalysisValue
+                        # suffix; this is that pattern for reported properties.
+                        vm_name = name + "Variable"
+                        blk = dict(body[name])
+                        blk["properties"] = dict(blk.get("properties") or {})
+                        tc = dict((blk["properties"].get("@type") or {}))
                         if isinstance(tc.get("const"), list) and CDI_VARIABLE not in tc["const"]:
                             tc["const"] = tc["const"] + [CDI_VARIABLE]
+                        blk["properties"]["@type"] = tc
+                        body = {vm_name: blk}
+                        name = vm_name
                     registries["parameterValues"].update(body); pv_seen.add(name)
                     ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/parameterValues/schema.yaml#/$defs/{name}"}
                 if read_only:
@@ -795,8 +807,16 @@ def build(tapp):
                 # column record a fixed value (schema:PropertyValue); an editable procedure column
                 # registers a default (schema:PropertyValueSpecification). Analyte columns keep the
                 # specification form.
-                as_value = (cfg["registry"] == "channelColumns"
-                            and (parsed.root == "Dataset" or read_only))
+                # A keyed-table COLUMN is a column DEFINITION, and the base (KeyedTableColumn)
+                # types every one of them schema:PropertyValueSpecification. Read-only does not make
+                # a definition into a measurement - it is a property OF the specification, which is
+                # what schema:readonlyValue exists for and which the specification branch already
+                # emits. Routing read-only procedure columns to the value branch contradicted the
+                # base (allOf: PropertyValue const vs a contains for PropertyValueSpecification -
+                # unsatisfiable), and did it only for channels: all 282 analyte columns were already
+                # specifications. The value form is right on the $DATASET side alone, where the
+                # member is not a column definition but the value the analysis actually recorded.
+                as_value = (cfg["registry"] == "channelColumns" and parsed.root == "Dataset")
                 registries.setdefault(cfg["registry"], {})[name] = analyte_column_def(
                     bare, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only,
                     ptier=(m.get("P") or "").strip(), atier=(m.get("A") or "").strip(),
