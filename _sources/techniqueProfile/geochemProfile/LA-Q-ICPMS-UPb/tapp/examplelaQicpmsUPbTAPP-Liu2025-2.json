@@ -21,8 +21,7 @@
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-Q-ICP-MS"
+      "schema:termCode": "LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -123,6 +122,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Same approach as glass; Au spike identification critical for determining solubility vs. nugget contribution"
+          },
+          {
+            "@id": "ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+            "schema:name": "Normalization / Standards-Based Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "No post-acquisition normalization beyond IS (Fe from EMP)"
           }
         ],
         "@type": [
@@ -190,6 +200,11 @@
           "schema:defaultValue": "Unit resolution (quadrupole fixed)"
         }
       ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -248,25 +263,34 @@
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:ablationSpotDurationDefault": "~40 s (same protocol; grain size >20 µm selected)",
   "ada:carrierGasFlowRateDefault": "He (flow rate not stated; same system as glass protocol)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laQicpmsUPbTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N₂ or Ar mixed (same protocol as glass)"
     },
@@ -304,12 +328,12 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -320,8 +344,8 @@
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied",
@@ -418,15 +442,6 @@
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsUPbTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
@@ -448,6 +463,7 @@
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
   "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
+  "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",

@@ -15,7 +15,7 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "example protocolName",
+  "schema:name": "example procedureName",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -25,7 +25,7 @@
     }
   ],
   "schema:creator": {
-    "schema:name": "example protocolAuthor",
+    "schema:name": "example procedureAuthor",
     "@type": [
       "schema:Person"
     ]
@@ -37,20 +37,20 @@
     "schema:name": "example laboratory",
     "schema:identifier": "example laboratoryId"
   },
-  "schema:datePublished": "example protocolStartDate",
+  "schema:datePublished": "example procedureStartDate",
   "schema:funding": [
     {
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "example fundingSourceForProtocolDevelopment"
+      "schema:name": "example fundingSourceForProcedureDevelopment"
     }
   ],
   "ada:samplingUnit": "Whole sample",
   "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/preAnalysisImagingAndScreeningDefault",
+      "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -60,23 +60,23 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/transectRateMappingRateOrStepSizeDefault",
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
       "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
-      "schema:name": "Transect Rate, Mapping Rate or Step Size",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laMcicpmsUPbTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session"
     },
     {
@@ -93,6 +93,16 @@
       "schema:value": "example value"
     },
     {
+      "@id": "ada:parameter/laMcicpmsUPbTAPP/ionCounterDeadTimeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ionCounterDeadTimeDefault",
+      "schema:name": "Ion Counter Dead Time",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
+    },
+    {
       "@id": "ada:parameter/laMcicpmsUPbTAPP/multiRunSequentialAnalysisDesign",
       "@type": [
         "schema:PropertyValue"
@@ -106,7 +116,7 @@
       "schema:value": "example value"
     },
     {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/numberOfBlocksPerMeasurementDefault",
+      "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -116,7 +126,7 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/numberOfCyclesPerBlockDefault",
+      "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -126,7 +136,7 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/integrationTimePerCycleDefault",
+      "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -136,17 +146,14 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/baselineMeasurementApproach",
+      "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsUPbTAPP/baselineMeasurementApproach"
-        }
-      ],
+      "schema:valueName": "baselineMeasurementApproach",
       "schema:name": "Baseline Measurement Approach",
-      "schema:value": "example value"
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/laMcicpmsUPbTAPP/uncertaintyPropagationMethodDefault",
@@ -172,43 +179,37 @@
       "schema:value": "example value"
     },
     {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/massFractionationLaw",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsUPbTAPP/massFractionationLaw"
-        }
-      ],
-      "schema:name": "Mass Fractionation Law",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/doubleSpikeIsotopePair",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsUPbTAPP/doubleSpikeIsotopePair"
-        }
-      ],
-      "schema:name": "Double-Spike Isotope Pair",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/doubleSpikeMixingRatioDefault",
+      "@id": "ada:parameter/module/MCICPMS/massFractionationLaw",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "doubleSpikeMixingRatioDefault",
-      "schema:name": "Double-Spike Mixing Ratio",
+      "schema:valueName": "massFractionationLaw",
+      "schema:name": "Mass Fractionation Law",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/ageDatumReferenceEpochDefault",
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeIsotopePair",
+      "schema:name": "Double Spike Isotope Pair",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeMixingRatioDefault",
+      "schema:name": "Double Spike Mixing Ratio",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/module/Geochronology/ageDatumReferenceEpochDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -218,17 +219,14 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsUPbTAPP/discordanceDefinitionAndValues"
-        }
-      ],
+      "schema:valueName": "discordanceDefinitionAndValues",
       "schema:name": "Discordance Definition and Values",
-      "schema:value": "example value"
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/laMcicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault",
@@ -238,92 +236,6 @@
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
       "ada:dataType": "number",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/eScanRange",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsUPbTAPP/eScanRange"
-        }
-      ],
-      "schema:name": "E-scan Range",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/tripleScanningMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsUPbTAPP/tripleScanningMode"
-        }
-      ],
-      "schema:name": "Triple Scanning Mode",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/imaging",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "imaging",
-      "schema:name": "Imaging",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/ablationPitDepthAblationRate",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "ablationPitDepthAblationRate",
-      "schema:name": "Ablation Pit Depth/Ablation Rate",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/makeUpGasFlow",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "makeUpGasFlow",
-      "schema:name": "Make-up Gas Flow (L min⁻¹)",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/icDeadTime",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "icDeadTime",
-      "schema:name": "IC Dead Time (ns)",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/otherInformation",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "otherInformation",
-      "schema:name": "Other Information",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsUPbTAPP/uncertaintyLevelAndPropagation",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "uncertaintyLevelAndPropagation",
-      "schema:name": "Uncertainty Level and Propagation",
-      "ada:dataType": "string",
       "ada:fieldScope": "session"
     }
   ],
@@ -340,6 +252,7 @@
   "ada:carrierGasFlowRateDefault": "example carrierGasAndFlowRate",
   "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault": "example analysisSequence",
+  "ada:massesMeasuredDefault": "example monitoredMasses",
   "ada:massResolutionAssignment": "example massResolutionAssignment",
   "ada:ionCounterDeadTimeDefault": 1.0,
   "ada:backgroundCountTimeDefault": 1.0,
@@ -369,12 +282,5 @@
   "ada:secondaryReferenceMaterialDefault": [
     "example secondaryReferenceMaterials"
   ],
-  "schema:description": "example additionalNotes",
-  "ada:signalCollectionMode": "example signalCollectionMode",
-  "ada:spotDiameterDefault": "example spotDiameter",
-  "ada:massesMeasuredDefault": "example massesMeasured",
-  "ada:dwellTimesDefault": "example integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "example totalIntegrationTimePerOutputDataPoint",
-  "ada:gasBlank": "example gasBlank",
-  "ada:commonPbCorrectionCompositionAndUncertainty": "example commonPbCorrectionCompositionAndUncertainty"
+  "schema:description": "example additionalNotes"
 }

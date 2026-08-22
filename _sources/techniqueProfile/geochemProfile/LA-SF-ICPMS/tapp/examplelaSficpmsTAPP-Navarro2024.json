@@ -21,8 +21,7 @@
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-SF-ICP-MS"
+      "schema:termCode": "LA-SF-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -186,16 +185,14 @@
       "ada:laserRepetitionRateDefault": "10 Hz",
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/laSficpmsTAPP/laserPulseDuration",
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laSficpmsTAPP/laserPulseDuration"
-            }
-          ],
+          "schema:valueName": "laserPulseDuration",
           "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "4 ns (ArF excimer Excite 193)"
         }
       ],
@@ -347,6 +344,20 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "bios:computationalTool": [
@@ -362,13 +373,13 @@
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laSficpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laSficpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Ar make-up gas (combined via T-piece in sample transport line near torch; flow rate not stated separately)"
     },
@@ -422,12 +433,22 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laSficpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laSficpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -438,8 +459,8 @@
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laSficpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -536,15 +557,6 @@
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
@@ -568,7 +580,6 @@
   "ada:massResolutionAssignment": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",

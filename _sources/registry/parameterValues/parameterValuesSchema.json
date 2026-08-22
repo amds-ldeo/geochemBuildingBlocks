@@ -1895,6 +1895,41 @@
                 "schema:value"
             ]
         },
+        "laMcicpms_dataProcessingSoftware": {
+            "title": "Data Processing Software(s)",
+            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/dataProcessingSoftware"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/laMcicpmsTAPP/dataProcessingSoftware"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Data Processing Software(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laMcicpms_laserSpotGeometry": {
             "title": "Laser Spot Geometry",
             "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the procedure. For circular spots, report diameter; for square or rectangular spots, report width × length. The procedure registers the typical geometry; analysts may adjust within procedure-allowed range.",
@@ -2254,13 +2289,13 @@
                 "schema:value"
             ]
         },
-        "laMcicpms_plasmaMakeUpGasAddition": {
-            "title": "Plasma / Make-up Gas Addition",
-            "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
+        "laMcicpms_makeUpGasAndFlowRate": {
+            "title": "Make-up Gas and Flow Rate",
+            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAddition"
+                    "const": "ada:parameter/laMcicpmsTAPP/makeUpGasAndFlowRate"
                 },
                 "@type": {
                     "const": [
@@ -2270,14 +2305,24 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAddition"
+                            "@id": "ada:parameter/laMcicpmsTAPP/makeUpGasAndFlowRate"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Plasma / Make-up Gas Addition"
+                    "const": "Make-up Gas and Flow Rate"
                 },
                 "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
                     "type": "string"
                 }
             },
@@ -2286,7 +2331,8 @@
                 "@type",
                 "schema:propertyID",
                 "schema:name",
-                "schema:value"
+                "schema:value",
+                "schema:unitText"
             ]
         },
         "laMcicpms_coolantGasFlowRate": {
@@ -2497,13 +2543,13 @@
                 "schema:value"
             ]
         },
-        "laMcicpms_sensitivityAsUsefulYield": {
-            "title": "Sensitivity as Useful Yield",
-            "description": "Instrument sensitivity expressed as useful yield: the percentage of sampled atoms of a given element ultimately detected as ions, with the method used to derive it cited. A more rigorous and more comparable statement of sensitivity than counts per second per unit concentration, which depends on spot size, fluence and repetition rate.",
+        "laMcicpms_instrumentSensitivity": {
+            "title": "Instrument Sensitivity",
+            "description": "Instrument sensitivity achieved in the session, with the isotope or channel it was measured on and the conditions it applies to. May be expressed either as detected signal per unit concentration or per unit mass of analyte delivered — counts per second per ppb, volts per ppm, counts per picogram — or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited. Useful yield is the more comparable of the two wherever the amount of material consumed varies between procedures, as it does with spot size, fluence and repetition rate. Records what the instrument actually delivered; a sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laMcicpmsTAPP/sensitivityAsUsefulYield"
+                    "const": "ada:parameter/laMcicpmsTAPP/instrumentSensitivity"
                 },
                 "@type": {
                     "const": [
@@ -2513,12 +2559,12 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laMcicpmsTAPP/sensitivityAsUsefulYield"
+                            "@id": "ada:parameter/laMcicpmsTAPP/instrumentSensitivity"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Sensitivity as Useful Yield"
+                    "const": "Instrument Sensitivity"
                 },
                 "schema:value": {
                     "anyOf": [
@@ -3988,6 +4034,41 @@
                 "schema:value"
             ]
         },
+        "laMcicpmsUPb_dataProcessingSoftware": {
+            "title": "Data Processing Software(s)",
+            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laMcicpmsUPbTAPP/dataProcessingSoftware"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/laMcicpmsUPbTAPP/dataProcessingSoftware"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Data Processing Software(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laMcicpmsUPb_laserSpotGeometry": {
             "title": "Laser Spot Geometry",
             "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the procedure. For circular spots, report diameter; for square or rectangular spots, report width × length. The procedure registers the typical geometry; analysts may adjust within procedure-allowed range.",
@@ -4347,13 +4428,13 @@
                 "schema:value"
             ]
         },
-        "laMcicpmsUPb_plasmaMakeUpGasAddition": {
-            "title": "Plasma / Make-up Gas Addition",
-            "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
+        "laMcicpmsUPb_makeUpGasAndFlowRate": {
+            "title": "Make-up Gas and Flow Rate",
+            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laMcicpmsUPbTAPP/plasmaMakeUpGasAddition"
+                    "const": "ada:parameter/laMcicpmsUPbTAPP/makeUpGasAndFlowRate"
                 },
                 "@type": {
                     "const": [
@@ -4363,14 +4444,24 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laMcicpmsUPbTAPP/plasmaMakeUpGasAddition"
+                            "@id": "ada:parameter/laMcicpmsUPbTAPP/makeUpGasAndFlowRate"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Plasma / Make-up Gas Addition"
+                    "const": "Make-up Gas and Flow Rate"
                 },
                 "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
                     "type": "string"
                 }
             },
@@ -4379,7 +4470,8 @@
                 "@type",
                 "schema:propertyID",
                 "schema:name",
-                "schema:value"
+                "schema:value",
+                "schema:unitText"
             ]
         },
         "laMcicpmsUPb_coolantGasFlowRate": {
@@ -4590,13 +4682,13 @@
                 "schema:value"
             ]
         },
-        "laMcicpmsUPb_sensitivityAsUsefulYield": {
-            "title": "Sensitivity as Useful Yield",
-            "description": "Instrument sensitivity expressed as useful yield: the percentage of sampled atoms of a given element ultimately detected as ions, with the method used to derive it cited. A more rigorous and more comparable statement of sensitivity than counts per second per unit concentration, which depends on spot size, fluence and repetition rate.",
+        "laMcicpmsUPb_instrumentSensitivity": {
+            "title": "Instrument Sensitivity",
+            "description": "Instrument sensitivity achieved in the session, with the isotope or channel it was measured on and the conditions it applies to. May be expressed either as detected signal per unit concentration or per unit mass of analyte delivered — counts per second per ppb, volts per ppm, counts per picogram — or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited. Useful yield is the more comparable of the two wherever the amount of material consumed varies between procedures, as it does with spot size, fluence and repetition rate. Records what the instrument actually delivered; a sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laMcicpmsUPbTAPP/sensitivityAsUsefulYield"
+                    "const": "ada:parameter/laMcicpmsUPbTAPP/instrumentSensitivity"
                 },
                 "@type": {
                     "const": [
@@ -4606,12 +4698,12 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laMcicpmsUPbTAPP/sensitivityAsUsefulYield"
+                            "@id": "ada:parameter/laMcicpmsUPbTAPP/instrumentSensitivity"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Sensitivity as Useful Yield"
+                    "const": "Instrument Sensitivity"
                 },
                 "schema:value": {
                     "anyOf": [
@@ -6221,6 +6313,41 @@
                 "schema:value"
             ]
         },
+        "laQicpms_dataProcessingSoftware": {
+            "title": "Data Processing Software(s)",
+            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/dataProcessingSoftware"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/laQicpmsTAPP/dataProcessingSoftware"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Data Processing Software(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laQicpms_laserSpotGeometry": {
             "title": "Laser Spot Geometry",
             "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the procedure. For circular spots, report diameter; for square or rectangular spots, report width × length. The procedure registers the typical geometry; analysts may adjust within procedure-allowed range.",
@@ -6580,13 +6707,13 @@
                 "schema:value"
             ]
         },
-        "laQicpms_plasmaMakeUpGasAddition": {
-            "title": "Plasma / Make-up Gas Addition",
-            "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
+        "laQicpms_makeUpGasAndFlowRate": {
+            "title": "Make-up Gas and Flow Rate",
+            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAddition"
+                    "const": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRate"
                 },
                 "@type": {
                     "const": [
@@ -6596,14 +6723,24 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAddition"
+                            "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRate"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Plasma / Make-up Gas Addition"
+                    "const": "Make-up Gas and Flow Rate"
                 },
                 "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
                     "type": "string"
                 }
             },
@@ -6612,7 +6749,8 @@
                 "@type",
                 "schema:propertyID",
                 "schema:name",
-                "schema:value"
+                "schema:value",
+                "schema:unitText"
             ]
         },
         "laQicpms_coolantGasFlowRate": {
@@ -6823,13 +6961,13 @@
                 "schema:value"
             ]
         },
-        "laQicpms_sensitivityAsUsefulYield": {
-            "title": "Sensitivity as Useful Yield",
-            "description": "Instrument sensitivity expressed as useful yield: the percentage of sampled atoms of a given element ultimately detected as ions, with the method used to derive it cited. A more rigorous and more comparable statement of sensitivity than counts per second per unit concentration, which depends on spot size, fluence and repetition rate.",
+        "laQicpms_instrumentSensitivity": {
+            "title": "Instrument Sensitivity",
+            "description": "Instrument sensitivity achieved in the session, with the isotope or channel it was measured on and the conditions it applies to. May be expressed either as detected signal per unit concentration or per unit mass of analyte delivered — counts per second per ppb, volts per ppm, counts per picogram — or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited. Useful yield is the more comparable of the two wherever the amount of material consumed varies between procedures, as it does with spot size, fluence and repetition rate. Records what the instrument actually delivered; a sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laQicpmsTAPP/sensitivityAsUsefulYield"
+                    "const": "ada:parameter/laQicpmsTAPP/instrumentSensitivity"
                 },
                 "@type": {
                     "const": [
@@ -6839,12 +6977,12 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laQicpmsTAPP/sensitivityAsUsefulYield"
+                            "@id": "ada:parameter/laQicpmsTAPP/instrumentSensitivity"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Sensitivity as Useful Yield"
+                    "const": "Instrument Sensitivity"
                 },
                 "schema:value": {
                     "anyOf": [
@@ -7158,6 +7296,41 @@
                 "schema:unitText"
             ]
         },
+        "laQicpms_collisionReactionGasMixtureRatio": {
+            "title": "Collision/Reaction Gas Mixture Ratio",
+            "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity because the proportions change reaction efficiency and interference suppression independently of which gases are used. Record 'N/A' where a single gas is used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Collision/Reaction Gas Mixture Ratio"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laQicpms_dwellTimePerMass": {
             "title": "Dwell Time per Mass",
             "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
@@ -7182,6 +7355,16 @@
                     "const": "Dwell Time per Mass"
                 },
                 "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
                     "type": "string"
                 }
             },
@@ -7190,7 +7373,8 @@
                 "@type",
                 "schema:propertyID",
                 "schema:name",
-                "schema:value"
+                "schema:value",
+                "schema:unitText"
             ]
         },
         "laQicpms_totalIntegrationTimePerOutputDataPoint": {
@@ -7775,6 +7959,41 @@
                 "schema:value"
             ]
         },
+        "laQicpms_reactionProductIonMassShiftTransition": {
+            "title": "Reaction Product Ion / Mass-Shift Transition",
+            "description": "For each monitored mass produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the analyte it reports, which the monitored mass alone does not state. Record 'N/A' where the analyte is measured on its own mass.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Reaction Product Ion / Mass-Shift Transition"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laQicpms_multiRunSequentialAnalysisDesign": {
             "title": "Multi-Run Sequential Analysis Design",
             "description": "Whether the procedure uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
@@ -8230,6 +8449,41 @@
                 "schema:value"
             ]
         },
+        "laQicpmsUPb_dataProcessingSoftware": {
+            "title": "Data Processing Software(s)",
+            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laQicpmsUPbTAPP/dataProcessingSoftware"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/laQicpmsUPbTAPP/dataProcessingSoftware"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Data Processing Software(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laQicpmsUPb_laserSpotGeometry": {
             "title": "Laser Spot Geometry",
             "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the procedure. For circular spots, report diameter; for square or rectangular spots, report width × length. The procedure registers the typical geometry; analysts may adjust within procedure-allowed range.",
@@ -8589,13 +8843,13 @@
                 "schema:value"
             ]
         },
-        "laQicpmsUPb_plasmaMakeUpGasAddition": {
-            "title": "Plasma / Make-up Gas Addition",
-            "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
+        "laQicpmsUPb_makeUpGasAndFlowRate": {
+            "title": "Make-up Gas and Flow Rate",
+            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAddition"
+                    "const": "ada:parameter/laQicpmsUPbTAPP/makeUpGasAndFlowRate"
                 },
                 "@type": {
                     "const": [
@@ -8605,14 +8859,24 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAddition"
+                            "@id": "ada:parameter/laQicpmsUPbTAPP/makeUpGasAndFlowRate"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Plasma / Make-up Gas Addition"
+                    "const": "Make-up Gas and Flow Rate"
                 },
                 "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
                     "type": "string"
                 }
             },
@@ -8621,7 +8885,8 @@
                 "@type",
                 "schema:propertyID",
                 "schema:name",
-                "schema:value"
+                "schema:value",
+                "schema:unitText"
             ]
         },
         "laQicpmsUPb_coolantGasFlowRate": {
@@ -8832,13 +9097,13 @@
                 "schema:value"
             ]
         },
-        "laQicpmsUPb_sensitivityAsUsefulYield": {
-            "title": "Sensitivity as Useful Yield",
-            "description": "Instrument sensitivity expressed as useful yield: the percentage of sampled atoms of a given element ultimately detected as ions, with the method used to derive it cited. A more rigorous and more comparable statement of sensitivity than counts per second per unit concentration, which depends on spot size, fluence and repetition rate.",
+        "laQicpmsUPb_instrumentSensitivity": {
+            "title": "Instrument Sensitivity",
+            "description": "Instrument sensitivity achieved in the session, with the isotope or channel it was measured on and the conditions it applies to. May be expressed either as detected signal per unit concentration or per unit mass of analyte delivered — counts per second per ppb, volts per ppm, counts per picogram — or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited. Useful yield is the more comparable of the two wherever the amount of material consumed varies between procedures, as it does with spot size, fluence and repetition rate. Records what the instrument actually delivered; a sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laQicpmsUPbTAPP/sensitivityAsUsefulYield"
+                    "const": "ada:parameter/laQicpmsUPbTAPP/instrumentSensitivity"
                 },
                 "@type": {
                     "const": [
@@ -8848,12 +9113,12 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laQicpmsUPbTAPP/sensitivityAsUsefulYield"
+                            "@id": "ada:parameter/laQicpmsUPbTAPP/instrumentSensitivity"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Sensitivity as Useful Yield"
+                    "const": "Instrument Sensitivity"
                 },
                 "schema:value": {
                     "anyOf": [
@@ -9167,6 +9432,41 @@
                 "schema:unitText"
             ]
         },
+        "laQicpmsUPb_collisionReactionGasMixtureRatio": {
+            "title": "Collision/Reaction Gas Mixture Ratio",
+            "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity because the proportions change reaction efficiency and interference suppression independently of which gases are used. Record 'N/A' where a single gas is used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laQicpmsUPbTAPP/collisionReactionGasMixtureRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/laQicpmsUPbTAPP/collisionReactionGasMixtureRatio"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Collision/Reaction Gas Mixture Ratio"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laQicpmsUPb_dwellTimePerMass": {
             "title": "Dwell Time per Mass",
             "description": "Count time (dwell time) per mass position for each measured isotope in milliseconds. Longer dwell times improve counting statistics and lower detection limits but reduce the number of isotopes measurable within a given scan cycle time. For mapping, scan cycle time directly determines spatial resolution at a given scan speed: shorter cycle time = finer spatial resolution.",
@@ -9191,6 +9491,16 @@
                     "const": "Dwell Time per Mass"
                 },
                 "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
                     "type": "string"
                 }
             },
@@ -9199,7 +9509,8 @@
                 "@type",
                 "schema:propertyID",
                 "schema:name",
-                "schema:value"
+                "schema:value",
+                "schema:unitText"
             ]
         },
         "laQicpmsUPb_totalIntegrationTimePerOutputDataPoint": {
@@ -9889,6 +10200,41 @@
                 "schema:value"
             ]
         },
+        "laQicpmsUPb_reactionProductIonMassShiftTransition": {
+            "title": "Reaction Product Ion / Mass-Shift Transition",
+            "description": "For each monitored mass produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the analyte it reports, which the monitored mass alone does not state. Record 'N/A' where the analyte is measured on its own mass.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laQicpmsUPbTAPP/reactionProductIonMassShiftTransition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/laQicpmsUPbTAPP/reactionProductIonMassShiftTransition"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Reaction Product Ion / Mass-Shift Transition"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laQicpmsUPb_multiRunSequentialAnalysisDesign": {
             "title": "Multi-Run Sequential Analysis Design",
             "description": "Whether the procedure uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
@@ -10449,6 +10795,41 @@
                 "schema:value"
             ]
         },
+        "laSficpms_dataProcessingSoftware": {
+            "title": "Data Processing Software(s)",
+            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laSficpmsTAPP/dataProcessingSoftware"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/laSficpmsTAPP/dataProcessingSoftware"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Data Processing Software(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laSficpms_laserSpotGeometry": {
             "title": "Laser Spot Geometry",
             "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the procedure. For circular spots, report diameter; for square or rectangular spots, report width × length. The procedure registers the typical geometry; analysts may adjust within procedure-allowed range.",
@@ -10808,13 +11189,13 @@
                 "schema:value"
             ]
         },
-        "laSficpms_plasmaMakeUpGasAddition": {
-            "title": "Plasma / Make-up Gas Addition",
-            "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
+        "laSficpms_makeUpGasAndFlowRate": {
+            "title": "Make-up Gas and Flow Rate",
+            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laSficpmsTAPP/plasmaMakeUpGasAddition"
+                    "const": "ada:parameter/laSficpmsTAPP/makeUpGasAndFlowRate"
                 },
                 "@type": {
                     "const": [
@@ -10824,14 +11205,24 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laSficpmsTAPP/plasmaMakeUpGasAddition"
+                            "@id": "ada:parameter/laSficpmsTAPP/makeUpGasAndFlowRate"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Plasma / Make-up Gas Addition"
+                    "const": "Make-up Gas and Flow Rate"
                 },
                 "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
                     "type": "string"
                 }
             },
@@ -10840,7 +11231,8 @@
                 "@type",
                 "schema:propertyID",
                 "schema:name",
-                "schema:value"
+                "schema:value",
+                "schema:unitText"
             ]
         },
         "laSficpms_coolantGasFlowRate": {
@@ -11051,13 +11443,13 @@
                 "schema:value"
             ]
         },
-        "laSficpms_sensitivityAsUsefulYield": {
-            "title": "Sensitivity as Useful Yield",
-            "description": "Instrument sensitivity expressed as useful yield: the percentage of sampled atoms of a given element ultimately detected as ions, with the method used to derive it cited. A more rigorous and more comparable statement of sensitivity than counts per second per unit concentration, which depends on spot size, fluence and repetition rate.",
+        "laSficpms_instrumentSensitivity": {
+            "title": "Instrument Sensitivity",
+            "description": "Instrument sensitivity achieved in the session, with the isotope or channel it was measured on and the conditions it applies to. May be expressed either as detected signal per unit concentration or per unit mass of analyte delivered — counts per second per ppb, volts per ppm, counts per picogram — or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited. Useful yield is the more comparable of the two wherever the amount of material consumed varies between procedures, as it does with spot size, fluence and repetition rate. Records what the instrument actually delivered; a sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laSficpmsTAPP/sensitivityAsUsefulYield"
+                    "const": "ada:parameter/laSficpmsTAPP/instrumentSensitivity"
                 },
                 "@type": {
                     "const": [
@@ -11067,12 +11459,12 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laSficpmsTAPP/sensitivityAsUsefulYield"
+                            "@id": "ada:parameter/laSficpmsTAPP/instrumentSensitivity"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Sensitivity as Useful Yield"
+                    "const": "Instrument Sensitivity"
                 },
                 "schema:value": {
                     "anyOf": [
@@ -11272,6 +11664,16 @@
                     "const": "Dwell Time per Mass"
                 },
                 "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
                     "type": "string"
                 }
             },
@@ -11280,7 +11682,8 @@
                 "@type",
                 "schema:propertyID",
                 "schema:name",
-                "schema:value"
+                "schema:value",
+                "schema:unitText"
             ]
         },
         "laSficpms_totalIntegrationTimePerOutputDataPoint": {
@@ -12401,6 +12804,41 @@
                 "schema:value"
             ]
         },
+        "laSficpmsUPb_dataProcessingSoftware": {
+            "title": "Data Processing Software(s)",
+            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/laSficpmsUPbTAPP/dataProcessingSoftware"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/laSficpmsUPbTAPP/dataProcessingSoftware"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Data Processing Software(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "laSficpmsUPb_laserSpotGeometry": {
             "title": "Laser Spot Geometry",
             "description": "Shape and dimensions of the laser ablation spot in micrometres registered by the procedure. For circular spots, report diameter; for square or rectangular spots, report width × length. The procedure registers the typical geometry; analysts may adjust within procedure-allowed range.",
@@ -12760,13 +13198,13 @@
                 "schema:value"
             ]
         },
-        "laSficpmsUPb_plasmaMakeUpGasAddition": {
-            "title": "Plasma / Make-up Gas Addition",
-            "description": "Additional gas(es) mixed into the carrier stream downstream of the ablation cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions can enhance sensitivity for some elements. If N₂ is not added, state \"None\" explicitly to distinguish from not reported.",
+        "laSficpmsUPb_makeUpGasAndFlowRate": {
+            "title": "Make-up Gas and Flow Rate",
+            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laSficpmsUPbTAPP/plasmaMakeUpGasAddition"
+                    "const": "ada:parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRate"
                 },
                 "@type": {
                     "const": [
@@ -12776,14 +13214,24 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laSficpmsUPbTAPP/plasmaMakeUpGasAddition"
+                            "@id": "ada:parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRate"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Plasma / Make-up Gas Addition"
+                    "const": "Make-up Gas and Flow Rate"
                 },
                 "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
                     "type": "string"
                 }
             },
@@ -12792,7 +13240,8 @@
                 "@type",
                 "schema:propertyID",
                 "schema:name",
-                "schema:value"
+                "schema:value",
+                "schema:unitText"
             ]
         },
         "laSficpmsUPb_coolantGasFlowRate": {
@@ -13003,13 +13452,13 @@
                 "schema:value"
             ]
         },
-        "laSficpmsUPb_sensitivityAsUsefulYield": {
-            "title": "Sensitivity as Useful Yield",
-            "description": "Instrument sensitivity expressed as useful yield: the percentage of sampled atoms of a given element ultimately detected as ions, with the method used to derive it cited. A more rigorous and more comparable statement of sensitivity than counts per second per unit concentration, which depends on spot size, fluence and repetition rate.",
+        "laSficpmsUPb_instrumentSensitivity": {
+            "title": "Instrument Sensitivity",
+            "description": "Instrument sensitivity achieved in the session, with the isotope or channel it was measured on and the conditions it applies to. May be expressed either as detected signal per unit concentration or per unit mass of analyte delivered — counts per second per ppb, volts per ppm, counts per picogram — or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited. Useful yield is the more comparable of the two wherever the amount of material consumed varies between procedures, as it does with spot size, fluence and repetition rate. Records what the instrument actually delivered; a sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.",
             "type": "object",
             "properties": {
                 "@id": {
-                    "const": "ada:parameter/laSficpmsUPbTAPP/sensitivityAsUsefulYield"
+                    "const": "ada:parameter/laSficpmsUPbTAPP/instrumentSensitivity"
                 },
                 "@type": {
                     "const": [
@@ -13019,12 +13468,12 @@
                 "schema:propertyID": {
                     "const": [
                         {
-                            "@id": "ada:parameter/laSficpmsUPbTAPP/sensitivityAsUsefulYield"
+                            "@id": "ada:parameter/laSficpmsUPbTAPP/instrumentSensitivity"
                         }
                     ]
                 },
                 "schema:name": {
-                    "const": "Sensitivity as Useful Yield"
+                    "const": "Instrument Sensitivity"
                 },
                 "schema:value": {
                     "anyOf": [
@@ -13224,6 +13673,16 @@
                     "const": "Dwell Time per Mass"
                 },
                 "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
                     "type": "string"
                 }
             },
@@ -13232,7 +13691,8 @@
                 "@type",
                 "schema:propertyID",
                 "schema:name",
-                "schema:value"
+                "schema:value",
+                "schema:unitText"
             ]
         },
         "laSficpmsUPb_totalIntegrationTimePerOutputDataPoint": {

@@ -21,8 +21,7 @@
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "fs-LA-Q-ICP-MS"
+      "schema:termCode": "fs-LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -170,16 +169,14 @@
       "ada:laserRepetitionRateDefault": "20 Hz",
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration",
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration"
-            }
-          ],
+          "schema:valueName": "laserPulseDuration",
           "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "~220 fs (Ti:sapphire IFRIT system)"
         }
       ],
@@ -322,6 +319,20 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:ablationSamplingMode": [
@@ -330,15 +341,16 @@
   "ada:carrierGasFlowRateDefault": "Carrier gas flow: 0.6 L/min; species not named (carrier gas identity not stated in Table 1 or text)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"
+      "schema:defaultValue": 0.9,
+      "schema:description": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"
     },
     {
       "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign",
@@ -397,12 +409,12 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -413,8 +425,8 @@
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -511,15 +523,6 @@
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
@@ -543,7 +546,6 @@
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",

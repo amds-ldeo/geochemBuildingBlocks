@@ -15,14 +15,13 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Liu et al. (2024) Extraterrestrial Flux Glass fs-LA-ICP-MS Spot v1",
-  "schema:description": "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser Reported detail: ada:ablationSamplingMode = Spot (stationary; single spot at 1 Hz).",
+  "schema:description": "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser",
   "schema:measurementTechnique": [
     {
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "fs-LA-Q-ICP-MS"
+      "schema:termCode": "fs-LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -102,12 +101,12 @@
             "schema:defaultValue": "Li₂B₄O₇ flux; sample:flux = 1:35 (10 mg sample + 350 mg flux)"
           },
           {
-            "@id": "ada:parameter/laQicpmsTAPP/preAblationSurfaceTreatmentDefault",
+            "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "preAblationSurfaceTreatmentDefault",
-            "schema:name": "Pre-Ablation Surface Treatment",
+            "schema:name": "Pre Ablation Surface Treatment",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Surface cleaning with ethanol before analysis"
@@ -194,16 +193,14 @@
       "ada:laserRepetitionRateDefault": "1 Hz",
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration",
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration"
-            }
-          ],
+          "schema:valueName": "laserPulseDuration",
           "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Femtosecond (exact value not stated; GenesisGEO fs laser)"
         }
       ],
@@ -365,6 +362,20 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "bios:computationalTool": [
@@ -374,7 +385,7 @@
     }
   ],
   "ada:ablationSamplingMode": [
-    "Spot (stationary)"
+    "Spot (stationary; single spot at 1 Hz)"
   ],
   "ada:ablationSpotDurationDefault": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)",
   "ada:carrierGasFlowRateDefault": "He: 0.7 l min⁻¹ (chamber) + 0.1 l min⁻¹ (cup gas)",
@@ -430,12 +441,12 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -446,8 +457,8 @@
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -544,15 +555,6 @@
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
@@ -589,7 +591,6 @@
   "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",

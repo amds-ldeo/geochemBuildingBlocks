@@ -21,8 +21,7 @@
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-SF-ICP-MS"
+      "schema:termCode": "LA-SF-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -145,6 +144,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: triple mode detection"
+          },
+          {
+            "@id": "ada:parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+            "schema:name": "Normalization / Standards-Based Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "100% oxide sum normalization to 100 wt% for phosphate minerals (Appendix C3)"
           }
         ],
         "@type": [
@@ -182,16 +192,14 @@
       "ada:laserRepetitionRateDefault": "20 Hz",
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/laserPulseDuration",
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laSficpmsUPbTAPP/laserPulseDuration"
-            }
-          ],
+          "schema:valueName": "laserPulseDuration",
           "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "~5 ns (ArF excimer)"
         }
       ],
@@ -367,6 +375,20 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "bios:computationalTool": [
@@ -382,15 +404,16 @@
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.270 l min⁻¹; MFC-2 0.250 l min⁻¹",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Ar make-up: 0.96 l min⁻¹; N₂ not added"
+      "schema:defaultValue": 0.96,
+      "schema:description": "Ar make-up: 0.96 l min⁻¹; N₂ not added"
     },
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign",
@@ -465,12 +488,22 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -481,8 +514,8 @@
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laSficpmsUPbTAPP/isobaricInterferenceCorrectionsApplied",
@@ -579,15 +612,6 @@
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
@@ -610,6 +634,7 @@
   "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massResolutionAssignment": "missing",
+  "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",

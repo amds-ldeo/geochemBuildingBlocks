@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1",
-  "schema:description": "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability Reported detail: ada:isobaricInterferenceCorrectionsApplied = correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law); ada:ablationSamplingMode = Transect (continuous line scan at 2–6 µm s⁻¹).",
+  "schema:description": "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability Reported detail: ada:isobaricInterferenceCorrectionsApplied = correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -303,6 +303,20 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:analysisSequenceDefault": "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis",
@@ -340,15 +354,6 @@
         "ada:dataType": "number"
       },
       {
-        "@id": "ada:analyteColumn/laMcicpmsTAPP/dwellTimePerMass",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -358,21 +363,22 @@
         "ada:dataType": "uri"
       },
       {
-        "@id": "ada:analyteColumn/laMcicpmsTAPP/massResolutionPerAnalyte",
+        "@id": "ada:analyteColumn/laMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laMcicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laMcicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -396,12 +402,12 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laMcicpmsTAPP/sensitivityAsUsefulYield",
+        "@id": "ada:analyteColumn/laMcicpmsTAPP/instrumentSensitivity",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "sensitivityAsUsefulYield",
-        "schema:name": "Sensitivity as Useful Yield",
+        "schema:valueName": "instrumentSensitivity",
+        "schema:name": "Instrument Sensitivity",
         "ada:dataType": "number"
       }
     ]
@@ -437,7 +443,7 @@
     "schema:name": "State Key Laboratory of Geological Processes and Mineral Resources, China Univ. Geosciences, Wuhan, China"
   },
   "ada:ablationSamplingMode": [
-    "Transect (continuous line scan)"
+    "Transect (continuous line scan at 2–6 µm s⁻¹)"
   ],
   "schema:additionalProperty": [
     {
@@ -454,23 +460,24 @@
       "schema:value": "Single line scan per location (1 block of 120 cycles at 0.524 s integration)"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laMcicpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Ar make-up (flow rate not separately stated); N₂ 12 ml min⁻¹ added via Y-connector downstream of signal-smoothing device"
+      "schema:defaultValue": 12,
+      "schema:description": "Ar make-up (flow rate not separately stated); N₂ 12 ml min⁻¹ added via Y-connector downstream of signal-smoothing device"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSizeDefault",
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
       "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
-      "schema:name": "Transect Rate, Mapping Rate or Step Size",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "2–6 µm s⁻¹ (varied based on Sr concentration in target minerals)"
@@ -495,6 +502,18 @@
     ]
   },
   "prov:wasDerivedFrom": "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)",
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "schema:object": [
     {
       "@type": [
@@ -594,8 +613,7 @@
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-MC-ICP-MS",
-      "schema:name": "fs-LA-MC-ICP-MS"
+      "schema:termCode": "fs-LA-MC-ICP-MS"
     }
   ],
   "ada:withinSessionPrecision": "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1",

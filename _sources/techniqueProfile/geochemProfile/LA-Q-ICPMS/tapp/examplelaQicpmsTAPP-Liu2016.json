@@ -21,8 +21,7 @@
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-ICP-MS (193 nm excimer laser + ICP-MS; top-level technique)"
+      "schema:termCode": "LA-ICP-MS (193 nm excimer laser + ICP-MS; top-level technique)"
     }
   ],
   "schema:location": {
@@ -100,7 +99,7 @@
       "ada:laserSpotGeometryDefault": "24 and 32 µm diameter (commonly used for silicates and glass); 90 µm (some olivine analyses to evaluate low REE signal sampling)",
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/laQicpmsTAPP/laserEnergyDefault",
+          "@id": "ada:parameter/module/LaserAblation/laserEnergyDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -134,6 +133,11 @@
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -192,12 +196,21 @@
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "schema:name": "SEM",
+      "@id": "ex:instrument/part/SEM"
     }
   ],
   "bios:computationalTool": [
@@ -283,7 +296,6 @@
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",

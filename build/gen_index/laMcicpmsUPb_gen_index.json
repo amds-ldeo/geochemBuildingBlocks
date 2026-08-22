@@ -6,7 +6,6 @@
   "ada:targetSelectionCriteriaDefault",
   "ada:chemicalAbrasionConditions",
   "ada:laserManufacturerModel",
-  "ada:icpMsManufacturerModel",
   "ada:icpMsType",
   "ada:interfaceConeConfiguration",
   "ada:guardElectrode",
@@ -14,6 +13,7 @@
   "ada:detectorConfiguration",
   "ada:collisionReactionCellConfiguration",
   "ada:laserWavelengthAndType",
+  "ada:dataProcessingSoftwareDefault",
   "ada:ablationCellType",
   "ada:sampleIntroduction",
   "ada:faradayCupArrayConfiguration",
@@ -35,7 +35,7 @@
   "ada:plasmaThermalMode",
   "ada:oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault",
-  "ada:monitoredIsotopes",
+  "ada:monitoredMasses",
   "ada:reportedVariablesAndUnits",
   "ada:massResolutionAssignment",
   "ada:ionCounterDeadTimeDefault",
@@ -89,12 +89,13 @@
   "laMcicpmsUPb_torchDepthDefault",
   "laMcicpmsUPb_laserEnergyDefault",
   "laMcicpmsUPb_transectRateMappingRateOrStepSizeDefault",
-  "laMcicpmsUPb_plasmaMakeUpGasAdditionDefault",
+  "laMcicpmsUPb_makeUpGasAndFlowRateDefault",
   "laMcicpmsUPb_signalSmoothingDefault",
   "laMcicpmsUPb_icpTuningDefault",
   "laMcicpmsUPb_doublyChargedSpeciesMonitorDefault",
   "laMcicpmsUPb_doublyChargedSpeciesProductionDefault",
   "laMcicpmsUPb_reactionGasFlowRateDefault",
+  "laMcicpmsUPb_numberOfReplicatesDefault",
   "laMcicpmsUPb_uncertaintyPropagationMethodDefault",
   "laMcicpmsUPb_spikeOutlierFilteringApproachDefault",
   "laMcicpmsUPb_memoryEffectMitigationDefault",
@@ -104,6 +105,8 @@
   "laMcicpmsUPb_errorCorrelationBetweenReportedQuantitiesDefault",
   "laMcicpmsUPb_detectionLimitDefault",
   "laMcicpmsUPb_limitOfQuantificationMethodDefault",
+  "laMcicpmsUPb_countingStatisticsErrorDefault",
+  "laMcicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethodDefault",
   "laMcicpmsUPb_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault"
  ],
  "pv_keys": [
@@ -119,6 +122,7 @@
   "laMcicpmsUPb_instrumentSerialNumberOrLabIdentifier",
   "laMcicpmsUPb_torchDepth",
   "laMcicpmsUPb_massResolutionSetting",
+  "laMcicpmsUPb_dataProcessingSoftware",
   "laMcicpmsUPb_laserSpotGeometry",
   "laMcicpmsUPb_laserEnergy",
   "laMcicpmsUPb_laserFluence",
@@ -128,13 +132,13 @@
   "laMcicpmsUPb_transectRateMappingRateOrStepSize",
   "laMcicpmsUPb_rasterLineSpacing",
   "laMcicpmsUPb_carrierGasAndFlowRate",
-  "laMcicpmsUPb_plasmaMakeUpGasAddition",
+  "laMcicpmsUPb_makeUpGasAndFlowRate",
   "laMcicpmsUPb_coolantGasFlowRate",
   "laMcicpmsUPb_auxiliaryGasFlowRate",
   "laMcicpmsUPb_rfPower",
   "laMcicpmsUPb_signalSmoothing",
   "laMcicpmsUPb_icpTuning",
-  "laMcicpmsUPb_sensitivityAsUsefulYield",
+  "laMcicpmsUPb_instrumentSensitivity",
   "laMcicpmsUPb_doublyChargedSpeciesMonitor",
   "laMcicpmsUPb_doublyChargedSpeciesProduction",
   "laMcicpmsUPb_analysisSequence",
@@ -183,6 +187,8 @@
   "errorCorrelationBetweenReportedQuantities",
   "detectionLimit",
   "limitOfQuantificationMethod",
+  "countingStatisticsError",
+  "internalAnalyticalPrecisionAndAssessmentMethod",
   "withinSessionAnalyticalPrecisionAndAssessmentMethod",
   "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
   "analyticalAccuracyAndAssessmentMethod",
@@ -237,13 +243,6 @@
    "required": false
   },
   {
-   "key": "ada:icpMsManufacturerModel",
-   "item": "ICP-MS Manufacturer & Model",
-   "jtype": "string",
-   "cov": 0,
-   "required": false
-  },
-  {
    "key": "ada:icpMsType",
    "item": "ICP-MS Type",
    "jtype": "string",
@@ -288,6 +287,13 @@
   {
    "key": "ada:laserWavelengthAndType",
    "item": "Laser Wavelength and Type",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:dataProcessingSoftwareDefault",
+   "item": "Data Processing Software(s)",
    "jtype": "string",
    "cov": 0,
    "required": false
@@ -440,8 +446,8 @@
    "required": false
   },
   {
-   "key": "ada:monitoredIsotopes",
-   "item": "Monitored Isotopes",
+   "key": "ada:monitoredMasses",
+   "item": "Monitored Masses",
    "jtype": "string",
    "cov": 0,
    "required": false
