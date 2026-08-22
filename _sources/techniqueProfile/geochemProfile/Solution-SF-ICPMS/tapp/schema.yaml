@@ -19,6 +19,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: ICPMS
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -33,6 +34,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: ICP Source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -209,6 +211,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Torch
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -268,6 +271,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Interface Cone
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -392,6 +396,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Sample Introduction System
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -400,184 +405,25 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - title: Nebulizer Type
-                              description: Type and material of the pneumatic nebulizer used for sample
-                                introduction. Affects droplet size distribution and sample introduction
-                                efficiency.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/nebulizerType
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/nebulizerType
-                                schema:name:
-                                  const: Nebulizer Type
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            - title: Spray Chamber Type and Cooling Temperature
-                              description: Type of spray chamber and cooling temperature if thermostatted
-                                (°C). Chamber type and temperature control aerosol droplet size and the
-                                solvent vapor load reaching the plasma. In some procedures a spray chamber
-                                is placed downstream of a desolvating nebulizer to improve signal stability.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature
-                                schema:name:
-                                  const: Spray Chamber Type and Cooling Temperature
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            - &id005
-                              title: Nebulizer Gas Flow Rate
-                              description: Flow rate of the carrier argon gas delivered through the nebulizer
-                                (L/min). Controls aerosol transport and strongly influences signal sensitivity
-                                and stability. Adjusted daily to optimize signal.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRateDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: nebulizerGasFlowRateDefault
-                                schema:name:
-                                  const: Nebulizer Gas Flow Rate
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: L/min
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                            - &id006
-                              title: Sample Uptake Rate
-                              description: Peristaltic pump speed or self-aspiration flow rate for sample
-                                introduction (µL/min or mL/min).
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/sampleUptakeRateDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: sampleUptakeRateDefault
-                                schema:name:
-                                  const: Sample Uptake Rate
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: µL/min or mL/min
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
+                            - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_nebulizerType
+                            - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sprayChamberTypeAndCoolingTemperature
+                            - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_nebulizerGasFlowRate
+                            - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sampleUptakeRate
                           allOf:
                           - contains:
-                              title: Nebulizer Type
-                              description: Type and material of the pneumatic nebulizer used for sample
-                                introduction. Affects droplet size distribution and sample introduction
-                                efficiency.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/nebulizerType
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/nebulizerType
-                                schema:name:
-                                  const: Nebulizer Type
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
+                              $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_nebulizerType
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Spray Chamber Type and Cooling Temperature
-                              description: Type of spray chamber and cooling temperature if thermostatted
-                                (°C). Chamber type and temperature control aerosol droplet size and the
-                                solvent vapor load reaching the plasma. In some procedures a spray chamber
-                                is placed downstream of a desolvating nebulizer to improve signal stability.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature
-                                schema:name:
-                                  const: Spray Chamber Type and Cooling Temperature
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
+                              $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sprayChamberTypeAndCoolingTemperature
                             minContains: 0
                             maxContains: 1
-                          - contains: *id005
+                          - contains:
+                              $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_nebulizerGasFlowRate
                             minContains: 0
                             maxContains: 1
-                          - contains: *id006
+                          - contains:
+                              $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sampleUptakeRate
                             minContains: 0
                             maxContains: 1
                 allOf:
@@ -586,6 +432,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: ICP Source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -593,6 +440,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Interface Cone
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
                 - contains:
@@ -600,13 +448,14 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Sample Introduction System
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
               schema:additionalProperty:
                 type: array
                 items:
                   anyOf:
-                  - &id007
+                  - &id005
                     title: Doubly-Charged Species Monitor
                     description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during
                       instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent
@@ -666,7 +515,7 @@ allOf:
                     - schema:name
                     - schema:value
                     readOnly: true
-                  - &id008
+                  - &id006
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored
                       species at the time of instrument tuning. Record both the acceptance threshold and
@@ -699,7 +548,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id009
+                  - &id007
                     title: Instrument Serial Number or Lab Identifier
                     description: Serial number or laboratory-internal identifier for the specific instrument
                       unit. Supports traceability to instrument service records.
@@ -729,7 +578,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id010
+                  - &id008
                     title: Make-up Gas and Flow Rate
                     description: Supplementary gas added to the sample-carrying stream between the sample
                       introduction system and the plasma, with its identity and the procedure-registered
@@ -767,7 +616,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id011
+                  - &id009
                     title: Mass Resolution Setting
                     description: Mass resolution mode(s) used in this procedure. Sector-field instruments
                       allow selection of low resolution (LR; m/Δm ≈ 300–400), medium resolution (MR; m/Δm
@@ -801,7 +650,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id012
+                  - &id010
                     title: Memory Effect Mitigation
                     description: Procedure applied to identify and minimize carry-over of high-concentration
                       elements between successive sample introductions. For solution ICP-MS, mitigation
@@ -836,7 +685,7 @@ allOf:
                     - ada:dataType
                     - ada:fieldScope
                 allOf:
-                - contains: *id007
+                - contains: *id005
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -869,6 +718,12 @@ allOf:
                     readOnly: true
                   minContains: 0
                   maxContains: 1
+                - contains: *id006
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id007
+                  minContains: 0
+                  maxContains: 1
                 - contains: *id008
                   minContains: 0
                   maxContains: 1
@@ -878,18 +733,13 @@ allOf:
                 - contains: *id010
                   minContains: 0
                   maxContains: 1
-                - contains: *id011
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id012
-                  minContains: 0
-                  maxContains: 1
       allOf:
       - contains:
           properties:
             schema:additionalType:
               contains:
                 const: ICPMS
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     schema:object:
@@ -946,37 +796,7 @@ allOf:
                     required:
                     - schema:name
                 - contains:
-                    title: Sample Aliquot Mass or Volume
-                    description: Mass (mg) of solid material digested or volume (mL) of liquid taken for
-                      dissolution. Used for yield calculations and concentration back-calculation.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolumeDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: sampleAliquotMassOrVolumeDefault
-                      schema:name:
-                        const: Sample Aliquot Mass or Volume
-                      ada:dataType:
-                        const: number
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                      schema:unitText:
-                        const: mg or mL
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
+                    $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sampleAliquotMassOrVolume
                   minContains: 0
                   maxContains: 1
       allOf:
@@ -1026,186 +846,25 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - title: Digestion Vessel Type
-                        description: Type of vessel used for acid digestion. Vessel type constrains maximum
-                          temperature and pressure and determines suitability for refractory mineral dissolution
-                          (e.g., Parr bombs required for complete silicate digestion at high temperatures).
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/digestionVesselType
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/solutionSficpmsTAPP/digestionVesselType
-                          schema:name:
-                            const: Digestion Vessel Type
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      - title: Number of Digestion Steps
-                        description: Total number of distinct acid digestion steps required to dissolve
-                          the sample. Some procedures require multiple sequential steps — for example,
-                          an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel
-                          step for residues retaining refractory minerals, or by an aqua regia reflux
-                          to destroy fluoride complexes.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps
-                          schema:name:
-                            const: Number of Digestion Steps
-                          schema:value:
-                            anyOf:
-                            - type: number
-                            - type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      - &id013
-                        title: Digestion Duration
-                        description: Duration of the primary acid digestion step (hours or days).
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/digestionDurationDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: digestionDurationDefault
-                          schema:name:
-                            const: Digestion Duration
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - &id014
-                        title: Digestion Temperature
-                        description: Temperature at which acid digestion was carried out (°C). Procedure
-                          specifies the target temperature.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/digestionTemperatureDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: digestionTemperatureDefault
-                          schema:name:
-                            const: Digestion Temperature
-                          ada:dataType:
-                            const: number
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                          schema:unitText:
-                            const: °C
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType
+                      - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps
+                      - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionDuration
+                      - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionTemperature
                     allOf:
                     - contains:
-                        title: Digestion Vessel Type
-                        description: Type of vessel used for acid digestion. Vessel type constrains maximum
-                          temperature and pressure and determines suitability for refractory mineral dissolution
-                          (e.g., Parr bombs required for complete silicate digestion at high temperatures).
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/digestionVesselType
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/solutionSficpmsTAPP/digestionVesselType
-                          schema:name:
-                            const: Digestion Vessel Type
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
+                        $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Number of Digestion Steps
-                        description: Total number of distinct acid digestion steps required to dissolve
-                          the sample. Some procedures require multiple sequential steps — for example,
-                          an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel
-                          step for residues retaining refractory minerals, or by an aqua regia reflux
-                          to destroy fluoride complexes.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps
-                          schema:name:
-                            const: Number of Digestion Steps
-                          schema:value:
-                            anyOf:
-                            - type: number
-                            - type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
+                        $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps
                       minContains: 0
                       maxContains: 1
-                    - contains: *id013
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionDuration
                       minContains: 0
                       maxContains: 1
-                    - contains: *id014
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionTemperature
                       minContains: 0
                       maxContains: 1
             - if:
@@ -1287,7 +946,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id015
+                      - &id011
                         title: Normalization / Standards-Based Correction
                         description: Post-acquisition normalization applied to output concentrations relative
                           to a reference value (e.g., correction to a BHVO-2 working value).
@@ -1317,7 +976,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - &id016
+                      - &id012
                         title: Pulse/Analog Detector Nonlinearity Correction
                         description: Whether a correction was applied for nonlinear detector response
                           at the transition between pulse-counting and analog (and Faraday, for triple-mode
@@ -1377,81 +1036,13 @@ allOf:
                         - schema:name
                         - schema:value
                         readOnly: true
-                      - &id017
-                        title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses contribute to a
-                          reported aggregate result, together with the outcome of applying them: how many
-                          analyses were acquired, how many were included, and on what grounds any were
-                          excluded. Distinct from within-analysis outlier filtering, which removes anomalous
-                          points inside a single analysis: this field decides which whole analyses enter
-                          the reported value. Criteria and outcome are combined in one field because neither
-                          is interpretable without the other, following the precision/accuracy precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteriaDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: analysisInclusionAndRejectionCriteriaDefault
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - &id018
-                        title: Constants and Reference Values Used
-                        description: Physical constants and reference values used in data reduction to
-                          calculate the final reported quantity (e.g., decay constants for age calculation,
-                          standard isotope ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from the Group 6 reference-material
-                          fields, which document accepted values for specific calibration/validation materials
-                          rather than universal physical constants. Record "None" if no citable, revisable
-                          physical constants feed into this procedure's data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
-                    - contains: *id015
+                    - contains: *id011
                       minContains: 0
                       maxContains: 1
-                    - contains: *id016
+                    - contains: *id012
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -1482,10 +1073,12 @@ allOf:
                         readOnly: true
                       minContains: 0
                       maxContains: 1
-                    - contains: *id017
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
                       maxContains: 1
-                    - contains: *id018
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -1517,33 +1110,7 @@ allOf:
       type: array
       items:
         anyOf:
-        - title: Desolvation System
-          description: 'Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce
-            solvent load. Lowers oxide production rates and increases sensitivity, and is commonly used
-            for low-abundance analytes or small sample sizes. Note the trade-off: desolvation can introduce
-            additional instrumental mass bias instability relative to wet plasma introduction. Record
-            ''None'' if not used.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionSficpmsTAPP/desolvationSystem
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/solutionSficpmsTAPP/desolvationSystem
-            schema:name:
-              const: Desolvation System
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
+        - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
         - title: E-scan Range
           description: Electric scan range used for peak acquisition, expressed as percentage of the centre
             mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic
@@ -1600,36 +1167,8 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - title: Internal Standard Concentration
-          description: Target concentration of internal standard element(s) in all measured solutions
-            (µg/L or ppb). Record 'N/A' where Internal Standard Element is 'None'.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
-            schema:name:
-              const: Internal Standard Concentration
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          - schema:unitText
-          readOnly: true
-        - &id019
+        - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_internalStandardConcentration
+        - &id013
           title: Spike / Outlier Filtering Approach
           description: Criteria used to identify and exclude anomalous replicate measurements or data
             points from the calculated mean.
@@ -1659,7 +1198,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id020
+        - &id014
           title: Uncertainty Propagation Method
           description: 'The approach used to propagate analytical uncertainty through the data reduction
             chain to the final reported value. State which sources are included in the propagation: counting
@@ -1694,33 +1233,7 @@ allOf:
           - ada:fieldScope
       allOf:
       - contains:
-          title: Desolvation System
-          description: 'Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce
-            solvent load. Lowers oxide production rates and increases sensitivity, and is commonly used
-            for low-abundance analytes or small sample sizes. Note the trade-off: desolvation can introduce
-            additional instrumental mass bias instability relative to wet plasma introduction. Record
-            ''None'' if not used.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionSficpmsTAPP/desolvationSystem
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/solutionSficpmsTAPP/desolvationSystem
-            schema:name:
-              const: Desolvation System
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
+          $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
         minContains: 0
         maxContains: 1
       - contains:
@@ -1786,41 +1299,13 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          title: Internal Standard Concentration
-          description: Target concentration of internal standard element(s) in all measured solutions
-            (µg/L or ppb). Record 'N/A' where Internal Standard Element is 'None'.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
-            schema:name:
-              const: Internal Standard Concentration
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          - schema:unitText
-          readOnly: true
+          $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_internalStandardConcentration
         minContains: 0
         maxContains: 1
-      - contains: *id019
+      - contains: *id013
         minContains: 0
         maxContains: 1
-      - contains: *id020
+      - contains: *id014
         minContains: 0
         maxContains: 1
     ada:analyteTemplate:
@@ -1831,7 +1316,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id021
+            - &id015
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by the analyte element
                 they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts
@@ -1865,7 +1350,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id022
+            - &id016
               title: Mass Resolution Assignment
               description: Mass resolution mode assigned to each acquired mass. The selected resolution
                 determines which polyatomic interferences are physically resolved by the magnetic sector.
@@ -1898,7 +1383,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id023
+            - &id017
               title: Dwell Time per Mass
               description: Integration time spent on each mass peak per sweep (ms). May differ between
                 masses where per-mass dwell times are programmed.
@@ -1930,7 +1415,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id024
+            - &id018
               title: Isobaric Interference Corrections Applied
               description: Whether mathematical corrections for residual isobaric or polyatomic interferences
                 are applied in data reduction (supplementary to any interference suppression achieved
@@ -1961,7 +1446,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id025
+            - &id019
               title: Interfering Species
               description: List of isobaric or polyatomic species mathematically corrected in data reduction.
                 In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical
@@ -1992,7 +1477,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id026
+            - &id020
               title: Interference Correction Method
               description: Mathematical approach used to calculate and remove residual interference contributions
                 from measured signals. In SF-ICP-MS, interference solutions isolating specific polyatomic
@@ -2023,7 +1508,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id027
+            - &id021
               title: Detection Limit
               description: Elemental detection limits, one per reported concentration variable (one per
                 analyte, these being the same set). Specify units (µg/g or µg/L) and whether values are
@@ -2055,7 +1540,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id028
+            - &id022
               title: Detection Limit Method
               description: Method used to calculate detection limits for each reported concentration variable.
               type: object
@@ -2084,7 +1569,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id029
+            - &id023
               title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification.
               type: object
@@ -2112,7 +1597,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id030
+            - &id024
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analytical session and the
                 method used to assess it. Report both the assessment method and the precision values.
@@ -2146,7 +1631,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id031
+            - &id025
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analytical sessions over weeks to
                 months — long-term or intermediate precision — and the method used to assess it. Report
@@ -2179,7 +1664,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id032
+            - &id026
               title: Analytical Accuracy and Assessment Method
               description: Accuracy of final concentration measurements relative to certified or consensus
                 values and the method used to assess it.
@@ -2210,6 +1695,24 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
+          - contains: *id015
+            minContains: 0
+            maxContains: 1
+          - contains: *id016
+            minContains: 0
+            maxContains: 1
+          - contains: *id017
+            minContains: 0
+            maxContains: 1
+          - contains: *id018
+            minContains: 0
+            maxContains: 1
+          - contains: *id019
+            minContains: 0
+            maxContains: 1
+          - contains: *id020
+            minContains: 0
+            maxContains: 1
           - contains: *id021
             minContains: 0
             maxContains: 1
@@ -2226,24 +1729,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id026
-            minContains: 0
-            maxContains: 1
-          - contains: *id027
-            minContains: 0
-            maxContains: 1
-          - contains: *id028
-            minContains: 0
-            maxContains: 1
-          - contains: *id029
-            minContains: 0
-            maxContains: 1
-          - contains: *id030
-            minContains: 0
-            maxContains: 1
-          - contains: *id031
-            minContains: 0
-            maxContains: 1
-          - contains: *id032
             minContains: 0
             maxContains: 1
     ada:numberOfScansPerReplicate:

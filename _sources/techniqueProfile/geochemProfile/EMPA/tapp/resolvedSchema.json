@@ -2862,7 +2862,8 @@
                     "schema:additionalType": {
                       "contains": {
                         "const": "SEM"
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -2901,7 +2902,8 @@
                   "schema:additionalType": {
                     "contains": {
                       "const": "SEM"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -3060,7 +3062,8 @@
                     "schema:additionalType": {
                       "contains": {
                         "const": "EPMA"
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -3134,7 +3137,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "EDSDetector"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3168,7 +3172,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Electron source"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3220,7 +3225,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "WDSSpectrometer"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3257,7 +3263,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "Electron source"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -3279,7 +3286,8 @@
                   "schema:additionalType": {
                     "contains": {
                       "const": "EPMA"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -6199,6 +6207,25 @@
           "items": {
             "anyOf": [
               {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
                 "title": "Detection Limit",
                 "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
                 "type": "object",
@@ -6249,7 +6276,8 @@
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
                     ]
                   },
                   "schema:propertyID": {
@@ -6416,7 +6444,8 @@
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
                     ]
                   },
                   "schema:propertyID": {
@@ -6633,7 +6662,7 @@
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault"
+                                "const": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault"
                               },
                               "@type": {
                                 "const": [
@@ -6749,7 +6778,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6790,7 +6819,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
+                                    "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6826,12 +6855,12 @@
                                 ]
                               },
                               {
-                                "title": "Constants and Reference Values Used",
+                                "title": "Constants Reference Values",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6839,10 +6868,10 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "constantsReferenceValuesDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -6876,7 +6905,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6921,7 +6950,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
+                                    "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6961,12 +6990,12 @@
                             },
                             {
                               "contains": {
-                                "title": "Constants and Reference Values Used",
+                                "title": "Constants Reference Values",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -6974,10 +7003,10 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "constantsReferenceValuesDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"

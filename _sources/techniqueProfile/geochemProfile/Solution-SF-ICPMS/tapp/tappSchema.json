@@ -746,340 +746,44 @@
                                                                     "items": {
                                                                         "anyOf": [
                                                                             {
-                                                                                "title": "Nebulizer Type",
-                                                                                "description": "Type and material of the pneumatic nebulizer used for sample introduction. Affects droplet size distribution and sample introduction efficiency.",
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "@id": {
-                                                                                        "const": "ada:parameter/solutionSficpmsTAPP/nebulizerType"
-                                                                                    },
-                                                                                    "@type": {
-                                                                                        "const": [
-                                                                                            "schema:PropertyValue"
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:propertyID": {
-                                                                                        "const": [
-                                                                                            {
-                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/nebulizerType"
-                                                                                            }
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:name": {
-                                                                                        "const": "Nebulizer Type"
-                                                                                    },
-                                                                                    "schema:value": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "@id",
-                                                                                    "@type",
-                                                                                    "schema:propertyID",
-                                                                                    "schema:name",
-                                                                                    "schema:value"
-                                                                                ],
-                                                                                "readOnly": true
+                                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_nebulizerType"
                                                                             },
                                                                             {
-                                                                                "title": "Spray Chamber Type and Cooling Temperature",
-                                                                                "description": "Type of spray chamber and cooling temperature if thermostatted (°C). Chamber type and temperature control aerosol droplet size and the solvent vapor load reaching the plasma. In some procedures a spray chamber is placed downstream of a desolvating nebulizer to improve signal stability.",
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "@id": {
-                                                                                        "const": "ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature"
-                                                                                    },
-                                                                                    "@type": {
-                                                                                        "const": [
-                                                                                            "schema:PropertyValue"
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:propertyID": {
-                                                                                        "const": [
-                                                                                            {
-                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature"
-                                                                                            }
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:name": {
-                                                                                        "const": "Spray Chamber Type and Cooling Temperature"
-                                                                                    },
-                                                                                    "schema:value": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "@id",
-                                                                                    "@type",
-                                                                                    "schema:propertyID",
-                                                                                    "schema:name",
-                                                                                    "schema:value"
-                                                                                ],
-                                                                                "readOnly": true
+                                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sprayChamberTypeAndCoolingTemperature"
                                                                             },
                                                                             {
-                                                                                "title": "Nebulizer Gas Flow Rate",
-                                                                                "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "@id": {
-                                                                                        "const": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRateDefault"
-                                                                                    },
-                                                                                    "@type": {
-                                                                                        "const": [
-                                                                                            "schema:PropertyValueSpecification"
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:valueName": {
-                                                                                        "const": "nebulizerGasFlowRateDefault"
-                                                                                    },
-                                                                                    "schema:name": {
-                                                                                        "const": "Nebulizer Gas Flow Rate"
-                                                                                    },
-                                                                                    "ada:dataType": {
-                                                                                        "const": "number"
-                                                                                    },
-                                                                                    "ada:fieldScope": {
-                                                                                        "const": "session"
-                                                                                    },
-                                                                                    "schema:readonlyValue": {
-                                                                                        "const": false
-                                                                                    },
-                                                                                    "ada:tier": {
-                                                                                        "const": "R"
-                                                                                    },
-                                                                                    "schema:unitText": {
-                                                                                        "const": "L/min"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "@id",
-                                                                                    "@type",
-                                                                                    "schema:valueName",
-                                                                                    "schema:name",
-                                                                                    "ada:dataType",
-                                                                                    "ada:fieldScope"
-                                                                                ]
+                                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_nebulizerGasFlowRate"
                                                                             },
                                                                             {
-                                                                                "title": "Sample Uptake Rate",
-                                                                                "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "@id": {
-                                                                                        "const": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRateDefault"
-                                                                                    },
-                                                                                    "@type": {
-                                                                                        "const": [
-                                                                                            "schema:PropertyValueSpecification"
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:valueName": {
-                                                                                        "const": "sampleUptakeRateDefault"
-                                                                                    },
-                                                                                    "schema:name": {
-                                                                                        "const": "Sample Uptake Rate"
-                                                                                    },
-                                                                                    "ada:dataType": {
-                                                                                        "const": "number"
-                                                                                    },
-                                                                                    "ada:fieldScope": {
-                                                                                        "const": "session"
-                                                                                    },
-                                                                                    "schema:readonlyValue": {
-                                                                                        "const": false
-                                                                                    },
-                                                                                    "ada:tier": {
-                                                                                        "const": "R"
-                                                                                    },
-                                                                                    "schema:unitText": {
-                                                                                        "const": "µL/min or mL/min"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "@id",
-                                                                                    "@type",
-                                                                                    "schema:valueName",
-                                                                                    "schema:name",
-                                                                                    "ada:dataType",
-                                                                                    "ada:fieldScope"
-                                                                                ]
+                                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sampleUptakeRate"
                                                                             }
                                                                         ]
                                                                     },
                                                                     "allOf": [
                                                                         {
                                                                             "contains": {
-                                                                                "title": "Nebulizer Type",
-                                                                                "description": "Type and material of the pneumatic nebulizer used for sample introduction. Affects droplet size distribution and sample introduction efficiency.",
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "@id": {
-                                                                                        "const": "ada:parameter/solutionSficpmsTAPP/nebulizerType"
-                                                                                    },
-                                                                                    "@type": {
-                                                                                        "const": [
-                                                                                            "schema:PropertyValue"
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:propertyID": {
-                                                                                        "const": [
-                                                                                            {
-                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/nebulizerType"
-                                                                                            }
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:name": {
-                                                                                        "const": "Nebulizer Type"
-                                                                                    },
-                                                                                    "schema:value": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "@id",
-                                                                                    "@type",
-                                                                                    "schema:propertyID",
-                                                                                    "schema:name",
-                                                                                    "schema:value"
-                                                                                ],
-                                                                                "readOnly": true
+                                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_nebulizerType"
                                                                             },
                                                                             "minContains": 0,
                                                                             "maxContains": 1
                                                                         },
                                                                         {
                                                                             "contains": {
-                                                                                "title": "Spray Chamber Type and Cooling Temperature",
-                                                                                "description": "Type of spray chamber and cooling temperature if thermostatted (°C). Chamber type and temperature control aerosol droplet size and the solvent vapor load reaching the plasma. In some procedures a spray chamber is placed downstream of a desolvating nebulizer to improve signal stability.",
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "@id": {
-                                                                                        "const": "ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature"
-                                                                                    },
-                                                                                    "@type": {
-                                                                                        "const": [
-                                                                                            "schema:PropertyValue"
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:propertyID": {
-                                                                                        "const": [
-                                                                                            {
-                                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature"
-                                                                                            }
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:name": {
-                                                                                        "const": "Spray Chamber Type and Cooling Temperature"
-                                                                                    },
-                                                                                    "schema:value": {
-                                                                                        "type": "string"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "@id",
-                                                                                    "@type",
-                                                                                    "schema:propertyID",
-                                                                                    "schema:name",
-                                                                                    "schema:value"
-                                                                                ],
-                                                                                "readOnly": true
+                                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sprayChamberTypeAndCoolingTemperature"
                                                                             },
                                                                             "minContains": 0,
                                                                             "maxContains": 1
                                                                         },
                                                                         {
                                                                             "contains": {
-                                                                                "title": "Nebulizer Gas Flow Rate",
-                                                                                "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "@id": {
-                                                                                        "const": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRateDefault"
-                                                                                    },
-                                                                                    "@type": {
-                                                                                        "const": [
-                                                                                            "schema:PropertyValueSpecification"
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:valueName": {
-                                                                                        "const": "nebulizerGasFlowRateDefault"
-                                                                                    },
-                                                                                    "schema:name": {
-                                                                                        "const": "Nebulizer Gas Flow Rate"
-                                                                                    },
-                                                                                    "ada:dataType": {
-                                                                                        "const": "number"
-                                                                                    },
-                                                                                    "ada:fieldScope": {
-                                                                                        "const": "session"
-                                                                                    },
-                                                                                    "schema:readonlyValue": {
-                                                                                        "const": false
-                                                                                    },
-                                                                                    "ada:tier": {
-                                                                                        "const": "R"
-                                                                                    },
-                                                                                    "schema:unitText": {
-                                                                                        "const": "L/min"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "@id",
-                                                                                    "@type",
-                                                                                    "schema:valueName",
-                                                                                    "schema:name",
-                                                                                    "ada:dataType",
-                                                                                    "ada:fieldScope"
-                                                                                ]
+                                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_nebulizerGasFlowRate"
                                                                             },
                                                                             "minContains": 0,
                                                                             "maxContains": 1
                                                                         },
                                                                         {
                                                                             "contains": {
-                                                                                "title": "Sample Uptake Rate",
-                                                                                "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
-                                                                                "type": "object",
-                                                                                "properties": {
-                                                                                    "@id": {
-                                                                                        "const": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRateDefault"
-                                                                                    },
-                                                                                    "@type": {
-                                                                                        "const": [
-                                                                                            "schema:PropertyValueSpecification"
-                                                                                        ]
-                                                                                    },
-                                                                                    "schema:valueName": {
-                                                                                        "const": "sampleUptakeRateDefault"
-                                                                                    },
-                                                                                    "schema:name": {
-                                                                                        "const": "Sample Uptake Rate"
-                                                                                    },
-                                                                                    "ada:dataType": {
-                                                                                        "const": "number"
-                                                                                    },
-                                                                                    "ada:fieldScope": {
-                                                                                        "const": "session"
-                                                                                    },
-                                                                                    "schema:readonlyValue": {
-                                                                                        "const": false
-                                                                                    },
-                                                                                    "ada:tier": {
-                                                                                        "const": "R"
-                                                                                    },
-                                                                                    "schema:unitText": {
-                                                                                        "const": "µL/min or mL/min"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "@id",
-                                                                                    "@type",
-                                                                                    "schema:valueName",
-                                                                                    "schema:name",
-                                                                                    "ada:dataType",
-                                                                                    "ada:fieldScope"
-                                                                                ]
+                                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sampleUptakeRate"
                                                                             },
                                                                             "minContains": 0,
                                                                             "maxContains": 1
@@ -1847,48 +1551,7 @@
                                                 },
                                                 {
                                                     "contains": {
-                                                        "title": "Sample Aliquot Mass or Volume",
-                                                        "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "@id": {
-                                                                "const": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolumeDefault"
-                                                            },
-                                                            "@type": {
-                                                                "const": [
-                                                                    "schema:PropertyValueSpecification"
-                                                                ]
-                                                            },
-                                                            "schema:valueName": {
-                                                                "const": "sampleAliquotMassOrVolumeDefault"
-                                                            },
-                                                            "schema:name": {
-                                                                "const": "Sample Aliquot Mass or Volume"
-                                                            },
-                                                            "ada:dataType": {
-                                                                "const": "number"
-                                                            },
-                                                            "ada:fieldScope": {
-                                                                "const": "session"
-                                                            },
-                                                            "schema:readonlyValue": {
-                                                                "const": false
-                                                            },
-                                                            "ada:tier": {
-                                                                "const": "R"
-                                                            },
-                                                            "schema:unitText": {
-                                                                "const": "mg or mL"
-                                                            }
-                                                        },
-                                                        "required": [
-                                                            "@id",
-                                                            "@type",
-                                                            "schema:valueName",
-                                                            "schema:name",
-                                                            "ada:dataType",
-                                                            "ada:fieldScope"
-                                                        ]
+                                                        "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sampleAliquotMassOrVolume"
                                                     },
                                                     "minContains": 0,
                                                     "maxContains": 1
@@ -1975,348 +1638,44 @@
                                                     "items": {
                                                         "anyOf": [
                                                             {
-                                                                "title": "Digestion Vessel Type",
-                                                                "description": "Type of vessel used for acid digestion. Vessel type constrains maximum temperature and pressure and determines suitability for refractory mineral dissolution (e.g., Parr bombs required for complete silicate digestion at high temperatures).",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/digestionVesselType"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValue"
-                                                                        ]
-                                                                    },
-                                                                    "schema:propertyID": {
-                                                                        "const": [
-                                                                            {
-                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/digestionVesselType"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Digestion Vessel Type"
-                                                                    },
-                                                                    "schema:value": {
-                                                                        "type": "string"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:propertyID",
-                                                                    "schema:name",
-                                                                    "schema:value"
-                                                                ],
-                                                                "readOnly": true
+                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType"
                                                             },
                                                             {
-                                                                "title": "Number of Digestion Steps",
-                                                                "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some procedures require multiple sequential steps — for example, an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals, or by an aqua regia reflux to destroy fluoride complexes.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValue"
-                                                                        ]
-                                                                    },
-                                                                    "schema:propertyID": {
-                                                                        "const": [
-                                                                            {
-                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Number of Digestion Steps"
-                                                                    },
-                                                                    "schema:value": {
-                                                                        "anyOf": [
-                                                                            {
-                                                                                "type": "number"
-                                                                            },
-                                                                            {
-                                                                                "type": "string"
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:propertyID",
-                                                                    "schema:name",
-                                                                    "schema:value"
-                                                                ],
-                                                                "readOnly": true
+                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps"
                                                             },
                                                             {
-                                                                "title": "Digestion Duration",
-                                                                "description": "Duration of the primary acid digestion step (hours or days).",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/digestionDurationDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "digestionDurationDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Digestion Duration"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionDuration"
                                                             },
                                                             {
-                                                                "title": "Digestion Temperature",
-                                                                "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/digestionTemperatureDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "digestionTemperatureDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Digestion Temperature"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "number"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    },
-                                                                    "schema:unitText": {
-                                                                        "const": "°C"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionTemperature"
                                                             }
                                                         ]
                                                     },
                                                     "allOf": [
                                                         {
                                                             "contains": {
-                                                                "title": "Digestion Vessel Type",
-                                                                "description": "Type of vessel used for acid digestion. Vessel type constrains maximum temperature and pressure and determines suitability for refractory mineral dissolution (e.g., Parr bombs required for complete silicate digestion at high temperatures).",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/digestionVesselType"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValue"
-                                                                        ]
-                                                                    },
-                                                                    "schema:propertyID": {
-                                                                        "const": [
-                                                                            {
-                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/digestionVesselType"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Digestion Vessel Type"
-                                                                    },
-                                                                    "schema:value": {
-                                                                        "type": "string"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:propertyID",
-                                                                    "schema:name",
-                                                                    "schema:value"
-                                                                ],
-                                                                "readOnly": true
+                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
                                                         },
                                                         {
                                                             "contains": {
-                                                                "title": "Number of Digestion Steps",
-                                                                "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some procedures require multiple sequential steps — for example, an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals, or by an aqua regia reflux to destroy fluoride complexes.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValue"
-                                                                        ]
-                                                                    },
-                                                                    "schema:propertyID": {
-                                                                        "const": [
-                                                                            {
-                                                                                "@id": "ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Number of Digestion Steps"
-                                                                    },
-                                                                    "schema:value": {
-                                                                        "anyOf": [
-                                                                            {
-                                                                                "type": "number"
-                                                                            },
-                                                                            {
-                                                                                "type": "string"
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:propertyID",
-                                                                    "schema:name",
-                                                                    "schema:value"
-                                                                ],
-                                                                "readOnly": true
+                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
                                                         },
                                                         {
                                                             "contains": {
-                                                                "title": "Digestion Duration",
-                                                                "description": "Duration of the primary acid digestion step (hours or days).",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/digestionDurationDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "digestionDurationDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Digestion Duration"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionDuration"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
                                                         },
                                                         {
                                                             "contains": {
-                                                                "title": "Digestion Temperature",
-                                                                "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/digestionTemperatureDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "digestionTemperatureDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Digestion Temperature"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "number"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    },
-                                                                    "schema:unitText": {
-                                                                        "const": "°C"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionTemperature"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
@@ -2559,86 +1918,10 @@
                                                                 "readOnly": true
                                                             },
                                                             {
-                                                                "title": "Analysis Inclusion and Rejection Criteria",
-                                                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Analysis Inclusion and Rejection Criteria"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
                                                             },
                                                             {
-                                                                "title": "Constants and Reference Values Used",
-                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Constants and Reference Values Used"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
                                                             }
                                                         ]
                                                     },
@@ -2775,90 +2058,14 @@
                                                         },
                                                         {
                                                             "contains": {
-                                                                "title": "Analysis Inclusion and Rejection Criteria",
-                                                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Analysis Inclusion and Rejection Criteria"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
                                                         },
                                                         {
                                                             "contains": {
-                                                                "title": "Constants and Reference Values Used",
-                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Constants and Reference Values Used"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
@@ -2928,40 +2135,7 @@
                     "items": {
                         "anyOf": [
                             {
-                                "title": "Desolvation System",
-                                "description": "Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent load. Lowers oxide production rates and increases sensitivity, and is commonly used for low-abundance analytes or small sample sizes. Note the trade-off: desolvation can introduce additional instrumental mass bias instability relative to wet plasma introduction. Record 'None' if not used.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/solutionSficpmsTAPP/desolvationSystem"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValue"
-                                        ]
-                                    },
-                                    "schema:propertyID": {
-                                        "const": [
-                                            {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/desolvationSystem"
-                                            }
-                                        ]
-                                    },
-                                    "schema:name": {
-                                        "const": "Desolvation System"
-                                    },
-                                    "schema:value": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                ],
-                                "readOnly": true
+                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem"
                             },
                             {
                                 "title": "E-scan Range",
@@ -3047,51 +2221,7 @@
                                 "readOnly": true
                             },
                             {
-                                "title": "Internal Standard Concentration",
-                                "description": "Target concentration of internal standard element(s) in all measured solutions (µg/L or ppb). Record 'N/A' where Internal Standard Element is 'None'.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/solutionSficpmsTAPP/internalStandardConcentration"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValue"
-                                        ]
-                                    },
-                                    "schema:propertyID": {
-                                        "const": [
-                                            {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/internalStandardConcentration"
-                                            }
-                                        ]
-                                    },
-                                    "schema:name": {
-                                        "const": "Internal Standard Concentration"
-                                    },
-                                    "schema:value": {
-                                        "anyOf": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "string"
-                                            }
-                                        ]
-                                    },
-                                    "schema:unitText": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value",
-                                    "schema:unitText"
-                                ],
-                                "readOnly": true
+                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_internalStandardConcentration"
                             },
                             {
                                 "title": "Spike / Outlier Filtering Approach",
@@ -3180,40 +2310,7 @@
                     "allOf": [
                         {
                             "contains": {
-                                "title": "Desolvation System",
-                                "description": "Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent load. Lowers oxide production rates and increases sensitivity, and is commonly used for low-abundance analytes or small sample sizes. Note the trade-off: desolvation can introduce additional instrumental mass bias instability relative to wet plasma introduction. Record 'None' if not used.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/solutionSficpmsTAPP/desolvationSystem"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValue"
-                                        ]
-                                    },
-                                    "schema:propertyID": {
-                                        "const": [
-                                            {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/desolvationSystem"
-                                            }
-                                        ]
-                                    },
-                                    "schema:name": {
-                                        "const": "Desolvation System"
-                                    },
-                                    "schema:value": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                ],
-                                "readOnly": true
+                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -3311,51 +2408,7 @@
                         },
                         {
                             "contains": {
-                                "title": "Internal Standard Concentration",
-                                "description": "Target concentration of internal standard element(s) in all measured solutions (µg/L or ppb). Record 'N/A' where Internal Standard Element is 'None'.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/solutionSficpmsTAPP/internalStandardConcentration"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValue"
-                                        ]
-                                    },
-                                    "schema:propertyID": {
-                                        "const": [
-                                            {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/internalStandardConcentration"
-                                            }
-                                        ]
-                                    },
-                                    "schema:name": {
-                                        "const": "Internal Standard Concentration"
-                                    },
-                                    "schema:value": {
-                                        "anyOf": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "string"
-                                            }
-                                        ]
-                                    },
-                                    "schema:unitText": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value",
-                                    "schema:unitText"
-                                ],
-                                "readOnly": true
+                                "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_internalStandardConcentration"
                             },
                             "minContains": 0,
                             "maxContains": 1

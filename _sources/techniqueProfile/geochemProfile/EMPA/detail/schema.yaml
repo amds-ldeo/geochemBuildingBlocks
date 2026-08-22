@@ -34,6 +34,7 @@ allOf:
                                 schema:additionalType:
                                   contains:
                                     const: EPMA
+                                  schema:inDefinedTermSet: ada:vocab/instrumentType
                               required:
                               - schema:additionalType
                             then:
@@ -116,6 +117,7 @@ allOf:
                             schema:additionalType:
                               contains:
                                 const: EPMA
+                              schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
           schema:additionalProperty:
@@ -287,62 +289,8 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id009
-                title: Target Selection Criteria
-                description: 'The rules governing which part of the sample is analysed, and why. Covers
-                  the criteria applied when choosing grains, aliquots, spots, or a region of interest
-                  — size, morphology, clarity, freedom from inclusions or alteration, phase identity,
-                  or spatial position. Distinct from Target Material, which states the material type the
-                  procedure is designed for: this field states how, within such a sample, the analysed
-                  portion is picked out.'
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/empaTAPP/targetSelectionCriteria
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/empaTAPP/targetSelectionCriteria
-                  schema:name:
-                    const: Target Selection Criteria
-                  schema:value:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-              - &id010
-                title: Procedural Blank Level
-                description: 'The measured level of the analytical blank in the session, and — where the
-                  reported quantity is a ratio — its composition, since a blank subtracted from a ratio
-                  biases the result unless its own composition is known. Companion to the blank correction
-                  method, which is procedure-level: this field records what was actually measured. Follows
-                  the criterion-versus-measurement split the library applies wherever a procedure sets
-                  a threshold and an analysis reports a value against it.'
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/empaTAPP/proceduralBlankLevel
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/empaTAPP/proceduralBlankLevel
-                  schema:name:
-                    const: Procedural Blank Level
-                  schema:value:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
+              - $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+              - $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
             allOf:
             - contains: *id003
               minContains: 0
@@ -362,10 +310,12 @@ allOf:
             - contains: *id008
               minContains: 0
               maxContains: 1
-            - contains: *id009
+            - contains:
+                $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
               minContains: 0
               maxContains: 1
-            - contains: *id010
+            - contains:
+                $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
               minContains: 0
               maxContains: 1
           schema:object:
@@ -384,36 +334,11 @@ allOf:
                   properties:
                     schema:additionalProperty:
                       type: array
-                      items: &id011
-                        title: Pre-Analysis Imaging and Screening
-                        description: Imaging or other characterisation performed before the measurement
-                          in order to select or locate the analysed target, including the technique, instrument
-                          and settings used, and how individual analyses are linked back to the images.
-                          Distinct from any imaging the procedure performs as its own measurement. Where
-                          the imaging is performed on a separate instrument, it should also be recorded
-                          in the Group 1 coupling fields.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/empaTAPP/preAnalysisImagingAndScreening
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/empaTAPP/preAnalysisImagingAndScreening
-                          schema:name:
-                            const: Pre-Analysis Imaging and Screening
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
+                      items:
+                        $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                       allOf:
-                      - contains: *id011
+                      - contains:
+                          $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
           schema:actionProcess:
@@ -453,70 +378,15 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id012
-                              title: Calibration Factor and Determination Method
-                              description: 'An externally-calibrated factor that converts the measured
-                                quantity into the reported quantity, how it was determined, and its uncertainty.
-                                Applies where the conversion depends on a factor calibrated against a
-                                reference of independently known value, rather than on the instrument
-                                response alone. Distinct from the fields that name the calibration material
-                                and that state which approach applies to which analyte, where the technique
-                                has them: this field records the resulting factor itself.'
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-                                schema:name:
-                                  const: Calibration Factor and Determination Method
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - &id013
-                              title: Constants and Reference Values Used
-                              description: Physical constants and reference values used in data reduction
-                                to calculate the final reported quantity (e.g., decay constants for age
-                                calculation, standard isotope ratios, or other citable reference values
-                                used in a correction or calculation), together with their source. Distinct
-                                from the Group 6 reference-material fields, which document accepted values
-                                for specific calibration/validation materials rather than universal physical
-                                constants. Record "None" if no citable, revisable physical constants feed
-                                into this procedure's data reduction.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
-                                schema:name:
-                                  const: Constants and Reference Values Used
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                            - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
+                            - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
-                          - contains: *id012
+                          - contains:
+                              $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
                             minContains: 0
                             maxContains: 1
-                          - contains: *id013
+                          - contains:
+                              $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                             minContains: 0
                             maxContains: 1
                 allOf:
@@ -546,7 +416,47 @@ allOf:
       type: array
       items:
         anyOf:
-        - &id014
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the procedure's declared
+            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
+            branches above are permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - &id009
+          title: Detection Limit
+          description: Method detection limit at 99% confidence (3-sigma), one per reported concentration
+            variable (one per analyte, these being the same set), derived from counting statistics on
+            peak and background. Include the method and the resulting value for each.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/detectionLimit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/detectionLimit
+            schema:name:
+              const: Detection Limit
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - &id010
           title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference materials to correct
             for session-to-session calibration drift.
@@ -557,6 +467,7 @@ allOf:
             '@type':
               const:
               - schema:PropertyValue
+              - cdi:InstanceVariable
             schema:propertyID:
               const:
               - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
@@ -570,19 +481,50 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - *id012
+        - &id011
+          title: Calibration Factor and Determination Method
+          description: 'An externally-calibrated factor that converts the measured quantity into the reported
+            quantity, how it was determined, and its uncertainty. Applies where the conversion depends
+            on a factor calibrated against a reference of independently known value, rather than on the
+            instrument response alone. Distinct from the fields that name the calibration material and
+            that state which approach applies to which analyte, where the technique has them: this field
+            records the resulting factor itself.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
+            schema:name:
+              const: Calibration Factor and Determination Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
       allOf:
-      - contains: *id014
+      - contains: *id009
         minContains: 0
         maxContains: 1
-      - contains: *id012
+      - contains: *id010
+        minContains: 0
+        maxContains: 1
+      - contains: *id011
         minContains: 0
         maxContains: 1
     schema:additionalProperty:
       type: array
       items:
         anyOf:
-        - &id015
+        - &id012
           title: Map Area
           description: Physical dimensions of the mapped region in micrometers (X x Y). Determined at
             analysis time based on the sample feature or region of interest.
@@ -611,7 +553,7 @@ allOf:
           - schema:name
           - schema:value
           - schema:unitText
-        - &id016
+        - &id013
           title: Map Dimensions
           description: Number of pixels in the X-ray map in the X and Y directions. Determined at analysis
             time based on the area of interest and selected step size.
@@ -641,9 +583,9 @@ allOf:
           - schema:value
           - schema:unitText
       allOf:
-      - contains: *id015
+      - contains: *id012
         minContains: 0
         maxContains: 1
-      - contains: *id016
+      - contains: *id013
         minContains: 0
         maxContains: 1

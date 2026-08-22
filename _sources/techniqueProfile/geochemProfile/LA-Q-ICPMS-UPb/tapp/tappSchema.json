@@ -7485,10 +7485,6 @@
                         }
                     ]
                 },
-                "ada:totalIntegrationTimePerOutputDataPointDefault": {
-                    "type": "string",
-                    "readOnly": true
-                },
                 "ada:backgroundCountTimeDefault": {
                     "description": "Total time spent measuring gas blank (background signal with laser off or shutter closed) before each ablation event, in seconds. For spot and transect analysis, a discrete background interval is measured before each ablation. For mapping, background is typically measured once per raster line or at the start of a map session rather than before each individual pixel. Editable to allow session-specific adjustment.",
                     "anyOf": [
@@ -7631,6 +7627,17 @@
                     "type": "string",
                     "readOnly": true
                 },
+                "ada:totalIntegrationTimePerOutputDataPointDefault": {
+                    "description": "Total duty-cycle time for one complete mass-scan sweep — the sum of all per-isotope dwell times plus inter-mass settling times. Sets the time resolution of the downhole signal, and is not recoverable from Dwell Time per Mass alone because settling time is not captured there. Applies to sequential (quadrupole and single-collector sector-field) acquisition.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
                 "ada:gasBlank": {
                     "type": "string",
                     "readOnly": true
@@ -7658,7 +7665,6 @@
                 "ada:analysisSequenceDefault",
                 "ada:signalCollectionMode",
                 "ada:ionCounterDeadTimeDefault",
-                "ada:totalIntegrationTimePerOutputDataPointDefault",
                 "ada:backgroundCountTimeDefault",
                 "ada:internalStandardApproach",
                 "ada:internalStandardElement",
@@ -7669,7 +7675,8 @@
                 "ada:inheritedOrInitialSignalCorrectionDefault",
                 "ada:ageModelDefault",
                 "ada:primaryStandardNameDefault",
-                "ada:calibrationMeasurementFrequency"
+                "ada:calibrationMeasurementFrequency",
+                "ada:totalIntegrationTimePerOutputDataPointDefault"
             ]
         }
     ]

@@ -20,6 +20,7 @@ allOf:
               schema:additionalType:
                 contains:
                   const: EPMA
+                schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
             - schema:additionalType
           then:
@@ -72,6 +73,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: EDSDetector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -91,6 +93,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: Electron source
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -125,6 +128,7 @@ allOf:
                         schema:additionalType:
                           contains:
                             const: WDSSpectrometer
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
@@ -146,6 +150,7 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Electron source
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
       allOf:
@@ -154,6 +159,7 @@ allOf:
             schema:additionalType:
               contains:
                 const: EPMA
+              schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
     ada:analyteTemplate:
@@ -1245,6 +1251,20 @@ allOf:
       type: array
       items:
         anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the procedure's declared
+            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
+            branches above are permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
         - &id037
           title: Detection Limit
           description: Method detection limit at 99% confidence (3-sigma), one per reported concentration
@@ -1287,6 +1307,7 @@ allOf:
             '@type':
               const:
               - schema:PropertyValue
+              - cdi:InstanceVariable
             schema:propertyID:
               const:
               - '@id': ada:parameter/empaTAPP/detectionLimitMethod
@@ -1381,6 +1402,7 @@ allOf:
             '@type':
               const:
               - schema:PropertyValue
+              - cdi:InstanceVariable
             schema:propertyID:
               const:
               - '@id': ada:parameter/empaTAPP/detectionLimitMethod
@@ -1475,39 +1497,7 @@ allOf:
                             readOnly: true
                 allOf:
                 - contains:
-                    title: Pre-Analysis Imaging and Screening
-                    description: Imaging or other characterisation performed before the measurement in
-                      order to select or locate the analysed target, including the technique, instrument
-                      and settings used, and how individual analyses are linked back to the images. Distinct
-                      from any imaging the procedure performs as its own measurement. Where the imaging
-                      is performed on a separate instrument, it should also be recorded in the Group 1
-                      coupling fields.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: preAnalysisImagingAndScreeningDefault
-                      schema:name:
-                        const: Pre-Analysis Imaging and Screening
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
+                    $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -1552,85 +1542,20 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id040
-                        title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses contribute to a
-                          reported aggregate result, together with the outcome of applying them: how many
-                          analyses were acquired, how many were included, and on what grounds any were
-                          excluded. Distinct from within-analysis outlier filtering, which removes anomalous
-                          points inside a single analysis: this field decides which whole analyses enter
-                          the reported value. Criteria and outcome are combined in one field because neither
-                          is interpretable without the other, following the precision/accuracy precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: analysisInclusionAndRejectionCriteriaDefault
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - *id039
-                      - &id041
-                        title: Constants and Reference Values Used
-                        description: Physical constants and reference values used in data reduction to
-                          calculate the final reported quantity (e.g., decay constants for age calculation,
-                          standard isotope ratios, or other citable reference values used in a correction
-                          or calculation), together with their source. Distinct from the Group 6 reference-material
-                          fields, which document accepted values for specific calibration/validation materials
-                          rather than universal physical constants. Record "None" if no citable, revisable
-                          physical constants feed into this procedure's data reduction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: constantsAndReferenceValuesUsedDefault
-                          schema:name:
-                            const: Constants and Reference Values Used
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
+                      - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
-                    - contains: *id040
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
                       maxContains: 1
-                    - contains: *id039
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                       minContains: 0
                       maxContains: 1
-                    - contains: *id041
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
             - if:

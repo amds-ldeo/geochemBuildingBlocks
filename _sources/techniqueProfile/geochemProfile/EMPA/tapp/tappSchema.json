@@ -3091,6 +3091,25 @@
                     "items": {
                         "anyOf": [
                             {
+                                "title": "Dataset variable",
+                                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                                "type": "object",
+                                "required": [
+                                    "@type"
+                                ],
+                                "properties": {
+                                    "@type": {
+                                        "type": "array",
+                                        "contains": {
+                                            "enum": [
+                                                "cdi:InstanceVariable",
+                                                "schema:PropertyValue"
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
                                 "title": "Detection Limit",
                                 "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
                                 "type": "object",
@@ -3141,7 +3160,8 @@
                                     },
                                     "@type": {
                                         "const": [
-                                            "schema:PropertyValue"
+                                            "schema:PropertyValue",
+                                            "cdi:InstanceVariable"
                                         ]
                                     },
                                     "schema:propertyID": {
@@ -3308,7 +3328,8 @@
                                     },
                                     "@type": {
                                         "const": [
-                                            "schema:PropertyValue"
+                                            "schema:PropertyValue",
+                                            "cdi:InstanceVariable"
                                         ]
                                     },
                                     "schema:propertyID": {
@@ -3520,45 +3541,7 @@
                                             "allOf": [
                                                 {
                                                     "contains": {
-                                                        "title": "Pre-Analysis Imaging and Screening",
-                                                        "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "@id": {
-                                                                "const": "ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault"
-                                                            },
-                                                            "@type": {
-                                                                "const": [
-                                                                    "schema:PropertyValueSpecification"
-                                                                ]
-                                                            },
-                                                            "schema:valueName": {
-                                                                "const": "preAnalysisImagingAndScreeningDefault"
-                                                            },
-                                                            "schema:name": {
-                                                                "const": "Pre-Analysis Imaging and Screening"
-                                                            },
-                                                            "ada:dataType": {
-                                                                "const": "string"
-                                                            },
-                                                            "ada:fieldScope": {
-                                                                "const": "session"
-                                                            },
-                                                            "schema:readonlyValue": {
-                                                                "const": false
-                                                            },
-                                                            "ada:tier": {
-                                                                "const": "R"
-                                                            }
-                                                        },
-                                                        "required": [
-                                                            "@id",
-                                                            "@type",
-                                                            "schema:valueName",
-                                                            "schema:name",
-                                                            "ada:dataType",
-                                                            "ada:fieldScope"
-                                                        ]
+                                                        "$ref": "../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening"
                                                     },
                                                     "minContains": 0,
                                                     "maxContains": 1
@@ -3636,262 +3619,34 @@
                                                     "items": {
                                                         "anyOf": [
                                                             {
-                                                                "title": "Analysis Inclusion and Rejection Criteria",
-                                                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Analysis Inclusion and Rejection Criteria"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
                                                             },
                                                             {
-                                                                "title": "Calibration Factor and Determination Method",
-                                                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "calibrationFactorAndDeterminationMethodDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Calibration Factor and Determination Method"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod"
                                                             },
                                                             {
-                                                                "title": "Constants and Reference Values Used",
-                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Constants and Reference Values Used"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
                                                             }
                                                         ]
                                                     },
                                                     "allOf": [
                                                         {
                                                             "contains": {
-                                                                "title": "Analysis Inclusion and Rejection Criteria",
-                                                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "analysisInclusionAndRejectionCriteriaDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Analysis Inclusion and Rejection Criteria"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
                                                         },
                                                         {
                                                             "contains": {
-                                                                "title": "Calibration Factor and Determination Method",
-                                                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "calibrationFactorAndDeterminationMethodDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Calibration Factor and Determination Method"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
                                                         },
                                                         {
                                                             "contains": {
-                                                                "title": "Constants and Reference Values Used",
-                                                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "constantsAndReferenceValuesUsedDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Constants and Reference Values Used"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
+                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1

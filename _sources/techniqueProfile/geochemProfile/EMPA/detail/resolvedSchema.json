@@ -2141,7 +2141,8 @@
                                           "schema:additionalType": {
                                             "contains": {
                                               "const": "EPMA"
-                                            }
+                                            },
+                                            "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                           }
                                         },
                                         "required": [
@@ -2365,7 +2366,8 @@
                                     "schema:additionalType": {
                                       "contains": {
                                         "const": "EPMA"
-                                      }
+                                      },
+                                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                                     }
                                   },
                                   "required": [
@@ -2634,7 +2636,7 @@
                       "type": "object",
                       "properties": {
                         "@id": {
-                          "const": "ada:parameter/empaTAPP/targetSelectionCriteria"
+                          "const": "ada:parameter/module/TargetSelection/targetSelectionCriteria"
                         },
                         "@type": {
                           "const": [
@@ -2644,7 +2646,7 @@
                         "schema:propertyID": {
                           "const": [
                             {
-                              "@id": "ada:parameter/empaTAPP/targetSelectionCriteria"
+                              "@id": "ada:parameter/module/TargetSelection/targetSelectionCriteria"
                             }
                           ]
                         },
@@ -2669,7 +2671,7 @@
                       "type": "object",
                       "properties": {
                         "@id": {
-                          "const": "ada:parameter/empaTAPP/proceduralBlankLevel"
+                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
                         },
                         "@type": {
                           "const": [
@@ -2679,7 +2681,7 @@
                         "schema:propertyID": {
                           "const": [
                             {
-                              "@id": "ada:parameter/empaTAPP/proceduralBlankLevel"
+                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
                             }
                           ]
                         },
@@ -2975,7 +2977,7 @@
                       "type": "object",
                       "properties": {
                         "@id": {
-                          "const": "ada:parameter/empaTAPP/targetSelectionCriteria"
+                          "const": "ada:parameter/module/TargetSelection/targetSelectionCriteria"
                         },
                         "@type": {
                           "const": [
@@ -2985,7 +2987,7 @@
                         "schema:propertyID": {
                           "const": [
                             {
-                              "@id": "ada:parameter/empaTAPP/targetSelectionCriteria"
+                              "@id": "ada:parameter/module/TargetSelection/targetSelectionCriteria"
                             }
                           ]
                         },
@@ -3014,7 +3016,7 @@
                       "type": "object",
                       "properties": {
                         "@id": {
-                          "const": "ada:parameter/empaTAPP/proceduralBlankLevel"
+                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
                         },
                         "@type": {
                           "const": [
@@ -3024,7 +3026,7 @@
                         "schema:propertyID": {
                           "const": [
                             {
-                              "@id": "ada:parameter/empaTAPP/proceduralBlankLevel"
+                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
                             }
                           ]
                         },
@@ -3076,7 +3078,7 @@
                               "type": "object",
                               "properties": {
                                 "@id": {
-                                  "const": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
+                                  "const": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening"
                                 },
                                 "@type": {
                                   "const": [
@@ -3086,7 +3088,7 @@
                                 "schema:propertyID": {
                                   "const": [
                                     {
-                                      "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
+                                      "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening"
                                     }
                                   ]
                                 },
@@ -3113,7 +3115,7 @@
                                   "type": "object",
                                   "properties": {
                                     "@id": {
-                                      "const": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
+                                      "const": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening"
                                     },
                                     "@type": {
                                       "const": [
@@ -3123,7 +3125,7 @@
                                     "schema:propertyID": {
                                       "const": [
                                         {
-                                          "@id": "ada:parameter/empaTAPP/preAnalysisImagingAndScreening"
+                                          "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening"
                                         }
                                       ]
                                     },
@@ -3214,7 +3216,7 @@
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
+                                          "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
                                         },
                                         "@type": {
                                           "const": [
@@ -3224,7 +3226,7 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
+                                              "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
                                             }
                                           ]
                                         },
@@ -3244,12 +3246,12 @@
                                       ]
                                     },
                                     {
-                                      "title": "Constants and Reference Values Used",
+                                      "title": "Constants Reference Values",
                                       "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                                          "const": "ada:parameter/module/Core/constantsReferenceValues"
                                         },
                                         "@type": {
                                           "const": [
@@ -3259,12 +3261,12 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                                              "@id": "ada:parameter/module/Core/constantsReferenceValues"
                                             }
                                           ]
                                         },
                                         "schema:name": {
-                                          "const": "Constants and Reference Values Used"
+                                          "const": "Constants Reference Values"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -3288,7 +3290,7 @@
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
+                                          "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
                                         },
                                         "@type": {
                                           "const": [
@@ -3298,7 +3300,7 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
+                                              "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
                                             }
                                           ]
                                         },
@@ -3322,12 +3324,12 @@
                                   },
                                   {
                                     "contains": {
-                                      "title": "Constants and Reference Values Used",
+                                      "title": "Constants Reference Values",
                                       "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                                          "const": "ada:parameter/module/Core/constantsReferenceValues"
                                         },
                                         "@type": {
                                           "const": [
@@ -3337,12 +3339,12 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/empaTAPP/constantsAndReferenceValuesUsed"
+                                              "@id": "ada:parameter/module/Core/constantsReferenceValues"
                                             }
                                           ]
                                         },
                                         "schema:name": {
-                                          "const": "Constants and Reference Values Used"
+                                          "const": "Constants Reference Values"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -3414,6 +3416,61 @@
           "items": {
             "anyOf": [
               {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Detection Limit",
+                "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/detectionLimit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/empaTAPP/detectionLimit"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
                 "title": "Normalization / Standards-Based Correction",
                 "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
                 "type": "object",
@@ -3423,7 +3480,8 @@
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
                     ]
                   },
                   "schema:propertyID": {
@@ -3458,7 +3516,8 @@
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
                     ]
                   },
                   "schema:propertyID": {
@@ -3488,6 +3547,46 @@
           "allOf": [
             {
               "contains": {
+                "title": "Detection Limit",
+                "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/detectionLimit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/empaTAPP/detectionLimit"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "title": "Normalization / Standards-Based Correction",
                 "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
                 "type": "object",
@@ -3497,7 +3596,8 @@
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
                     ]
                   },
                   "schema:propertyID": {
@@ -3536,7 +3636,8 @@
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
                     ]
                   },
                   "schema:propertyID": {

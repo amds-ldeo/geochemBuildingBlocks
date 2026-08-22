@@ -2740,7 +2740,8 @@
                     "schema:additionalType": {
                       "contains": {
                         "const": "Laser Ablation System"
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -3029,7 +3030,8 @@
                     "schema:additionalType": {
                       "contains": {
                         "const": "ICPMS"
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -3049,7 +3051,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "ICP Source"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3428,7 +3431,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Collision Reaction Cell"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3917,7 +3921,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Collector"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -4846,7 +4851,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Interface Cone"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -5025,7 +5031,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Torch"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -5153,7 +5160,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "ICP Source"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -5167,7 +5175,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "Collision Reaction Cell"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -5181,7 +5190,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "Collector"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -5195,7 +5205,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "Interface Cone"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -5828,7 +5839,8 @@
                   "schema:additionalType": {
                     "contains": {
                       "const": "Laser Ablation System"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -5842,7 +5854,8 @@
                   "schema:additionalType": {
                     "contains": {
                       "const": "ICPMS"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -8985,6 +8998,25 @@
           "items": {
             "anyOf": [
               {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
                 "title": "Calibration Factor and Determination Method",
                 "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
                 "type": "object",
@@ -9079,7 +9111,8 @@
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
                     ]
                   },
                   "schema:propertyID": {
@@ -9376,7 +9409,8 @@
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
                     ]
                   },
                   "schema:propertyID": {

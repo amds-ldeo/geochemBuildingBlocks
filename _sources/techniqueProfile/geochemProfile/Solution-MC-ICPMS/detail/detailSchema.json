@@ -57,98 +57,12 @@
                                                     "schema:additionalProperty": {
                                                         "type": "array",
                                                         "items": {
-                                                            "title": "Sample Aliquot Mass or Volume",
-                                                            "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "@id": {
-                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
-                                                                },
-                                                                "@type": {
-                                                                    "const": [
-                                                                        "schema:PropertyValue"
-                                                                    ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                    "const": [
-                                                                        {
-                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                "schema:name": {
-                                                                    "const": "Sample Aliquot Mass or Volume"
-                                                                },
-                                                                "schema:value": {
-                                                                    "anyOf": [
-                                                                        {
-                                                                            "type": "number"
-                                                                        },
-                                                                        {
-                                                                            "type": "string"
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                "schema:unitText": {
-                                                                    "type": "string"
-                                                                }
-                                                            },
-                                                            "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "schema:value",
-                                                                "schema:unitText"
-                                                            ]
+                                                            "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleAliquotMassOrVolume"
                                                         },
                                                         "allOf": [
                                                             {
                                                                 "contains": {
-                                                                    "title": "Sample Aliquot Mass or Volume",
-                                                                    "description": "Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution. Used for yield calculations and concentration back-calculation.",
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "@id": {
-                                                                            "const": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
-                                                                        },
-                                                                        "@type": {
-                                                                            "const": [
-                                                                                "schema:PropertyValue"
-                                                                            ]
-                                                                        },
-                                                                        "schema:propertyID": {
-                                                                            "const": [
-                                                                                {
-                                                                                    "@id": "ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume"
-                                                                                }
-                                                                            ]
-                                                                        },
-                                                                        "schema:name": {
-                                                                            "const": "Sample Aliquot Mass or Volume"
-                                                                        },
-                                                                        "schema:value": {
-                                                                            "anyOf": [
-                                                                                {
-                                                                                    "type": "number"
-                                                                                },
-                                                                                {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            ]
-                                                                        },
-                                                                        "schema:unitText": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    },
-                                                                    "required": [
-                                                                        "@id",
-                                                                        "@type",
-                                                                        "schema:propertyID",
-                                                                        "schema:name",
-                                                                        "schema:value",
-                                                                        "schema:unitText"
-                                                                    ]
+                                                                    "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleAliquotMassOrVolume"
                                                                 },
                                                                 "minContains": 0,
                                                                 "maxContains": 1
@@ -203,174 +117,24 @@
                                                                 "items": {
                                                                     "anyOf": [
                                                                         {
-                                                                            "title": "Digestion Temperature",
-                                                                            "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Digestion Temperature"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "anyOf": [
-                                                                                        {
-                                                                                            "type": "number"
-                                                                                        },
-                                                                                        {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:unitText": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value",
-                                                                                "schema:unitText"
-                                                                            ]
+                                                                            "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionTemperature"
                                                                         },
                                                                         {
-                                                                            "title": "Digestion Duration",
-                                                                            "description": "Duration of the primary acid digestion step (hours or days).",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Digestion Duration"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
+                                                                            "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionDuration"
                                                                         }
                                                                     ]
                                                                 },
                                                                 "allOf": [
                                                                     {
                                                                         "contains": {
-                                                                            "title": "Digestion Temperature",
-                                                                            "description": "Temperature at which acid digestion was carried out (°C). Procedure specifies the target temperature.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/digestionTemperature"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Digestion Temperature"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "anyOf": [
-                                                                                        {
-                                                                                            "type": "number"
-                                                                                        },
-                                                                                        {
-                                                                                            "type": "string"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:unitText": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value",
-                                                                                "schema:unitText"
-                                                                            ]
+                                                                            "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionTemperature"
                                                                         },
                                                                         "minContains": 0,
                                                                         "maxContains": 1
                                                                     },
                                                                     {
                                                                         "contains": {
-                                                                            "title": "Digestion Duration",
-                                                                            "description": "Duration of the primary acid digestion step (hours or days).",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/digestionDuration"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Digestion Duration"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
+                                                                            "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_digestionDuration"
                                                                         },
                                                                         "minContains": 0,
                                                                         "maxContains": 1
@@ -503,39 +267,7 @@
                                                                             ]
                                                                         },
                                                                         {
-                                                                            "title": "Constants and Reference Values Used",
-                                                                            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Constants and Reference Values Used"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
+                                                                            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
                                                                         }
                                                                     ]
                                                                 },
@@ -659,39 +391,7 @@
                                                                     },
                                                                     {
                                                                         "contains": {
-                                                                            "title": "Constants and Reference Values Used",
-                                                                            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Constants and Reference Values Used"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
+                                                                            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
                                                                         },
                                                                         "minContains": 0,
                                                                         "maxContains": 1
@@ -906,96 +606,10 @@
                                                                                                                 "items": {
                                                                                                                     "anyOf": [
                                                                                                                         {
-                                                                                                                            "title": "Sample Uptake Rate",
-                                                                                                                            "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
-                                                                                                                            "type": "object",
-                                                                                                                            "properties": {
-                                                                                                                                "@id": {
-                                                                                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
-                                                                                                                                },
-                                                                                                                                "@type": {
-                                                                                                                                    "const": [
-                                                                                                                                        "schema:PropertyValue"
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:propertyID": {
-                                                                                                                                    "const": [
-                                                                                                                                        {
-                                                                                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:name": {
-                                                                                                                                    "const": "Sample Uptake Rate"
-                                                                                                                                },
-                                                                                                                                "schema:value": {
-                                                                                                                                    "anyOf": [
-                                                                                                                                        {
-                                                                                                                                            "type": "number"
-                                                                                                                                        },
-                                                                                                                                        {
-                                                                                                                                            "type": "string"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:unitText": {
-                                                                                                                                    "type": "string"
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            "required": [
-                                                                                                                                "@id",
-                                                                                                                                "@type",
-                                                                                                                                "schema:propertyID",
-                                                                                                                                "schema:name",
-                                                                                                                                "schema:value",
-                                                                                                                                "schema:unitText"
-                                                                                                                            ]
+                                                                                                                            "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleUptakeRate"
                                                                                                                         },
                                                                                                                         {
-                                                                                                                            "title": "Nebulizer Gas Flow Rate",
-                                                                                                                            "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
-                                                                                                                            "type": "object",
-                                                                                                                            "properties": {
-                                                                                                                                "@id": {
-                                                                                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
-                                                                                                                                },
-                                                                                                                                "@type": {
-                                                                                                                                    "const": [
-                                                                                                                                        "schema:PropertyValue"
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:propertyID": {
-                                                                                                                                    "const": [
-                                                                                                                                        {
-                                                                                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:name": {
-                                                                                                                                    "const": "Nebulizer Gas Flow Rate"
-                                                                                                                                },
-                                                                                                                                "schema:value": {
-                                                                                                                                    "anyOf": [
-                                                                                                                                        {
-                                                                                                                                            "type": "number"
-                                                                                                                                        },
-                                                                                                                                        {
-                                                                                                                                            "type": "string"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:unitText": {
-                                                                                                                                    "type": "string"
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            "required": [
-                                                                                                                                "@id",
-                                                                                                                                "@type",
-                                                                                                                                "schema:propertyID",
-                                                                                                                                "schema:name",
-                                                                                                                                "schema:value",
-                                                                                                                                "schema:unitText"
-                                                                                                                            ]
+                                                                                                                            "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_nebulizerGasFlowRate"
                                                                                                                         },
                                                                                                                         {
                                                                                                                             "title": "Make-up Gas and Flow Rate",
@@ -1048,100 +662,14 @@
                                                                                                                 "allOf": [
                                                                                                                     {
                                                                                                                         "contains": {
-                                                                                                                            "title": "Sample Uptake Rate",
-                                                                                                                            "description": "Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).",
-                                                                                                                            "type": "object",
-                                                                                                                            "properties": {
-                                                                                                                                "@id": {
-                                                                                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
-                                                                                                                                },
-                                                                                                                                "@type": {
-                                                                                                                                    "const": [
-                                                                                                                                        "schema:PropertyValue"
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:propertyID": {
-                                                                                                                                    "const": [
-                                                                                                                                        {
-                                                                                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:name": {
-                                                                                                                                    "const": "Sample Uptake Rate"
-                                                                                                                                },
-                                                                                                                                "schema:value": {
-                                                                                                                                    "anyOf": [
-                                                                                                                                        {
-                                                                                                                                            "type": "number"
-                                                                                                                                        },
-                                                                                                                                        {
-                                                                                                                                            "type": "string"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:unitText": {
-                                                                                                                                    "type": "string"
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            "required": [
-                                                                                                                                "@id",
-                                                                                                                                "@type",
-                                                                                                                                "schema:propertyID",
-                                                                                                                                "schema:name",
-                                                                                                                                "schema:value",
-                                                                                                                                "schema:unitText"
-                                                                                                                            ]
+                                                                                                                            "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleUptakeRate"
                                                                                                                         },
                                                                                                                         "minContains": 0,
                                                                                                                         "maxContains": 1
                                                                                                                     },
                                                                                                                     {
                                                                                                                         "contains": {
-                                                                                                                            "title": "Nebulizer Gas Flow Rate",
-                                                                                                                            "description": "Flow rate of the carrier argon gas delivered through the nebulizer (L/min). Controls aerosol transport and strongly influences signal sensitivity and stability. Adjusted daily to optimize signal.",
-                                                                                                                            "type": "object",
-                                                                                                                            "properties": {
-                                                                                                                                "@id": {
-                                                                                                                                    "const": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
-                                                                                                                                },
-                                                                                                                                "@type": {
-                                                                                                                                    "const": [
-                                                                                                                                        "schema:PropertyValue"
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:propertyID": {
-                                                                                                                                    "const": [
-                                                                                                                                        {
-                                                                                                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:name": {
-                                                                                                                                    "const": "Nebulizer Gas Flow Rate"
-                                                                                                                                },
-                                                                                                                                "schema:value": {
-                                                                                                                                    "anyOf": [
-                                                                                                                                        {
-                                                                                                                                            "type": "number"
-                                                                                                                                        },
-                                                                                                                                        {
-                                                                                                                                            "type": "string"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:unitText": {
-                                                                                                                                    "type": "string"
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            "required": [
-                                                                                                                                "@id",
-                                                                                                                                "@type",
-                                                                                                                                "schema:propertyID",
-                                                                                                                                "schema:name",
-                                                                                                                                "schema:value",
-                                                                                                                                "schema:unitText"
-                                                                                                                            ]
+                                                                                                                            "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_nebulizerGasFlowRate"
                                                                                                                         },
                                                                                                                         "minContains": 0,
                                                                                                                         "maxContains": 1
@@ -2127,39 +1655,7 @@
                                             ]
                                         },
                                         {
-                                            "title": "Procedural Blank Level",
-                                            "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
-                                            "type": "object",
-                                            "properties": {
-                                                "@id": {
-                                                    "const": "ada:parameter/solutionMcicpmsTAPP/proceduralBlankLevel"
-                                                },
-                                                "@type": {
-                                                    "const": [
-                                                        "schema:PropertyValue"
-                                                    ]
-                                                },
-                                                "schema:propertyID": {
-                                                    "const": [
-                                                        {
-                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/proceduralBlankLevel"
-                                                        }
-                                                    ]
-                                                },
-                                                "schema:name": {
-                                                    "const": "Procedural Blank Level"
-                                                },
-                                                "schema:value": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "required": [
-                                                "@id",
-                                                "@type",
-                                                "schema:propertyID",
-                                                "schema:name",
-                                                "schema:value"
-                                            ]
+                                            "$ref": "../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel"
                                         }
                                     ]
                                 },
@@ -2216,39 +1712,7 @@
                                     },
                                     {
                                         "contains": {
-                                            "title": "Procedural Blank Level",
-                                            "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
-                                            "type": "object",
-                                            "properties": {
-                                                "@id": {
-                                                    "const": "ada:parameter/solutionMcicpmsTAPP/proceduralBlankLevel"
-                                                },
-                                                "@type": {
-                                                    "const": [
-                                                        "schema:PropertyValue"
-                                                    ]
-                                                },
-                                                "schema:propertyID": {
-                                                    "const": [
-                                                        {
-                                                            "@id": "ada:parameter/solutionMcicpmsTAPP/proceduralBlankLevel"
-                                                        }
-                                                    ]
-                                                },
-                                                "schema:name": {
-                                                    "const": "Procedural Blank Level"
-                                                },
-                                                "schema:value": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "required": [
-                                                "@id",
-                                                "@type",
-                                                "schema:propertyID",
-                                                "schema:name",
-                                                "schema:value"
-                                            ]
+                                            "$ref": "../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel"
                                         },
                                         "minContains": 0,
                                         "maxContains": 1

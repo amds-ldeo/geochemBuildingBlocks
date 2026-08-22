@@ -2862,7 +2862,8 @@
                     "schema:additionalType": {
                       "contains": {
                         "const": "SEM"
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -2901,7 +2902,8 @@
                   "schema:additionalType": {
                     "contains": {
                       "const": "SEM"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -3024,7 +3026,7 @@
                     "if": {
                       "properties": {
                         "schema:name": {
-                          "const": "sampleDigestion"
+                          "const": "Sample digestion"
                         }
                       },
                       "required": [
@@ -3055,7 +3057,7 @@
                   "contains": {
                     "properties": {
                       "schema:name": {
-                        "const": "sampleDigestion"
+                        "const": "Sample digestion"
                       }
                     },
                     "required": [
@@ -3137,7 +3139,8 @@
                     "schema:additionalType": {
                       "contains": {
                         "const": "ICPMS"
-                      }
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                     }
                   },
                   "required": [
@@ -3157,7 +3160,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "ICP Source"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3536,7 +3540,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Torch"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3661,7 +3666,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Interface Cone"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3840,7 +3846,8 @@
                                 "schema:additionalType": {
                                   "contains": {
                                     "const": "Sample Introduction System"
-                                  }
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
                               },
                               "required": [
@@ -3859,35 +3866,40 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/nebulizerType"
+                                            "const": "ada:parameter/module/SolutionIntroduction/nebulizerType"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/nebulizerType"
-                                              }
-                                            ]
+                                          "schema:valueName": {
+                                            "const": "nebulizerType"
                                           },
                                           "schema:name": {
                                             "const": "Nebulizer Type"
                                           },
-                                          "schema:value": {
-                                            "type": "string"
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
                                       {
                                         "title": "Spray Chamber Type and Cooling Temperature",
@@ -3895,35 +3907,40 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature"
+                                            "const": "ada:parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature"
-                                              }
-                                            ]
+                                          "schema:valueName": {
+                                            "const": "sprayChamberTypeAndCoolingTemperature"
                                           },
                                           "schema:name": {
                                             "const": "Spray Chamber Type and Cooling Temperature"
                                           },
-                                          "schema:value": {
-                                            "type": "string"
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
                                       {
                                         "title": "Nebulizer Gas Flow Rate",
@@ -3931,7 +3948,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRateDefault"
+                                            "const": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault"
                                           },
                                           "@type": {
                                             "const": [
@@ -3975,7 +3992,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRateDefault"
+                                            "const": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault"
                                           },
                                           "@type": {
                                             "const": [
@@ -4023,35 +4040,40 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/nebulizerType"
+                                            "const": "ada:parameter/module/SolutionIntroduction/nebulizerType"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/nebulizerType"
-                                              }
-                                            ]
+                                          "schema:valueName": {
+                                            "const": "nebulizerType"
                                           },
                                           "schema:name": {
                                             "const": "Nebulizer Type"
                                           },
-                                          "schema:value": {
-                                            "type": "string"
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
@@ -4063,35 +4085,40 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature"
+                                            "const": "ada:parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature"
                                           },
                                           "@type": {
                                             "const": [
-                                              "schema:PropertyValue"
+                                              "schema:PropertyValueSpecification"
                                             ]
                                           },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/sprayChamberTypeAndCoolingTemperature"
-                                              }
-                                            ]
+                                          "schema:valueName": {
+                                            "const": "sprayChamberTypeAndCoolingTemperature"
                                           },
                                           "schema:name": {
                                             "const": "Spray Chamber Type and Cooling Temperature"
                                           },
-                                          "schema:value": {
-                                            "type": "string"
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
                                           }
                                         },
                                         "required": [
                                           "@id",
                                           "@type",
-                                          "schema:propertyID",
+                                          "schema:valueName",
                                           "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
@@ -4103,7 +4130,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRateDefault"
+                                            "const": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault"
                                           },
                                           "@type": {
                                             "const": [
@@ -4151,7 +4178,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/sampleUptakeRateDefault"
+                                            "const": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault"
                                           },
                                           "@type": {
                                             "const": [
@@ -4206,7 +4233,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "ICP Source"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -4220,7 +4248,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "Interface Cone"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -4234,7 +4263,8 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "Sample Introduction System"
-                                }
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
                             },
                             "required": [
@@ -4863,7 +4893,8 @@
                   "schema:additionalType": {
                     "contains": {
                       "const": "ICPMS"
-                    }
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
                   }
                 },
                 "required": [
@@ -4960,7 +4991,7 @@
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolumeDefault"
+                                "const": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault"
                               },
                               "@type": {
                                 "const": [
@@ -5088,35 +5119,40 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/digestionVesselType"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionVesselType"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionSficpmsTAPP/digestionVesselType"
-                                      }
-                                    ]
+                                  "schema:valueName": {
+                                    "const": "digestionVesselType"
                                   },
                                   "schema:name": {
                                     "const": "Digestion Vessel Type"
                                   },
-                                  "schema:value": {
-                                    "type": "string"
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": true
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               {
                                 "title": "Number of Digestion Steps",
@@ -5124,42 +5160,40 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps"
+                                    "const": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps"
-                                      }
-                                    ]
+                                  "schema:valueName": {
+                                    "const": "numberOfDigestionSteps"
                                   },
                                   "schema:name": {
                                     "const": "Number of Digestion Steps"
                                   },
-                                  "schema:value": {
-                                    "anyOf": [
-                                      {
-                                        "type": "number"
-                                      },
-                                      {
-                                        "type": "string"
-                                      }
-                                    ]
+                                  "ada:dataType": {
+                                    "const": "integer"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": true
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               {
                                 "title": "Digestion Duration",
@@ -5167,7 +5201,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/digestionDurationDefault"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5208,7 +5242,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/digestionTemperatureDefault"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5256,35 +5290,40 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/digestionVesselType"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionVesselType"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionSficpmsTAPP/digestionVesselType"
-                                      }
-                                    ]
+                                  "schema:valueName": {
+                                    "const": "digestionVesselType"
                                   },
                                   "schema:name": {
                                     "const": "Digestion Vessel Type"
                                   },
-                                  "schema:value": {
-                                    "type": "string"
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": true
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -5296,42 +5335,40 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps"
+                                    "const": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps"
                                   },
                                   "@type": {
                                     "const": [
-                                      "schema:PropertyValue"
+                                      "schema:PropertyValueSpecification"
                                     ]
                                   },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionSficpmsTAPP/numberOfDigestionSteps"
-                                      }
-                                    ]
+                                  "schema:valueName": {
+                                    "const": "numberOfDigestionSteps"
                                   },
                                   "schema:name": {
                                     "const": "Number of Digestion Steps"
                                   },
-                                  "schema:value": {
-                                    "anyOf": [
-                                      {
-                                        "type": "number"
-                                      },
-                                      {
-                                        "type": "string"
-                                      }
-                                    ]
+                                  "ada:dataType": {
+                                    "const": "integer"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": true
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
                                   }
                                 },
                                 "required": [
                                   "@id",
                                   "@type",
-                                  "schema:propertyID",
+                                  "schema:valueName",
                                   "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -5343,7 +5380,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/digestionDurationDefault"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5388,7 +5425,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/digestionTemperatureDefault"
+                                    "const": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5672,7 +5709,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5708,12 +5745,12 @@
                                 ]
                               },
                               {
-                                "title": "Constants and Reference Values Used",
+                                "title": "Constants Reference Values",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5721,10 +5758,10 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "constantsReferenceValuesDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -5888,7 +5925,7 @@
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5928,12 +5965,12 @@
                             },
                             {
                               "contains": {
-                                "title": "Constants and Reference Values Used",
+                                "title": "Constants Reference Values",
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsedDefault"
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5941,10 +5978,10 @@
                                     ]
                                   },
                                   "schema:valueName": {
-                                    "const": "constantsAndReferenceValuesUsedDefault"
+                                    "const": "constantsReferenceValuesDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Constants and Reference Values Used"
+                                    "const": "Constants Reference Values"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -6041,35 +6078,40 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/desolvationSystem"
+                    "const": "ada:parameter/module/SolutionIntroduction/desolvationSystem"
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValueSpecification"
                     ]
                   },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/solutionSficpmsTAPP/desolvationSystem"
-                      }
-                    ]
+                  "schema:valueName": {
+                    "const": "desolvationSystem"
                   },
                   "schema:name": {
                     "const": "Desolvation System"
                   },
-                  "schema:value": {
-                    "type": "string"
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
                   }
                 },
                 "required": [
                   "@id",
                   "@type",
-                  "schema:propertyID",
+                  "schema:valueName",
                   "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               {
                 "title": "E-scan Range",
@@ -6160,46 +6202,43 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/internalStandardConcentration"
+                    "const": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration"
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValueSpecification"
                     ]
                   },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/solutionSficpmsTAPP/internalStandardConcentration"
-                      }
-                    ]
+                  "schema:valueName": {
+                    "const": "internalStandardConcentration"
                   },
                   "schema:name": {
                     "const": "Internal Standard Concentration"
                   },
-                  "schema:value": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
                   },
                   "schema:unitText": {
-                    "type": "string"
+                    "const": "µg/L"
                   }
                 },
                 "required": [
                   "@id",
                   "@type",
-                  "schema:propertyID",
+                  "schema:valueName",
                   "schema:name",
-                  "schema:value",
-                  "schema:unitText"
-                ],
-                "readOnly": true
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               {
                 "title": "Spike / Outlier Filtering Approach",
@@ -6293,35 +6332,40 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/desolvationSystem"
+                    "const": "ada:parameter/module/SolutionIntroduction/desolvationSystem"
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValueSpecification"
                     ]
                   },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/solutionSficpmsTAPP/desolvationSystem"
-                      }
-                    ]
+                  "schema:valueName": {
+                    "const": "desolvationSystem"
                   },
                   "schema:name": {
                     "const": "Desolvation System"
                   },
-                  "schema:value": {
-                    "type": "string"
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
                   }
                 },
                 "required": [
                   "@id",
                   "@type",
-                  "schema:propertyID",
+                  "schema:valueName",
                   "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               "minContains": 0,
               "maxContains": 1
@@ -6424,46 +6468,43 @@
                 "type": "object",
                 "properties": {
                   "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/internalStandardConcentration"
+                    "const": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration"
                   },
                   "@type": {
                     "const": [
-                      "schema:PropertyValue"
+                      "schema:PropertyValueSpecification"
                     ]
                   },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/solutionSficpmsTAPP/internalStandardConcentration"
-                      }
-                    ]
+                  "schema:valueName": {
+                    "const": "internalStandardConcentration"
                   },
                   "schema:name": {
                     "const": "Internal Standard Concentration"
                   },
-                  "schema:value": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
                   },
                   "schema:unitText": {
-                    "type": "string"
+                    "const": "µg/L"
                   }
                 },
                 "required": [
                   "@id",
                   "@type",
-                  "schema:propertyID",
+                  "schema:valueName",
                   "schema:name",
-                  "schema:value",
-                  "schema:unitText"
-                ],
-                "readOnly": true
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               "minContains": 0,
               "maxContains": 1

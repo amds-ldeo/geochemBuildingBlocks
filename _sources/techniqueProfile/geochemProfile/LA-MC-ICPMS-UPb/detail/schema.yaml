@@ -521,6 +521,66 @@ properties:
               - schema:name
               - schema:value
             - &id014
+              title: Ablation Duration per Spot
+              description: 'Total on-sample ablation (signal acquisition) time per individual spot in
+                seconds, as set in the acquisition method. This is a procedure-level parameter for spot
+                analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower
+                LOD), sample consumption, and session throughput. For transect analysis, the equivalent
+                procedure-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step
+                Size). For mapping analysis, total acquisition time is sample-area-dependent and therefore
+                analysis-level, not captured here.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/ablationDurationPerSpot
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/ablationDurationPerSpot
+                schema:name:
+                  const: Ablation Duration per Spot
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - &id015
+              title: Ablation Pit Depth and Ablation Rate
+              description: Depth of the ablation pit produced under the registered laser conditions, the
+                method used to measure it, and the resulting per-pulse ablation rate. Sets the achievable
+                depth resolution and governs downhole elemental fractionation. For transect and mapping
+                the equivalent quantity is trench depth under the same conditions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/ablationPitDepthAndAblationRate
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/ablationPitDepthAndAblationRate
+                schema:name:
+                  const: Ablation Pit Depth and Ablation Rate
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id016
               title: Transect Rate, Mapping Rate or Step Size
               description: 'For continuous line scan (transect) and raster mapping: the stage translation
                 speed in µm s⁻¹. This is the procedure-level parameter that, together with spot size and
@@ -547,7 +607,59 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id015
+            - &id017
+              title: Raster Line Spacing (Mapping Only)
+              description: Distance between adjacent raster lines in a 2D elemental map, measured perpendicular
+                to the scan direction, in micrometres. Together with spot size, this determines whether
+                adjacent lines are contiguous (line spacing = spot size), overlapping (line spacing <
+                spot size), or have gaps (line spacing > spot size). Applies to raster mapping only.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/rasterLineSpacing
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/rasterLineSpacing
+                schema:name:
+                  const: Raster Line Spacing (Mapping Only)
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id018
+              title: Carrier Gas and Flow Rate
+              description: Gas used to transport ablated aerosol from the ablation cell to the ICP-MS
+                torch, with the procedure-registered target flow rate(s). Helium is standard for most
+                UV laser systems due to superior aerosol transport. Flow rates are procedure targets;
+                actual session values may be adjusted within ±10% during tuning.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/carrierGasAndFlowRate
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/carrierGasAndFlowRate
+                schema:name:
+                  const: Carrier Gas and Flow Rate
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id019
               title: Plasma / Make-up Gas Addition
               description: Additional gas(es) mixed into the carrier stream downstream of the ablation
                 cell, with the procedure-registered target flow rate. Ar make-up gas is standard. Small
@@ -573,7 +685,32 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id016
+            - &id020
+              title: Analysis Sequence
+              description: Repeating order of primary calibration standard(s), quality control standard(s),
+                and unknown analyses within a measurement session. Editable to allow minor adjustments
+                while maintaining the bracketing strategy defined in the procedure.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/analysisSequence
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/analysisSequence
+                schema:name:
+                  const: Analysis Sequence
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id021
               title: Ion Counter Dead Time
               description: Dead time of each ion-counting detector channel, used in the dead-time correction
                 applied to high count rates. Distinct from pulse/analog cross-calibration, which relates
@@ -604,7 +741,39 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id017
+            - &id022
+              title: Background Count Time
+              description: Total time spent measuring gas blank (background signal with laser off or shutter
+                closed) before each ablation event, in seconds. For spot and transect analysis, a discrete
+                background interval is measured before each ablation. For mapping, background is typically
+                measured once per raster line or at the start of a map session rather than before each
+                individual pixel. Editable to allow session-specific adjustment.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/backgroundCountTime
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/backgroundCountTime
+                schema:name:
+                  const: Background Count Time
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - &id023
               title: Number of Replicates
               description: 'Number of replicate analyses performed on the same sample (or same nominal
                 location for spot analysis) in this session. For spot analysis: number of individual spot
@@ -632,7 +801,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id018
+            - &id024
               title: Transect Length
               description: Total length of the transect line analysed in micrometres. This is an analysis-level
                 parameter because it depends on the size of the feature of interest rather than being
@@ -664,7 +833,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id019
+            - &id025
               title: Mapping Area
               description: Total area covered by the 2D raster map, expressed as width × height in µm
                 or as total area in µm² or mm². This is an analysis-level parameter because it depends
@@ -690,7 +859,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id020
+            - &id026
               title: Number of Blocks per Measurement
               description: Number of measurement blocks acquired per sample or standard solution introduction.
                 In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with
@@ -720,7 +889,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id021
+            - &id027
               title: Number of Cycles per Block
               description: Number of measurement cycles acquired per block. One cycle corresponds to a
                 single set of simultaneous Faraday cup readings integrated for the duration specified
@@ -749,7 +918,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id022
+            - &id028
               title: Integration Time per Cycle
               description: Duration of signal integration per measurement cycle (seconds). Determines
                 counting statistics per cycle. Longer integration times improve shot-noise precision but
@@ -783,7 +952,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id023
+            - &id029
               title: Signal Integration Time
               description: 'Actual integration time used for the ablation signal in this analysis, in
                 seconds. This is an analysis-level outcome determined during data reduction by applying
@@ -817,7 +986,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id024
+            - &id030
               title: Procedural Blank Level
               description: 'The measured level of the analytical blank in the session, and — where the
                 reported quantity is a ratio — its composition, since a blank subtracted from a ratio
@@ -845,7 +1014,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id025
+            - &id031
               title: Double-Spike Mixing Ratio
               description: Target proportion of double-spike signal relative to total analyte signal in
                 the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal
@@ -875,7 +1044,34 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id026
+            - &id032
+              title: Reported Date Type
+              description: The kind of date or age the procedure reports. Most dating systems derive several
+                different date types from the same measurements, so a reported age is ambiguous without
+                this. Where more than one type is reported, list all, separated by semicolons. Kohn et
+                al. (2024) carry this as a named required item ("fission-track age type"); the equivalent
+                distinction is required by all five other standards surveyed.
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/reportedDateType
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/reportedDateType
+                schema:name:
+                  const: Reported Date Type
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id033
               title: Inherited or Initial Signal Correction
               description: 'How any non-radiogenic, inherited or pre-existing component of the measured
                 signal was accounted for, including the composition assumed, its source, and its uncertainty.
@@ -907,7 +1103,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id027
+            - &id034
               title: Age Model
               description: 'The statistical model used to combine individual analyses into a single reported
                 age, including any criteria governing which model is applied. This is a methodological
@@ -936,7 +1132,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id028
+            - &id035
               title: Age Datum / Reference Epoch
               description: 'The zero point from which the reported age is measured, where this is not
                 the present day, and the date it corresponds to. Record ''Present day'' where the conventional
@@ -963,7 +1159,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id029
+            - &id036
               title: Error Correlation Between Reported Quantities
               description: The correlation coefficient between pairs of reported quantities whose uncertainties
                 are not independent, together with the pair it applies to and how it was obtained. Concordia
@@ -993,7 +1189,7 @@ properties:
               - schema:name
               - schema:value
               - schema:unitText
-            - &id030
+            - &id037
               title: Imaging
               description: ''
               type: object
@@ -1016,7 +1212,30 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id031
+            - &id038
+              title: Spot Diameter
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/spotDiameter
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/spotDiameter
+                schema:name:
+                  const: Spot Diameter
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id039
               title: Ablation Pit Depth/Ablation Rate
               description: ''
               type: object
@@ -1039,7 +1258,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id032
+            - &id040
               title: Make-up Gas Flow (L min⁻¹)
               description: ''
               type: object
@@ -1062,7 +1281,77 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id033
+            - &id041
+              title: Masses Measured
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/massesMeasured
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/massesMeasured
+                schema:name:
+                  const: Masses Measured
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id042
+              title: Integration Time per Peak/Dwell Times; Quadrupole Settling Time Between Mass Jumps
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps
+                schema:name:
+                  const: Integration Time per Peak/Dwell Times; Quadrupole Settling Time Between Mass
+                    Jumps
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id043
+              title: Total Integration Time per Output Data Point (s)
+              description: ''
+              type: object
+              properties:
+                '@id':
+                  const: ada:parameter/laMcicpmsUPbTAPP/totalIntegrationTimePerOutputDataPoint
+                '@type':
+                  const:
+                  - schema:PropertyValue
+                schema:propertyID:
+                  const:
+                  - '@id': ada:parameter/laMcicpmsUPbTAPP/totalIntegrationTimePerOutputDataPoint
+                schema:name:
+                  const: Total Integration Time per Output Data Point (s)
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - &id044
               title: IC Dead Time (ns)
               description: ''
               type: object
@@ -1085,7 +1374,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id034
+            - &id045
               title: Other Information
               description: ''
               type: object
@@ -1108,7 +1397,7 @@ properties:
               - schema:propertyID
               - schema:name
               - schema:value
-            - &id035
+            - &id046
               title: Uncertainty Level and Propagation
               description: ''
               type: object
@@ -1204,6 +1493,39 @@ properties:
           - contains: *id035
             minContains: 0
             maxContains: 1
+          - contains: *id036
+            minContains: 0
+            maxContains: 1
+          - contains: *id037
+            minContains: 0
+            maxContains: 1
+          - contains: *id038
+            minContains: 0
+            maxContains: 1
+          - contains: *id039
+            minContains: 0
+            maxContains: 1
+          - contains: *id040
+            minContains: 0
+            maxContains: 1
+          - contains: *id041
+            minContains: 0
+            maxContains: 1
+          - contains: *id042
+            minContains: 0
+            maxContains: 1
+          - contains: *id043
+            minContains: 0
+            maxContains: 1
+          - contains: *id044
+            minContains: 0
+            maxContains: 1
+          - contains: *id045
+            minContains: 0
+            maxContains: 1
+          - contains: *id046
+            minContains: 0
+            maxContains: 1
         prov:used:
           type: array
           items:
@@ -1226,6 +1548,7 @@ properties:
                               schema:additionalType:
                                 contains:
                                   const: ICPMS
+                                schema:inDefinedTermSet: ada:vocab/instrumentType
                             required:
                             - schema:additionalType
                           then:
@@ -1248,13 +1571,14 @@ properties:
                                         schema:additionalType:
                                           contains:
                                             const: Torch
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                     then:
                                       properties:
                                         schema:additionalProperty:
                                           type: array
-                                          items: &id036
+                                          items: &id047
                                             title: Torch Depth
                                             description: Distance between the load coil and the sampling
                                               cone tip (mm), also called injector depth or torch position
@@ -1284,7 +1608,7 @@ properties:
                                             - schema:name
                                             - schema:value
                                           allOf:
-                                          - contains: *id036
+                                          - contains: *id047
                                             minContains: 0
                                             maxContains: 1
                                   - if:
@@ -1292,6 +1616,7 @@ properties:
                                         schema:additionalType:
                                           contains:
                                             const: ICP Source
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                     then:
@@ -1300,7 +1625,7 @@ properties:
                                           type: array
                                           items:
                                             anyOf:
-                                            - &id037
+                                            - &id048
                                               title: Coolant (Plasma) Gas Flow Rate
                                               description: Flow rate of the outer (coolant/plasma) argon
                                                 gas stream that sustains the ICP plasma, in L/min. Determines
@@ -1331,7 +1656,7 @@ properties:
                                               - schema:name
                                               - schema:value
                                               - schema:unitText
-                                            - &id038
+                                            - &id049
                                               title: Auxiliary Gas Flow Rate
                                               description: Flow rate of the intermediate (auxiliary) argon
                                                 gas stream that positions the plasma relative to the load
@@ -1364,7 +1689,7 @@ properties:
                                               - schema:name
                                               - schema:value
                                               - schema:unitText
-                                            - &id039
+                                            - &id050
                                               title: RF Power (W)
                                               description: ''
                                               type: object
@@ -1388,13 +1713,13 @@ properties:
                                               - schema:name
                                               - schema:value
                                           allOf:
-                                          - contains: *id037
+                                          - contains: *id048
                                             minContains: 0
                                             maxContains: 1
-                                          - contains: *id038
+                                          - contains: *id049
                                             minContains: 0
                                             maxContains: 1
-                                          - contains: *id039
+                                          - contains: *id050
                                             minContains: 0
                                             maxContains: 1
                                   - if:
@@ -1402,6 +1727,7 @@ properties:
                                         schema:additionalType:
                                           contains:
                                             const: Collision Reaction Cell
+                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                       required:
                                       - schema:additionalType
                                     then:
@@ -1410,7 +1736,7 @@ properties:
                                           type: array
                                           items:
                                             anyOf:
-                                            - &id040
+                                            - &id051
                                               title: Collision Gas Flow Rate
                                               description: Flow rate of the collision gas (typically He)
                                                 introduced into the collision/reaction cell, in mL/min.
@@ -1443,7 +1769,7 @@ properties:
                                               - schema:name
                                               - schema:value
                                               - schema:unitText
-                                            - &id041
+                                            - &id052
                                               title: Cell Exit Discrimination Voltage
                                               description: Bias voltage applied at the collision/reaction
                                                 cell exit to discriminate between analyte ions and low-energy
@@ -1477,7 +1803,7 @@ properties:
                                               - schema:name
                                               - schema:value
                                               - schema:unitText
-                                            - &id042
+                                            - &id053
                                               title: Reaction Gas Flow Rate
                                               description: Flow rate of the reactive gas introduced into
                                                 the dynamic reaction cell (DRC), in mL/min. Record 'N/A'
@@ -1509,13 +1835,13 @@ properties:
                                               - schema:value
                                               - schema:unitText
                                           allOf:
-                                          - contains: *id040
+                                          - contains: *id051
                                             minContains: 0
                                             maxContains: 1
-                                          - contains: *id041
+                                          - contains: *id052
                                             minContains: 0
                                             maxContains: 1
-                                          - contains: *id042
+                                          - contains: *id053
                                             minContains: 0
                                             maxContains: 1
                                 allOf:
@@ -1524,6 +1850,7 @@ properties:
                                       schema:additionalType:
                                         contains:
                                           const: ICP Source
+                                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                     required:
                                     - schema:additionalType
                                 - contains:
@@ -1531,13 +1858,14 @@ properties:
                                       schema:additionalType:
                                         contains:
                                           const: Collision Reaction Cell
+                                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                                     required:
                                     - schema:additionalType
                               schema:additionalProperty:
                                 type: array
                                 items:
                                   anyOf:
-                                  - &id043
+                                  - &id054
                                     title: Mass Resolution Setting
                                     description: Operating mass resolution of the mass analyser. For quadrupole
                                       instruments this is fixed at unit resolution by instrument design.
@@ -1564,7 +1892,7 @@ properties:
                                     - schema:propertyID
                                     - schema:name
                                     - schema:value
-                                  - &id044
+                                  - &id055
                                     title: ICP Tuning
                                     description: Description of the approach used to optimise ICP plasma
                                       conditions prior to analysis, including the reference material used
@@ -1590,7 +1918,7 @@ properties:
                                     - schema:propertyID
                                     - schema:name
                                     - schema:value
-                                  - &id045
+                                  - &id056
                                     title: Doubly-Charged Species Monitor
                                     description: The mass ratio monitored to estimate doubly-charged ion
                                       (M²⁺) formation during instrument tuning. Doubly-charged ions appear
@@ -1618,7 +1946,7 @@ properties:
                                     - schema:propertyID
                                     - schema:name
                                     - schema:value
-                                  - &id046
+                                  - &id057
                                     title: Doubly-Charged Species Production
                                     description: Measured percentage of doubly-charged ion production
                                       for the monitored species at the time of instrument tuning. The
@@ -1645,7 +1973,7 @@ properties:
                                     - schema:propertyID
                                     - schema:name
                                     - schema:value
-                                  - &id047
+                                  - &id058
                                     title: Memory Effect Mitigation
                                     description: Procedure applied to identify and minimise memory effects
                                       from high-concentration elements in the previous sample or standard
@@ -1675,19 +2003,19 @@ properties:
                                     - schema:name
                                     - schema:value
                                 allOf:
-                                - contains: *id043
+                                - contains: *id054
                                   minContains: 0
                                   maxContains: 1
-                                - contains: *id044
+                                - contains: *id055
                                   minContains: 0
                                   maxContains: 1
-                                - contains: *id045
+                                - contains: *id056
                                   minContains: 0
                                   maxContains: 1
-                                - contains: *id046
+                                - contains: *id057
                                   minContains: 0
                                   maxContains: 1
-                                - contains: *id047
+                                - contains: *id058
                                   minContains: 0
                                   maxContains: 1
                         - if:
@@ -1695,6 +2023,7 @@ properties:
                               schema:additionalType:
                                 contains:
                                   const: Laser Ablation System
+                                schema:inDefinedTermSet: ada:vocab/instrumentType
                             required:
                             - schema:additionalType
                           then:
@@ -1711,7 +2040,7 @@ properties:
                                     type: string
                               schema:additionalProperty:
                                 type: array
-                                items: &id048
+                                items: &id059
                                   title: Laser Energy
                                   description: Laser pulse energy in millijoules as set at the laser output
                                     or measured at the sample surface. Less commonly reported than fluence
@@ -1744,7 +2073,7 @@ properties:
                                   - schema:value
                                   - schema:unitText
                                 allOf:
-                                - contains: *id048
+                                - contains: *id059
                                   minContains: 0
                                   maxContains: 1
                               ada:laserFluence:
@@ -1770,6 +2099,7 @@ properties:
                           schema:additionalType:
                             contains:
                               const: ICPMS
+                            schema:inDefinedTermSet: ada:vocab/instrumentType
                         required:
                         - schema:additionalType
                     - contains:
@@ -1777,6 +2107,7 @@ properties:
                           schema:additionalType:
                             contains:
                               const: Laser Ablation System
+                            schema:inDefinedTermSet: ada:vocab/instrumentType
                         required:
                         - schema:additionalType
             - if:
@@ -1878,63 +2209,12 @@ properties:
                                     type: string
                         required:
                         - ada:reagentRole
-        ada:ablationSpotDuration:
-          description: 'Total on-sample ablation (signal acquisition) time per individual spot in seconds,
-            as set in the acquisition method. This is a procedure-level parameter for spot analysis: it
-            reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample
-            consumption, and session throughput. For transect analysis, the equivalent procedure-level
-            parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping
-            analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not
-            captured here.'
-          anyOf:
-          - type: number
-          - type: string
-        ada:ablationPitDepthRate:
-          description: Depth of the ablation pit produced under the registered laser conditions, the method
-            used to measure it, and the resulting per-pulse ablation rate. Sets the achievable depth resolution
-            and governs downhole elemental fractionation. For transect and mapping the equivalent quantity
-            is trench depth under the same conditions.
-          type: string
-        ada:rasterLineSpacing:
-          description: Distance between adjacent raster lines in a 2D elemental map, measured perpendicular
-            to the scan direction, in micrometres. Together with spot size, this determines whether adjacent
-            lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or
-            have gaps (line spacing > spot size). Applies to raster mapping only.
-          type: string
-        ada:carrierGasFlowRate:
-          description: Gas used to transport ablated aerosol from the ablation cell to the ICP-MS torch,
-            with the procedure-registered target flow rate(s). Helium is standard for most UV laser systems
-            due to superior aerosol transport. Flow rates are procedure targets; actual session values
-            may be adjusted within ±10% during tuning.
-          type: string
-        ada:analysisSequence:
-          description: Repeating order of primary calibration standard(s), quality control standard(s),
-            and unknown analyses within a measurement session. Editable to allow minor adjustments while
-            maintaining the bracketing strategy defined in the procedure.
-          type: string
-        ada:backgroundCountTime:
-          description: Total time spent measuring gas blank (background signal with laser off or shutter
-            closed) before each ablation event, in seconds. For spot and transect analysis, a discrete
-            background interval is measured before each ablation. For mapping, background is typically
-            measured once per raster line or at the start of a map session rather than before each individual
-            pixel. Editable to allow session-specific adjustment.
-          anyOf:
-          - type: number
-          - type: string
         schema:description:
           description: 'Any procedure- or analysis-specific information not captured by a structured field
             anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument
             modifications, and supplementary context. Scope is the whole document, not Group 6: this is
             the last field of the TAPP and covers all six groups. Use sparingly; a structured field is
             preferred for anything that can be formally categorised.'
-          type: string
-        ada:spotDiameter:
-          type: string
-        ada:massesMeasured:
-          type: string
-        ada:dwellTimes:
-          type: string
-        ada:totalIntegrationTimePerOutputDataPoint:
           type: string
   schema:measurementTechnique:
     type: array
@@ -2157,27 +2437,6 @@ properties:
             const: Goodness-of-Fit
         required:
         - dqv:isMeasurementOf
-  ada:reportedDateType:
-    type: array
-    items:
-      description: The kind of date or age the procedure reports. Most dating systems derive several different
-        date types from the same measurements, so a reported age is ambiguous without this. Where more
-        than one type is reported, list all, separated by semicolons. Kohn et al. (2024) carry this as
-        a named required item ("fission-track age type"); the equivalent distinction is required by all
-        five other standards surveyed.
-      type: string
-      enum:
-      - Weighted mean 206Pb/238U
-      - Weighted mean 207Pb/235U
-      - Weighted mean 207Pb/206Pb
-      - Concordia upper intercept
-      - Concordia lower intercept
-      - Tera-Wasserburg intercept
-      - Single-grain date
-      - Isochron date
-      - N/A
-      - None
-      - missing
   ada:sensitivityYield:
     type: string
 required:
