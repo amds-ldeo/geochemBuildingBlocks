@@ -139,11 +139,11 @@ The procedure half of the Group1 module, with every property populated. Generate
             schema1:name "example value" ] ;
     schema1:measurementTechnique [ schema1:termCode "example value" ] ;
     schema1:name "example value" ;
-    schema1:relatedLink [ schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "example value" ] ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "example value" ;
-                    schema1:name "example value" ] ] .
+                    schema1:name "example value" ] ],
+        [ schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "example value" ] ] .
 
 
 ```
@@ -262,11 +262,11 @@ The analysis half of the Group1 module, with every property populated. Generated
 [] schema1:contributor [ schema1:name "example value" ;
             schema1:roleName "analyst" ] ;
     schema1:measurementTechnique [ schema1:identifier "example value" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledProcedure" ;
+            schema1:target [ schema1:url "example value" ] ],
+        [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "example value" ;
                     schema1:name "example value" ] ],
-        [ schema1:linkRelationship "coupledProcedure" ;
-            schema1:target [ schema1:url "example value" ] ],
         [ schema1:linkRelationship "coupledDataset" ;
             schema1:target "example value" ] ;
     prov:wasGeneratedBy [ schema1:endDate "example value" ;
