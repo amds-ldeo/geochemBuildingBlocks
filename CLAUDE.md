@@ -105,6 +105,51 @@ module and technique `$defs` should therefore differ **only** in that `@id`.
 
 > **Module `$ref` depth (`e3a3968d`).** Modules sit at `_sources/BaseSchema/modules/<name>/` — two hops shallower than a technique schema at `_sources/techniqueProfile/geochemProfile/<TECH>/tapp/` — but `build_module_bb.py` reuses `schema_path_emitter`'s technique-depth `REF_MAP`. A BaseSchema target written as `../../../../BaseSchema/X` climbs past the repo root and must be `../../X`; `build_module_bb._reref_module_depth()` does that rewrite. Only the full CI postprocess catches this class of break — `validate_examples.py` does not.
 
+### Module ownership, and the rules it implies
+
+**Where a module covers a field, the module owns the placement — in the schema AND in the generated
+examples.** `module_composition.plan()` decides coverage; the technique's row is dropped from its
+overlay, and the example emitter drops it too (only the PARAMETER path: the module's `$def` still
+requires the composable placement, so dropping the item outright strips required properties out of
+the example). "A technique's own row wins" was right while modules only ADDED fields and wrong the
+moment one covered a field.
+
+Consequently a module-covered technique sidecar row carries **no Schema Path** — `Source = module`
+plus a note naming the owner. The row stays, because `migrate_sidecar` diffs Metadata Items against
+the workbook. `python tools/simplify_sidecars.py --write` does this and REFUSES divergent rows,
+where the technique's authored path differs from the module's: blanking there would adopt the
+module's placement and destroy an authored decision. ~40 such rows are open for review.
+
+**A module must not hardcode an instrument selector it cannot guarantee.** `core` composes into
+every technique; when it placed `Instrument Manufacturer` under
+`schema:instrument[schema:additionalType='SEM']` (a `seed_module_sidecars` consensus, SEM winning
+only on numbers), every ICP-MS, TEM, XCT and EPMA procedure got its instrument metadata on an SEM
+node. A family module naming its own component (`laserAblation` → `Laser Ablation System`) is fine.
+
+**`Goodness-of-Fit` placement rule.** It sits in `dqv:hasQualityMeasurement` UNLESS it is keyed as a
+reported property AND the procedure defines a reportedProperties list, in which case it is in the
+reported-property `variableMeasured` list. `Aggregation` carries both rows: `variableMeasured` keyed
+`reported property`, and the unkeyed `dqv` default.
+
+### Instruments and keyed-table columns
+
+**`@id` is REQUIRED on an instrument and on an inline `schema:hasPart` component.** A monitored
+species has to be able to name the device — or the part — that reports it. Generated identifiers are
+`ex:instrument/<Token>` and `ex:instrument/<Token>/part/<Component>`, derived from the
+`schema:additionalType` token so they are stable across regenerations.
+`tools/add_instrument_ids.py` backfills the `adaProfile` and hand-authored BaseSchema examples that
+no pipeline regenerates; anything the pipeline owns must come from the generator, not that script.
+
+**A keyed-table column is always a `schema:PropertyValueSpecification` on the procedure side.**
+Read-only is an attribute of the specification (`schema:readonlyValue`), not a different type; the
+base `KeyedTableColumn` requires the specification form, so emitting `schema:PropertyValue` there
+produced an `allOf` no instance could satisfy. The value form is right on `$Dataset` alone.
+
+**Selector tokens are vocabulary-backed.** `ada:vocab/instrumentType` and
+`ada:vocab/instrumentComponentType` are generated from the WIRED sidecars by
+`tools/build_instrument_codelist.py` and referenced by `schema:inDefinedTermSet`, the same
+annotation convention `componentType` uses.
+
 ## componentType architecture (source of truth: spreadsheet)
 
 `ada:componentType` is a **string** on each archive `hasPart` item, classifying the file (e.g. `ada:EMPAImageMap`). Two layers of constraint apply via `allOf`:

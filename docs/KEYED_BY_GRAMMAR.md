@@ -1,10 +1,28 @@
 # `Keyed By` → schema-path grammar
 
-Written 2026-08-11 against the delivery in `TAPPS20260811/` (16 TAPPs, 1691 content rows) and
-still current against `TAPPS20260813/`, whose `Keyed By` values are unchanged. Three of the eight
-domains are implemented — `analyte`, `channel`, `reported property`; the rest are flagged, not
-guessed at.
-Every field name, tier, count and example is taken from those CSVs.
+Written 2026-08-11 against the delivery in `TAPPS20260811/` (16 TAPPs, 1691 content rows). The
+field names, tiers, counts and examples below are taken from those CSVs.
+
+**Re-checked 2026-08-23 against the delivery now wired** (the `tapp/` submodule, after every
+technique moved to a current table). The `Keyed By` column has grown: the wired tables carry **17
+distinct forms**, not the eight described here —
+
+```
+channel 109   reported property 101   analyte 38   standard x reported property 33   sample 32
+sample > sampling unit x reported property 21        sample > sampling unit 16
+defines: sample 16   defines: sampling unit 16   defines: reported property 16
+defines: analyte 13  defines: channel per analyte 13   defines: standard 9
+preparation step 9   pair: reported property 7   defines: standard per analyte 3
+defines: preparation step 3
+```
+
+**Nine are implemented** in `bootstrap_schemapaths.keyed_path()`: `analyte`, `channel`,
+`reported property`, `sample`, `sample persistent identifier`, and the `defines:` forms for
+`analyte`, `reported property`, `sample` and `sampling unit`. The rest are flagged rather than
+guessed at, which is the point — an inferred placement for a domain nobody has modelled is worse
+than an empty cell, because it looks decided.
+
+The grammar below is unchanged; what has changed is how much of the column it covers.
 
 **Status: partly implemented (updated 2026-08-19).** Beyond the analyte-column tier rules (§2.1),
 the three keyed-table domains — `analyte`, `channel`, `reported property` — now generate as keyed

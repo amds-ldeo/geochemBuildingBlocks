@@ -55,29 +55,36 @@ generated artifact and should not be parsed for content.
 generated mirror holding the latest version of each, refreshed on every version bump under Rule 12.
 Earlier versions stay in the per-technique folders (`EPMA/`, `SEM/`, …).
 
-> **This broke a consumer.** `composed_tapps.json` still records per-technique paths
-> (`EPMA/EPMA_TAPP_v20.csv`), so **0 of its 16 entries resolve** against the delivery as laid out.
-> Our tooling now resolves manifest entries by filename. Either the manifest or the layout should
-> move — see `docs/upstream-requests.md` §5.
+> **This broke a consumer, and the workaround is still load-bearing.**
+> `composed_tapps.json` records per-technique paths (`EPMA/EPMA_TAPP_v25.csv`) that do not resolve
+> against the delivery as laid out, so our tooling matches manifest entries **by filename**. That
+> has a consequence worth knowing: a technique silently stops composing modules the moment it is
+> repointed at a table the manifest does not list. Either the manifest or the layout should move —
+> see `docs/upstream-requests.md` §5.
 
-| TAPP (current) | Modules composed | ReportingCore blocks |
+> **Updated 2026-08-23.** Every technique is now on a current delivery table, and the module set has
+> changed with it: `Group1` and `ReportingCore` are composed by nothing in the current manifest,
+> having been superseded by `Core` plus the smaller `TargetSelection`, `CalibrationFactor`, `Blank`,
+> `Aggregation` and `Analyte` modules.
+
+| TAPP (wired 2026-08-23) | Modules composed | ReportingCore blocks |
 |---|---|---|
-| `EPMA_TAPP_v20.csv` | Group1, ReportingCore | `all` |
-| `LA-MC-ICPMS_TAPP_v13.csv` | Group1, LaserAblation, MCICPMS, ReportingCore | `all` |
-| `LA-MC-ICPMS_UPb_TAPP_v13.csv` | + Geochronology, UPb | `all` |
-| `LA-Q-ICP-MS_TAPP_v15.csv` | Group1, LaserAblation, ReportingCore | `all` |
-| `LA-Q-ICP-MS_UPb_TAPP_v16.csv` | + Geochronology, UPb | `all` |
-| `LA-SF-ICP-MS_TAPP_v16.csv` | Group1, LaserAblation, ReportingCore | `all` |
-| `LA-SF-ICP-MS_UPb_TAPP_v17.csv` | + Geochronology, UPb | `all` |
-| `Lab-XCT_TAPP_v17.csv` | Group1, ReportingCore | `target_selection,calibration_factor` |
-| `SEM_TAPP_v17.csv` | Group1, ReportingCore | `all` |
-| `SEM_Composition_TAPP_v17.csv` | Group1, ReportingCore | `all` |
-| `SEM_FIBSEM_TAPP_v11.csv` | Group1, ReportingCore | `target_selection` |
-| `SEM_Imaging_TAPP_v11.csv` | Group1, ReportingCore | `target_selection` |
-| `Solution_MC-ICP-MS_TAPP_v16.csv` | Group1, MCICPMS, ReportingCore, SolutionIntroduction | `calibration_factor,blank,aggregation,aggregation_qc` |
-| `Solution_Q-ICP-MS_TAPP_v17.csv` | Group1, ReportingCore, SolutionIntroduction | `calibration_factor,blank,aggregation,aggregation_qc` |
-| `Solution_SF-ICP-MS_TAPP_v18.csv` | Group1, ReportingCore, SolutionIntroduction | `calibration_factor,blank,aggregation,aggregation_qc` |
-| `TEM_TAPP_v17.csv` | Group1, ReportingCore | `target_selection,calibration_factor,aggregation,aggregation_qc` |
+| `EPMA_TAPP_v25.csv` | Core, TargetSelection, CalibrationFactor, Blank, Aggregation, Analyte | — |
+| `LA-MC-ICPMS_TAPP_v26.csv` | Core, LaserAblation, MCICPMS, TargetSelection, CalibrationFactor, Blank, Aggregation, Analyte | — |
+| `LA-MC-ICPMS_UPb_TAPP_v26.csv` | Core, LaserAblation, MCICPMS, TargetSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb, Analyte | — |
+| `LA-Q-ICP-MS_TAPP_v29.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation, Analyte | — |
+| `LA-Q-ICP-MS_UPb_TAPP_v29.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb, Analyte | — |
+| `LA-SF-ICP-MS_TAPP_v28.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation, Analyte | — |
+| `LA-SF-ICP-MS_UPb_TAPP_v29.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb, Analyte | — |
+| `Lab-XCT_TAPP_v21.csv` | Core, TargetSelection, CalibrationFactor | — |
+| `SEM_Composition_TAPP_v22.csv` | Core, TargetSelection, CalibrationFactor, Blank, Aggregation, Analyte | — |
+| `SEM_FIBSEM_TAPP_v14.csv` | Core, TargetSelection | — |
+| `SEM_Imaging_TAPP_v14.csv` | Core, TargetSelection | — |
+| `SEM_TAPP_v22.csv` | Core, TargetSelection, CalibrationFactor, Blank, Aggregation, Analyte | — |
+| `Solution_MC-ICP-MS_TAPP_v30.csv` | Core, MCICPMS, CalibrationFactor, Blank, Aggregation, SolutionIntroduction, Analyte | — |
+| `Solution_Q-ICP-MS_TAPP_v34.csv` | Core, CalibrationFactor, Blank, Aggregation, SolutionIntroduction, Analyte | — |
+| `Solution_SF-ICP-MS_TAPP_v32.csv` | Core, CalibrationFactor, Blank, Aggregation, SolutionIntroduction, Analyte | — |
+| `TEM_TAPP_v21.csv` | Core, TargetSelection, CalibrationFactor, Aggregation, Analyte | — |
 
 **Version numbers move.** Resolve the current file by listing, or from `composed_tapps.json`. Never
 hard-code filenames — and, as of this delivery, do not hard-code the *directory* either.
