@@ -105,6 +105,94 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "beamDamageMinimizationDefault",
+      "schema:name": "Beam Damage Minimization",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections (coating type N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide | Sulfide | Phosphate | Glass"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Division of Geological and Planetary Sciences, Caltech"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Si",
@@ -267,94 +355,6 @@
       }
     ]
   },
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "beamDamageMinimizationDefault",
-      "schema:name": "Beam Damage Minimization",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Division of Geological and Planetary Sciences, Caltech"
-  },
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections (coating type N)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide | Sulfide | Phosphate | Glass"
-          ]
-        }
-      ]
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [

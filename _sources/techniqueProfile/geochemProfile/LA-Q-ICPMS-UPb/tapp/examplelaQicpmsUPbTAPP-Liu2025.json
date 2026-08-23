@@ -16,46 +16,6 @@
   ],
   "schema:name": "Liu et al. (2025) Experimental Silicate Glass LA-ICP-MS Spot v1",
   "schema:description": "Analysis of quenched experimental glasses from high-pressure (1 GPa) piston-cylinder experiments; Au and Cu solubility measurements; smooth time-resolved signals indicate fully dissolved Au (no micronuggets)",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-Q-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Liu, Li, Xu, Xiong et al.",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -152,30 +112,6 @@
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
-      "schema:name": "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)",
-      "ada:laserSpotGeometryDefault": "40 µm circular (silicate glass)",
-      "ada:laserFluenceDefault": "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")",
-      "ada:laserRepetitionRateDefault": "7 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -264,6 +200,30 @@
         }
       ],
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
+      "schema:name": "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)",
+      "ada:laserSpotGeometryDefault": "40 µm circular (silicate glass)",
+      "ada:laserFluenceDefault": "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")",
+      "ada:laserRepetitionRateDefault": "7 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
   "ada:ablationSpotDurationDefault": "~40 s (inferred from typical CetacAnalyte HE protocol for glass)",
@@ -295,6 +255,57 @@
     }
   ],
   "ada:analysisSequenceDefault": "NIST 610 as primary standard measured in session; NIST 612 and BCR-2G as monitoring standards; unknowns bracketed by standards",
+  "ada:internalStandardApproach": "Single element from EMP: Si (SiO₂ from EMP for silicate glass); NIST 610 as external standard",
+  "ada:internalStandardElement": "Si from EMP (SiO₂ wt% for silicate glass)",
+  "ada:elementalFractionationCorrection": [
+    "Femtosecond laser reduces LIEF; NIST 610 external standard; Si IS from EMP corrects for ablation yield"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signal inspected; micronuggets identified from spikes in Au signal and excluded from integration to obtain smooth signals (verified by Fig. 1 in paper)",
+  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS",
+  "ada:calibrationMeasurementFrequency": "NIST 610 as primary; NIST 612 and BCR-2G as monitoring standards",
+  "ada:secondaryReferenceMaterialDefault": [
+    "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Liu, Li, Xu, Xiong et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "¹⁹⁷Au",
@@ -432,17 +443,6 @@
       }
     ]
   },
-  "ada:internalStandardApproach": "Single element from EMP: Si (SiO₂ from EMP for silicate glass); NIST 610 as external standard",
-  "ada:internalStandardElement": "Si from EMP (SiO₂ wt% for silicate glass)",
-  "ada:elementalFractionationCorrection": [
-    "Femtosecond laser reduces LIEF; NIST 610 external standard; Si IS from EMP corrects for ablation yield"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signal inspected; micronuggets identified from spikes in Au signal and excluded from integration to obtain smooth signals (verified by Fig. 1 in paper)",
-  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS",
-  "ada:calibrationMeasurementFrequency": "NIST 610 as primary; NIST 612 and BCR-2G as monitoring standards",
-  "ada:secondaryReferenceMaterialDefault": [
-    "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ageModelDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,

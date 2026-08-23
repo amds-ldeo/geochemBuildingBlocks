@@ -16,46 +16,6 @@
   ],
   "schema:name": "Navarro et al. (2024) Iron Meteorite Spot v1",
   "schema:description": "Key innovations: (1) use of two measurement standards (NIST SRM 612 + North Chile) with yield correction in iolite 3D DRS; (2) Fe+Ni+Co=100% normalization eliminates need for EPMA IS; Cr results not quantitative due to argide interferences",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-SF-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Navarro, Enzweiler, Crósta et al.",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "FAPESP (São Paulo Research Foundation); CNPq"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -165,43 +125,6 @@
     ]
   },
   "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Teledyne Excite 193 (193 nm ArF excimer)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm ArF excimer; pulse duration 4 ns",
-      "schema:name": "HelEx II two-volume sample cell",
-      "ada:laserSpotGeometryDefault": "150 µm circular",
-      "ada:laserFluenceDefault": "7 J cm⁻²",
-      "ada:laserRepetitionRateDefault": "10 Hz",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "laserPulseDuration",
-          "schema:name": "Laser Pulse Duration",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:value": "4 ns (ArF excimer Excite 193)"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System"
-    },
     {
       "schema:additionalType": [
         "ICPMS",
@@ -344,16 +267,44 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
-    }
-  ],
-  "bios:computationalTool": [
+    },
     {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS"
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserPulseDuration",
+          "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "4 ns (ArF excimer Excite 193)"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Teledyne Excite 193 (193 nm ArF excimer)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm ArF excimer; pulse duration 4 ns",
+      "schema:name": "HelEx II two-volume sample cell",
+      "ada:laserSpotGeometryDefault": "150 µm circular",
+      "ada:laserFluenceDefault": "7 J cm⁻²",
+      "ada:laserRepetitionRateDefault": "10 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     }
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
   ],
   "ada:ablationSpotDurationDefault": "40 s on-sample ablation (after 20 s background measurement)",
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
@@ -384,6 +335,68 @@
     }
   ],
   "ada:analysisSequenceDefault": "NIST SRM 612(×3) → North Chile(×3) → unknowns(×10) → NIST SRM 612(×2) → North Chile(×2) → unknowns(×10) → … (bracketing every 15)",
+  "ada:backgroundCountTimeDefault": "20 s background measurement (laser shutter closed) before each 40 s ablation",
+  "ada:internalStandardApproach": "Fe+Ni+Co sum normalization to 100% using iolite 3D Trace Elements DRS (eliminates need for independent EPMA IS)",
+  "ada:internalStandardElement": "No single IS; Fe+Ni+Co mass fractions normalized to 100% via iolite 3D DRS (yield correction factors applied for NIST SRM 612 relative to North Chile)",
+  "ada:elementalFractionationCorrection": [
+    "External calibration using North Chile iron meteorite + NIST SRM 612 glass (yield correction applied in iolite 3D DRS for NIST relative to North Chile); ordinary least-squares fitting per 15 min calibration block; Fe+Ni+Co normalization eliminates need for independent EPMA IS"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signals inspected per analysis; background interval (20 s) and ablation interval (40 s) selected; no automated spike exclusion described",
+  "ada:blankBackgroundCorrectionMethod": "Background signal measured for 20 s (laser shutter closed) before each 40 s ablation; background mean subtracted per isotope in iolite",
+  "ada:primaryStandardNameDefault": "NIST SRM 612 glass (Jochum et al. 2011) + North Chile Filomena iron meteorite (Wasson et al. 1989) — used together with yield correction in iolite 3D DRS",
+  "ada:calibrationMeasurementFrequency": "NIST SRM 612 and North Chile measured bracketing every 15 unknowns: 3×STD → 3×STD → 10×unknowns → repeat",
+  "ada:secondaryReferenceMaterialDefault": [
+    "North Chile Filomena measured as unknown on different days over 4 months to assess intermediate precision (Table 3 and Fig. 2)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-SF-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Navarro, Enzweiler, Crósta et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "FAPESP (São Paulo Research Foundation); CNPq"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "⁵²Cr",
@@ -546,19 +559,6 @@
       }
     ]
   },
-  "ada:backgroundCountTimeDefault": "20 s background measurement (laser shutter closed) before each 40 s ablation",
-  "ada:internalStandardApproach": "Fe+Ni+Co sum normalization to 100% using iolite 3D Trace Elements DRS (eliminates need for independent EPMA IS)",
-  "ada:internalStandardElement": "No single IS; Fe+Ni+Co mass fractions normalized to 100% via iolite 3D DRS (yield correction factors applied for NIST SRM 612 relative to North Chile)",
-  "ada:elementalFractionationCorrection": [
-    "External calibration using North Chile iron meteorite + NIST SRM 612 glass (yield correction applied in iolite 3D DRS for NIST relative to North Chile); ordinary least-squares fitting per 15 min calibration block; Fe+Ni+Co normalization eliminates need for independent EPMA IS"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signals inspected per analysis; background interval (20 s) and ablation interval (40 s) selected; no automated spike exclusion described",
-  "ada:blankBackgroundCorrectionMethod": "Background signal measured for 20 s (laser shutter closed) before each 40 s ablation; background mean subtracted per isotope in iolite",
-  "ada:primaryStandardNameDefault": "NIST SRM 612 glass (Jochum et al. 2011) + North Chile Filomena iron meteorite (Wasson et al. 1989) — used together with yield correction in iolite 3D DRS",
-  "ada:calibrationMeasurementFrequency": "NIST SRM 612 and North Chile measured bracketing every 15 unknowns: 3×STD → 3×STD → 10×unknowns → repeat",
-  "ada:secondaryReferenceMaterialDefault": [
-    "North Chile Filomena measured as unknown on different days over 4 months to assess intermediate precision (Table 3 and Fig. 2)"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:ionCounterDeadTimeDefault": -9999,

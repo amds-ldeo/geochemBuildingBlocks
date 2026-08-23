@@ -16,43 +16,6 @@
   ],
   "schema:name": "laQicpms protocol — Liu2016-2",
   "schema:description": "N/A — see silicate column for general notes",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS (same as silicate protocol)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Department of Geosciences, Virginia Tech"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Same as silicate protocol"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA (EMP)",
-        "schema:description": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -82,44 +45,6 @@
     }
   ],
   "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm Excimer (ArF excimer)",
-      "ada:laserSpotGeometryDefault": "~24 µm diameter",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/LaserAblation/laserEnergyDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "laserEnergyDefault",
-          "schema:name": "Laser Energy",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 150,
-          "schema:description": "150 mJ output energy"
-        }
-      ],
-      "ada:laserFluenceDefault": "7–10 J/m² (same as silicate protocol)",
-      "ada:laserRepetitionRateDefault": "5 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
     {
       "schema:additionalType": [
         "ICPMS",
@@ -197,16 +122,45 @@
         }
       ],
       "schema:name": "example instrumentName"
-    }
-  ],
-  "bios:computationalTool": [
+    },
     {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserEnergyDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserEnergyDefault",
+          "schema:name": "Laser Energy",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 150,
+          "schema:description": "150 mJ output energy"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm Excimer (ArF excimer)",
+      "ada:laserSpotGeometryDefault": "~24 µm diameter",
+      "ada:laserFluenceDefault": "7–10 J/m² (same as silicate protocol)",
+      "ada:laserRepetitionRateDefault": "5 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System",
+      "schema:name": "example instrumentName"
     }
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
   ],
   "ada:analysisSequenceDefault": "Same as silicate protocol",
   "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
@@ -234,6 +188,52 @@
   "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
   "ada:primaryStandardNameDefault": "NIST 610 glass standard",
   "ada:calibrationMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS (same as silicate protocol)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Department of Geosciences, Virginia Tech"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Same as silicate protocol"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (EMP)",
+        "schema:description": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"

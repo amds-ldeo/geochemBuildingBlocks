@@ -16,20 +16,6 @@
   ],
   "schema:name": "solutionQicpms protocol — Agilent8800",
   "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v34.csv). Reported detail: ada:perAnalyteCalibrationStrategy = External calibration for both Te and Se.",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution Q-ICP-MS (triple-quadrupole platform)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "N — 'Agilent 8800, Basel, Switzerland'; the Basel-area author affiliation is FHNW"
-  },
   "schema:object": [
     {
       "@type": [
@@ -170,6 +156,90 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:channelTemplate": {
+    "ada:defaultChannels": [
+      "125Te",
+      "77Se"
+    ],
+    "ada:channelColumns": [
+      {
+        "schema:valueName": "channel",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:internalStandardElement": "103Rh, to correct for matrix effects",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration (all analytes)"
+  ],
+  "ada:reportedProperties": [
+    "Te and Se concentrations (ug L-1; mg kg-1)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution Q-ICP-MS (triple-quadrupole platform)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "N — 'Agilent 8800, Basel, Switzerland'; the Basel-area author affiliation is FHNW"
+  },
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Te and Se"
@@ -246,76 +316,6 @@
       }
     ]
   },
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
-      "125Te",
-      "77Se"
-    ],
-    "ada:channelColumns": [
-      {
-        "schema:valueName": "channel",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
-  "ada:internalStandardElement": "103Rh, to correct for matrix effects",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "Te and Se concentrations (ug L-1; mg kg-1)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"

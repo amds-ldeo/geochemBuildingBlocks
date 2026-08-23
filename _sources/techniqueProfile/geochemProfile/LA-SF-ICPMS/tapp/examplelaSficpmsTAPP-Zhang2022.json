@@ -16,49 +16,6 @@
   ],
   "schema:name": "Zhang et al. (2022) Iron Meteorite LA-ICP-MS v1",
   "schema:description": "Raster scans used for main element dataset (23 elements); separate spot analyses on 5 irons for more precise Ge abundances (150 µm spot, 50 Hz, 20 s); two different analysis modes represent distinct protocols but are reported in same paper",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-SF-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Zhang, Chabot, Rubin, Humayun et al.",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA (Brown University CAMECA SX-100)",
-        "schema:description": "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -142,28 +99,6 @@
     ]
   },
   "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "ESI New Wave UP193FX (193 nm Nd:YAG frequency-quintupled solid state)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserSpotGeometryDefault": "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular",
-      "ada:laserRepetitionRateDefault": "Raster: 50 Hz; Spot (Ge): 50 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
     {
       "schema:additionalType": [
         "ICPMS",
@@ -253,10 +188,29 @@
         }
       ],
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "ESI New Wave UP193FX (193 nm Nd:YAG frequency-quintupled solid state)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserSpotGeometryDefault": "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular",
+      "ada:laserRepetitionRateDefault": "Raster: 50 Hz; Spot (Ge): 50 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System",
+      "schema:name": "example instrumentName"
     }
-  ],
-  "ada:ablationSamplingMode": [
-    "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons"
   ],
   "ada:ablationSpotDurationDefault": "N/A (raster) / 20 s (spot Ge at 50 Hz)",
   "schema:additionalProperty": [
@@ -284,6 +238,59 @@
     }
   ],
   "ada:analysisSequenceDefault": "Standards at start of session → raster unknowns → repeat → standards at end; separate session for Ge spot analyses",
+  "ada:internalStandardApproach": "Standardization techniques followed those of Humayun (2012) [Section 2.2; specific IS approach not restated in this paper]",
+  "ada:elementalFractionationCorrection": [
+    "Multi-point external calibration using series of iron meteorite reference materials (North Chile Filomena as primary standard for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au)"
+  ],
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each raster analysis; mean background subtracted",
+  "ada:primaryStandardNameDefault": "North Chile Filomena (IIAB iron meteorite; Wasson et al. 1989) for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba (IVB; Walker et al. 2008) for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel (Campbell & Humayun 2005) for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au",
+  "ada:calibrationMeasurementFrequency": "Standards at start and end of session; external bracketing",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-SF-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Zhang, Chabot, Rubin, Humayun et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (Brown University CAMECA SX-100)",
+        "schema:description": "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "³¹P",
@@ -451,13 +458,6 @@
       }
     ]
   },
-  "ada:internalStandardApproach": "Standardization techniques followed those of Humayun (2012) [Section 2.2; specific IS approach not restated in this paper]",
-  "ada:elementalFractionationCorrection": [
-    "Multi-point external calibration using series of iron meteorite reference materials (North Chile Filomena as primary standard for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au)"
-  ],
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each raster analysis; mean background subtracted",
-  "ada:primaryStandardNameDefault": "North Chile Filomena (IIAB iron meteorite; Wasson et al. 1989) for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba (IVB; Walker et al. 2008) for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel (Campbell & Humayun 2005) for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au",
-  "ada:calibrationMeasurementFrequency": "Standards at start and end of session; external bracketing",
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:carrierGasFlowRateDefault": "missing",

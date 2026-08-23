@@ -18088,7 +18088,16 @@
           ]
         },
         "schema:funding": {
-          "type": "array"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Grants and other funding sources that supported the specific sample analyses and data collection reported here. Include grant numbers and funding agencies. Distinct from procedure development funding, which may have been awarded years earlier.",
+                "type": "string"
+              }
+            }
+          }
         },
         "schema:relatedLink": {
           "type": "array",
@@ -18182,10 +18191,7 @@
             ]
           }
         }
-      },
-      "required": [
-        "schema:funding"
-      ]
+      }
     },
     {
       "title": "LaserAblation on the analysis",

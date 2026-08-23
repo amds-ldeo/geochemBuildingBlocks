@@ -16,20 +16,6 @@
   ],
   "schema:name": "laQicpms protocol — P6",
   "schema:description": "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v29.csv).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS)"
-  },
   "schema:object": [
     {
       "@type": [
@@ -47,7 +33,6 @@
       ]
     }
   ],
-  "ada:samplingUnit": "Laser spot — 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents",
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -103,42 +88,6 @@
     ]
   },
   "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Photon Machines Analyte G2 (Teledyne CETAC, Omaha, USA)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm",
-      "schema:name": "HelEx ablation cell",
-      "ada:laserFluenceDefault": "4 J cm-2",
-      "ada:laserRepetitionRateDefault": "10 Hz",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "laserPulseDuration",
-          "schema:name": "Laser Pulse Duration",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:value": "4-5 ns"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System"
-    },
     {
       "schema:additionalType": [
         "ICPMS",
@@ -347,16 +296,43 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
-    }
-  ],
-  "bios:computationalTool": [
+    },
     {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages"
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserPulseDuration",
+          "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "4-5 ns"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Photon Machines Analyte G2 (Teledyne CETAC, Omaha, USA)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm",
+      "schema:name": "HelEx ablation cell",
+      "ada:laserFluenceDefault": "4 J cm-2",
+      "ada:laserRepetitionRateDefault": "10 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     }
-  ],
-  "ada:ablationSamplingMode": [
-    "Single hole drilling, two cleaning pulses"
   ],
   "ada:ablationSpotDurationDefault": "25 s",
   "ada:carrierGasFlowRateDefault": "He, 900 mL min-1 ablation gas flow",
@@ -386,6 +362,43 @@
     }
   ],
   "ada:oxideProductionMethodAndThreshold": "ThO/Th < 0.5%, checked during SQ no-gas tuning",
+  "ada:reportedProperties": [
+    "176Lu/177Hf and 176Hf/177Hf ratios; Lu-Hf isochron and weighted-mean ages (Ma)"
+  ],
+  "ada:signalCollectionMode": "N/A",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": "0.659 s",
+  "ada:backgroundCountTimeDefault": "N — gas-blank correction applied in Iolite, duration not stated",
+  "ada:uncertaintyLevel": "2SE for single-spot ages; uncertainties on weighted-mean ages quoted at 2s",
+  "ada:blankBackgroundCorrectionMethod": "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities",
+  "ada:constantsAndReferenceValuesUsedDefault": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga",
+  "ada:primaryStandardNameDefault": "NIST SRM 610",
+  "ada:secondaryReferenceMaterialDefault": [
+    "XN02 xenotime as a matrix-matched reference material to correct matrix-induced elemental fractionation of Lu/Hf between SRM 610 and the samples"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS)"
+  },
+  "ada:samplingUnit": "Laser spot — 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Single hole drilling, two cleaning pulses"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Lu and Hf (with Yb monitored for interference)",
@@ -524,19 +537,6 @@
       }
     ]
   },
-  "ada:reportedProperties": [
-    "176Lu/177Hf and 176Hf/177Hf ratios; Lu-Hf isochron and weighted-mean ages (Ma)"
-  ],
-  "ada:signalCollectionMode": "N/A",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "0.659 s",
-  "ada:backgroundCountTimeDefault": "N — gas-blank correction applied in Iolite, duration not stated",
-  "ada:uncertaintyLevel": "2SE for single-spot ages; uncertainties on weighted-mean ages quoted at 2s",
-  "ada:blankBackgroundCorrectionMethod": "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities",
-  "ada:constantsAndReferenceValuesUsedDefault": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga",
-  "ada:primaryStandardNameDefault": "NIST SRM 610",
-  "ada:secondaryReferenceMaterialDefault": [
-    "XN02 xenotime as a matrix-matched reference material to correct matrix-induced elemental fractionation of Lu/Hf between SRM 610 and the samples"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",

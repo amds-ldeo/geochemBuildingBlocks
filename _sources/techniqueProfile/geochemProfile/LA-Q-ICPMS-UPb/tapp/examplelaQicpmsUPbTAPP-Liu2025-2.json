@@ -16,46 +16,6 @@
   ],
   "schema:name": "Liu et al. (2025) Experimental Sulfide LA-ICP-MS Spot v1",
   "schema:description": "Analysis of quenched experimental pyrrhotite (Fe₁₋ₓS) from same piston-cylinder experiments; 20 µm spot required due to small grain size (5–50 µm); same instrument and analytical session as glass protocol",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-Q-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Liu, Li, Xu, Xiong et al.",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -152,30 +112,6 @@
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
-      "schema:name": "Cetac Analyte HE system (same as silicate glass protocol)",
-      "ada:laserSpotGeometryDefault": "20 µm circular (sulfide; grain sizes >20 µm selected)",
-      "ada:laserFluenceDefault": "~2.5 J cm⁻²",
-      "ada:laserRepetitionRateDefault": "7 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -264,6 +200,30 @@
         }
       ],
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
+      "schema:name": "Cetac Analyte HE system (same as silicate glass protocol)",
+      "ada:laserSpotGeometryDefault": "20 µm circular (sulfide; grain sizes >20 µm selected)",
+      "ada:laserFluenceDefault": "~2.5 J cm⁻²",
+      "ada:laserRepetitionRateDefault": "7 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
   "ada:ablationSpotDurationDefault": "~40 s (same protocol; grain size >20 µm selected)",
@@ -295,6 +255,57 @@
     }
   ],
   "ada:analysisSequenceDefault": "Same bracketing as silicate glass protocol",
+  "ada:internalStandardApproach": "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard",
+  "ada:internalStandardElement": "Fe from EMP (FeOT wt% for sulfide)",
+  "ada:elementalFractionationCorrection": [
+    "Femtosecond laser reduces LIEF; NIST 610 external standard; Fe IS from EMP corrects for ablation yield; micronuggets identified from Au signal spikes and excluded from integration"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Same approach as glass; micronugget identification from Au signal spikes critical for sulfide analyses",
+  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard); Fe from EMP as IS",
+  "ada:calibrationMeasurementFrequency": "Same bracketing as silicate glass protocol",
+  "ada:secondaryReferenceMaterialDefault": [
+    "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Liu, Li, Xu, Xiong et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "¹⁹⁷Au",
@@ -431,17 +442,6 @@
       }
     ]
   },
-  "ada:internalStandardApproach": "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard",
-  "ada:internalStandardElement": "Fe from EMP (FeOT wt% for sulfide)",
-  "ada:elementalFractionationCorrection": [
-    "Femtosecond laser reduces LIEF; NIST 610 external standard; Fe IS from EMP corrects for ablation yield; micronuggets identified from Au signal spikes and excluded from integration"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Same approach as glass; micronugget identification from Au signal spikes critical for sulfide analyses",
-  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard); Fe from EMP as IS",
-  "ada:calibrationMeasurementFrequency": "Same bracketing as silicate glass protocol",
-  "ada:secondaryReferenceMaterialDefault": [
-    "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ageModelDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,

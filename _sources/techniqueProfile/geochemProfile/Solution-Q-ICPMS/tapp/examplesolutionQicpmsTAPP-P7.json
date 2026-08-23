@@ -16,20 +16,6 @@
   ],
   "schema:name": "solutionQicpms protocol — P7",
   "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v34.csv).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution Q-ICP-MS"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Karlsruhe Institute of Technology (KIT), Germany"
-  },
   "schema:object": [
     {
       "@type": [
@@ -170,6 +156,93 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:channelTemplate": {
+    "ada:defaultChannels": [
+      "N — Se isotopes not individually stated"
+    ],
+    "ada:channelColumns": [
+      {
+        "schema:valueName": "channel",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:internalStandardElement": "103Rh and 115In",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration (all analytes)"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "CRM-TMDW drinking water and NIST 1643f freshwater"
+  ],
+  "ada:reportedProperties": [
+    "Dissolved Se concentration (ug L-1)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution Q-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Karlsruhe Institute of Technology (KIT), Germany"
+  },
+  "ada:samplingUnit": "N — sub-sampled water aliquots",
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Se"
@@ -246,79 +319,6 @@
       }
     ]
   },
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
-      "N — Se isotopes not individually stated"
-    ],
-    "ada:channelColumns": [
-      {
-        "schema:valueName": "channel",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
-  "ada:internalStandardElement": "103Rh and 115In",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "CRM-TMDW drinking water and NIST 1643f freshwater"
-  ],
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "Dissolved Se concentration (ug L-1)"
-  ],
-  "ada:samplingUnit": "N — sub-sampled water aliquots",
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"

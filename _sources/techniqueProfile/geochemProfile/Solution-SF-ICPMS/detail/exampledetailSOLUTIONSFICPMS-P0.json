@@ -16,24 +16,6 @@
     {
       "prov:used": [
         {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "example acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "example dataProcessingSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            }
-          ]
-        },
-        {
           "schema:instrument": [
             {
               "schema:additionalType": [
@@ -272,16 +254,31 @@
               ]
             }
           ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataProcessingSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
         }
       ],
-      "schema:startDate": "example analysisStartDate",
-      "schema:endDate": "example analysisEndDate",
       "schema:object": [
         {
           "@type": [
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
-          "schema:identifier": "example samplePersistentIdentifier",
           "schema:description": "example sampleDescription",
           "schema:additionalProperty": [
             {
@@ -299,7 +296,8 @@
               "schema:unitText": "example value"
             }
           ],
-          "schema:name": "example sampleName"
+          "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier"
         }
       ],
       "schema:actionProcess": {
@@ -408,13 +406,6 @@
           }
         ]
       },
-      "schema:location": {
-        "@type": [
-          "schema:Place"
-        ],
-        "schema:name": "example laboratory",
-        "schema:identifier": "example laboratoryId"
-      },
       "schema:additionalProperty": [
         {
           "@id": "ada:parameter/solutionSficpmsTAPP/signalIntegrationTime",
@@ -444,8 +435,27 @@
           "schema:value": "example value"
         }
       ],
-      "schema:description": "example additionalNotes",
-      "schema:identifier": "example sessionIdentifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
+      "schema:identifier": "example sessionIdentifier",
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "schema:description": "example additionalNotes"
+    }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "example oxideProduction"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ],
   "schema:measurementTechnique": [
@@ -462,8 +472,22 @@
       "schema:name": "example analyst"
     }
   ],
-  "schema:funding": [],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForAnalysis"
+    }
+  ],
   "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Solution MC-ICP-MS",
+        "schema:description": "example couplingDescription"
+      }
+    },
     {
       "schema:linkRelationship": "coupledProcedure",
       "schema:target": {
@@ -473,23 +497,6 @@
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "Solution MC-ICP-MS",
-        "schema:description": "example couplingDescription"
-      }
-    }
-  ],
-  "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Oxide production ratio",
-      "dqv:value": "example oxideProduction"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }

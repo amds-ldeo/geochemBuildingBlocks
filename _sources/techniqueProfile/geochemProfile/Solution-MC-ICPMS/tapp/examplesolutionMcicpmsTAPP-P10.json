@@ -16,32 +16,6 @@
   ],
   "schema:name": "solutionMcicpms protocol — P10",
   "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v30.csv).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution MC-ICP-MS"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "ICP-MS for Sr and Rb weathering assessment; Si isotopes on a separate NaOH-fusion aliquot"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -123,14 +97,6 @@
       },
       {
         "schema:name": "Sample digestion",
-        "bios:reagent": [
-          {
-            "schema:name": "Cr/Mg route: 6 M HCl loading, 10 M HCl pretreatment, 0.5 M HCl, 0.5 M HNO3, 1 M HF, 6 M HCl elutions; Si route: NaOH fusion then Milli-Q water and HNO3",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -156,6 +122,14 @@
             "schema:defaultValue": "3 h (Cr(VI) speciation), >1 week at room temperature (Cr(III) speciation), 13 min (NaOH fusion)"
           }
         ],
+        "bios:reagent": [
+          {
+            "schema:name": "Cr/Mg route: 6 M HCl loading, 10 M HCl pretreatment, 0.5 M HCl, 0.5 M HNO3, 1 M HF, 6 M HCl elutions; Si route: NaOH fusion then Milli-Q water and HNO3",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -170,9 +144,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:finalSolutionMatrix": "0.5 M HNO3 (Cr); 6 M HCl elution of the final Cr cut",
-  "ada:chromatographicSeparationApplied": "Yes — AG1-X8 anion (1 ml) for Fe, then AG50-X12 cation (1 ml) twice for Cr and Mg",
-  "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -375,6 +346,52 @@
       "schema:value": "N/A — no added internal standard element"
     }
   ],
+  "ada:sampleSequenceDesign": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
+  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:perAnalyteCalibrationStrategy": [
+    "N/A"
+  ],
+  "ada:blankBackgroundCorrectionMethod": "N/A",
+  "ada:primaryStandardNameDefault": "IRMM-014, SRM979, DTS-2b",
+  "ada:secondaryReferenceMaterialDefault": [
+    "BHVO2 and DTS-2b, \"processed alongside the samples\""
+  ],
+  "ada:reportedProperties": [
+    "µ-notation Fe relative to IRMM-014, Cr relative to SRM979, Mg relative to DTS-2b"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution MC-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "ICP-MS for Sr and Rb weathering assessment; Si isotopes on a separate NaOH-fusion aliquot"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:samplingUnit": "Fraction of a bulk digestion — \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"",
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:chromatographicSeparationApplied": "Yes — AG1-X8 anion (1 ml) for Fe, then AG50-X12 cation (1 ml) twice for Cr and Mg",
+  "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+  "ada:finalSolutionMatrix": "0.5 M HNO3 (Cr); 6 M HCl elution of the final Cr cut",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Fe",
@@ -433,23 +450,6 @@
       }
     ]
   },
-  "ada:sampleSequenceDesign": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
-  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:perAnalyteCalibrationStrategy": [
-    "N/A"
-  ],
-  "ada:blankBackgroundCorrectionMethod": "N/A",
-  "ada:primaryStandardNameDefault": "IRMM-014, SRM979, DTS-2b",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO2 and DTS-2b, \"processed alongside the samples\""
-  ],
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "µ-notation Fe relative to IRMM-014, Cr relative to SRM979, Mg relative to DTS-2b"
-  ],
-  "ada:samplingUnit": "Fraction of a bulk digestion — \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",

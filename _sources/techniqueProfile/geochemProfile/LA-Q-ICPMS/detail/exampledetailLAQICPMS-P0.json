@@ -14,16 +14,6 @@
   ],
   "prov:wasGeneratedBy": [
     {
-      "schema:location": {
-        "@type": [
-          "schema:Place"
-        ],
-        "schema:name": "example laboratory",
-        "schema:identifier": "example laboratoryId"
-      },
-      "schema:identifier": "example sessionIdentifier",
-      "schema:startDate": "example analysisStartDate",
-      "schema:endDate": "example analysisEndDate",
       "schema:object": [
         {
           "@type": [
@@ -598,7 +588,6 @@
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
               ],
-              "ada:laserSpotGeometry": "example laserSpotGeometry",
               "schema:additionalProperty": [
                 {
                   "@id": "ada:parameter/module/LaserAblation/laserEnergy",
@@ -615,6 +604,7 @@
                   "schema:unitText": "example value"
                 }
               ],
+              "ada:laserSpotGeometry": "example laserSpotGeometry",
               "ada:laserFluence": 1.0,
               "ada:laserRepetitionRate": 1.0,
               "@type": [
@@ -623,24 +613,6 @@
               ],
               "@id": "ex:instrument/Laser-Ablation-System",
               "schema:name": "example instrumentName"
-            }
-          ]
-        },
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "example acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "example dataProcessingSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
             }
           ]
         },
@@ -661,12 +633,50 @@
               ]
             }
           ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataProcessingSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
         }
       ],
       "ada:ablationSpotDuration": 1.0,
       "ada:ablationPitDepthRate": "example ablationPitDepthAndAblationRate",
       "ada:rasterLineSpacing": "example rasterLineSpacing",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
+      "schema:identifier": "example sessionIdentifier",
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
       "schema:description": "example additionalNotes"
+    }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "example oxideProduction"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ],
   "schema:measurementTechnique": [
@@ -683,7 +693,14 @@
       "schema:name": "example analyst"
     }
   ],
-  "schema:funding": [],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForAnalysis"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -703,15 +720,5 @@
       "schema:target": "example coupledDatasetOrPublicationReference"
     }
   ],
-  "ada:spotDiameterMeasured": 1.0,
-  "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Oxide production ratio",
-      "dqv:value": "example oxideProduction"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    }
-  ]
+  "ada:spotDiameterMeasured": 1.0
 }

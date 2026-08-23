@@ -14,16 +14,6 @@
   ],
   "prov:wasGeneratedBy": [
     {
-      "schema:location": {
-        "@type": [
-          "schema:Place"
-        ],
-        "schema:name": "example laboratory",
-        "schema:identifier": "example laboratoryId"
-      },
-      "schema:identifier": "example sessionIdentifier",
-      "schema:startDate": "example analysisStartDate",
-      "schema:endDate": "example analysisEndDate",
       "schema:actionProcess": {
         "schema:step": [
           {
@@ -55,8 +45,6 @@
           "@type": [
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
-          "schema:name": "example sampleName",
-          "schema:identifier": "example samplePersistentIdentifier",
           "schema:additionalProperty": [
             {
               "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening",
@@ -71,28 +59,12 @@
               "schema:name": "Pre-Analysis Imaging and Screening",
               "schema:value": "example value"
             }
-          ]
+          ],
+          "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier"
         }
       ],
       "prov:used": [
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "example acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "example dataProcessingSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            }
-          ]
-        },
         {
           "schema:instrument": [
             {
@@ -152,6 +124,24 @@
               ],
               "@id": "ex:instrument/SEM",
               "schema:name": "example instrumentName"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataProcessingSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
             }
           ]
         }
@@ -267,41 +257,17 @@
         }
       ],
       "ada:deadTime": 1.0,
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
+      "schema:identifier": "example sessionIdentifier",
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
       "schema:description": "example additionalNotes"
-    }
-  ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:identifier": "example procedureDoi"
-    }
-  ],
-  "schema:contributor": [
-    {
-      "schema:roleName": "analyst",
-      "schema:name": "example analyst"
-    }
-  ],
-  "schema:funding": [],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA; NanoSIMS",
-        "schema:description": "example couplingDescription"
-      }
-    },
-    {
-      "schema:linkRelationship": "coupledProcedure",
-      "schema:target": {
-        "schema:url": "example coupledProcedureDoi"
-      }
-    },
-    {
-      "schema:linkRelationship": "coupledDataset",
-      "schema:target": "example coupledDatasetOrPublicationReference"
     }
   ],
   "ada:mapDimensions": 1.0,
@@ -325,6 +291,47 @@
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
       "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+    }
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example procedureDoi"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForAnalysis"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA; NanoSIMS",
+        "schema:description": "example couplingDescription"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledProcedure",
+      "schema:target": {
+        "schema:url": "example coupledProcedureDoi"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
     }
   ]
 }

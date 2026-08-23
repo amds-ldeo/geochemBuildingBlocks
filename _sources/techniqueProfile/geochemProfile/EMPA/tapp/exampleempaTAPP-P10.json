@@ -105,6 +105,95 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished section; 20 nm carbon coat",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Phosphate (Mg,Na phosphate) | Carbonate (Bennu evaporite phases)"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "EPMA-WDS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "T. J. Zega",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Na",
@@ -273,95 +362,6 @@
       }
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona"
-  },
-  "schema:creator": {
-    "schema:name": "T. J. Zega",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished section; 20 nm carbon coat",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Phosphate (Mg,Na phosphate) | Carbonate (Bennu evaporite phases)"
-          ]
-        }
-      ]
-    }
-  ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "EPMA-WDS"
-    }
-  ],
   "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,

@@ -16,38 +16,6 @@
   ],
   "schema:name": "Mittlefehldt (2024) Pallasite Olivine Spot v1",
   "schema:description": "Many instrument parameters lost during extended lab shutdown; 75 µm spot size in medium resolution mode on sector-field ICP-MS is unusual combination for olivine trace elements; 25 Mg IS from EPMA is standard approach",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-SF-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Mittlefehldt",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Mittlefehldt (2024) GCA; Lee (Rice University) Excel data reduction spreadsheet"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -133,28 +101,6 @@
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "New Wave UP-193 (solid state, 193 nm)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm solid-state (New Wave UP-193)",
-      "ada:laserSpotGeometryDefault": "75 µm circular",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)",
         {
@@ -230,6 +176,87 @@
         }
       ],
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "New Wave UP-193 (solid state, 193 nm)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm solid-state (New Wave UP-193)",
+      "ada:laserSpotGeometryDefault": "75 µm circular",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System",
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:analysisSequenceDefault": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign"
+        }
+      ],
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot per location (75 µm circular)"
+    }
+  ],
+  "ada:internalStandardApproach": "Single element from EPMA: ²⁵Mg; the EMPA data used as the standardizing values",
+  "ada:internalStandardElement": "²⁵Mg (indexing element; Mg concentration from EMPA)",
+  "ada:elementalFractionationCorrection": [
+    "External calibration using BCR-2g, BHVO-2g, BIR-1g; ²⁵Mg IS from EPMA corrects for ablation yield variation; no explicit downhole fractionation correction described"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each analysis (laser shutter closed); time steps with background-level signals excluded during data reduction",
+  "ada:primaryStandardNameDefault": "USGS standard glasses BCR-2g, BHVO-2g, and BIR-1g; preferred values from GeoReM website",
+  "ada:secondaryReferenceMaterialDefault": [
+    "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-SF-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Mittlefehldt",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Mittlefehldt (2024) GCA; Lee (Rice University) Excel data reduction spreadsheet"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "bios:computationalTool": [
@@ -241,7 +268,6 @@
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
   ],
-  "ada:analysisSequenceDefault": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "²⁵Mg",
@@ -405,32 +431,6 @@
       }
     ]
   },
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign"
-        }
-      ],
-      "schema:name": "Multi-Run Sequential Analysis Design",
-      "schema:value": "Single spot per location (75 µm circular)"
-    }
-  ],
-  "ada:internalStandardApproach": "Single element from EPMA: ²⁵Mg; the EMPA data used as the standardizing values",
-  "ada:internalStandardElement": "²⁵Mg (indexing element; Mg concentration from EMPA)",
-  "ada:elementalFractionationCorrection": [
-    "External calibration using BCR-2g, BHVO-2g, BIR-1g; ²⁵Mg IS from EPMA corrects for ablation yield variation; no explicit downhole fractionation correction described"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each analysis (laser shutter closed); time steps with background-level signals excluded during data reduction",
-  "ada:primaryStandardNameDefault": "USGS standard glasses BCR-2g, BHVO-2g, and BIR-1g; preferred values from GeoReM website",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,

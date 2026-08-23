@@ -370,6 +370,14 @@ $defs:
             - schema:roleName
       schema:funding:
         type: array
+        items:
+          type: object
+          properties:
+            schema:name:
+              description: Grants and other funding sources that supported the specific sample analyses
+                and data collection reported here. Include grant numbers and funding agencies. Distinct
+                from procedure development funding, which may have been awarded years earlier.
+              type: string
       schema:relatedLink:
         type: array
         items:
@@ -442,8 +450,6 @@ $defs:
                     type: string
                   - type: array
                     items: *id008
-    required:
-    - schema:funding
   Param_Procedure_targetMaterial:
     title: Target Material
     description: General description of the material type(s) this procedure is designed to analyse. Used

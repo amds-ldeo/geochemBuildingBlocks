@@ -314,9 +314,6 @@
           ]
         }
       ],
-      "schema:description": "example additionalNotes",
-      "schema:endDate": "example analysisEndDate",
-      "schema:startDate": "example analysisStartDate",
       "schema:actionProcess": {
         "schema:step": [
           {
@@ -462,32 +459,10 @@
         "schema:name": "example laboratory",
         "schema:identifier": "example laboratoryId"
       },
-      "schema:identifier": "example sessionIdentifier"
-    }
-  ],
-  "schema:contributor": [
-    {
-      "schema:roleName": "analyst",
-      "schema:name": "example analyst"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledDataset",
-      "schema:target": "example coupledDatasetOrPublicationReference"
-    },
-    {
-      "schema:linkRelationship": "coupledProcedure",
-      "schema:target": {
-        "schema:url": "example coupledProcedureDoi"
-      }
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA; NanoSIMS",
-        "schema:description": "example couplingDescription"
-      }
+      "schema:identifier": "example sessionIdentifier",
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "schema:description": "example additionalNotes"
     }
   ],
   "dqv:hasQualityMeasurement": [
@@ -501,7 +476,6 @@
     }
   ],
   "ada:mapDimensions": 1.0,
-  "schema:funding": [],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semTAPP/mapArea",
@@ -518,6 +492,8 @@
       "schema:unitText": "example value"
     }
   ],
+  "ada:voxelSize": "example voxelSizeAndImageStackDimensions",
+  "ada:imageStackDimenstions": "example voxelSizeAndImageStackDimensions",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -526,6 +502,37 @@
       "schema:identifier": "example procedureDoi"
     }
   ],
-  "ada:voxelSize": "example voxelSizeAndImageStackDimensions",
-  "ada:imageStackDimenstions": "example voxelSizeAndImageStackDimensions"
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForAnalysis"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA; NanoSIMS",
+        "schema:description": "example couplingDescription"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledProcedure",
+      "schema:target": {
+        "schema:url": "example coupledProcedureDoi"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
+    }
+  ]
 }

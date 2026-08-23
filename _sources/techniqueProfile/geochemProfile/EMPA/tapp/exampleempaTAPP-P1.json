@@ -105,6 +105,94 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:matrixCorrectionMethod": "Bence-Albee",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thick section (NWA 8657); carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Silicate mineral (coesite, pyroxene, feldspar) | Oxide | Sulfide"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Sen Hu",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Bence-Albee method"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Si",
@@ -265,94 +353,6 @@
       }
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Bence-Albee method"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing"
-  },
-  "ada:matrixCorrectionMethod": "Bence-Albee",
-  "schema:creator": {
-    "schema:name": "Sen Hu",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thick section (NWA 8657); carbon coating N",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (coesite, pyroxene, feldspar) | Oxide | Sulfide"
-          ]
-        }
-      ]
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [

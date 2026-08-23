@@ -16,33 +16,6 @@
   ],
   "schema:name": "tem protocol — Mo2022-2",
   "schema:description": "Hitachi HF5000 at Shanghai Institute of Ceramics CAS; 200 kV; 100 pA; Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer. Energy resolution: 0.5–0.7 eV FWHM at ZLP. Fe L3,2 edge: L3 peak positions 707.7 eV (Fe⁰), 707.2 eV (Fe²⁺), 709.0 eV (Fe³⁺). EELS acquired in DualEELS mode; 10 s point analysis, 18 s line scan. Reference standards: Fe metal + troilite (L6 ordinary chondrite GRV051874) for Fe⁰/Fe²⁺; terrestrial hematite for Fe³⁺; wüstite and hematite from Yao et al. 2018 (AES refs). ZLP aligned before spectral comparison. Background and continuum removal methods not stated. Valence state ID is qualitative (peak position + lineshape). Coordinated with FEI Talos F200X (EDS at SINANO) and PHI 700/710 Auger nanoprobe. Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan; ada:eelsAcquisitionModeDefault = Point analysis and line scan EELS.",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); HAADF-STEM + EDS (FEI Talos F200X at SINANO CAS; coordinated); Auger electron spectroscopy (PHI 700/710 at Tsinghua University)",
-        "schema:description": "In situ Fe valence state analysis in Chang'E-5 lunar soil by TEM-EELS; Fe L3,2 edge peak position and lineshape comparison to reference standards (Fe⁰, Fe²⁺, Fe³⁺); point analysis and line scan"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -275,6 +248,40 @@
       "schema:unitText": "example value"
     }
   ],
+  "ada:eelsAcquisitionModeDefault": "Line scan",
+  "ada:eelsEdgesDefault": [
+    "Fe L3,2 edge (~707–709 eV; L3 peak at 707.7 eV for Fe⁰, 707.2 eV for Fe²⁺, 709.0 eV for Fe³⁺)"
+  ],
+  "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L3,2)",
+  "ada:eelsEnergyLossRangeDefault": "Fe (L3,2)",
+  "ada:phaseIdentificationMethod": "N/A",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); HAADF-STEM + EDS (FEI Talos F200X at SINANO CAS; coordinated); Auger electron spectroscopy (PHI 700/710 at Tsinghua University)",
+        "schema:description": "In situ Fe valence state analysis in Chang'E-5 lunar soil by TEM-EELS; Fe L3,2 edge peak position and lineshape comparison to reference standards (Fe⁰, Fe²⁺, Fe³⁺); point analysis and line scan"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Fe"
@@ -291,13 +298,6 @@
       }
     ]
   },
-  "ada:eelsAcquisitionModeDefault": "Line scan",
-  "ada:eelsEdgesDefault": [
-    "Fe L3,2 edge (~707–709 eV; L3 peak at 707.7 eV for Fe⁰, 707.2 eV for Fe²⁺, 709.0 eV for Fe³⁺)"
-  ],
-  "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L3,2)",
-  "ada:eelsEnergyLossRangeDefault": "Fe (L3,2)",
-  "ada:phaseIdentificationMethod": "N/A",
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsAcquisitionModeDefault": "missing",

@@ -16,32 +16,6 @@
   ],
   "schema:name": "solutionMcicpms protocol — P12",
   "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v30.csv).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution MC-ICP-MS"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Washington University in St. Louis"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "High-resolution ICP-MS (Thermo Element XR) at LLNL for bulk elemental abundances, on splits of the same digest"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -111,14 +85,6 @@
       },
       {
         "schema:name": "Sample digestion",
-        "bios:reagent": [
-          {
-            "schema:name": "\"concentrated HF and HNO3 in a 3:1 ratio\", followed by fluxing in concentrated HNO3 and HCl with 1 ml H2O2 added to remove organics; brought up in 5 ml 0.5 M HNO3",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
@@ -155,6 +121,14 @@
             "schema:defaultValue": "48 h"
           }
         ],
+        "bios:reagent": [
+          {
+            "schema:name": "\"concentrated HF and HNO3 in a 3:1 ratio\", followed by fluxing in concentrated HNO3 and HCl with 1 ml H2O2 added to remove organics; brought up in 5 ml 0.5 M HNO3",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -169,9 +143,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:finalSolutionMatrix": "200 ppb for K and Zn; 100 ppb for Cu",
-  "ada:chromatographicSeparationApplied": "Yes — AG1-X8 200–400 mesh anion resin, 5 ml 1.5 M HBr to elute the matrix and 3 ml 0.5 M HNO3 to elute Zn",
-  "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -348,6 +319,51 @@
       "schema:value": "N/A — no added internal standard element"
     }
   ],
+  "ada:sampleSequenceDesign": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
+  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:perAnalyteCalibrationStrategy": [
+    "N/A"
+  ],
+  "ada:primaryStandardNameDefault": "NIST-SRM 3141a, NIST-SRM 976, JMC-Lyon",
+  "ada:secondaryReferenceMaterialDefault": [
+    "BHVO-2"
+  ],
+  "ada:reportedProperties": [
+    "δ41K, δ65Cu and δ66Zn in permil, each defined explicitly against its bracketing standard"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution MC-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Washington University in St. Louis"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "High-resolution ICP-MS (Thermo Element XR) at LLNL for bulk elemental abundances, on splits of the same digest"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:samplingUnit": "Split of a single digest — \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"",
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:chromatographicSeparationApplied": "Yes — AG1-X8 200–400 mesh anion resin, 5 ml 1.5 M HBr to elute the matrix and 3 ml 0.5 M HNO3 to elute Zn",
+  "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+  "ada:finalSolutionMatrix": "200 ppb for K and Zn; 100 ppb for Cu",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "K",
@@ -406,22 +422,6 @@
       }
     ]
   },
-  "ada:sampleSequenceDesign": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
-  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:perAnalyteCalibrationStrategy": [
-    "N/A"
-  ],
-  "ada:primaryStandardNameDefault": "NIST-SRM 3141a, NIST-SRM 976, JMC-Lyon",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2"
-  ],
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "δ41K, δ65Cu and δ66Zn in permil, each defined explicitly against its bracketing standard"
-  ],
-  "ada:samplingUnit": "Split of a single digest — \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",

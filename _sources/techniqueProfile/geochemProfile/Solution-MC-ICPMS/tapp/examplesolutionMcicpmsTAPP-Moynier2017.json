@@ -16,20 +16,6 @@
   ],
   "schema:name": "solutionMcicpms protocol — Moynier2017",
   "schema:description": "solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP (publication column of Solution_MC-ICP-MS_TAPP_v30.csv).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution MC-ICP-MS"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Institut de Physique du Globe de Paris"
-  },
   "schema:object": [
     {
       "@type": [
@@ -123,14 +109,6 @@
       },
       {
         "schema:name": "Sample digestion",
-        "bios:reagent": [
-          {
-            "schema:name": "\"a mixture of concentrated HF/HNO3\"; after evaporation \"6N HCl was added\" to dissolve fluoride complexes",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
@@ -167,6 +145,14 @@
             "schema:defaultValue": "\">48 h\""
           }
         ],
+        "bios:reagent": [
+          {
+            "schema:name": "\"a mixture of concentrated HF/HNO3\"; after evaporation \"6N HCl was added\" to dissolve fluoride complexes",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -181,9 +167,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:finalSolutionMatrix": "0.1N HNO3",
-  "ada:chromatographicSeparationApplied": "Yes — DGA resin Ca removal (1.8 mL), then AG50 X12 (20 mL and 10 mL) in 3N HCl, then AG50 X8 (1 mL) in 0.5N HCl. Reduces K/Rb by a factor of 200 to K/Rb<2 and gives 88Sr/85Rb<0.005",
-  "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -419,6 +402,38 @@
       "schema:defaultValue": "\"Errors are determined from repeated measurements\""
     }
   ],
+  "ada:sampleSequenceDesign": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
+  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:primaryStandardNameDefault": "NIST SRM984 RbCl; BCR-2 as an alternative bracketing standard in some sessions",
+  "ada:calibrationMeasurementFrequency": "Every sample (bracketing), plus an external pure Rb solution \"during each analytical session\"",
+  "ada:secondaryReferenceMaterialDefault": [
+    "BCR-2, AGV-2, BHVO-2, GS-N and other terrestrial rocks"
+  ],
+  "ada:reportedProperties": [
+    "δ87Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard − 1] x 1000"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution MC-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Institut de Physique du Globe de Paris"
+  },
+  "ada:samplingUnit": "Weighed powder aliquot — \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:internalNormalizationElementAndIsotopeRatio": "N/A — Rb has two stable isotopes; bracketing used instead",
+  "ada:chromatographicSeparationApplied": "Yes — DGA resin Ca removal (1.8 mL), then AG50 X12 (20 mL and 10 mL) in 3N HCl, then AG50 X8 (1 mL) in 0.5N HCl. Reduces K/Rb by a factor of 200 to K/Rb<2 and gives 88Sr/85Rb<0.005",
+  "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+  "ada:finalSolutionMatrix": "0.1N HNO3",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Rb"
@@ -476,21 +491,6 @@
       }
     ]
   },
-  "ada:sampleSequenceDesign": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
-  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:primaryStandardNameDefault": "NIST SRM984 RbCl; BCR-2 as an alternative bracketing standard in some sessions",
-  "ada:calibrationMeasurementFrequency": "Every sample (bracketing), plus an external pure Rb solution \"during each analytical session\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2, AGV-2, BHVO-2, GS-N and other terrestrial rocks"
-  ],
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "δ87Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard − 1] x 1000"
-  ],
-  "ada:samplingUnit": "Weighed powder aliquot — \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
-  "ada:internalNormalizationElementAndIsotopeRatio": "N/A — Rb has two stable isotopes; bracketing used instead",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",

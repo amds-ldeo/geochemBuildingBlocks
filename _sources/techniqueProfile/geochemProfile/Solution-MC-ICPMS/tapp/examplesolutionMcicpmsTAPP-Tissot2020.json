@@ -16,33 +16,6 @@
   ],
   "schema:name": "solutionMcicpms protocol — Tissot2020",
   "schema:description": "solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT (publication column of Solution_MC-ICP-MS_TAPP_v30.csv).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution MC-ICP-MS"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Massachusetts Institute of Technology"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions",
-        "schema:description": "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -147,14 +120,6 @@
       },
       {
         "schema:name": "Sample digestion",
-        "bios:reagent": [
-          {
-            "schema:name": "29 M HF; after conversion to a chloride matrix for U-Pb. Zr aliquots taken up in 3 M HNO3 + 0.5 M HF",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
@@ -191,6 +156,14 @@
             "schema:defaultValue": "Zircon 48 hours (U-Pb) and 60 hours (Zr isotopes)"
           }
         ],
+        "bios:reagent": [
+          {
+            "schema:name": "29 M HF; after conversion to a chloride matrix for U-Pb. Zr aliquots taken up in 3 M HNO3 + 0.5 M HF",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -205,9 +178,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:finalSolutionMatrix": "0.59 M HNO3 + 0.28 M HF, samples and bracketing standards matched in matrix and at 60 ng/g total Zr",
-  "ada:chromatographicSeparationApplied": "Yes — AG-1X for U-Pb; Ln-Spec (~300 µl, 25–50 µm) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks",
-  "ada:isotopeDilutionSpike": "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -394,12 +364,54 @@
       "schema:defaultValue": "External reproducibility of the spiked ZrNIST measurements from each run adopted per determination, compared against internal counting-statistics uncertainty"
     }
   ],
+  "ada:sampleSequenceDesign": "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank",
+  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:blankBackgroundCorrectionMethod": "N/A",
+  "ada:primaryStandardNameDefault": "ZrNIST",
+  "ada:calibrationMeasurementFrequency": "Every sample — \"Each sample measurement was individually bracketed\"",
+  "ada:reportedProperties": [
+    "δ9x/90ZrNIST in permil — δ91/90Zr, δ92/90Zr, δ94/90Zr and δ96/90Zr"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution MC-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Massachusetts Institute of Technology"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions",
+        "schema:description": "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:samplingUnit": "Single crystal — \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\""
     }
   ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:chromatographicSeparationApplied": "Yes — AG-1X for U-Pb; Ln-Spec (~300 µl, 25–50 µm) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks",
+  "ada:isotopeDilutionSpike": "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio",
+  "ada:finalSolutionMatrix": "0.59 M HNO3 + 0.28 M HF, samples and bracketing standards matched in matrix and at 60 ng/g total Zr",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Zr"
@@ -457,18 +469,6 @@
       }
     ]
   },
-  "ada:sampleSequenceDesign": "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank",
-  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:blankBackgroundCorrectionMethod": "N/A",
-  "ada:primaryStandardNameDefault": "ZrNIST",
-  "ada:calibrationMeasurementFrequency": "Every sample — \"Each sample measurement was individually bracketed\"",
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "δ9x/90ZrNIST in permil — δ91/90Zr, δ92/90Zr, δ94/90Zr and δ96/90Zr"
-  ],
-  "ada:samplingUnit": "Single crystal — \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
