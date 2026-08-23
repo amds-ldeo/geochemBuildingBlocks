@@ -30,13 +30,17 @@ import normalize_schema_paths as norm
 import schemapath_io
 
 
-def refresh(tapp, write=False, force=False):
-    b.configure(tapp)
-    csv_path = schemapath_io.csv_path(b.XLSX)
+def refresh(tapp, write=False, force=False, source=None):
+    """Re-sync one sidecar's Key by. `source` overrides the table, for MODULE sidecars, whose
+    source is tapp/Claude Skills for TAPP/modules/Module_<Name>.csv rather than a TAPP workbook."""
+    if source is None:
+        b.configure(tapp)
+        source = b.XLSX
+    csv_path = schemapath_io.csv_path(source)
     if not os.path.exists(csv_path):
         print(f"{tapp:<22s} no sidecar at {os.path.relpath(csv_path)}")
         return 0, 0
-    table_kb = ms.source_keyedby(b.XLSX)
+    table_kb = ms.source_keyedby(source)
     if not table_kb:
         print(f"{tapp:<22s} source table declares no Keyed By column")
         return 0, 0
@@ -103,17 +107,31 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("tapp", nargs="?", help="one TAPP name; omit (or --all) for every one")
     ap.add_argument("--all", action="store_true")
+    ap.add_argument("--modules", action="store_true",
+                    help="refresh the MODULE sidecars (docs/modules/) instead of the techniques'. "
+                         "Their Key by column was never mirrored from the module CSVs at all.")
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--force", action="store_true",
                     help="also overwrite a Key by that disagrees with the table")
     a = ap.parse_args()
 
-    targets = [a.tapp] if a.tapp else sorted(b.TAPP_CONFIGS)
     tot_f = tot_c = 0
-    for t in targets:
-        f, c = refresh(t, a.write, a.force)
-        tot_f += f
-        tot_c += c
+    if a.modules:
+        import glob
+        import module_composition as mc
+        for src in sorted(glob.glob(os.path.join(mc.ts.modules_dir(), "Module_*.csv"))):
+            name = os.path.basename(src)[len("Module_"):-len(".csv")]
+            if a.tapp and a.tapp != name:
+                continue
+            f, c = refresh(name, a.write, a.force, source=src)
+            tot_f += f
+            tot_c += c
+    else:
+        targets = [a.tapp] if a.tapp else sorted(b.TAPP_CONFIGS)
+        for t in targets:
+            f, c = refresh(t, a.write, a.force)
+            tot_f += f
+            tot_c += c
     print(f"\n{tot_f} value(s) filled, {tot_c} conflict(s)"
           f"{'' if a.write else '   (dry run - pass --write)'}")
     return 0

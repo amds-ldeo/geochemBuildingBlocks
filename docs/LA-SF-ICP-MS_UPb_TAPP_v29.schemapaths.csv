@@ -72,13 +72,13 @@ Laser Beam Energy Profile,Advanced,Read-Only,Controlled list / Text,$MethodDefin
 Laser Repetition Rate,Basic,Editable,Numeric (Hz),,module,shared,placement owned by Module LaserAblation,
 Laser Repetition Rate,Basic,Editable,Numeric (Hz),,module,shared,placement owned by Module LaserAblation,
 Laser Pulse Duration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Pulse Duration'].schema:value,authored,shared,path from owning module,
-Ablation Duration per Spot,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Duration per Spot'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
+Ablation Duration per Spot,Basic,Editable,Numeric (s),,module,shared,placement owned by Module LaserAblation (module places the direct ada: property its $def requires; the technique's parameter path was already discarded by the generator),
 Ablation Duration per Spot,Basic,Editable,Numeric (s),,module,shared,placement owned by Module LaserAblation,
-Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Pit Depth and Ablation Rate'].schema:value,inferred,,tier rule: session parameter is an additionalProperty on the analysis,
+Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation (as Ablation Duration per Spot),
 Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 "Transect Rate, Mapping Rate or Step Size",Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:value,authored,,path from owning module,
 "Transect Rate, Mapping Rate or Step Size",Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:defaultValue,authored,,path from owning module,
-Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Raster Line Spacing (Mapping Only)'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,
+Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation (as Ablation Duration per Spot),
 Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 Carrier Gas and Flow Rate,Basic,Editable,Text (free),$MethodDefinition.ada:carrierGasFlowRateDefault,authored,shared,dual-home decision: protocol default,
 Carrier Gas and Flow Rate,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Carrier Gas and Flow Rate'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
@@ -107,7 +107,7 @@ Analysis Sequence,Basic,Editable,Text (free),$MethodDefinition.ada:analysisSeque
 Analysis Sequence,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Analysis Sequence'].schema:value,authored,divergent,tier rule: session parameter is an additionalProperty on the analysis,
 Analyte,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: analyte
 Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,defines: channel per analyte
-Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,,Keyed By: reported property (pilot),defines: reported property
+Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core (reviewer settled the reported-property list as $MethodDefinition.ada:reportedProperties[]),defines: reported property
 Mass Resolution Assignment,Basic,Read-Only,Text (free),$MethodDefinition.ada:massResolutionAssignment,inferred,,,channel
 E-scan Range,Advanced,Read-Only,Numeric (%),$MethodDefinition.schema:additionalProperty[schema:name='E scan Range'].schema:value,authored,shared,,
 Triple Scanning Mode,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Triple Scanning Mode'].schema:value,authored,shared,,
@@ -175,7 +175,7 @@ Limit of Quantification (LOQ) Method,Advanced,Basic,Text / URI,$MethodDefinition
 Within-Session Analytical Precision and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
 Between-Session (Long-Term) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
 Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
-Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Dispersion Statistic'].dqv:value,flagged,,analysis-instance (needs mapping) | path from owning module,reported property
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,"placement owned by Module Aggregation (reviewer's rule: dqv:hasQualityMeasurement by default, the reported-property variableMeasured list only when keyed and a reportedProperties list is defined)",reported property
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,

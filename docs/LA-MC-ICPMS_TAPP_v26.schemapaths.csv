@@ -1,8 +1,8 @@
 ﻿Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes,Key by
 Ablation Cell Type,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
-Ablation Duration per Spot,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Duration per Spot'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
+Ablation Duration per Spot,Basic,Editable,Numeric (s),,module,shared,placement owned by Module LaserAblation (module places the direct ada: property its $def requires; the technique's parameter path was already discarded by the generator),
 Ablation Duration per Spot,Basic,Editable,Numeric (s),,module,shared,placement owned by Module LaserAblation,
-Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Pit Depth and Ablation Rate'].schema:value,inferred,,tier rule: session parameter is an additionalProperty on the analysis,
+Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation (as Ablation Duration per Spot),
 Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
@@ -73,7 +73,7 @@ Funding Source for Analysis,N/A,Basic,Text (free),,module,shared,placement owned
 Funding Source for Procedure Development,Advanced,Read-Only,Text (free),,module,,placement owned by Module Core,
 Fusion Flux and Dilution Ratio,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fusion Flux and Dilution Ratio'].schema:defaultValue,authored,,dual-home decision: protocol default,
 Fusion Flux and Dilution Ratio,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fusion Flux and Dilution Ratio'].schema:value,authored,,dual-home decision: analysis-tier value,
-Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Dispersion Statistic'].dqv:value,flagged,,analysis-instance (needs mapping) | path from owning module,reported property
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,"placement owned by Module Aggregation (reviewer's rule: dqv:hasQualityMeasurement by default, the reported-property variableMeasured list only when keyed and a reportedProperties list is defined)",reported property
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$MethodDefinition.schema:variableMeasured[schema:name='Goodness-of-Fit or Dispersion Statistic'].schema:defaultValue,authored,,,reported property
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
@@ -158,12 +158,12 @@ Procedure Name,Basic,Read-Only,Text (free),,module,,placement owned by Module Co
 Procedure Reference(s),Advanced,Read-Only,URI / DOI,$MethodDefinition.prov:wasDerivedFrom,inferred,,path from owning module,
 Procedure Start Date,Basic,Read-Only,Date,,module,,placement owned by Module Core,
 Procedure Reference(s),Advanced,Read-Only,URI / DOI,,module,shared,placement owned by Module Core,
-Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Raster Line Spacing (Mapping Only)'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,
+Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation (as Ablation Duration per Spot),
 Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 Reaction Gas Flow Rate,Advanced,Editable,Numeric (mL/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
 Reaction Gas Flow Rate,Advanced,Editable,Numeric (mL/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:value,authored,shared,dual-home decision: analysis-tier value,
 Reaction Gas Type,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Type'].schema:value,authored,shared,,channel
-Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],inferred,,,defines: reported property
+Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core (reviewer settled the reported-property list as $MethodDefinition.ada:reportedProperties[]),defines: reported property
 RF Power,Basic,Editable,Numeric (W),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='RF Power'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
 RF Power,Basic,Editable,Numeric (W),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='RF Power'].schema:value,authored,shared,dual-home decision: analysis-tier value,
 Sample Form / Analytical Substrate,Basic,Editable,Controlled list,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Form Analytical Substrate'].schema:defaultValue,authored,,dual-home decision: protocol default,
