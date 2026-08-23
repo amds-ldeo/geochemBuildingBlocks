@@ -26,12 +26,6 @@
   ],
   "schema:name": "semFibsem protocol \u2014 Zhou2017",
   "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Geosciences, Beijing, China"
-  },
   "schema:object": [
     {
       "@type": [
@@ -99,7 +93,7 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI (now Thermo Fisher Scientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -113,6 +107,11 @@
       "schema:description": "N/A",
       "ada:acceleratingVoltageDefault": "2 kV (SEM imaging)",
       "ada:workingDistanceDefault": "4 mm",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -157,11 +156,6 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     },
     {
@@ -195,6 +189,14 @@
       ]
     }
   ],
+  "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
+  "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Geosciences, Beijing, China"
+  },
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
@@ -204,8 +206,6 @@
   "ada:analyticalMode": [
     "Sequential FIB-SEM tomography (serial cross-section imaging)"
   ],
-  "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
-  "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
   "schema:measurementTechnique": [
     {
       "@type": [

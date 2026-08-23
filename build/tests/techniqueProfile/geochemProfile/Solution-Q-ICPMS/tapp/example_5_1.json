@@ -16,33 +16,6 @@
   ],
   "schema:name": "solutionQicpms protocol \u2014 Agilent7500-2",
   "schema:description": "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (all analytes; stated section 2.1).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution Q-ICP-MS"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1)"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SF-ICP-MS (Finnigan ELEMENT at PML; for Ti measurements; stated section 2.1.2)",
-        "schema:description": "Q-ICP-MS (7500cs) measured B, Zr, Nb, Mo, Sn, Sb, Hf, Ta; SF-ICP-MS (ELEMENT) measured Ti and Nb; both techniques on same digested solutions; stated section 2.1"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -150,14 +123,6 @@
       },
       {
         "schema:name": "Sample digestion",
-        "bios:reagent": [
-          {
-            "schema:name": "0.5 mol/l HF (stated section 2.1.1)",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
@@ -169,6 +134,14 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "TFM bomb (TFM-981; stated section 2.1.1)"
+          }
+        ],
+        "bios:reagent": [
+          {
+            "schema:name": "0.5 mol/l HF (stated section 2.1.1)",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
           }
         ],
         "@type": [
@@ -185,9 +158,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:finalSolutionMatrix": "0.5 mol/l HF (stated section 2.1.1)",
-  "ada:chromatographicSeparationApplied": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.1)",
-  "ada:isotopeDilutionSpike": "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -459,26 +429,6 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:manufacturer": {
-        "schema:name": "Agilent -- \"A Q-pole type ICP mass spectrometer, Agilent 7500 cs (Yokogawa Analytical Systems, Japan)\"",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
     }
   ],
   "schema:additionalProperty": [
@@ -494,6 +444,129 @@
       "schema:value": "None"
     }
   ],
+  "ada:channelTemplate": {
+    "ada:defaultChannels": [
+      "10B",
+      "11B",
+      "90Zr",
+      "91Zr",
+      "93Nb",
+      "95Mo",
+      "97Mo",
+      "118Sn",
+      "119Sn",
+      "121Sb",
+      "123Sb",
+      "178Hf",
+      "179Hf",
+      "181Ta (Table 2a)"
+    ],
+    "ada:channelColumns": [
+      {
+        "schema:valueName": "channel",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:massCyclesPerReplicate": "48 scans per 30 s acquisition (stated section 2.1.1)",
+  "ada:sampleSequenceDesign": "Standard solution measured every two samples (stated section 2.1.1)",
+  "ada:internalStandardElement": "None (ID-IS method: spike isotope ratios used; stated section 2.1)",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.1)",
+  "ada:driftCorrectionMethod": "Standard bracketing",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Isotope dilution (all analytes)"
+  ],
+  "ada:primaryStandardNameDefault": "Multi-element standard solution (not formally named; stated section 2.1.1)",
+  "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.1)",
+  "ada:secondaryReferenceMaterialDefault": [
+    "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
+  ],
+  "ada:reportedProperties": [
+    "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution Q-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1)"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SF-ICP-MS (Finnigan ELEMENT at PML; for Ti measurements; stated section 2.1.2)",
+        "schema:description": "Q-ICP-MS (7500cs) measured B, Zr, Nb, Mo, Sn, Sb, Hf, Ta; SF-ICP-MS (ELEMENT) measured Ti and Nb; both techniques on same digested solutions; stated section 2.1"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
+  "ada:analyticalMode": [
+    "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\""
+  ],
+  "ada:chromatographicSeparationApplied": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.1)",
+  "ada:isotopeDilutionSpike": "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)",
+  "ada:finalSolutionMatrix": "0.5 mol/l HF (stated section 2.1.1)",
+  "ada:washTimeBetweenSamples": "~180 s (~3 min; stated: each measurement ~6 min including ~3 min wash; section 2.1.1)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "B",
@@ -577,112 +650,6 @@
       }
     ]
   },
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
-      "10B",
-      "11B",
-      "90Zr",
-      "91Zr",
-      "93Nb",
-      "95Mo",
-      "97Mo",
-      "118Sn",
-      "119Sn",
-      "121Sb",
-      "123Sb",
-      "178Hf",
-      "179Hf",
-      "181Ta (Table 2a)"
-    ],
-    "ada:channelColumns": [
-      {
-        "schema:valueName": "channel",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
-  "ada:massCyclesPerReplicate": "48 scans per 30 s acquisition (stated section 2.1.1)",
-  "ada:sampleSequenceDesign": "Standard solution measured every two samples (stated section 2.1.1)",
-  "ada:washTimeBetweenSamples": "~180 s (~3 min; stated: each measurement ~6 min including ~3 min wash; section 2.1.1)",
-  "ada:internalStandardElement": "None (ID-IS method: spike isotope ratios used; stated section 2.1)",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.1)",
-  "ada:driftCorrectionMethod": "Standard bracketing",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution (all analytes)"
-  ],
-  "ada:primaryStandardNameDefault": "Multi-element standard solution (not formally named; stated section 2.1.1)",
-  "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.1)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
-  ],
-  "ada:analyticalMode": [
-    "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\""
-  ],
-  "ada:reportedPropertyTemplate": {
-    "ada:defaultReportedProperties": [
-      "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]"
-    ],
-    "ada:reportedPropertyColumns": [
-      {
-        "schema:valueName": "reportedProperty",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
-  "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalStandardApproach": "missing",
   "ada:numberOfReplicatesPerSample": -9999,

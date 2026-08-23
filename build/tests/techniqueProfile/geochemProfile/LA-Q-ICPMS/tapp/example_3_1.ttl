@@ -14,6 +14,11 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -21,16 +26,11 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign>,
-        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Li, Xu, Xiong et al." ] ;
     schema1:datePublished "missing" ;
@@ -42,8 +42,7 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "LA-Q-ICP-MS" ;
-            schema1:termCode "LA-ICP-MS" ] ;
+            schema1:termCode "LA-Q-ICP-MS" ] ;
     schema1:name "Liu et al. (2025) Experimental Silicate Glass LA-ICP-MS Spot v1" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -75,8 +74,7 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "all detected via Agilent 7900 (exact isotope list not fully stated)",
@@ -95,7 +93,6 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS" ;
     ada:rasterLineSpacingDefault "missing" ;
-    ada:reportedVariablesAndUnits "missing" ;
     ada:sampleIntroduction "missing" ;
     ada:samplingUnit "missing" ;
     ada:secondaryReferenceMaterialDefault "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)" ;
@@ -128,10 +125,10 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     ada:dataType "uri" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
-    ada:dataType "string" .
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -156,15 +153,10 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     schema1:valueName "limitOfQuantificationMethod" ;
     ada:dataType "uri" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:name "Mass Resolution per Analyte" ;
-    schema1:valueName "massResolutionPerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Monitored Isotopes" ;
-    schema1:valueName "monitoredIsotopes" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
@@ -178,17 +170,17 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N₂ or Ar mixed into He carrier for sensitivity optimization (amounts not stated)" ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:valueName "makeUpGasAndFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Unit resolution (quadrupole fixed)" ;
     schema1:name "Mass Resolution Setting" ;
     schema1:valueName "massResolutionSetting" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N₂ or Ar mixed into He carrier for sensitivity optimization (amounts not stated)" ;
-    schema1:name "Plasma / Make-up Gas Addition" ;
-    schema1:valueName "plasmaMakeUpGasAdditionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

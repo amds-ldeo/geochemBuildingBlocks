@@ -38,7 +38,7 @@
       ],
       "ada:acceleratingVoltageDefault": "2 kV (SEM imaging)",
       "schema:manufacturer": {
-        "schema:name": "FEI (now Thermo Fisher Scientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -49,6 +49,11 @@
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -107,29 +112,9 @@
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "Sequential FIB-SEM tomography (serial cross-section imaging)"
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Geosciences, Beijing, China"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -189,6 +174,21 @@
     }
   ],
   "ada:workingDistanceDefault": "4 mm",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Geosciences, Beijing, China"
+  },
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Sequential FIB-SEM tomography (serial cross-section imaging)"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [

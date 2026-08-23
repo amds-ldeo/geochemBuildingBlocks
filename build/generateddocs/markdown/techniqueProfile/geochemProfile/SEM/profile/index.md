@@ -514,6 +514,10 @@ and technique component types on the archive distribution. Mock data for validat
     {
       "dqv:isMeasurementOf": "EBSD Mean Angular Deviation",
       "dqv:value": "example ebsdPatternQualityThreshold"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ],
   "ada:mapDimensions": 1.0,

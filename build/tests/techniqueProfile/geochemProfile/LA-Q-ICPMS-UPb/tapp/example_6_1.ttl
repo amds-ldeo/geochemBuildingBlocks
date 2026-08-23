@@ -14,14 +14,15 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -35,8 +36,7 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "LA-ICP-MS (same as silicate protocol)" ;
-            schema1:termCode "LA-ICP-MS" ] ;
+            schema1:termCode "LA-ICP-MS (same as silicate protocol)" ] ;
     schema1:name "laQicpmsUPb protocol — Liu2016-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -45,13 +45,13 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
                     schema1:value "Martian meteorite (Tissint) phosphate: sodium-merrillite" ],
                 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Same as silicate protocol" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)" ;
                     schema1:name "EPMA (EMP)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Same as silicate protocol" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
@@ -68,6 +68,7 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
     ada:internalStandardElement "40Ca; CaO wt% from EMP at the analysis spot" ;
     ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
+    ada:massesMeasuredDefault "missing" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST 610 glass standard" ;
     ada:rasterLineSpacingDefault "missing" ;
@@ -81,12 +82,11 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008)" ;
             ada:toolRole "dataReduction" ] .
 
-<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserEnergyDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 150 ;
-    schema1:description "150 mJ output energy" ;
-    schema1:name "Laser Energy" ;
-    schema1:valueName "laserEnergyDefault" ;
-    ada:dataType "number" ;
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "No post-acquisition normalization; EMP CaO applied directly as IS; NIST 610 for external calibration" ;
+    schema1:name "Normalization / Standards-Based Correction" ;
+    schema1:valueName "normalizationStandardsBasedCorrectionDefault" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
@@ -94,6 +94,14 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
     schema1:name "Sample Form / Analytical Substrate" ;
     schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 150 ;
+    schema1:description "150 mJ output energy" ;
+    schema1:name "Laser Energy" ;
+    schema1:valueName "laserEnergyDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://example.org/instrument/ICPMS> a schema1:Product,
@@ -134,7 +142,7 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
 
 <https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/laserEnergyDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;

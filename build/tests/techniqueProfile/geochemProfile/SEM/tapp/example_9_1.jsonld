@@ -26,21 +26,6 @@
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-2",
   "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v22.csv).",
-  "ada:analyticalMode": [
-    "BSE Imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (same instrument); CL (Hitachi S-2500C); BSE Imaging (Leo 1540); micro-XRD; EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -50,7 +35,7 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Other: Leo Electron Microscopy (now Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -61,6 +46,11 @@
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -119,20 +109,9 @@
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Surface Science Western"
-  },
   "schema:object": [
     {
       "@type": [
@@ -149,6 +128,27 @@
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Surface Science Western"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (same instrument); CL (Hitachi S-2500C); BSE Imaging (Leo 1540); micro-XRD; EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE Imaging"
   ],
   "schema:measurementTechnique": [
     {

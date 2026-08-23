@@ -15,8 +15,9 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/spikeOutlierFilteringApproachDefault> ;
@@ -26,9 +27,8 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Mittlefehldt" ] ;
@@ -39,8 +39,7 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a cdi:Activity,
     schema1:location [ a schema1:Place ;
             schema1:name "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "LA-SF-ICP-MS" ;
-            schema1:termCode "LA-ICP-MS" ] ;
+            schema1:termCode "LA-SF-ICP-MS" ] ;
     schema1:name "Mittlefehldt (2024) Pallasite Olivine Spot v1" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -73,8 +72,8 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/isobaricInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "²⁵Mg",
@@ -110,7 +109,6 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "USGS standard glasses BCR-2g, BHVO-2g, and BIR-1g; preferred values from GeoReM website" ;
     ada:rasterLineSpacingDefault "missing" ;
-    ada:reportedVariablesAndUnits "missing" ;
     ada:sampleIntroduction "missing" ;
     ada:samplingUnit "missing" ;
     ada:secondaryReferenceMaterialDefault "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)" ;
@@ -144,10 +142,10 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a cdi:Activity,
     ada:dataType "uri" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
-    ada:dataType "string" .
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -172,15 +170,16 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a cdi:Activity,
     schema1:valueName "limitOfQuantificationMethod" ;
     ada:dataType "uri" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:name "Mass Resolution per Analyte" ;
-    schema1:valueName "massResolutionPerAnalyte" ;
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Monitored Isotopes" ;
-    schema1:valueName "monitoredIsotopes" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;

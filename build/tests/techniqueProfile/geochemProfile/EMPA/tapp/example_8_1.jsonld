@@ -43,6 +43,11 @@
           "schema:Organization"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/EPMA",
       "schema:hasPart": [
         {
           "@type": [
@@ -87,11 +92,6 @@
           "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/EPMA",
       "schema:name": "example instrumentName"
     },
     {
@@ -113,6 +113,111 @@
       ],
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "beamDamageMinimizationDefault",
+      "schema:name": "Beam Damage Minimization",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "2 \u00b5m probe used for all analyses; Durango apatite tested at 10 \u00b5m and 3 \u00b5m spot sizes to assess halogen volatilization; no significant loss found under adopted conditions"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "halogenCorrectionOnOxygenDefault",
+      "schema:name": "Halogen Correction on Oxygen",
+      "ada:dataType": "boolean",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Yes (F and Cl substitution in apatite; 1-F-Cl=OH)"
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Phosphate (apatite)"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Logan B. Seifert",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "ARES, NASA Johnson Space Center"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "ada:analyteTemplate": {
@@ -275,111 +380,6 @@
       }
     ]
   },
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "beamDamageMinimizationDefault",
-      "schema:name": "Beam Damage Minimization",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "2 \u00b5m probe used for all analyses; Durango apatite tested at 10 \u00b5m and 3 \u00b5m spot sizes to assess halogen volatilization; no significant loss found under adopted conditions"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "halogenCorrectionOnOxygenDefault",
-      "schema:name": "Halogen Correction on Oxygen",
-      "ada:dataType": "boolean",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "Yes (F and Cl substitution in apatite; 1-F-Cl=OH)"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "ARES, NASA Johnson Space Center"
-  },
-  "schema:creator": {
-    "schema:name": "Logan B. Seifert",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Phosphate (apatite)"
-          ]
-        }
-      ]
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [

@@ -26,20 +26,6 @@
   ],
   "schema:name": "solutionQicpms protocol \u2014 Agilent7500",
   "schema:description": "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution Q-ICP-MS"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)"
-  },
   "schema:object": [
     {
       "@type": [
@@ -144,14 +130,6 @@
       },
       {
         "schema:name": "Sample digestion",
-        "bios:reagent": [
-          {
-            "schema:name": "HF + HClO4 (basalt/glass, ultrasonic); HF alone in TFE bomb (peridotite/chondrite; stated section 2)",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
@@ -177,6 +155,14 @@
             "schema:description": "Ambient for ultrasonic; 245 deg C for TFE bomb (stated section 2)"
           }
         ],
+        "bios:reagent": [
+          {
+            "schema:name": "HF + HClO4 (basalt/glass, ultrasonic); HF alone in TFE bomb (peridotite/chondrite; stated section 2)",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -191,9 +177,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:finalSolutionMatrix": "0.5 mol/l HNO3 (stated section 2)",
-  "ada:chromatographicSeparationApplied": "None (direct analysis)",
-  "ada:isotopeDilutionSpike": "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -235,6 +218,11 @@
           "schema:defaultValue": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)"
         }
       ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -307,34 +295,111 @@
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:manufacturer": {
-        "schema:name": "Agilent -- \"Agilent 7500cs; Yokogawa Analytical Systems, Mitaka, Japan\"",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:channelTemplate": {
+    "ada:defaultChannels": [
+      "95Mo",
+      "111Cd",
+      "113Cd",
+      "115In",
+      "118Sn",
+      "149Sm",
+      "205Tl",
+      "209Bi (Table 1)"
+    ],
+    "ada:channelColumns": [
+      {
+        "schema:valueName": "channel",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
+  "ada:internalStandardApproach": "N/A",
+  "ada:driftCorrectionMethod": "IS normalization",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Isotope dilution (all analytes)"
+  ],
+  "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
+  "ada:secondaryReferenceMaterialDefault": [
+    "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
+  ],
+  "ada:reportedProperties": [
+    "Cd, In, Tl and Bi mass fractions (ng g-1)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution Q-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)"
+  },
+  "ada:samplingUnit": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
+  "ada:analyticalMode": [
+    "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\""
+  ],
+  "ada:chromatographicSeparationApplied": "None (direct analysis)",
+  "ada:isotopeDilutionSpike": "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)",
+  "ada:finalSolutionMatrix": "0.5 mol/l HNO3 (stated section 2)",
+  "ada:washTimeBetweenSamples": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Cd",
@@ -414,104 +479,6 @@
       }
     ]
   },
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
-      "95Mo",
-      "111Cd",
-      "113Cd",
-      "115In",
-      "118Sn",
-      "149Sm",
-      "205Tl",
-      "209Bi (Table 1)"
-    ],
-    "ada:channelColumns": [
-      {
-        "schema:valueName": "channel",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
-  "ada:washTimeBetweenSamples": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)",
-  "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
-  "ada:internalStandardApproach": "N/A",
-  "ada:driftCorrectionMethod": "IS normalization",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution (all analytes)"
-  ],
-  "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
-  ],
-  "ada:analyticalMode": [
-    "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\""
-  ],
-  "ada:reportedPropertyTemplate": {
-    "ada:defaultReportedProperties": [
-      "Cd, In, Tl and Bi mass fractions (ng g-1)"
-    ],
-    "ada:reportedPropertyColumns": [
-      {
-        "schema:valueName": "reportedProperty",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
-  "ada:samplingUnit": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:massCyclesPerReplicate": -9999,

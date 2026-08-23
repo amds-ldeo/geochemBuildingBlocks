@@ -896,12 +896,13 @@ $defs:
     - schema:defaultValue
   laMcicpmsUPb_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: 'Reproducibility of measurements across multiple analytical sessions
-      over weeks to months (long-term or intermediate precision). Report both the
-      assessment method and the precision values. Specify: reference material used,
-      number of sessions n, time span covered, and statistic reported. Long-term precision
-      is typically assessed from a compiled record of secondary reference material
-      values across all sessions.'
+    description: "Precision of measurements across multiple analytical sessions over
+      weeks to months \u2014 long-term or intermediate precision \u2014 and the method
+      used to assess it. Report both the assessment method and the precision values,
+      specifying the reference material, the number of measurements and sessions,
+      the time span covered, and the statistic reported. Long-term precision is normally
+      poorer than within-session precision and is the figure a data user should carry
+      when comparing results from different sessions."
     type: object
     properties:
       '@id':
@@ -1143,6 +1144,40 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laMcicpmsUPb_massResolutionAssignment:
+    title: Mass Resolution Assignment
+    description: Mass resolution mode assigned to each acquired mass. The selected
+      resolution determines which polyatomic interferences are physically resolved
+      by the magnetic sector. One analyte may be acquired at more than one resolution,
+      so the assignment is per acquired mass rather than per element. The overall
+      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
+      3).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/massResolutionAssignment
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionAssignment
+      schema:name:
+        const: Mass Resolution Assignment
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laMcicpmsUPb_massResolutionPerAnalyte:
     title: Mass Resolution per Analyte
     description: ''
@@ -1202,6 +1237,40 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  laMcicpmsUPb_monitoredMasses:
+    title: Monitored Masses
+    description: Specific masses monitored in this procedure, grouped by the analyte
+      element they serve where they serve one. Covers atomic isotopes and, where a
+      reaction cell shifts an analyte onto a different mass, the product mass actually
+      measured. Includes interference-monitor and internal-standard masses, which
+      serve no analyte and so have no parent element. The analyte list is given by
+      the Analyte field and is never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/monitoredMasses
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredMasses
+      schema:name:
+        const: Monitored Masses
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laMcicpmsUPb_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: Any post-acquisition normalization applied to correct for systematic
@@ -1235,13 +1304,13 @@ $defs:
     - ada:dataType
   laMcicpmsUPb_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
-    description: "Reproducibility of repeated measurements within a single analytical
-      session. Report both the assessment method and the precision values. Assessment
-      method must specify: (1) the reference material used, (2) number of replicates
-      n, and (3) the statistic reported (1\u03C3 RSD, 2\u03C3 RSD, etc.). For mapping:
-      assess from repeated analyses of a reference material area at session start
-      and end, or from replicate analyses of a homogeneous reference phase within
-      the map."
+    description: Precision of repeated measurements within a single analytical session
+      and the method used to assess it. Report both the assessment method and the
+      precision values. The assessment method must specify the reference material
+      or standard measured, the number of replicates n, and the statistic reported
+      (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of
+      a single measurement, which derives from counting statistics over the cycles
+      of that measurement rather than from repeated analyses.
     type: object
     properties:
       '@id':
@@ -1425,6 +1494,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laMcicpms_instrumentSensitivity:
+    title: Instrument Sensitivity
+    description: "Instrument sensitivity achieved in the session, with the isotope
+      or channel it was measured on and the conditions it applies to. May be expressed
+      either as detected signal per unit concentration or per unit mass of analyte
+      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
+      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
+      as ions, with the method used to derive it cited. Useful yield is the more comparable
+      of the two wherever the amount of material consumed varies between procedures,
+      as it does with spot size, fluence and repetition rate. Records what the instrument
+      actually delivered; a sensitivity the procedure requires before analyses may
+      begin belongs with the tuning acceptance criteria."
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/instrumentSensitivity
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: instrumentSensitivity
+      schema:name:
+        const: Instrument Sensitivity
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: O
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   laMcicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
     description: Equation or procedure used to correct for isobaric interferences,
@@ -1550,6 +1654,40 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laMcicpms_massResolutionAssignment:
+    title: Mass Resolution Assignment
+    description: Mass resolution mode assigned to each acquired mass. The selected
+      resolution determines which polyatomic interferences are physically resolved
+      by the magnetic sector. One analyte may be acquired at more than one resolution,
+      so the assignment is per acquired mass rather than per element. The overall
+      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
+      3).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/massResolutionAssignment
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionAssignment
+      schema:name:
+        const: Mass Resolution Assignment
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laMcicpms_massResolutionPerAnalyte:
     title: Mass Resolution per Analyte
     description: ''
@@ -1594,6 +1732,40 @@ $defs:
         const: monitoredIsotopes
       schema:name:
         const: Monitored Isotopes
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  laMcicpms_monitoredMasses:
+    title: Monitored Masses
+    description: Specific masses monitored in this procedure, grouped by the analyte
+      element they serve where they serve one. Covers atomic isotopes and, where a
+      reaction cell shifts an analyte onto a different mass, the product mass actually
+      measured. Includes interference-monitor and internal-standard masses, which
+      serve no analyte and so have no parent element. The analyte list is given by
+      the Analyte field and is never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/monitoredMasses
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredMasses
+      schema:name:
+        const: Monitored Masses
       ada:dataType:
         const: string
       schema:readonlyValue:
@@ -1776,12 +1948,13 @@ $defs:
     - schema:defaultValue
   laQicpmsUPb_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: 'Reproducibility of measurements across multiple analytical sessions
-      over weeks to months (long-term or intermediate precision). Report both the
-      assessment method and the precision values. Specify: reference material used,
-      number of sessions n, time span covered, and statistic reported. Long-term precision
-      is typically assessed from a compiled record of secondary reference material
-      values across all sessions.'
+    description: "Precision of measurements across multiple analytical sessions over
+      weeks to months \u2014 long-term or intermediate precision \u2014 and the method
+      used to assess it. Report both the assessment method and the precision values,
+      specifying the reference material, the number of measurements and sessions,
+      the time span covered, and the statistic reported. Long-term precision is normally
+      poorer than within-session precision and is the figure a data user should carry
+      when comparing results from different sessions."
     type: object
     properties:
       '@id':
@@ -1891,13 +2064,15 @@ $defs:
       schema:name:
         const: Dwell Time per Mass
       ada:dataType:
-        const: string
+        const: number
       schema:readonlyValue:
         const: false
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -2089,6 +2264,40 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  laQicpmsUPb_monitoredMasses:
+    title: Monitored Masses
+    description: Specific masses monitored in this procedure, grouped by the analyte
+      element they serve where they serve one. Covers atomic isotopes and, where a
+      reaction cell shifts an analyte onto a different mass, the product mass actually
+      measured. Includes interference-monitor and internal-standard masses, which
+      serve no analyte and so have no parent element. The analyte list is given by
+      the Analyte field and is never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/monitoredMasses
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredMasses
+      schema:name:
+        const: Monitored Masses
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laQicpmsUPb_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: Any post-acquisition normalization applied to correct for systematic
@@ -2122,13 +2331,13 @@ $defs:
     - ada:dataType
   laQicpmsUPb_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
-    description: "Reproducibility of repeated measurements within a single analytical
-      session. Report both the assessment method and the precision values. Assessment
-      method must specify: (1) the reference material used, (2) number of replicates
-      n, and (3) the statistic reported (1\u03C3 RSD, 2\u03C3 RSD, etc.). For mapping:
-      assess from repeated analyses of a reference material area at session start
-      and end, or from replicate analyses of a homogeneous reference phase within
-      the map."
+    description: Precision of repeated measurements within a single analytical session
+      and the method used to assess it. Report both the assessment method and the
+      precision values. The assessment method must specify the reference material
+      or standard measured, the number of replicates n, and the statistic reported
+      (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of
+      a single measurement, which derives from counting statistics over the cycles
+      of that measurement rather than from repeated analyses.
     type: object
     properties:
       '@id':
@@ -2190,12 +2399,13 @@ $defs:
     - schema:defaultValue
   laQicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: 'Reproducibility of measurements across multiple analytical sessions
-      over weeks to months (long-term or intermediate precision). Report both the
-      assessment method and the precision values. Specify: reference material used,
-      number of sessions n, time span covered, and statistic reported. Long-term precision
-      is typically assessed from a compiled record of secondary reference material
-      values across all sessions.'
+    description: "Precision of measurements across multiple analytical sessions over
+      weeks to months \u2014 long-term or intermediate precision \u2014 and the method
+      used to assess it. Report both the assessment method and the precision values,
+      specifying the reference material, the number of measurements and sessions,
+      the time span covered, and the statistic reported. Long-term precision is normally
+      poorer than within-session precision and is the figure a data user should carry
+      when comparing results from different sessions."
     type: object
     properties:
       '@id':
@@ -2305,13 +2515,15 @@ $defs:
       schema:name:
         const: Dwell Time per Mass
       ada:dataType:
-        const: string
+        const: number
       schema:readonlyValue:
         const: false
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -2503,6 +2715,40 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  laQicpms_monitoredMasses:
+    title: Monitored Masses
+    description: Specific masses monitored in this procedure, grouped by the analyte
+      element they serve where they serve one. Covers atomic isotopes and, where a
+      reaction cell shifts an analyte onto a different mass, the product mass actually
+      measured. Includes interference-monitor and internal-standard masses, which
+      serve no analyte and so have no parent element. The analyte list is given by
+      the Analyte field and is never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/monitoredMasses
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredMasses
+      schema:name:
+        const: Monitored Masses
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laQicpms_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: Any post-acquisition normalization applied to correct for systematic
@@ -2536,13 +2782,13 @@ $defs:
     - ada:dataType
   laQicpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
-    description: "Reproducibility of repeated measurements within a single analytical
-      session. Report both the assessment method and the precision values. Assessment
-      method must specify: (1) the reference material used, (2) number of replicates
-      n, and (3) the statistic reported (1\u03C3 RSD, 2\u03C3 RSD, etc.). For mapping:
-      assess from repeated analyses of a reference material area at session start
-      and end, or from replicate analyses of a homogeneous reference phase within
-      the map."
+    description: Precision of repeated measurements within a single analytical session
+      and the method used to assess it. Report both the assessment method and the
+      precision values. The assessment method must specify the reference material
+      or standard measured, the number of replicates n, and the statistic reported
+      (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of
+      a single measurement, which derives from counting statistics over the cycles
+      of that measurement rather than from repeated analyses.
     type: object
     properties:
       '@id':
@@ -2604,12 +2850,13 @@ $defs:
     - schema:defaultValue
   laSficpmsUPb_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: 'Reproducibility of measurements across multiple analytical sessions
-      over weeks to months (long-term or intermediate precision). Report both the
-      assessment method and the precision values. Specify: reference material used,
-      number of sessions n, time span covered, and statistic reported. Long-term precision
-      is typically assessed from a compiled record of secondary reference material
-      values across all sessions.'
+    description: "Precision of measurements across multiple analytical sessions over
+      weeks to months \u2014 long-term or intermediate precision \u2014 and the method
+      used to assess it. Report both the assessment method and the precision values,
+      specifying the reference material, the number of measurements and sessions,
+      the time span covered, and the statistic reported. Long-term precision is normally
+      poorer than within-session precision and is the figure a data user should carry
+      when comparing results from different sessions."
     type: object
     properties:
       '@id':
@@ -2719,13 +2966,15 @@ $defs:
       schema:name:
         const: Dwell Time per Mass
       ada:dataType:
-        const: string
+        const: number
       schema:readonlyValue:
         const: false
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -2858,6 +3107,40 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laSficpmsUPb_massResolutionAssignment:
+    title: Mass Resolution Assignment
+    description: Mass resolution mode assigned to each acquired mass. The selected
+      resolution determines which polyatomic interferences are physically resolved
+      by the magnetic sector. One analyte may be acquired at more than one resolution,
+      so the assignment is per acquired mass rather than per element. The overall
+      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
+      3).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionAssignment
+      schema:name:
+        const: Mass Resolution Assignment
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laSficpmsUPb_massResolutionPerAnalyte:
     title: Mass Resolution per Analyte
     description: ''
@@ -2917,6 +3200,40 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  laSficpmsUPb_monitoredMasses:
+    title: Monitored Masses
+    description: Specific masses monitored in this procedure, grouped by the analyte
+      element they serve where they serve one. Covers atomic isotopes and, where a
+      reaction cell shifts an analyte onto a different mass, the product mass actually
+      measured. Includes interference-monitor and internal-standard masses, which
+      serve no analyte and so have no parent element. The analyte list is given by
+      the Analyte field and is never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/monitoredMasses
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredMasses
+      schema:name:
+        const: Monitored Masses
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laSficpmsUPb_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: Any post-acquisition normalization applied to correct for systematic
@@ -2950,13 +3267,13 @@ $defs:
     - ada:dataType
   laSficpmsUPb_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
-    description: "Reproducibility of repeated measurements within a single analytical
-      session. Report both the assessment method and the precision values. Assessment
-      method must specify: (1) the reference material used, (2) number of replicates
-      n, and (3) the statistic reported (1\u03C3 RSD, 2\u03C3 RSD, etc.). For mapping:
-      assess from repeated analyses of a reference material area at session start
-      and end, or from replicate analyses of a homogeneous reference phase within
-      the map."
+    description: Precision of repeated measurements within a single analytical session
+      and the method used to assess it. Report both the assessment method and the
+      precision values. The assessment method must specify the reference material
+      or standard measured, the number of replicates n, and the statistic reported
+      (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of
+      a single measurement, which derives from counting statistics over the cycles
+      of that measurement rather than from repeated analyses.
     type: object
     properties:
       '@id':
@@ -3018,12 +3335,13 @@ $defs:
     - schema:defaultValue
   laSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: 'Reproducibility of measurements across multiple analytical sessions
-      over weeks to months (long-term or intermediate precision). Report both the
-      assessment method and the precision values. Specify: reference material used,
-      number of sessions n, time span covered, and statistic reported. Long-term precision
-      is typically assessed from a compiled record of secondary reference material
-      values across all sessions.'
+    description: "Precision of measurements across multiple analytical sessions over
+      weeks to months \u2014 long-term or intermediate precision \u2014 and the method
+      used to assess it. Report both the assessment method and the precision values,
+      specifying the reference material, the number of measurements and sessions,
+      the time span covered, and the statistic reported. Long-term precision is normally
+      poorer than within-session precision and is the figure a data user should carry
+      when comparing results from different sessions."
     type: object
     properties:
       '@id':
@@ -3133,13 +3451,15 @@ $defs:
       schema:name:
         const: Dwell Time per Mass
       ada:dataType:
-        const: string
+        const: number
       schema:readonlyValue:
         const: false
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -3272,6 +3592,40 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laSficpms_massResolutionAssignment:
+    title: Mass Resolution Assignment
+    description: Mass resolution mode assigned to each acquired mass. The selected
+      resolution determines which polyatomic interferences are physically resolved
+      by the magnetic sector. One analyte may be acquired at more than one resolution,
+      so the assignment is per acquired mass rather than per element. The overall
+      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
+      3).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/massResolutionAssignment
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionAssignment
+      schema:name:
+        const: Mass Resolution Assignment
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laSficpms_massResolutionPerAnalyte:
     title: Mass Resolution per Analyte
     description: ''
@@ -3331,6 +3685,40 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  laSficpms_monitoredMasses:
+    title: Monitored Masses
+    description: Specific masses monitored in this procedure, grouped by the analyte
+      element they serve where they serve one. Covers atomic isotopes and, where a
+      reaction cell shifts an analyte onto a different mass, the product mass actually
+      measured. Includes interference-monitor and internal-standard masses, which
+      serve no analyte and so have no parent element. The analyte list is given by
+      the Analyte field and is never inferred from the element symbols appearing here.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/monitoredMasses
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: monitoredMasses
+      schema:name:
+        const: Monitored Masses
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laSficpms_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: Any post-acquisition normalization applied to correct for systematic
@@ -3364,13 +3752,13 @@ $defs:
     - ada:dataType
   laSficpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
-    description: "Reproducibility of repeated measurements within a single analytical
-      session. Report both the assessment method and the precision values. Assessment
-      method must specify: (1) the reference material used, (2) number of replicates
-      n, and (3) the statistic reported (1\u03C3 RSD, 2\u03C3 RSD, etc.). For mapping:
-      assess from repeated analyses of a reference material area at session start
-      and end, or from replicate analyses of a homogeneous reference phase within
-      the map."
+    description: Precision of repeated measurements within a single analytical session
+      and the method used to assess it. Report both the assessment method and the
+      precision values. The assessment method must specify the reference material
+      or standard measured, the number of replicates n, and the statistic reported
+      (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of
+      a single measurement, which derives from counting statistics over the cycles
+      of that measurement rather than from repeated analyses.
     type: object
     properties:
       '@id':

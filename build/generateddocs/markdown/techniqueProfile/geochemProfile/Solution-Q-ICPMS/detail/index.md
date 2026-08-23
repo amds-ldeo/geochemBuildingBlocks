@@ -32,14 +32,7 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "AGV-1 (andesite), BHVO-1 (basalt), G-2 (granite), SCO-1 (shale), GSR-5 (shale); GSR-6 and \"another eighteen international\" RMs; worldwide loess and Chinese upper-crustal composites",
   "ada:samplingUnit": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
   "ada:sampleDescription": "missing",
@@ -88,14 +81,7 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "AGV-1 (andesite), BHVO-1 (basalt), G-2 (granite), SCO-1 (shale), GSR-5 (shale); GSR-6 and \"another eighteen international\" RMs; worldwide loess and Chinese upper-crustal composites",
   "ada:samplingUnit": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
   "ada:sampleDescription": "missing",
@@ -123,8 +109,6 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Gao2008 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionQicpmsTAPP-Gao2008 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
@@ -135,6 +119,7 @@ ex:detail-Gao2008 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -175,14 +160,7 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods",
   "ada:samplingUnit": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
   "ada:sampleDescription": "missing",
@@ -231,14 +209,7 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods",
   "ada:samplingUnit": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
   "ada:sampleDescription": "missing",
@@ -266,8 +237,6 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P1 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionQicpmsTAPP-P1 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated" ;
@@ -278,6 +247,7 @@ ex:detail-P1 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "N for the quantity this field defines. A calibration-curve fit statistic is reported -- \"The calibration curves determined from multiple standards are linear and R2 are usually greater than 0.999\" -- which measures the fit of the calibration, not whether scatter among contributing analyses exceeds analytical uncertainty" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -318,14 +288,7 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses",
   "ada:samplingUnit": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
   "ada:sampleDescription": "missing",
@@ -374,14 +337,7 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses",
   "ada:samplingUnit": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
   "ada:sampleDescription": "missing",
@@ -409,8 +365,6 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Agilent7500 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7500 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule stated. 113Cd was excluded as a determination channel -- \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\" -- which is a channel decision, not an analysis-inclusion decision" ;
@@ -421,6 +375,7 @@ ex:detail-Agilent7500 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -461,14 +416,7 @@ detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "PCA 02010, B-7904, LON 94101 and further CM/CY chondrites",
   "ada:samplingUnit": "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure",
   "ada:sampleDescription": "missing",
@@ -517,14 +465,7 @@ detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "PCA 02010, B-7904, LON 94101 and further CM/CY chondrites",
   "ada:samplingUnit": "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure",
   "ada:sampleDescription": "missing",
@@ -552,8 +493,6 @@ detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Agilent7900 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7900 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -564,6 +503,7 @@ ex:detail-Agilent7900 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -604,14 +544,7 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
   "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
   "ada:sampleDescription": "missing",
@@ -660,14 +593,7 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
   "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
   "ada:sampleDescription": "missing",
@@ -695,8 +621,6 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Agilent7500-2 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7500-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated" ;
@@ -707,6 +631,7 @@ ex:detail-Agilent7500-2 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -747,14 +672,7 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "N — SPM isotherm experiment at 1000 mg/L",
   "ada:samplingUnit": "missing",
   "ada:sampleDescription": "missing",
@@ -803,14 +721,7 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "N \u2014 SPM isotherm experiment at 1000 mg/L",
   "ada:samplingUnit": "missing",
   "ada:sampleDescription": "missing",
@@ -838,8 +749,6 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Agilent8800 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent8800 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -850,6 +759,7 @@ ex:detail-Agilent8800 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -890,14 +800,7 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Selective extraction fractions F1-F4 and F4N; CRM NCS 73307",
   "ada:samplingUnit": "Weighed sediment aliquot — 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction",
   "ada:sampleDescription": "missing",
@@ -946,14 +849,7 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Selective extraction fractions F1-F4 and F4N; CRM NCS 73307",
   "ada:samplingUnit": "Weighed sediment aliquot \u2014 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction",
   "ada:sampleDescription": "missing",
@@ -981,8 +877,6 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P6 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionQicpmsTAPP-P6 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -993,6 +887,7 @@ ex:detail-P6 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -1033,14 +928,7 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "N — sorption kinetics and isotherm solutions; CRMs CRM-TMDW and NIST 1643f",
   "ada:samplingUnit": "N — sub-sampled water aliquots",
   "ada:sampleDescription": "missing",
@@ -1089,14 +977,7 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "N \u2014 sorption kinetics and isotherm solutions; CRMs CRM-TMDW and NIST 1643f",
   "ada:samplingUnit": "N \u2014 sub-sampled water aliquots",
   "ada:sampleDescription": "missing",
@@ -1124,8 +1005,6 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P7 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionQicpmsTAPP-P7 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1136,6 +1015,7 @@ ex:detail-P7 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "LOD 0.01 ug L-1 (N = 10)" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -1176,14 +1056,7 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ryugu particles A0066, A0238, A0247, A0256, A0259, A0268, A0301, A0313; Smithsonian Allende powder",
   "ada:samplingUnit": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende",
   "ada:sampleDescription": "missing",
@@ -1232,14 +1105,7 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ryugu particles A0066, A0238, A0247, A0256, A0259, A0268, A0301, A0313; Smithsonian Allende powder",
   "ada:samplingUnit": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende",
   "ada:sampleDescription": "missing",
@@ -1267,8 +1133,6 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P8 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionQicpmsTAPP-P8 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'" ;
@@ -1279,6 +1143,7 @@ ex:detail-P8 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -2713,6 +2578,7 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "cdif": "https://w3id.org/cdif/",

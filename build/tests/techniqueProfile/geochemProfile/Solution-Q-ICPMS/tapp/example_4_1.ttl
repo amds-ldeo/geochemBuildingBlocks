@@ -14,11 +14,6 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -32,12 +27,16 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods); ada:perAnalyteCalibrationStrategy = External calibration (stated Methods)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut de Physique du Globe de Paris (IPGP), France (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -82,14 +81,7 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:perAnalyteCalibrationStrategy "External calibration (all analytes)" ;
     ada:primaryStandardNameDefault "Mixture of certified standards (not formally named; stated Methods)" ;
-    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Partially -- \"The elemental content of samples was analyzed\"; concentration unit ug/g attested (\"[Zn] = 309 ug/g\", \"144 ug/g\"); the reported variable list is in Tables S1-S2, not in the paper" ;
-            ada:reportedPropertyColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "reportedProperty" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ] ;
+    ada:reportedProperties "Partially -- \"The elemental content of samples was analyzed\"; concentration unit ug/g attested (\"[Zn] = 309 ug/g\", \"144 ug/g\"); the reported variable list is in Tables S1-S2, not in the paper" ;
     ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure" ;
     ada:signalCollectionMode "missing" ;
@@ -215,14 +207,6 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://example.org/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Agilent -- \"an Agilent 7900 Quadrupole Inductively Coupled Plasma Mass Spectrometry instrument\"" ] ;
-    schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> a schema1:PropertyValue ;
     schema1:name "Collision Gas Type" ;

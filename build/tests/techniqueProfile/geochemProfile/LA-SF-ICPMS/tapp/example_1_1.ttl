@@ -14,6 +14,12 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished metal slabs and thin sections; no acid treatment described" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -22,26 +28,19 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished metal slabs and thin sections; no acid treatment described" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSizeDefault>,
-        <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/uncertaintyPropagationMethodDefault> ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/uncertaintyPropagationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Zhang, Chabot, Rubin, Humayun et al." ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Raster scans used for main element dataset (23 elements); separate spot analyses on 5 irons for more precise Ge abundances (150 µm spot, 50 Hz, 20 s); two different analysis modes represent distinct protocols but are reported in same paper Reported detail: ada:ablationSamplingMode = Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons." ;
+    schema1:description "Raster scans used for main element dataset (23 elements); separate spot analyses on 5 irons for more precise Ge abundances (150 µm spot, 50 Hz, 20 s); two different analysis modes represent distinct protocols but are reported in same paper" ;
     schema1:instrument <https://example.org/instrument/ICPMS>,
         <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "LA-SF-ICP-MS" ;
-            schema1:termCode "LA-ICP-MS" ] ;
+            schema1:termCode "LA-SF-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Iron Meteorite LA-ICP-MS v1" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -59,7 +58,7 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
             schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
-    ada:ablationSamplingMode "Spot (stationary)" ;
+    ada:ablationSamplingMode "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons" ;
     ada:ablationSpotDurationDefault "N/A (raster) / 20 s (spot Ge at 50 Hz)" ;
     ada:analysisSequenceDefault "Standards at start of session → raster unknowns → repeat → standards at end; separate session for Ge spot analyses" ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
@@ -79,8 +78,8 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/isobaricInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "³¹P",
@@ -120,7 +119,6 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "North Chile Filomena (IIAB iron meteorite; Wasson et al. 1989) for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba (IVB; Walker et al. 2008) for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel (Campbell & Humayun 2005) for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au" ;
     ada:rasterLineSpacingDefault "missing" ;
-    ada:reportedVariablesAndUnits "missing" ;
     ada:sampleIntroduction "missing" ;
     ada:samplingUnit "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
@@ -151,10 +149,10 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
     ada:dataType "uri" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
-    ada:dataType "string" .
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -179,15 +177,16 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:valueName "limitOfQuantificationMethod" ;
     ada:dataType "uri" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:name "Mass Resolution per Analyte" ;
-    schema1:valueName "massResolutionPerAnalyte" ;
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Monitored Isotopes" ;
-    schema1:valueName "monitoredIsotopes" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
@@ -222,17 +221,17 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSizeDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "10 µm s⁻¹ (raster scan); N/A (spot Ge)" ;
-    schema1:name "Transect Rate, Mapping Rate or Step Size" ;
-    schema1:valueName "transectRateMappingRateOrStepSizeDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/uncertaintyPropagationMethodDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Standard deviation (SD) across individual integration cycles of raster scans; uncertainty propagation not formally described" ;
     schema1:name "Uncertainty Propagation Method" ;
     schema1:valueName "uncertaintyPropagationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "10 µm s⁻¹ (raster scan); N/A (spot Ge)" ;
+    schema1:name "Transect Rate Mapping Rate or Step Size" ;
+    schema1:valueName "transectRateMappingRateOrStepSizeDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

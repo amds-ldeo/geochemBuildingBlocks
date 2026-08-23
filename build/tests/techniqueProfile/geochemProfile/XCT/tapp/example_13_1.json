@@ -16,33 +16,6 @@
   ],
   "schema:name": "labxct protocol \u2014 Richard2019-4",
   "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v21.csv).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Lab XCT (nano-CT)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Universit\u00e9 de Lorraine, France"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "Confocal laser scanning microscopy (Sample I)",
-        "schema:description": "CLSM performed on same inclusion for volumetric cross-validation"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -198,26 +171,39 @@
       ],
       "@id": "ex:instrument/XCT",
       "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:name": "SEM",
-      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:numberOfProjectionsDefault": "1200\u20132000 (varies by sample)",
   "ada:exposureTimePerProjectionDefault": "750\u20131250 ms (varies by sample)",
   "ada:beamHardeningCorrectionMethod": "Software BHC applied per respective software",
   "ada:segmentationMethodDefault": "Manual grayscale threshold per phase",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Lab XCT (nano-CT)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Universit\u00e9 de Lorraine, France"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Confocal laser scanning microscopy (Sample I)",
+        "schema:description": "CLSM performed on same inclusion for volumetric cross-validation"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",

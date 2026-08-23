@@ -438,6 +438,10 @@ and technique component types on the archive distribution. Mock data for validat
     {
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "example oxideProduction"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }

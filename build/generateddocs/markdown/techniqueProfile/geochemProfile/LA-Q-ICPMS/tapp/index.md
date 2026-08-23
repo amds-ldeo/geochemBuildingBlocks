@@ -31,58 +31,6 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
   ],
   "schema:name": "Nakanishi et al. (2022) CR Chondrite Metal HSE fs-LA-ICP-MS Spot v1",
   "schema:description": "fs laser (260 nm Ti:sapphire) essential for HSE measurement in metal (reduces elemental fractionation and matrix effects); IVB iron meteorite standards (Warburton Range + Tawallah Valley) as matrix-matched standards for iron meteorite metal",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "fs-LA-Q-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "JSPS KAKENHI; Tokyo Institute of Technology"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA (electron probe microanalysis)",
-        "schema:description": "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -166,45 +114,6 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
     ]
   },
   "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)",
-      "ada:laserSpotGeometryDefault": "30 µm circular",
-      "ada:laserFluenceDefault": "12 J cm⁻²",
-      "ada:laserRepetitionRateDefault": "20 Hz",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration"
-            }
-          ],
-          "schema:name": "Laser Pulse Duration",
-          "schema:value": "~220 fs (Ti:sapphire IFRIT system)"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
     {
       "schema:additionalType": [
         "ICPMS",
@@ -337,23 +246,58 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserPulseDuration",
+          "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "~220 fs (Ti:sapphire IFRIT system)"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)",
+      "ada:laserSpotGeometryDefault": "30 µm circular",
+      "ada:laserFluenceDefault": "12 J cm⁻²",
+      "ada:laserRepetitionRateDefault": "20 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System",
+      "schema:name": "example instrumentName"
     }
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
   ],
   "ada:carrierGasFlowRateDefault": "Carrier gas flow: 0.6 L/min; species not named (carrier gas identity not stated in Table 1 or text)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"
+      "schema:defaultValue": 0.9,
+      "schema:description": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"
     },
     {
       "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign",
@@ -381,6 +325,71 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
     }
   ],
   "ada:analysisSequenceDefault": "IVB meteorite standards (Warburton Range external + Tawallah Valley secondary) measured alongside unknowns; exact bracketing not described",
+  "ada:internalStandardApproach": "Single element externally measured by EPMA: ⁶¹Ni concentration from EPMA at exact analysis location used as IS",
+  "ada:internalStandardElement": "⁶¹Ni; concentration from EPMA measured at exact analysis spot location",
+  "ada:elementalFractionationCorrection": [
+    "External calibration using calibration curve method with IVB iron meteorite standards; ⁶¹Ni as IS from EPMA corrects for ablation yield differences between sample and standard"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Time-resolved signals monitored; analyses with elevated Mg, Si, P, S (inclusion indicators) excluded; stable signal intervals used for integration",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot; background period during single spot transient (rapid intensity rise and decay) used for background correction",
+  "ada:primaryStandardNameDefault": "Warburton Range (IVB iron meteorite; Walker et al. 2008) — used as primary external standard and for calibration curve method",
+  "ada:secondaryReferenceMaterialDefault": [
+    "Tawallah Valley (IVB iron meteorite; Walker et al. 2008) — measured as secondary/check standard alongside unknowns"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "fs-LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "JSPS KAKENHI; Tokyo Institute of Technology"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (electron probe microanalysis)",
+        "schema:description": "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "⁵⁹Co",
@@ -412,12 +421,12 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -428,8 +437,8 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -526,29 +535,9 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
-  "ada:internalStandardApproach": "Single element externally measured by EPMA: ⁶¹Ni concentration from EPMA at exact analysis location used as IS",
-  "ada:internalStandardElement": "⁶¹Ni; concentration from EPMA measured at exact analysis spot location",
-  "ada:elementalFractionationCorrection": [
-    "External calibration using calibration curve method with IVB iron meteorite standards; ⁶¹Ni as IS from EPMA corrects for ablation yield differences between sample and standard"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time-resolved signals monitored; analyses with elevated Mg, Si, P, S (inclusion indicators) excluded; stable signal intervals used for integration",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot; background period during single spot transient (rapid intensity rise and decay) used for background correction",
-  "ada:primaryStandardNameDefault": "Warburton Range (IVB iron meteorite; Walker et al. 2008) — used as primary external standard and for calibration curve method",
-  "ada:secondaryReferenceMaterialDefault": [
-    "Tawallah Valley (IVB iron meteorite; Walker et al. 2008) — measured as secondary/check standard alongside unknowns"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
@@ -558,7 +547,6 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -600,58 +588,6 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
   ],
   "schema:name": "Nakanishi et al. (2022) CR Chondrite Metal HSE fs-LA-ICP-MS Spot v1",
   "schema:description": "fs laser (260 nm Ti:sapphire) essential for HSE measurement in metal (reduces elemental fractionation and matrix effects); IVB iron meteorite standards (Warburton Range + Tawallah Valley) as matrix-matched standards for iron meteorite metal",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "fs-LA-Q-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "JSPS KAKENHI; Tokyo Institute of Technology"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA (electron probe microanalysis)",
-        "schema:description": "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -735,45 +671,6 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
     ]
   },
   "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)",
-      "ada:laserSpotGeometryDefault": "30 \u00b5m circular",
-      "ada:laserFluenceDefault": "12 J cm\u207b\u00b2",
-      "ada:laserRepetitionRateDefault": "20 Hz",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration"
-            }
-          ],
-          "schema:name": "Laser Pulse Duration",
-          "schema:value": "~220 fs (Ti:sapphire IFRIT system)"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
     {
       "schema:additionalType": [
         "ICPMS",
@@ -906,23 +803,58 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserPulseDuration",
+          "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "~220 fs (Ti:sapphire IFRIT system)"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)",
+      "ada:laserSpotGeometryDefault": "30 \u00b5m circular",
+      "ada:laserFluenceDefault": "12 J cm\u207b\u00b2",
+      "ada:laserRepetitionRateDefault": "20 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System",
+      "schema:name": "example instrumentName"
     }
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
   ],
   "ada:carrierGasFlowRateDefault": "Carrier gas flow: 0.6 L/min; species not named (carrier gas identity not stated in Table 1 or text)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Ar make-up: 0.9\u20131.2 l min\u207b\u00b9; Ar auxiliary: 0.6\u20131.2 l min\u207b\u00b9"
+      "schema:defaultValue": 0.9,
+      "schema:description": "Ar make-up: 0.9\u20131.2 l min\u207b\u00b9; Ar auxiliary: 0.6\u20131.2 l min\u207b\u00b9"
     },
     {
       "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign",
@@ -950,6 +882,71 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
     }
   ],
   "ada:analysisSequenceDefault": "IVB meteorite standards (Warburton Range external + Tawallah Valley secondary) measured alongside unknowns; exact bracketing not described",
+  "ada:internalStandardApproach": "Single element externally measured by EPMA: \u2076\u00b9Ni concentration from EPMA at exact analysis location used as IS",
+  "ada:internalStandardElement": "\u2076\u00b9Ni; concentration from EPMA measured at exact analysis spot location",
+  "ada:elementalFractionationCorrection": [
+    "External calibration using calibration curve method with IVB iron meteorite standards; \u2076\u00b9Ni as IS from EPMA corrects for ablation yield differences between sample and standard"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Time-resolved signals monitored; analyses with elevated Mg, Si, P, S (inclusion indicators) excluded; stable signal intervals used for integration",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot; background period during single spot transient (rapid intensity rise and decay) used for background correction",
+  "ada:primaryStandardNameDefault": "Warburton Range (IVB iron meteorite; Walker et al. 2008) \u2014 used as primary external standard and for calibration curve method",
+  "ada:secondaryReferenceMaterialDefault": [
+    "Tawallah Valley (IVB iron meteorite; Walker et al. 2008) \u2014 measured as secondary/check standard alongside unknowns"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "fs-LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "JSPS KAKENHI; Tokyo Institute of Technology"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (electron probe microanalysis)",
+        "schema:description": "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "\u2075\u2079Co",
@@ -981,12 +978,12 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -997,8 +994,8 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -1095,29 +1092,9 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
-  "ada:internalStandardApproach": "Single element externally measured by EPMA: \u2076\u00b9Ni concentration from EPMA at exact analysis location used as IS",
-  "ada:internalStandardElement": "\u2076\u00b9Ni; concentration from EPMA measured at exact analysis spot location",
-  "ada:elementalFractionationCorrection": [
-    "External calibration using calibration curve method with IVB iron meteorite standards; \u2076\u00b9Ni as IS from EPMA corrects for ablation yield differences between sample and standard"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time-resolved signals monitored; analyses with elevated Mg, Si, P, S (inclusion indicators) excluded; stable signal intervals used for integration",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot; background period during single spot transient (rapid intensity rise and decay) used for background correction",
-  "ada:primaryStandardNameDefault": "Warburton Range (IVB iron meteorite; Walker et al. 2008) \u2014 used as primary external standard and for calibration curve method",
-  "ada:secondaryReferenceMaterialDefault": [
-    "Tawallah Valley (IVB iron meteorite; Walker et al. 2008) \u2014 measured as secondary/check standard alongside unknowns"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
@@ -1127,7 +1104,6 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -1156,12 +1132,6 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -1170,9 +1140,15 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign>,
-        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault>,
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethodDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata" ] ;
@@ -1185,8 +1161,7 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "fs-LA-Q-ICP-MS" ;
-            schema1:termCode "LA-ICP-MS" ] ;
+            schema1:termCode "fs-LA-Q-ICP-MS" ] ;
     schema1:name "Nakanishi et al. (2022) CR Chondrite Metal HSE fs-LA-ICP-MS Spot v1" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -1195,13 +1170,13 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
                     schema1:value "CR chondrite metal grains (interior, margin, and isolated types)" ],
                 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
@@ -1224,8 +1199,7 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "²⁴Mg",
@@ -1255,7 +1229,6 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "Warburton Range (IVB iron meteorite; Walker et al. 2008) — used as primary external standard and for calibration curve method" ;
     ada:rasterLineSpacingDefault "missing" ;
-    ada:reportedVariablesAndUnits "missing" ;
     ada:sampleIntroduction "missing" ;
     ada:samplingUnit "missing" ;
     ada:secondaryReferenceMaterialDefault "Tawallah Valley (IVB iron meteorite; Walker et al. 2008) — measured as secondary/check standard alongside unknowns" ;
@@ -1288,10 +1261,10 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
     ada:dataType "uri" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
-    ada:dataType "string" .
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -1316,15 +1289,10 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
     schema1:valueName "limitOfQuantificationMethod" ;
     ada:dataType "uri" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:name "Mass Resolution per Analyte" ;
-    schema1:valueName "massResolutionPerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Monitored Isotopes" ;
-    schema1:valueName "monitoredIsotopes" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
@@ -1346,17 +1314,18 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 9e-01 ;
+    schema1:description "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹" ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:valueName "makeUpGasAndFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Unit resolution (quadrupole fixed)" ;
     schema1:name "Mass Resolution Setting" ;
     schema1:valueName "massResolutionSetting" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹" ;
-    schema1:name "Plasma / Make-up Gas Addition" ;
-    schema1:valueName "plasmaMakeUpGasAdditionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -1386,6 +1355,13 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
     schema1:defaultValue "2SE of individual spot measurements reported" ;
     schema1:name "Uncertainty Propagation Method" ;
     schema1:valueName "uncertaintyPropagationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> a schema1:PropertyValueSpecification ;
+    schema1:name "Laser Pulse Duration" ;
+    schema1:value "~220 fs (Ti:sapphire IFRIT system)" ;
+    schema1:valueName "laserPulseDuration" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -1432,7 +1408,7 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
 
 <https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;
@@ -1447,11 +1423,6 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
     schema1:name "Interface Cone Configuration" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interfaceConeConfiguration> ;
     schema1:value "Ni micro-skimmer cone Xs; Ni sampler cone" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> a schema1:PropertyValue ;
-    schema1:name "Laser Pulse Duration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
-    schema1:value "~220 fs (Ti:sapphire IFRIT system)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
     schema1:name "Multi-Run Sequential Analysis Design" ;
@@ -1483,48 +1454,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
     "bios:LabProtocol"
   ],
   "schema:name": "Liu et al. (2024) Extraterrestrial Flux Glass fs-LA-ICP-MS Spot v1",
-  "schema:description": "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser Reported detail: ada:ablationSamplingMode = Spot (stationary; single spot at 1 Hz).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "fs-LA-Q-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Liu, Xue, Li, Wang et al.",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NSFC; Chinese Academy of Sciences"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
+  "schema:description": "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser",
   "schema:object": [
     {
       "@type": [
@@ -1570,12 +1500,12 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
             "schema:defaultValue": "Li₂B₄O₇ flux; sample:flux = 1:35 (10 mg sample + 350 mg flux)"
           },
           {
-            "@id": "ada:parameter/laQicpmsTAPP/preAblationSurfaceTreatmentDefault",
+            "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "preAblationSurfaceTreatmentDefault",
-            "schema:name": "Pre-Ablation Surface Treatment",
+            "schema:name": "Pre Ablation Surface Treatment",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Surface cleaning with ethanol before analysis"
@@ -1643,45 +1573,6 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
     ]
   },
   "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)",
-      "ada:laserSpotGeometryDefault": "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)",
-      "ada:laserFluenceDefault": "6.79 J cm⁻²",
-      "ada:laserRepetitionRateDefault": "1 Hz",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration"
-            }
-          ],
-          "schema:name": "Laser Pulse Duration",
-          "schema:value": "Femtosecond (exact value not stated; GenesisGEO fs laser)"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
     {
       "schema:additionalType": [
         "ICPMS",
@@ -1833,6 +1724,115 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserPulseDuration",
+          "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "Femtosecond (exact value not stated; GenesisGEO fs laser)"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)",
+      "ada:laserSpotGeometryDefault": "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)",
+      "ada:laserFluenceDefault": "6.79 J cm⁻²",
+      "ada:laserRepetitionRateDefault": "1 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System",
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:ablationSpotDurationDefault": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)",
+  "ada:carrierGasFlowRateDefault": "He: 0.7 l min⁻¹ (chamber) + 0.1 l min⁻¹ (cup gas)",
+  "ada:oxideProductionMethodAndThreshold": "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05",
+  "ada:analysisSequenceDefault": "Gas blank (25 s) → ablation (45 s) → washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns",
+  "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign"
+        }
+      ],
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot per location (45 s ablation at 1 Hz)"
+    }
+  ],
+  "ada:internalStandardApproach": "Two internal standards: Si from XRF SiO₂ (for Co, Ni, Cu, Zn); Al from XRF Al₂O₃ (for all other trace elements); non-matrix-matched external standards (NIST 612 + 614) used; fs laser minimizes matrix effects",
+  "ada:internalStandardElement": "Si (SiO₂ from XRF) for Co, Ni, Cu, Zn; Al (Al₂O₃ from XRF) for all other 28 trace elements",
+  "ada:elementalFractionationCorrection": [
+    "Femtosecond laser substantially reduces elemental fractionation and matrix effects (stated); non-matrix-matched external standards (NIST 612 + 614) used successfully with fs laser (verified by GRM accuracy assessment)"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured for 25 s before each ablation; background subtracted per isotope",
+  "ada:primaryStandardNameDefault": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
+  "ada:calibrationMeasurementFrequency": "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns",
+  "ada:secondaryReferenceMaterialDefault": [
+    "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) — 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "fs-LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Liu, Xue, Li, Wang et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NSFC; Chinese Academy of Sciences"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "bios:computationalTool": [
@@ -1842,12 +1842,8 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
     }
   ],
   "ada:ablationSamplingMode": [
-    "Spot (stationary)"
+    "Spot (stationary; single spot at 1 Hz)"
   ],
-  "ada:ablationSpotDurationDefault": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)",
-  "ada:carrierGasFlowRateDefault": "He: 0.7 l min⁻¹ (chamber) + 0.1 l min⁻¹ (cup gas)",
-  "ada:oxideProductionMethodAndThreshold": "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05",
-  "ada:analysisSequenceDefault": "Gas blank (25 s) → ablation (45 s) → washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "²¹Sc",
@@ -1898,12 +1894,12 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -1914,8 +1910,8 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -2012,52 +2008,14 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
-  "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign"
-        }
-      ],
-      "schema:name": "Multi-Run Sequential Analysis Design",
-      "schema:value": "Single spot per location (45 s ablation at 1 Hz)"
-    }
-  ],
-  "ada:internalStandardApproach": "Two internal standards: Si from XRF SiO₂ (for Co, Ni, Cu, Zn); Al from XRF Al₂O₃ (for all other trace elements); non-matrix-matched external standards (NIST 612 + 614) used; fs laser minimizes matrix effects",
-  "ada:internalStandardElement": "Si (SiO₂ from XRF) for Co, Ni, Cu, Zn; Al (Al₂O₃ from XRF) for all other 28 trace elements",
-  "ada:elementalFractionationCorrection": [
-    "Femtosecond laser substantially reduces elemental fractionation and matrix effects (stated); non-matrix-matched external standards (NIST 612 + 614) used successfully with fs laser (verified by GRM accuracy assessment)"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured for 25 s before each ablation; background subtracted per isotope",
-  "ada:primaryStandardNameDefault": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
-  "ada:calibrationMeasurementFrequency": "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns",
-  "ada:secondaryReferenceMaterialDefault": [
-    "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) — 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -2098,48 +2056,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
     "bios:LabProtocol"
   ],
   "schema:name": "Liu et al. (2024) Extraterrestrial Flux Glass fs-LA-ICP-MS Spot v1",
-  "schema:description": "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser \u2014 first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser Reported detail: ada:ablationSamplingMode = Spot (stationary; single spot at 1 Hz).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "fs-LA-Q-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Liu, Xue, Li, Wang et al.",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NSFC; Chinese Academy of Sciences"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
+  "schema:description": "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser \u2014 first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser",
   "schema:object": [
     {
       "@type": [
@@ -2185,12 +2102,12 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
             "schema:defaultValue": "Li\u2082B\u2084O\u2087 flux; sample:flux = 1:35 (10 mg sample + 350 mg flux)"
           },
           {
-            "@id": "ada:parameter/laQicpmsTAPP/preAblationSurfaceTreatmentDefault",
+            "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "preAblationSurfaceTreatmentDefault",
-            "schema:name": "Pre-Ablation Surface Treatment",
+            "schema:name": "Pre Ablation Surface Treatment",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Surface cleaning with ethanol before analysis"
@@ -2258,45 +2175,6 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
     ]
   },
   "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)",
-      "ada:laserSpotGeometryDefault": "100\u00d7100 \u00b5m square (stated as 100 \u00b5m diameter spot at 1 Hz)",
-      "ada:laserFluenceDefault": "6.79 J cm\u207b\u00b2",
-      "ada:laserRepetitionRateDefault": "1 Hz",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laQicpmsTAPP/laserPulseDuration"
-            }
-          ],
-          "schema:name": "Laser Pulse Duration",
-          "schema:value": "Femtosecond (exact value not stated; GenesisGEO fs laser)"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
     {
       "schema:additionalType": [
         "ICPMS",
@@ -2448,6 +2326,115 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserPulseDuration",
+          "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "Femtosecond (exact value not stated; GenesisGEO fs laser)"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)",
+      "ada:laserSpotGeometryDefault": "100\u00d7100 \u00b5m square (stated as 100 \u00b5m diameter spot at 1 Hz)",
+      "ada:laserFluenceDefault": "6.79 J cm\u207b\u00b2",
+      "ada:laserRepetitionRateDefault": "1 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System",
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:ablationSpotDurationDefault": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)",
+  "ada:carrierGasFlowRateDefault": "He: 0.7 l min\u207b\u00b9 (chamber) + 0.1 l min\u207b\u00b9 (cup gas)",
+  "ada:oxideProductionMethodAndThreshold": "ThO\u207a/Th\u207a (mass 248/232) <0.3%; U/Th monitored at 0.95\u20131.05",
+  "ada:analysisSequenceDefault": "Gas blank (25 s) \u2192 ablation (45 s) \u2192 washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns",
+  "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign"
+        }
+      ],
+      "schema:name": "Multi-Run Sequential Analysis Design",
+      "schema:value": "Single spot per location (45 s ablation at 1 Hz)"
+    }
+  ],
+  "ada:internalStandardApproach": "Two internal standards: Si from XRF SiO\u2082 (for Co, Ni, Cu, Zn); Al from XRF Al\u2082O\u2083 (for all other trace elements); non-matrix-matched external standards (NIST 612 + 614) used; fs laser minimizes matrix effects",
+  "ada:internalStandardElement": "Si (SiO\u2082 from XRF) for Co, Ni, Cu, Zn; Al (Al\u2082O\u2083 from XRF) for all other 28 trace elements",
+  "ada:elementalFractionationCorrection": [
+    "Femtosecond laser substantially reduces elemental fractionation and matrix effects (stated); non-matrix-matched external standards (NIST 612 + 614) used successfully with fs laser (verified by GRM accuracy assessment)"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank measured for 25 s before each ablation; background subtracted per isotope",
+  "ada:primaryStandardNameDefault": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
+  "ada:calibrationMeasurementFrequency": "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns",
+  "ada:secondaryReferenceMaterialDefault": [
+    "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) \u2014 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "fs-LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Liu, Xue, Li, Wang et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NSFC; Chinese Academy of Sciences"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "bios:computationalTool": [
@@ -2457,12 +2444,8 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
     }
   ],
   "ada:ablationSamplingMode": [
-    "Spot (stationary)"
+    "Spot (stationary; single spot at 1 Hz)"
   ],
-  "ada:ablationSpotDurationDefault": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)",
-  "ada:carrierGasFlowRateDefault": "He: 0.7 l min\u207b\u00b9 (chamber) + 0.1 l min\u207b\u00b9 (cup gas)",
-  "ada:oxideProductionMethodAndThreshold": "ThO\u207a/Th\u207a (mass 248/232) <0.3%; U/Th monitored at 0.95\u20131.05",
-  "ada:analysisSequenceDefault": "Gas blank (25 s) \u2192 ablation (45 s) \u2192 washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "\u00b2\u00b9Sc",
@@ -2513,12 +2496,12 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -2529,8 +2512,8 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -2627,52 +2610,14 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
-  "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign"
-        }
-      ],
-      "schema:name": "Multi-Run Sequential Analysis Design",
-      "schema:value": "Single spot per location (45 s ablation at 1 Hz)"
-    }
-  ],
-  "ada:internalStandardApproach": "Two internal standards: Si from XRF SiO\u2082 (for Co, Ni, Cu, Zn); Al from XRF Al\u2082O\u2083 (for all other trace elements); non-matrix-matched external standards (NIST 612 + 614) used; fs laser minimizes matrix effects",
-  "ada:internalStandardElement": "Si (SiO\u2082 from XRF) for Co, Ni, Cu, Zn; Al (Al\u2082O\u2083 from XRF) for all other 28 trace elements",
-  "ada:elementalFractionationCorrection": [
-    "Femtosecond laser substantially reduces elemental fractionation and matrix effects (stated); non-matrix-matched external standards (NIST 612 + 614) used successfully with fs laser (verified by GRM accuracy assessment)"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured for 25 s before each ablation; background subtracted per isotope",
-  "ada:primaryStandardNameDefault": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
-  "ada:calibrationMeasurementFrequency": "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns",
-  "ada:secondaryReferenceMaterialDefault": [
-    "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) \u2014 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -2701,8 +2646,13 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/fusionFluxAndDilutionRatioDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAblationSurfaceTreatmentDefault> ;
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Li-borate fusion: 350 mg Li₂B₄O₇ + 10 mg powdered sample fused in Pt-Au crucible (M4 automatic fluxer); glass surface cleaned with ethanol before LA" ;
                     schema1:name "Sample preparation" ;
@@ -2713,17 +2663,12 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
                         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Xue, Li, Wang et al." ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser Reported detail: ada:ablationSamplingMode = Spot (stationary; single spot at 1 Hz)." ;
+    schema1:description "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NSFC; Chinese Academy of Sciences" ] ;
     schema1:instrument <https://example.org/instrument/ICPMS>,
@@ -2731,8 +2676,7 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "fs-LA-Q-ICP-MS" ;
-            schema1:termCode "LA-ICP-MS" ] ;
+            schema1:termCode "fs-LA-Q-ICP-MS" ] ;
     schema1:name "Liu et al. (2024) Extraterrestrial Flux Glass fs-LA-ICP-MS Spot v1" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -2745,7 +2689,7 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
             schema1:target [ schema1:name "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
-    ada:ablationSamplingMode "Spot (stationary)" ;
+    ada:ablationSamplingMode "Spot (stationary; single spot at 1 Hz)" ;
     ada:ablationSpotDurationDefault "45 s ablation (after 25 s gas blank; 25 s washout between analyses)" ;
     ada:analysisSequenceDefault "Gas blank (25 s) → ablation (45 s) → washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns" ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
@@ -2765,8 +2709,7 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "²³²Th",
@@ -2815,7 +2758,6 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05" ;
     ada:primaryStandardNameDefault "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser" ;
     ada:rasterLineSpacingDefault "missing" ;
-    ada:reportedVariablesAndUnits "missing" ;
     ada:sampleIntroduction "missing" ;
     ada:samplingUnit "missing" ;
     ada:secondaryReferenceMaterialDefault "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) — 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS" ;
@@ -2850,10 +2792,10 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     ada:dataType "uri" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
-    ada:dataType "string" .
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -2878,15 +2820,10 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     schema1:valueName "limitOfQuantificationMethod" ;
     ada:dataType "uri" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:name "Mass Resolution per Analyte" ;
-    schema1:valueName "massResolutionPerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Monitored Isotopes" ;
-    schema1:valueName "monitoredIsotopes" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
@@ -2936,13 +2873,6 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAblationSurfaceTreatmentDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Surface cleaning with ethanol before analysis" ;
-    schema1:name "Pre-Ablation Surface Treatment" ;
-    schema1:valueName "preAblationSurfaceTreatmentDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Applied: dual detector mode (30 ms / 10 ms dwell alternation)" ;
     schema1:name "Pulse/Analog Detector Nonlinearity Correction" ;
@@ -2969,6 +2899,20 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     schema1:defaultValue "Homogeneity index (H) applied to test element distribution; Co, Ni, Cu in high-Si glass (GSR-1) identified as near-LOD and flagged; flux blank contributions to pollution elements subtracted" ;
     schema1:name "Spike / Outlier Filtering Approach" ;
     schema1:valueName "spikeOutlierFilteringApproachDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> a schema1:PropertyValueSpecification ;
+    schema1:name "Laser Pulse Duration" ;
+    schema1:value "Femtosecond (exact value not stated; GenesisGEO fs laser)" ;
+    schema1:valueName "laserPulseDuration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Surface cleaning with ethanol before analysis" ;
+    schema1:name "Pre Ablation Surface Treatment" ;
+    schema1:valueName "preAblationSurfaceTreatmentDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -3016,7 +2960,7 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
 
 <https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;
@@ -3031,11 +2975,6 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     schema1:name "Detector Configuration" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration> ;
     schema1:value "Dual mode detector (30 ms / 10 ms dwell alternation)" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> a schema1:PropertyValue ;
-    schema1:name "Laser Pulse Duration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserPulseDuration> ;
-    schema1:value "Femtosecond (exact value not stated; GenesisGEO fs laser)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> a schema1:PropertyValue ;
     schema1:name "Multi-Run Sequential Analysis Design" ;
@@ -3068,47 +3007,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
   ],
   "schema:name": "Liu et al. (2025) Experimental Silicate Glass LA-ICP-MS Spot v1",
   "schema:description": "Analysis of quenched experimental glasses from high-pressure (1 GPa) piston-cylinder experiments; Au and Cu solubility measurements; smooth time-resolved signals indicate fully dissolved Au (no micronuggets)",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-Q-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Liu, Li, Xu, Xiong et al.",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -3194,30 +3092,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
-      "schema:name": "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)",
-      "ada:laserSpotGeometryDefault": "40 µm circular (silicate glass)",
-      "ada:laserFluenceDefault": "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")",
-      "ada:laserRepetitionRateDefault": "7 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -3242,6 +3116,11 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
           "schema:defaultValue": "Unit resolution (quadrupole fixed)"
         }
       ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -3300,25 +3179,44 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
+      "schema:name": "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)",
+      "ada:laserSpotGeometryDefault": "40 µm circular (silicate glass)",
+      "ada:laserFluenceDefault": "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")",
+      "ada:laserRepetitionRateDefault": "7 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
   "ada:ablationSpotDurationDefault": "~40 s (inferred from typical CetacAnalyte HE protocol for glass)",
   "ada:carrierGasFlowRateDefault": "He (flow rate not stated; carrier gas with N₂ or Ar mixed for sensitivity optimization)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N₂ or Ar mixed into He carrier for sensitivity optimization (amounts not stated)"
     },
@@ -3337,6 +3235,57 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
     }
   ],
   "ada:analysisSequenceDefault": "NIST 610 as primary standard measured in session; NIST 612 and BCR-2G as monitoring standards; unknowns bracketed by standards",
+  "ada:internalStandardApproach": "Single element from EMP: Si (SiO₂ from EMP for silicate glass); NIST 610 as external standard",
+  "ada:internalStandardElement": "Si from EMP (SiO₂ wt% for silicate glass)",
+  "ada:elementalFractionationCorrection": [
+    "Femtosecond laser reduces LIEF; NIST 610 external standard; Si IS from EMP corrects for ablation yield"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signal inspected; micronuggets identified from spikes in Au signal and excluded from integration to obtain smooth signals (verified by Fig. 1 in paper)",
+  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS",
+  "ada:calibrationMeasurementFrequency": "NIST 610 as primary; NIST 612 and BCR-2G as monitoring standards",
+  "ada:secondaryReferenceMaterialDefault": [
+    "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Liu, Li, Xu, Xiong et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "¹⁹⁷Au",
@@ -3357,12 +3306,12 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -3373,8 +3322,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -3471,29 +3420,9 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
-  "ada:internalStandardApproach": "Single element from EMP: Si (SiO₂ from EMP for silicate glass); NIST 610 as external standard",
-  "ada:internalStandardElement": "Si from EMP (SiO₂ wt% for silicate glass)",
-  "ada:elementalFractionationCorrection": [
-    "Femtosecond laser reduces LIEF; NIST 610 external standard; Si IS from EMP corrects for ablation yield"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signal inspected; micronuggets identified from spikes in Au signal and excluded from integration to obtain smooth signals (verified by Fig. 1 in paper)",
-  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS",
-  "ada:calibrationMeasurementFrequency": "NIST 610 as primary; NIST 612 and BCR-2G as monitoring standards",
-  "ada:secondaryReferenceMaterialDefault": [
-    "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "missing",
@@ -3502,7 +3431,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -3544,47 +3472,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
   ],
   "schema:name": "Liu et al. (2025) Experimental Silicate Glass LA-ICP-MS Spot v1",
   "schema:description": "Analysis of quenched experimental glasses from high-pressure (1 GPa) piston-cylinder experiments; Au and Cu solubility measurements; smooth time-resolved signals indicate fully dissolved Au (no micronuggets)",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-Q-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Liu, Li, Xu, Xiong et al.",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -3670,30 +3557,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
-      "schema:name": "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)",
-      "ada:laserSpotGeometryDefault": "40 \u00b5m circular (silicate glass)",
-      "ada:laserFluenceDefault": "~2.5 J cm\u207b\u00b2 (stated as \"energy of ~2.5 J/cm\u00b2\")",
-      "ada:laserRepetitionRateDefault": "7 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -3718,6 +3581,11 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
           "schema:defaultValue": "Unit resolution (quadrupole fixed)"
         }
       ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -3776,25 +3644,44 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
+      "schema:name": "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)",
+      "ada:laserSpotGeometryDefault": "40 \u00b5m circular (silicate glass)",
+      "ada:laserFluenceDefault": "~2.5 J cm\u207b\u00b2 (stated as \"energy of ~2.5 J/cm\u00b2\")",
+      "ada:laserRepetitionRateDefault": "7 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
   "ada:ablationSpotDurationDefault": "~40 s (inferred from typical CetacAnalyte HE protocol for glass)",
   "ada:carrierGasFlowRateDefault": "He (flow rate not stated; carrier gas with N\u2082 or Ar mixed for sensitivity optimization)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N\u2082 or Ar mixed into He carrier for sensitivity optimization (amounts not stated)"
     },
@@ -3813,6 +3700,57 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
     }
   ],
   "ada:analysisSequenceDefault": "NIST 610 as primary standard measured in session; NIST 612 and BCR-2G as monitoring standards; unknowns bracketed by standards",
+  "ada:internalStandardApproach": "Single element from EMP: Si (SiO\u2082 from EMP for silicate glass); NIST 610 as external standard",
+  "ada:internalStandardElement": "Si from EMP (SiO\u2082 wt% for silicate glass)",
+  "ada:elementalFractionationCorrection": [
+    "Femtosecond laser reduces LIEF; NIST 610 external standard; Si IS from EMP corrects for ablation yield"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signal inspected; micronuggets identified from spikes in Au signal and excluded from integration to obtain smooth signals (verified by Fig. 1 in paper)",
+  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS",
+  "ada:calibrationMeasurementFrequency": "NIST 610 as primary; NIST 612 and BCR-2G as monitoring standards",
+  "ada:secondaryReferenceMaterialDefault": [
+    "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Liu, Li, Xu, Xiong et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "\u00b9\u2079\u2077Au",
@@ -3833,12 +3771,12 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -3849,8 +3787,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -3947,29 +3885,9 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
-  "ada:internalStandardApproach": "Single element from EMP: Si (SiO\u2082 from EMP for silicate glass); NIST 610 as external standard",
-  "ada:internalStandardElement": "Si from EMP (SiO\u2082 wt% for silicate glass)",
-  "ada:elementalFractionationCorrection": [
-    "Femtosecond laser reduces LIEF; NIST 610 external standard; Si IS from EMP corrects for ablation yield"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signal inspected; micronuggets identified from spikes in Au signal and excluded from integration to obtain smooth signals (verified by Fig. 1 in paper)",
-  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS",
-  "ada:calibrationMeasurementFrequency": "NIST 610 as primary; NIST 612 and BCR-2G as monitoring standards",
-  "ada:secondaryReferenceMaterialDefault": [
-    "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "missing",
@@ -3978,7 +3896,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -4007,6 +3924,11 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -4014,16 +3936,11 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign>,
-        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Li, Xu, Xiong et al." ] ;
     schema1:datePublished "missing" ;
@@ -4035,8 +3952,7 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "LA-Q-ICP-MS" ;
-            schema1:termCode "LA-ICP-MS" ] ;
+            schema1:termCode "LA-Q-ICP-MS" ] ;
     schema1:name "Liu et al. (2025) Experimental Silicate Glass LA-ICP-MS Spot v1" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -4068,8 +3984,7 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "all detected via Agilent 7900 (exact isotope list not fully stated)",
@@ -4088,7 +4003,6 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS" ;
     ada:rasterLineSpacingDefault "missing" ;
-    ada:reportedVariablesAndUnits "missing" ;
     ada:sampleIntroduction "missing" ;
     ada:samplingUnit "missing" ;
     ada:secondaryReferenceMaterialDefault "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)" ;
@@ -4121,10 +4035,10 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     ada:dataType "uri" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
-    ada:dataType "string" .
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -4149,15 +4063,10 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     schema1:valueName "limitOfQuantificationMethod" ;
     ada:dataType "uri" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:name "Mass Resolution per Analyte" ;
-    schema1:valueName "massResolutionPerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Monitored Isotopes" ;
-    schema1:valueName "monitoredIsotopes" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
@@ -4171,17 +4080,17 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N₂ or Ar mixed into He carrier for sensitivity optimization (amounts not stated)" ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:valueName "makeUpGasAndFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Unit resolution (quadrupole fixed)" ;
     schema1:name "Mass Resolution Setting" ;
     schema1:valueName "massResolutionSetting" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N₂ or Ar mixed into He carrier for sensitivity optimization (amounts not stated)" ;
-    schema1:name "Plasma / Make-up Gas Addition" ;
-    schema1:valueName "plasmaMakeUpGasAdditionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -4279,47 +4188,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
   ],
   "schema:name": "Liu et al. (2025) Experimental Sulfide LA-ICP-MS Spot v1",
   "schema:description": "Analysis of quenched experimental pyrrhotite (Fe₁₋ₓS) from same piston-cylinder experiments; 20 µm spot required due to small grain size (5–50 µm); same instrument and analytical session as glass protocol",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-Q-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Liu, Li, Xu, Xiong et al.",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -4405,30 +4273,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
-      "schema:name": "Cetac Analyte HE system (same as silicate glass protocol)",
-      "ada:laserSpotGeometryDefault": "20 µm circular (sulfide; grain sizes >20 µm selected)",
-      "ada:laserFluenceDefault": "~2.5 J cm⁻²",
-      "ada:laserRepetitionRateDefault": "7 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -4453,6 +4297,11 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
           "schema:defaultValue": "Unit resolution (quadrupole fixed)"
         }
       ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -4511,25 +4360,44 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
+      "schema:name": "Cetac Analyte HE system (same as silicate glass protocol)",
+      "ada:laserSpotGeometryDefault": "20 µm circular (sulfide; grain sizes >20 µm selected)",
+      "ada:laserFluenceDefault": "~2.5 J cm⁻²",
+      "ada:laserRepetitionRateDefault": "7 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
   "ada:ablationSpotDurationDefault": "~40 s (same protocol; grain size >20 µm selected)",
   "ada:carrierGasFlowRateDefault": "He (flow rate not stated; same system as glass protocol)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N₂ or Ar mixed (same protocol as glass)"
     },
@@ -4548,6 +4416,57 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
     }
   ],
   "ada:analysisSequenceDefault": "Same bracketing as silicate glass protocol",
+  "ada:internalStandardApproach": "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard",
+  "ada:internalStandardElement": "Fe from EMP (FeOT wt% for sulfide)",
+  "ada:elementalFractionationCorrection": [
+    "Femtosecond laser reduces LIEF; NIST 610 external standard; Fe IS from EMP corrects for ablation yield; micronuggets identified from Au signal spikes and excluded from integration"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Same approach as glass; micronugget identification from Au signal spikes critical for sulfide analyses",
+  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard); Fe from EMP as IS",
+  "ada:calibrationMeasurementFrequency": "Same bracketing as silicate glass protocol",
+  "ada:secondaryReferenceMaterialDefault": [
+    "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Liu, Li, Xu, Xiong et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "¹⁹⁷Au",
@@ -4567,12 +4486,12 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -4583,8 +4502,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -4681,29 +4600,9 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
-  "ada:internalStandardApproach": "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard",
-  "ada:internalStandardElement": "Fe from EMP (FeOT wt% for sulfide)",
-  "ada:elementalFractionationCorrection": [
-    "Femtosecond laser reduces LIEF; NIST 610 external standard; Fe IS from EMP corrects for ablation yield; micronuggets identified from Au signal spikes and excluded from integration"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Same approach as glass; micronugget identification from Au signal spikes critical for sulfide analyses",
-  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard); Fe from EMP as IS",
-  "ada:calibrationMeasurementFrequency": "Same bracketing as silicate glass protocol",
-  "ada:secondaryReferenceMaterialDefault": [
-    "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "missing",
@@ -4712,7 +4611,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -4754,47 +4652,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
   ],
   "schema:name": "Liu et al. (2025) Experimental Sulfide LA-ICP-MS Spot v1",
   "schema:description": "Analysis of quenched experimental pyrrhotite (Fe\u2081\u208b\u2093S) from same piston-cylinder experiments; 20 \u00b5m spot required due to small grain size (5\u201350 \u00b5m); same instrument and analytical session as glass protocol",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-Q-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "Liu, Li, Xu, Xiong et al.",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
-  },
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -4880,30 +4737,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
-      "schema:name": "Cetac Analyte HE system (same as silicate glass protocol)",
-      "ada:laserSpotGeometryDefault": "20 \u00b5m circular (sulfide; grain sizes >20 \u00b5m selected)",
-      "ada:laserFluenceDefault": "~2.5 J cm\u207b\u00b2",
-      "ada:laserRepetitionRateDefault": "7 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -4928,6 +4761,11 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
           "schema:defaultValue": "Unit resolution (quadrupole fixed)"
         }
       ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -4986,25 +4824,44 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system; same system as glass protocol)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
+      "schema:name": "Cetac Analyte HE system (same as silicate glass protocol)",
+      "ada:laserSpotGeometryDefault": "20 \u00b5m circular (sulfide; grain sizes >20 \u00b5m selected)",
+      "ada:laserFluenceDefault": "~2.5 J cm\u207b\u00b2",
+      "ada:laserRepetitionRateDefault": "7 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
   "ada:ablationSpotDurationDefault": "~40 s (same protocol; grain size >20 \u00b5m selected)",
   "ada:carrierGasFlowRateDefault": "He (flow rate not stated; same system as glass protocol)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N\u2082 or Ar mixed (same protocol as glass)"
     },
@@ -5023,6 +4880,57 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
     }
   ],
   "ada:analysisSequenceDefault": "Same bracketing as silicate glass protocol",
+  "ada:internalStandardApproach": "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard",
+  "ada:internalStandardElement": "Fe from EMP (FeOT wt% for sulfide)",
+  "ada:elementalFractionationCorrection": [
+    "Femtosecond laser reduces LIEF; NIST 610 external standard; Fe IS from EMP corrects for ablation yield; micronuggets identified from Au signal spikes and excluded from integration"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Same approach as glass; micronugget identification from Au signal spikes critical for sulfide analyses",
+  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard); Fe from EMP as IS",
+  "ada:calibrationMeasurementFrequency": "Same bracketing as silicate glass protocol",
+  "ada:secondaryReferenceMaterialDefault": [
+    "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-Q-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Liu, Li, Xu, Xiong et al.",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "\u00b9\u2079\u2077Au",
@@ -5042,12 +4950,12 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes",
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "monitoredIsotopes",
-        "schema:name": "Monitored Isotopes",
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -5058,8 +4966,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
@@ -5156,29 +5064,9 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionPerAnalyte",
-        "schema:name": "Mass Resolution per Analyte",
-        "ada:dataType": "string"
       }
     ]
   },
-  "ada:internalStandardApproach": "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard",
-  "ada:internalStandardElement": "Fe from EMP (FeOT wt% for sulfide)",
-  "ada:elementalFractionationCorrection": [
-    "Femtosecond laser reduces LIEF; NIST 610 external standard; Fe IS from EMP corrects for ablation yield; micronuggets identified from Au signal spikes and excluded from integration"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Same approach as glass; micronugget identification from Au signal spikes critical for sulfide analyses",
-  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard); Fe from EMP as IS",
-  "ada:calibrationMeasurementFrequency": "Same bracketing as silicate glass protocol",
-  "ada:secondaryReferenceMaterialDefault": [
-    "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)"
-  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "missing",
@@ -5187,7 +5075,6 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -5222,17 +5109,17 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign>,
-        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault> ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Li, Xu, Xiong et al." ] ;
     schema1:datePublished "missing" ;
@@ -5244,8 +5131,7 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "LA-Q-ICP-MS" ;
-            schema1:termCode "LA-ICP-MS" ] ;
+            schema1:termCode "LA-Q-ICP-MS" ] ;
     schema1:name "Liu et al. (2025) Experimental Sulfide LA-ICP-MS Spot v1" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -5277,8 +5163,7 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "¹⁹⁷Au",
@@ -5296,7 +5181,6 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST 610 (primary external standard); Fe from EMP as IS" ;
     ada:rasterLineSpacingDefault "missing" ;
-    ada:reportedVariablesAndUnits "missing" ;
     ada:sampleIntroduction "missing" ;
     ada:samplingUnit "missing" ;
     ada:secondaryReferenceMaterialDefault "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)" ;
@@ -5329,10 +5213,10 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
     ada:dataType "uri" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
-    ada:dataType "string" .
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -5357,15 +5241,10 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
     schema1:valueName "limitOfQuantificationMethod" ;
     ada:dataType "uri" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:name "Mass Resolution per Analyte" ;
-    schema1:valueName "massResolutionPerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredIsotopes> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Monitored Isotopes" ;
-    schema1:valueName "monitoredIsotopes" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
@@ -5379,17 +5258,17 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N₂ or Ar mixed (same protocol as glass)" ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:valueName "makeUpGasAndFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Unit resolution (quadrupole fixed)" ;
     schema1:name "Mass Resolution Setting" ;
     schema1:valueName "massResolutionSetting" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N₂ or Ar mixed (same protocol as glass)" ;
-    schema1:name "Plasma / Make-up Gas Addition" ;
-    schema1:valueName "plasmaMakeUpGasAdditionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -5487,44 +5366,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   ],
   "schema:name": "laQicpms protocol — Liu2016",
   "schema:description": "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-ICP-MS (193 nm excimer laser + ICP-MS; top-level technique)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Department of Geosciences, Virginia Tech"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA (EMP)",
-        "schema:description": "EPMA provides major element concentrations for comparison with LA-ICP-MS oxide-sum normalization results; agreement within <10% verified"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -5556,44 +5397,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "GeoLasPro (193 nm Excimer laser-ablation system; manufacturer not stated by name; GeoLasPro is a Lambda Physik/Coherent product)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm Excimer (ArF excimer)",
-      "ada:laserSpotGeometryDefault": "24 and 32 µm diameter (commonly used for silicates and glass); 90 µm (some olivine analyses to evaluate low REE signal sampling)",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/laserEnergyDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "laserEnergyDefault",
-          "schema:name": "Laser Energy",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 150,
-          "schema:description": "150 mJ output energy"
-        }
-      ],
-      "ada:laserFluenceDefault": "7–10 J/m² (stated in paper; units as written; likely a typographic error for J/cm²)",
-      "ada:laserRepetitionRateDefault": "5 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -5605,6 +5408,11 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -5663,22 +5471,46 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserEnergyDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserEnergyDefault",
+          "schema:name": "Laser Energy",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 150,
+          "schema:description": "150 mJ output energy"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "GeoLasPro (193 nm Excimer laser-ablation system; manufacturer not stated by name; GeoLasPro is a Lambda Physik/Coherent product)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm Excimer (ArF excimer)",
+      "ada:laserSpotGeometryDefault": "24 and 32 µm diameter (commonly used for silicates and glass); 90 µm (some olivine analyses to evaluate low REE signal sampling)",
+      "ada:laserFluenceDefault": "7–10 J/m² (stated in paper; units as written; likely a typographic error for J/cm²)",
+      "ada:laserRepetitionRateDefault": "5 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)"
-    }
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
   ],
   "ada:analysisSequenceDefault": "NIST 610 glass standard analyzed before and after every session; unknowns in between",
   "ada:backgroundCountTimeDefault": "50 s (background counted for 50 s before each LA-ICP-MS analysis)",
@@ -5706,6 +5538,52 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis; background subtracted (method not explicitly described beyond counting duration)",
   "ada:primaryStandardNameDefault": "NIST 610 glass standard",
   "ada:calibrationMeasurementFrequency": "NIST 610 glass standard analyzed before and after every session",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS (193 nm excimer laser + ICP-MS; top-level technique)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Department of Geosciences, Virginia Tech"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (EMP)",
+        "schema:description": "EPMA provides major element concentrations for comparison with LA-ICP-MS oxide-sum normalization results; agreement within <10% verified"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -5754,7 +5632,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -5796,44 +5673,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   ],
   "schema:name": "laQicpms protocol \u2014 Liu2016",
   "schema:description": "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 \u00b5m spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-ICP-MS (193 nm excimer laser + ICP-MS; top-level technique)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Department of Geosciences, Virginia Tech"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA (EMP)",
-        "schema:description": "EPMA provides major element concentrations for comparison with LA-ICP-MS oxide-sum normalization results; agreement within <10% verified"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -5865,44 +5704,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "GeoLasPro (193 nm Excimer laser-ablation system; manufacturer not stated by name; GeoLasPro is a Lambda Physik/Coherent product)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm Excimer (ArF excimer)",
-      "ada:laserSpotGeometryDefault": "24 and 32 \u00b5m diameter (commonly used for silicates and glass); 90 \u00b5m (some olivine analyses to evaluate low REE signal sampling)",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/laserEnergyDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "laserEnergyDefault",
-          "schema:name": "Laser Energy",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 150,
-          "schema:description": "150 mJ output energy"
-        }
-      ],
-      "ada:laserFluenceDefault": "7\u201310 J/m\u00b2 (stated in paper; units as written; likely a typographic error for J/cm\u00b2)",
-      "ada:laserRepetitionRateDefault": "5 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -5914,6 +5715,11 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -5972,22 +5778,46 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserEnergyDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserEnergyDefault",
+          "schema:name": "Laser Energy",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 150,
+          "schema:description": "150 mJ output energy"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "GeoLasPro (193 nm Excimer laser-ablation system; manufacturer not stated by name; GeoLasPro is a Lambda Physik/Coherent product)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm Excimer (ArF excimer)",
+      "ada:laserSpotGeometryDefault": "24 and 32 \u00b5m diameter (commonly used for silicates and glass); 90 \u00b5m (some olivine analyses to evaluate low REE signal sampling)",
+      "ada:laserFluenceDefault": "7\u201310 J/m\u00b2 (stated in paper; units as written; likely a typographic error for J/cm\u00b2)",
+      "ada:laserRepetitionRateDefault": "5 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)"
-    }
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
   ],
   "ada:analysisSequenceDefault": "NIST 610 glass standard analyzed before and after every session; unknowns in between",
   "ada:backgroundCountTimeDefault": "50 s (background counted for 50 s before each LA-ICP-MS analysis)",
@@ -6015,6 +5845,52 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis; background subtracted (method not explicitly described beyond counting duration)",
   "ada:primaryStandardNameDefault": "NIST 610 glass standard",
   "ada:calibrationMeasurementFrequency": "NIST 610 glass standard analyzed before and after every session",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS (193 nm excimer laser + ICP-MS; top-level technique)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Department of Geosciences, Virginia Tech"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (EMP)",
+        "schema:description": "EPMA provides major element concentrations for comparison with LA-ICP-MS oxide-sum normalization results; agreement within <10% verified"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -6063,7 +5939,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -6093,13 +5968,13 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -6113,8 +5988,7 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "LA-ICP-MS (193 nm excimer laser + ICP-MS; top-level technique)" ;
-            schema1:termCode "LA-ICP-MS" ] ;
+            schema1:termCode "LA-ICP-MS (193 nm excimer laser + ICP-MS; top-level technique)" ] ;
     schema1:name "laQicpms protocol — Liu2016" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -6123,13 +5997,13 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
                     schema1:value "Martian meteorite (Tissint) silicates, oxides, and glass: olivine, low-Ca pyroxene, augite, maskelynite, Fe-Ti-Cr oxides, shock melt glass, fusion crust" ],
                 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA provides major element concentrations for comparison with LA-ICP-MS oxide-sum normalization results; agreement within <10% verified" ;
                     schema1:name "EPMA (EMP)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
@@ -6148,7 +6022,6 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST 610 glass standard" ;
     ada:rasterLineSpacingDefault "missing" ;
-    ada:reportedVariablesAndUnits "missing" ;
     ada:sampleIntroduction "missing" ;
     ada:samplingUnit "missing" ;
     ada:signalCollectionMode "missing" ;
@@ -6159,19 +6032,19 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
             ada:toolRole "dataReduction" ] .
 
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserEnergyDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 150 ;
-    schema1:description "150 mJ output energy" ;
-    schema1:name "Laser Energy" ;
-    schema1:valueName "laserEnergyDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "In situ — polished thin section (Tissint sections: Tata-2-C3, Tata-3-C2, UT1, UT3)" ;
     schema1:name "Sample Form / Analytical Substrate" ;
     schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 150 ;
+    schema1:description "150 mJ output energy" ;
+    schema1:name "Laser Energy" ;
+    schema1:valueName "laserEnergyDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://example.org/instrument/ICPMS> a schema1:Product,
@@ -6212,7 +6085,7 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
 
 <https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserEnergyDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;
@@ -6254,44 +6127,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   ],
   "schema:name": "laQicpms protocol — Liu2016-2",
   "schema:description": "N/A — see silicate column for general notes",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-ICP-MS (same as silicate protocol)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Department of Geosciences, Virginia Tech"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Same as silicate protocol"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA (EMP)",
-        "schema:description": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -6323,44 +6158,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm Excimer (ArF excimer)",
-      "ada:laserSpotGeometryDefault": "~24 µm diameter",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/laserEnergyDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "laserEnergyDefault",
-          "schema:name": "Laser Energy",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 150,
-          "schema:description": "150 mJ output energy"
-        }
-      ],
-      "ada:laserFluenceDefault": "7–10 J/m² (same as silicate protocol)",
-      "ada:laserRepetitionRateDefault": "5 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -6372,6 +6169,11 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -6430,22 +6232,46 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserEnergyDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserEnergyDefault",
+          "schema:name": "Laser Energy",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 150,
+          "schema:description": "150 mJ output energy"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm Excimer (ArF excimer)",
+      "ada:laserSpotGeometryDefault": "~24 µm diameter",
+      "ada:laserFluenceDefault": "7–10 J/m² (same as silicate protocol)",
+      "ada:laserRepetitionRateDefault": "5 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
-    }
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
   ],
   "ada:analysisSequenceDefault": "Same as silicate protocol",
   "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
@@ -6473,6 +6299,52 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
   "ada:primaryStandardNameDefault": "NIST 610 glass standard",
   "ada:calibrationMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS (same as silicate protocol)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Department of Geosciences, Virginia Tech"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Same as silicate protocol"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (EMP)",
+        "schema:description": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -6521,7 +6393,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -6563,44 +6434,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   ],
   "schema:name": "laQicpms protocol \u2014 Liu2016-2",
   "schema:description": "N/A \u2014 see silicate column for general notes",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-ICP-MS (same as silicate protocol)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Department of Geosciences, Virginia Tech"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Same as silicate protocol"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA (EMP)",
-        "schema:description": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -6632,44 +6465,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm Excimer (ArF excimer)",
-      "ada:laserSpotGeometryDefault": "~24 \u00b5m diameter",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/laserEnergyDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "laserEnergyDefault",
-          "schema:name": "Laser Energy",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 150,
-          "schema:description": "150 mJ output energy"
-        }
-      ],
-      "ada:laserFluenceDefault": "7\u201310 J/m\u00b2 (same as silicate protocol)",
-      "ada:laserRepetitionRateDefault": "5 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -6681,6 +6476,11 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -6739,22 +6539,46 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserEnergyDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserEnergyDefault",
+          "schema:name": "Laser Energy",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 150,
+          "schema:description": "150 mJ output energy"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm Excimer (ArF excimer)",
+      "ada:laserSpotGeometryDefault": "~24 \u00b5m diameter",
+      "ada:laserFluenceDefault": "7\u201310 J/m\u00b2 (same as silicate protocol)",
+      "ada:laserRepetitionRateDefault": "5 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
-    }
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
   ],
   "ada:analysisSequenceDefault": "Same as silicate protocol",
   "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
@@ -6782,6 +6606,52 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
   "ada:primaryStandardNameDefault": "NIST 610 glass standard",
   "ada:calibrationMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS (same as silicate protocol)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Department of Geosciences, Virginia Tech"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Same as silicate protocol"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (EMP)",
+        "schema:description": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -6830,7 +6700,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:reportedVariablesAndUnits": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
@@ -6860,18 +6729,18 @@ ex:laQicpmsTAPP-Liu2016-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:datePublished "missing" ;
     schema1:description "N/A — see silicate column for general notes" ;
@@ -6880,8 +6749,7 @@ ex:laQicpmsTAPP-Liu2016-2 a cdi:Activity,
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "LA-ICP-MS (same as silicate protocol)" ;
-            schema1:termCode "LA-ICP-MS" ] ;
+            schema1:termCode "LA-ICP-MS (same as silicate protocol)" ] ;
     schema1:name "laQicpms protocol — Liu2016-2" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
@@ -6915,7 +6783,6 @@ ex:laQicpmsTAPP-Liu2016-2 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST 610 glass standard" ;
     ada:rasterLineSpacingDefault "missing" ;
-    ada:reportedVariablesAndUnits "missing" ;
     ada:sampleIntroduction "missing" ;
     ada:samplingUnit "missing" ;
     ada:signalCollectionMode "missing" ;
@@ -6926,19 +6793,19 @@ ex:laQicpmsTAPP-Liu2016-2 a cdi:Activity,
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008)" ;
             ada:toolRole "dataReduction" ] .
 
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserEnergyDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 150 ;
-    schema1:description "150 mJ output energy" ;
-    schema1:name "Laser Energy" ;
-    schema1:valueName "laserEnergyDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "In situ — polished thin section (same sections as silicate protocol)" ;
     schema1:name "Sample Form / Analytical Substrate" ;
     schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 150 ;
+    schema1:description "150 mJ output energy" ;
+    schema1:name "Laser Energy" ;
+    schema1:valueName "laserEnergyDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://example.org/instrument/ICPMS> a schema1:Product,
@@ -6979,7 +6846,7 @@ ex:laQicpmsTAPP-Liu2016-2 a cdi:Activity,
 
 <https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/laserEnergyDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;
@@ -6998,123 +6865,1474 @@ ex:laQicpmsTAPP-Liu2016-2 a cdi:Activity,
 
 ```
 
+
+### laQicpmsTAPP example P6
+laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:laQicpmsTAPP-P6",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "laQicpms protocol — P6",
+  "schema:description": "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v29.csv).",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Xenotime, apatite and garnet — accessory and metamorphic minerals for in situ Lu-Hf geochronology"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Megacrysts and single crystals; XN02 megacrysts from the Datas alluvial deposits, SE Brazil",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Acquired and included counts both stated: 'A total of 246 spot analyses were undertaken in 20 analytical sessions over 3 months, 236 of which yielded a weighted-mean age of 515.4 +/- 1.2 Ma'. The rejection rule itself is not stated"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "ICPMS",
+        "Triple quadrupole (ICP-MS/MS) — operated in both single-quadrupole (SQ) and triple-quadrupole (TQ) modes",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "iCap TQ ICP-MS/MS (Thermo Fisher Scientific, Bremen, Germany)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/interfaceConeConfiguration",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laQicpmsTAPP/interfaceConeConfiguration"
+                }
+              ],
+              "schema:name": "Interface Cone Configuration",
+              "schema:value": "High sensitivity sample and skimmer cones"
+            },
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/samplerAndSkimmerConeMaterial",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laQicpmsTAPP/samplerAndSkimmerConeMaterial"
+                }
+              ],
+              "schema:name": "Sampler and Skimmer Cone Material",
+              "schema:value": "N — 'high sensitivity' cones specified, material not stated"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "ICP-MS/MS (triple-quadrupole mode)",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/cellExitDiscriminationVoltageDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "cellExitDiscriminationVoltageDefault",
+              "schema:name": "Cell Exit Discrimination Voltage",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": -40.0,
+              "schema:description": "CR exit lens -40.00 V (cell bias -4.200 V, CR amplitude 189.3 V, CR entry lens -144.0 V also tabulated)"
+            },
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/reactionGasType",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laQicpmsTAPP/reactionGasType"
+                }
+              ],
+              "schema:name": "Reaction Gas Type",
+              "schema:value": "NH3, high purity (>99.999%), supplied in T4; He (>99.999%, T1) pre-mixed with NH3 before the cell in a test of mixture composition. High-purity NH3 found more effective than the commonly used 1:9 NH3-He mixture"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+        },
+        {
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/coolantGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "coolantGasFlowRateDefault",
+              "schema:name": "Coolant (Plasma) Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 15.0,
+              "schema:description": "15.00 L min-1 Ar"
+            },
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/auxiliaryGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "auxiliaryGasFlowRateDefault",
+              "schema:name": "Auxiliary Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 0.8,
+              "schema:description": "0.80 L min-1 Ar"
+            },
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/rfPowerDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "rfPowerDefault",
+              "schema:name": "RF Power",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 1350,
+              "schema:description": "1350 W"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/massResolutionSetting",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "massResolutionSetting",
+          "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~300"
+        },
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/detectorConfiguration",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/detectorConfiguration"
+            }
+          ],
+          "schema:name": "Detector Configuration",
+          "schema:value": "Single SEM in double mode, counting and analog"
+        },
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Two-stage: first optimised in solution single-quadrupole and no-gas modes to tune for a robust plasma (U/Th = 1.00-1.05) and minimise oxides (ThO/Th < 0.5%); then switched to TQ and NH3 mode, with lenses tuned to maximise sensitivity for Hf reaction products while keeping Lu and Yb reaction rates low"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserPulseDuration",
+          "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "4-5 ns"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Photon Machines Analyte G2 (Teledyne CETAC, Omaha, USA)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm",
+      "schema:name": "HelEx ablation cell",
+      "ada:laserFluenceDefault": "4 J cm-2",
+      "ada:laserRepetitionRateDefault": "10 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
+    }
+  ],
+  "ada:ablationSpotDurationDefault": "25 s",
+  "ada:carrierGasFlowRateDefault": "He, 900 mL min-1 ablation gas flow",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2,
+      "schema:description": "N2 enhancement gas, 4.0 mL min-1, added to the carrier gas after the sample chamber to enhance sensitivity; an 80% sensitivity improvement is reported"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "uncertaintyPropagationMethodDefault",
+      "schema:name": "Uncertainty Propagation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Uncertainty propagation workflow implemented in IsoplotR"
+    }
+  ],
+  "ada:oxideProductionMethodAndThreshold": "ThO/Th < 0.5%, checked during SQ no-gas tuning",
+  "ada:reportedProperties": [
+    "176Lu/177Hf and 176Hf/177Hf ratios; Lu-Hf isochron and weighted-mean ages (Ma)"
+  ],
+  "ada:signalCollectionMode": "N/A",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": "0.659 s",
+  "ada:backgroundCountTimeDefault": "N — gas-blank correction applied in Iolite, duration not stated",
+  "ada:uncertaintyLevel": "2SE for single-spot ages; uncertainties on weighted-mean ages quoted at 2s",
+  "ada:blankBackgroundCorrectionMethod": "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities",
+  "ada:constantsAndReferenceValuesUsedDefault": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga",
+  "ada:primaryStandardNameDefault": "NIST SRM 610",
+  "ada:secondaryReferenceMaterialDefault": [
+    "XN02 xenotime as a matrix-matched reference material to correct matrix-induced elemental fractionation of Lu/Hf between SRM 610 and the samples"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS)"
+  },
+  "ada:samplingUnit": "Laser spot — 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Single hole drilling, two cleaning pulses"
+  ],
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "Lu and Hf (with Yb monitored for interference)",
+      "Al",
+      "Ca",
+      "Y and Zr monitored for inclusions"
+    ],
+    "ada:analyteColumns": [
+      {
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "boolean",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "normalizationStandardsBasedCorrection",
+        "schema:name": "Normalization / Standards-Based Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/detectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimit",
+        "schema:name": "Detection Limit",
+        "ada:dataType": "number"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/detectionLimitMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimitMethod",
+        "schema:name": "Detection Limit Method",
+        "ada:dataType": "uri",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "limitOfQuantificationMethod",
+        "schema:name": "Limit of Quantification (LOQ) Method",
+        "ada:dataType": "uri"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:ablationPitDepthRateDefault": "missing",
+  "ada:analysisSequenceDefault": "missing",
+  "ada:calibrationMeasurementFrequency": "missing",
+  "ada:internalStandardApproach": "missing",
+  "ada:internalStandardElement": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
+  "ada:massBiasCorrectionStrategy": "missing",
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:sampleIntroduction": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:laQicpmsTAPP-P6",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "laQicpms protocol \u2014 P6",
+  "schema:description": "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v29.csv).",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Xenotime, apatite and garnet \u2014 accessory and metamorphic minerals for in situ Lu-Hf geochronology"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Megacrysts and single crystals; XN02 megacrysts from the Datas alluvial deposits, SE Brazil",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Acquired and included counts both stated: 'A total of 246 spot analyses were undertaken in 20 analytical sessions over 3 months, 236 of which yielded a weighted-mean age of 515.4 +/- 1.2 Ma'. The rejection rule itself is not stated"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "ICPMS",
+        "Triple quadrupole (ICP-MS/MS) \u2014 operated in both single-quadrupole (SQ) and triple-quadrupole (TQ) modes",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "iCap TQ ICP-MS/MS (Thermo Fisher Scientific, Bremen, Germany)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/interfaceConeConfiguration",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laQicpmsTAPP/interfaceConeConfiguration"
+                }
+              ],
+              "schema:name": "Interface Cone Configuration",
+              "schema:value": "High sensitivity sample and skimmer cones"
+            },
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/samplerAndSkimmerConeMaterial",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laQicpmsTAPP/samplerAndSkimmerConeMaterial"
+                }
+              ],
+              "schema:name": "Sampler and Skimmer Cone Material",
+              "schema:value": "N \u2014 'high sensitivity' cones specified, material not stated"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "ICP-MS/MS (triple-quadrupole mode)",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/cellExitDiscriminationVoltageDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "cellExitDiscriminationVoltageDefault",
+              "schema:name": "Cell Exit Discrimination Voltage",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": -40.0,
+              "schema:description": "CR exit lens -40.00 V (cell bias -4.200 V, CR amplitude 189.3 V, CR entry lens -144.0 V also tabulated)"
+            },
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/reactionGasType",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laQicpmsTAPP/reactionGasType"
+                }
+              ],
+              "schema:name": "Reaction Gas Type",
+              "schema:value": "NH3, high purity (>99.999%), supplied in T4; He (>99.999%, T1) pre-mixed with NH3 before the cell in a test of mixture composition. High-purity NH3 found more effective than the commonly used 1:9 NH3-He mixture"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+        },
+        {
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/coolantGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "coolantGasFlowRateDefault",
+              "schema:name": "Coolant (Plasma) Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 15.0,
+              "schema:description": "15.00 L min-1 Ar"
+            },
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/auxiliaryGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "auxiliaryGasFlowRateDefault",
+              "schema:name": "Auxiliary Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 0.8,
+              "schema:description": "0.80 L min-1 Ar"
+            },
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/rfPowerDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "rfPowerDefault",
+              "schema:name": "RF Power",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 1350,
+              "schema:description": "1350 W"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
+          "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Torch"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/massResolutionSetting",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "massResolutionSetting",
+          "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "~300"
+        },
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/detectorConfiguration",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/detectorConfiguration"
+            }
+          ],
+          "schema:name": "Detector Configuration",
+          "schema:value": "Single SEM in double mode, counting and analog"
+        },
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Two-stage: first optimised in solution single-quadrupole and no-gas modes to tune for a robust plasma (U/Th = 1.00-1.05) and minimise oxides (ThO/Th < 0.5%); then switched to TQ and NH3 mode, with lenses tuned to maximise sensitivity for Hf reaction products while keeping Lu and Yb reaction rates low"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserPulseDuration",
+          "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "4-5 ns"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "Photon Machines Analyte G2 (Teledyne CETAC, Omaha, USA)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm",
+      "schema:name": "HelEx ablation cell",
+      "ada:laserFluenceDefault": "4 J cm-2",
+      "ada:laserRepetitionRateDefault": "10 Hz",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/Laser-Ablation-System"
+    }
+  ],
+  "ada:ablationSpotDurationDefault": "25 s",
+  "ada:carrierGasFlowRateDefault": "He, 900 mL min-1 ablation gas flow",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2,
+      "schema:description": "N2 enhancement gas, 4.0 mL min-1, added to the carrier gas after the sample chamber to enhance sensitivity; an 80% sensitivity improvement is reported"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "uncertaintyPropagationMethodDefault",
+      "schema:name": "Uncertainty Propagation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Uncertainty propagation workflow implemented in IsoplotR"
+    }
+  ],
+  "ada:oxideProductionMethodAndThreshold": "ThO/Th < 0.5%, checked during SQ no-gas tuning",
+  "ada:reportedProperties": [
+    "176Lu/177Hf and 176Hf/177Hf ratios; Lu-Hf isochron and weighted-mean ages (Ma)"
+  ],
+  "ada:signalCollectionMode": "N/A",
+  "ada:totalIntegrationTimePerOutputDataPointDefault": "0.659 s",
+  "ada:backgroundCountTimeDefault": "N \u2014 gas-blank correction applied in Iolite, duration not stated",
+  "ada:uncertaintyLevel": "2SE for single-spot ages; uncertainties on weighted-mean ages quoted at 2s",
+  "ada:blankBackgroundCorrectionMethod": "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities",
+  "ada:constantsAndReferenceValuesUsedDefault": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga",
+  "ada:primaryStandardNameDefault": "NIST SRM 610",
+  "ada:secondaryReferenceMaterialDefault": [
+    "XN02 xenotime as a matrix-matched reference material to correct matrix-induced elemental fractionation of Lu/Hf between SRM 610 and the samples"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS)"
+  },
+  "ada:samplingUnit": "Laser spot \u2014 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Single hole drilling, two cleaning pulses"
+  ],
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "Lu and Hf (with Yb monitored for interference)",
+      "Al",
+      "Ca",
+      "Y and Zr monitored for inclusions"
+    ],
+    "ada:analyteColumns": [
+      {
+        "schema:valueName": "analyte",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "boolean",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "normalizationStandardsBasedCorrection",
+        "schema:name": "Normalization / Standards-Based Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/detectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimit",
+        "schema:name": "Detection Limit",
+        "ada:dataType": "number"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/detectionLimitMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimitMethod",
+        "schema:name": "Detection Limit Method",
+        "ada:dataType": "uri",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "limitOfQuantificationMethod",
+        "schema:name": "Limit of Quantification (LOQ) Method",
+        "ada:dataType": "uri"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:ablationPitDepthRateDefault": "missing",
+  "ada:analysisSequenceDefault": "missing",
+  "ada:calibrationMeasurementFrequency": "missing",
+  "ada:internalStandardApproach": "missing",
+  "ada:internalStandardElement": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
+  "ada:massBiasCorrectionStrategy": "missing",
+  "ada:rasterLineSpacingDefault": "missing",
+  "ada:sampleIntroduction": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:targetSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:laQicpmsTAPP-P6 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Megacrysts and single crystals; XN02 megacrysts from the Datas alluvial deposits, SE Brazil" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethodDefault> ;
+    schema1:datePublished "missing" ;
+    schema1:description "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v29.csv)." ;
+    schema1:instrument <https://example.org/instrument/ICPMS>,
+        <https://example.org/instrument/Laser-Ablation-System> ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS)" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)" ] ;
+    schema1:name "laQicpms protocol — P6" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty [ schema1:name "Target Material" ;
+                    schema1:value "Xenotime, apatite and garnet — accessory and metamorphic minerals for in situ Lu-Hf geochronology" ] ] ;
+    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationSamplingMode "Single hole drilling, two cleaning pulses" ;
+    ada:ablationSpotDurationDefault "25 s" ;
+    ada:analysisSequenceDefault "missing" ;
+    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "analyte" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/detectionLimit>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/detectionLimitMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection>,
+                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
+            ada:defaultAnalytes "Al",
+                "Ca",
+                "Lu and Hf (with Yb monitored for interference)",
+                "Y and Zr monitored for inclusions" ] ;
+    ada:backgroundCountTimeDefault "N — gas-blank correction applied in Iolite, duration not stated" ;
+    ada:blankBackgroundCorrectionMethod "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities" ;
+    ada:calibrationMeasurementFrequency "missing" ;
+    ada:carrierGasFlowRateDefault "He, 900 mL min-1 ablation gas flow" ;
+    ada:constantsAndReferenceValuesUsedDefault "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga" ;
+    ada:internalStandardApproach "missing" ;
+    ada:internalStandardElement "missing" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
+    ada:massBiasCorrectionStrategy "missing" ;
+    ada:oxideProductionMethodAndThreshold "ThO/Th < 0.5%, checked during SQ no-gas tuning" ;
+    ada:primaryStandardNameDefault "NIST SRM 610" ;
+    ada:rasterLineSpacingDefault "missing" ;
+    ada:reportedProperties "176Lu/177Hf and 176Hf/177Hf ratios; Lu-Hf isochron and weighted-mean ages (Ma)" ;
+    ada:sampleIntroduction "missing" ;
+    ada:samplingUnit "Laser spot — 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents" ;
+    ada:secondaryReferenceMaterialDefault "XN02 xenotime as a matrix-matched reference material to correct matrix-induced elemental fractionation of Lu/Hf between SRM 610 and the samples" ;
+    ada:signalCollectionMode "N/A" ;
+    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:totalIntegrationTimePerOutputDataPointDefault "0.659 s" ;
+    ada:uncertaintyLevel "2SE for single-spot ages; uncertainties on weighted-mean ages quoted at 2s" ;
+    bios:computationalTool [ schema1:name "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages" ;
+            ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimit" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Detection Limit Method" ;
+    schema1:valueName "detectionLimitMethod" ;
+    ada:dataType "uri" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Isobaric Interference Corrections Applied" ;
+    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    ada:dataType "boolean" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Limit of Quantification (LOQ) Method" ;
+    schema1:valueName "limitOfQuantificationMethod" ;
+    ada:dataType "uri" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Normalization / Standards-Based Correction" ;
+    schema1:valueName "normalizationStandardsBasedCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 8e-01 ;
+    schema1:description "0.80 L min-1 Ar" ;
+    schema1:name "Auxiliary Gas Flow Rate" ;
+    schema1:valueName "auxiliaryGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/cellExitDiscriminationVoltageDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue -4e+01 ;
+    schema1:description "CR exit lens -40.00 V (cell bias -4.200 V, CR amplitude 189.3 V, CR entry lens -144.0 V also tabulated)" ;
+    schema1:name "Cell Exit Discrimination Voltage" ;
+    schema1:valueName "cellExitDiscriminationVoltageDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/coolantGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.5e+01 ;
+    schema1:description "15.00 L min-1 Ar" ;
+    schema1:name "Coolant (Plasma) Gas Flow Rate" ;
+    schema1:valueName "coolantGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/icpTuningDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Two-stage: first optimised in solution single-quadrupole and no-gas modes to tune for a robust plasma (U/Th = 1.00-1.05) and minimise oxides (ThO/Th < 0.5%); then switched to TQ and NH3 mode, with lenses tuned to maximise sensitivity for Hf reaction products while keeping Lu and Yb reaction rates low" ;
+    schema1:name "ICP Tuning" ;
+    schema1:valueName "icpTuningDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 2 ;
+    schema1:description "N2 enhancement gas, 4.0 mL min-1, added to the carrier gas after the sample chamber to enhance sensitivity; an 80% sensitivity improvement is reported" ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:valueName "makeUpGasAndFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "~300" ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:valueName "massResolutionSetting" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/rfPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1350 ;
+    schema1:description "1350 W" ;
+    schema1:name "RF Power" ;
+    schema1:valueName "rfPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Uncertainty propagation workflow implemented in IsoplotR" ;
+    schema1:name "Uncertainty Propagation Method" ;
+    schema1:valueName "uncertaintyPropagationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:name "Analysis Inclusion and Rejection Criteria" ;
+    schema1:value "Acquired and included counts both stated: 'A total of 246 spot analyses were undertaken in 20 analytical sessions over 3 months, 236 of which yielded a weighted-mean age of 515.4 +/- 1.2 Ma'. The rejection rule itself is not stated" ;
+    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> a schema1:PropertyValueSpecification ;
+    schema1:name "Laser Pulse Duration" ;
+    schema1:value "4-5 ns" ;
+    schema1:valueName "laserPulseDuration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://example.org/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/massResolutionSetting> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Triple quadrupole (ICP-MS/MS) — operated in both single-quadrupole (SQ) and triple-quadrupole (TQ) modes" ;
+    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "iCap TQ ICP-MS/MS (Thermo Fisher Scientific, Bremen, Germany)" ] ;
+    schema1:name "example instrumentName" .
+
+<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/cellExitDiscriminationVoltageDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/reactionGasType> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "ICP-MS/MS (triple-quadrupole mode)" .
+
+<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/coolantGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interfaceConeConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/samplerAndSkimmerConeMaterial> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Photon Machines Analyte G2 (Teledyne CETAC, Omaha, USA)" ] ;
+    schema1:name "HelEx ablation cell" ;
+    ada:laserFluenceDefault "4 J cm-2" ;
+    ada:laserRepetitionRateDefault "10 Hz" ;
+    ada:laserType "193 nm" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
+    schema1:name "Detector Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration> ;
+    schema1:value "Single SEM in double mode, counting and analog" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interfaceConeConfiguration> a schema1:PropertyValue ;
+    schema1:name "Interface Cone Configuration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interfaceConeConfiguration> ;
+    schema1:value "High sensitivity sample and skimmer cones" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/reactionGasType> a schema1:PropertyValue ;
+    schema1:name "Reaction Gas Type" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/reactionGasType> ;
+    schema1:value "NH3, high purity (>99.999%), supplied in T4; He (>99.999%, T1) pre-mixed with NH3 before the cell in a test of mixture composition. High-purity NH3 found more effective than the commonly used 1:9 NH3-He mixture" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/samplerAndSkimmerConeMaterial> a schema1:PropertyValue ;
+    schema1:name "Sampler and Skimmer Cone Material" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/samplerAndSkimmerConeMaterial> ;
+    schema1:value "N — 'high sensitivity' cones specified, material not stated" .
+
+
+```
+
 ## Schema
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
 title: LA-Q-ICP-MS Technique-Aligned Procedure Profile (laQicpmsTAPP)
 description: Laser-ablation quadrupole ICP-MS extension of the base TAPP definition,
-  generated from TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_TAPP_v15.xlsx via the path-driven
-  pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
+  generated from tapp/Current TAPPs/LA-Q-ICP-MS_TAPP_v29.csv via the path-driven pipeline
+  (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
-    schema:name:
-      type: string
-      readOnly: true
-    schema:measurementTechnique:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:termCode:
-            description: Top-level analytical technique identifier.
-            type: string
-            enum:
-            - LA-ICP-MS
-            - LA-ICP-OES
-            - LA-MC-ICP-MS
-            - LA-ICP-ToF-MS
-            - LA-ICP-MS/MS
-            - missing
-            readOnly: true
-    schema:creator:
-      type: object
-      properties:
-        schema:name:
-          type: string
-          readOnly: true
-    schema:location:
-      type: object
-      properties:
-        schema:name:
-          description: Name of the laboratory or institution hosting the instrument.
-          type: string
-        schema:identifier:
-          description: Persistent identifier for the laboratory (e.g., ROR ID).
-          type: string
-    schema:datePublished:
-      type: string
-      readOnly: true
-    schema:funding:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:name:
-            type: string
-            readOnly: true
-    schema:relatedLink:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: techniquePublication
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    type: string
-                    readOnly: true
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: coupledTechnique
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: "Other analytical techniques applied to the same
-                      sample(s) whose results are intended to be interpreted together
-                      with data from this procedure. Document coupling with any technique
-                      whose results are functionally linked to this dataset \u2014
-                      providing calibration inputs, complementary spatial context,
-                      or required companion measurements. Use the same controlled
-                      vocabulary as the Technique field. Enter \"None\" if no coupling
-                      is intended."
-                    anyOf:
-                    - type: string
-                      enum:
-                      - EPMA
-                      - SIMS
-                      - ICP-MS (solution)
-                      - Noble Gas MS
-                      - None
-                      - N/A
-                      - missing
-                    - type: string
-                  schema:description:
-                    description: "Description of how this procedure is coupled with
-                      the technique(s) listed above. Include: (1) the functional relationship
-                      \u2014 what data or context flows between techniques, or how
-                      results are combined (e.g. which output from the coupled technique
-                      serves as input to data reduction for this technique); and (2)
-                      the analytical sequence \u2014 which technique is performed
-                      first and why (e.g. non-destructive before destructive). Required
-                      when Coupled Technique(s) is not \"None\"."
-                    type: string
     schema:object:
       type: array
       items:
@@ -7147,7 +8365,9 @@ allOf:
                           items:
                             description: General description of the material type(s)
                               this procedure is designed to analyse. Used for discoverability
-                              and procedure matching.
+                              and procedure matching, and because the material type
+                              constrains sample preparation, calibration and matrix-matching
+                              requirements.
                             anyOf:
                             - type: string
                               enum:
@@ -7217,27 +8437,6 @@ allOf:
                 const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
           required:
           - '@type'
-    ada:samplingUnit:
-      description: "The physical subdivision of the sample to which one row of reported
-        values corresponds \u2014 the unit that is analysed and reported, as distinct
-        from the sample as a whole. State the unit type at procedure level and the
-        units actually analysed at analysis level. Where units nest (e.g. confined
-        tracks within grains), state both levels."
-      anyOf:
-      - type: string
-        enum:
-        - Whole sample
-        - Aliquot
-        - Grain
-        - Spot
-        - Analysis point
-        - Phase
-        - Sub-volume
-        - Region of interest
-        - N/A
-        - None
-        - missing
-      - type: string
     schema:actionProcess:
       type: object
       properties:
@@ -7288,39 +8487,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - title: Pre-Ablation Surface Treatment
-                        description: Procedure applied immediately before each analysis
-                          to remove surface contamination or condition the sample
-                          surface. Distinct from general sample preparation. For spot
-                          analysis, pre-ablation pulses are discarded before signal
-                          acquisition begins. For mapping, this step is typically
-                          omitted as the large area ablated averages out surface effects.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laQicpmsTAPP/preAblationSurfaceTreatmentDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: preAblationSurfaceTreatmentDefault
-                          schema:name:
-                            const: Pre-Ablation Surface Treatment
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_preAblationSurfaceTreatment
                     allOf:
                     - contains:
                         title: Fusion Flux and Dilution Ratio
@@ -7356,39 +8523,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Pre-Ablation Surface Treatment
-                        description: Procedure applied immediately before each analysis
-                          to remove surface contamination or condition the sample
-                          surface. Distinct from general sample preparation. For spot
-                          analysis, pre-ablation pulses are discarded before signal
-                          acquisition begins. For mapping, this step is typically
-                          omitted as the large area ablated averages out surface effects.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laQicpmsTAPP/preAblationSurfaceTreatmentDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: preAblationSurfaceTreatmentDefault
-                          schema:name:
-                            const: Pre-Ablation Surface Treatment
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_preAblationSurfaceTreatment
                       minContains: 0
                       maxContains: 1
                   schema:description:
@@ -7596,73 +8731,8 @@ allOf:
                         - schema:name
                         - schema:value
                         readOnly: true
-                      - title: Calibration Factor and Determination Method
-                        description: 'An externally-calibrated factor that converts
-                          the measured quantity into the reported quantity, how it
-                          was determined, and its uncertainty. Applies where the conversion
-                          depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone.
-                          Distinct from the fields that name the calibration material
-                          and that state which approach applies to which analyte,
-                          where the technique has them: this field records the resulting
-                          factor itself.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laQicpmsTAPP/calibrationFactorAndDeterminationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: calibrationFactorAndDeterminationMethodDefault
-                          schema:name:
-                            const: Calibration Factor and Determination Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses
-                          contribute to a reported aggregate result, together with
-                          the outcome of applying them: how many analyses were acquired,
-                          how many were included, and on what grounds any were excluded.
-                          Distinct from within-analysis outlier filtering, which removes
-                          anomalous points inside a single analysis: this field decides
-                          which whole analyses enter the reported value. Criteria
-                          and outcome are combined in one field because neither is
-                          interpretable without the other, following the precision/accuracy
-                          precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laQicpmsTAPP/analysisInclusionAndRejectionCriteria
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laQicpmsTAPP/analysisInclusionAndRejectionCriteria
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                     allOf:
                     - contains:
                         title: Signal Smoothing
@@ -7799,76 +8869,11 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Calibration Factor and Determination Method
-                        description: 'An externally-calibrated factor that converts
-                          the measured quantity into the reported quantity, how it
-                          was determined, and its uncertainty. Applies where the conversion
-                          depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone.
-                          Distinct from the fields that name the calibration material
-                          and that state which approach applies to which analyte,
-                          where the technique has them: this field records the resulting
-                          factor itself.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laQicpmsTAPP/calibrationFactorAndDeterminationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: calibrationFactorAndDeterminationMethodDefault
-                          schema:name:
-                            const: Calibration Factor and Determination Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses
-                          contribute to a reported aggregate result, together with
-                          the outcome of applying them: how many analyses were acquired,
-                          how many were included, and on what grounds any were excluded.
-                          Distinct from within-analysis outlier filtering, which removes
-                          anomalous points inside a single analysis: this field decides
-                          which whole analyses enter the reported value. Criteria
-                          and outcome are combined in one field because neither is
-                          interpretable without the other, following the precision/accuracy
-                          precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laQicpmsTAPP/analysisInclusionAndRejectionCriteria
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laQicpmsTAPP/analysisInclusionAndRejectionCriteria
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -7890,110 +8895,43 @@ allOf:
                   const: Data reduction
               required:
               - schema:name
-    ada:targetSelectionCriteriaDefault:
-      description: "The rules governing which part of the sample is analysed, and
-        why. Covers the criteria applied when choosing grains, aliquots, spots, or
-        a region of interest \u2014 size, morphology, clarity, freedom from inclusions
-        or alteration, phase identity, or spatial position. Distinct from Target Material,
-        which states the material type the procedure is designed for: this field states
-        how, within such a sample, the analysed portion is picked out."
-      type: string
     schema:additionalProperty:
       type: array
       items:
         anyOf:
-        - title: Pre-Analysis Imaging and Screening
-          description: Imaging or other characterisation performed before the measurement
-            in order to select or locate the analysed target, including the technique,
-            instrument and settings used, and how individual analyses are linked back
-            to the images. Distinct from any imaging the procedure performs as its
-            own measurement. Where the imaging is performed on a separate instrument,
-            it should also be recorded in the Group 1 coupling fields.
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
+        - title: Make-up Gas and Flow Rate
+          description: "Supplementary gas added to the sample-carrying stream between
+            the sample introduction system and the plasma, with its identity and the
+            procedure-registered target flow rate. Argon make-up is standard and maintains
+            total gas delivery where the carrier flow alone is insufficient \u2014
+            downstream of an ablation cell, or of a desolvation system that has removed
+            solvent load. Small nitrogen or hydrogen additions are also made here
+            to enhance sensitivity for some elements; record them with their own flow,
+            whose unit commonly differs from the make-up flow. Record 'None' explicitly
+            where no supplementary gas is added, to distinguish it from not reported."
           type: object
           properties:
             '@id':
-              const: ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreeningDefault
+              const: ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault
             '@type':
               const:
               - schema:PropertyValueSpecification
             schema:valueName:
-              const: preAnalysisImagingAndScreeningDefault
+              const: makeUpGasAndFlowRateDefault
             schema:name:
-              const: Pre-Analysis Imaging and Screening
+              const: Make-up Gas and Flow Rate
             ada:dataType:
-              const: string
+              const: number
             ada:fieldScope:
               const: session
             schema:readonlyValue:
               const: false
             ada:tier:
               const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Transect Rate, Mapping Rate or Step Size
-          description: "For continuous line scan (transect) and raster mapping: the
-            stage translation speed in \xB5m s\u207B\xB9. This is the procedure-level
-            parameter that, together with spot size and repetition rate, determines
-            spatial resolution along the scan direction. For mapping, the mapping
-            rate (mm\xB2 h\u207B\xB9) may be reported as an alternative when scan
-            speed is session-variable. For stepped line profiles: the distance between
-            successive spot positions in \xB5m."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/transectRateMappingRateOrStepSizeDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: transectRateMappingRateOrStepSizeDefault
-            schema:name:
-              const: Transect Rate, Mapping Rate or Step Size
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Plasma / Make-up Gas Addition
-          description: "Additional gas(es) mixed into the carrier stream downstream
-            of the ablation cell, with the procedure-registered target flow rate.
-            Ar make-up gas is standard. Small N\u2082 additions can enhance sensitivity
-            for some elements. If N\u2082 is not added, state \"None\" explicitly
-            to distinguish from not reported."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: plasmaMakeUpGasAdditionDefault
-            schema:name:
-              const: Plasma / Make-up Gas Addition
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
+            schema:unitText:
+              const: L/min
           required:
           - '@id'
           - '@type'
@@ -8113,152 +9051,47 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - title: E-scan Range
-          description: ''
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/eScanRange
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laQicpmsTAPP/eScanRange
-            schema:name:
-              const: E-scan Range
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        - title: Triple Scanning Mode
-          description: ''
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/tripleScanningMode
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laQicpmsTAPP/tripleScanningMode
-            schema:name:
-              const: Triple Scanning Mode
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
       allOf:
       - contains:
-          title: Pre-Analysis Imaging and Screening
-          description: Imaging or other characterisation performed before the measurement
-            in order to select or locate the analysed target, including the technique,
-            instrument and settings used, and how individual analyses are linked back
-            to the images. Distinct from any imaging the procedure performs as its
-            own measurement. Where the imaging is performed on a separate instrument,
-            it should also be recorded in the Group 1 coupling fields.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreeningDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: preAnalysisImagingAndScreeningDefault
-            schema:name:
-              const: Pre-Analysis Imaging and Screening
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
         minContains: 0
         maxContains: 1
       - contains:
-          title: Transect Rate, Mapping Rate or Step Size
-          description: "For continuous line scan (transect) and raster mapping: the
-            stage translation speed in \xB5m s\u207B\xB9. This is the procedure-level
-            parameter that, together with spot size and repetition rate, determines
-            spatial resolution along the scan direction. For mapping, the mapping
-            rate (mm\xB2 h\u207B\xB9) may be reported as an alternative when scan
-            speed is session-variable. For stepped line profiles: the distance between
-            successive spot positions in \xB5m."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/transectRateMappingRateOrStepSizeDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: transectRateMappingRateOrStepSizeDefault
-            schema:name:
-              const: Transect Rate, Mapping Rate or Step Size
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         minContains: 0
         maxContains: 1
       - contains:
-          title: Plasma / Make-up Gas Addition
-          description: "Additional gas(es) mixed into the carrier stream downstream
-            of the ablation cell, with the procedure-registered target flow rate.
-            Ar make-up gas is standard. Small N\u2082 additions can enhance sensitivity
-            for some elements. If N\u2082 is not added, state \"None\" explicitly
-            to distinguish from not reported."
+          title: Make-up Gas and Flow Rate
+          description: "Supplementary gas added to the sample-carrying stream between
+            the sample introduction system and the plasma, with its identity and the
+            procedure-registered target flow rate. Argon make-up is standard and maintains
+            total gas delivery where the carrier flow alone is insufficient \u2014
+            downstream of an ablation cell, or of a desolvation system that has removed
+            solvent load. Small nitrogen or hydrogen additions are also made here
+            to enhance sensitivity for some elements; record them with their own flow,
+            whose unit commonly differs from the make-up flow. Record 'None' explicitly
+            where no supplementary gas is added, to distinguish it from not reported."
           type: object
           properties:
             '@id':
-              const: ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault
+              const: ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault
             '@type':
               const:
               - schema:PropertyValueSpecification
             schema:valueName:
-              const: plasmaMakeUpGasAdditionDefault
+              const: makeUpGasAndFlowRateDefault
             schema:name:
-              const: Plasma / Make-up Gas Addition
+              const: Make-up Gas and Flow Rate
             ada:dataType:
-              const: string
+              const: number
             ada:fieldScope:
               const: session
             schema:readonlyValue:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              const: L/min
           required:
           - '@id'
           - '@type'
@@ -8392,324 +9225,11 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains:
-          title: E-scan Range
-          description: ''
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/eScanRange
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laQicpmsTAPP/eScanRange
-            schema:name:
-              const: E-scan Range
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Triple Scanning Mode
-          description: ''
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/tripleScanningMode
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laQicpmsTAPP/tripleScanningMode
-            schema:name:
-              const: Triple Scanning Mode
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        minContains: 0
-        maxContains: 1
     schema:instrument:
       type: array
       items:
         type: object
         allOf:
-        - if:
-            properties:
-              schema:additionalType:
-                contains:
-                  const: Laser Ablation System
-                schema:inDefinedTermSet: ada:vocab/instrumentType
-            required:
-            - schema:additionalType
-          then:
-            properties:
-              schema:model:
-                type: object
-                properties:
-                  schema:name:
-                    description: Manufacturer and model of the laser ablation system.
-                    type: string
-                    readOnly: true
-              ada:laserType:
-                description: Wavelength and type of the laser used for ablation in
-                  nanometres.
-                anyOf:
-                - type: string
-                  readOnly: true
-                - type: array
-                  items:
-                    type: string
-                    readOnly: true
-              schema:name:
-                description: Type, design origin, and internal volume of the ablation
-                  cell. Cell volume is a primary determinant of aerosol washout time
-                  and therefore the achievable time resolution of the data.
-                anyOf:
-                - type: string
-                  readOnly: true
-                - type: array
-                  items:
-                    type: string
-                    readOnly: true
-              ada:laserSpotGeometryDefault:
-                description: "Shape and dimensions of the laser ablation spot in micrometres
-                  registered by the procedure. For circular spots, report diameter;
-                  for square or rectangular spots, report width \xD7 length. The procedure
-                  registers the typical geometry; analysts may adjust within procedure-allowed
-                  range."
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-              schema:additionalProperty:
-                type: array
-                items:
-                  anyOf:
-                  - title: Laser Energy
-                    description: "Laser pulse energy in millijoules as set at the
-                      laser output or measured at the sample surface. Less commonly
-                      reported than fluence because it does not account for spot area.
-                      Report only when the system displays energy directly. Laser
-                      fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-                      in Default Laser Fluence."
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laQicpmsTAPP/laserEnergyDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: laserEnergyDefault
-                      schema:name:
-                        const: Laser Energy
-                      ada:dataType:
-                        const: number
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                      schema:unitText:
-                        const: mJ
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  - title: Laser Beam Energy Profile
-                    description: Spatial energy distribution of the laser beam at
-                      the sample surface, and whether a beam homogenizer is installed.
-                      A flat-top (top-hat) profile produces more uniform ablation
-                      craters and more reproducible crater morphology than a Gaussian
-                      beam. This is a fixed hardware property of the laser system.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laQicpmsTAPP/laserBeamEnergyProfile
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laQicpmsTAPP/laserBeamEnergyProfile
-                      schema:name:
-                        const: Laser Beam Energy Profile
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  - title: Laser Pulse Duration
-                    description: 'Duration of each individual laser pulse, including
-                      units. Pulse duration determines the ablation regime: nanosecond
-                      (ns) pulses involve significant thermal effects and elemental
-                      fractionation; femtosecond (fs) pulses are non-thermal and substantially
-                      reduce elemental fractionation and matrix effects. This is a
-                      fixed hardware property of the laser system.'
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laQicpmsTAPP/laserPulseDuration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laQicpmsTAPP/laserPulseDuration
-                      schema:name:
-                        const: Laser Pulse Duration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                allOf:
-                - contains:
-                    title: Laser Energy
-                    description: "Laser pulse energy in millijoules as set at the
-                      laser output or measured at the sample surface. Less commonly
-                      reported than fluence because it does not account for spot area.
-                      Report only when the system displays energy directly. Laser
-                      fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-                      in Default Laser Fluence."
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laQicpmsTAPP/laserEnergyDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: laserEnergyDefault
-                      schema:name:
-                        const: Laser Energy
-                      ada:dataType:
-                        const: number
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                      schema:unitText:
-                        const: mJ
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    title: Laser Beam Energy Profile
-                    description: Spatial energy distribution of the laser beam at
-                      the sample surface, and whether a beam homogenizer is installed.
-                      A flat-top (top-hat) profile produces more uniform ablation
-                      craters and more reproducible crater morphology than a Gaussian
-                      beam. This is a fixed hardware property of the laser system.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laQicpmsTAPP/laserBeamEnergyProfile
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laQicpmsTAPP/laserBeamEnergyProfile
-                      schema:name:
-                        const: Laser Beam Energy Profile
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    title: Laser Pulse Duration
-                    description: 'Duration of each individual laser pulse, including
-                      units. Pulse duration determines the ablation regime: nanosecond
-                      (ns) pulses involve significant thermal effects and elemental
-                      fractionation; femtosecond (fs) pulses are non-thermal and substantially
-                      reduce elemental fractionation and matrix effects. This is a
-                      fixed hardware property of the laser system.'
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laQicpmsTAPP/laserPulseDuration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laQicpmsTAPP/laserPulseDuration
-                      schema:name:
-                        const: Laser Pulse Duration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  minContains: 0
-                  maxContains: 1
-              ada:laserFluenceDefault:
-                description: "Laser pulse energy per unit area at the sample surface
-                  in J cm\u207B\xB2, as registered by the procedure. Fluence is the
-                  physically meaningful quantity controlling ablation rate, crater
-                  morphology, elemental fractionation, and particle size distribution.
-                  If the system reports only as % of maximum output, include that
-                  value and note the system maximum where known."
-                anyOf:
-                - type: number
-                - type: string
-              ada:laserRepetitionRateDefault:
-                description: Laser pulse repetition rate in hertz registered by the
-                  procedure. For mapping methods, repetition rate together with scan
-                  speed and spot size determines pixel size and spatial resolution.
-                  Analysts may adjust within procedure-allowed bounds.
-                anyOf:
-                - type: number
-                - type: string
         - if:
             properties:
               schema:additionalType:
@@ -8724,7 +9244,11 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Manufacturer and model of the ICP-MS instrument.
+                    description: Model designation of the instrument that performs
+                      the measurement, including any generation or configuration suffix.
+                      Conventionally written with the manufacturer name included;
+                      Instrument Manufacturer records the vendor separately, as a
+                      controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
               schema:additionalProperty:
@@ -9446,9 +9970,11 @@ allOf:
                           anyOf:
                           - type: string
                             enum:
+                            - Not installed
                             - STD (standard mode, no gas)
                             - KED (kinetic energy discrimination, He gas)
                             - DRC (dynamic reaction cell, reactive gas)
+                            - KED+DRC
                             - ICP-MS/MS (triple-quadrupole mode)
                             - N/A
                             - None
@@ -9458,9 +9984,11 @@ allOf:
                             items:
                               type: string
                               enum:
+                              - Not installed
                               - STD (standard mode, no gas)
                               - KED (kinetic energy discrimination, He gas)
                               - DRC (dynamic reaction cell, reactive gas)
+                              - KED+DRC
                               - ICP-MS/MS (triple-quadrupole mode)
                               - N/A
                               - None
@@ -10118,15 +10646,37 @@ allOf:
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
+        - if:
+            properties:
+              schema:additionalType:
+                contains:
+                  const: Laser Ablation System
+                schema:inDefinedTermSet: ada:vocab/instrumentType
+            required:
+            - schema:additionalType
+          then:
+            properties:
+              schema:additionalProperty:
+                type: array
+                items:
+                  anyOf:
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserEnergy
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserBeamEnergyProfile
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserPulseDuration
+                allOf:
+                - contains:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserEnergy
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserBeamEnergyProfile
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserPulseDuration
+                  minContains: 0
+                  maxContains: 1
       allOf:
-      - contains:
-          properties:
-            schema:additionalType:
-              contains:
-                const: Laser Ablation System
-              schema:inDefinedTermSet: ada:vocab/instrumentType
-          required:
-          - schema:additionalType
       - contains:
           properties:
             schema:additionalType:
@@ -10135,46 +10685,14 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    bios:computationalTool:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Instrument control and data acquisition software used
-                  to collect raw signal data, including version number. Separate from
-                  data reduction software.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
-                const: dataReduction
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Software used for signal processing, background subtraction,
-                  and concentration calculation, including version number.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        required:
-        - ada:toolRole
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                const: Laser Ablation System
+              schema:inDefinedTermSet: ada:vocab/instrumentType
+          required:
+          - schema:additionalType
     ada:sampleIntroduction:
       description: "Configuration by which the ablated aerosol is delivered to the
         plasma, including tubing, any signal-homogenising device, and any co-aspirated
@@ -10184,62 +10702,6 @@ allOf:
         record gas identity and flow rather than what else enters the plasma."
       type: string
       readOnly: true
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Primary analytical mode(s) executed under this procedure. For
-          single-mode procedures, records one value (e.g., Spot). For multi-mode procedures
-          (e.g., spot analysis combined with transect scanning), list all applicable
-          modes. Serves as the procedure-level declaration of measurement type, distinct
-          from the mode flag columns which indicate per-field applicability.
-        type: string
-        enum:
-        - Spot
-        - Transect
-        - Mapping
-        - Spot; Transect
-        - missing
-        readOnly: true
-    ada:ablationSamplingMode:
-      type: array
-      items:
-        description: Sampling mode or ablation pattern used during analysis.
-        type: string
-        enum:
-        - Spot (stationary)
-        - Transect (continuous line scan)
-        - Raster area (2D elemental mapping)
-        - Stepped line profile
-        - N/A
-        - None
-        - missing
-        readOnly: true
-    ada:ablationSpotDurationDefault:
-      description: 'Total on-sample ablation (signal acquisition) time per individual
-        spot in seconds, as set in the acquisition method. This is a procedure-level
-        parameter for spot analysis: it reflects the deliberate trade-off between
-        signal accumulation (longer = lower LOD), sample consumption, and session
-        throughput. For transect analysis, the equivalent procedure-level parameter
-        is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For
-        mapping analysis, total acquisition time is sample-area-dependent and therefore
-        analysis-level, not captured here.'
-      anyOf:
-      - type: number
-      - type: string
-    ada:ablationPitDepthRateDefault:
-      description: Depth of the ablation pit produced under the registered laser conditions,
-        the method used to measure it, and the resulting per-pulse ablation rate.
-        Sets the achievable depth resolution and governs downhole elemental fractionation.
-        For transect and mapping the equivalent quantity is trench depth under the
-        same conditions.
-      type: string
-    ada:rasterLineSpacingDefault:
-      description: Distance between adjacent raster lines in a 2D elemental map, measured
-        perpendicular to the scan direction, in micrometres. Together with spot size,
-        this determines whether adjacent lines are contiguous (line spacing = spot
-        size), overlapping (line spacing < spot size), or have gaps (line spacing
-        > spot size). Applies to raster mapping only.
-      type: string
     ada:carrierGasFlowRateDefault:
       description: "Gas used to transport ablated aerosol from the ablation cell to
         the ICP-MS torch, with the procedure-registered target flow rate(s). Helium
@@ -10265,34 +10727,30 @@ allOf:
     ada:analyteTemplate:
       type: object
       properties:
-        ada:defaultAnalytes:
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
         ada:analyteColumns:
           type: array
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - title: Monitored Isotopes
-              description: Specific isotope(s) monitored in this procedure, grouped
-                by the analyte element they serve where they serve one. Includes interference-monitor
+            - title: Monitored Masses
+              description: Specific masses monitored in this procedure, grouped by
+                the analyte element they serve where they serve one. Covers atomic
+                isotopes and, where a reaction cell shifts an analyte onto a different
+                mass, the product mass actually measured. Includes interference-monitor
                 and internal-standard masses, which serve no analyte and so have no
                 parent element. The analyte list is given by the Analyte field and
                 is never inferred from the element symbols appearing here.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes
+                  const: ada:analyteColumn/laQicpmsTAPP/monitoredMasses
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: monitoredIsotopes
+                  const: monitoredMasses
                 schema:name:
-                  const: Monitored Isotopes
+                  const: Monitored Masses
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -10327,13 +10785,15 @@ allOf:
                 schema:name:
                   const: Dwell Time per Mass
                 ada:dataType:
-                  const: string
+                  const: number
                 schema:readonlyValue:
                   const: false
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -10560,13 +11020,14 @@ allOf:
               - schema:name
               - ada:dataType
             - title: Within-Session Analytical Precision and Assessment Method
-              description: "Reproducibility of repeated measurements within a single
-                analytical session. Report both the assessment method and the precision
-                values. Assessment method must specify: (1) the reference material
-                used, (2) number of replicates n, and (3) the statistic reported (1\u03C3
-                RSD, 2\u03C3 RSD, etc.). For mapping: assess from repeated analyses
-                of a reference material area at session start and end, or from replicate
-                analyses of a homogeneous reference phase within the map."
+              description: Precision of repeated measurements within a single analytical
+                session and the method used to assess it. Report both the assessment
+                method and the precision values. The assessment method must specify
+                the reference material or standard measured, the number of replicates
+                n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
+                Distinct from the internal precision of a single measurement, which
+                derives from counting statistics over the cycles of that measurement
+                rather than from repeated analyses.
               type: object
               properties:
                 '@id':
@@ -10595,13 +11056,14 @@ allOf:
               - schema:defaultValue
             - title: Between-Session (Long-Term) Analytical Precision and Assessment
                 Method
-              description: 'Reproducibility of measurements across multiple analytical
-                sessions over weeks to months (long-term or intermediate precision).
-                Report both the assessment method and the precision values. Specify:
-                reference material used, number of sessions n, time span covered,
-                and statistic reported. Long-term precision is typically assessed
-                from a compiled record of secondary reference material values across
-                all sessions.'
+              description: "Precision of measurements across multiple analytical sessions
+                over weeks to months \u2014 long-term or intermediate precision \u2014
+                and the method used to assess it. Report both the assessment method
+                and the precision values, specifying the reference material, the number
+                of measurements and sessions, the time span covered, and the statistic
+                reported. Long-term precision is normally poorer than within-session
+                precision and is the figure a data user should carry when comparing
+                results from different sessions."
               type: object
               properties:
                 '@id':
@@ -10661,50 +11123,27 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Mass Resolution per Analyte
-              description: ''
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: massResolutionPerAnalyte
-                schema:name:
-                  const: Mass Resolution per Analyte
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: O
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
           allOf:
           - contains:
-              title: Monitored Isotopes
-              description: Specific isotope(s) monitored in this procedure, grouped
-                by the analyte element they serve where they serve one. Includes interference-monitor
+              title: Monitored Masses
+              description: Specific masses monitored in this procedure, grouped by
+                the analyte element they serve where they serve one. Covers atomic
+                isotopes and, where a reaction cell shifts an analyte onto a different
+                mass, the product mass actually measured. Includes interference-monitor
                 and internal-standard masses, which serve no analyte and so have no
                 parent element. The analyte list is given by the Analyte field and
                 is never inferred from the element symbols appearing here.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes
+                  const: ada:analyteColumn/laQicpmsTAPP/monitoredMasses
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: monitoredIsotopes
+                  const: monitoredMasses
                 schema:name:
-                  const: Monitored Isotopes
+                  const: Monitored Masses
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -10742,13 +11181,15 @@ allOf:
                 schema:name:
                   const: Dwell Time per Mass
                 ada:dataType:
-                  const: string
+                  const: number
                 schema:readonlyValue:
                   const: false
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -10999,13 +11440,14 @@ allOf:
             maxContains: 1
           - contains:
               title: Within-Session Analytical Precision and Assessment Method
-              description: "Reproducibility of repeated measurements within a single
-                analytical session. Report both the assessment method and the precision
-                values. Assessment method must specify: (1) the reference material
-                used, (2) number of replicates n, and (3) the statistic reported (1\u03C3
-                RSD, 2\u03C3 RSD, etc.). For mapping: assess from repeated analyses
-                of a reference material area at session start and end, or from replicate
-                analyses of a homogeneous reference phase within the map."
+              description: Precision of repeated measurements within a single analytical
+                session and the method used to assess it. Report both the assessment
+                method and the precision values. The assessment method must specify
+                the reference material or standard measured, the number of replicates
+                n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
+                Distinct from the internal precision of a single measurement, which
+                derives from counting statistics over the cycles of that measurement
+                rather than from repeated analyses.
               type: object
               properties:
                 '@id':
@@ -11037,13 +11479,14 @@ allOf:
           - contains:
               title: Between-Session (Long-Term) Analytical Precision and Assessment
                 Method
-              description: 'Reproducibility of measurements across multiple analytical
-                sessions over weeks to months (long-term or intermediate precision).
-                Report both the assessment method and the precision values. Specify:
-                reference material used, number of sessions n, time span covered,
-                and statistic reported. Long-term precision is typically assessed
-                from a compiled record of secondary reference material values across
-                all sessions.'
+              description: "Precision of measurements across multiple analytical sessions
+                over weeks to months \u2014 long-term or intermediate precision \u2014
+                and the method used to assess it. Report both the assessment method
+                and the precision values, specifying the reference material, the number
+                of measurements and sessions, the time span covered, and the statistic
+                reported. Long-term precision is normally poorer than within-session
+                precision and is the figure a data user should carry when comparing
+                results from different sessions."
               type: object
               properties:
                 '@id':
@@ -11108,46 +11551,6 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
-          - contains:
-              title: Mass Resolution per Analyte
-              description: ''
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: massResolutionPerAnalyte
-                schema:name:
-                  const: Mass Resolution per Analyte
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: O
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-    ada:reportedVariablesAndUnits:
-      description: "The final variable(s) this procedure reports and their units \u2014
-        distinct from the fields recording what was *acquired* rather than what is
-        reported. A procedure may acquire many channels and report a small number
-        of derived quantities; without this field a data consumer cannot tell which.
-        Record every reported variable, including intermediate quantities reported
-        alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date).
-        Where a reported variable is a nominal property with no magnitude (e.g. a
-        mineral identification), record the variable and give the unit as 'N/A \u2014
-        nominal property'."
-      type: string
-      readOnly: true
     ada:signalCollectionMode:
       description: Mode used to collect ion signal across the monitored masses. In
         peak hopping mode, the quadrupole jumps sequentially between pre-set mass
@@ -11305,27 +11708,11 @@ allOf:
           material name, source, and citation for accepted values used for comparison.
           Editable because selection of secondary RMs may vary across sessions.
         type: string
-    schema:description:
-      description: "Any procedure- or analysis-specific information not captured by
-        a structured field anywhere in this TAPP \u2014 including anomalies, deviations
-        from the registered procedure, instrument modifications, and supplementary
-        context. Scope is the whole document, not Group 6: this is the last field
-        of the TAPP and covers all six groups. Use sparingly; a structured field is
-        preferred for anything that can be formally categorised."
-      type: string
   required:
-  - schema:name
-  - schema:datePublished
-  - ada:samplingUnit
-  - ada:targetSelectionCriteriaDefault
   - ada:sampleIntroduction
-  - ada:ablationSpotDurationDefault
-  - ada:ablationPitDepthRateDefault
-  - ada:rasterLineSpacingDefault
   - ada:carrierGasFlowRateDefault
   - ada:oxideProductionMethodAndThreshold
   - ada:analysisSequenceDefault
-  - ada:reportedVariablesAndUnits
   - ada:signalCollectionMode
   - ada:ionCounterDeadTimeDefault
   - ada:totalIntegrationTimePerOutputDataPointDefault

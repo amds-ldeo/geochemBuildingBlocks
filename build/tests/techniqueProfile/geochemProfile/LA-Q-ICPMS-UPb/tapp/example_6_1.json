@@ -16,44 +16,6 @@
   ],
   "schema:name": "laQicpmsUPb protocol \u2014 Liu2016-2",
   "schema:description": "N/A \u2014 see silicate column for general notes",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS",
-      "schema:name": "LA-ICP-MS (same as silicate protocol)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Department of Geosciences, Virginia Tech"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Same as silicate protocol"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA (EMP)",
-        "schema:description": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -85,44 +47,6 @@
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "Laser Ablation System",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "ada:laserType": "193 nm Excimer (ArF excimer)",
-      "ada:laserSpotGeometryDefault": "~24 \u00b5m diameter",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/laserEnergyDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "laserEnergyDefault",
-          "schema:name": "Laser Energy",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 150,
-          "schema:description": "150 mJ output energy"
-        }
-      ],
-      "ada:laserFluenceDefault": "7\u201310 J/m\u00b2 (same as silicate protocol)",
-      "ada:laserRepetitionRateDefault": "5 Hz",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
         "ICPMS",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -134,6 +58,11 @@
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -192,22 +121,46 @@
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "Laser Ablation System",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserEnergyDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserEnergyDefault",
+          "schema:name": "Laser Energy",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 150,
+          "schema:description": "150 mJ output energy"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "ada:laserType": "193 nm Excimer (ArF excimer)",
+      "ada:laserSpotGeometryDefault": "~24 \u00b5m diameter",
+      "ada:laserFluenceDefault": "7\u201310 J/m\u00b2 (same as silicate protocol)",
+      "ada:laserRepetitionRateDefault": "5 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
+      "@id": "ex:instrument/Laser-Ablation-System",
       "schema:name": "example instrumentName"
     }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
-    }
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
   ],
   "ada:analysisSequenceDefault": "Same as silicate protocol",
   "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
@@ -233,12 +186,7 @@
   ],
   "ada:signalIntegrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
   "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
-  "ada:primaryStandardNameDefault": "NIST 610 glass standard",
-  "ada:calibrationMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
   "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
     "schema:step": [
       {
         "@type": [
@@ -263,18 +211,82 @@
         "schema:position": 2
       },
       {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+            "schema:name": "Normalization / Standards-Based Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "No post-acquisition normalization; EMP CaO applied directly as IS; NIST 610 for external calibration"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 3
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
+  "ada:primaryStandardNameDefault": "NIST 610 glass standard",
+  "ada:calibrationMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS (same as silicate protocol)"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Department of Geosciences, Virginia Tech"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Same as silicate protocol"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (EMP)",
+        "schema:description": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
+    }
+  ],
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:ageModelDefault": "missing",
@@ -282,6 +294,7 @@
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
   "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
+  "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",

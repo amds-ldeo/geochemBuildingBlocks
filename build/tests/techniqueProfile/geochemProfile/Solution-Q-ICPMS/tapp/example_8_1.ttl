@@ -15,11 +15,6 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
@@ -30,12 +25,16 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v34.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Karlsruhe Institute of Technology (KIT), Germany" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -88,14 +87,7 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:perAnalyteCalibrationStrategy "External calibration (all analytes)" ;
     ada:primaryStandardNameDefault "missing" ;
-    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Dissolved Se concentration (ug L-1)" ;
-            ada:reportedPropertyColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "reportedProperty" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ] ;
+    ada:reportedProperties "Dissolved Se concentration (ug L-1)" ;
     ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "N — sub-sampled water aliquots" ;
     ada:secondaryReferenceMaterialDefault "CRM-TMDW drinking water and NIST 1643f freshwater" ;
@@ -205,14 +197,6 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://example.org/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> a schema1:PropertyValue ;
     schema1:name "Collision Gas Type" ;

@@ -85,7 +85,7 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI (now Thermo Fisher Scientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -103,9 +103,6 @@
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
-  ],
-  "ada:analyticalMode": [
-    "In-situ FIB lift-out; cross-section lamella preparation"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -151,18 +148,6 @@
       "schema:HowTo"
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -181,13 +166,28 @@
       ]
     }
   ],
+  "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
   },
-  "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "In-situ FIB lift-out; cross-section lamella preparation"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [

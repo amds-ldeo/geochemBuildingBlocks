@@ -32,14 +32,7 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   "ada:analyst": "Scott Eckley",
   "ada:analysisStartDate": "2024-10-29",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "OREX-800099-0",
   "ada:samplingUnit": "missing",
@@ -76,14 +69,7 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   "ada:analyst": "Scott Eckley",
   "ada:analysisStartDate": "2024-10-29",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "OREX-800099-0",
   "ada:samplingUnit": "missing",
@@ -98,13 +84,12 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
 @prefix schema1: <http://schema.org/> .
 
 ex:detail-Eckley2024 a ada:XCTVolume ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Eckley2024 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-10-29" ;
     ada:analyst "Scott Eckley" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "OREX-800099-0" ;
     ada:samplingUnit "missing" ;
@@ -138,14 +123,7 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "1.592 × 0.756 × 0.985 mm",
   "ada:sampleName": "A0180 (A0180-A and A0180-B)",
   "ada:samplingUnit": "missing",
@@ -197,14 +175,7 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "1.592 \u00d7 0.756 \u00d7 0.985 mm",
   "ada:sampleName": "A0180 (A0180-A and A0180-B)",
   "ada:samplingUnit": "missing",
@@ -235,13 +206,12 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
 
 ex:detail-Genge2025 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Genge2025 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "1.592 × 0.756 × 0.985 mm" ;
     ada:sampleName "A0180 (A0180-A and A0180-B)" ;
     ada:samplingUnit "missing" ;
@@ -280,14 +250,7 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73002",
   "ada:samplingUnit": "missing",
@@ -326,14 +289,7 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73002",
   "ada:samplingUnit": "missing",
@@ -351,13 +307,12 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Neuman2025 a ada:XCTVolume ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Neuman2025 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:numberOfSubVolumes 6 ;
     ada:sampleDimensions "~35 cm length core" ;
     ada:sampleName "Apollo 17 core 73002" ;
@@ -393,14 +348,7 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73001",
   "ada:samplingUnit": "missing",
@@ -438,14 +386,7 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73001",
   "ada:samplingUnit": "missing",
@@ -462,13 +403,12 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Neuman2025-2 a ada:XCTVolume ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Neuman2025-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:numberOfSubVolumes 9 ;
     ada:sampleDimensions "~35 cm length core" ;
     ada:sampleName "Apollo 17 core 73001" ;
@@ -503,14 +443,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "73001 CSVC",
   "ada:samplingUnit": "missing",
@@ -562,14 +495,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "73001 CSVC",
   "ada:samplingUnit": "missing",
@@ -600,13 +526,12 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
 
 ex:detail-Shearer2024 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Shearer2024 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "73001 CSVC" ;
     ada:samplingUnit "missing" ;
@@ -645,14 +570,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Multiple particles from 73001 and 73002",
   "ada:samplingUnit": "missing",
@@ -704,14 +622,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Multiple particles from 73001 and 73002",
   "ada:samplingUnit": "missing",
@@ -742,13 +653,12 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
 
 ex:detail-Shearer2024-2 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Shearer2024-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "Multiple particles from 73001 and 73002" ;
     ada:samplingUnit "missing" ;
@@ -787,14 +697,7 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1.1 × 1.2 × 0.8 cm",
   "ada:sampleName": "NWA 5790",
   "ada:samplingUnit": "missing",
@@ -846,14 +749,7 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1.1 \u00d7 1.2 \u00d7 0.8 cm",
   "ada:sampleName": "NWA 5790",
   "ada:samplingUnit": "missing",
@@ -884,13 +780,12 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
 
 ex:detail-Tomkinson2015 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Tomkinson2015 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "~1.1 × 1.2 × 0.8 cm" ;
     ada:sampleName "NWA 5790" ;
     ada:samplingUnit "missing" ;
@@ -929,14 +824,7 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
   "ada:analyst": "Scott A. Eckley",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Murchison B (USNM 5453,1)",
   "ada:samplingUnit": "missing",
@@ -988,14 +876,7 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
   "ada:analyst": "Scott A. Eckley",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Murchison B (USNM 5453,1)",
   "ada:samplingUnit": "missing",
@@ -1026,13 +907,12 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
 
 ex:detail-Glavin2023 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Glavin2023 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Scott A. Eckley" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "Murchison B (USNM 5453,1)" ;
     ada:samplingUnit "missing" ;
@@ -1071,14 +951,7 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~4 mm fragments",
   "ada:sampleName": "NWA 8277; NWA 6963",
   "ada:samplingUnit": "missing",
@@ -1130,14 +1003,7 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~4 mm fragments",
   "ada:sampleName": "NWA 8277; NWA 6963",
   "ada:samplingUnit": "missing",
@@ -1168,13 +1034,12 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
 
 ex:detail-Dias2019 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Dias2019 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "~4 mm fragments" ;
     ada:sampleName "NWA 8277; NWA 6963" ;
     ada:samplingUnit "missing" ;
@@ -1213,14 +1078,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1 mm olivine",
   "ada:sampleName": "Sample A (olivine)",
   "ada:samplingUnit": "missing",
@@ -1272,14 +1130,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1 mm olivine",
   "ada:sampleName": "Sample A (olivine)",
   "ada:samplingUnit": "missing",
@@ -1310,13 +1161,12 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
 
 ex:detail-Richard2019 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Richard2019 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "~1 mm olivine" ;
     ada:sampleName "Sample A (olivine)" ;
     ada:samplingUnit "missing" ;
@@ -1355,14 +1205,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 × 5 × 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
   "ada:samplingUnit": "missing",
@@ -1414,14 +1257,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 \u00d7 5 \u00d7 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
   "ada:samplingUnit": "missing",
@@ -1452,13 +1288,12 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
 
 ex:detail-Richard2019-2 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Richard2019-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "3 × 5 × 2 cm" ;
     ada:sampleName "Sample B (synthetic quartz)" ;
     ada:samplingUnit "missing" ;
@@ -1497,14 +1332,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 × 5 × 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
   "ada:samplingUnit": "missing",
@@ -1556,14 +1384,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 \u00d7 5 \u00d7 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
   "ada:samplingUnit": "missing",
@@ -1594,13 +1415,12 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
 
 ex:detail-Richard2019-3 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Richard2019-3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "3 × 5 × 2 cm" ;
     ada:sampleName "Sample B (synthetic quartz)" ;
     ada:samplingUnit "missing" ;
@@ -1639,14 +1459,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "Varies: 0.3×0.4 to 11×11×7 mm",
   "ada:sampleName": "Samples C–I (various)",
   "ada:samplingUnit": "missing",
@@ -1698,14 +1511,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "Varies: 0.3\u00d70.4 to 11\u00d711\u00d77 mm",
   "ada:sampleName": "Samples C\u2013I (various)",
   "ada:samplingUnit": "missing",
@@ -1736,13 +1542,12 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
 
 ex:detail-Richard2019-4 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Richard2019-4 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "Varies: 0.3×0.4 to 11×11×7 mm" ;
     ada:sampleName "Samples C–I (various)" ;
     ada:samplingUnit "missing" ;
@@ -1781,14 +1586,7 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "8 mm diameter core",
   "ada:sampleName": "Watson 012",
   "ada:samplingUnit": "missing",
@@ -1840,14 +1638,7 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "8 mm diameter core",
   "ada:sampleName": "Watson 012",
   "ada:samplingUnit": "missing",
@@ -1878,13 +1669,12 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
 
 ex:detail-Tait2014 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Tait2014 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "8 mm diameter core" ;
     ada:sampleName "Watson 012" ;
     ada:samplingUnit "missing" ;
@@ -1923,14 +1713,7 @@ detail instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Si
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "Analysis zone ~3 × 0.7 × 4.1 cm",
   "ada:sampleName": "NWA 801",
   "ada:samplingUnit": "missing",
@@ -1982,14 +1765,7 @@ detail instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Si
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "Analysis zone ~3 \u00d7 0.7 \u00d7 4.1 cm",
   "ada:sampleName": "NWA 801",
   "ada:samplingUnit": "missing",
@@ -2020,13 +1796,12 @@ detail instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Si
 
 ex:detail-Charles2018 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Charles2018 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "Analysis zone ~3 × 0.7 × 4.1 cm" ;
     ada:sampleName "NWA 801" ;
     ada:samplingUnit "missing" ;
@@ -2065,14 +1840,7 @@ detail instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Sing
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "EET 87503,73; GRA 06100,84",
   "ada:samplingUnit": "missing",
@@ -2124,14 +1892,7 @@ detail instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Sing
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "EET 87503,73; GRA 06100,84",
   "ada:samplingUnit": "missing",
@@ -2162,13 +1923,12 @@ detail instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Sing
 
 ex:detail-Treiman2022 a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:labxctTAPP-Treiman2022 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:XCTVolume" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "EET 87503,73; GRA 06100,84" ;
     ada:samplingUnit "missing" ;

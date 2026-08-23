@@ -32,14 +32,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -78,14 +71,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -103,13 +89,12 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Garvie2008 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Garvie2008 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -145,14 +130,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -191,14 +169,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -216,13 +187,12 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Garvie2008-2 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Garvie2008-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -258,14 +228,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -304,14 +267,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -329,13 +285,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Genge2025 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Genge2025 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -371,14 +326,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -417,14 +365,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -442,13 +383,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Genge2025-2 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Genge2025-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -484,14 +424,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -530,14 +463,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -555,13 +481,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Genge2025-3 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Genge2025-3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -597,14 +522,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -643,14 +561,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -668,13 +579,12 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Gucsik2013 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Gucsik2013 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -710,14 +620,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -756,14 +659,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -781,13 +677,12 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Gucsik2013-2 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Gucsik2013-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -823,14 +718,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -869,14 +757,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -894,13 +775,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Izawa2010 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Izawa2010 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -936,14 +816,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -982,14 +855,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1007,13 +873,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Izawa2010-2 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Izawa2010-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -1049,14 +914,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1095,14 +953,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1120,13 +971,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Izawa2010-3 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Izawa2010-3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -1162,14 +1012,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1208,14 +1051,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1233,13 +1069,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Izawa2010-4 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Izawa2010-4 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -1275,14 +1110,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1321,14 +1149,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1346,13 +1167,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Izawa2010-5 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Izawa2010-5 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -1388,14 +1208,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1434,14 +1247,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1459,13 +1265,12 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Liu2017 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Liu2017 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -1501,14 +1306,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1547,14 +1345,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1572,13 +1363,12 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Liu2017-2 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Liu2017-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -1614,14 +1404,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1660,14 +1443,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1685,13 +1461,12 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Liu2017-3 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Liu2017-3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -1727,14 +1502,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1773,14 +1541,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1798,13 +1559,12 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Ma2017 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Ma2017 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -1840,14 +1600,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1886,14 +1639,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1911,13 +1657,12 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Ma2017-2 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Ma2017-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -1953,14 +1698,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -1999,14 +1737,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2024,13 +1755,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Pascucci2026 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Pascucci2026 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -2066,14 +1796,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2112,14 +1835,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2137,13 +1853,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Pascucci2026-2 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Pascucci2026-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -2179,14 +1894,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2225,14 +1933,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2250,13 +1951,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Pascucci2026-3 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Pascucci2026-3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -2292,14 +1992,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2338,14 +2031,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2363,13 +2049,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Pascucci2026-4 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Pascucci2026-4 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -2405,14 +2090,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "SC; HBC",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2451,14 +2129,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "SC; HBC",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2476,13 +2147,12 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zhou2017 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Zhou2017 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -2518,14 +2188,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2564,14 +2227,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2589,13 +2245,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Zega2025 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -2631,14 +2286,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2677,14 +2325,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2702,13 +2343,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-2 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Zega2025-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -2744,14 +2384,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2790,14 +2423,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2815,13 +2441,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-3 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Zega2025-3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -2857,14 +2482,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2903,14 +2521,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -2928,13 +2539,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-4 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Zega2025-4 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -2970,14 +2580,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3016,14 +2619,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3041,13 +2637,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-5 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Zega2025-5 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -3083,14 +2678,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3129,14 +2717,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3154,13 +2735,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-6 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Zega2025-6 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -3196,14 +2776,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3242,14 +2815,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3267,13 +2833,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-7 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Zega2025-7 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -3309,14 +2874,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3355,14 +2913,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3380,13 +2931,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-8 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Zega2025-8 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -3422,14 +2972,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3468,14 +3011,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3493,13 +3029,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-9 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Zega2025-9 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -3535,14 +3070,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-501018-100",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3581,14 +3109,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-501018-100",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3606,13 +3127,12 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Barnes2025 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Barnes2025 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -3648,14 +3168,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3694,14 +3207,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3719,13 +3225,12 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Barnes2025-2 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Barnes2025-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -3761,14 +3266,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3807,14 +3305,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3832,13 +3323,12 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Barnes2025-3 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Barnes2025-3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;
@@ -3874,14 +3364,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3920,14 +3403,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
@@ -3945,13 +3421,12 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Barnes2025-4 a ada:SEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:semImagingTAPP-Barnes2025-4 ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
     ada:indexingMethod "missing" ;
     ada:indexingRate -9999 ;

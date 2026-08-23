@@ -442,6 +442,10 @@ and technique component types on the archive distribution. Mock data for validat
     {
       "dqv:isMeasurementOf": "Peak Flatness",
       "dqv:value": "example peakFlatness"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ]
 }

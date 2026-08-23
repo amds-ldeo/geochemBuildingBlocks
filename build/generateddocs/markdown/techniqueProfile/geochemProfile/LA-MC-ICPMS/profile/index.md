@@ -308,25 +308,6 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatistic",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
-      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatistic"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
       "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod",
       "@type": [
         "schema:PropertyValue",
@@ -376,6 +357,23 @@ and technique component types on the archive distribution. Mock data for validat
         {
           "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
         }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
+      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -552,10 +550,6 @@ and technique component types on the archive distribution. Mock data for validat
     }
   },
   "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Dispersion Statistic",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
       "dqv:value": "example goodnessOfFitOrDispersionStatistic"

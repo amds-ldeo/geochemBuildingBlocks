@@ -14,16 +14,16 @@ ex:labxctTAPP-Treiman2022 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "None stated" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
@@ -33,8 +33,7 @@ ex:labxctTAPP-Treiman2022 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiSelectionCriteriaDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST (publication column of Lab-XCT_TAPP_v21.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT>,
-        <https://example.org/instrument/part/SEM> ;
+    schema1:instrument <https://example.org/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NIST Center for Neutron Research (NCNR)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -113,12 +112,6 @@ ex:labxctTAPP-Treiman2022 a cdi:Activity,
     ada:acceleratingVoltageDefault "90 keV max (paper reports max Bremsstrahlung photon energy; numerically equivalent to 90 kV tube voltage)" ;
     ada:voxelSizeDefault "15 µm — NCT value. The paper gives this as the reconstructed voxel dimension of the NCT (neutron) tomograms; no XCT voxel size is stated anywhere in the paper" ;
     ada:xRayPreFilterDefault "2 mm aluminum" .
-
-<https://example.org/instrument/part/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:name "SEM" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;

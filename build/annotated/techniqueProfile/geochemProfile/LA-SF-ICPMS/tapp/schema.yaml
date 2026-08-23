@@ -5,113 +5,12 @@ description: Laser-ablation sector-field (high-resolution) ICP-MS extension of t
   via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
-    schema:name:
-      type: string
-      readOnly: true
-    schema:measurementTechnique:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:termCode:
-            description: Top-level analytical technique identifier.
-            type: string
-            enum:
-            - LA-ICP-MS
-            - LA-ICP-OES
-            - LA-MC-ICP-MS
-            - LA-ICP-ToF-MS
-            - LA-ICP-MS/MS
-            - missing
-            readOnly: true
-    schema:creator:
-      type: object
-      properties:
-        schema:name:
-          type: string
-          readOnly: true
-    schema:location:
-      type: object
-      properties:
-        schema:name:
-          description: Name of the laboratory or institution hosting the instrument.
-          type: string
-        schema:identifier:
-          description: Persistent identifier for the laboratory (e.g., ROR ID).
-          type: string
-    schema:datePublished:
-      type: string
-      readOnly: true
-    schema:funding:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:name:
-            type: string
-            readOnly: true
-    schema:relatedLink:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: techniquePublication
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    type: string
-                    readOnly: true
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: coupledTechnique
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: "Other analytical techniques applied to the same
-                      sample(s) whose results are intended to be interpreted together
-                      with data from this procedure. Document coupling with any technique
-                      whose results are functionally linked to this dataset \u2014
-                      providing calibration inputs, complementary spatial context,
-                      or required companion measurements. Use the same controlled
-                      vocabulary as the Technique field. Enter \"None\" if no coupling
-                      is intended."
-                    anyOf:
-                    - type: string
-                      enum:
-                      - EPMA
-                      - SIMS
-                      - ICP-MS (solution)
-                      - Noble Gas MS
-                      - None
-                      - N/A
-                      - missing
-                    - type: string
-                  schema:description:
-                    description: "Description of how this procedure is coupled with
-                      the technique(s) listed above. Include: (1) the functional relationship
-                      \u2014 what data or context flows between techniques, or how
-                      results are combined (e.g. which output from the coupled technique
-                      serves as input to data reduction for this technique); and (2)
-                      the analytical sequence \u2014 which technique is performed
-                      first and why (e.g. non-destructive before destructive). Required
-                      when Coupled Technique(s) is not \"None\"."
-                    type: string
     schema:object:
       type: array
       items:
@@ -144,7 +43,9 @@ allOf:
                           items:
                             description: General description of the material type(s)
                               this procedure is designed to analyse. Used for discoverability
-                              and procedure matching.
+                              and procedure matching, and because the material type
+                              constrains sample preparation, calibration and matrix-matching
+                              requirements.
                             anyOf:
                             - type: string
                               enum:
@@ -214,27 +115,6 @@ allOf:
                 const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
           required:
           - '@type'
-    ada:samplingUnit:
-      description: "The physical subdivision of the sample to which one row of reported
-        values corresponds \u2014 the unit that is analysed and reported, as distinct
-        from the sample as a whole. State the unit type at procedure level and the
-        units actually analysed at analysis level. Where units nest (e.g. confined
-        tracks within grains), state both levels."
-      anyOf:
-      - type: string
-        enum:
-        - Whole sample
-        - Aliquot
-        - Grain
-        - Spot
-        - Analysis point
-        - Phase
-        - Sub-volume
-        - Region of interest
-        - N/A
-        - None
-        - missing
-      - type: string
     schema:actionProcess:
       type: object
       properties:
@@ -285,39 +165,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - title: Pre-Ablation Surface Treatment
-                        description: Procedure applied immediately before each analysis
-                          to remove surface contamination or condition the sample
-                          surface. Distinct from general sample preparation. For spot
-                          analysis, pre-ablation pulses are discarded before signal
-                          acquisition begins. For mapping, this step is typically
-                          omitted as the large area ablated averages out surface effects.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laSficpmsTAPP/preAblationSurfaceTreatmentDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: preAblationSurfaceTreatmentDefault
-                          schema:name:
-                            const: Pre-Ablation Surface Treatment
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_preAblationSurfaceTreatment
                     allOf:
                     - contains:
                         title: Fusion Flux and Dilution Ratio
@@ -353,39 +201,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Pre-Ablation Surface Treatment
-                        description: Procedure applied immediately before each analysis
-                          to remove surface contamination or condition the sample
-                          surface. Distinct from general sample preparation. For spot
-                          analysis, pre-ablation pulses are discarded before signal
-                          acquisition begins. For mapping, this step is typically
-                          omitted as the large area ablated averages out surface effects.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laSficpmsTAPP/preAblationSurfaceTreatmentDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: preAblationSurfaceTreatmentDefault
-                          schema:name:
-                            const: Pre-Ablation Surface Treatment
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_preAblationSurfaceTreatment
                       minContains: 0
                       maxContains: 1
                   schema:description:
@@ -593,73 +409,8 @@ allOf:
                         - schema:name
                         - schema:value
                         readOnly: true
-                      - title: Calibration Factor and Determination Method
-                        description: 'An externally-calibrated factor that converts
-                          the measured quantity into the reported quantity, how it
-                          was determined, and its uncertainty. Applies where the conversion
-                          depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone.
-                          Distinct from the fields that name the calibration material
-                          and that state which approach applies to which analyte,
-                          where the technique has them: this field records the resulting
-                          factor itself.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laSficpmsTAPP/calibrationFactorAndDeterminationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: calibrationFactorAndDeterminationMethodDefault
-                          schema:name:
-                            const: Calibration Factor and Determination Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses
-                          contribute to a reported aggregate result, together with
-                          the outcome of applying them: how many analyses were acquired,
-                          how many were included, and on what grounds any were excluded.
-                          Distinct from within-analysis outlier filtering, which removes
-                          anomalous points inside a single analysis: this field decides
-                          which whole analyses enter the reported value. Criteria
-                          and outcome are combined in one field because neither is
-                          interpretable without the other, following the precision/accuracy
-                          precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laSficpmsTAPP/analysisInclusionAndRejectionCriteria
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laSficpmsTAPP/analysisInclusionAndRejectionCriteria
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                     allOf:
                     - contains:
                         title: Signal Smoothing
@@ -796,76 +547,11 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Calibration Factor and Determination Method
-                        description: 'An externally-calibrated factor that converts
-                          the measured quantity into the reported quantity, how it
-                          was determined, and its uncertainty. Applies where the conversion
-                          depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone.
-                          Distinct from the fields that name the calibration material
-                          and that state which approach applies to which analyte,
-                          where the technique has them: this field records the resulting
-                          factor itself.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laSficpmsTAPP/calibrationFactorAndDeterminationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: calibrationFactorAndDeterminationMethodDefault
-                          schema:name:
-                            const: Calibration Factor and Determination Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses
-                          contribute to a reported aggregate result, together with
-                          the outcome of applying them: how many analyses were acquired,
-                          how many were included, and on what grounds any were excluded.
-                          Distinct from within-analysis outlier filtering, which removes
-                          anomalous points inside a single analysis: this field decides
-                          which whole analyses enter the reported value. Criteria
-                          and outcome are combined in one field because neither is
-                          interpretable without the other, following the precision/accuracy
-                          precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laSficpmsTAPP/analysisInclusionAndRejectionCriteria
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laSficpmsTAPP/analysisInclusionAndRejectionCriteria
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -887,110 +573,43 @@ allOf:
                   const: Data reduction
               required:
               - schema:name
-    ada:targetSelectionCriteriaDefault:
-      description: "The rules governing which part of the sample is analysed, and
-        why. Covers the criteria applied when choosing grains, aliquots, spots, or
-        a region of interest \u2014 size, morphology, clarity, freedom from inclusions
-        or alteration, phase identity, or spatial position. Distinct from Target Material,
-        which states the material type the procedure is designed for: this field states
-        how, within such a sample, the analysed portion is picked out."
-      type: string
     schema:additionalProperty:
       type: array
       items:
         anyOf:
-        - title: Pre-Analysis Imaging and Screening
-          description: Imaging or other characterisation performed before the measurement
-            in order to select or locate the analysed target, including the technique,
-            instrument and settings used, and how individual analyses are linked back
-            to the images. Distinct from any imaging the procedure performs as its
-            own measurement. Where the imaging is performed on a separate instrument,
-            it should also be recorded in the Group 1 coupling fields.
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
+        - title: Make-up Gas and Flow Rate
+          description: "Supplementary gas added to the sample-carrying stream between
+            the sample introduction system and the plasma, with its identity and the
+            procedure-registered target flow rate. Argon make-up is standard and maintains
+            total gas delivery where the carrier flow alone is insufficient \u2014
+            downstream of an ablation cell, or of a desolvation system that has removed
+            solvent load. Small nitrogen or hydrogen additions are also made here
+            to enhance sensitivity for some elements; record them with their own flow,
+            whose unit commonly differs from the make-up flow. Record 'None' explicitly
+            where no supplementary gas is added, to distinguish it from not reported."
           type: object
           properties:
             '@id':
-              const: ada:parameter/laSficpmsTAPP/preAnalysisImagingAndScreeningDefault
+              const: ada:parameter/laSficpmsTAPP/makeUpGasAndFlowRateDefault
             '@type':
               const:
               - schema:PropertyValueSpecification
             schema:valueName:
-              const: preAnalysisImagingAndScreeningDefault
+              const: makeUpGasAndFlowRateDefault
             schema:name:
-              const: Pre-Analysis Imaging and Screening
+              const: Make-up Gas and Flow Rate
             ada:dataType:
-              const: string
+              const: number
             ada:fieldScope:
               const: session
             schema:readonlyValue:
               const: false
             ada:tier:
               const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Transect Rate, Mapping Rate or Step Size
-          description: "For continuous line scan (transect) and raster mapping: the
-            stage translation speed in \xB5m s\u207B\xB9. This is the procedure-level
-            parameter that, together with spot size and repetition rate, determines
-            spatial resolution along the scan direction. For mapping, the mapping
-            rate (mm\xB2 h\u207B\xB9) may be reported as an alternative when scan
-            speed is session-variable. For stepped line profiles: the distance between
-            successive spot positions in \xB5m."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laSficpmsTAPP/transectRateMappingRateOrStepSizeDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: transectRateMappingRateOrStepSizeDefault
-            schema:name:
-              const: Transect Rate, Mapping Rate or Step Size
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Plasma / Make-up Gas Addition
-          description: "Additional gas(es) mixed into the carrier stream downstream
-            of the ablation cell, with the procedure-registered target flow rate.
-            Ar make-up gas is standard. Small N\u2082 additions can enhance sensitivity
-            for some elements. If N\u2082 is not added, state \"None\" explicitly
-            to distinguish from not reported."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laSficpmsTAPP/plasmaMakeUpGasAdditionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: plasmaMakeUpGasAdditionDefault
-            schema:name:
-              const: Plasma / Make-up Gas Addition
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
+            schema:unitText:
+              const: L/min
           required:
           - '@id'
           - '@type'
@@ -1170,104 +789,45 @@ allOf:
           readOnly: true
       allOf:
       - contains:
-          title: Pre-Analysis Imaging and Screening
-          description: Imaging or other characterisation performed before the measurement
-            in order to select or locate the analysed target, including the technique,
-            instrument and settings used, and how individual analyses are linked back
-            to the images. Distinct from any imaging the procedure performs as its
-            own measurement. Where the imaging is performed on a separate instrument,
-            it should also be recorded in the Group 1 coupling fields.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laSficpmsTAPP/preAnalysisImagingAndScreeningDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: preAnalysisImagingAndScreeningDefault
-            schema:name:
-              const: Pre-Analysis Imaging and Screening
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
         minContains: 0
         maxContains: 1
       - contains:
-          title: Transect Rate, Mapping Rate or Step Size
-          description: "For continuous line scan (transect) and raster mapping: the
-            stage translation speed in \xB5m s\u207B\xB9. This is the procedure-level
-            parameter that, together with spot size and repetition rate, determines
-            spatial resolution along the scan direction. For mapping, the mapping
-            rate (mm\xB2 h\u207B\xB9) may be reported as an alternative when scan
-            speed is session-variable. For stepped line profiles: the distance between
-            successive spot positions in \xB5m."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laSficpmsTAPP/transectRateMappingRateOrStepSizeDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: transectRateMappingRateOrStepSizeDefault
-            schema:name:
-              const: Transect Rate, Mapping Rate or Step Size
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         minContains: 0
         maxContains: 1
       - contains:
-          title: Plasma / Make-up Gas Addition
-          description: "Additional gas(es) mixed into the carrier stream downstream
-            of the ablation cell, with the procedure-registered target flow rate.
-            Ar make-up gas is standard. Small N\u2082 additions can enhance sensitivity
-            for some elements. If N\u2082 is not added, state \"None\" explicitly
-            to distinguish from not reported."
+          title: Make-up Gas and Flow Rate
+          description: "Supplementary gas added to the sample-carrying stream between
+            the sample introduction system and the plasma, with its identity and the
+            procedure-registered target flow rate. Argon make-up is standard and maintains
+            total gas delivery where the carrier flow alone is insufficient \u2014
+            downstream of an ablation cell, or of a desolvation system that has removed
+            solvent load. Small nitrogen or hydrogen additions are also made here
+            to enhance sensitivity for some elements; record them with their own flow,
+            whose unit commonly differs from the make-up flow. Record 'None' explicitly
+            where no supplementary gas is added, to distinguish it from not reported."
           type: object
           properties:
             '@id':
-              const: ada:parameter/laSficpmsTAPP/plasmaMakeUpGasAdditionDefault
+              const: ada:parameter/laSficpmsTAPP/makeUpGasAndFlowRateDefault
             '@type':
               const:
               - schema:PropertyValueSpecification
             schema:valueName:
-              const: plasmaMakeUpGasAdditionDefault
+              const: makeUpGasAndFlowRateDefault
             schema:name:
-              const: Plasma / Make-up Gas Addition
+              const: Make-up Gas and Flow Rate
             ada:dataType:
-              const: string
+              const: number
             ada:fieldScope:
               const: session
             schema:readonlyValue:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              const: L/min
           required:
           - '@id'
           - '@type'
@@ -1474,267 +1034,6 @@ allOf:
             properties:
               schema:additionalType:
                 contains:
-                  const: Laser Ablation System
-                schema:inDefinedTermSet: ada:vocab/instrumentType
-            required:
-            - schema:additionalType
-          then:
-            properties:
-              schema:model:
-                type: object
-                properties:
-                  schema:name:
-                    description: Manufacturer and model of the laser ablation system.
-                    type: string
-                    readOnly: true
-              ada:laserType:
-                description: Wavelength and type of the laser used for ablation in
-                  nanometres.
-                anyOf:
-                - type: string
-                  readOnly: true
-                - type: array
-                  items:
-                    type: string
-                    readOnly: true
-              schema:name:
-                description: Type, design origin, and internal volume of the ablation
-                  cell. Cell volume is a primary determinant of aerosol washout time
-                  and therefore the achievable time resolution of the data.
-                anyOf:
-                - type: string
-                  readOnly: true
-                - type: array
-                  items:
-                    type: string
-                    readOnly: true
-              ada:laserSpotGeometryDefault:
-                description: "Shape and dimensions of the laser ablation spot in micrometres
-                  registered by the procedure. For circular spots, report diameter;
-                  for square or rectangular spots, report width \xD7 length. The procedure
-                  registers the typical geometry; analysts may adjust within procedure-allowed
-                  range."
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-              schema:additionalProperty:
-                type: array
-                items:
-                  anyOf:
-                  - title: Laser Energy
-                    description: "Laser pulse energy in millijoules as set at the
-                      laser output or measured at the sample surface. Less commonly
-                      reported than fluence because it does not account for spot area.
-                      Report only when the system displays energy directly. Laser
-                      fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-                      in Default Laser Fluence."
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laSficpmsTAPP/laserEnergyDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: laserEnergyDefault
-                      schema:name:
-                        const: Laser Energy
-                      ada:dataType:
-                        const: number
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                      schema:unitText:
-                        const: mJ
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  - title: Laser Beam Energy Profile
-                    description: Spatial energy distribution of the laser beam at
-                      the sample surface, and whether a beam homogenizer is installed.
-                      A flat-top (top-hat) profile produces more uniform ablation
-                      craters and more reproducible crater morphology than a Gaussian
-                      beam. This is a fixed hardware property of the laser system.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laSficpmsTAPP/laserBeamEnergyProfile
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laSficpmsTAPP/laserBeamEnergyProfile
-                      schema:name:
-                        const: Laser Beam Energy Profile
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  - title: Laser Pulse Duration
-                    description: 'Duration of each individual laser pulse, including
-                      units. Pulse duration determines the ablation regime: nanosecond
-                      (ns) pulses involve significant thermal effects and elemental
-                      fractionation; femtosecond (fs) pulses are non-thermal and substantially
-                      reduce elemental fractionation and matrix effects. This is a
-                      fixed hardware property of the laser system.'
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laSficpmsTAPP/laserPulseDuration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laSficpmsTAPP/laserPulseDuration
-                      schema:name:
-                        const: Laser Pulse Duration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                allOf:
-                - contains:
-                    title: Laser Energy
-                    description: "Laser pulse energy in millijoules as set at the
-                      laser output or measured at the sample surface. Less commonly
-                      reported than fluence because it does not account for spot area.
-                      Report only when the system displays energy directly. Laser
-                      fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-                      in Default Laser Fluence."
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laSficpmsTAPP/laserEnergyDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: laserEnergyDefault
-                      schema:name:
-                        const: Laser Energy
-                      ada:dataType:
-                        const: number
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                      schema:unitText:
-                        const: mJ
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    title: Laser Beam Energy Profile
-                    description: Spatial energy distribution of the laser beam at
-                      the sample surface, and whether a beam homogenizer is installed.
-                      A flat-top (top-hat) profile produces more uniform ablation
-                      craters and more reproducible crater morphology than a Gaussian
-                      beam. This is a fixed hardware property of the laser system.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laSficpmsTAPP/laserBeamEnergyProfile
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laSficpmsTAPP/laserBeamEnergyProfile
-                      schema:name:
-                        const: Laser Beam Energy Profile
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    title: Laser Pulse Duration
-                    description: 'Duration of each individual laser pulse, including
-                      units. Pulse duration determines the ablation regime: nanosecond
-                      (ns) pulses involve significant thermal effects and elemental
-                      fractionation; femtosecond (fs) pulses are non-thermal and substantially
-                      reduce elemental fractionation and matrix effects. This is a
-                      fixed hardware property of the laser system.'
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laSficpmsTAPP/laserPulseDuration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laSficpmsTAPP/laserPulseDuration
-                      schema:name:
-                        const: Laser Pulse Duration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  minContains: 0
-                  maxContains: 1
-              ada:laserFluenceDefault:
-                description: "Laser pulse energy per unit area at the sample surface
-                  in J cm\u207B\xB2, as registered by the procedure. Fluence is the
-                  physically meaningful quantity controlling ablation rate, crater
-                  morphology, elemental fractionation, and particle size distribution.
-                  If the system reports only as % of maximum output, include that
-                  value and note the system maximum where known."
-                anyOf:
-                - type: number
-                - type: string
-              ada:laserRepetitionRateDefault:
-                description: Laser pulse repetition rate in hertz registered by the
-                  procedure. For mapping methods, repetition rate together with scan
-                  speed and spot size determines pixel size and spatial resolution.
-                  Analysts may adjust within procedure-allowed bounds.
-                anyOf:
-                - type: number
-                - type: string
-        - if:
-            properties:
-              schema:additionalType:
-                contains:
                   const: ICPMS
                 schema:inDefinedTermSet: ada:vocab/instrumentType
             required:
@@ -1745,7 +1044,11 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Manufacturer and model of the ICP-MS instrument.
+                    description: Model designation of the instrument that performs
+                      the measurement, including any generation or configuration suffix.
+                      Conventionally written with the manufacturer name included;
+                      Instrument Manufacturer records the vendor separately, as a
+                      controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
               schema:additionalProperty:
@@ -2734,310 +2037,6 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                  - if:
-                      properties:
-                        schema:additionalType:
-                          contains:
-                            const: Collision Reaction Cell
-                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                      required:
-                      - schema:additionalType
-                    then:
-                      properties:
-                        schema:name:
-                          anyOf:
-                          - type: string
-                            readOnly: true
-                          - type: array
-                            items:
-                              type: string
-                              readOnly: true
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            anyOf:
-                            - title: Collision Gas Type
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/collisionGasType
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laSficpmsTAPP/collisionGasType
-                                schema:name:
-                                  const: Collision Gas Type
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            - title: Collision Gas Flow Rate
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/collisionGasFlowRate
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: collisionGasFlowRate
-                                schema:name:
-                                  const: Collision Gas Flow Rate
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                              readOnly: true
-                            - title: Cell Exit Discrimination Voltage
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/cellExitDiscriminationVoltage
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: cellExitDiscriminationVoltage
-                                schema:name:
-                                  const: Cell Exit Discrimination Voltage
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                              readOnly: true
-                            - title: Reaction Gas Type
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/reactionGasType
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laSficpmsTAPP/reactionGasType
-                                schema:name:
-                                  const: Reaction Gas Type
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            - title: Reaction Gas Flow Rate
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/reactionGasFlowRate
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: reactionGasFlowRate
-                                schema:name:
-                                  const: Reaction Gas Flow Rate
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                              readOnly: true
-                          allOf:
-                          - contains:
-                              title: Collision Gas Type
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/collisionGasType
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laSficpmsTAPP/collisionGasType
-                                schema:name:
-                                  const: Collision Gas Type
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              title: Collision Gas Flow Rate
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/collisionGasFlowRate
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: collisionGasFlowRate
-                                schema:name:
-                                  const: Collision Gas Flow Rate
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                              readOnly: true
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              title: Cell Exit Discrimination Voltage
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/cellExitDiscriminationVoltage
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: cellExitDiscriminationVoltage
-                                schema:name:
-                                  const: Cell Exit Discrimination Voltage
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                              readOnly: true
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              title: Reaction Gas Type
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/reactionGasType
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laSficpmsTAPP/reactionGasType
-                                schema:name:
-                                  const: Reaction Gas Type
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              title: Reaction Gas Flow Rate
-                              description: ''
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/reactionGasFlowRate
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: reactionGasFlowRate
-                                schema:name:
-                                  const: Reaction Gas Flow Rate
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: R
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                              readOnly: true
-                            minContains: 0
-                            maxContains: 1
                 allOf:
                 - contains:
                     properties:
@@ -3055,15 +2054,37 @@ allOf:
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
+        - if:
+            properties:
+              schema:additionalType:
+                contains:
+                  const: Laser Ablation System
+                schema:inDefinedTermSet: ada:vocab/instrumentType
+            required:
+            - schema:additionalType
+          then:
+            properties:
+              schema:additionalProperty:
+                type: array
+                items:
+                  anyOf:
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserEnergy
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserBeamEnergyProfile
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserPulseDuration
+                allOf:
+                - contains:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserEnergy
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserBeamEnergyProfile
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserPulseDuration
+                  minContains: 0
+                  maxContains: 1
       allOf:
-      - contains:
-          properties:
-            schema:additionalType:
-              contains:
-                const: Laser Ablation System
-              schema:inDefinedTermSet: ada:vocab/instrumentType
-          required:
-          - schema:additionalType
       - contains:
           properties:
             schema:additionalType:
@@ -3072,46 +2093,14 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    bios:computationalTool:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Instrument control and data acquisition software used
-                  to collect raw signal data, including version number. Separate from
-                  data reduction software.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
-                const: dataReduction
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Software used for signal processing, background subtraction,
-                  and concentration calculation, including version number.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        required:
-        - ada:toolRole
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                const: Laser Ablation System
+              schema:inDefinedTermSet: ada:vocab/instrumentType
+          required:
+          - schema:additionalType
     ada:sampleIntroduction:
       description: "Configuration by which the ablated aerosol is delivered to the
         plasma, including tubing, any signal-homogenising device, and any co-aspirated
@@ -3121,62 +2110,6 @@ allOf:
         record gas identity and flow rather than what else enters the plasma."
       type: string
       readOnly: true
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Primary analytical mode(s) executed under this procedure. For
-          single-mode procedures, records one value (e.g., Spot). For multi-mode procedures
-          (e.g., spot analysis combined with transect scanning), list all applicable
-          modes. Serves as the procedure-level declaration of measurement type, distinct
-          from the mode flag columns which indicate per-field applicability.
-        type: string
-        enum:
-        - Spot
-        - Transect
-        - Mapping
-        - Spot; Transect
-        - missing
-        readOnly: true
-    ada:ablationSamplingMode:
-      type: array
-      items:
-        description: Sampling mode or ablation pattern used during analysis.
-        type: string
-        enum:
-        - Spot (stationary)
-        - Transect (continuous line scan)
-        - Raster area (2D elemental mapping)
-        - Stepped line profile
-        - N/A
-        - None
-        - missing
-        readOnly: true
-    ada:ablationSpotDurationDefault:
-      description: 'Total on-sample ablation (signal acquisition) time per individual
-        spot in seconds, as set in the acquisition method. This is a procedure-level
-        parameter for spot analysis: it reflects the deliberate trade-off between
-        signal accumulation (longer = lower LOD), sample consumption, and session
-        throughput. For transect analysis, the equivalent procedure-level parameter
-        is scan speed (captured in Transect Rate, Mapping Rate or Step Size). For
-        mapping analysis, total acquisition time is sample-area-dependent and therefore
-        analysis-level, not captured here.'
-      anyOf:
-      - type: number
-      - type: string
-    ada:ablationPitDepthRateDefault:
-      description: Depth of the ablation pit produced under the registered laser conditions,
-        the method used to measure it, and the resulting per-pulse ablation rate.
-        Sets the achievable depth resolution and governs downhole elemental fractionation.
-        For transect and mapping the equivalent quantity is trench depth under the
-        same conditions.
-      type: string
-    ada:rasterLineSpacingDefault:
-      description: Distance between adjacent raster lines in a 2D elemental map, measured
-        perpendicular to the scan direction, in micrometres. Together with spot size,
-        this determines whether adjacent lines are contiguous (line spacing = spot
-        size), overlapping (line spacing < spot size), or have gaps (line spacing
-        > spot size). Applies to raster mapping only.
-      type: string
     ada:carrierGasFlowRateDefault:
       description: "Gas used to transport ablated aerosol from the ablation cell to
         the ICP-MS torch, with the procedure-registered target flow rate(s). Helium
@@ -3202,34 +2135,63 @@ allOf:
     ada:analyteTemplate:
       type: object
       properties:
-        ada:defaultAnalytes:
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
         ada:analyteColumns:
           type: array
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - title: Monitored Isotopes
-              description: Specific isotope(s) monitored in this procedure, grouped
-                by the analyte element they serve where they serve one. Includes interference-monitor
+            - title: Monitored Masses
+              description: Specific masses monitored in this procedure, grouped by
+                the analyte element they serve where they serve one. Covers atomic
+                isotopes and, where a reaction cell shifts an analyte onto a different
+                mass, the product mass actually measured. Includes interference-monitor
                 and internal-standard masses, which serve no analyte and so have no
                 parent element. The analyte list is given by the Analyte field and
                 is never inferred from the element symbols appearing here.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laSficpmsTAPP/monitoredIsotopes
+                  const: ada:analyteColumn/laSficpmsTAPP/monitoredMasses
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: monitoredIsotopes
+                  const: monitoredMasses
                 schema:name:
-                  const: Monitored Isotopes
+                  const: Monitored Masses
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Mass Resolution Assignment
+              description: Mass resolution mode assigned to each acquired mass. The
+                selected resolution determines which polyatomic interferences are
+                physically resolved by the magnetic sector. One analyte may be acquired
+                at more than one resolution, so the assignment is per acquired mass
+                rather than per element. The overall mode(s) used in the procedure
+                are recorded in Mass Resolution Setting (Group 3).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laSficpmsTAPP/massResolutionAssignment
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: massResolutionAssignment
+                schema:name:
+                  const: Mass Resolution Assignment
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -3264,13 +2226,15 @@ allOf:
                 schema:name:
                   const: Dwell Time per Mass
                 ada:dataType:
-                  const: string
+                  const: number
                 schema:readonlyValue:
                   const: false
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -3497,13 +2461,14 @@ allOf:
               - schema:name
               - ada:dataType
             - title: Within-Session Analytical Precision and Assessment Method
-              description: "Reproducibility of repeated measurements within a single
-                analytical session. Report both the assessment method and the precision
-                values. Assessment method must specify: (1) the reference material
-                used, (2) number of replicates n, and (3) the statistic reported (1\u03C3
-                RSD, 2\u03C3 RSD, etc.). For mapping: assess from repeated analyses
-                of a reference material area at session start and end, or from replicate
-                analyses of a homogeneous reference phase within the map."
+              description: Precision of repeated measurements within a single analytical
+                session and the method used to assess it. Report both the assessment
+                method and the precision values. The assessment method must specify
+                the reference material or standard measured, the number of replicates
+                n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
+                Distinct from the internal precision of a single measurement, which
+                derives from counting statistics over the cycles of that measurement
+                rather than from repeated analyses.
               type: object
               properties:
                 '@id':
@@ -3532,13 +2497,14 @@ allOf:
               - schema:defaultValue
             - title: Between-Session (Long-Term) Analytical Precision and Assessment
                 Method
-              description: 'Reproducibility of measurements across multiple analytical
-                sessions over weeks to months (long-term or intermediate precision).
-                Report both the assessment method and the precision values. Specify:
-                reference material used, number of sessions n, time span covered,
-                and statistic reported. Long-term precision is typically assessed
-                from a compiled record of secondary reference material values across
-                all sessions.'
+              description: "Precision of measurements across multiple analytical sessions
+                over weeks to months \u2014 long-term or intermediate precision \u2014
+                and the method used to assess it. Report both the assessment method
+                and the precision values, specifying the reference material, the number
+                of measurements and sessions, the time span covered, and the statistic
+                reported. Long-term precision is normally poorer than within-session
+                precision and is the figure a data user should carry when comparing
+                results from different sessions."
               type: object
               properties:
                 '@id':
@@ -3598,50 +2564,63 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Mass Resolution per Analyte
-              description: ''
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: massResolutionPerAnalyte
-                schema:name:
-                  const: Mass Resolution per Analyte
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: O
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
           allOf:
           - contains:
-              title: Monitored Isotopes
-              description: Specific isotope(s) monitored in this procedure, grouped
-                by the analyte element they serve where they serve one. Includes interference-monitor
+              title: Monitored Masses
+              description: Specific masses monitored in this procedure, grouped by
+                the analyte element they serve where they serve one. Covers atomic
+                isotopes and, where a reaction cell shifts an analyte onto a different
+                mass, the product mass actually measured. Includes interference-monitor
                 and internal-standard masses, which serve no analyte and so have no
                 parent element. The analyte list is given by the Analyte field and
                 is never inferred from the element symbols appearing here.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laSficpmsTAPP/monitoredIsotopes
+                  const: ada:analyteColumn/laSficpmsTAPP/monitoredMasses
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: monitoredIsotopes
+                  const: monitoredMasses
                 schema:name:
-                  const: Monitored Isotopes
+                  const: Monitored Masses
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Mass Resolution Assignment
+              description: Mass resolution mode assigned to each acquired mass. The
+                selected resolution determines which polyatomic interferences are
+                physically resolved by the magnetic sector. One analyte may be acquired
+                at more than one resolution, so the assignment is per acquired mass
+                rather than per element. The overall mode(s) used in the procedure
+                are recorded in Mass Resolution Setting (Group 3).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laSficpmsTAPP/massResolutionAssignment
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: massResolutionAssignment
+                schema:name:
+                  const: Mass Resolution Assignment
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -3679,13 +2658,15 @@ allOf:
                 schema:name:
                   const: Dwell Time per Mass
                 ada:dataType:
-                  const: string
+                  const: number
                 schema:readonlyValue:
                   const: false
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -3936,13 +2917,14 @@ allOf:
             maxContains: 1
           - contains:
               title: Within-Session Analytical Precision and Assessment Method
-              description: "Reproducibility of repeated measurements within a single
-                analytical session. Report both the assessment method and the precision
-                values. Assessment method must specify: (1) the reference material
-                used, (2) number of replicates n, and (3) the statistic reported (1\u03C3
-                RSD, 2\u03C3 RSD, etc.). For mapping: assess from repeated analyses
-                of a reference material area at session start and end, or from replicate
-                analyses of a homogeneous reference phase within the map."
+              description: Precision of repeated measurements within a single analytical
+                session and the method used to assess it. Report both the assessment
+                method and the precision values. The assessment method must specify
+                the reference material or standard measured, the number of replicates
+                n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
+                Distinct from the internal precision of a single measurement, which
+                derives from counting statistics over the cycles of that measurement
+                rather than from repeated analyses.
               type: object
               properties:
                 '@id':
@@ -3974,13 +2956,14 @@ allOf:
           - contains:
               title: Between-Session (Long-Term) Analytical Precision and Assessment
                 Method
-              description: 'Reproducibility of measurements across multiple analytical
-                sessions over weeks to months (long-term or intermediate precision).
-                Report both the assessment method and the precision values. Specify:
-                reference material used, number of sessions n, time span covered,
-                and statistic reported. Long-term precision is typically assessed
-                from a compiled record of secondary reference material values across
-                all sessions.'
+              description: "Precision of measurements across multiple analytical sessions
+                over weeks to months \u2014 long-term or intermediate precision \u2014
+                and the method used to assess it. Report both the assessment method
+                and the precision values, specifying the reference material, the number
+                of measurements and sessions, the time span covered, and the statistic
+                reported. Long-term precision is normally poorer than within-session
+                precision and is the figure a data user should carry when comparing
+                results from different sessions."
               type: object
               properties:
                 '@id':
@@ -4045,46 +3028,6 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
-          - contains:
-              title: Mass Resolution per Analyte
-              description: ''
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: massResolutionPerAnalyte
-                schema:name:
-                  const: Mass Resolution per Analyte
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: O
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-    ada:reportedVariablesAndUnits:
-      description: "The final variable(s) this procedure reports and their units \u2014
-        distinct from the fields recording what was *acquired* rather than what is
-        reported. A procedure may acquire many channels and report a small number
-        of derived quantities; without this field a data consumer cannot tell which.
-        Record every reported variable, including intermediate quantities reported
-        alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date).
-        Where a reported variable is a nominal property with no magnitude (e.g. a
-        mineral identification), record the variable and give the unit as 'N/A \u2014
-        nominal property'."
-      type: string
-      readOnly: true
     ada:massResolutionAssignment:
       description: Mass resolution mode assigned to each acquired mass. The selected
         resolution determines which polyatomic interferences are physically resolved
@@ -4237,30 +3180,11 @@ allOf:
           material name, source, and citation for accepted values used for comparison.
           Editable because selection of secondary RMs may vary across sessions.
         type: string
-    schema:description:
-      description: "Any procedure- or analysis-specific information not captured by
-        a structured field anywhere in this TAPP \u2014 including anomalies, deviations
-        from the registered procedure, instrument modifications, and supplementary
-        context. Scope is the whole document, not Group 6: this is the last field
-        of the TAPP and covers all six groups. Use sparingly; a structured field is
-        preferred for anything that can be formally categorised."
-      type: string
-    ada:signalCollectionMode:
-      type: string
-      readOnly: true
   required:
-  - schema:name
-  - schema:datePublished
-  - ada:samplingUnit
-  - ada:targetSelectionCriteriaDefault
   - ada:sampleIntroduction
-  - ada:ablationSpotDurationDefault
-  - ada:ablationPitDepthRateDefault
-  - ada:rasterLineSpacingDefault
   - ada:carrierGasFlowRateDefault
   - ada:oxideProductionMethodAndThreshold
   - ada:analysisSequenceDefault
-  - ada:reportedVariablesAndUnits
   - ada:massResolutionAssignment
   - ada:ionCounterDeadTimeDefault
   - ada:totalIntegrationTimePerOutputDataPointDefault

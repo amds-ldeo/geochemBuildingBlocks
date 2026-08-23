@@ -100,7 +100,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI",
+        "schema:name": "FEI / Thermo Fisher Scientific",
         "@type": [
           "schema:Organization"
         ]
@@ -119,27 +119,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "SE Imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "FIB milling and TEM cross-section preparation (same instrument)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -199,6 +178,27 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     }
   ],
   "ada:workingDistanceDefault": "0.5–5.4 mm",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB milling and TEM cross-section preparation (same instrument)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "SE Imaging"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -330,7 +330,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI",
+        "schema:name": "FEI / Thermo Fisher Scientific",
         "@type": [
           "schema:Organization"
         ]
@@ -349,27 +349,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "SE Imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "FIB milling and TEM cross-section preparation (same instrument)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -429,6 +408,27 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     }
   ],
   "ada:workingDistanceDefault": "0.5\u20135.4 mm",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB milling and TEM cross-section preparation (same instrument)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "SE Imaging"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -479,19 +479,19 @@ ex:semTAPP-Garvie2008 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion Milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -540,7 +540,7 @@ ex:semTAPP-Garvie2008 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "FEI" ] ;
+            schema1:name "FEI / Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nova 200 NanoLab DualBeam" ] ;
     schema1:name "example instrumentName" ;
@@ -597,9 +597,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
   ],
   "schema:name": "sem protocol — Garvie2008-2",
   "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v22.csv).",
-  "ada:analyticalMode": [
-    "TEM Sample Preparation"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -642,18 +639,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:HowTo"
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SE Imaging (same instrument, pre- and post-FIB milling)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -722,7 +707,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI",
+        "schema:name": "FEI / Thermo Fisher Scientific",
         "@type": [
           "schema:Organization"
         ]
@@ -741,12 +726,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
-  },
   "schema:object": [
     {
       "@type": [
@@ -765,6 +744,27 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     }
   ],
   "ada:workingDistanceDefault": "5.4 mm (eucentric height for electron and ion columns)",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SE Imaging (same instrument, pre- and post-FIB milling)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "TEM Sample Preparation"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -827,9 +827,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
   ],
   "schema:name": "sem protocol \u2014 Garvie2008-2",
   "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v22.csv).",
-  "ada:analyticalMode": [
-    "TEM Sample Preparation"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -872,18 +869,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:HowTo"
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SE Imaging (same instrument, pre- and post-FIB milling)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -952,7 +937,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI",
+        "schema:name": "FEI / Thermo Fisher Scientific",
         "@type": [
           "schema:Organization"
         ]
@@ -971,12 +956,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
-  },
   "schema:object": [
     {
       "@type": [
@@ -995,6 +974,27 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     }
   ],
   "ada:workingDistanceDefault": "5.4 mm (eucentric height for electron and ion columns)",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SE Imaging (same instrument, pre- and post-FIB milling)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "TEM Sample Preparation"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1107,7 +1107,7 @@ ex:semTAPP-Garvie2008-2 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "FEI" ] ;
+            schema1:name "FEI / Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nova 200 NanoLab DualBeam" ] ;
     schema1:name "example instrumentName" .
@@ -1251,27 +1251,6 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "BSE Imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
-  },
   "schema:object": [
     {
       "@type": [
@@ -1288,6 +1267,27 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE Imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -1480,27 +1480,6 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "BSE Imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
-  },
   "schema:object": [
     {
       "@type": [
@@ -1517,6 +1496,27 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE Imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -1815,27 +1815,6 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "EDS"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
-  },
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
   "schema:object": [
     {
@@ -1853,6 +1832,27 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS"
   ],
   "schema:measurementTechnique": [
     {
@@ -2045,27 +2045,6 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "EDS"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
-  },
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
   "schema:object": [
     {
@@ -2083,6 +2062,27 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS"
   ],
   "schema:measurementTechnique": [
     {
@@ -2179,13 +2179,13 @@ ex:semTAPP-Genge2025-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v22.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -2380,9 +2380,6 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "EBSD"
-  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semTAPP/chamberPressureDefault",
@@ -2395,18 +2392,6 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "ada:fieldScope": "session",
       "schema:defaultValue": 25,
       "schema:description": "25 Pa (variable pressure mode)"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:actionProcess": {
@@ -2462,12 +2447,6 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:HowTo"
     ]
   },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
-  },
   "ada:sampleTiltAngle": "70 degrees",
   "schema:object": [
     {
@@ -2485,6 +2464,27 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EBSD"
   ],
   "schema:measurementTechnique": [
     {
@@ -2636,9 +2636,6 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "EBSD"
-  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semTAPP/chamberPressureDefault",
@@ -2651,18 +2648,6 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "ada:fieldScope": "session",
       "schema:defaultValue": 25,
       "schema:description": "25 Pa (variable pressure mode)"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:actionProcess": {
@@ -2718,12 +2703,6 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:HowTo"
     ]
   },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
-  },
   "ada:sampleTiltAngle": "70 degrees",
   "schema:object": [
     {
@@ -2741,6 +2720,27 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EBSD"
   ],
   "schema:measurementTechnique": [
     {
@@ -2798,13 +2798,13 @@ ex:semTAPP-Genge2025-3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
@@ -2926,9 +2926,6 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
   ],
   "schema:name": "sem protocol — Gucsik2013",
   "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point.",
-  "ada:analyticalMode": [
-    "CL"
-  ],
   "ada:clAcquisitionMode": "Spectral point",
   "schema:instrument": [
     {
@@ -2978,6 +2975,11 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -3036,24 +3038,7 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:object": [
@@ -3072,6 +3057,21 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
         }
       ]
     }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "CL"
   ],
   "schema:measurementTechnique": [
     {
@@ -3175,9 +3175,6 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
   ],
   "schema:name": "sem protocol \u2014 Gucsik2013",
   "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) \u2014 standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point.",
-  "ada:analyticalMode": [
-    "CL"
-  ],
   "ada:clAcquisitionMode": "Spectral point",
   "schema:instrument": [
     {
@@ -3227,6 +3224,11 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -3285,24 +3287,7 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:object": [
@@ -3321,6 +3306,21 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
         }
       ]
     }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "CL"
   ],
   "schema:measurementTechnique": [
     {
@@ -3412,13 +3412,13 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -3625,21 +3625,6 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "EDS"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "CL (same instrument); BSE Imaging (same instrument, same session); EPMA with WDS (JEOL JXA-8900R, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -3656,6 +3641,21 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
         }
       ]
     }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "CL (same instrument); BSE Imaging (same instrument, same session); EPMA with WDS (JEOL JXA-8900R, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS"
   ],
   "schema:measurementTechnique": [
     {
@@ -3848,21 +3848,6 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "EDS"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "CL (same instrument); BSE Imaging (same instrument, same session); EPMA with WDS (JEOL JXA-8900R, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -3879,6 +3864,21 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
         }
       ]
     }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "CL (same instrument); BSE Imaging (same instrument, same session); EPMA with WDS (JEOL JXA-8900R, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS"
   ],
   "schema:measurementTechnique": [
     {
@@ -3971,8 +3971,8 @@ ex:semTAPP-Gucsik2013-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -3981,8 +3981,8 @@ ex:semTAPP-Gucsik2013-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -4189,19 +4189,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
       "schema:name": "example instrumentName"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Gatan DigitalMicrograph (CL image assembly)"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Gatan DigitalMicrograph"
-    }
-  ],
-  "ada:analyticalMode": [
-    "CL"
-  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semTAPP/chamberPressureDefault",
@@ -4218,24 +4205,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
   "ada:clAcquisitionMode": "Multi-channel pseudo-color",
   "ada:clIntegrationTimeDefault": "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)",
   "ada:clWavelengthRange": "300–850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Zircon and Accessory Phase Laboratory, University of Western Ontario"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -4295,6 +4264,37 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
     }
   ],
   "ada:workingDistanceDefault": "~10 mm",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Zircon and Accessory Phase Laboratory, University of Western Ontario"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Gatan DigitalMicrograph (CL image assembly)"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Gatan DigitalMicrograph"
+    }
+  ],
+  "ada:analyticalMode": [
+    "CL"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4457,19 +4457,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
       "schema:name": "example instrumentName"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Gatan DigitalMicrograph (CL image assembly)"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Gatan DigitalMicrograph"
-    }
-  ],
-  "ada:analyticalMode": [
-    "CL"
-  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semTAPP/chamberPressureDefault",
@@ -4486,24 +4473,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
   "ada:clAcquisitionMode": "Multi-channel pseudo-color",
   "ada:clIntegrationTimeDefault": "80\u2013500 ms per pixel (varied based on IR luminescence duration in carbonates)",
   "ada:clWavelengthRange": "300\u2013850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Zircon and Accessory Phase Laboratory, University of Western Ontario"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -4563,6 +4532,37 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
     }
   ],
   "ada:workingDistanceDefault": "~10 mm",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Zircon and Accessory Phase Laboratory, University of Western Ontario"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Gatan DigitalMicrograph (CL image assembly)"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Gatan DigitalMicrograph"
+    }
+  ],
+  "ada:analyticalMode": [
+    "CL"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4610,11 +4610,6 @@ ex:semTAPP-Izawa2010 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -4622,7 +4617,12 @@ ex:semTAPP-Izawa2010 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
@@ -4746,21 +4746,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
   ],
   "schema:name": "sem protocol — Izawa2010-2",
   "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v22.csv).",
-  "ada:analyticalMode": [
-    "BSE Imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (same instrument); CL (Hitachi S-2500C); BSE Imaging (Leo 1540); micro-XRD; EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4770,7 +4755,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Other: Leo Electron Microscopy (now Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -4781,6 +4766,11 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -4839,20 +4829,9 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Surface Science Western"
-  },
   "schema:object": [
     {
       "@type": [
@@ -4869,6 +4848,27 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Surface Science Western"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (same instrument); CL (Hitachi S-2500C); BSE Imaging (Leo 1540); micro-XRD; EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE Imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -4973,21 +4973,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-2",
   "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v22.csv).",
-  "ada:analyticalMode": [
-    "BSE Imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (same instrument); CL (Hitachi S-2500C); BSE Imaging (Leo 1540); micro-XRD; EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4997,7 +4982,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Other: Leo Electron Microscopy (now Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -5008,6 +4993,11 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -5066,20 +5056,9 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Surface Science Western"
-  },
   "schema:object": [
     {
       "@type": [
@@ -5096,6 +5075,27 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Surface Science Western"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (same instrument); CL (Hitachi S-2500C); BSE Imaging (Leo 1540); micro-XRD; EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE Imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -5193,13 +5193,13 @@ ex:semTAPP-Izawa2010-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v22.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -5248,7 +5248,7 @@ ex:semTAPP-Izawa2010-2 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Other: Leo Electron Microscopy (now Zeiss)" ] ;
+            schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Leo 440" ] ;
     schema1:name "example instrumentName" .
@@ -5303,21 +5303,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   ],
   "schema:name": "sem protocol — Izawa2010-3",
   "schema:description": "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis",
-  "ada:analyticalMode": [
-    "EDS"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "ada:edsAcquisitionMode": "Map",
   "schema:instrument": [
     {
@@ -5387,7 +5372,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Other: Leo Electron Microscopy (now Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -5406,12 +5391,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Surface Science Western"
-  },
   "schema:object": [
     {
       "@type": [
@@ -5428,6 +5407,27 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Surface Science Western"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS"
   ],
   "schema:measurementTechnique": [
     {
@@ -5531,21 +5531,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-3",
   "schema:description": "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis",
-  "ada:analyticalMode": [
-    "EDS"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "ada:edsAcquisitionMode": "Map",
   "schema:instrument": [
     {
@@ -5615,7 +5600,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Other: Leo Electron Microscopy (now Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -5634,12 +5619,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Surface Science Western"
-  },
   "schema:object": [
     {
       "@type": [
@@ -5656,6 +5635,27 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Surface Science Western"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS"
   ],
   "schema:measurementTechnique": [
     {
@@ -5747,13 +5747,13 @@ ex:semTAPP-Izawa2010-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -5807,7 +5807,7 @@ ex:semTAPP-Izawa2010-3 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Other: Leo Electron Microscopy (now Zeiss)" ] ;
+            schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Leo 440" ] ;
     schema1:name "example instrumentName" .
@@ -5863,21 +5863,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
   ],
   "schema:name": "sem protocol — Izawa2010-4",
   "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v22.csv).",
-  "ada:analyticalMode": [
-    "BSE Imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (same instrument); BSE Imaging (Leo 440); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5965,12 +5950,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Nanofabrication Laboratory, University of Western Ontario"
-  },
   "schema:object": [
     {
       "@type": [
@@ -5987,6 +5966,27 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Nanofabrication Laboratory, University of Western Ontario"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (same instrument); BSE Imaging (Leo 440); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE Imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -6091,21 +6091,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-4",
   "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v22.csv).",
-  "ada:analyticalMode": [
-    "BSE Imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (same instrument); BSE Imaging (Leo 440); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6193,12 +6178,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Nanofabrication Laboratory, University of Western Ontario"
-  },
   "schema:object": [
     {
       "@type": [
@@ -6215,6 +6194,27 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Nanofabrication Laboratory, University of Western Ontario"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (same instrument); BSE Imaging (Leo 440); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE Imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -6307,18 +6307,18 @@ ex:semTAPP-Izawa2010-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion Milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v22.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -6423,21 +6423,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   ],
   "schema:name": "sem protocol — Izawa2010-5",
   "schema:description": "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map.",
-  "ada:analyticalMode": [
-    "EDS"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "ada:edsAcquisitionMode": "Point / spot",
   "schema:instrument": [
     {
@@ -6527,12 +6512,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Nanofabrication Laboratory, University of Western Ontario"
-  },
   "schema:object": [
     {
       "@type": [
@@ -6549,6 +6528,27 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Nanofabrication Laboratory, University of Western Ontario"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS"
   ],
   "schema:measurementTechnique": [
     {
@@ -6652,21 +6652,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-5",
   "schema:description": "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) \u2014 not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map.",
-  "ada:analyticalMode": [
-    "EDS"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "ada:edsAcquisitionMode": "Point / spot",
   "schema:instrument": [
     {
@@ -6756,12 +6741,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Nanofabrication Laboratory, University of Western Ontario"
-  },
   "schema:object": [
     {
       "@type": [
@@ -6778,6 +6757,27 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Nanofabrication Laboratory, University of Western Ontario"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS"
   ],
   "schema:measurementTechnique": [
     {
@@ -6874,13 +6874,13 @@ ex:semTAPP-Izawa2010-5 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -6987,24 +6987,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "schema:name": "sem protocol — Liu2017",
   "schema:description": "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v22.csv).",
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "X-ray CT (Xradia 520 Versa, Carl Zeiss)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7014,7 +6996,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Carl Zeiss",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -7025,6 +7007,11 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -7083,20 +7070,9 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Mining and Technology, Xuzhou, China"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -7155,6 +7131,30 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           ]
         }
       ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Mining and Technology, Xuzhou, China"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "X-ray CT (Xradia 520 Versa, Carl Zeiss)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model"
     }
   ],
   "schema:measurementTechnique": [
@@ -7220,24 +7220,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "schema:name": "sem protocol \u2014 Liu2017",
   "schema:description": "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v22.csv).",
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "X-ray CT (Xradia 520 Versa, Carl Zeiss)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7247,7 +7229,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Carl Zeiss",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -7258,6 +7240,11 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -7316,20 +7303,9 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Mining and Technology, Xuzhou, China"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -7390,6 +7366,30 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       ]
     }
   ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Mining and Technology, Xuzhou, China"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "X-ray CT (Xradia 520 Versa, Carl Zeiss)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7447,13 +7447,13 @@ ex:semTAPP-Liu2017 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v22.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -7504,7 +7504,7 @@ ex:semTAPP-Liu2017 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Carl Zeiss" ] ;
+            schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Crossbeam 540" ] ;
     schema1:name "example instrumentName" .
@@ -7572,18 +7572,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "schema:defaultValue": "High vacuum"
     }
   ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7593,7 +7581,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI Company, USA",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -7604,6 +7592,11 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -7662,20 +7655,9 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Mining and Technology, Xuzhou, China"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -7732,6 +7714,24 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           ]
         }
       ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Mining and Technology, Xuzhou, China"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -7810,18 +7810,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "schema:defaultValue": "High vacuum"
     }
   ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7831,7 +7819,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI Company, USA",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -7842,6 +7830,11 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -7900,20 +7893,9 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Mining and Technology, Xuzhou, China"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -7972,6 +7954,24 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       ]
     }
   ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Mining and Technology, Xuzhou, China"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8023,11 +8023,6 @@ ex:semTAPP-Liu2017-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -8035,7 +8030,12 @@ ex:semTAPP-Liu2017-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴" ;
@@ -8091,7 +8091,7 @@ ex:semTAPP-Liu2017-2 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "FEI Company, USA" ] ;
+            schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Quanta 250" ] ;
     schema1:name "example instrumentName" .
@@ -8157,18 +8157,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "High vacuum"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:instrument": [
@@ -8239,7 +8227,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Carl Zeiss",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -8258,12 +8246,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Mining and Technology, Xuzhou, China"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -8320,6 +8302,24 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           ]
         }
       ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Mining and Technology, Xuzhou, China"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -8398,18 +8398,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "schema:defaultValue": "High vacuum"
     }
   ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -8478,7 +8466,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Carl Zeiss",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -8497,12 +8485,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Mining and Technology, Xuzhou, China"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -8561,6 +8543,24 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       ]
     }
   ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Mining and Technology, Xuzhou, China"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8612,8 +8612,8 @@ ex:semTAPP-Liu2017-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -8623,8 +8623,8 @@ ex:semTAPP-Liu2017-3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
@@ -8680,7 +8680,7 @@ ex:semTAPP-Liu2017-3 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Carl Zeiss" ] ;
+            schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "SUPRA 55" ] ;
     schema1:name "example instrumentName" .
@@ -8804,7 +8804,7 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -8823,24 +8823,6 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -8897,6 +8879,24 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
           ]
         }
       ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -9030,7 +9030,7 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -9049,24 +9049,6 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -9125,6 +9107,24 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       ]
     }
   ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -9176,14 +9176,14 @@ ex:semTAPP-Ma2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -9236,7 +9236,7 @@ ex:semTAPP-Ma2017 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "ZEISS (Carl Zeiss)" ] ;
+            schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "1550VP" ] ;
     schema1:name "example instrumentName" .
@@ -9292,18 +9292,6 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
   ],
   "schema:name": "sem protocol — Ma2017-2",
   "schema:description": "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -9427,7 +9415,7 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -9446,12 +9434,6 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
-  },
   "schema:object": [
     {
       "@type": [
@@ -9467,6 +9449,24 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
           ]
         }
       ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -9531,18 +9531,6 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
   ],
   "schema:name": "sem protocol \u2014 Ma2017-2",
   "schema:description": "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -9666,7 +9654,7 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -9685,12 +9673,6 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
-  },
   "schema:object": [
     {
       "@type": [
@@ -9706,6 +9688,24 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
           ]
         }
       ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -9763,15 +9763,15 @@ ex:semTAPP-Ma2017-2 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -9826,7 +9826,7 @@ ex:semTAPP-Ma2017-2 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "ZEISS (Carl Zeiss)" ] ;
+            schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "1550VP" ] ;
     schema1:name "example instrumentName" .
@@ -9951,7 +9951,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -9970,15 +9970,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
       "schema:name": "example instrumentName"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford INCA Energy"
-    }
-  ],
-  "ada:analyticalMode": [
-    "BSE (QBSD mode)"
-  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semTAPP/chamberPressureDefault",
@@ -9992,24 +9983,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
       "schema:defaultValue": "High vacuum"
     }
   ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -10069,6 +10042,33 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
     }
   ],
   "ada:workingDistanceDefault": "8 mm",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford INCA Energy"
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE (QBSD mode)"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10200,7 +10200,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -10219,15 +10219,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
       "schema:name": "example instrumentName"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford INCA Energy"
-    }
-  ],
-  "ada:analyticalMode": [
-    "BSE (QBSD mode)"
-  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semTAPP/chamberPressureDefault",
@@ -10241,24 +10232,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
       "schema:defaultValue": "High vacuum"
     }
   ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -10318,6 +10291,33 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
     }
   ],
   "ada:workingDistanceDefault": "8 mm",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford INCA Energy"
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE (QBSD mode)"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10368,8 +10368,8 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -10379,8 +10379,8 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
@@ -10439,7 +10439,7 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "ZEISS (Carl Zeiss)" ] ;
+            schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Supra 40" ] ;
     schema1:name "example instrumentName" ;
@@ -10566,7 +10566,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -10585,6 +10585,110 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "chamberPressureDefault",
+      "schema:name": "Chamber Pressure",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "High vacuum"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/edsSpectralProcessingType",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
+        }
+      ],
+      "schema:name": "EDS Spectral Processing Type",
+      "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
+    }
+  ],
+  "ada:edsAcquisitionMode": "N/A",
+  "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion Milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10×6 mm fragment, 10.01g)"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "bios:computationalTool": [
     {
       "ada:toolRole": "acquisition",
@@ -10594,6 +10698,9 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "ada:toolRole": "dataReduction",
       "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)"
     }
+  ],
+  "ada:analyticalMode": [
+    "Spot analysis"
   ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
@@ -10762,113 +10869,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       }
     ]
   },
-  "ada:analyticalMode": [
-    "Spot analysis"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "High vacuum"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/edsSpectralProcessingType",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
-        }
-      ],
-      "schema:name": "EDS Spectral Processing Type",
-      "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "ada:edsAcquisitionMode": "N/A",
-  "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10×6 mm fragment, 10.01g)"
-          ]
-        }
-      ]
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11000,7 +11000,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -11019,6 +11019,110 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "chamberPressureDefault",
+      "schema:name": "Chamber Pressure",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "High vacuum"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/edsSpectralProcessingType",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
+        }
+      ],
+      "schema:name": "EDS Spectral Processing Type",
+      "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
+    }
+  ],
+  "ada:edsAcquisitionMode": "N/A",
+  "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion Milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "bios:computationalTool": [
     {
       "ada:toolRole": "acquisition",
@@ -11028,6 +11132,9 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "ada:toolRole": "dataReduction",
       "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)"
     }
+  ],
+  "ada:analyticalMode": [
+    "Spot analysis"
   ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
@@ -11196,113 +11303,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       }
     ]
   },
-  "ada:analyticalMode": [
-    "Spot analysis"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "High vacuum"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/edsSpectralProcessingType",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
-        }
-      ],
-      "schema:name": "EDS Spectral Processing Type",
-      "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "ada:edsAcquisitionMode": "N/A",
-  "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
-          ]
-        }
-      ]
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11352,11 +11352,6 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -11364,7 +11359,12 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -11538,7 +11538,7 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "ZEISS (Carl Zeiss)" ] ;
+            schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Supra 40" ] ;
     schema1:name "example instrumentName" ;
@@ -11671,7 +11671,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -11690,6 +11690,111 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "chamberPressureDefault",
+      "schema:name": "Chamber Pressure",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "High vacuum"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/edsSpectralProcessingType",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
+        }
+      ],
+      "schema:name": "EDS Spectral Processing Type",
+      "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
+    }
+  ],
+  "ada:edsAcquisitionMode": "Map",
+  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion Milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:stepSizePixelSizeDefault": "2.5 µm",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10×6 mm fragment, 10.01g)"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "bios:computationalTool": [
     {
       "ada:toolRole": "acquisition",
@@ -11699,6 +11804,9 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "ada:toolRole": "dataReduction",
       "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)"
     }
+  ],
+  "ada:analyticalMode": [
+    "Element mapping"
   ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
@@ -11867,114 +11975,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       }
     ]
   },
-  "ada:analyticalMode": [
-    "Element mapping"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "High vacuum"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/edsSpectralProcessingType",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
-        }
-      ],
-      "schema:name": "EDS Spectral Processing Type",
-      "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "ada:edsAcquisitionMode": "Map",
-  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "ada:stepSizePixelSizeDefault": "2.5 µm",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10×6 mm fragment, 10.01g)"
-          ]
-        }
-      ]
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -12105,7 +12105,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -12124,6 +12124,111 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "chamberPressureDefault",
+      "schema:name": "Chamber Pressure",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "High vacuum"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/edsSpectralProcessingType",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
+        }
+      ],
+      "schema:name": "EDS Spectral Processing Type",
+      "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
+    }
+  ],
+  "ada:edsAcquisitionMode": "Map",
+  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion Milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:stepSizePixelSizeDefault": "2.5 \u00b5m",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "bios:computationalTool": [
     {
       "ada:toolRole": "acquisition",
@@ -12133,6 +12238,9 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "ada:toolRole": "dataReduction",
       "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)"
     }
+  ],
+  "ada:analyticalMode": [
+    "Element mapping"
   ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
@@ -12301,114 +12409,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       }
     ]
   },
-  "ada:analyticalMode": [
-    "Element mapping"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "High vacuum"
-    },
-    {
-      "@id": "ada:parameter/semTAPP/edsSpectralProcessingType",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
-        }
-      ],
-      "schema:name": "EDS Spectral Processing Type",
-      "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "ada:edsAcquisitionMode": "Map",
-  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "ada:stepSizePixelSizeDefault": "2.5 \u00b5m",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
-          ]
-        }
-      ]
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -12462,14 +12462,14 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -12643,7 +12643,7 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "ZEISS (Carl Zeiss)" ] ;
+            schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Supra 40" ] ;
     schema1:name "example instrumentName" ;
@@ -12706,18 +12706,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
   ],
   "schema:name": "sem protocol — Pascucci2026-4",
   "schema:description": "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); EDS (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -12786,7 +12774,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -12805,12 +12793,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -12867,6 +12849,24 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
           ]
         }
       ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); EDS (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -12932,18 +12932,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
   ],
   "schema:name": "sem protocol \u2014 Pascucci2026-4",
   "schema:description": "SE imaging used for topographic examination; instrument capability: up to \u00d7200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); EDS (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -13012,7 +13000,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -13031,12 +13019,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -13095,6 +13077,24 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
       ]
     }
   ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); EDS (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13151,14 +13151,14 @@ ex:semTAPP-Pascucci2026-4 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -13206,7 +13206,7 @@ ex:semTAPP-Pascucci2026-4 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "ZEISS (Carl Zeiss)" ] ;
+            schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Supra 40" ] ;
     schema1:name "example instrumentName" .
@@ -13274,7 +13274,7 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
       ],
       "ada:acceleratingVoltageDefault": "2 kV (SEM imaging)",
       "schema:manufacturer": {
-        "schema:name": "FEI (now Thermo Fisher Scientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -13285,6 +13285,11 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -13343,29 +13348,9 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "Sequential FIB-SEM tomography (serial cross-section imaging)"
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Geosciences, Beijing, China"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -13425,6 +13410,21 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
     }
   ],
   "ada:workingDistanceDefault": "4 mm",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Geosciences, Beijing, China"
+  },
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Sequential FIB-SEM tomography (serial cross-section imaging)"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13497,7 +13497,7 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
       ],
       "ada:acceleratingVoltageDefault": "2 kV (SEM imaging)",
       "schema:manufacturer": {
-        "schema:name": "FEI (now Thermo Fisher Scientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -13508,6 +13508,11 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -13566,29 +13571,9 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "Sequential FIB-SEM tomography (serial cross-section imaging)"
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Geosciences, Beijing, China"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -13648,6 +13633,21 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
     }
   ],
   "ada:workingDistanceDefault": "4 mm",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Geosciences, Beijing, China"
+  },
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Sequential FIB-SEM tomography (serial cross-section imaging)"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13696,19 +13696,19 @@ ex:semTAPP-Zhou2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -13755,7 +13755,7 @@ ex:semTAPP-Zhou2017 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "FEI (now Thermo Fisher Scientific)" ] ;
+            schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Helios NanoLab 650" ] ;
     schema1:name "example instrumentName" ;
@@ -13899,33 +13899,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford AZtec (Point & ID programme)"
-    }
-  ],
-  "ada:analyticalMode": [
-    "Low-angle backscattered electron (BSE) imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -13983,6 +13956,33 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford AZtec (Point & ID programme)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Low-angle backscattered electron (BSE) imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -14135,33 +14135,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford AZtec (Point & ID programme)"
-    }
-  ],
-  "ada:analyticalMode": [
-    "Low-angle backscattered electron (BSE) imaging"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -14219,6 +14192,33 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford AZtec (Point & ID programme)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Low-angle backscattered electron (BSE) imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -14480,39 +14480,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford AZtec (Point & ID programme)"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Oxford AZtec"
-    }
-  ],
-  "ada:analyticalMode": [
-    "Point spectra (spot analysis, Point & ID)"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "ada:edsAcquisitionMode": "N/A",
   "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -14570,6 +14539,37 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford AZtec (Point & ID programme)"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Oxford AZtec"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Point spectra (spot analysis, Point & ID)"
   ],
   "schema:measurementTechnique": [
     {
@@ -14721,39 +14721,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford AZtec (Point & ID programme)"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Oxford AZtec"
-    }
-  ],
-  "ada:analyticalMode": [
-    "Point spectra (spot analysis, Point & ID)"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "ada:edsAcquisitionMode": "N/A",
   "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -14812,6 +14781,37 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       ]
     }
   ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford AZtec (Point & ID programme)"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Oxford AZtec"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Point spectra (spot analysis, Point & ID)"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -14861,9 +14861,8 @@ ex:semTAPP-Zega2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -14872,8 +14871,9 @@ ex:semTAPP-Zega2025-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v22.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -14984,18 +14984,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   ],
   "schema:name": "sem protocol — Zega2025-3",
   "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -15083,12 +15071,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -15145,6 +15127,24 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           ]
         }
       ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -15210,18 +15210,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   ],
   "schema:name": "sem protocol \u2014 Zega2025-3",
   "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -15309,12 +15297,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -15373,6 +15355,24 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       ]
     }
   ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -15424,19 +15424,19 @@ ex:semTAPP-Zega2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion Milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -15540,18 +15540,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   ],
   "schema:name": "sem protocol — Zega2025-4",
   "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -15639,12 +15627,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -15701,6 +15683,24 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           ]
         }
       ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -15766,18 +15766,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   ],
   "schema:name": "sem protocol \u2014 Zega2025-4",
   "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -15865,12 +15853,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -15927,6 +15909,24 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           ]
         }
       ]
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -16096,31 +16096,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   ],
   "schema:name": "sem protocol — Zega2025-5",
   "schema:description": "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping.",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford Instruments Aztec Live/x-stream"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Oxford Instruments Aztec"
-    }
-  ],
-  "ada:analyticalMode": [
-    "EDS mapping"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SE/BSE Imaging (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "ada:edsAcquisitionMode": "Map",
   "schema:instrument": [
     {
@@ -16210,12 +16185,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -16273,6 +16242,37 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SE/BSE Imaging (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford Instruments Aztec Live/x-stream"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Oxford Instruments Aztec"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS mapping"
   ],
   "schema:measurementTechnique": [
     {
@@ -16336,31 +16336,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   ],
   "schema:name": "sem protocol \u2014 Zega2025-5",
   "schema:description": "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping.",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford Instruments Aztec Live/x-stream"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Oxford Instruments Aztec"
-    }
-  ],
-  "ada:analyticalMode": [
-    "EDS mapping"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SE/BSE Imaging (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "ada:edsAcquisitionMode": "Map",
   "schema:instrument": [
     {
@@ -16450,12 +16425,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -16513,6 +16482,37 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SE/BSE Imaging (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford Instruments Aztec Live/x-stream"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Oxford Instruments Aztec"
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS mapping"
   ],
   "schema:measurementTechnique": [
     {
@@ -16615,10 +16615,10 @@ ex:semTAPP-Zega2025-5 a cdi:Activity,
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ] .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -16755,7 +16755,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Thermo Fisher Scientific (ThermoScientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -16773,9 +16773,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
-  ],
-  "ada:analyticalMode": [
-    "In-situ FIB lift-out; cross-section lamella preparation for TEM"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -16820,24 +16817,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:HowTo"
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
-  },
   "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
   "schema:object": [
     {
@@ -16855,6 +16834,27 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "In-situ FIB lift-out; cross-section lamella preparation for TEM"
   ],
   "schema:measurementTechnique": [
     {
@@ -16987,7 +16987,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Thermo Fisher Scientific (ThermoScientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -17005,9 +17005,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
-  ],
-  "ada:analyticalMode": [
-    "In-situ FIB lift-out; cross-section lamella preparation for TEM"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -17052,24 +17049,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:HowTo"
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
-  },
   "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
   "schema:object": [
     {
@@ -17087,6 +17066,27 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "In-situ FIB lift-out; cross-section lamella preparation for TEM"
   ],
   "schema:measurementTechnique": [
     {
@@ -17138,21 +17138,21 @@ ex:semTAPP-Zega2025-6 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ;
-                    ada:protectiveCoatingDeposition "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ;
+                    ada:protectiveCoatingDeposition "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75 Reported detail: ada:liftOutMethod = In-situ lift-out (standard stair step)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -17201,7 +17201,7 @@ ex:semTAPP-Zega2025-6 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific (ThermoScientific)" ] ;
+            schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Helios G3" ] ;
     schema1:name "example instrumentName" ;
@@ -17327,7 +17327,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI (now Thermo Fisher Scientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -17345,9 +17345,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
-  ],
-  "ada:analyticalMode": [
-    "In-situ FIB lift-out; lamella preparation for XANES and TEM"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -17392,18 +17389,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:HowTo"
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "Synchrotron XANES (ALS, Berkeley); TEM analysis"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -17428,6 +17413,21 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ],
     "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)"
   },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Synchrotron XANES (ALS, Berkeley); TEM analysis"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "In-situ FIB lift-out; lamella preparation for XANES and TEM"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -17560,7 +17560,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI (now Thermo Fisher Scientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -17578,9 +17578,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
-  ],
-  "ada:analyticalMode": [
-    "In-situ FIB lift-out; lamella preparation for XANES and TEM"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -17625,18 +17622,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:HowTo"
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "Synchrotron XANES (ALS, Berkeley); TEM analysis"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -17661,6 +17646,21 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ],
     "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)"
   },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Synchrotron XANES (ALS, Berkeley); TEM analysis"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "In-situ FIB lift-out; lamella preparation for XANES and TEM"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -17712,6 +17712,11 @@ ex:semTAPP-Zega2025-7 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -17721,12 +17726,7 @@ ex:semTAPP-Zega2025-7 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -17776,7 +17776,7 @@ ex:semTAPP-Zega2025-7 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "FEI (now Thermo Fisher Scientific)" ] ;
+            schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Helios G4 UX" ] ;
     schema1:name "example instrumentName" ;
@@ -17902,7 +17902,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI (now Thermo Fisher Scientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -17920,9 +17920,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
-  ],
-  "ada:analyticalMode": [
-    "In-situ FIB lift-out; cross-section lamella preparation"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -17968,18 +17965,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:HowTo"
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -17998,13 +17983,28 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       ]
     }
   ],
+  "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
   },
-  "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "In-situ FIB lift-out; cross-section lamella preparation"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -18136,7 +18136,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI (now Thermo Fisher Scientific)",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
@@ -18154,9 +18154,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
-  ],
-  "ada:analyticalMode": [
-    "In-situ FIB lift-out; cross-section lamella preparation"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -18202,18 +18199,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:HowTo"
     ]
   },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -18232,13 +18217,28 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       ]
     }
   ],
+  "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
     "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
   },
-  "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "In-situ FIB lift-out; cross-section lamella preparation"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -18289,8 +18289,8 @@ ex:semTAPP-Zega2025-8 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -18303,8 +18303,8 @@ ex:semTAPP-Zega2025-8 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids Reported detail: ada:liftOutMethod = In-situ lift-out; ion beam-deposited Pt weld to Cu half grids." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -18354,7 +18354,7 @@ ex:semTAPP-Zega2025-8 a cdi:Activity,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "FEI (now Thermo Fisher Scientific)" ] ;
+            schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Quanta 3D 600" ] ;
     schema1:name "example instrumentName" ;
@@ -18514,28 +18514,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging"
-  ],
   "ada:clAcquisitionMode": "Panchromatic",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Université Côte d'Azur / Observatoire de la Côte d'Azur, Valbonne, France"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -18593,6 +18572,27 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
         }
       ]
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Université Côte d'Azur / Observatoire de la Côte d'Azur, Valbonne, France"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -18759,28 +18759,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analyticalMode": [
-    "Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging"
-  ],
   "ada:clAcquisitionMode": "Panchromatic",
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Universit\u00e9 C\u00f4te d'Azur / Observatoire de la C\u00f4te d'Azur, Valbonne, France"
-  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -18839,6 +18818,27 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       ]
     }
   ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Universit\u00e9 C\u00f4te d'Azur / Observatoire de la C\u00f4te d'Azur, Valbonne, France"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Panchromatic CL imaging; hyperspectral CL; monochromatic CL imaging"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -18889,11 +18889,6 @@ ex:semTAPP-Zega2025-9 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -18901,7 +18896,12 @@ ex:semTAPP-Zega2025-9 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -19013,27 +19013,6 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
   ],
   "schema:name": "sem protocol — Barnes2025",
   "schema:description": "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper.",
-  "ada:analyticalMode": [
-    "Elemental maps and spot spectra (SEM-EDX) for presolar grain phase identification"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "NanoSIMS isotope mapping (CAMECA NanoSIMS 50L, NASA JSC); presolar grains identified by NanoSIMS then confirmed by SEM-EDS phase characterisation"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Astromaterials Research and Exploration Science Division (ARES), NASA Johnson Space Center, Houston, TX, USA"
-  },
   "schema:object": [
     {
       "@type": [
@@ -19058,6 +19037,27 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
       ],
       "schema:termCode": "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)"
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Astromaterials Research and Exploration Science Division (ARES), NASA Johnson Space Center, Houston, TX, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "NanoSIMS isotope mapping (CAMECA NanoSIMS 50L, NASA JSC); presolar grains identified by NanoSIMS then confirmed by SEM-EDS phase characterisation"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Elemental maps and spot spectra (SEM-EDX) for presolar grain phase identification"
   ],
   "schema:actionProcess": {
     "@type": [
@@ -19227,27 +19227,6 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
   ],
   "schema:name": "sem protocol \u2014 Barnes2025",
   "schema:description": "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper.",
-  "ada:analyticalMode": [
-    "Elemental maps and spot spectra (SEM-EDX) for presolar grain phase identification"
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "NanoSIMS isotope mapping (CAMECA NanoSIMS 50L, NASA JSC); presolar grains identified by NanoSIMS then confirmed by SEM-EDS phase characterisation"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Astromaterials Research and Exploration Science Division (ARES), NASA Johnson Space Center, Houston, TX, USA"
-  },
   "schema:object": [
     {
       "@type": [
@@ -19272,6 +19251,27 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
       ],
       "schema:termCode": "SEM-EDS (Scanning Electron Microscopy\u2013Energy Dispersive X-ray Spectroscopy)"
     }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Astromaterials Research and Exploration Science Division (ARES), NASA Johnson Space Center, Houston, TX, USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "NanoSIMS isotope mapping (CAMECA NanoSIMS 50L, NASA JSC); presolar grains identified by NanoSIMS then confirmed by SEM-EDS phase characterisation"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Elemental maps and spot spectra (SEM-EDX) for presolar grain phase identification"
   ],
   "schema:actionProcess": {
     "@type": [
@@ -19429,13 +19429,13 @@ ex:semTAPP-Barnes2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -19881,18 +19881,18 @@ ex:semTAPP-Barnes2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No BSE imaging with FEI Quanta 3D DualBeam or Helios DualBeam at NASA JSC described in this paper (Barnes et al. 2025). BSE mosaic imaging was performed using a Hitachi TM4000plus at the University of Arizona (K-ALFAA) at 15-keV electron beam to identify suitable matrix areas for NanoSIMS analysis (Methods, p.11). No JSC BSE imaging conditions or instrument stated." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -20322,13 +20322,13 @@ ex:semTAPP-Barnes2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -20763,18 +20763,18 @@ ex:semTAPP-Barnes2025-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. TEM foil preparation using FEI Helios 660 G3 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -21183,6 +21183,39 @@ allOf:
                     readOnly: true
                   minContains: 0
                   maxContains: 1
+              schema:manufacturer:
+                type: object
+                properties:
+                  schema:name:
+                    description: Manufacturer of the instrument that performs the
+                      measurement, recorded as a controlled value so that procedures
+                      can be found by vendor. Where a procedure couples a sample-introduction
+                      system to an analysing instrument, this records the analysing
+                      instrument. Instrument Model gives the specific designation.
+                    type: string
+                    enum:
+                    - JEOL
+                    - Zeiss
+                    - FEI / Thermo Fisher Scientific
+                    - Hitachi
+                    - Tescan
+                    - Phenom
+                    - Unknown
+                    - N/A
+                    - None
+                    - missing
+                    readOnly: true
+              schema:model:
+                type: object
+                properties:
+                  schema:name:
+                    description: Model designation of the instrument that performs
+                      the measurement, including any generation or configuration suffix.
+                      Conventionally written with the manufacturer name included;
+                      Instrument Manufacturer records the vendor separately, as a
+                      controlled value, so that procedures remain findable by vendor.
+                    type: string
+                    readOnly: true
       allOf:
       - contains:
           properties:

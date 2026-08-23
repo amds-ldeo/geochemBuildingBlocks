@@ -56,7 +56,7 @@ Pixel coordinate system registration for images and maps. Defines properties: ba
 
 **Type:** schema
 
-The shared Aggregation block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 2 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared Aggregation block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 2 owned fields over 2 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.blank` — TAPP Composition Module: Blank
 
@@ -304,42 +304,6 @@ Generic geochemistry analytical product metadata base: composes the CDIF core, d
 
 The shared Analyte block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 1 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
-### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.tapp` — LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)
-
-**Type:** schema
-
-Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-MC-ICPMS_TAPP_v13.csv via the path-driven pipeline.
-
-### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.tapp` — LA-MC-ICP-MS U-Pb Geochronology TAPP (laMcicpmsUPbTAPP)
-
-**Type:** schema
-
-Laser-ablation multi-collector ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-MC-ICPMS_UPb_TAPP_v13.csv via the path-driven pipeline.
-
-### `ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.tapp` — LA-Q-ICP-MS Technique-Aligned Procedure Profile (laQicpmsTAPP)
-
-**Type:** schema
-
-Laser-ablation quadrupole ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_TAPP_v15.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
-
-### `ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS-UPb.tapp` — LA-Q-ICP-MS U-Pb Geochronology TAPP (laQicpmsUPbTAPP)
-
-**Type:** schema
-
-Laser-ablation quadrupole ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v16.csv via the path-driven pipeline.
-
-### `ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS.tapp` — LA-SF-ICP-MS Technique-Aligned Procedure Profile (laSficpmsTAPP)
-
-**Type:** schema
-
-Laser-ablation sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-SF-ICP-MS_TAPP_v16.csv via the path-driven pipeline.
-
-### `ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.tapp` — LA-SF-ICP-MS U-Pb Geochronology TAPP (laSficpmsUPbTAPP)
-
-**Type:** schema
-
-Laser-ablation sector-field ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-SF-ICP-MS_UPb_TAPP_v17.csv via the path-driven pipeline.
-
 ### `ogch.BaseSchema.adaProduct` — ADA Product Profile
 
 **Type:** schema
@@ -350,43 +314,7 @@ Top-level ADA product metadata profile composing all ADA building blocks
 
 **Type:** schema
 
-The shared Core block of the 2026-08-11 TAPP library, composed by 16 of the sixteen delivery tables. 30 owned fields over 35 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
-
-### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.detail` — LA-MC-ICP-MS Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for LA-MC-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.detail` — LA-MC-ICP-MS U-Pb Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for LA-MC-ICP-MS U-Pb geochronology, reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.detail` — LA-Q-ICP-MS Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for LA-Q-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS-UPb.detail` — LA-Q-ICP-MS U-Pb Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for LA-Q-ICP-MS U-Pb geochronology, reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS.detail` — LA-SF-ICP-MS Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for LA-SF-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
-
-### `ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.detail` — LA-SF-ICP-MS U-Pb Analysis Detail
-
-**Type:** schema
-
-Dataset-level analysis-instance detail for LA-SF-ICP-MS U-Pb geochronology, reusing CDIF/schema.org slots on the schema:Dataset root.
+The shared Core block of the 2026-08-11 TAPP library, composed by 16 of the sixteen delivery tables. 30 owned fields over 33 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.techniqueProfile.adaProfile.AIVA.profile-ada` — ADA AIVA Profile
 
@@ -610,6 +538,78 @@ Electron Microprobe Analysis instrument-specific detail properties. Defines prop
 
 EMPA-specific extension of the base TAPP definition. Adds EPMA top-level properties (beam mode, accelerating voltage, matrix correction method), a parameter vocabulary, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Vocabularies, parameter templates, and analyte-column templates ship as separate JSON files under vocab/, parameters/, and analyteColumns/ for maintainability.
 
+### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.detail` — LA-MC-ICP-MS Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for LA-MC-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.tapp` — LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)
+
+**Type:** schema
+
+Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-MC-ICPMS_TAPP_v13.csv via the path-driven pipeline.
+
+### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.detail` — LA-MC-ICP-MS U-Pb Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for LA-MC-ICP-MS U-Pb geochronology, reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.tapp` — LA-MC-ICP-MS U-Pb Geochronology TAPP (laMcicpmsUPbTAPP)
+
+**Type:** schema
+
+Laser-ablation multi-collector ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-MC-ICPMS_UPb_TAPP_v13.csv via the path-driven pipeline.
+
+### `ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.detail` — LA-Q-ICP-MS Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for LA-Q-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.tapp` — LA-Q-ICP-MS Technique-Aligned Procedure Profile (laQicpmsTAPP)
+
+**Type:** schema
+
+Laser-ablation quadrupole ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_TAPP_v15.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
+
+### `ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS-UPb.detail` — LA-Q-ICP-MS U-Pb Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for LA-Q-ICP-MS U-Pb geochronology, reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS-UPb.tapp` — LA-Q-ICP-MS U-Pb Geochronology TAPP (laQicpmsUPbTAPP)
+
+**Type:** schema
+
+Laser-ablation quadrupole ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v16.csv via the path-driven pipeline.
+
+### `ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS.detail` — LA-SF-ICP-MS Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for LA-SF-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS.tapp` — LA-SF-ICP-MS Technique-Aligned Procedure Profile (laSficpmsTAPP)
+
+**Type:** schema
+
+Laser-ablation sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-SF-ICP-MS_TAPP_v16.csv via the path-driven pipeline.
+
+### `ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.detail` — LA-SF-ICP-MS U-Pb Analysis Detail
+
+**Type:** schema
+
+Dataset-level analysis-instance detail for LA-SF-ICP-MS U-Pb geochronology, reusing CDIF/schema.org slots on the schema:Dataset root.
+
+### `ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.tapp` — LA-SF-ICP-MS U-Pb Geochronology TAPP (laSficpmsUPbTAPP)
+
+**Type:** schema
+
+Laser-ablation sector-field ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-SF-ICP-MS_UPb_TAPP_v17.csv via the path-driven pipeline.
+
 ### `ogch.techniqueProfile.geochemProfile.SEM.detail` — SEM Analysis Detail
 
 **Type:** schema
@@ -718,6 +718,12 @@ Laboratory X-ray computed tomography analysis-specific detail properties. Discri
 
 Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Adds XCT protocol-level acquisition/processing defaults as top-level ada: properties and an ada:methodParameters vocabulary of session-adjustable parameter templates. XCT has no per-element analyte axis, so no analyteTemplate is defined. Vocabularies and parameter templates ship as separate files under vocab/ and parameterTemplates/.
 
+### `ogch.techniqueProfile.geochemProfile.EMPA.profile` — ADA EMPA Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA EMPA Product Profile.
+
 ### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.profile` — ADA LA-MC-ICP-MS Product Profile
 
 **Type:** schema
@@ -753,12 +759,6 @@ Path-driven ADA product profile for ADA LA-SF-ICP-MS Product Profile.
 **Type:** schema
 
 Path-driven ADA product profile for ADA LA-SF-ICP-MS U-Pb Geochronology Product Profile.
-
-### `ogch.techniqueProfile.geochemProfile.EMPA.profile` — ADA EMPA Product Profile
-
-**Type:** schema
-
-Path-driven ADA product profile for ADA EMPA Product Profile.
 
 ### `ogch.techniqueProfile.geochemProfile.SEM.profile` — ADA SEM (superset) Product Profile
 

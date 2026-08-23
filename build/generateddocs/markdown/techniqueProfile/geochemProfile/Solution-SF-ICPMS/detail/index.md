@@ -32,14 +32,7 @@ detail instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS | Univ Melbo
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Soil and rock samples from boreholes BH1, BH2 (Sunbury), BH3, BH4 (Kalkallo), BH5 (Greenvale), BH6, BH (Wallan), incl. BH3a; reference materials BCR-2, BR, AGV-2, JB-2, JB-3, NIST SRM981, and Broken Hill Main Lode galena",
   "ada:samplingUnit": "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"",
   "ada:sampleDescription": "missing",
@@ -88,14 +81,7 @@ detail instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS | Univ Melbo
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Soil and rock samples from boreholes BH1, BH2 (Sunbury), BH3, BH4 (Kalkallo), BH5 (Greenvale), BH6, BH (Wallan), incl. BH3a; reference materials BCR-2, BR, AGV-2, JB-2, JB-3, NIST SRM981, and Broken Hill Main Lode galena",
   "ada:samplingUnit": "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"",
   "ada:sampleDescription": "missing",
@@ -123,8 +109,6 @@ detail instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS | Univ Melbo
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P0 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionSficpmsTAPP-P0 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- n stated per averaged result (BCR-2 n = 39, AGV-2 n = 13, BR n = 11, JB-2 n = 9, JB-3 n = 11, SRM981 n = 22 and n = 16). One documented exclusion, from the quality assessment rather than from a reported aggregate: \"Results for the pure Pb standard NIST SRM981, analysed many times with the soil samples, are not included here, because it contains no matrix and may thus not a be a good indicator of data quality for the soil samples analysed here\" [sec 3.1]. No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
@@ -135,6 +119,7 @@ ex:detail-P0 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "N for the quantity this field defines. A regression statistic is reported for the measured-versus-nominal comparison -- \"The data distributions around the nominal compositions (Fig. 2) have slopes near 1 (with correlation coefficients of 0.75-0.85)\" -- which is not a test of whether scatter among contributing analyses exceeds analytical uncertainty" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "A single analysis of 30-40 10-s integrations gives typical internal precision (2SE) of +/-0.001-0.002 for 206Pb/204Pb and +/-0.003-0.005 for 208Pb/204Pb" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -175,14 +160,7 @@ detail instance derived from Li+etal2016 | Thermo Element I | IGGCAS Beijing.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "mag_1, mag_3, mag_5, py_2, py_4; iron-formation reference material FER-2 (CCRMP, CANMET MMSL, Canada)",
   "ada:samplingUnit": "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\"",
   "ada:sampleDescription": "missing",
@@ -231,14 +209,7 @@ detail instance derived from Li+etal2016 | Thermo Element I | IGGCAS Beijing.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "mag_1, mag_3, mag_5, py_2, py_4; iron-formation reference material FER-2 (CCRMP, CANMET MMSL, Canada)",
   "ada:samplingUnit": "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\"",
   "ada:sampleDescription": "missing",
@@ -266,8 +237,6 @@ detail instance derived from Li+etal2016 | Thermo Element I | IGGCAS Beijing.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P1 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionSficpmsTAPP-P1 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"The mean values and respective standard deviations (s) for three analyses were listed in Table 3\"; n = 3 throughout. No acceptance or rejection rule stated" ;
@@ -278,6 +247,7 @@ ex:detail-P1 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -318,14 +288,7 @@ detail instance derived from Lu+etal2007 | Finnigan ELEMENT | PML Okayama.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
   "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites\"; 9-18 mg for carbonaceous chondrites",
   "ada:sampleDescription": "missing",
@@ -374,14 +337,7 @@ detail instance derived from Lu+etal2007 | Finnigan ELEMENT | PML Okayama.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
   "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites\"; 9-18 mg for carbonaceous chondrites",
   "ada:sampleDescription": "missing",
@@ -409,8 +365,6 @@ detail instance derived from Lu+etal2007 | Finnigan ELEMENT | PML Okayama.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P2 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionSficpmsTAPP-P2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively ... analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated" ;
@@ -421,6 +375,7 @@ ex:detail-P2 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -461,14 +416,7 @@ detail instance derived from Milne+etal2010 | Thermo Finnigan Element I | FSU NH
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Open-ocean seawater reference materials SAFe S1, SAFe D2 and NASS-5; GEOTRACES inter-calibration samples GS (surface) and GD (deep); depth-profile samples from the BATS station, 31 deg 45' N, 64 deg 05' W, 23 June 2008",
   "ada:samplingUnit": "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\"",
   "ada:sampleDescription": "missing",
@@ -517,14 +465,7 @@ detail instance derived from Milne+etal2010 | Thermo Finnigan Element I | FSU NH
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Open-ocean seawater reference materials SAFe S1, SAFe D2 and NASS-5; GEOTRACES inter-calibration samples GS (surface) and GD (deep); depth-profile samples from the BATS station, 31 deg 45' N, 64 deg 05' W, 23 June 2008",
   "ada:samplingUnit": "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\"",
   "ada:sampleDescription": "missing",
@@ -552,8 +493,6 @@ detail instance derived from Milne+etal2010 | Thermo Finnigan Element I | FSU NH
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P3 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionSficpmsTAPP-P3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"The blank solutions were analysed at least three times on the ICP-MS\"; \"parallel triplicate samples\"; n = 3 for reference materials and n = 5 for the GEOTRACES samples. No acceptance or rejection rule stated" ;
@@ -564,6 +503,7 @@ ex:detail-P3 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "Analyte-specific (pg/kg to pM level; e.g., Fe 0.01 nM in seawater; stated Table 1)" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "N -- standard-addition regressions are reported with average slope, SD and %RSD, but no fit statistic" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -604,14 +544,7 @@ detail instance derived from Misra+etal2014 | Thermo Element XR | Univ Cambridge
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "In-house consistency standards CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2 and CAM-Mix; Globigerinoides sacculifer specimens of the 300-355 um size fraction",
   "ada:samplingUnit": "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"",
   "ada:sampleDescription": "missing",
@@ -660,14 +593,7 @@ detail instance derived from Misra+etal2014 | Thermo Element XR | Univ Cambridge
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "In-house consistency standards CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2 and CAM-Mix; Globigerinoides sacculifer specimens of the 300-355 um size fraction",
   "ada:samplingUnit": "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"",
   "ada:sampleDescription": "missing",
@@ -695,8 +621,6 @@ detail instance derived from Misra+etal2014 | Thermo Element XR | Univ Cambridge
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P4 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionSficpmsTAPP-P4 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated" ;
@@ -707,6 +631,7 @@ ex:detail-P4 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "~2 umol/mol B/Ca procedural blank (stated abstract)" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -747,14 +672,7 @@ detail instance derived from Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "AGV-1, AGV-2, BCR-1, BCR-2, BCR-2G, BIR-1, BIR-1G, BHVO-1, BHVO-2, BHVO-2G, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, OU-6, PCC-1 -- tabulated with issuing organisation and split/position numbers (e.g. BHVO-1 Split 15 Pos 26; G-2 Split 58 Pos 23)",
   "ada:samplingUnit": "Digestion, with determinations nested inside it -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"Only one digestion was prepared for the USGS reference glasses ... and were measured in triplicate\"",
   "ada:sampleDescription": "missing",
@@ -803,14 +721,7 @@ detail instance derived from Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "AGV-1, AGV-2, BCR-1, BCR-2, BCR-2G, BIR-1, BIR-1G, BHVO-1, BHVO-2, BHVO-2G, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, OU-6, PCC-1 -- tabulated with issuing organisation and split/position numbers (e.g. BHVO-1 Split 15 Pos 26; G-2 Split 58 Pos 23)",
   "ada:samplingUnit": "Digestion, with determinations nested inside it -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"Only one digestion was prepared for the USGS reference glasses ... and were measured in triplicate\"",
   "ada:sampleDescription": "missing",
@@ -838,8 +749,6 @@ detail instance derived from Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Willbold2005 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionSficpmsTAPP-Willbold2005 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially, and the most complete of the six -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"the results of three to four independent analyses of sixteen other RMs\"; \"Only one digestion was prepared for the USGS reference glasses BCR-2G, BHVO-2G and BIR-1G, and NIST SRM 612 respectively and were measured in triplicate\". No acceptance or rejection rule stated" ;
@@ -850,6 +759,7 @@ ex:detail-Willbold2005 a ada:SolutionICPMSTabular ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "N -- a power law is fitted to the calculated mass fractionation factors, but no fit statistic is reported" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -2125,6 +2035,7 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "cdif": "https://w3id.org/cdif/",

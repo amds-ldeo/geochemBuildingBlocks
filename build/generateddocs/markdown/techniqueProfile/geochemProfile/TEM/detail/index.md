@@ -32,14 +32,7 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -79,14 +72,7 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -105,8 +91,6 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Chaves2023 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)" ] ;
     schema1:measurementTechnique ex:temTAPP-Chaves2023 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -116,6 +100,7 @@ ex:detail-Chaves2023 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -148,14 +133,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -195,14 +173,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -221,8 +192,6 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF" ] ;
     schema1:measurementTechnique ex:temTAPP-Zega2025 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -232,6 +201,7 @@ ex:detail-Zega2025 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -264,14 +234,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -311,14 +274,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -337,8 +293,6 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-2 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231" ] ;
     schema1:measurementTechnique ex:temTAPP-Zega2025-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -348,6 +302,7 @@ ex:detail-Zega2025-2 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -380,14 +335,7 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -427,14 +375,7 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -453,8 +394,6 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-3 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473" ] ;
     schema1:measurementTechnique ex:temTAPP-Zega2025-3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -464,6 +403,7 @@ ex:detail-Zega2025-3 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -496,14 +436,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNH09ZDA007O; NNM10AA11C"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NNM10AA11C",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -543,14 +476,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNH09ZDA007O; NNM10AA11C"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NNM10AA11C",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -569,8 +495,6 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zega2025-4 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA NNH09ZDA007O; NNM10AA11C" ] ;
     schema1:measurementTechnique ex:temTAPP-Zega2025-4 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -580,6 +504,7 @@ ex:detail-Zega2025-4 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NNM10AA11C" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -612,14 +537,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -659,14 +577,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -685,8 +596,6 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Matsumoto2021 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ] ;
     schema1:measurementTechnique ex:temTAPP-Matsumoto2021 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -696,6 +605,7 @@ ex:detail-Matsumoto2021 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
     ada:samplingUnit "missing" ;
@@ -728,14 +638,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -775,14 +678,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -801,8 +697,6 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Matsumoto2021-2 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ] ;
     schema1:measurementTechnique ex:temTAPP-Matsumoto2021-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -812,6 +706,7 @@ ex:detail-Matsumoto2021-2 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
     ada:samplingUnit "missing" ;
@@ -844,14 +739,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -891,14 +779,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -917,8 +798,6 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Matsumoto2021-3 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ] ;
     schema1:measurementTechnique ex:temTAPP-Matsumoto2021-3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -928,6 +807,7 @@ ex:detail-Matsumoto2021-3 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
     ada:samplingUnit "missing" ;
@@ -960,14 +840,7 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
   "ada:analyst": "Lindsay P. Keller; Eve L. Berger",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)",
   "ada:sampleName": "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1007,14 +880,7 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
   "ada:analyst": "Lindsay P. Keller; Eve L. Berger",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)",
   "ada:sampleName": "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1033,8 +899,6 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-KellerBerger2014 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)" ] ;
     schema1:measurementTechnique ex:temTAPP-KellerBerger2014 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1044,6 +908,7 @@ ex:detail-KellerBerger2014 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)" ;
     ada:samplingUnit "missing" ;
@@ -1076,14 +941,7 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
   "ada:analyst": "Yanxue Wu; Xiaomei Zhao (TEM analysis; per author contributions section)",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)",
   "ada:sampleName": "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1123,14 +981,7 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
   "ada:analyst": "Yanxue Wu; Xiaomei Zhao (TEM analysis; per author contributions section)",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)",
   "ada:sampleName": "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1149,8 +1000,6 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zeng2024 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)" ] ;
     schema1:measurementTechnique ex:temTAPP-Zeng2024 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1160,6 +1009,7 @@ ex:detail-Zeng2024 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)" ;
     ada:samplingUnit "missing" ;
@@ -1192,14 +1042,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analyst": "E. Dobrica; K.K. Ohtaki; C. Engrand",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)",
   "ada:sampleName": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1239,14 +1082,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analyst": "E. Dobrica; K.K. Ohtaki; C. Engrand",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)",
   "ada:sampleName": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1265,8 +1101,6 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Dobrica2022 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ] ;
     schema1:measurementTechnique ex:temTAPP-Dobrica2022 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1276,6 +1110,7 @@ ex:detail-Dobrica2022 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ;
     ada:samplingUnit "missing" ;
@@ -1308,14 +1143,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analyst": "E. Dobrica; K.K. Ohtaki; C. Engrand",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)",
   "ada:sampleName": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1355,14 +1183,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analyst": "E. Dobrica; K.K. Ohtaki; C. Engrand",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)",
   "ada:sampleName": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1381,8 +1202,6 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Dobrica2022-2 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ] ;
     schema1:measurementTechnique ex:temTAPP-Dobrica2022-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1392,6 +1211,7 @@ ex:detail-Dobrica2022-2 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "<0.1 wt% (stated for TEM EDS measurements)" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ;
     ada:samplingUnit "missing" ;
@@ -1424,14 +1244,7 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
   "ada:analyst": "S.A. Singerling; F.E. Brenker; B. Tkalcec (TEM data collection and analyses)",
   "ada:analysisStartDate": "December 2023",
   "ada:analysisEndDate": "December 2024 (four sessions total: Dec 2023, Jan 2024, May 2024, Dec 2024)",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)",
   "ada:sampleName": "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1471,14 +1284,7 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
   "ada:analyst": "S.A. Singerling; F.E. Brenker; B. Tkalcec (TEM data collection and analyses)",
   "ada:analysisStartDate": "December 2023",
   "ada:analysisEndDate": "December 2024 (four sessions total: Dec 2023, Jan 2024, May 2024, Dec 2024)",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)",
   "ada:sampleName": "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1497,8 +1303,6 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Singerling2025 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)" ] ;
     schema1:measurementTechnique ex:temTAPP-Singerling2025 ;
     ada:analysisEndDate "December 2024 (four sessions total: Dec 2023, Jan 2024, May 2024, Dec 2024)" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1508,6 +1312,7 @@ ex:detail-Singerling2025 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27" ;
     ada:samplingUnit "missing" ;
@@ -1540,14 +1345,7 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
   "ada:analyst": "M.S. Thompson; L.P. Keller; R. Christoffersen; Z. Rahman (FIB prep)",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960",
   "ada:sampleName": "Murchison CM2 (1×, 5× laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm × 3 cm, unpolished)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1587,14 +1385,7 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
   "ada:analyst": "M.S. Thompson; L.P. Keller; R. Christoffersen; Z. Rahman (FIB prep)",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960",
   "ada:sampleName": "Murchison CM2 (1\u00d7, 5\u00d7 laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm \u00d7 3 cm, unpolished)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1613,8 +1404,6 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Thompson2020 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960" ] ;
     schema1:measurementTechnique ex:temTAPP-Thompson2020 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1624,6 +1413,7 @@ ex:detail-Thompson2020 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Murchison CM2 (1×, 5× laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm × 3 cm, unpolished)" ;
     ada:samplingUnit "missing" ;
@@ -1656,14 +1446,7 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1703,14 +1486,7 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1729,8 +1505,6 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Xing2023 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:temTAPP-Xing2023 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1740,6 +1514,7 @@ ex:detail-Xing2023 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements" ;
     ada:eelsSensitivityAndDetectionLimit "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability" ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
@@ -1772,14 +1547,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
   "ada:analyst": "L.B. Seifert; T.M. Erickson; L.P. Keller; K. Thomas-Keprta; L. Le; J. Gorce; Z. Rahman; T.J. Zega; H.C. Connolly Jr.; D.S. Lauretta",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert",
   "ada:sampleName": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1819,14 +1587,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
   "ada:analyst": "L.B. Seifert; T.M. Erickson; L.P. Keller; K. Thomas-Keprta; L. Le; J. Gorce; Z. Rahman; T.J. Zega; H.C. Connolly Jr.; D.S. Lauretta",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert",
   "ada:sampleName": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1845,8 +1606,6 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Seifert2026 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert" ] ;
     schema1:measurementTechnique ex:temTAPP-Seifert2026 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1856,6 +1615,7 @@ ex:detail-Seifert2026 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)" ;
     ada:samplingUnit "missing" ;
@@ -1888,14 +1648,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
   "ada:analyst": "L.B. Seifert; T.M. Erickson; L.P. Keller; K. Thomas-Keprta; L. Le; J. Gorce; Z. Rahman; T.J. Zega; H.C. Connolly Jr.; D.S. Lauretta",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert",
   "ada:sampleName": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1935,14 +1688,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
   "ada:analyst": "L.B. Seifert; T.M. Erickson; L.P. Keller; K. Thomas-Keprta; L. Le; J. Gorce; Z. Rahman; T.J. Zega; H.C. Connolly Jr.; D.S. Lauretta",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert",
   "ada:sampleName": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -1961,8 +1707,6 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Seifert2026-2 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert" ] ;
     schema1:measurementTechnique ex:temTAPP-Seifert2026-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1972,6 +1716,7 @@ ex:detail-Seifert2026-2 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)" ;
     ada:samplingUnit "missing" ;
@@ -2004,14 +1749,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analyst": "B.A. Cymes; K.D. Burgess; R.M. Stroud",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program",
   "ada:sampleName": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2051,14 +1789,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analyst": "B.A. Cymes; K.D. Burgess; R.M. Stroud",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program",
   "ada:sampleName": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) \u2014 Apollo 17 soil 71501 (<45 \u00b5m fraction)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2077,8 +1808,6 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Cymes2023 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ] ;
     schema1:measurementTechnique ex:temTAPP-Cymes2023 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -2088,6 +1817,7 @@ ex:detail-Cymes2023 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ;
     ada:samplingUnit "missing" ;
@@ -2120,14 +1850,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analyst": "B.A. Cymes; K.D. Burgess; R.M. Stroud",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program",
   "ada:sampleName": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2167,14 +1890,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analyst": "B.A. Cymes; K.D. Burgess; R.M. Stroud",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program",
   "ada:sampleName": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) \u2014 Apollo 17 soil 71501 (<45 \u00b5m fraction)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2193,8 +1909,6 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Cymes2023-2 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ] ;
     schema1:measurementTechnique ex:temTAPP-Cymes2023-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -2204,6 +1918,7 @@ ex:detail-Cymes2023-2 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ;
     ada:samplingUnit "missing" ;
@@ -2236,14 +1951,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
   "ada:analyst": "B. Mo; Z. Guo; Y. Li; D. Zhu; X. Zeng; X. Li; J. Liu; Y. Wu",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)",
   "ada:sampleName": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2283,14 +1991,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
   "ada:analyst": "B. Mo; Z. Guo; Y. Li; D. Zhu; X. Zeng; X. Li; J. Liu; Y. Wu",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)",
   "ada:sampleName": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2309,8 +2010,6 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Mo2022 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ] ;
     schema1:measurementTechnique ex:temTAPP-Mo2022 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -2320,6 +2019,7 @@ ex:detail-Mo2022 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ;
     ada:samplingUnit "missing" ;
@@ -2352,14 +2052,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
   "ada:analyst": "B. Mo; Z. Guo; Y. Li; D. Zhu; X. Zeng; X. Li; J. Liu; Y. Wu",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)",
   "ada:sampleName": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2399,14 +2092,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
   "ada:analyst": "B. Mo; Z. Guo; Y. Li; D. Zhu; X. Zeng; X. Li; J. Liu; Y. Wu",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)",
   "ada:sampleName": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
   "ada:samplingUnit": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
@@ -2425,8 +2111,6 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Mo2022-2 a ada:TEMImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ] ;
     schema1:measurementTechnique ex:temTAPP-Mo2022-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -2436,6 +2120,7 @@ ex:detail-Mo2022-2 a ada:TEMImage ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "missing" ;
     ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:fundingSourceForAnalysis "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ;
     ada:samplingUnit "missing" ;
@@ -4737,6 +4422,7 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "cdif": "https://w3id.org/cdif/",

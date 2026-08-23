@@ -32,14 +32,7 @@ detail instance derived from Budde+etal2016 | Neptune Plus | IfP Münster.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Three matrix separates, six chondrule fractions (C2, C3, C4; C3m, C3i, C3n) and two bulk rock samples of Allende; BHVO-2",
   "ada:samplingUnit": "Digestion aliquot — \"All samples (0.3–0.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"",
   "ada:sampleDescription": "missing",
@@ -90,14 +83,7 @@ detail instance derived from Budde+etal2016 | Neptune Plus | IfP Münster.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Three matrix separates, six chondrule fractions (C2, C3, C4; C3m, C3i, C3n) and two bulk rock samples of Allende; BHVO-2",
   "ada:samplingUnit": "Digestion aliquot \u2014 \"All samples (0.3\u20130.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"",
   "ada:sampleDescription": "missing",
@@ -127,8 +113,6 @@ detail instance derived from Budde+etal2016 | Neptune Plus | IfP Münster.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P0 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P0 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — \"For samples analyzed several times, reported values represent the mean of pooled solution replicates\". No acceptance or rejection rule stated" ;
@@ -141,6 +125,7 @@ ex:detail-P0 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "Alfa Aesar solution standard" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -181,14 +166,7 @@ detail instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "IAEA-S-1, S-2, S-4, NBS-123; in-house standards S_Alfa and S_Spex; anhydrite mineral standard Sch-M-2; pyrite FVG-1",
   "ada:samplingUnit": "Purified solution aliquot — \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 µg of S\" taken for column purification",
   "ada:sampleDescription": "missing",
@@ -239,14 +217,7 @@ detail instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "IAEA-S-1, S-2, S-4, NBS-123; in-house standards S_Alfa and S_Spex; anhydrite mineral standard Sch-M-2; pyrite FVG-1",
   "ada:samplingUnit": "Purified solution aliquot \u2014 \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 \u00b5g of S\" taken for column purification",
   "ada:sampleDescription": "missing",
@@ -276,8 +247,6 @@ detail instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P1 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P1 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -290,6 +259,7 @@ ex:detail-P1 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "V-CDT scale via IAEA-S-1, S-2, S-4 and NBS-123" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -330,14 +300,7 @@ detail instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Toluca, Gibeon, Duchesne, Skookum, Tlacotepec and 18 further iron meteorites; BHVO-2, BCR-2; IRMM-524a",
   "ada:samplingUnit": "Solution aliquot of a digestion — \"the Fe isotopic compositions were analyzed on solution aliquots (~1-2 mg Fe) of digestions\"; five meteorites cut as \"~50 mg pieces\"",
   "ada:sampleDescription": "missing",
@@ -388,14 +351,7 @@ detail instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Toluca, Gibeon, Duchesne, Skookum, Tlacotepec and 18 further iron meteorites; BHVO-2, BCR-2; IRMM-524a",
   "ada:samplingUnit": "Solution aliquot of a digestion \u2014 \"the Fe isotopic compositions were analyzed on solution aliquots (~1-2 mg Fe) of digestions\"; five meteorites cut as \"~50 mg pieces\"",
   "ada:sampleDescription": "missing",
@@ -425,8 +381,6 @@ detail instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P2 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -439,6 +393,7 @@ ex:detail-P2 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "IRMM-524a, \"that has an identical isotopic composition to IRMM-014\"" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -479,14 +434,7 @@ detail instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Group II CAIs including FG-FT-4, FG-FT-8 and FG-FT-9",
   "ada:samplingUnit": "Fraction of a CAI digestion — \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"",
   "ada:sampleDescription": "missing",
@@ -537,14 +485,7 @@ detail instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Group II CAIs including FG-FT-4, FG-FT-8 and FG-FT-9",
   "ada:samplingUnit": "Fraction of a CAI digestion \u2014 \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"",
   "ada:sampleDescription": "missing",
@@ -574,8 +515,6 @@ detail instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P3 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — \"On average, LREEs were measured nine times\"; replicate matrix cuts were measured but \"are not used, however, for data interpretation to avoid unnecessary influence of stable isotopic fractionation potentially induced by Mo chemistry\" — an explicit exclusion, on chemical rather than statistical grounds" ;
@@ -588,6 +527,7 @@ ex:detail-P3 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "OL-REE series, prepared in-house from high-purity ESPI oxide powder" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -628,14 +568,7 @@ detail instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "FC-1 zircon and baddeleyite crystals; ZrNIST reference solution",
   "ada:samplingUnit": "Single crystal — \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"",
   "ada:sampleDescription": "missing",
@@ -701,14 +634,7 @@ detail instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "FC-1 zircon and baddeleyite crystals; ZrNIST reference solution",
   "ada:samplingUnit": "Single crystal \u2014 \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"",
   "ada:sampleDescription": "missing",
@@ -754,8 +680,6 @@ detail instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT.
 
 ex:detail-Tissot2020 a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-Tissot2020 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — Table 1 records \"Number of times the same purified Zr solution was measured independently in the MC-ICP-MS\" and \"Reported values are weighted means of all replicate\" analyses. No rejection rule stated" ;
@@ -768,6 +692,7 @@ ex:detail-Tissot2020 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "ZrNIST" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "Internal uncertainty determined from counting statistics; stated to be similar in magnitude to or slightly smaller than the external reproducibility adopted per determination" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -813,14 +738,7 @@ detail instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3; DTS-2b and PCC-1 synthetic mixes; Allende; NIST SRM984",
   "ada:samplingUnit": "Digestion aliquot — \"Samples of about 100 mg or less were digested\"",
   "ada:sampleDescription": "missing",
@@ -871,14 +789,7 @@ detail instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3; DTS-2b and PCC-1 synthetic mixes; Allende; NIST SRM984",
   "ada:samplingUnit": "Digestion aliquot \u2014 \"Samples of about 100 mg or less were digested\"",
   "ada:sampleDescription": "missing",
@@ -908,8 +819,6 @@ detail instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Dauphas2019 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-Dauphas2019 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -922,6 +831,7 @@ ex:detail-Dauphas2019 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "NIST SRM984" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -962,14 +872,7 @@ detail instance derived from Nowell+etal2008 | Neptune | Durham AHIGL.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "UMd, DTM, LOsST and DROsS Os isotope reference materials",
   "ada:samplingUnit": "Reference material solution aliquot — 200 ng/ml to 2.5 µg/ml Os, ~300 µl consumed per analysis",
   "ada:sampleDescription": "missing",
@@ -1020,14 +923,7 @@ detail instance derived from Nowell+etal2008 | Neptune | Durham AHIGL.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "UMd, DTM, LOsST and DROsS Os isotope reference materials",
   "ada:samplingUnit": "Reference material solution aliquot \u2014 200 ng/ml to 2.5 \u00b5g/ml Os, ~300 \u00b5l consumed per analysis",
   "ada:sampleDescription": "missing",
@@ -1057,8 +953,6 @@ detail instance derived from Nowell+etal2008 | Neptune | Durham AHIGL.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P6 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P6 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — n = 45 per analysis. No rejection rule stated" ;
@@ -1071,6 +965,7 @@ ex:detail-P6 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "missing" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "Within-run errors for individual analyses quoted as 2 standard errors of the mean, 2SE = 2SD/n^0.5, with n = 45 cycles" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -1111,14 +1006,7 @@ detail instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "DTM and LOsST Os isotope reference materials",
   "ada:samplingUnit": "Reference material solution aliquot — ~6400 µl consumed per analysis",
   "ada:sampleDescription": "missing",
@@ -1169,14 +1057,7 @@ detail instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "DTM and LOsST Os isotope reference materials",
   "ada:samplingUnit": "Reference material solution aliquot \u2014 ~6400 \u00b5l consumed per analysis",
   "ada:sampleDescription": "missing",
@@ -1206,8 +1087,6 @@ detail instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P7 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P7 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — n = 50 per analysis. No rejection rule stated" ;
@@ -1220,6 +1099,7 @@ ex:detail-P7 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "missing" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "Within-run errors for individual analyses quoted as 2 standard errors of the mean, 2SE = 2SD/n^0.5, with n = 50 cycles" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -1260,14 +1140,7 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "GS-N, AGV-2, BCR-2, BHVO-2, EW9309 10D, AHANEMO2 D20B; Allende (duplicate splits); NIST SRM984",
   "ada:samplingUnit": "Weighed powder aliquot — \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
   "ada:sampleDescription": "missing",
@@ -1346,14 +1219,7 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "GS-N, AGV-2, BCR-2, BHVO-2, EW9309 10D, AHANEMO2 D20B; Allende (duplicate splits); NIST SRM984",
   "ada:samplingUnit": "Weighed powder aliquot \u2014 \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
   "ada:sampleDescription": "missing",
@@ -1413,8 +1279,6 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
 ex:detail-Moynier2017 a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-Moynier2017 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "\"any ratio outside 2σ was discarded\" — an explicit rejection rule, applied within a measurement. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\"" ;
@@ -1427,6 +1291,7 @@ ex:detail-Moynier2017 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "NIST SRM984 RbCl; the basalt geostandard BCR-2 used as an alternative bracketing standard in some sessions" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -1477,14 +1342,7 @@ detail instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ryugu A0106, A0106-A0107 and C0108; Tagish Lake, Tarda, Ivuna (PB and high PT), Orgueil, Murchison, Colony; eucrites Bouvante and Bereba; BHVO-2, BCR-2, AGV-1, SCo-1; NIST SRM 3169",
   "ada:samplingUnit": "Digestion aliquot — Ryugu \"aliquots of <25 mg were analyzed with ~40 to 70 ng Zr\"; Tagish Lake 30 mg, Tarda 90 mg, Ivuna 40 and 44 mg \"from a larger homogenized powder (550 mg)\"",
   "ada:sampleDescription": "missing",
@@ -1535,14 +1393,7 @@ detail instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ryugu A0106, A0106-A0107 and C0108; Tagish Lake, Tarda, Ivuna (PB and high PT), Orgueil, Murchison, Colony; eucrites Bouvante and Bereba; BHVO-2, BCR-2, AGV-1, SCo-1; NIST SRM 3169",
   "ada:samplingUnit": "Digestion aliquot \u2014 Ryugu \"aliquots of <25 mg were analyzed with ~40 to 70 ng Zr\"; Tagish Lake 30 mg, Tarda 90 mg, Ivuna 40 and 44 mg \"from a larger homogenized powder (550 mg)\"",
   "ada:sampleDescription": "missing",
@@ -1572,8 +1423,6 @@ detail instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P9 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P9 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — n stated per reference material (n = 13–99 for terrestrial RMs over 10 months; n = 17–38 for eucrites and Colony; n = 32 and n = 37 for standard sessions). No rejection rule stated" ;
@@ -1586,6 +1435,7 @@ ex:detail-P9 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "NIST SRM 3169" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -1626,14 +1476,7 @@ detail instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "BHVO2 and DTS-2b processed alongside the samples",
   "ada:samplingUnit": "Fraction of a bulk digestion — \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"",
   "ada:sampleDescription": "missing",
@@ -1684,14 +1527,7 @@ detail instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "BHVO2 and DTS-2b processed alongside the samples",
   "ada:samplingUnit": "Fraction of a bulk digestion \u2014 \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"",
   "ada:sampleDescription": "missing",
@@ -1721,8 +1557,6 @@ detail instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P10 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P10 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — \"the mean ... of ten individual standard-bracketed sample analyses\"; \"Samples were typically analysed two to four times\". No rejection rule stated" ;
@@ -1735,6 +1569,7 @@ ex:detail-P10 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "IRMM-014 (Fe), SRM979 (Cr), DTS-2b (Mg)" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -1775,14 +1610,7 @@ detail instance derived from Broussard+etal2026 | Neptune Plus | WUSTL.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Oued Chebeika 002; geostandard BHVO-2; NIST SRM 3141a",
   "ada:samplingUnit": "missing",
   "ada:sampleDescription": "missing",
@@ -1833,14 +1661,7 @@ detail instance derived from Broussard+etal2026 | Neptune Plus | WUSTL.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Oued Chebeika 002; geostandard BHVO-2; NIST SRM 3141a",
   "ada:samplingUnit": "missing",
   "ada:sampleDescription": "missing",
@@ -1870,8 +1691,6 @@ detail instance derived from Broussard+etal2026 | Neptune Plus | WUSTL.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P11 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P11 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — \"Each sample was measured approximately 20 times\". No rejection rule stated" ;
@@ -1884,6 +1703,7 @@ ex:detail-P11 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "NIST SRM 3141a" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -1924,14 +1744,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | WUSTL.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803015-101 (LLNL split) and OREX-803015-100 (ETH split) of Bennu aggregate; BHVO-2",
   "ada:samplingUnit": "Split of a single digest — \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"",
   "ada:sampleDescription": "missing",
@@ -1982,14 +1795,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | WUSTL.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803015-101 (LLNL split) and OREX-803015-100 (ETH split) of Bennu aggregate; BHVO-2",
   "ada:samplingUnit": "Split of a single digest \u2014 \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"",
   "ada:sampleDescription": "missing",
@@ -2019,8 +1825,6 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | WUSTL.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P12 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P12 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -2033,6 +1837,7 @@ ex:detail-P12 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "NIST-SRM 3141a (K), NIST-SRM 976 (Cu), JMC-Lyon (Zn)" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -2073,14 +1878,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803015-100, a 5.2 mg aliquot of Bennu aggregate",
   "ada:samplingUnit": "A 5.2 mg aliquot of Bennu aggregate",
   "ada:sampleDescription": "missing",
@@ -2131,14 +1929,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803015-100, a 5.2 mg aliquot of Bennu aggregate",
   "ada:samplingUnit": "A 5.2 mg aliquot of Bennu aggregate",
   "ada:sampleDescription": "missing",
@@ -2168,8 +1959,6 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P13 a ada:SolutionICPMSTabular ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P13 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -2182,6 +1971,7 @@ ex:detail-P13 a ada:SolutionICPMSTabular ;
     ada:deltaOrEpsilonValueReferenceStandard "missing" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;

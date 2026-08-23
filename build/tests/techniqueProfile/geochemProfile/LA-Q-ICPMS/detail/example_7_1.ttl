@@ -1,0 +1,40 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-P6 a ada:LAICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethod> ;
+    schema1:measurementTechnique ex:laQicpmsTAPP-P6 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Acquired and included counts both stated: 'A total of 246 spot analyses were undertaken in 20 analytical sessions over 3 months, 236 of which yielded a weighted-mean age of 515.4 +/- 1.2 Ma'. The rejection rule itself is not stated" ;
+    ada:analysisLocationSpotCoordinates "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "Accuracy of common-Hf corrected single-spot xenotime ages generally better than 1.5%, assessed against ID-TIMS U-Pb ages of the same reference materials" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:componentType "ada:LAICPMSTabular" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "MSWD reported with each aggregate age — e.g. MSWD = 2.3 (n = 236, XN02) and MSWD = 0.6 (n = 15, weighted-mean Lu-Hf age 489.8 +/- 2.2 Ma)" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "Uncertainties (2SE) of single-spot ages were ~2.6%" ;
+    ada:limitOfQuantificationMethod "missing" ;
+    ada:mappingArea "missing" ;
+    ada:numberOfReplicates -9999 ;
+    ada:oxideProduction "missing" ;
+    ada:proceduralBlankLevel "missing" ;
+    ada:sampleName "Xenotime XN02, MG-1, BS-1, XENOA, M1567; apatite Otter Lake, NW-1, MAP-3; two metamorphic garnets; NIST SRM 610" ;
+    ada:samplingUnit "Laser spot — 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents" ;
+    ada:sessionIdentifier "N — 20 analytical sessions over 3 months referenced, no identifier stated" ;
+    ada:signalIntegrationTime -9999 ;
+    ada:spotDiameter 50 ;
+    ada:spotDiameterMeasured -9999 ;
+    ada:transectLength -9999 ;
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Precision of common-Hf corrected single-spot ages 1.5-8.1% (xenotime) and 9.2-36.0% (apatite); isochron age uncertainties 3.5-10% for garnet" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
+    schema1:name "Uncertainty Propagation Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethod> ;
+    schema1:value "Uncertainty propagation workflow implemented in IsoplotR" .
+

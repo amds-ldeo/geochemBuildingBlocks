@@ -32,14 +32,7 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   "ada:analyst": "Chi Ma",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint Mars meteorite",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -84,14 +77,7 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   "ada:analyst": "Chi Ma",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint Mars meteorite",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -115,8 +101,6 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-JEOL8200 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-JEOL8200 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -128,6 +112,7 @@ ex:detail-JEOL8200 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% (Table 1 footnote; other elements N)" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -163,14 +148,7 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   "ada:analyst": "Sen Hu",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 8657 shergottite",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -215,14 +193,7 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   "ada:analyst": "Sen Hu",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 8657 shergottite",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -246,8 +217,6 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P1 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-P1 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -259,6 +228,7 @@ ex:detail-P1 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "K2O: 0.01 wt% (lowest); MnO: 0.06 wt% (highest); full per-element values stated in paper" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -294,14 +264,7 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -346,14 +309,7 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -377,8 +333,6 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P2 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-P2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -390,6 +344,7 @@ ex:detail-P2 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as \"typical\")" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -425,14 +380,7 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -477,14 +425,7 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -508,8 +449,6 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P3 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-P3 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -521,6 +460,7 @@ ex:detail-P3 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as shared conditions with UT)" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -556,14 +496,7 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "ada:analyst": "Chi Ma",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Zagami USNM 7619",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -608,14 +541,7 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "ada:analyst": "Chi Ma",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Zagami USNM 7619",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -639,8 +565,6 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-JEOL8200-2 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-JEOL8200-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -652,6 +576,7 @@ ex:detail-JEOL8200-2 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "0.05 Si, 0.04 Ti, 0.06 Al, 0.06 Fe, 0.02 Mg, 0.02 Ca, 0.03 Na, 0.02 K, 0.05 Cr, 0.06 Mn (all wt%)" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -687,14 +612,7 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   "ada:analyst": "David R. Frank",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ivuna CI chondrite, section MZ2",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -739,14 +657,7 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   "ada:analyst": "David R. Frank",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ivuna CI chondrite, section MZ2",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -770,8 +681,6 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P5 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-P5 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -783,6 +692,7 @@ ex:detail-P5 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "Al2O3, K2O, CaO: 0.03-0.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06-0.09 wt% (stated as \"typically\")" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -818,14 +728,7 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -870,14 +773,7 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -901,8 +797,6 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P6 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-P6 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -914,6 +808,7 @@ ex:detail-P6 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -949,14 +844,7 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "ada:analyst": "Logan B. Seifert",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803079-0 and OREX-803080-0 (Bennu OSIRIS-REx samples)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1001,14 +889,7 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "ada:analyst": "Logan B. Seifert",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803079-0 and OREX-803080-0 (Bennu OSIRIS-REx samples)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1032,8 +913,6 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-JEOL8530 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-JEOL8530 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1045,6 +924,7 @@ ex:detail-JEOL8530 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -1080,14 +960,7 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 8003 eucrite",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1132,14 +1005,7 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 8003 eucrite",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1163,8 +1029,6 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P8 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-P8 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1176,6 +1040,7 @@ ex:detail-P8 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "Better than 0.02 wt% (as stated in paper)" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -1211,14 +1076,7 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1263,14 +1121,7 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1294,8 +1145,6 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-JEOL8530-2 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-JEOL8530-2 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1307,6 +1156,7 @@ ex:detail-JEOL8530-2 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -1342,14 +1192,7 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1394,14 +1237,7 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1425,8 +1261,6 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P10 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-P10 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1438,6 +1272,7 @@ ex:detail-P10 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -1473,14 +1308,7 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-5/8#####-###)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1525,14 +1353,7 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-5/8#####-###)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1556,8 +1377,6 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P11 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-P11 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1569,6 +1388,7 @@ ex:detail-P11 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "missing" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -1604,14 +1424,7 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800045-103 and OREX-800045-107",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1656,14 +1469,7 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800045-103 and OREX-800045-107",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1687,8 +1493,6 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P12 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-P12 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1700,6 +1504,7 @@ ex:detail-P12 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "Mg: 0.025 wt%; Fe: 0.025 wt%; Si: 0.05 wt%; K: 0.05 wt%; Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -1735,14 +1540,7 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-501054-0 and OREX-501059-0 (particles P1, P2)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1787,14 +1585,7 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "missing"
-    }
-  ],
+  "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-501054-0 and OREX-501059-0 (particles P1, P2)",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
@@ -1818,8 +1609,6 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P13 a ada:EMPAImage ;
-    schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "missing" ] ;
     schema1:measurementTechnique ex:empaTAPP-P13 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -1831,6 +1620,7 @@ ex:detail-P13 a ada:EMPAImage ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit "Transition metals: ~250 ppm (stated as \"typical\")" ;
     ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -2822,6 +2612,7 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "cdif": "https://w3id.org/cdif/",
