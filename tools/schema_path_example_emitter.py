@@ -94,6 +94,80 @@ def _module_param_def(item, root):
     return _MODPARAM_CACHE[key].get((mc.ms._norm(mc.ms.rename(item)), root))
 
 
+WIKIDATA_INSTRUMENT = "https://www.wikidata.org/wiki/Q3099911"
+
+
+def instrument_id(token):
+    """A document-scoped @id for an instrument, derived from its type token.
+
+    Derived rather than sequential so it is stable across regenerations: a counter would rewrite
+    every example on every run.
+    """
+    return "ex:instrument/" + (re.sub(r"[^A-Za-z0-9]+", "-", str(token or "instrument")).strip("-")
+                               or "instrument")
+
+
+def normalize_instrument_tree(inst):
+    """Supply the structural fields an instrument node needs but a schema path never names.
+
+    THE ONE normalizer for instrument trees. Both example builders call it: build_tapp_examples for
+    publication examples, and route() below for the synthetic -P0 ones. They previously had separate
+    implementations, which drifted -- the synthetic one supplied @id but typed components
+    ["schema:Thing"] alone, so every ICP-MS detail -P0 failed the component branch that requires
+    schema:Product too. Two copies of a rule is two chances to be half-right.
+
+    The instrument building block requires, on each node:
+      * @type [schema:Product, schema:Thing] -- on the instrument AND every inline component
+      * @id -- so a monitored species can name the device, or the PART, that reports it
+      * on a component: the scientific-instrument Wikidata term, and a schema:name
+      * @type on schema:model / schema:manufacturer
+
+    The path interpreter builds these nodes by nesting from [additionalType=...] selectors and
+    carries only the metadata leaves, so the discriminators are supplied here rather than left to
+    the validator-driven fills, which cannot resolve them through the instrument $def's deep anyOf.
+    """
+    def token(node, fallback):
+        t = next((x for x in (node.get("schema:additionalType") or []) if isinstance(x, str)), None)
+        return re.sub(r"[^A-Za-z0-9]+", "-", str(t or fallback)).strip("-") or fallback
+
+    def walk(node, is_component, parent_id=None):
+        if not isinstance(node, dict):
+            return
+        node.setdefault("@type", ["schema:Product", "schema:Thing"])
+        if not isinstance(node.get("@id"), str):
+            # a component is scoped under its parent, so two instruments may each carry their own
+            # Collector without the identifiers colliding
+            node["@id"] = ("%s/part/%s" % (parent_id or instrument_id("instrument"),
+                                           token(node, "component"))
+                           if is_component else instrument_id(token(node, "instrument")))
+        if is_component:
+            at = node.setdefault("schema:additionalType", [])
+            if not any(isinstance(x, dict) and x.get("@id") == WIKIDATA_INSTRUMENT for x in at):
+                at.append({"@id": WIKIDATA_INSTRUMENT})
+            node.setdefault("schema:name", "missing")
+        m = node.get("schema:model")
+        if isinstance(m, dict):
+            m.setdefault("@type", ["schema:ProductModel"])
+        mf = node.get("schema:manufacturer")
+        if isinstance(mf, dict):
+            mf.setdefault("@type", ["schema:Organization"])
+        for part in (node.get("schema:hasPart") or []):
+            walk(part, True, node.get("@id"))
+
+    def find(n):
+        if isinstance(n, dict):
+            for k, v in n.items():
+                if k == "schema:instrument":
+                    for i in (v if isinstance(v, list) else [v]):
+                        walk(i, False)
+                find(v)
+        elif isinstance(n, list):
+            for v in n:
+                find(v)
+
+    find(inst)
+
+
 def strip_annotation(v, m=None):
     """Drop a trailing transcription note from a cell destined for a CONTROLLED slot.
 
@@ -187,7 +261,8 @@ def build_example(tapp, values=None, emit_reported_property=False):
     # Identifier on the activity, which appears in no technique sidecar, so an example built from
     # the technique alone became invalid the moment composition was wired.
     import module_composition as mc
-    _refs, _ = mc.plan(b.XLSX)
+    _refs, _covered = mc.plan(b.XLSX)
+    _injected = set()
     for _name, _ in _refs:
         _sc = schemapath_io.csv_path(os.path.join(mc.ts.modules_dir(), f"Module_{_name}.csv"))
         if not os.path.exists(_sc):
@@ -205,7 +280,17 @@ def build_example(tapp, values=None, emit_reported_property=False):
             _keep = [_p for _p in _paths if _p and mc._is_composable(_p)]
             if not _keep:
                 continue
-            spec.setdefault(_item, {**_rec, "path": _keep})   # a technique's own row wins
+            # WHERE THE MODULE COVERS THE ITEM, THE MODULE OWNS THE PLACEMENT. "A technique's own
+            # row wins" was right while modules only added fields, but a covered row is dropped from
+            # the technique's overlay -- so letting the technique's row win here emitted a placement
+            # the schema no longer has, and suppressed the module's. SEM kept its variableMeasured
+            # row for Goodness-of-Fit and so never emitted the module's dqv default, which the
+            # module's Basic tier requires.
+            _k = mc.ms._norm(mc.ms.rename(_item))
+            _owned = any(_k in _covered[_r] for _r in ("MethodDefinition", "Dataset"))
+            if _item not in spec or _owned:
+                _injected.add(_item)
+                spec[_item] = {**_rec, "path": _keep}
             meta.setdefault(_item, {})
 
     roots = {"MethodDefinition": e.Obj(), "Dataset": e.Obj()}
@@ -238,6 +323,15 @@ def build_example(tapp, values=None, emit_reported_property=False):
         for path in paths:   # usually 1; 2 for a dual-homed editable param (TAPP default + detail value)
             path = e.normalize_path(path)
             parsed = spp.parse(path)
+            if (item not in _injected
+                    and mc.ms._norm(mc.ms.rename(item)) in _covered[parsed.root]
+                    and not mc._is_composable(path)):
+                # The module carries this field, so the technique's own schema:additionalProperty
+                # branch for it is gone -- emitting ada:parameter/<TAPP>/<name> matched no branch.
+                # Only the PARAMETER path goes, though: the module's $def still REQUIRES the
+                # composable placement (ada:ablationSpotDurationDefault and friends), so dropping
+                # the item outright stripped required properties out of the example instead.
+                continue
             if any(c in path for c in COLUMN_DEFS):
                 continue                 # structural column defs, schema-side only — never a value
             if pub:
@@ -285,7 +379,10 @@ def build_example(tapp, values=None, emit_reported_property=False):
                 continue
             e.insert(roots[parsed.root], parsed,
                      strip_annotation(values[item], m) if pub else placeholder(m, item, sidecar))
-    return {r: e.to_instance(o) for r, o in roots.items()}
+    out = {r: e.to_instance(o) for r, o in roots.items()}
+    for v in out.values():
+        normalize_instrument_tree(v)
+    return out
 
 
 def _selfcontained(overlay, registries):

@@ -143,7 +143,7 @@ def place_identity(inst, item, sp, v, allowed_techniques=()):
         arr = inst.setdefault("schema:instrument", [])
         cur = next((i for i in arr if token in (i.get("schema:additionalType") or [])), None)
         if cur is None:
-            cur = {"@id": _instrument_id(token),
+            cur = {"@id": ex.instrument_id(token),
                    "@type": ["schema:Product", "schema:Thing"],
                    "schema:additionalType": [token, {"@id": WIKIDATA_INSTRUMENT}],
                    "schema:name": ""}
@@ -237,17 +237,6 @@ def ensure_required_steps(inst, sp_by_item):
     steps.sort(key=lambda s: (uniq.index(s["schema:name"]) if s.get("schema:name") in uniq else 99))
     for i, s in enumerate(steps, 1):
         s["schema:position"] = i
-
-
-def _instrument_id(token):
-    """A document-scoped @id for a generated instrument.
-
-    @id is REQUIRED on the instrument building block: a monitored species has to be able to name the
-    device that reports it, and an anonymous object cannot be referenced. Derived from the
-    instrument-type token so it is stable across regenerations and unique within a record, which is
-    all a document-scoped identifier needs to be.
-    """
-    return "ex:instrument/" + re.sub(r"[^A-Za-z0-9]+", "-", str(token)).strip("-")
 
 
 _HASPART_SEL = re.compile(r"schema:instrument\[\s*schema:additionalType\s*=\s*'([^']+)'\s*\]"
@@ -463,48 +452,14 @@ def populate_reported_properties(inst, tapp_res, values):
 
 
 def type_instrument_tree(inst):
-    """Add the structural @type each instrument node needs but a schema path never names.
+    """Normalise the instrument tree. Delegates to the ONE shared implementation.
 
-    The instrument BB requires @type [schema:Product, schema:Thing] on every instrument AND every
-    inline sub-component, @type [schema:ProductModel] on schema:model, and the scientific-instrument
-    Wikidata term + a schema:name on each sub-component. The path interpreter builds these nodes by
-    nesting (from the [additionalType=…] selectors) but carries only the metadata leaves, so the
-    discriminators are supplied here rather than left to the validator-driven fills (which cannot
-    resolve them through the instrument $def's deep anyOf)."""
-    def walk(node, is_component, parent_id=None):
-        if not isinstance(node, dict):
-            return
-        node.setdefault("@type", ["schema:Product", "schema:Thing"])
-        if is_component and not isinstance(node.get("@id"), str):
-            # @id is REQUIRED on an inline component too: a monitored species names the PART that
-            # reports it (a Faraday cup, a spectrometer, a detector), which an anonymous object
-            # cannot express. Scoped under the parent instrument so two instruments may each carry
-            # their own Collector without the identifiers colliding.
-            ctok = next((x for x in (node.get("schema:additionalType") or []) if isinstance(x, str)), None)
-            node["@id"] = "%s/part/%s" % (parent_id or "ex:instrument/instrument",
-                                          re.sub(r"[^A-Za-z0-9]+", "-", str(ctok or "component")).strip("-"))
-        if not is_component and not isinstance(node.get("@id"), str):
-            # @id is REQUIRED on the instrument BB so a monitored species can name the device that
-            # reports it. The path interpreter builds instrument nodes from [additionalType=…]
-            # selectors and carries only metadata leaves, so the identifier is supplied here, keyed
-            # off the type token that made the node - stable across regenerations, unique in a record.
-            tok = next((x for x in (node.get("schema:additionalType") or []) if isinstance(x, str)), None)
-            node["@id"] = _instrument_id(tok or "instrument")
-        if is_component:
-            at = node.setdefault("schema:additionalType", [])
-            if not any(isinstance(x, dict) and x.get("@id") == WIKIDATA_INSTRUMENT for x in at):
-                at.append({"@id": WIKIDATA_INSTRUMENT})
-            node.setdefault("schema:name", "missing")
-        m = node.get("schema:model")
-        if isinstance(m, dict):
-            m.setdefault("@type", ["schema:ProductModel"])
-        mf = node.get("schema:manufacturer")
-        if isinstance(mf, dict):
-            mf.setdefault("@type", ["schema:Organization"])
-        for p in node.get("schema:hasPart", []) or []:
-            walk(p, True, node.get("@id"))
-    for ins in inst.get("schema:instrument", []) or []:
-        walk(ins, False)
+    This used to carry its own copy of the rules, and the synthetic-example builder carried another.
+    They drifted: the other supplied @id but typed components ["schema:Thing"] alone, which failed
+    the component branch requiring schema:Product, and every ICP-MS detail -P0 example broke. One
+    rule, one place.
+    """
+    ex.normalize_instrument_tree(inst)
 
 
 def ensure_required_hasparts(inst, sp_by_item):
@@ -546,7 +501,7 @@ def ensure_required_instruments(inst, sp_by_item):
     arr = inst.setdefault("schema:instrument", [])
     for token in sorted(wanted):
         if not any(token in (i.get("schema:additionalType") or []) for i in arr):
-            arr.append({"@id": _instrument_id(token),
+            arr.append({"@id": ex.instrument_id(token),
                         "@type": ["schema:Product", "schema:Thing"],
                         "schema:additionalType": [token, {"@id": WIKIDATA_INSTRUMENT}],
                         "schema:name": "missing"})

@@ -14,16 +14,6 @@
   ],
   "prov:wasGeneratedBy": [
     {
-      "schema:location": {
-        "@type": [
-          "schema:Place"
-        ],
-        "schema:name": "example laboratory",
-        "schema:identifier": "example laboratoryId"
-      },
-      "schema:identifier": "example sessionIdentifier",
-      "schema:startDate": "example analysisStartDate",
-      "schema:endDate": "example analysisEndDate",
       "schema:actionProcess": {
         "schema:step": [
           {
@@ -68,8 +58,6 @@
           "@type": [
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
-          "schema:name": "example sampleName",
-          "schema:identifier": "example samplePersistentIdentifier",
           "schema:additionalProperty": [
             {
               "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening",
@@ -84,23 +72,80 @@
               "schema:name": "Pre-Analysis Imaging and Screening",
               "schema:value": "example value"
             }
+          ],
+          "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                    }
+                  ],
+                  "schema:name": "Working Distance",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "@id": "ex:instrument/SEM",
+              "schema:name": "example instrumentName"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataProcessingSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
           ]
         }
       ],
       "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/TargetSelection/targetSelectionCriteria",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/module/TargetSelection/targetSelectionCriteria"
-            }
-          ],
-          "schema:name": "Target Selection Criteria",
-          "schema:value": "example value"
-        },
         {
           "@id": "ada:parameter/semImagingTAPP/chamberPressure",
           "@type": [
@@ -198,77 +243,24 @@
           "schema:value": "example value"
         }
       ],
-      "prov:used": [
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "example acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "example dataProcessingSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            }
-          ]
-        },
-        {
-          "schema:instrument": [
-            {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 1,
-                  "schema:unitText": "example value"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "example instrumentName",
-              "@id": "ex:instrument/SEM"
-            }
-          ]
-        }
-      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
+      "schema:identifier": "example sessionIdentifier",
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
       "schema:description": "example additionalNotes"
     }
   ],
+  "ada:frameTime": 1.0,
+  "ada:indexingMethod": "Hough transform",
+  "ada:patternQualityThreshold": "example ebsdPatternQualityThreshold",
+  "ada:meanAngularDeviation": 1.0,
+  "ada:indexingRate": 1.0,
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -283,7 +275,14 @@
       "schema:name": "example analyst"
     }
   ],
-  "schema:funding": [],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForAnalysis"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -302,10 +301,5 @@
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
     }
-  ],
-  "ada:frameTime": 1.0,
-  "ada:indexingMethod": "Hough transform",
-  "ada:patternQualityThreshold": "example ebsdPatternQualityThreshold",
-  "ada:meanAngularDeviation": 1.0,
-  "ada:indexingRate": 1.0
+  ]
 }

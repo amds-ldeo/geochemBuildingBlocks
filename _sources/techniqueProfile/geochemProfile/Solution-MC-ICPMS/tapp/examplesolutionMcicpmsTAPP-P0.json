@@ -16,32 +16,6 @@
   ],
   "schema:name": "solutionMcicpms protocol — P0",
   "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v30.csv).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution MC-ICP-MS"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Institut für Planetologie, University of Münster"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "TIMS — Ba isotopes on a Thermo Scientific Triton Plus at the same institute; Hf-W on the same sample digestions"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -146,14 +120,6 @@
       },
       {
         "schema:name": "Sample digestion",
-        "bios:reagent": [
-          {
-            "schema:name": "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
@@ -165,6 +131,14 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "\"closed Savillex beakers\""
+          }
+        ],
+        "bios:reagent": [
+          {
+            "schema:name": "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
           }
         ],
         "@type": [
@@ -181,8 +155,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:chromatographicSeparationApplied": "Yes — two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8",
-  "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -343,26 +315,6 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:manufacturer": {
-        "schema:name": "Thermo Fisher Scientific",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
     }
   ],
   "schema:additionalProperty": [
@@ -389,6 +341,49 @@
       "schema:value": "N/A — no added internal standard element"
     }
   ],
+  "ada:sampleSequenceDesign": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
+  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:blankBackgroundCorrectionMethod": "N/A",
+  "ada:primaryStandardNameDefault": "Alfa Aesar Mo solution standard",
+  "ada:secondaryReferenceMaterialDefault": [
+    "BHVO-2, \"several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples\""
+  ],
+  "ada:reportedProperties": [
+    "εiMo relative to the Alfa Aesar solution standard, εiMo = [(iMo/96Mo)sample/(iMo/96Mo)standard − 1] x 10^4"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution MC-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Institut für Planetologie, University of Münster"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "TIMS — Ba isotopes on a Thermo Scientific Triton Plus at the same institute; Hf-W on the same sample digestions"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:samplingUnit": "Digestion aliquot — \"All samples (0.3–0.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"",
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:internalNormalizationElementAndIsotopeRatio": "98Mo/96Mo = 1.453173",
+  "ada:chromatographicSeparationApplied": "Yes — two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8",
+  "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Mo (and Ba by TIMS)"
@@ -446,34 +441,6 @@
       }
     ]
   },
-  "ada:sampleSequenceDesign": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
-  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:blankBackgroundCorrectionMethod": "N/A",
-  "ada:primaryStandardNameDefault": "Alfa Aesar Mo solution standard",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, \"several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples\""
-  ],
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedPropertyTemplate": {
-    "ada:defaultReportedProperties": [
-      "εiMo relative to the Alfa Aesar solution standard, εiMo = [(iMo/96Mo)sample/(iMo/96Mo)standard − 1] x 10^4"
-    ],
-    "ada:reportedPropertyColumns": [
-      {
-        "schema:valueName": "reportedProperty",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
-  "ada:samplingUnit": "Digestion aliquot — \"All samples (0.3–0.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"",
-  "ada:internalNormalizationElementAndIsotopeRatio": "98Mo/96Mo = 1.453173",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",

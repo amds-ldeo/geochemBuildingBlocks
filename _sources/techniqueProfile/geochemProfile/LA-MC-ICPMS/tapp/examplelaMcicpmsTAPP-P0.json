@@ -15,65 +15,42 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "example protocolName",
+  "schema:name": "example procedureName",
   "ada:ablationSpotDurationDefault": 1.0,
   "ada:ablationPitDepthRateDefault": "example ablationPitDepthAndAblationRate",
-  "schema:description": "example additionalNotes",
   "ada:analysisSequenceDefault": "example analysisSequence",
   "ada:analyticalAccuracy": "example analyticalAccuracyAndAssessmentMethod",
-  "ada:analyticalMode": [
-    "Spot"
-  ],
   "ada:backgroundCountTimeDefault": 1.0,
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/baselineMeasurementApproach",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/baselineMeasurementApproach"
-        }
-      ],
-      "schema:name": "Baseline Measurement Approach",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsTAPP/doubleSpikeIsotopePair",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/doubleSpikeIsotopePair"
-        }
-      ],
-      "schema:name": "Double-Spike Isotope Pair",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsTAPP/doubleSpikeMixingRatioDefault",
+      "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "doubleSpikeMixingRatioDefault",
-      "schema:name": "Double-Spike Mixing Ratio",
+      "schema:valueName": "baselineMeasurementApproach",
+      "schema:name": "Baseline Measurement Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/eScanRange",
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/eScanRange"
-        }
+      "schema:valueName": "doubleSpikeIsotopePair",
+      "schema:name": "Double Spike Isotope Pair",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
       ],
-      "schema:name": "E-scan Range",
-      "schema:value": "example value"
+      "schema:valueName": "doubleSpikeMixingRatioDefault",
+      "schema:name": "Double Spike Mixing Ratio",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/laMcicpmsTAPP/instrumentWarmUpSessionDurationLimit",
@@ -89,17 +66,14 @@
       "schema:value": "example value"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/massFractionationLaw",
+      "@id": "ada:parameter/module/MCICPMS/massFractionationLaw",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/massFractionationLaw"
-        }
-      ],
+      "schema:valueName": "massFractionationLaw",
       "schema:name": "Mass Fractionation Law",
-      "schema:value": "example value"
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/laMcicpmsTAPP/matrixOffsetCorrection",
@@ -128,7 +102,7 @@
       "schema:value": "example value"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurementDefault",
+      "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -138,7 +112,7 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/numberOfCyclesPerBlockDefault",
+      "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -148,17 +122,17 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laMcicpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/preAnalysisImagingAndScreeningDefault",
+      "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -168,27 +142,14 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSizeDefault",
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
       "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
-      "schema:name": "Transect Rate, Mapping Rate or Step Size",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsTAPP/tripleScanningMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/tripleScanningMode"
-        }
-      ],
-      "schema:name": "Triple Scanning Mode",
-      "schema:value": "example value"
     },
     {
       "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault",
@@ -210,48 +171,24 @@
   "ada:elementalFractionationCorrection": [
     "example elementalFractionationCorrection"
   ],
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "example fundingSourceForProtocolDevelopment"
-    }
-  ],
-  "ada:internalNormalizationElementAndIsotopeRatio": "example internalNormalizationElementAndIsotopeRatio",
   "ada:internalStandardApproach": "example internalStandardApproach",
   "ada:internalStandardElement": "example internalStandardElement",
   "ada:isobaricInterferenceCorrectionsApplied": true,
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "example laboratory",
-    "schema:identifier": "example laboratoryId"
-  },
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
-  ],
   "ada:massBiasCorrectionStrategy": "example massBiasCorrectionStrategy",
   "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
   "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName",
-  "schema:creator": {
-    "schema:name": "example protocolAuthor",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "prov:wasDerivedFrom": "example procedureReference",
-  "schema:datePublished": "example protocolStartDate",
   "ada:rasterLineSpacingDefault": "example rasterLineSpacing",
+  "ada:reportedProperties": [
+    "example reportedVariablesAndUnits"
+  ],
   "ada:sampleIntroduction": "example sampleIntroduction",
-  "ada:samplingUnit": "Whole sample",
   "ada:secondaryReferenceMaterialDefault": [
     "example secondaryReferenceMaterials"
   ],
-  "ada:signalCollectionMode": "example signalCollectionMode",
   "ada:signalIntegrationIntervalMethod": "example signalIntegrationIntervalMethod",
   "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
+  "ada:uncertaintyLevel": "2σ (95% confidence)",
+  "ada:withinSessionPrecision": "example withinSessionAnalyticalPrecisionAndAssessmentMethod",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -260,6 +197,35 @@
       "schema:termCode": "LA-MC-ICP-MS"
     }
   ],
-  "ada:uncertaintyLevel": "2σ (95% confidence)",
-  "ada:withinSessionPrecision": "example withinSessionAnalyticalPrecisionAndAssessmentMethod"
+  "schema:creator": {
+    "schema:name": "example procedureAuthor",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "example laboratory",
+    "schema:identifier": "example laboratoryId"
+  },
+  "schema:datePublished": "example procedureStartDate",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForProcedureDevelopment"
+    }
+  ],
+  "ada:samplingUnit": "Whole sample",
+  "ada:analyticalMode": [
+    "Spot"
+  ],
+  "schema:description": "example additionalNotes",
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
+  "ada:internalNormalizationElementAndIsotopeRatio": "example internalNormalizationElementAndIsotopeRatio"
 }

@@ -14,21 +14,11 @@
   ],
   "prov:wasGeneratedBy": [
     {
-      "schema:location": {
-        "@type": [
-          "schema:Place"
-        ],
-        "schema:name": "example laboratory",
-        "schema:identifier": "example laboratoryId"
-      },
-      "schema:startDate": "example analysisStartDate",
-      "schema:endDate": "example analysisEndDate",
       "schema:object": [
         {
           "@type": [
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
-          "schema:identifier": "example samplePersistentIdentifier",
           "schema:description": "example sampleDescription",
           "schema:additionalProperty": [
             {
@@ -46,7 +36,8 @@
               "schema:unitText": "example value"
             }
           ],
-          "schema:name": "example sampleName"
+          "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier"
         }
       ],
       "schema:actionProcess": {
@@ -192,11 +183,11 @@
                     }
                   ],
                   "@type": [
-                    "schema:Thing",
-                    "schema:Product"
+                    "schema:Product",
+                    "schema:Thing"
                   ],
-                  "schema:name": "example instrumentName",
-                  "@id": "ex:instrument/ICPMS/part/Torch"
+                  "@id": "ex:instrument/ICPMS/part/Torch",
+                  "schema:name": "missing"
                 },
                 {
                   "schema:additionalType": [
@@ -250,11 +241,11 @@
                     }
                   ],
                   "@type": [
-                    "schema:Thing",
-                    "schema:Product"
+                    "schema:Product",
+                    "schema:Thing"
                   ],
-                  "schema:name": "example instrumentName",
-                  "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+                  "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
+                  "schema:name": "missing"
                 },
                 {
                   "schema:additionalType": [
@@ -308,11 +299,11 @@
                     }
                   ],
                   "@type": [
-                    "schema:Thing",
-                    "schema:Product"
+                    "schema:Product",
+                    "schema:Thing"
                   ],
-                  "schema:name": "example instrumentName",
-                  "@id": "ex:instrument/ICPMS/part/ICP-Source"
+                  "@id": "ex:instrument/ICPMS/part/ICP-Source",
+                  "schema:name": "missing"
                 },
                 {
                   "schema:additionalType": [
@@ -366,11 +357,11 @@
                     }
                   ],
                   "@type": [
-                    "schema:Thing",
-                    "schema:Product"
+                    "schema:Product",
+                    "schema:Thing"
                   ],
-                  "schema:name": "example instrumentName",
-                  "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+                  "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell",
+                  "schema:name": "missing"
                 }
               ],
               "schema:additionalProperty": [
@@ -418,26 +409,8 @@
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "example instrumentName",
-              "@id": "ex:instrument/ICPMS"
-            }
-          ]
-        },
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "example acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "example dataProcessingSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "ex:instrument/ICPMS",
+              "schema:name": "example instrumentName"
             }
           ]
         },
@@ -455,6 +428,24 @@
               "schema:name": "example secondaryReferenceMaterials",
               "@type": [
                 "schema:DefinedTerm"
+              ]
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataProcessingSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
               ]
             }
           ]
@@ -489,8 +480,27 @@
           "schema:value": "example value"
         }
       ],
-      "schema:description": "example additionalNotes",
-      "schema:identifier": "example sessionIdentifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
+      "schema:identifier": "example sessionIdentifier",
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "schema:description": "example additionalNotes"
+    }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "example oxideProduction"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ],
   "schema:measurementTechnique": [
@@ -507,7 +517,14 @@
       "schema:name": "example analyst"
     }
   ],
-  "schema:funding": [],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForAnalysis"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -525,12 +542,6 @@
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
-    }
-  ],
-  "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Oxide production ratio",
-      "dqv:value": "example oxideProduction"
     }
   ]
 }

@@ -1,33 +1,33 @@
 ﻿Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes,Key by
-Procedure Name,Basic,Read-Only,Text (free),$MethodDefinition.schema:name,inferred,,,
-Technique,Basic,Read-Only,Controlled list,$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode,inferred,,,
-Procedure Author,Basic,Read-Only,Text (free),$MethodDefinition.schema:creator.schema:name,inferred,,,
-Laboratory,Basic,Editable,Text (free),$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:name,inferred,,,
-Laboratory,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:name,inferred,,,
-Laboratory ID,Advanced,Editable,URI / DOI,$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:identifier,inferred,,,
-Laboratory ID,Advanced,Editable,URI / DOI,$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:identifier,inferred,,,
-Procedure Start Date,Basic,Read-Only,Date,$MethodDefinition.schema:datePublished,inferred,,,
-Funding Source for Procedure Development,Advanced,Read-Only,Text (free),$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name,inferred,,,
-Procedure Reference(s),Advanced,Read-Only,URI / DOI,$MethodDefinition.schema:relatedLink[schema:linkRelationship='techniquePublication'].schema:target.schema:name,inferred,,,
-Procedure DOI,N/A,Basic,URI / DOI,$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier,inferred,,,
-Analyst,N/A,Basic,Text (free),$Dataset.schema:contributor[schema:roleName='analyst'].schema:name,inferred,,,
-Analysis Start Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:startDate,inferred,,,
-Analysis End Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:endDate,inferred,,,
-Funding Source for Analysis,N/A,Basic,Text (free),$Dataset.schema:funding,inferred,,,
-Coupled Technique(s),Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,inferred,,,
-Coupled Technique(s),Advanced,Editable,Controlled list / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,inferred,,,
-Coupling Description,Advanced,Editable,Text (free),$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,inferred,,,
-Coupling Description,Advanced,Editable,Text (free),$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,inferred,,,
-Coupled Procedure DOI,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledProcedure'].schema:target.schema:url,inferred,,,
-Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target,inferred,,,
+Procedure Name,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
+Technique,Basic,Read-Only,Controlled list,,module,,placement owned by Module Core,
+Procedure Author,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
+Laboratory,Basic,Editable,Text (free),,module,,placement owned by Module Core,
+Laboratory,Basic,Editable,Text (free),,module,,placement owned by Module Core,
+Laboratory ID,Advanced,Editable,URI / DOI,,module,,placement owned by Module Core,
+Laboratory ID,Advanced,Editable,URI / DOI,,module,,placement owned by Module Core,
+Procedure Start Date,Basic,Read-Only,Date,,module,,placement owned by Module Core,
+Funding Source for Procedure Development,Advanced,Read-Only,Text (free),,module,,placement owned by Module Core,
+Procedure Reference(s),Advanced,Read-Only,URI / DOI,,module,,placement owned by Module Core,
+Procedure DOI,N/A,Basic,URI / DOI,,module,,placement owned by Module Core,
+Analyst,N/A,Basic,Text (free),,module,,placement owned by Module Core,
+Analysis Start Date,N/A,Basic,Date,,module,,placement owned by Module Core,
+Analysis End Date,N/A,Basic,Date,,module,,placement owned by Module Core,
+Funding Source for Analysis,N/A,Basic,Text (free),,module,,placement owned by Module Core,
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,,module,,placement owned by Module Core,
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,,module,,placement owned by Module Core,
+Coupling Description,Advanced,Editable,Text (free),,module,,placement owned by Module Core,
+Coupling Description,Advanced,Editable,Text (free),,module,,placement owned by Module Core,
+Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,,placement owned by Module Core,
+Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,,placement owned by Module Core,
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],inferred,,,
 Sample Preparation Method,Basic,Read-Only,Controlled list,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:description,inferred,,,
 Sample Preparation Details,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Sample Preparation Details'].schema:defaultValue,inferred,,,
 Sample Preparation Details,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Sample Preparation Details'].schema:value,inferred,,,
-Sample Name,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name,inferred,,,defines: sample
-Sampling Unit,Basic,Basic,Controlled list / Text,$MethodDefinition.ada:samplingUnit,inferred,,,defines: sampling unit
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier,authored,,,sample
-Target Selection Criteria,Basic,Editable,Text (free),$MethodDefinition.ada:targetSelectionCriteriaDefault,inferred,,,
+Sample Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample
+Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
+Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,,placement owned by Module Core,sample
+Target Selection Criteria,Basic,Editable,Text (free),,module,,placement owned by Module TargetSelection,
 Target Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Target Selection Criteria'].schema:value,inferred,,,
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$MethodDefinition.schema:object[@type='isam:materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:defaultValue,inferred,,,sample
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='isam:materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:value,inferred,,,sample
@@ -44,13 +44,13 @@ EDS Detector Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:
 EELS Spectrometer,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='TEM'].schema:hasPart[schema:additionalType='EELS Spectrometer'].schema:description,authored,,instrument component,
 Imaging and Diffraction Detectors,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='TEM'].schema:hasPart[schema:additionalType='Imaging Detector'].schema:description,authored,,instrument component,
 4D-STEM Detector,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='TEM'].schema:hasPart[schema:additionalType='4D-STEM Detector'].schema:description,authored,,instrument component,
-Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,inferred,,,
-Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='acquisition'].schema:name,inferred,,,
+Acquisition Software,Basic,Editable,Text (free),,module,,placement owned by Module Core,
+Acquisition Software,Basic,Editable,Text (free),,module,,placement owned by Module Core,
 SAED Pattern Simulation Software,Advanced,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,,"candidate for bios:computationalTool[ada:toolRole=...]; only 'acquisition' and 'dataReduction' roles exist, so a new token is a vocabulary decision",
 SAED Pattern Simulation Software,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,,"candidate for bios:computationalTool[ada:toolRole=...]; only 'acquisition' and 'dataReduction' roles exist, so a new token is a vocabulary decision",
-Data Processing Software(s),Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,inferred,,,
-Data Processing Software(s),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,inferred,,,
-Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],inferred,,,
+Data Processing Software(s),Basic,Editable,Text (free),,module,,placement owned by Module Core,
+Data Processing Software(s),Basic,Editable,Text (free),,module,,placement owned by Module Core,
+Analytical Mode,Basic,Read-Only,Controlled list,,module,,placement owned by Module Core,
 Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instrument[schema:additionalType='TEM'].ada:acceleratingVoltageDefault,authored,,dual-home: instrument default + per-analysis value,
 Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='TEM'].schema:additionalProperty[schema:name='Accelerating Voltage'].schema:value,authored,,tier rule: analysis value is an additionalProperty on the instrument,
 Analytical Sub-mode,Basic,Editable,Controlled list,$MethodDefinition.ada:analyticalSubModeDefault,inferred,,,
@@ -92,8 +92,8 @@ EDS Live Time per Point or Pixel,Advanced,Editable,Numeric (s),$Dataset.prov:was
 EDS Energy Range,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='EDS Energy Range'].schema:defaultValue,inferred,,,
 EDS Energy Range,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Energy Range'].schema:value,inferred,,,
 EDS Quantification Method,Basic,Read-Only,Controlled list,$MethodDefinition.ada:edsQuantificationMethod,inferred,,,
-Analyte,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[],inferred,,,defines: analyte
-Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedProperties[],keyed,,triage decision (reviewer),defines: reported property
+Analyte,Basic,Editable,Text (free),,module,,placement owned by Module Analyte,defines: analyte
+Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
 EELS Acquisition Mode,Basic,Editable,Controlled list,$MethodDefinition.ada:eelsAcquisitionModeDefault,inferred,,,
 EELS Acquisition Mode,Basic,Editable,Controlled list,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EELS Acquisition Mode'].schema:value,inferred,,,
 EELS Edges,Basic,Editable,Text (free),$MethodDefinition.ada:eelsEdgesDefault[],authored,,,defines: channel per analyte
@@ -141,7 +141,7 @@ EDS Dead Time,N/A,Basic,Numeric (%),$Dataset.prov:wasGeneratedBy.ada:deadTime,au
 EELS Sensitivity and Detection Limit,Advanced,Basic,Text (free),$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,,triage decision (reviewer),channel
 EELS Sensitivity and Detection Limit,Advanced,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='sensitivityDetectionLimit'],authored,,reported-property alternate: used when the item is in the defines: reported property list,channel
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Goodness-of-Fit'].schema:value,authored,,analysis-instance (needs mapping),reported property
-Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Goodness-of-Fit'].dqv:value,authored,,analysis-instance (needs mapping),
-Additional Notes,Advanced,Advanced,Text (free),$MethodDefinition.schema:description,inferred,,,
-Additional Notes,Advanced,Advanced,Text (free),$Dataset.prov:wasGeneratedBy.schema:description,inferred,,,
-Session Identifier,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:identifier,authored,,,
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,
+Additional Notes,Advanced,Advanced,Text (free),,module,,placement owned by Module Core,
+Additional Notes,Advanced,Advanced,Text (free),,module,,placement owned by Module Core,
+Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,

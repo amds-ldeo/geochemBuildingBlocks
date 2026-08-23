@@ -232,19 +232,6 @@
           "schema:unitText": "example value"
         },
         {
-          "@id": "ada:parameter/module/TargetSelection/targetSelectionCriteria",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/module/TargetSelection/targetSelectionCriteria"
-            }
-          ],
-          "schema:name": "Target Selection Criteria",
-          "schema:value": "example value"
-        },
-        {
           "@id": "ada:parameter/semTAPP/workingDistance",
           "@type": [
             "schema:PropertyValue"
@@ -303,8 +290,8 @@
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "example instrumentName",
-              "@id": "ex:instrument/SEM"
+              "@id": "ex:instrument/SEM",
+              "schema:name": "example instrumentName"
             }
           ]
         },
@@ -327,9 +314,6 @@
           ]
         }
       ],
-      "schema:description": "example additionalNotes",
-      "schema:endDate": "example analysisEndDate",
-      "schema:startDate": "example analysisStartDate",
       "schema:actionProcess": {
         "schema:step": [
           {
@@ -475,42 +459,23 @@
         "schema:name": "example laboratory",
         "schema:identifier": "example laboratoryId"
       },
-      "schema:identifier": "example sessionIdentifier"
-    }
-  ],
-  "schema:contributor": [
-    {
-      "schema:roleName": "analyst",
-      "schema:name": "example analyst"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledDataset",
-      "schema:target": "example coupledDatasetOrPublicationReference"
-    },
-    {
-      "schema:linkRelationship": "coupledProcedure",
-      "schema:target": {
-        "schema:url": "example coupledProcedureDoi"
-      }
-    },
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EPMA; NanoSIMS",
-        "schema:description": "example couplingDescription"
-      }
+      "schema:identifier": "example sessionIdentifier",
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "schema:description": "example additionalNotes"
     }
   ],
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "EBSD Mean Angular Deviation",
       "dqv:value": "example ebsdPatternQualityThreshold"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ],
   "ada:mapDimensions": 1.0,
-  "schema:funding": [],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semTAPP/mapArea",
@@ -527,6 +492,8 @@
       "schema:unitText": "example value"
     }
   ],
+  "ada:voxelSize": "example voxelSizeAndImageStackDimensions",
+  "ada:imageStackDimenstions": "example voxelSizeAndImageStackDimensions",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -535,6 +502,37 @@
       "schema:identifier": "example procedureDoi"
     }
   ],
-  "ada:voxelSize": "example voxelSizeAndImageStackDimensions",
-  "ada:imageStackDimenstions": "example voxelSizeAndImageStackDimensions"
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForAnalysis"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA; NanoSIMS",
+        "schema:description": "example couplingDescription"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledProcedure",
+      "schema:target": {
+        "schema:url": "example coupledProcedureDoi"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
+    }
+  ]
 }

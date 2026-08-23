@@ -5,7 +5,6 @@
   "ada:samplePreparationMethodDefault",
   "ada:targetSelectionCriteriaDefault",
   "ada:laserManufacturerModel",
-  "ada:icpMsManufacturerModel",
   "ada:icpMsType",
   "ada:interfaceConeConfiguration",
   "ada:guardElectrode",
@@ -13,6 +12,7 @@
   "ada:detectorConfiguration",
   "ada:collisionReactionCellConfiguration",
   "ada:laserWavelengthAndType",
+  "ada:dataProcessingSoftwareDefault",
   "ada:ablationCellType",
   "ada:sampleIntroduction",
   "ada:analyticalMode",
@@ -31,7 +31,7 @@
   "ada:plasmaThermalMode",
   "ada:oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault",
-  "ada:monitoredIsotopes",
+  "ada:monitoredMasses",
   "ada:reportedVariablesAndUnits",
   "ada:signalCollectionMode",
   "ada:ionCounterDeadTimeDefault",
@@ -73,12 +73,14 @@
   "laQicpms_torchDepthDefault",
   "laQicpms_laserEnergyDefault",
   "laQicpms_transectRateMappingRateOrStepSizeDefault",
-  "laQicpms_plasmaMakeUpGasAdditionDefault",
+  "laQicpms_makeUpGasAndFlowRateDefault",
   "laQicpms_signalSmoothingDefault",
   "laQicpms_icpTuningDefault",
   "laQicpms_doublyChargedSpeciesMonitorDefault",
   "laQicpms_doublyChargedSpeciesProductionDefault",
   "laQicpms_reactionGasFlowRateDefault",
+  "laQicpms_collisionReactionGasMixtureRatioDefault",
+  "laQicpms_numberOfReplicatesDefault",
   "laQicpms_uncertaintyPropagationMethodDefault",
   "laQicpms_spikeOutlierFilteringApproachDefault",
   "laQicpms_pulseAnalogDetectorNonlinearityCorrectionDefault",
@@ -86,6 +88,8 @@
   "laQicpms_normalizationStandardsBasedCorrectionDefault",
   "laQicpms_detectionLimitDefault",
   "laQicpms_limitOfQuantificationMethodDefault",
+  "laQicpms_countingStatisticsErrorDefault",
+  "laQicpms_internalAnalyticalPrecisionAndAssessmentMethodDefault",
   "laQicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault"
  ],
  "pv_keys": [
@@ -100,6 +104,7 @@
   "laQicpms_preAnalysisImagingAndScreening",
   "laQicpms_instrumentSerialNumberOrLabIdentifier",
   "laQicpms_torchDepth",
+  "laQicpms_dataProcessingSoftware",
   "laQicpms_laserSpotGeometry",
   "laQicpms_laserEnergy",
   "laQicpms_laserFluence",
@@ -109,13 +114,13 @@
   "laQicpms_transectRateMappingRateOrStepSize",
   "laQicpms_rasterLineSpacing",
   "laQicpms_carrierGasAndFlowRate",
-  "laQicpms_plasmaMakeUpGasAddition",
+  "laQicpms_makeUpGasAndFlowRate",
   "laQicpms_coolantGasFlowRate",
   "laQicpms_auxiliaryGasFlowRate",
   "laQicpms_rfPower",
   "laQicpms_signalSmoothing",
   "laQicpms_icpTuning",
-  "laQicpms_sensitivityAsUsefulYield",
+  "laQicpms_instrumentSensitivity",
   "laQicpms_doublyChargedSpeciesMonitor",
   "laQicpms_doublyChargedSpeciesProduction",
   "laQicpms_analysisSequence",
@@ -123,6 +128,7 @@
   "laQicpms_collisionGasFlowRate",
   "laQicpms_cellExitDiscriminationVoltage",
   "laQicpms_reactionGasFlowRate",
+  "laQicpms_collisionReactionGasMixtureRatio",
   "laQicpms_dwellTimePerMass",
   "laQicpms_totalIntegrationTimePerOutputDataPoint",
   "laQicpms_backgroundCountTime",
@@ -156,6 +162,8 @@
   "analysisInclusionAndRejectionCriteria",
   "detectionLimit",
   "limitOfQuantificationMethod",
+  "countingStatisticsError",
+  "internalAnalyticalPrecisionAndAssessmentMethod",
   "withinSessionAnalyticalPrecisionAndAssessmentMethod",
   "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
   "analyticalAccuracyAndAssessmentMethod",
@@ -170,14 +178,16 @@
  ],
  "basic_required": [
   "ada:sampleFormAnalyticalSubstrateDefault",
+  "ada:samplingUnit",
   "ada:samplePreparationMethodDefault",
   "ada:laserManufacturerModel",
-  "ada:icpMsManufacturerModel",
   "ada:icpMsType",
   "ada:interfaceConeConfiguration",
   "ada:massResolutionSetting",
   "ada:detectorConfiguration",
+  "ada:collisionReactionCellConfiguration",
   "ada:laserWavelengthAndType",
+  "ada:dataProcessingSoftwareDefault",
   "ada:ablationCellType",
   "ada:laserSpotGeometryDefault",
   "ada:laserSpotPathAblationMode",
@@ -187,19 +197,28 @@
   "ada:ablationDurationPerSpotDefault",
   "ada:carrierGasAndFlowRateDefault",
   "ada:coolantGasFlowRateDefault",
+  "ada:auxiliaryGasFlowRateDefault",
   "ada:rfPowerDefault",
   "ada:oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault",
+  "ada:monitoredMasses",
+  "ada:reportedVariablesAndUnits",
+  "ada:signalCollectionMode",
+  "ada:cellExitDiscriminationVoltageDefault",
   "ada:dwellTimePerMassDefault",
+  "ada:totalIntegrationTimePerOutputDataPointDefault",
   "ada:backgroundCountTimeDefault",
   "ada:internalStandardApproach",
   "ada:internalStandardElement",
   "ada:elementalFractionationCorrection",
+  "ada:uncertaintyLevel",
   "ada:signalIntegrationIntervalMethod",
   "ada:blankBackgroundCorrectionMethod",
   "ada:isobaricInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
+  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
   "ada:secondaryReferenceMaterialsDefault",
@@ -219,14 +238,14 @@
    "key": "ada:samplingUnit",
    "item": "Sampling Unit",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:samplePreparationMethodDefault",
    "item": "Sample Preparation Method",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
@@ -240,28 +259,21 @@
    "key": "ada:laserManufacturerModel",
    "item": "Laser Manufacturer & Model",
    "jtype": "string",
-   "cov": 6,
-   "required": true
-  },
-  {
-   "key": "ada:icpMsManufacturerModel",
-   "item": "ICP-MS Manufacturer & Model",
-   "jtype": "string",
-   "cov": 6,
+   "cov": 7,
    "required": true
   },
   {
    "key": "ada:icpMsType",
    "item": "ICP-MS Type",
    "jtype": "string",
-   "cov": 1,
+   "cov": 2,
    "required": true
   },
   {
    "key": "ada:interfaceConeConfiguration",
    "item": "Interface Cone Configuration",
    "jtype": "string",
-   "cov": 1,
+   "cov": 2,
    "required": true
   },
   {
@@ -275,35 +287,42 @@
    "key": "ada:massResolutionSetting",
    "item": "Mass Resolution Setting",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:detectorConfiguration",
    "item": "Detector Configuration",
    "jtype": "string",
-   "cov": 1,
+   "cov": 2,
    "required": true
   },
   {
    "key": "ada:collisionReactionCellConfiguration",
    "item": "Collision/Reaction Cell (CRC) Configuration",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:laserWavelengthAndType",
    "item": "Laser Wavelength and Type",
    "jtype": "string",
-   "cov": 6,
+   "cov": 7,
+   "required": true
+  },
+  {
+   "key": "ada:dataProcessingSoftwareDefault",
+   "item": "Data Processing Software(s)",
+   "jtype": "string",
+   "cov": 4,
    "required": true
   },
   {
    "key": "ada:ablationCellType",
    "item": "Ablation Cell Type",
    "jtype": "string",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
@@ -331,35 +350,35 @@
    "key": "ada:laserSpotPathAblationMode",
    "item": "Laser Spot Path / Ablation Mode",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:laserFluenceDefault",
    "item": "Laser Fluence (Energy Density)",
    "jtype": "number",
-   "cov": 6,
+   "cov": 7,
    "required": true
   },
   {
    "key": "ada:laserRepetitionRateDefault",
    "item": "Laser Repetition Rate",
    "jtype": "number",
-   "cov": 6,
+   "cov": 7,
    "required": true
   },
   {
    "key": "ada:laserPulseDuration",
    "item": "Laser Pulse Duration",
    "jtype": "string",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
    "key": "ada:ablationDurationPerSpotDefault",
    "item": "Ablation Duration per Spot",
    "jtype": "number",
-   "cov": 3,
+   "cov": 4,
    "required": true
   },
   {
@@ -380,28 +399,28 @@
    "key": "ada:carrierGasAndFlowRateDefault",
    "item": "Carrier Gas and Flow Rate",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:coolantGasFlowRateDefault",
    "item": "Coolant (Plasma) Gas Flow Rate",
    "jtype": "number",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
    "key": "ada:auxiliaryGasFlowRateDefault",
    "item": "Auxiliary Gas Flow Rate",
    "jtype": "number",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:rfPowerDefault",
    "item": "RF Power",
    "jtype": "number",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
@@ -415,7 +434,7 @@
    "key": "ada:oxideProductionMethodAndThreshold",
    "item": "Oxide Production Method and Threshold",
    "jtype": "string",
-   "cov": 1,
+   "cov": 2,
    "required": true
   },
   {
@@ -426,25 +445,25 @@
    "required": true
   },
   {
-   "key": "ada:monitoredIsotopes",
-   "item": "Monitored Isotopes",
+   "key": "ada:monitoredMasses",
+   "item": "Monitored Masses",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:signalCollectionMode",
    "item": "Signal Collection Mode",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:ionCounterDeadTimeDefault",
@@ -471,28 +490,28 @@
    "key": "ada:cellExitDiscriminationVoltageDefault",
    "item": "Cell Exit Discrimination Voltage",
    "jtype": "number",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:dwellTimePerMassDefault",
    "item": "Dwell Time per Mass",
-   "jtype": "string",
-   "cov": 1,
+   "jtype": "number",
+   "cov": 2,
    "required": true
   },
   {
    "key": "ada:totalIntegrationTimePerOutputDataPointDefault",
    "item": "Total Integration Time per Output Data Point",
    "jtype": "number",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:backgroundCountTimeDefault",
    "item": "Background Count Time",
    "jtype": "number",
-   "cov": 3,
+   "cov": 4,
    "required": true
   },
   {
@@ -534,8 +553,8 @@
    "key": "ada:uncertaintyLevel",
    "item": "Uncertainty Level",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:signalIntegrationIntervalMethod",
@@ -548,28 +567,28 @@
    "key": "ada:blankBackgroundCorrectionMethod",
    "item": "Blank / Background Correction Method",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:isobaricInterferenceCorrectionsApplied",
    "item": "Isobaric Interference Corrections Applied",
    "jtype": "boolean",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:interferingSpecies",
    "item": "Interfering Species",
    "jtype": "string",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
    "key": "ada:interferenceCorrectionMethod",
    "item": "Interference Correction Method",
    "jtype": "string",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
@@ -590,21 +609,21 @@
    "key": "ada:analysisInclusionAndRejectionCriteria",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:constantsAndReferenceValuesUsedDefault",
    "item": "Constants and Reference Values Used",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:primaryCalibrationStandardNameDefault",
    "item": "Primary Calibration Standard Name",
    "jtype": "string",
-   "cov": 6,
+   "cov": 7,
    "required": true
   },
   {
@@ -618,7 +637,7 @@
    "key": "ada:secondaryReferenceMaterialsDefault",
    "item": "Secondary Reference Materials",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
@@ -632,14 +651,14 @@
    "key": "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod",
    "item": "Within-Session Analytical Precision and Assessment Method",
    "jtype": "string",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
    "key": "ada:analyticalAccuracyAndAssessmentMethod",
    "item": "Analytical Accuracy and Assessment Method",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   }
  ]

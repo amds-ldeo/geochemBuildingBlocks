@@ -16,24 +16,6 @@
   ],
   "schema:name": "semComposition protocol — Pascucci2026-3",
   "schema:description": "EDS mapping: 20 kV, 60 µm aperture, 5 ms dwell per pixel, 1024×768 pixels, 2.5 µm pixel size, ~10 h total; element maps co-registered with BSE images Reported detail: ada:edsAcquisitionMode = Element mapping.",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -90,7 +72,7 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ZEISS (Carl Zeiss)",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
@@ -157,19 +139,6 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford INCA Energy"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)"
-    }
-  ],
-  "ada:analyticalMode": [
-    "Element mapping"
-  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semCompositionTAPP/chamberPressureDefault",
@@ -197,6 +166,39 @@
     }
   ],
   "ada:edsAcquisitionMode": "Map",
+  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
+  "ada:stepSizePixelSizeDefault": "2.5 µm",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford INCA Energy"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Element mapping"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Mg",
@@ -364,8 +366,6 @@
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
-  "ada:stepSizePixelSizeDefault": "2.5 µm",
   "schema:measurementTechnique": [
     {
       "@type": [

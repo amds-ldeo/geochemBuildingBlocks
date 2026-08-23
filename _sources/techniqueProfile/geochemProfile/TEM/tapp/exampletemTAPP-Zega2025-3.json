@@ -16,32 +16,6 @@
   ],
   "schema:name": "tem protocol — Zega2025-3",
   "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v21.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "TEM/STEM"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "None"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -122,7 +96,7 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "ThermoFisher Scientific",
+        "schema:name": "ThermoFisher Scientific (FEI)",
         "@type": [
           "schema:Organization"
         ]
@@ -242,33 +216,9 @@
       ],
       "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:name": "SEM",
-      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "ThermoScientific Velox"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "ThermoScientific Velox"
-    }
-  ],
   "ada:analyticalSubModeDefault": "BF-TEM",
   "schema:additionalProperty": [
     {
@@ -307,6 +257,42 @@
   ],
   "ada:convergenceSemiAngle": "10.5 mrad",
   "ada:phaseIdentificationMethod": "N/A",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "TEM/STEM"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "None"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "ThermoScientific Velox"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "ThermoScientific Velox"
+    }
+  ],
   "ada:cameraLengthDefault": -9999,
   "ada:edsAcquisitionModeDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",

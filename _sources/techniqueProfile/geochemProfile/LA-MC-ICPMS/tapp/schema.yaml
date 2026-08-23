@@ -1,189 +1,339 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)
 description: Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, generated from
-  TAPPS20260813/Current TAPPs/LA-MC-ICPMS_TAPP_v13.xlsx via the path-driven pipeline.
+  tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v26.csv via the path-driven pipeline.
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
+- $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
+    schema:actionProcess:
+      type: object
+      properties:
+        schema:step:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:name:
+                    const: Data reduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
+                      - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeInversionAlgorithm
+                      - title: Isotope Dilution Data Reduction Method
+                        description: Mass balance approach used to calculate sample mass fractions from
+                          spike-sample isotope ratio measurements in isotope dilution (ID) analysis. Record
+                          'None' if isotope dilution is not used.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/laMcicpmsTAPP/isotopeDilutionDataReductionMethod
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/laMcicpmsTAPP/isotopeDilutionDataReductionMethod
+                          schema:name:
+                            const: Isotope Dilution Data Reduction Method
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
+                      - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_peakFlatnessMethodAndThreshold
+                      - &id001
+                        title: Signal Smoothing
+                        description: 'Description of any signal smoothing device or approach installed
+                          between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
+                          Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
+                          with high-resolution raster mapping because they degrade spatial resolution
+                          by mixing aerosol from successive laser shots. For mapping analyses, report
+                          "None" explicitly.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/laMcicpmsTAPP/signalSmoothingDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: signalSmoothingDefault
+                          schema:name:
+                            const: Signal Smoothing
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - &id002
+                        title: Spike / Outlier Filtering Approach
+                        description: Method used to identify and remove anomalous signal spikes arising
+                          from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
+                          signal processing. Editable because the specific implementation may vary between
+                          sessions while remaining within the procedure framework.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: spikeOutlierFilteringApproachDefault
+                          schema:name:
+                            const: Spike / Outlier Filtering Approach
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                    allOf:
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeInversionAlgorithm
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        title: Isotope Dilution Data Reduction Method
+                        description: Mass balance approach used to calculate sample mass fractions from
+                          spike-sample isotope ratio measurements in isotope dilution (ID) analysis. Record
+                          'None' if isotope dilution is not used.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/laMcicpmsTAPP/isotopeDilutionDataReductionMethod
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/laMcicpmsTAPP/isotopeDilutionDataReductionMethod
+                          schema:name:
+                            const: Isotope Dilution Data Reduction Method
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_peakFlatnessMethodAndThreshold
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id001
+                      minContains: 0
+                      maxContains: 1
+                    - contains: *id002
+                      minContains: 0
+                      maxContains: 1
+            - if:
+                properties:
+                  schema:name:
+                    const: Sample preparation
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - &id003
+                        title: Fusion Flux and Dilution Ratio
+                        description: For procedures using fused glass, the flux type and sample:flux dilution
+                          ratio used to prepare the analytical glass.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatioDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: fusionFluxAndDilutionRatioDefault
+                          schema:name:
+                            const: Fusion Flux and Dilution Ratio
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_preAblationSurfaceTreatment
+                    allOf:
+                    - contains: *id003
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_preAblationSurfaceTreatment
+                      minContains: 0
+                      maxContains: 1
+                  schema:description:
+                    description: Description of how samples were prepared for analysis (mounting, polishing,
+                      coating, fusion procedure, etc.).
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+            - if:
+                properties:
+                  schema:name:
+                    const: Data acquisition
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      title: Guard Electrode
+                      description: Whether the guard electrode (also called extraction lens or Fassel
+                        torch shield) was active during analysis.
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/laMcicpmsTAPP/guardElectrode
+                        '@type':
+                          const:
+                          - schema:PropertyValue
+                        schema:propertyID:
+                          const:
+                          - '@id': ada:parameter/laMcicpmsTAPP/guardElectrode
+                        schema:name:
+                          const: Guard Electrode
+                        schema:value:
+                          type: string
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:propertyID
+                      - schema:name
+                      - schema:value
+                      readOnly: true
+                    allOf:
+                    - contains:
+                        title: Guard Electrode
+                        description: Whether the guard electrode (also called extraction lens or Fassel
+                          torch shield) was active during analysis.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/laMcicpmsTAPP/guardElectrode
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/laMcicpmsTAPP/guardElectrode
+                          schema:name:
+                            const: Guard Electrode
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
+                      minContains: 0
+                      maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                schema:name:
+                  const: Data reduction
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: Sample preparation
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: Data acquisition
+              required:
+              - schema:name
+    ada:analysisSequenceDefault:
+      description: Repeating order of primary calibration standard(s), quality control standard(s), and
+        unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining
+        the bracketing strategy defined in the procedure.
+      type: string
+    ada:analyticalAccuracy:
+      description: 'Offset between measured and accepted reference values for secondary reference materials,
+        expressed as % relative bias. Report both the assessment method and the accuracy values. Specify:
+        (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements
+        or element groups assessed. Report any systematic biases and likely causes.'
+      type: string
     schema:instrument:
       type: array
       items:
         type: object
         allOf:
-        - if:
-            properties:
-              schema:additionalType:
-                contains:
-                  const: Laser Ablation System
-                schema:inDefinedTermSet: ada:vocab/instrumentType
-            required:
-            - schema:additionalType
-          then:
-            properties:
-              schema:name:
-                description: Type, design origin, and internal volume of the ablation cell. Cell volume
-                  is a primary determinant of aerosol washout time and therefore the achievable time resolution
-                  of the data.
-                anyOf:
-                - type: string
-                  readOnly: true
-                - type: array
-                  items:
-                    type: string
-                    readOnly: true
-              schema:additionalProperty:
-                type: array
-                items:
-                  anyOf:
-                  - title: Laser Beam Energy Profile
-                    description: Spatial energy distribution of the laser beam at the sample surface,
-                      and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces
-                      more uniform ablation craters and more reproducible crater morphology than a Gaussian
-                      beam. This is a fixed hardware property of the laser system.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laMcicpmsTAPP/laserBeamEnergyProfile
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laMcicpmsTAPP/laserBeamEnergyProfile
-                      schema:name:
-                        const: Laser Beam Energy Profile
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  - &id001
-                    title: Laser Energy
-                    description: Laser pulse energy in millijoules as set at the laser output or measured
-                      at the sample surface. Less commonly reported than fluence because it does not account
-                      for spot area. Report only when the system displays energy directly. Laser fluence
-                      (J cm⁻²) is the preferred quantity and is captured in Default Laser Fluence.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laMcicpmsTAPP/laserEnergyDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: laserEnergyDefault
-                      schema:name:
-                        const: Laser Energy
-                      ada:dataType:
-                        const: number
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                      schema:unitText:
-                        const: mJ
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                allOf:
-                - contains:
-                    title: Laser Beam Energy Profile
-                    description: Spatial energy distribution of the laser beam at the sample surface,
-                      and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces
-                      more uniform ablation craters and more reproducible crater morphology than a Gaussian
-                      beam. This is a fixed hardware property of the laser system.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laMcicpmsTAPP/laserBeamEnergyProfile
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laMcicpmsTAPP/laserBeamEnergyProfile
-                      schema:name:
-                        const: Laser Beam Energy Profile
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id001
-                  minContains: 0
-                  maxContains: 1
-              ada:laserFluenceDefault:
-                description: Laser pulse energy per unit area at the sample surface in J cm⁻², as registered
-                  by the procedure. Fluence is the physically meaningful quantity controlling ablation
-                  rate, crater morphology, elemental fractionation, and particle size distribution. If
-                  the system reports only as % of maximum output, include that value and note the system
-                  maximum where known.
-                anyOf:
-                - type: number
-                - type: string
-              schema:model:
-                type: object
-                properties:
-                  schema:name:
-                    description: Manufacturer and model of the laser ablation system.
-                    type: string
-                    readOnly: true
-              ada:laserPulseDuration:
-                description: 'Duration of each individual laser pulse, including units. Pulse duration
-                  determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects
-                  and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially
-                  reduce elemental fractionation and matrix effects. This is a fixed hardware property
-                  of the laser system.'
-                anyOf:
-                - type: string
-                  readOnly: true
-                - type: array
-                  items:
-                    type: string
-                    readOnly: true
-              ada:laserRepetitionRateDefault:
-                description: Laser pulse repetition rate in hertz registered by the procedure. For mapping
-                  methods, repetition rate together with scan speed and spot size determines pixel size
-                  and spatial resolution. Analysts may adjust within procedure-allowed bounds.
-                anyOf:
-                - type: number
-                - type: string
-              ada:laserSpotGeometryDefault:
-                description: Shape and dimensions of the laser ablation spot in micrometres registered
-                  by the procedure. For circular spots, report diameter; for square or rectangular spots,
-                  report width × length. The procedure registers the typical geometry; analysts may adjust
-                  within procedure-allowed range.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-              ada:laserType:
-                description: Wavelength and type of the laser used for ablation in nanometres.
-                anyOf:
-                - type: string
-                  readOnly: true
-                - type: array
-                  items:
-                    type: string
-                    readOnly: true
         - if:
             properties:
               schema:additionalType:
@@ -213,7 +363,7 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id002
+                            - &id004
                               title: Auxiliary Gas Flow Rate
                               description: Flow rate of the intermediate (auxiliary) argon gas stream
                                 that positions the plasma relative to the load coil, in L/min. Affects
@@ -248,7 +398,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id003
+                            - &id005
                               title: Coolant (Plasma) Gas Flow Rate
                               description: Flow rate of the outer (coolant/plasma) argon gas stream that
                                 sustains the ICP plasma, in L/min. Determines plasma volume and stability.
@@ -309,7 +459,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id004
+                            - &id006
                               title: RF Power
                               description: ICP radiofrequency forward power in watts. Affects plasma temperature,
                                 ionisation efficiency, oxide formation, and whether cool or normal plasma
@@ -345,10 +495,10 @@ allOf:
                               - ada:dataType
                               - ada:fieldScope
                           allOf:
-                          - contains: *id002
+                          - contains: *id004
                             minContains: 0
                             maxContains: 1
-                          - contains: *id003
+                          - contains: *id005
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -382,7 +532,7 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id004
+                          - contains: *id006
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -399,7 +549,7 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id005
+                            - &id007
                               title: Cell Exit Discrimination Voltage
                               description: Bias voltage applied at the collision/reaction cell exit to
                                 discriminate between analyte ions and low-energy polyatomic interferences
@@ -435,7 +585,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - ada:fieldScope
-                            - &id006
+                            - &id008
                               title: Collision Gas Flow Rate
                               description: Flow rate of the collision gas (typically He) introduced into
                                 the collision/reaction cell, in mL/min. Controls the degree of ion thermalization
@@ -496,7 +646,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id007
+                            - &id009
                               title: Reaction Gas Flow Rate
                               description: Flow rate of the reactive gas introduced into the dynamic reaction
                                 cell (DRC), in mL/min. Record 'N/A' where Collision/Reaction Cell (CRC)
@@ -557,10 +707,10 @@ allOf:
                               - schema:value
                               readOnly: true
                           allOf:
-                          - contains: *id005
+                          - contains: *id007
                             minContains: 0
                             maxContains: 1
-                          - contains: *id006
+                          - contains: *id008
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -593,7 +743,7 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id007
+                          - contains: *id009
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -642,10 +792,10 @@ allOf:
                           anyOf:
                           - type: string
                             enum:
+                            - Not installed
                             - STD (standard mode, no gas)
                             - KED (kinetic energy discrimination, He gas)
                             - DRC (dynamic reaction cell, reactive gas)
-                            - ICP-MS/MS (triple-quadrupole mode)
                             - N/A
                             - None
                             - missing
@@ -654,10 +804,10 @@ allOf:
                             items:
                               type: string
                               enum:
+                              - Not installed
                               - STD (standard mode, no gas)
                               - KED (kinetic energy discrimination, He gas)
                               - DRC (dynamic reaction cell, reactive gas)
-                              - ICP-MS/MS (triple-quadrupole mode)
                               - N/A
                               - None
                               - missing
@@ -672,17 +822,11 @@ allOf:
                       - schema:additionalType
                     then:
                       properties:
-                        ada:defaultChannels:
-                          type: array
-                          items:
-                            anyOf:
-                            - type: string
-                            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
                         ada:collectorConfiguration:
                           type: array
                           items:
                             anyOf:
-                            - &id015
+                            - &id017
                               title: Faraday Cup Amplifier Resistor Values
                               description: Resistance values (Ω) of the feedback resistors in the Faraday
                                 cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V
@@ -709,10 +853,10 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - &id008
+                                  - &id010
                                     type: string
                                   - type: array
-                                    items: *id008
+                                    items: *id010
                               required:
                               - '@id'
                               - '@type'
@@ -720,7 +864,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id016
+                            - &id018
                               title: Faraday Cup Gain Calibration Method
                               description: 'Method used to calibrate the relative gain (amplification
                                 factor) of each Faraday cup amplifier at the start of or during each analytical
@@ -750,10 +894,10 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - &id009
+                                  - &id011
                                     type: string
                                   - type: array
-                                    items: *id009
+                                    items: *id011
                               required:
                               - '@id'
                               - '@type'
@@ -761,7 +905,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id017
+                            - &id019
                               title: Integration Time per Cycle
                               description: Duration of signal integration per measurement cycle (seconds).
                                 Determines counting statistics per cycle. Longer integration times improve
@@ -790,12 +934,12 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - &id010
+                                  - &id012
                                     anyOf:
                                     - type: number
                                     - type: string
                                   - type: array
-                                    items: *id010
+                                    items: *id012
                               required:
                               - '@id'
                               - '@type'
@@ -803,7 +947,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id018
+                            - &id020
                               title: Interference Correction Method
                               description: Equation or procedure used to correct for isobaric interferences,
                                 including the production rate factor and the reference material used to
@@ -827,10 +971,10 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - &id011
+                                  - &id013
                                     type: string
                                   - type: array
-                                    items: *id011
+                                    items: *id013
                               required:
                               - '@id'
                               - '@type'
@@ -838,7 +982,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id019
+                            - &id021
                               title: Interfering Species
                               description: Elemental or molecular species (oxides, argides, doubly charged
                                 ions) overlapping with the measured isotope.
@@ -861,10 +1005,10 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - &id012
+                                  - &id014
                                     type: string
                                   - type: array
-                                    items: *id012
+                                    items: *id014
                               required:
                               - '@id'
                               - '@type'
@@ -872,7 +1016,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id020
+                            - &id022
                               title: Ion Counter Dead Time
                               description: Dead time of each ion-counting detector channel, used in the
                                 dead-time correction applied to high count rates. Distinct from pulse/analog
@@ -897,12 +1041,12 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - &id013
+                                  - &id015
                                     anyOf:
                                     - type: number
                                     - type: string
                                   - type: array
-                                    items: *id013
+                                    items: *id015
                               required:
                               - '@id'
                               - '@type'
@@ -910,7 +1054,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id021
+                            - &id023
                               title: Mass Resolution Assignment
                               description: Mass resolution mode assigned to each acquired mass. The selected
                                 resolution determines which polyatomic interferences are physically resolved
@@ -937,10 +1081,10 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - &id014
+                                  - &id016
                                     type: string
                                   - type: array
-                                    items: *id014
+                                    items: *id016
                               required:
                               - '@id'
                               - '@type'
@@ -949,12 +1093,6 @@ allOf:
                               - ada:dataType
                               - schema:defaultValue
                           allOf:
-                          - contains: *id015
-                            minContains: 0
-                            maxContains: 1
-                          - contains: *id016
-                            minContains: 0
-                            maxContains: 1
                           - contains: *id017
                             minContains: 0
                             maxContains: 1
@@ -970,67 +1108,19 @@ allOf:
                           - contains: *id021
                             minContains: 0
                             maxContains: 1
+                          - contains: *id022
+                            minContains: 0
+                            maxContains: 1
+                          - contains: *id023
+                            minContains: 0
+                            maxContains: 1
                         schema:additionalProperty:
                           type: array
                           items:
-                            title: Faraday Cup Array Configuration
-                            description: Description of the multi-collector Faraday cup array. Specify
-                              the total number of Faraday cup detectors (fixed and moveable), their labeled
-                              positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune),
-                              and the presence and position of any ion counter (SEM) or Daly detector
-                              in the collector block. The number and span of cups constrains which isotope
-                              combinations can be simultaneously collected.
-                            type: object
-                            properties:
-                              '@id':
-                                const: ada:parameter/laMcicpmsTAPP/faradayCupArrayConfiguration
-                              '@type':
-                                const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                - '@id': ada:parameter/laMcicpmsTAPP/faradayCupArrayConfiguration
-                              schema:name:
-                                const: Faraday Cup Array Configuration
-                              schema:value:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:propertyID
-                            - schema:name
-                            - schema:value
-                            readOnly: true
+                            $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_faradayCupArrayConfiguration
                           allOf:
                           - contains:
-                              title: Faraday Cup Array Configuration
-                              description: Description of the multi-collector Faraday cup array. Specify
-                                the total number of Faraday cup detectors (fixed and moveable), their
-                                labeled positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup
-                                Neptune), and the presence and position of any ion counter (SEM) or Daly
-                                detector in the collector block. The number and span of cups constrains
-                                which isotope combinations can be simultaneously collected.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laMcicpmsTAPP/faradayCupArrayConfiguration
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laMcicpmsTAPP/faradayCupArrayConfiguration
-                                schema:name:
-                                  const: Faraday Cup Array Configuration
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
+                              $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_faradayCupArrayConfiguration
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -1168,7 +1258,7 @@ allOf:
                       properties:
                         schema:additionalProperty:
                           type: array
-                          items: &id022
+                          items: &id024
                             title: Torch Depth
                             description: Distance between the load coil and the sampling cone tip (mm),
                               also called injector depth or torch position depending on the instrument
@@ -1203,7 +1293,7 @@ allOf:
                             - ada:dataType
                             - ada:fieldScope
                           allOf:
-                          - contains: *id022
+                          - contains: *id024
                             minContains: 0
                             maxContains: 1
                         schema:name:
@@ -1279,7 +1369,7 @@ allOf:
                     - schema:name
                     - schema:value
                     readOnly: true
-                  - &id023
+                  - &id025
                     title: Doubly-Charged Species Monitor
                     description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
                       during instrument tuning. Doubly-charged ions appear at half the mass of the parent
@@ -1312,7 +1402,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id024
+                  - &id026
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored
                       species at the time of instrument tuning. The procedure should specify the acceptable
@@ -1344,7 +1434,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id025
+                  - &id027
                     title: ICP Tuning
                     description: Description of the approach used to optimise ICP plasma conditions prior
                       to analysis, including the reference material used for tuning and the acceptance
@@ -1375,7 +1465,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id026
+                  - &id028
                     title: Instrument Serial Number or Lab Identifier
                     description: Serial number or laboratory-internal identifier for the specific instrument
                       unit. Supports traceability to instrument service records.
@@ -1405,7 +1495,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id027
+                  - &id029
                     title: Mass Resolution Setting
                     description: Operating mass resolution of the mass analyser. For quadrupole instruments
                       this is fixed at unit resolution by instrument design. For sector-field instruments
@@ -1437,7 +1527,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id028
+                  - &id030
                     title: Memory Effect Mitigation
                     description: Procedure applied to identify and minimise memory effects from high-concentration
                       elements in the previous sample or standard that may contaminate subsequent analyses,
@@ -1500,12 +1590,6 @@ allOf:
                     readOnly: true
                   minContains: 0
                   maxContains: 1
-                - contains: *id023
-                  minContains: 0
-                  maxContains: 1
-                - contains: *id024
-                  minContains: 0
-                  maxContains: 1
                 - contains: *id025
                   minContains: 0
                   maxContains: 1
@@ -1518,22 +1602,61 @@ allOf:
                 - contains: *id028
                   minContains: 0
                   maxContains: 1
+                - contains: *id029
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id030
+                  minContains: 0
+                  maxContains: 1
               schema:model:
                 type: object
                 properties:
                   schema:name:
-                    description: Manufacturer and model of the ICP-MS instrument.
+                    description: Model designation of the instrument that performs the measurement, including
+                      any generation or configuration suffix. Conventionally written with the manufacturer
+                      name included; Instrument Manufacturer records the vendor separately, as a controlled
+                      value, so that procedures remain findable by vendor.
+                    type: string
+                    readOnly: true
+        - if:
+            properties:
+              schema:additionalType:
+                contains:
+                  const: Laser Ablation System
+                schema:inDefinedTermSet: ada:vocab/instrumentType
+            required:
+            - schema:additionalType
+          then:
+            properties:
+              schema:additionalProperty:
+                type: array
+                items:
+                  anyOf:
+                  - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserBeamEnergyProfile
+                  - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserEnergy
+                allOf:
+                - contains:
+                    $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserBeamEnergyProfile
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_laserEnergy
+                  minContains: 0
+                  maxContains: 1
+              ada:laserPulseDuration:
+                description: 'Duration of each individual laser pulse, including units. Pulse duration
+                  determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects
+                  and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially
+                  reduce elemental fractionation and matrix effects. This is a fixed hardware property
+                  of the laser system.'
+                anyOf:
+                - type: string
+                  readOnly: true
+                - type: array
+                  items:
                     type: string
                     readOnly: true
       allOf:
-      - contains:
-          properties:
-            schema:additionalType:
-              contains:
-                const: Laser Ablation System
-              schema:inDefinedTermSet: ada:vocab/instrumentType
-          required:
-          - schema:additionalType
       - contains:
           properties:
             schema:additionalType:
@@ -1542,948 +1665,14 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    ada:ablationSpotDurationDefault:
-      description: 'Total on-sample ablation (signal acquisition) time per individual spot in seconds,
-        as set in the acquisition method. This is a procedure-level parameter for spot analysis: it reflects
-        the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption,
-        and session throughput. For transect analysis, the equivalent procedure-level parameter is scan
-        speed (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis, total acquisition
-        time is sample-area-dependent and therefore analysis-level, not captured here.'
-      anyOf:
-      - type: number
-      - type: string
-    ada:ablationPitDepthRateDefault:
-      description: Depth of the ablation pit produced under the registered laser conditions, the method
-        used to measure it, and the resulting per-pulse ablation rate. Sets the achievable depth resolution
-        and governs downhole elemental fractionation. For transect and mapping the equivalent quantity
-        is trench depth under the same conditions.
-      type: string
-    bios:computationalTool:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              ada:toolRole:
-                const: acquisition
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Instrument control and data acquisition software used to collect raw signal
-                  data, including version number. Separate from data reduction software.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        - if:
-            properties:
-              ada:toolRole:
-                const: dataReduction
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Software used for signal processing, background subtraction, and concentration
-                  calculation, including version number.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        required:
-        - ada:toolRole
-    schema:description:
-      description: 'Any procedure- or analysis-specific information not captured by a structured field
-        anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument
-        modifications, and supplementary context. Scope is the whole document, not Group 6: this is the
-        last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred
-        for anything that can be formally categorised.'
-      type: string
-    schema:actionProcess:
-      type: object
-      properties:
-        schema:step:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  schema:name:
-                    const: Data reduction
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - &id029
-                        title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual analyses contribute to a
-                          reported aggregate result, together with the outcome of applying them: how many
-                          analyses were acquired, how many were included, and on what grounds any were
-                          excluded. Distinct from within-analysis outlier filtering, which removes anomalous
-                          points inside a single analysis: this field decides which whole analyses enter
-                          the reported value. Criteria and outcome are combined in one field because neither
-                          is interpretable without the other, following the precision/accuracy precedent.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/analysisInclusionAndRejectionCriteria
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laMcicpmsTAPP/analysisInclusionAndRejectionCriteria
-                          schema:name:
-                            const: Analysis Inclusion and Rejection Criteria
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                      - &id030
-                        title: Calibration Factor and Determination Method
-                        description: 'An externally-calibrated factor that converts the measured quantity
-                          into the reported quantity, how it was determined, and its uncertainty. Applies
-                          where the conversion depends on a factor calibrated against a reference of independently
-                          known value, rather than on the instrument response alone. Distinct from the
-                          fields that name the calibration material and that state which approach applies
-                          to which analyte, where the technique has them: this field records the resulting
-                          factor itself.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethodDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: calibrationFactorAndDeterminationMethodDefault
-                          schema:name:
-                            const: Calibration Factor and Determination Method
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - title: Double-Spike Inversion Algorithm
-                        description: 'Mathematical algorithm used to simultaneously solve for the true
-                          sample isotope ratio and the mass fractionation factor from the measured spike-sample
-                          mixture. Common implementations: iterative Newton-Raphson solution, matrix algebraic
-                          approach, or published software (e.g., Rudge et al. 2009 Double Spike Toolbox).
-                          Specify the algorithm or software reference and version. Record ''N/A'' if double-spike
-                          method is not used. Record ''N/A'' where the procedure does not use a double
-                          spike.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/doubleSpikeInversionAlgorithm
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laMcicpmsTAPP/doubleSpikeInversionAlgorithm
-                          schema:name:
-                            const: Double-Spike Inversion Algorithm
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      - title: Isotope Dilution Data Reduction Method
-                        description: Mass balance approach used to calculate sample mass fractions from
-                          spike-sample isotope ratio measurements in isotope dilution (ID) analysis. Record
-                          'None' if isotope dilution is not used.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/isotopeDilutionDataReductionMethod
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laMcicpmsTAPP/isotopeDilutionDataReductionMethod
-                          schema:name:
-                            const: Isotope Dilution Data Reduction Method
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      - title: Peak Flatness Method and Threshold
-                        description: 'Method used to verify that every collector sits on a flat region
-                          of its peak top simultaneously, and the acceptance threshold applied before
-                          analysis begins. Specific to simultaneous collection: a sequential instrument
-                          centres one mass at a time, whereas a multi-collector array must have all cups
-                          on flat peak tops at once or the measured ratio carries a peak-shape bias that
-                          no downstream correction removes. Typically assessed by scanning across the
-                          peak plateau, or by comparing ratios measured at slightly offset mass positions.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/peakFlatnessMethodAndThreshold
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laMcicpmsTAPP/peakFlatnessMethodAndThreshold
-                          schema:name:
-                            const: Peak Flatness Method and Threshold
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      - title: Pulse/Analog Detector Nonlinearity Correction
-                        description: ''
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: pulseAnalogDetectorNonlinearityCorrection
-                          schema:name:
-                            const: Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: true
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                        readOnly: true
-                      - &id031
-                        title: Signal Smoothing
-                        description: 'Description of any signal smoothing device or approach installed
-                          between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-                          Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-                          with high-resolution raster mapping because they degrade spatial resolution
-                          by mixing aerosol from successive laser shots. For mapping analyses, report
-                          "None" explicitly.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/signalSmoothingDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: signalSmoothingDefault
-                          schema:name:
-                            const: Signal Smoothing
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - &id032
-                        title: Spike / Outlier Filtering Approach
-                        description: Method used to identify and remove anomalous signal spikes arising
-                          from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-                          signal processing. Editable because the specific implementation may vary between
-                          sessions while remaining within the procedure framework.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: spikeOutlierFilteringApproachDefault
-                          schema:name:
-                            const: Spike / Outlier Filtering Approach
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                    allOf:
-                    - contains: *id029
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id030
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        title: Double-Spike Inversion Algorithm
-                        description: 'Mathematical algorithm used to simultaneously solve for the true
-                          sample isotope ratio and the mass fractionation factor from the measured spike-sample
-                          mixture. Common implementations: iterative Newton-Raphson solution, matrix algebraic
-                          approach, or published software (e.g., Rudge et al. 2009 Double Spike Toolbox).
-                          Specify the algorithm or software reference and version. Record ''N/A'' if double-spike
-                          method is not used. Record ''N/A'' where the procedure does not use a double
-                          spike.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/doubleSpikeInversionAlgorithm
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laMcicpmsTAPP/doubleSpikeInversionAlgorithm
-                          schema:name:
-                            const: Double-Spike Inversion Algorithm
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        title: Isotope Dilution Data Reduction Method
-                        description: Mass balance approach used to calculate sample mass fractions from
-                          spike-sample isotope ratio measurements in isotope dilution (ID) analysis. Record
-                          'None' if isotope dilution is not used.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/isotopeDilutionDataReductionMethod
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laMcicpmsTAPP/isotopeDilutionDataReductionMethod
-                          schema:name:
-                            const: Isotope Dilution Data Reduction Method
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        title: Peak Flatness Method and Threshold
-                        description: 'Method used to verify that every collector sits on a flat region
-                          of its peak top simultaneously, and the acceptance threshold applied before
-                          analysis begins. Specific to simultaneous collection: a sequential instrument
-                          centres one mass at a time, whereas a multi-collector array must have all cups
-                          on flat peak tops at once or the measured ratio carries a peak-shape bias that
-                          no downstream correction removes. Typically assessed by scanning across the
-                          peak plateau, or by comparing ratios measured at slightly offset mass positions.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/peakFlatnessMethodAndThreshold
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laMcicpmsTAPP/peakFlatnessMethodAndThreshold
-                          schema:name:
-                            const: Peak Flatness Method and Threshold
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        title: Pulse/Analog Detector Nonlinearity Correction
-                        description: ''
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: pulseAnalogDetectorNonlinearityCorrection
-                          schema:name:
-                            const: Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: true
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                        readOnly: true
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id031
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id032
-                      minContains: 0
-                      maxContains: 1
-            - if:
-                properties:
-                  schema:name:
-                    const: Sample preparation
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - &id033
-                        title: Fusion Flux and Dilution Ratio
-                        description: For procedures using fused glass, the flux type and sample:flux dilution
-                          ratio used to prepare the analytical glass.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatioDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: fusionFluxAndDilutionRatioDefault
-                          schema:name:
-                            const: Fusion Flux and Dilution Ratio
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - &id034
-                        title: Pre-Ablation Surface Treatment
-                        description: Procedure applied immediately before each analysis to remove surface
-                          contamination or condition the sample surface. Distinct from general sample
-                          preparation. For spot analysis, pre-ablation pulses are discarded before signal
-                          acquisition begins. For mapping, this step is typically omitted as the large
-                          area ablated averages out surface effects.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/preAblationSurfaceTreatmentDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: preAblationSurfaceTreatmentDefault
-                          schema:name:
-                            const: Pre-Ablation Surface Treatment
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                    allOf:
-                    - contains: *id033
-                      minContains: 0
-                      maxContains: 1
-                    - contains: *id034
-                      minContains: 0
-                      maxContains: 1
-                  schema:description:
-                    description: Description of how samples were prepared for analysis (mounting, polishing,
-                      coating, fusion procedure, etc.).
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-            - if:
-                properties:
-                  schema:name:
-                    const: Data acquisition
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      title: Guard Electrode
-                      description: Whether the guard electrode (also called extraction lens or Fassel
-                        torch shield) was active during analysis.
-                      type: object
-                      properties:
-                        '@id':
-                          const: ada:parameter/laMcicpmsTAPP/guardElectrode
-                        '@type':
-                          const:
-                          - schema:PropertyValue
-                        schema:propertyID:
-                          const:
-                          - '@id': ada:parameter/laMcicpmsTAPP/guardElectrode
-                        schema:name:
-                          const: Guard Electrode
-                        schema:value:
-                          type: string
-                      required:
-                      - '@id'
-                      - '@type'
-                      - schema:propertyID
-                      - schema:name
-                      - schema:value
-                      readOnly: true
-                    allOf:
-                    - contains:
-                        title: Guard Electrode
-                        description: Whether the guard electrode (also called extraction lens or Fassel
-                          torch shield) was active during analysis.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laMcicpmsTAPP/guardElectrode
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/laMcicpmsTAPP/guardElectrode
-                          schema:name:
-                            const: Guard Electrode
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      minContains: 0
-                      maxContains: 1
-          allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: Data reduction
-              required:
-              - schema:name
-          - contains:
-              properties:
-                schema:name:
-                  const: Sample preparation
-              required:
-              - schema:name
-          - contains:
-              properties:
-                schema:name:
-                  const: Data acquisition
-              required:
-              - schema:name
-    ada:analysisSequenceDefault:
-      description: Repeating order of primary calibration standard(s), quality control standard(s), and
-        unknown analyses within a measurement session. Editable to allow minor adjustments while maintaining
-        the bracketing strategy defined in the procedure.
-      type: string
-    ada:analyteTemplate:
-      type: object
-      properties:
-        ada:defaultAnalytes:
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
-        ada:analyteColumns:
-          type: array
-          items:
-            anyOf:
-            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id035
-              title: Detection Limit
-              description: Session detection limit, one per reported concentration variable (one per analyte,
-                these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory
-                at analysis level to demonstrate the reliability of reported near-detection-limit concentrations.
-                The calculation method is captured separately in Detection Limit Method.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id036
-              title: Dwell Time per Mass
-              description: ''
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/dwellTimePerMass
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: dwellTimePerMass
-                schema:name:
-                  const: Dwell Time per Mass
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: O
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id037
-              title: Limit of Quantification (LOQ) Method
-              description: 'Reference or description of the method used to calculate the limit of quantification
-                (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
-                Mandatory at analysis level when concentrations near the LOD are reported. Concentrations
-                between LOD and LOQ are detectable but not reliably quantifiable.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: limitOfQuantificationMethod
-                schema:name:
-                  const: Limit of Quantification (LOQ) Method
-                ada:dataType:
-                  const: uri
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id038
-              title: Mass Resolution per Analyte
-              description: ''
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/massResolutionPerAnalyte
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: massResolutionPerAnalyte
-                schema:name:
-                  const: Mass Resolution per Analyte
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: O
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id039
-              title: Monitored Isotopes
-              description: Specific isotope(s) monitored in this procedure, grouped by the analyte element
-                they serve where they serve one. Includes interference-monitor and internal-standard masses,
-                which serve no analyte and so have no parent element. The analyte list is given by the
-                Analyte field and is never inferred from the element symbols appearing here.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/monitoredIsotopes
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: monitoredIsotopes
-                schema:name:
-                  const: Monitored Isotopes
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id040
-              title: Normalization / Standards-Based Correction
-              description: Any post-acquisition normalization applied to correct for systematic biases
-                identified from secondary reference materials, or stoichiometric normalization applied
-                per pixel in mapping. Distinct from the primary internal standard approach captured in
-                Internal Standard Approach.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: normalizationStandardsBasedCorrection
-                schema:name:
-                  const: Normalization / Standards-Based Correction
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id041
-              title: Per-Analyte Calibration Strategy
-              description: Documents cases where different analytes or analyte groups within the same
-                session are calibrated using different strategies — for example, one element used as the
-                internal standard while trace elements are calibrated by an external reference material,
-                or different primary standards applied to different mass ranges or mineral phases. If
-                a single calibration strategy applies uniformly to all analytes, state that here and refer
-                to Internal Standard Approach and Normalization / Standards-Based Correction for details.
-                Free text; list the strategy for each analyte or analyte group as needed.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: perAnalyteCalibrationStrategy
-                schema:name:
-                  const: Per-Analyte Calibration Strategy
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id042
-              title: Sensitivity as Useful Yield
-              description: 'Instrument sensitivity expressed as useful yield: the percentage of sampled
-                atoms of a given element ultimately detected as ions, with the method used to derive it
-                cited. A more rigorous and more comparable statement of sensitivity than counts per second
-                per unit concentration, which depends on spot size, fluence and repetition rate.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/sensitivityAsUsefulYield
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: sensitivityAsUsefulYield
-                schema:name:
-                  const: Sensitivity as Useful Yield
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: O
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-          allOf:
-          - contains: *id035
-            minContains: 0
-            maxContains: 1
-          - contains: *id036
-            minContains: 0
-            maxContains: 1
-          - contains: *id037
-            minContains: 0
-            maxContains: 1
-          - contains: *id038
-            minContains: 0
-            maxContains: 1
-          - contains: *id039
-            minContains: 0
-            maxContains: 1
-          - contains: *id040
-            minContains: 0
-            maxContains: 1
-          - contains: *id041
-            minContains: 0
-            maxContains: 1
-          - contains: *id042
-            minContains: 0
-            maxContains: 1
-    ada:analyticalAccuracy:
-      description: 'Offset between measured and accepted reference values for secondary reference materials,
-        expressed as % relative bias. Report both the assessment method and the accuracy values. Specify:
-        (1) secondary RM used and source of reference values, (2) number of analyses, and (3) elements
-        or element groups assessed. Report any systematic biases and likely causes.'
-      type: string
-    ada:analyticalMode:
-      type: array
-      items:
-        description: Primary analytical mode(s) executed under this procedure. For single-mode procedures,
-          records one value (e.g., Spot). For multi-mode procedures (e.g., spot analysis combined with
-          transect scanning), list all applicable modes. Serves as the procedure-level declaration of
-          measurement type, distinct from the mode flag columns which indicate per-field applicability.
-        type: string
-        enum:
-        - Spot
-        - Transect
-        - Mapping
-        - Spot; Transect
-        - Spot; Mapping
-        - missing
-        readOnly: true
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                const: Laser Ablation System
+              schema:inDefinedTermSet: ada:vocab/instrumentType
+          required:
+          - schema:additionalType
     ada:backgroundCountTimeDefault:
       description: Total time spent measuring gas blank (background signal with laser off or shutter closed)
         before each ablation event, in seconds. For spot and transect analysis, a discrete background
@@ -2497,119 +1686,9 @@ allOf:
       type: array
       items:
         anyOf:
-        - title: Baseline Measurement Approach
-          description: 'Method and timing for measuring the ion beam baseline (on-peak zero) during acquisition,
-            and the portion of the acquisition it is taken from. Three approaches are in use and the choice
-            depends on how sample reaches the plasma: deflecting the ion beam (beam-off or electrostatic
-            deflector); aspirating an acid blank, which applies only to solution introduction; or, for
-            laser ablation, collecting a defined number of laser-off cycles at the start of the same block,
-            since no blank can be aspirated mid-ablation. State which, and how many cycles or how long.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/baselineMeasurementApproach
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/baselineMeasurementApproach
-            schema:name:
-              const: Baseline Measurement Approach
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        - title: Double-Spike Isotope Pair
-          description: The pair of enriched isotopes used to construct the double spike. Both isotopes
-            must be naturally rare, free from isobaric interferences, and chosen to minimize error magnification
-            in the inversion. The double spike composition must be accurately calibrated before use. Specify
-            both isotope masses and the spike certificate or calibration reference. Record 'N/A' if double-spike
-            method is not used. Record 'N/A' where the procedure does not use a double spike.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/doubleSpikeIsotopePair
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/doubleSpikeIsotopePair
-            schema:name:
-              const: Double-Spike Isotope Pair
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        - &id043
-          title: Double-Spike Mixing Ratio
-          description: Target proportion of double-spike signal relative to total analyte signal in the
-            spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. An optimal mixing
-            ratio minimizes error propagation through the double-spike inversion; the optimum is analyte-system
-            specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved
-            mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal);
-            the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if double-spike
-            method is not used. Record 'N/A' where the procedure does not use a double spike.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/doubleSpikeMixingRatioDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: doubleSpikeMixingRatioDefault
-            schema:name:
-              const: Double-Spike Mixing Ratio
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: E-scan Range
-          description: ''
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/eScanRange
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/eScanRange
-            schema:name:
-              const: E-scan Range
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_baselineMeasurementApproach
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeIsotopePair
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeMixingRatio
         - title: Instrument Warm-up / Session Duration Limit
           description: Minimum warm-up time required after plasma ignition before analyses begin, and
             any maximum session duration enforced to maintain stable operating conditions. These constraints
@@ -2635,34 +1714,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - title: Mass Fractionation Law
-          description: Mathematical law used to parameterize instrumental isotope mass fractionation as
-            a function of mass difference. The exponential law (Maréchal et al. 1999) is most widely used
-            and theoretically best justified for MC-ICP-MS. The linear law assumes fractionation proportional
-            to mass difference. The power law is an alternative formulation. For double-spike procedures,
-            the law is embedded in the inversion algorithm and must be consistent between spike calibration
-            and sample data reduction.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/massFractionationLaw
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/massFractionationLaw
-            schema:name:
-              const: Mass Fractionation Law
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_massFractionationLaw
         - title: Matrix Offset Correction (LIEF)
           description: Whether an empirical correction was applied to account for systematic differences
             in laser-induced elemental fractionation (LIEF) patterns between the external calibration
@@ -2715,32 +1767,38 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id044
-          title: Number of Blocks per Measurement
-          description: Number of measurement blocks acquired per sample or standard solution introduction.
-            In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a
-            baseline (on-peak zero) measurement before the analytical cycles. Multiple blocks per sample
-            allow inspection of signal stability and within-measurement drift. Procedure specifies the
-            standard number; analyst may adjust for samples with low signal or for high-precision requirements.
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_numberOfBlocksPerMeasurement
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_numberOfCyclesPerBlock
+        - &id031
+          title: Make-up Gas and Flow Rate
+          description: Supplementary gas added to the sample-carrying stream between the sample introduction
+            system and the plasma, with its identity and the procedure-registered target flow rate. Argon
+            make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient
+            — downstream of an ablation cell, or of a desolvation system that has removed solvent load.
+            Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements;
+            record them with their own flow, whose unit commonly differs from the make-up flow. Record
+            'None' explicitly where no supplementary gas is added, to distinguish it from not reported.
           type: object
           properties:
             '@id':
-              const: ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurementDefault
+              const: ada:parameter/laMcicpmsTAPP/makeUpGasAndFlowRateDefault
             '@type':
               const:
               - schema:PropertyValueSpecification
             schema:valueName:
-              const: numberOfBlocksPerMeasurementDefault
+              const: makeUpGasAndFlowRateDefault
             schema:name:
-              const: Number of Blocks per Measurement
+              const: Make-up Gas and Flow Rate
             ada:dataType:
-              const: integer
+              const: number
             ada:fieldScope:
               const: session
             schema:readonlyValue:
               const: false
             ada:tier:
               const: R
+            schema:unitText:
+              const: L/min
           required:
           - '@id'
           - '@type'
@@ -2748,161 +1806,9 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id045
-          title: Number of Cycles per Block
-          description: Number of measurement cycles acquired per block. One cycle corresponds to a single
-            set of simultaneous Faraday cup readings integrated for the duration specified in Integration
-            Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration
-            Time per Cycle) × (Number of Blocks per Measurement). Procedure specifies the standard value;
-            analyst may adjust within procedure bounds.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/numberOfCyclesPerBlockDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: numberOfCyclesPerBlockDefault
-            schema:name:
-              const: Number of Cycles per Block
-            ada:dataType:
-              const: integer
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - &id046
-          title: Plasma / Make-up Gas Addition
-          description: Additional gas(es) mixed into the carrier stream downstream of the ablation cell,
-            with the procedure-registered target flow rate. Ar make-up gas is standard. Small N₂ additions
-            can enhance sensitivity for some elements. If N₂ is not added, state "None" explicitly to
-            distinguish from not reported.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/plasmaMakeUpGasAdditionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: plasmaMakeUpGasAdditionDefault
-            schema:name:
-              const: Plasma / Make-up Gas Addition
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - &id047
-          title: Pre-Analysis Imaging and Screening
-          description: Imaging or other characterisation performed before the measurement in order to
-            select or locate the analysed target, including the technique, instrument and settings used,
-            and how individual analyses are linked back to the images. Distinct from any imaging the procedure
-            performs as its own measurement. Where the imaging is performed on a separate instrument,
-            it should also be recorded in the Group 1 coupling fields.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/preAnalysisImagingAndScreeningDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: preAnalysisImagingAndScreeningDefault
-            schema:name:
-              const: Pre-Analysis Imaging and Screening
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - &id048
-          title: Transect Rate, Mapping Rate or Step Size
-          description: 'For continuous line scan (transect) and raster mapping: the stage translation
-            speed in µm s⁻¹. This is the procedure-level parameter that, together with spot size and repetition
-            rate, determines spatial resolution along the scan direction. For mapping, the mapping rate
-            (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable. For stepped
-            line profiles: the distance between successive spot positions in µm.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSizeDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: transectRateMappingRateOrStepSizeDefault
-            schema:name:
-              const: Transect Rate, Mapping Rate or Step Size
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Triple Scanning Mode
-          description: ''
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/tripleScanningMode
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/tripleScanningMode
-            schema:name:
-              const: Triple Scanning Mode
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        - &id049
+        - $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+        - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
+        - &id032
           title: Uncertainty Propagation Method
           description: 'The approach used to propagate analytical uncertainty through the data reduction
             chain to the final reported value. State which sources are included in the propagation: counting
@@ -2937,93 +1843,15 @@ allOf:
           - ada:fieldScope
       allOf:
       - contains:
-          title: Baseline Measurement Approach
-          description: 'Method and timing for measuring the ion beam baseline (on-peak zero) during acquisition,
-            and the portion of the acquisition it is taken from. Three approaches are in use and the choice
-            depends on how sample reaches the plasma: deflecting the ion beam (beam-off or electrostatic
-            deflector); aspirating an acid blank, which applies only to solution introduction; or, for
-            laser ablation, collecting a defined number of laser-off cycles at the start of the same block,
-            since no blank can be aspirated mid-ablation. State which, and how many cycles or how long.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/baselineMeasurementApproach
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/baselineMeasurementApproach
-            schema:name:
-              const: Baseline Measurement Approach
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_baselineMeasurementApproach
         minContains: 0
         maxContains: 1
       - contains:
-          title: Double-Spike Isotope Pair
-          description: The pair of enriched isotopes used to construct the double spike. Both isotopes
-            must be naturally rare, free from isobaric interferences, and chosen to minimize error magnification
-            in the inversion. The double spike composition must be accurately calibrated before use. Specify
-            both isotope masses and the spike certificate or calibration reference. Record 'N/A' if double-spike
-            method is not used. Record 'N/A' where the procedure does not use a double spike.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/doubleSpikeIsotopePair
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/doubleSpikeIsotopePair
-            schema:name:
-              const: Double-Spike Isotope Pair
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        minContains: 0
-        maxContains: 1
-      - contains: *id043
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeIsotopePair
         minContains: 0
         maxContains: 1
       - contains:
-          title: E-scan Range
-          description: ''
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/eScanRange
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/eScanRange
-            schema:name:
-              const: E-scan Range
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeMixingRatio
         minContains: 0
         maxContains: 1
       - contains:
@@ -3055,34 +1883,7 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          title: Mass Fractionation Law
-          description: Mathematical law used to parameterize instrumental isotope mass fractionation as
-            a function of mass difference. The exponential law (Maréchal et al. 1999) is most widely used
-            and theoretically best justified for MC-ICP-MS. The linear law assumes fractionation proportional
-            to mass difference. The power law is an alternative formulation. For double-spike procedures,
-            the law is embedded in the inversion algorithm and must be consistent between spike calibration
-            and sample data reduction.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/massFractionationLaw
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/massFractionationLaw
-            schema:name:
-              const: Mass Fractionation Law
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_massFractionationLaw
         minContains: 0
         maxContains: 1
       - contains:
@@ -3143,56 +1944,35 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id044
-        minContains: 0
-        maxContains: 1
-      - contains: *id045
-        minContains: 0
-        maxContains: 1
-      - contains: *id046
-        minContains: 0
-        maxContains: 1
-      - contains: *id047
-        minContains: 0
-        maxContains: 1
-      - contains: *id048
+      - contains:
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_numberOfBlocksPerMeasurement
         minContains: 0
         maxContains: 1
       - contains:
-          title: Triple Scanning Mode
-          description: ''
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/tripleScanningMode
-            '@type':
-              const:
-              - schema:PropertyValue
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/tripleScanningMode
-            schema:name:
-              const: Triple Scanning Mode
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_numberOfCyclesPerBlock
         minContains: 0
         maxContains: 1
-      - contains: *id049
+      - contains: *id031
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
+        minContains: 0
+        maxContains: 1
+      - contains: *id032
         minContains: 0
         maxContains: 1
     ada:betweenSessionPrecision:
-      description: 'Reproducibility of measurements across multiple analytical sessions over weeks to
-        months (long-term or intermediate precision). Report both the assessment method and the precision
-        values. Specify: reference material used, number of sessions n, time span covered, and statistic
-        reported. Long-term precision is typically assessed from a compiled record of secondary reference
-        material values across all sessions.'
+      description: Precision of measurements across multiple analytical sessions over weeks to months
+        — long-term or intermediate precision — and the method used to assess it. Report both the assessment
+        method and the precision values, specifying the reference material, the number of measurements
+        and sessions, the time span covered, and the statistic reported. Long-term precision is normally
+        poorer than within-session precision and is the figure a data user should carry when comparing
+        results from different sessions.
       type: string
     ada:blankBackgroundCorrectionMethod:
       description: 'Method used to subtract the gas blank (background signal with laser off) from the
@@ -3219,8 +1999,41 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - *id030
-        - &id050
+        - &id033
+          title: Calibration Factor and Determination Method
+          description: 'An externally-calibrated factor that converts the measured quantity into the reported
+            quantity, how it was determined, and its uncertainty. Applies where the conversion depends
+            on a factor calibrated against a reference of independently known value, rather than on the
+            instrument response alone. Distinct from the fields that name the calibration material and
+            that state which approach applies to which analyte, where the technique has them: this field
+            records the resulting factor itself.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: calibrationFactorAndDeterminationMethodDefault
+            schema:name:
+              const: Calibration Factor and Determination Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id034
           title: Detection Limit
           description: Session detection limit, one per reported concentration variable (one per analyte,
             these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at
@@ -3280,7 +2093,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id051
+        - &id035
           title: Goodness-of-Fit or Dispersion Statistic
           description: The statistic reported to show whether scatter among the contributing analyses
             exceeds what analytical uncertainty alone predicts, together with its value. Answers whether
@@ -3313,7 +2126,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id052
+        - &id036
           title: Limit of Quantification (LOQ) Method
           description: 'Reference or description of the method used to calculate the limit of quantification
             (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
@@ -3345,7 +2158,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id053
+        - &id037
           title: Normalization / Standards-Based Correction
           description: Any post-acquisition normalization applied to correct for systematic biases identified
             from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
@@ -3376,12 +2189,12 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - *id049
+        - *id032
       allOf:
-      - contains: *id030
+      - contains: *id033
         minContains: 0
         maxContains: 1
-      - contains: *id050
+      - contains: *id034
         minContains: 0
         maxContains: 1
       - contains:
@@ -3413,16 +2226,16 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id051
+      - contains: *id035
         minContains: 0
         maxContains: 1
-      - contains: *id052
+      - contains: *id036
         minContains: 0
         maxContains: 1
-      - contains: *id053
+      - contains: *id037
         minContains: 0
         maxContains: 1
-      - contains: *id049
+      - contains: *id032
         minContains: 0
         maxContains: 1
     ada:calibrationMeasurementFrequency:
@@ -3445,62 +2258,267 @@ allOf:
         materials rather than universal physical constants. Record "None" if no citable, revisable physical
         constants feed into this procedure's data reduction.
       type: string
-    schema:relatedLink:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: coupledTechnique
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    description: Other analytical techniques applied to the same sample(s) whose results
-                      are intended to be interpreted together with data from this procedure. Document
-                      coupling with any technique whose results are functionally linked to this dataset
-                      — providing calibration inputs, complementary spatial context, or required companion
-                      measurements. Use the same controlled vocabulary as the Technique field. Enter "None"
-                      if no coupling is intended.
-                    anyOf:
-                    - type: string
-                      enum:
-                      - EPMA
-                      - SIMS
-                      - ICP-MS (solution)
-                      - Noble Gas MS
-                      - None
-                      - N/A
-                      - missing
-                    - type: string
-                  schema:description:
-                    description: 'Description of how this procedure is coupled with the technique(s) listed
-                      above. Include: (1) the functional relationship — what data or context flows between
-                      techniques, or how results are combined (e.g. which output from the coupled technique
-                      serves as input to data reduction for this technique); and (2) the analytical sequence
-                      — which technique is performed first and why (e.g. non-destructive before destructive).
-                      Required when Coupled Technique(s) is not "None".'
-                    type: string
-        - if:
-            properties:
-              schema:linkRelationship:
-                const: techniquePublication
-            required:
-            - schema:linkRelationship
-          then:
-            properties:
-              schema:target:
-                type: object
-                properties:
-                  schema:name:
-                    type: string
-                    readOnly: true
+    ada:analyteTemplate:
+      type: object
+      properties:
+        ada:analyteColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - &id038
+              title: Detection Limit
+              description: Session detection limit, one per reported concentration variable (one per analyte,
+                these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory
+                at analysis level to demonstrate the reliability of reported near-detection-limit concentrations.
+                The calculation method is captured separately in Detection Limit Method.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laMcicpmsTAPP/detectionLimit
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: detectionLimit
+                schema:name:
+                  const: Detection Limit
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id039
+              title: Limit of Quantification (LOQ) Method
+              description: 'Reference or description of the method used to calculate the limit of quantification
+                (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
+                Mandatory at analysis level when concentrations near the LOD are reported. Concentrations
+                between LOD and LOQ are detectable but not reliably quantifiable.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: limitOfQuantificationMethod
+                schema:name:
+                  const: Limit of Quantification (LOQ) Method
+                ada:dataType:
+                  const: uri
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id040
+              title: Mass Resolution Assignment
+              description: Mass resolution mode assigned to each acquired mass. The selected resolution
+                determines which polyatomic interferences are physically resolved by the magnetic sector.
+                One analyte may be acquired at more than one resolution, so the assignment is per acquired
+                mass rather than per element. The overall mode(s) used in the procedure are recorded in
+                Mass Resolution Setting (Group 3).
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laMcicpmsTAPP/massResolutionAssignment
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: massResolutionAssignment
+                schema:name:
+                  const: Mass Resolution Assignment
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id041
+              title: Monitored Masses
+              description: Specific masses monitored in this procedure, grouped by the analyte element
+                they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts
+                an analyte onto a different mass, the product mass actually measured. Includes interference-monitor
+                and internal-standard masses, which serve no analyte and so have no parent element. The
+                analyte list is given by the Analyte field and is never inferred from the element symbols
+                appearing here.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laMcicpmsTAPP/monitoredMasses
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: monitoredMasses
+                schema:name:
+                  const: Monitored Masses
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id042
+              title: Normalization / Standards-Based Correction
+              description: Any post-acquisition normalization applied to correct for systematic biases
+                identified from secondary reference materials, or stoichiometric normalization applied
+                per pixel in mapping. Distinct from the primary internal standard approach captured in
+                Internal Standard Approach.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: normalizationStandardsBasedCorrection
+                schema:name:
+                  const: Normalization / Standards-Based Correction
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id043
+              title: Per-Analyte Calibration Strategy
+              description: Documents cases where different analytes or analyte groups within the same
+                session are calibrated using different strategies — for example, one element used as the
+                internal standard while trace elements are calibrated by an external reference material,
+                or different primary standards applied to different mass ranges or mineral phases. If
+                a single calibration strategy applies uniformly to all analytes, state that here and refer
+                to Internal Standard Approach and Normalization / Standards-Based Correction for details.
+                Free text; list the strategy for each analyte or analyte group as needed.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: perAnalyteCalibrationStrategy
+                schema:name:
+                  const: Per-Analyte Calibration Strategy
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id044
+              title: Instrument Sensitivity
+              description: Instrument sensitivity achieved in the session, with the isotope or channel
+                it was measured on and the conditions it applies to. May be expressed either as detected
+                signal per unit concentration or per unit mass of analyte delivered — counts per second
+                per ppb, volts per ppm, counts per picogram — or as useful yield, the percentage of sampled
+                atoms ultimately detected as ions, with the method used to derive it cited. Useful yield
+                is the more comparable of the two wherever the amount of material consumed varies between
+                procedures, as it does with spot size, fluence and repetition rate. Records what the instrument
+                actually delivered; a sensitivity the procedure requires before analyses may begin belongs
+                with the tuning acceptance criteria.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laMcicpmsTAPP/instrumentSensitivity
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: instrumentSensitivity
+                schema:name:
+                  const: Instrument Sensitivity
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: O
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains: *id038
+            minContains: 0
+            maxContains: 1
+          - contains: *id039
+            minContains: 0
+            maxContains: 1
+          - contains: *id040
+            minContains: 0
+            maxContains: 1
+          - contains: *id041
+            minContains: 0
+            maxContains: 1
+          - contains: *id042
+            minContains: 0
+            maxContains: 1
+          - contains: *id043
+            minContains: 0
+            maxContains: 1
+          - contains: *id044
+            minContains: 0
+            maxContains: 1
     ada:detectionLimitMethod:
       description: Reference or description of the method used to calculate session detection limits.
         Mandatory at analysis level. Must be consistent with the method applied to generate the Detection
@@ -3516,23 +2534,6 @@ allOf:
           function or publication.
         type: string
         readOnly: true
-    schema:funding:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:name:
-            type: string
-            readOnly: true
-    ada:internalNormalizationElementAndIsotopeRatio:
-      description: Element and isotope ratio used as the internal normalization standard for mass bias
-        correction. The measured ratio of the normalizing element is used to calculate the mass bias factor
-        β using the chosen mass fractionation law, which is then applied to correct the analyte isotope
-        ratios assuming β_norm ≈ β_analyte. Specify the element, the monitored isotope ratio (e.g., 113Cd/111Cd
-        for Sb measurements), and the certified or consensus value used for correction. Record 'N/A' if
-        internal normalization is not used. Record 'N/A' where the procedure does not use internal normalization.
-      type: string
-      readOnly: true
     ada:internalStandardApproach:
       description: Method used to determine the internal standard (IS) concentration for each unknown
         sample, used to correct for variable ablation yield between analyses. The approach is a fundamental
@@ -3552,29 +2553,6 @@ allOf:
         Correction Method.'
       type: boolean
       readOnly: true
-    schema:location:
-      type: object
-      properties:
-        schema:name:
-          description: Name of the laboratory or institution hosting the instrument.
-          type: string
-        schema:identifier:
-          description: Persistent identifier for the laboratory (e.g., ROR ID).
-          type: string
-    ada:ablationSamplingMode:
-      type: array
-      items:
-        description: Sampling mode or ablation pattern used during analysis.
-        type: string
-        enum:
-        - Spot (stationary)
-        - Transect (continuous line scan)
-        - Raster area (2D elemental mapping)
-        - Stepped line profile
-        - N/A
-        - None
-        - missing
-        readOnly: true
     ada:massBiasCorrectionStrategy:
       description: 'Strategy used to correct instrumental isotopic mass fractionation, also called mass
         bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses
@@ -3595,44 +2573,6 @@ allOf:
         citation for the accepted values used. Editable because the specific lot or certification vintage
         may differ between sessions while the material type remains the same.
       type: string
-    schema:creator:
-      type: object
-      properties:
-        schema:name:
-          type: string
-          readOnly: true
-    schema:name:
-      type: string
-      readOnly: true
-    prov:wasDerivedFrom:
-      description: DOI or URL for peer-reviewed publications or technical reports describing, validating,
-        or benchmarking this procedure.
-      type: string
-      readOnly: true
-    schema:datePublished:
-      type: string
-      readOnly: true
-    ada:rasterLineSpacingDefault:
-      description: Distance between adjacent raster lines in a 2D elemental map, measured perpendicular
-        to the scan direction, in micrometres. Together with spot size, this determines whether adjacent
-        lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have
-        gaps (line spacing > spot size). Applies to raster mapping only.
-      type: string
-    ada:reportedPropertyTemplate:
-      type: object
-      properties:
-        ada:defaultReportedProperties:
-          type: array
-          items:
-            description: The final variable(s) this procedure reports and their units — distinct from
-              the fields recording what was *acquired* rather than what is reported. A procedure may acquire
-              many channels and report a small number of derived quantities; without this field a data
-              consumer cannot tell which. Record every reported variable, including intermediate quantities
-              reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date).
-              Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification),
-              record the variable and give the unit as 'N/A — nominal property'.
-            type: string
-            readOnly: true
     schema:object:
       type: array
       items:
@@ -3649,7 +2589,7 @@ allOf:
             properties:
               schema:additionalProperty:
                 type: array
-                items: &id054
+                items: &id045
                   title: Sample Form / Analytical Substrate
                   description: Physical form of the material as it enters the ablation cell. Editable
                     to accommodate legitimate variations (e.g., thin section vs. mount) that do not alter
@@ -3681,7 +2621,7 @@ allOf:
                   - ada:dataType
                   - ada:fieldScope
                 allOf:
-                - contains: *id054
+                - contains: *id045
                   minContains: 0
                   maxContains: 1
       allOf:
@@ -3700,26 +2640,6 @@ allOf:
         and flow rather than what else enters the plasma.
       type: string
       readOnly: true
-    ada:samplingUnit:
-      description: The physical subdivision of the sample to which one row of reported values corresponds
-        — the unit that is analysed and reported, as distinct from the sample as a whole. State the unit
-        type at procedure level and the units actually analysed at analysis level. Where units nest (e.g.
-        confined tracks within grains), state both levels.
-      anyOf:
-      - type: string
-        enum:
-        - Whole sample
-        - Aliquot
-        - Grain
-        - Spot
-        - Analysis point
-        - Phase
-        - Sub-volume
-        - Region of interest
-        - N/A
-        - None
-        - missing
-      - type: string
     ada:secondaryReferenceMaterialDefault:
       type: array
       items:
@@ -3728,9 +2648,6 @@ allOf:
           for accepted values used for comparison. Editable because selection of secondary RMs may vary
           across sessions.
         type: string
-    ada:signalCollectionMode:
-      type: string
-      readOnly: true
     ada:signalIntegrationIntervalMethod:
       description: 'Approach used to select the stable signal interval for integration during data reduction,
         and to exclude anomalous signals from inclusions or cracks. For spot/transect analysis: involves
@@ -3739,27 +2656,6 @@ allOf:
         the 2D map (e.g., manual selection, automated clustering, threshold-based masking).'
       type: string
       readOnly: true
-    ada:targetSelectionCriteriaDefault:
-      description: 'The rules governing which part of the sample is analysed, and why. Covers the criteria
-        applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity,
-        freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target
-        Material, which states the material type the procedure is designed for: this field states how,
-        within such a sample, the analysed portion is picked out.'
-      type: string
-    schema:measurementTechnique:
-      type: array
-      items:
-        type: object
-        properties:
-          schema:termCode:
-            description: Top-level analytical technique identifier.
-            type: string
-            enum:
-            - LA-MC-ICP-MS
-            - N/A
-            - None
-            - missing
-            readOnly: true
     ada:uncertaintyLevel:
       description: 'The convention at which reported uncertainties are quoted — 1-sigma, 2-sigma, or a
         95% confidence interval — and whether a measured spread is reported as a standard error or a standard
@@ -3782,15 +2678,14 @@ allOf:
       - type: string
       readOnly: true
     ada:withinSessionPrecision:
-      description: 'Reproducibility of repeated measurements within a single analytical session. Report
-        both the assessment method and the precision values. Assessment method must specify: (1) the reference
-        material used, (2) number of replicates n, and (3) the statistic reported (1σ RSD, 2σ RSD, etc.).
-        For mapping: assess from repeated analyses of a reference material area at session start and end,
-        or from replicate analyses of a homogeneous reference phase within the map.'
+      description: Precision of repeated measurements within a single analytical session and the method
+        used to assess it. Report both the assessment method and the precision values. The assessment
+        method must specify the reference material or standard measured, the number of replicates n, and
+        the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision
+        of a single measurement, which derives from counting statistics over the cycles of that measurement
+        rather than from repeated analyses.
       type: string
   required:
-  - ada:ablationSpotDurationDefault
-  - ada:ablationPitDepthRateDefault
   - ada:analysisSequenceDefault
   - ada:analyticalAccuracy
   - ada:backgroundCountTimeDefault
@@ -3800,19 +2695,13 @@ allOf:
   - ada:carrierGasFlowRateDefault
   - ada:constantsAndReferenceValuesUsedDefault
   - ada:detectionLimitMethod
-  - ada:internalNormalizationElementAndIsotopeRatio
   - ada:internalStandardApproach
   - ada:internalStandardElement
   - ada:isobaricInterferenceCorrectionsApplied
   - ada:massBiasCorrectionStrategy
   - ada:oxideProductionMethodAndThreshold
   - ada:primaryStandardNameDefault
-  - schema:name
-  - schema:datePublished
-  - ada:rasterLineSpacingDefault
   - ada:sampleIntroduction
-  - ada:samplingUnit
   - ada:signalIntegrationIntervalMethod
-  - ada:targetSelectionCriteriaDefault
   - ada:uncertaintyLevel
   - ada:withinSessionPrecision

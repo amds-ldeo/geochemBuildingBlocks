@@ -16,33 +16,6 @@
   ],
   "schema:name": "tem protocol — Zega2025",
   "schema:description": "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "TEM/STEM"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "FIB-SEM; SEM; EMPA; XRD; CL spectroscopy; XANES (synchrotron)",
-        "schema:description": "FIB-SEM (TS Helios G3, K-ALFAA) prepared TEM sections from SEM/EMPA-characterized particles; SEM/EMPA/XRD/CL provided mm–µm scale context before TEM; XANES at ALS beamline 5.3.2.2 acquired on FIB sections for Fe oxidation state"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -259,29 +232,9 @@
       ],
       "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:name": "SEM",
-      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS and EELS",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "CRISP (SAED analysis); Adobe Photoshop (d-spacing measurement from calibrated camera constants)"
-    }
-  ],
   "ada:analyticalSubModeDefault": "BF-STEM",
   "ada:stemDwellTimePerPixelDefault": "8 µs (EDS spectrum image frame time per pixel)",
   "schema:additionalProperty": [
@@ -310,6 +263,40 @@
     }
   ],
   "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:phaseIdentificationMethod": "N/A",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "TEM/STEM"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB-SEM; SEM; EMPA; XRD; CL spectroscopy; XANES (synchrotron)",
+        "schema:description": "FIB-SEM (TS Helios G3, K-ALFAA) prepared TEM sections from SEM/EMPA-characterized particles; SEM/EMPA/XRD/CL provided mm–µm scale context before TEM; XANES at ALS beamline 5.3.2.2 acquired on FIB sections for Fe oxidation state"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "CRISP (SAED analysis); Adobe Photoshop (d-spacing measurement from calibrated camera constants)"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Si",
@@ -335,7 +322,6 @@
       }
     ]
   },
-  "ada:phaseIdentificationMethod": "N/A",
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",

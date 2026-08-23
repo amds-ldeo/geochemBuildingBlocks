@@ -16,33 +16,6 @@
   ],
   "schema:name": "tem protocol — Cymes2023-2",
   "schema:description": "Nion UltraSTEM200-X at NRL; dedicated aberration-corrected STEM; cold-FEG; 0.1 nm probe diameter; 40 pA; 200 keV. Gatan Enfinium ER Dual EELS (simultaneous low-loss + core-loss spectrum imaging). Bruker X-Flash windowless SDD EDS (0.7 sr). EELS Fe³⁺/ΣFe quantified by integral I(L3)/I(L2) ratio → Van Aken & Liebscher (2002) universal calibration curve. Oxidation state maps by MLLS fitting with 2 reference spectra; Fe⁰+Fe²⁺ not separated by MLLS (overlapping L3 peaks); Fe⁰ identified by anti-correlation with O K-edge. EDS: Cliff-Lorimer; detector-specific k-factors; 60% O assumed; no absorption correction. Coordinated with JEOL JEM-2200FS (same FIB section). EELS + EDS acquisition details in supplementary Fig. S1. Data deposited at Zenodo: 10.5281/zenodo.7439174. Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging; ada:edsQuantificationMethod = Cliff-Lorimer method with detector-specific k-factors; no absorption correction (sample thin); pyroxene compositions calculated with assumed O stoichiometry of 60%.",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Naval Research Laboratory, Washington, D.C., USA"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "FIB (FEI Helios G3 Dual Beam at NRL); BF/EFTEM/SAED/HRTEM (JEOL JEM-2200FS at NRL; coordinated with Nion UltraSTEM200-X)",
-        "schema:description": "Fe oxidation state mapping and Fe³⁺/ΣFe quantification in exsolved lunar pyroxene (Apollo 17 soil) using STEM-EELS; MLLS and integral white-line ratio methods; coordinated HAADF-STEM + EDS for compositional mapping"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -246,20 +219,6 @@
       ],
       "@id": "ex:instrument/TEM",
       "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:name": "SEM",
-      "@id": "ex:instrument/part/SEM"
     }
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
@@ -333,6 +292,41 @@
   ],
   "ada:edsAcquisitionModeDefault": "N/A",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
+  "ada:eelsAcquisitionModeDefault": "N/A",
+  "ada:eelsEdgesDefault": [
+    "Fe L2,3 edge (700–735 eV); O K-edge (528–550 eV)"
+  ],
+  "ada:eelsCollectionSemiAngle": "Power-law background removal",
+  "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L2,3); O (K)",
+  "ada:eelsEnergyLossRangeDefault": "Fe (L2,3); O (K)",
+  "ada:phaseIdentificationMethod": "N/A",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Naval Research Laboratory, Washington, D.C., USA"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB (FEI Helios G3 Dual Beam at NRL); BF/EFTEM/SAED/HRTEM (JEOL JEM-2200FS at NRL; coordinated with Nion UltraSTEM200-X)",
+        "schema:description": "Fe oxidation state mapping and Fe³⁺/ΣFe quantification in exsolved lunar pyroxene (Apollo 17 soil) using STEM-EELS; MLLS and integral white-line ratio methods; coordinated HAADF-STEM + EDS for compositional mapping"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Ca",
@@ -355,14 +349,6 @@
       }
     ]
   },
-  "ada:eelsAcquisitionModeDefault": "N/A",
-  "ada:eelsEdgesDefault": [
-    "Fe L2,3 edge (700–735 eV); O K-edge (528–550 eV)"
-  ],
-  "ada:eelsCollectionSemiAngle": "Power-law background removal",
-  "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L2,3); O (K)",
-  "ada:eelsEnergyLossRangeDefault": "Fe (L2,3); O (K)",
-  "ada:phaseIdentificationMethod": "N/A",
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",

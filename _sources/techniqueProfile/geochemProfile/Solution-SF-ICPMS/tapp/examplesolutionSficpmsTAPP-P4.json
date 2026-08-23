@@ -16,161 +16,6 @@
   ],
   "schema:name": "solutionSficpms protocol — P4",
   "schema:description": "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1); ada:perAnalyteCalibrationStrategy = External calibration with matrix-matched standards at 10 ppm Ca (all analytes; stated section 2.3.1).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution SF-ICP-MS"
-    }
-  ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Li",
-      "B",
-      "Na",
-      "Mg",
-      "Al",
-      "Mn",
-      "Fe",
-      "Zn",
-      "Sr",
-      "Cd",
-      "Ba",
-      "U as Me/Ca ratios in foraminifera (stated section 2.3)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/monitoredMasses",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "monitoredMasses",
-        "schema:name": "Monitored Masses",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionAssignment",
-        "schema:name": "Mass Resolution Assignment",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -275,14 +120,6 @@
       },
       {
         "schema:name": "Sample digestion",
-        "bios:reagent": [
-          {
-            "schema:name": "1 M HNO3 (minimum volume for dissolution; stated section 2.4)",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
@@ -295,6 +132,14 @@
             "ada:fieldScope": "session",
             "schema:value": 1,
             "schema:description": "1 (stated section 2.4)"
+          }
+        ],
+        "bios:reagent": [
+          {
+            "schema:name": "1 M HNO3 (minimum volume for dissolution; stated section 2.4)",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
           }
         ],
         "@type": [
@@ -311,9 +156,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:finalSolutionMatrix": "0.1 M HNO3 + 0.3 M HF (Table 1)",
-  "ada:chromatographicSeparationApplied": "None (direct dissolution analysis; stated section 2.4)",
-  "ada:isotopeDilutionSpike": "None",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -521,26 +363,6 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:manufacturer": {
-        "schema:name": "Thermo Fisher Scientific -- \"a Thermo Element XR, a single collector sector field high resolution inductively coupled plasma mass spectrometer\"",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
     }
   ],
   "schema:additionalProperty": [
@@ -556,16 +378,9 @@
       "schema:value": "None"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Godwin Laboratory for Palaeoclimate Research, University of Cambridge (affiliation)"
-  },
   "ada:numberOfScansPerReplicate": "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)",
   "ada:numberOfReplicatesPerSample": "3 runs (LR and MR; Table 3)",
   "ada:sampleSequenceDesign": "Blocks of 7 samples bracketed by pair of acid blanks and consistency standards (stated section 2.3.1)",
-  "ada:washTimeBetweenSamples": "120 s (Table 1)",
   "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2.3.1)",
   "ada:oxideProductionMethodAndThreshold": "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)",
   "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 10 ppm Ca (not formally named; stated section 2.3.1)",
@@ -577,26 +392,178 @@
     "Four in-house foraminifera consistency standards (C. wuellerstorfi, Uvigerina spp., synthetic mix; stated section 2.2)"
   ],
   "ada:calibrationMeasurementFrequency": "Bracketing blocks of 7 samples (stated section 2.3.1)",
+  "ada:reportedProperties": [
+    "B/Ca and Me/Ca (Li, Mg, Al, Sr, Cd, Ba, U in low resolution; Na, Mn, Fe, Zn in medium resolution) in umol/mol and mmol/mol"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution SF-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Godwin Laboratory for Palaeoclimate Research, University of Cambridge (affiliation)"
+  },
+  "ada:samplingUnit": "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- \"a Teflon Scott type (single pass) spray chamber was constructed\"; \"we used a platinum injector (1.8 mm I.D.)\"; ESI nebulizer"
   ],
-  "ada:reportedPropertyTemplate": {
-    "ada:defaultReportedProperties": [
-      "B/Ca and Me/Ca (Li, Mg, Al, Sr, Cd, Ba, U in low resolution; Na, Mn, Fe, Zn in medium resolution) in umol/mol and mmol/mol"
+  "ada:chromatographicSeparationApplied": "None (direct dissolution analysis; stated section 2.4)",
+  "ada:isotopeDilutionSpike": "None",
+  "ada:finalSolutionMatrix": "0.1 M HNO3 + 0.3 M HF (Table 1)",
+  "ada:washTimeBetweenSamples": "120 s (Table 1)",
+  "ada:analyteTemplate": {
+    "ada:defaultAnalytes": [
+      "Li",
+      "B",
+      "Na",
+      "Mg",
+      "Al",
+      "Mn",
+      "Fe",
+      "Zn",
+      "Sr",
+      "Cd",
+      "Ba",
+      "U as Me/Ca ratios in foraminifera (stated section 2.3)"
     ],
-    "ada:reportedPropertyColumns": [
+    "ada:analyteColumns": [
       {
-        "schema:valueName": "reportedProperty",
+        "schema:valueName": "analyte",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
         "ada:tier": "M",
         "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimit",
+        "schema:name": "Detection Limit",
+        "ada:dataType": "number"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectionLimitMethod",
+        "schema:name": "Detection Limit Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "limitOfQuantificationMethod",
+        "schema:name": "Limit of Quantification (LOQ) Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
     ]
   },
-  "ada:samplingUnit": "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalStandardApproach": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",

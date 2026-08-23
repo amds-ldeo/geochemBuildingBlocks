@@ -24,6 +24,12 @@ cdifd:aggregationAnalysisIdentificationShape
         """ ;
     ] ;
     sh:property [
+        sh:path dqv:hasQualityMeasurement ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Aggregation requires dqv:hasQualityMeasurement on the analysis." ;
+    ] ;
+    sh:property [
         sh:path schema:variableMeasured ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;

@@ -320,7 +320,16 @@
           ]
         },
         "schema:funding": {
-          "type": "array"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Grants and other funding sources that supported the specific sample analyses and data collection reported here. Include grant numbers and funding agencies. Distinct from procedure development funding, which may have been awarded years earlier.",
+                "type": "string"
+              }
+            }
+          }
         },
         "schema:relatedLink": {
           "type": "array",
@@ -414,10 +423,7 @@
             ]
           }
         }
-      },
-      "required": [
-        "schema:funding"
-      ]
+      }
     },
     {
       "title": "MCICPMS on the analysis",
@@ -530,6 +536,58 @@
                 },
                 "required": [
                   "schema:name"
+                ]
+              }
+            }
+          ]
+        },
+        "dqv:hasQualityMeasurement": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "dqv:isMeasurementOf": {
+                      "const": "Goodness-of-Fit"
+                    }
+                  },
+                  "required": [
+                    "dqv:isMeasurementOf"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "dqv:value": {
+                      "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. Answers whether a reported aggregate is defensible as a single population. Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "dqv:isMeasurementOf": {
+                    "const": "Goodness-of-Fit"
+                  }
+                },
+                "required": [
+                  "dqv:isMeasurementOf"
                 ]
               }
             }

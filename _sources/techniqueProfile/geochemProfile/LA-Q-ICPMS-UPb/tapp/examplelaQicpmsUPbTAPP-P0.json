@@ -15,42 +15,11 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "example protocolName",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "example protocolAuthor",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "example laboratory",
-    "schema:identifier": "example laboratoryId"
-  },
-  "schema:datePublished": "example protocolStartDate",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "example fundingSourceForProtocolDevelopment"
-    }
-  ],
-  "ada:samplingUnit": "Whole sample",
+  "schema:name": "example procedureName",
   "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/preAnalysisImagingAndScreeningDefault",
+      "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -60,23 +29,23 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/transectRateMappingRateOrStepSizeDefault",
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
       "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
-      "schema:name": "Transect Rate, Mapping Rate or Step Size",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laQicpmsUPbTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session"
     },
     {
@@ -91,6 +60,16 @@
       ],
       "schema:name": "Instrument Warm-up / Session Duration Limit",
       "schema:value": "example value"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsUPbTAPP/ionCounterDeadTimeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ionCounterDeadTimeDefault",
+      "schema:name": "Ion Counter Dead Time",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign",
@@ -129,7 +108,7 @@
       "schema:value": "example value"
     },
     {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/ageDatumReferenceEpochDefault",
+      "@id": "ada:parameter/module/Geochronology/ageDatumReferenceEpochDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -139,17 +118,14 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/discordanceDefinitionAndValues"
-        }
-      ],
+      "schema:valueName": "discordanceDefinitionAndValues",
       "schema:name": "Discordance Definition and Values",
-      "schema:value": "example value"
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault",
@@ -160,186 +136,19 @@
       "schema:name": "Error Correlation Between Reported Quantities",
       "ada:dataType": "number",
       "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/eScanRange",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/eScanRange"
-        }
-      ],
-      "schema:name": "E-scan Range",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/tripleScanningMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/tripleScanningMode"
-        }
-      ],
-      "schema:name": "Triple Scanning Mode",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/imaging",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "imaging",
-      "schema:name": "Imaging",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/ablationPitDepthAblationRate",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "ablationPitDepthAblationRate",
-      "schema:name": "Ablation Pit Depth/Ablation Rate",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/makeUpGasFlow",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "makeUpGasFlow",
-      "schema:name": "Make-up Gas Flow (L min⁻¹)",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/numberOfBlocksPerMeasurement",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "numberOfBlocksPerMeasurement",
-      "schema:name": "Number of Blocks per Measurement",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/numberOfCyclesPerBlock",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "numberOfCyclesPerBlock",
-      "schema:name": "Number of Cycles per Block",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/integrationTimePerCycle",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "integrationTimePerCycle",
-      "schema:name": "Integration Time per Cycle",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/icDeadTime",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "icDeadTime",
-      "schema:name": "IC Dead Time (ns)",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/baselineMeasurementApproach",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/baselineMeasurementApproach"
-        }
-      ],
-      "schema:name": "Baseline Measurement Approach",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/otherInformation",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "otherInformation",
-      "schema:name": "Other Information",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/massFractionationLaw",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/massFractionationLaw"
-        }
-      ],
-      "schema:name": "Mass Fractionation Law",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/uncertaintyLevelAndPropagation",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "uncertaintyLevelAndPropagation",
-      "schema:name": "Uncertainty Level and Propagation",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/doubleSpikeIsotopePair",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/doubleSpikeIsotopePair"
-        }
-      ],
-      "schema:name": "Double-Spike Isotope Pair",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/doubleSpikeMixingRatio",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "doubleSpikeMixingRatio",
-      "schema:name": "Double-Spike Mixing Ratio",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session"
     }
   ],
   "ada:sampleIntroduction": "example sampleIntroduction",
-  "ada:analyticalMode": [
-    "Spot"
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
-  ],
   "ada:ablationSpotDurationDefault": 1.0,
   "ada:ablationPitDepthRateDefault": "example ablationPitDepthAndAblationRate",
   "ada:rasterLineSpacingDefault": "example rasterLineSpacing",
   "ada:carrierGasFlowRateDefault": "example carrierGasAndFlowRate",
   "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault": "example analysisSequence",
+  "ada:massesMeasuredDefault": "example monitoredMasses",
+  "ada:reportedProperties": [
+    "example reportedVariablesAndUnits"
+  ],
   "ada:signalCollectionMode": "Peak hopping",
   "ada:ionCounterDeadTimeDefault": 1.0,
   "ada:backgroundCountTimeDefault": 1.0,
@@ -355,9 +164,6 @@
   "ada:uncertaintyLevel": "2σ (95% confidence)",
   "ada:signalIntegrationIntervalMethod": "example signalIntegrationIntervalMethod",
   "ada:blankBackgroundCorrectionMethod": "example blankBackgroundCorrectionMethod",
-  "ada:ageCalculationMethod": [
-    "example ageCalculationMethod"
-  ],
   "ada:reportedDateType": [
     "Weighted mean 206Pb/238U"
   ],
@@ -368,12 +174,46 @@
   "ada:secondaryReferenceMaterialDefault": [
     "example secondaryReferenceMaterials"
   ],
-  "schema:description": "example additionalNotes",
-  "ada:spotDiameterDefault": "example spotDiameter",
-  "ada:massesMeasuredDefault": "example massesMeasured",
-  "ada:dwellTimesDefault": "example integrationTimePerPeakDwellTimesQuadrupoleSettlingTimeBetweenMassJumps",
   "ada:totalIntegrationTimePerOutputDataPointDefault": 1.0,
-  "ada:gasBlank": "example gasBlank",
-  "ada:internalNormalizationElementAndIsotopeRatio": "example internalNormalizationElementAndIsotopeRatio",
-  "ada:commonPbCorrectionCompositionAndUncertainty": "example commonPbCorrectionCompositionAndUncertainty"
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "example procedureAuthor",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "example laboratory",
+    "schema:identifier": "example laboratoryId"
+  },
+  "schema:datePublished": "example procedureStartDate",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForProcedureDevelopment"
+    }
+  ],
+  "ada:samplingUnit": "Whole sample",
+  "ada:analyticalMode": [
+    "Spot"
+  ],
+  "schema:description": "example additionalNotes",
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ],
+  "ada:ageCalculationMethod": [
+    "example ageCalculationMethod"
+  ]
 }

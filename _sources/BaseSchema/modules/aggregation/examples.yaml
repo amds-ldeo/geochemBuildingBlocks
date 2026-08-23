@@ -2,6 +2,7 @@
   content: The analysis half of the Aggregation module, with every property populated. Generated from
     the schema, so it tracks the sidecar.
   prefixes:
+    dqv: http://www.w3.org/ns/dqv#
     schema: http://schema.org/
   snippets:
   - language: json
@@ -11,6 +12,12 @@
           {
             "schema:name": "Goodness-of-Fit or Dispersion Statistic",
             "schema:value": "example value"
+          }
+        ],
+        "dqv:hasQualityMeasurement": [
+          {
+            "dqv:isMeasurementOf": "Goodness-of-Fit",
+            "dqv:value": "example value"
           }
         ]
       }

@@ -15,42 +15,11 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "example protocolName",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "LA-ICP-MS"
-    }
-  ],
-  "schema:creator": {
-    "schema:name": "example protocolAuthor",
-    "@type": [
-      "schema:Person"
-    ]
-  },
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "example laboratory",
-    "schema:identifier": "example laboratoryId"
-  },
-  "schema:datePublished": "example protocolStartDate",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "example fundingSourceForProtocolDevelopment"
-    }
-  ],
-  "ada:samplingUnit": "Whole sample",
+  "schema:name": "example procedureName",
   "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreeningDefault",
+      "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -60,23 +29,23 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laQicpmsTAPP/transectRateMappingRateOrStepSizeDefault",
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
       "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
-      "schema:name": "Transect Rate, Mapping Rate or Step Size",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laQicpmsTAPP/plasmaMakeUpGasAdditionDefault",
+      "@id": "ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "plasmaMakeUpGasAdditionDefault",
-      "schema:name": "Plasma / Make-up Gas Addition",
-      "ada:dataType": "string",
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
       "ada:fieldScope": "session"
     },
     {
@@ -127,48 +96,18 @@
       ],
       "schema:name": "Matrix Offset Correction (LIEF)",
       "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/eScanRange",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/eScanRange"
-        }
-      ],
-      "schema:name": "E-scan Range",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/tripleScanningMode",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/tripleScanningMode"
-        }
-      ],
-      "schema:name": "Triple Scanning Mode",
-      "schema:value": "example value"
     }
   ],
   "ada:sampleIntroduction": "example sampleIntroduction",
-  "ada:analyticalMode": [
-    "Spot"
-  ],
-  "ada:ablationSamplingMode": [
-    "Spot (stationary)"
-  ],
   "ada:ablationSpotDurationDefault": 1.0,
   "ada:ablationPitDepthRateDefault": "example ablationPitDepthAndAblationRate",
   "ada:rasterLineSpacingDefault": "example rasterLineSpacing",
   "ada:carrierGasFlowRateDefault": "example carrierGasAndFlowRate",
   "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault": "example analysisSequence",
-  "ada:reportedVariablesAndUnits": "example reportedVariablesAndUnits",
+  "ada:reportedProperties": [
+    "example reportedVariablesAndUnits"
+  ],
   "ada:signalCollectionMode": "Peak hopping",
   "ada:ionCounterDeadTimeDefault": 1.0,
   "ada:totalIntegrationTimePerOutputDataPointDefault": 1.0,
@@ -191,5 +130,42 @@
   "ada:secondaryReferenceMaterialDefault": [
     "example secondaryReferenceMaterials"
   ],
-  "schema:description": "example additionalNotes"
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "LA-ICP-MS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "example procedureAuthor",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "example laboratory",
+    "schema:identifier": "example laboratoryId"
+  },
+  "schema:datePublished": "example procedureStartDate",
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForProcedureDevelopment"
+    }
+  ],
+  "ada:samplingUnit": "Whole sample",
+  "ada:analyticalMode": [
+    "Spot"
+  ],
+  "schema:description": "example additionalNotes",
+  "ada:ablationSamplingMode": [
+    "Spot (stationary)"
+  ]
 }

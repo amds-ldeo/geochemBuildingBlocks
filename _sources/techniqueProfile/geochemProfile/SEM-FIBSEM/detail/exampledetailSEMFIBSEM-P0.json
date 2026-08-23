@@ -14,16 +14,6 @@
   ],
   "prov:wasGeneratedBy": [
     {
-      "schema:location": {
-        "@type": [
-          "schema:Place"
-        ],
-        "schema:name": "example laboratory",
-        "schema:identifier": "example laboratoryId"
-      },
-      "schema:identifier": "example sessionIdentifier",
-      "schema:startDate": "example analysisStartDate",
-      "schema:endDate": "example analysisEndDate",
       "schema:actionProcess": {
         "schema:step": [
           {
@@ -130,8 +120,6 @@
           "@type": [
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
-          "schema:name": "example sampleName",
-          "schema:identifier": "example samplePersistentIdentifier",
           "schema:additionalProperty": [
             {
               "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening",
@@ -146,83 +134,12 @@
               "schema:name": "Pre-Analysis Imaging and Screening",
               "schema:value": "example value"
             }
-          ]
-        }
-      ],
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/TargetSelection/targetSelectionCriteria",
-          "@type": [
-            "schema:PropertyValue"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/module/TargetSelection/targetSelectionCriteria"
-            }
-          ],
-          "schema:name": "Target Selection Criteria",
-          "schema:value": "example value"
-        },
-        {
-          "@id": "ada:parameter/semFibsemTAPP/dwellTimePerPixel",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/semFibsemTAPP/dwellTimePerPixel"
-            }
-          ],
-          "schema:name": "Dwell Time per Pixel",
-          "schema:value": 1,
-          "schema:unitText": "example value"
-        },
-        {
-          "@id": "ada:parameter/semFibsemTAPP/imageRegistration3D",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/semFibsemTAPP/imageRegistration3D"
-            }
-          ],
-          "schema:name": "3D Image Registration",
-          "schema:value": "example value"
-        },
-        {
-          "@id": "ada:parameter/semFibsemTAPP/segmentationMethod3D",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/semFibsemTAPP/segmentationMethod3D"
-            }
-          ],
-          "schema:name": "3D Segmentation Method",
-          "schema:value": "example value"
+          "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier"
         }
       ],
       "prov:used": [
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "example acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "example dataProcessingSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            }
-          ]
-        },
         {
           "schema:instrument": [
             {
@@ -266,15 +183,86 @@
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "example instrumentName",
-              "@id": "ex:instrument/SEM"
+              "@id": "ex:instrument/SEM",
+              "schema:name": "example instrumentName"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataProcessingSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
             }
           ]
         }
       ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semFibsemTAPP/dwellTimePerPixel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/dwellTimePerPixel"
+            }
+          ],
+          "schema:name": "Dwell Time per Pixel",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/semFibsemTAPP/imageRegistration3D",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/imageRegistration3D"
+            }
+          ],
+          "schema:name": "3D Image Registration",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/semFibsemTAPP/segmentationMethod3D",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/segmentationMethod3D"
+            }
+          ],
+          "schema:name": "3D Segmentation Method",
+          "schema:value": "example value"
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
+      "schema:identifier": "example sessionIdentifier",
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
       "schema:description": "example additionalNotes"
     }
   ],
+  "ada:voxelSize": "example voxelSizeAndImageStackDimensions",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -289,7 +277,14 @@
       "schema:name": "example analyst"
     }
   ],
-  "schema:funding": [],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForAnalysis"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -308,6 +303,5 @@
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example coupledDatasetOrPublicationReference"
     }
-  ],
-  "ada:voxelSize": "example voxelSizeAndImageStackDimensions"
+  ]
 }

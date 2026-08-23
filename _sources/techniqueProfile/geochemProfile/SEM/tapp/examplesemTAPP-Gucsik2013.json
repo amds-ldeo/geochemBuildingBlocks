@@ -16,9 +16,6 @@
   ],
   "schema:name": "sem protocol — Gucsik2013",
   "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point.",
-  "ada:analyticalMode": [
-    "CL"
-  ],
   "ada:clAcquisitionMode": "Spectral point",
   "schema:instrument": [
     {
@@ -68,6 +65,11 @@
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -126,24 +128,7 @@
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
-    }
-  ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "schema:object": [
@@ -162,6 +147,21 @@
         }
       ]
     }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:analyticalMode": [
+    "CL"
   ],
   "schema:measurementTechnique": [
     {

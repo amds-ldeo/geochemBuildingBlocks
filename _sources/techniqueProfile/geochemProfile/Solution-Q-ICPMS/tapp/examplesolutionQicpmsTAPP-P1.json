@@ -16,33 +16,6 @@
   ],
   "schema:name": "solutionQicpms protocol — P1",
   "schema:description": "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2); ada:perAnalyteCalibrationStrategy = External calibration with matrix-matched standards at 100 ppm Ca (stated section 2); ada:blankBackgroundCorrectionMethod = On-peak zero (stated implicitly; calibration standards include procedural blank equivalent).",
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution Q-ICP-MS"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "University of Cambridge (affiliation)"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "ICP-AES (for initial [Ca] determination; stated section 2)",
-        "schema:description": "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -163,9 +136,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:finalSolutionMatrix": "0.075 M HNO3 at 100 ppm Ca (stated section 2)",
-  "ada:chromatographicSeparationApplied": "None (direct analysis of dissolved foraminifera)",
-  "ada:isotopeDilutionSpike": "None",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -384,26 +354,6 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
-    },
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:manufacturer": {
-        "schema:name": "PerkinElmer -- \"a Perkin-Elmer Elan DRC II instrument\"",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
     }
   ],
   "schema:additionalProperty": [
@@ -419,6 +369,123 @@
       "schema:value": "None"
     }
   ],
+  "ada:channelTemplate": {
+    "ada:defaultChannels": [
+      "7Li",
+      "11B",
+      "25Mg",
+      "46Ca",
+      "27Al",
+      "55Mn",
+      "66Zn",
+      "87Sr",
+      "111Cd",
+      "238U (Table 1)"
+    ],
+    "ada:channelColumns": [
+      {
+        "schema:valueName": "channel",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
+        "schema:name": "Isobaric Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:massCyclesPerReplicate": "250 sweeps per replicate (Table 1)",
+  "ada:numberOfReplicatesPerSample": "6 replicates (Table 1)",
+  "ada:signalCollectionMode": "Peak hopping",
+  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2)",
+  "ada:oxideProductionMethodAndThreshold": "CeO/Ce < 3% (stated section 2)",
+  "ada:driftCorrectionMethod": "Standard bracketing",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration (all analytes)"
+  ],
+  "ada:blankBackgroundCorrectionMethod": "Procedural blank",
+  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
+  "ada:reportedProperties": [
+    "Element/Ca ratios: Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (umol/mol); U/Ca (nmol/mol)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution Q-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "University of Cambridge (affiliation)"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "ICP-AES (for initial [Ca] determination; stated section 2)",
+        "schema:description": "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:samplingUnit": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler"
+  ],
+  "ada:chromatographicSeparationApplied": "None (direct analysis of dissolved foraminifera)",
+  "ada:isotopeDilutionSpike": "None",
+  "ada:finalSolutionMatrix": "0.075 M HNO3 at 100 ppm Ca (stated section 2)",
+  "ada:washTimeBetweenSamples": "60 s (Table 1)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "9 Me/Ca ratios: Li",
@@ -503,106 +570,6 @@
       }
     ]
   },
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
-      "7Li",
-      "11B",
-      "25Mg",
-      "46Ca",
-      "27Al",
-      "55Mn",
-      "66Zn",
-      "87Sr",
-      "111Cd",
-      "238U (Table 1)"
-    ],
-    "ada:channelColumns": [
-      {
-        "schema:valueName": "channel",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
-  "ada:massCyclesPerReplicate": "250 sweeps per replicate (Table 1)",
-  "ada:numberOfReplicatesPerSample": "6 replicates (Table 1)",
-  "ada:washTimeBetweenSamples": "60 s (Table 1)",
-  "ada:signalCollectionMode": "Peak hopping",
-  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2)",
-  "ada:oxideProductionMethodAndThreshold": "CeO/Ce < 3% (stated section 2)",
-  "ada:driftCorrectionMethod": "Standard bracketing",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:blankBackgroundCorrectionMethod": "Procedural blank",
-  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler"
-  ],
-  "ada:reportedPropertyTemplate": {
-    "ada:defaultReportedProperties": [
-      "Element/Ca ratios: Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (umol/mol); U/Ca (nmol/mol)"
-    ],
-    "ada:reportedPropertyColumns": [
-      {
-        "schema:valueName": "reportedProperty",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
-  "ada:samplingUnit": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalStandardApproach": "missing",
   "ada:sampleSequenceDesign": "missing",

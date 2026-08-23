@@ -283,7 +283,7 @@ TAPP_CONFIGS = {
     # The six sidecars were seeded from those two so the hand modelling carried over; see
     # docs/archive/README.md.
     "laQicpmsTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_TAPP_v15.xlsx",
+        "xlsx": "tapp/Current TAPPs/LA-Q-ICP-MS_TAPP_v29.csv",
         "prefix": "laQicpms",
         "component_types": ["ada:LAICPMSTabular", "ada:LAICPMSMap", "ada:LAICPMSImage",
                             "ada:LAICPMSTransect"],
@@ -293,14 +293,14 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "LA-Q-ICP-MS Technique-Aligned Procedure Profile (laQicpmsTAPP)",
         "description": ("Laser-ablation quadrupole ICP-MS extension of the base TAPP definition, "
-                        "generated from TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_TAPP_v15.xlsx via the "
+                        "generated from tapp/Current TAPPs/LA-Q-ICP-MS_TAPP_v29.csv via the "
                         "path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py)."),
         "detail_title": "LA-Q-ICP-MS Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for LA-Q-ICP-MS, reusing "
                                "CDIF/schema.org slots on the schema:Dataset root."),
     },
     "laSficpmsTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/LA-SF-ICP-MS_TAPP_v16.xlsx",
+        "xlsx": "tapp/Current TAPPs/LA-SF-ICP-MS_TAPP_v28.csv",
         "prefix": "laSficpms",
         "component_types": ["ada:LAICPMSTabular", "ada:LAICPMSMap", "ada:LAICPMSImage",
                             "ada:LAICPMSTransect"],
@@ -317,7 +317,7 @@ TAPP_CONFIGS = {
                                "CDIF/schema.org slots on the schema:Dataset root."),
     },
     "laMcicpmsTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/LA-MC-ICPMS_TAPP_v13.xlsx",
+        "xlsx": "tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v26.csv",
         "prefix": "laMcicpms",
         "component_types": ["ada:LAICPMSTabular", "ada:LAICPMSMap", "ada:LAICPMSImage",
                             "ada:LAICPMSTransect"],
@@ -327,14 +327,14 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)",
         "description": ("Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, "
-                        "generated from TAPPS20260813/Current TAPPs/LA-MC-ICPMS_TAPP_v13.xlsx via the "
+                        "generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v26.csv via the "
                         "path-driven pipeline."),
         "detail_title": "LA-MC-ICP-MS Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for LA-MC-ICP-MS, reusing "
                                "CDIF/schema.org slots on the schema:Dataset root."),
     },
     "laQicpmsUPbTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v16.xlsx",
+        "xlsx": "tapp/Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v29.csv",
         "prefix": "laQicpmsUPb",
         "component_types": ["ada:LAICPMSGeochronTabular"],
         "base_items": _IDENTITY_COMMON | {"Analyte"},
@@ -350,7 +350,7 @@ TAPP_CONFIGS = {
                                "geochronology, reusing CDIF/schema.org slots on the schema:Dataset root."),
     },
     "laSficpmsUPbTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/LA-SF-ICP-MS_UPb_TAPP_v17.xlsx",
+        "xlsx": "tapp/Current TAPPs/LA-SF-ICP-MS_UPb_TAPP_v29.csv",
         "prefix": "laSficpmsUPb",
         "component_types": ["ada:LAICPMSGeochronTabular"],
         "base_items": _IDENTITY_COMMON | {"Analyte"},
@@ -366,7 +366,7 @@ TAPP_CONFIGS = {
                                "geochronology, reusing CDIF/schema.org slots on the schema:Dataset root."),
     },
     "laMcicpmsUPbTAPP": {
-        "xlsx": "TAPPS20260813/Current TAPPs/LA-MC-ICPMS_UPb_TAPP_v13.xlsx",
+        "xlsx": "tapp/Current TAPPs/LA-MC-ICPMS_UPb_TAPP_v26.csv",
         "prefix": "laMcicpmsUPb",
         "component_types": ["ada:LAICPMSGeochronTabular"],
         "base_items": _IDENTITY_COMMON | {"Analyte"},
