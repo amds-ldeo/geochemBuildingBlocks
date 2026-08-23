@@ -14,7 +14,7 @@ Session Identifier,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:ide
 Analyst,N/A,Basic,Text (free),$Dataset.schema:contributor[schema:roleName='analyst'].schema:name,authored,module,unanimous across 16 technique(s),
 Analysis Start Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:startDate,authored,module,unanimous across 16 technique(s),
 Analysis End Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:endDate,authored,module,unanimous across 16 technique(s),
-Funding Source for Analysis,N/A,Basic,Text (free),$Dataset.schema:funding,authored,module,unanimous across 16 technique(s),
+Funding Source for Analysis,N/A,Basic,Text (free),$Dataset.schema:funding[].schema:MonetaryGrant.schema:name,authored,module,mirrors the $MethodDefinition form: a funding source is a named MonetaryGrant on both sides. The bare $Dataset.schema:funding left the dataset side carrying a plain string while the procedure side carried a structured grant.,
 Coupled Technique(s),Advanced,Editable,Controlled list / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,module,unanimous across 16 technique(s),
 Coupled Technique(s),Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,module,unanimous across 16 technique(s),
 Coupling Description,Advanced,Editable,Text (free),$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,module,unanimous across 16 technique(s),

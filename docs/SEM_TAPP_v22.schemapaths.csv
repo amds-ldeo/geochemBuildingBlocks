@@ -6,18 +6,18 @@
 Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:acceleratingVoltageDefault,authored,divergent,divergence decision applied,
 Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:acceleratingVoltageDefault,authored,divergent,dual-home counterpart (tier matrix),
 Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='Accelerating Voltage'].schema:value,inferred,divergent,tier rule: analysis value is an additionalProperty on the instrument,
-Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: protocol default,
-Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value,
-Additional Notes,Advanced,Advanced,Text (free),$MethodDefinition.schema:description,authored,shared,dual-home decision: protocol default,
-Additional Notes,Advanced,Advanced,Text (free),$Dataset.prov:wasGeneratedBy.schema:description,authored,shared,dual-home decision: analysis-tier value,
-Analysis End Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:endDate,inferred,shared,,
+Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
+Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
+Analysis End Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:defaultValue,authored,,new in this revision (needs mapping),
-Analysis Start Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:startDate,inferred,shared,,
-Analyst,N/A,Basic,Text (free),$Dataset.schema:contributor[schema:roleName='analyst'].schema:name,inferred,shared,,
-Analyte,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[],keyed,shared,,defines: analyte
+Analysis Start Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
+Analyst,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
+Analyte,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: analyte
 Analyte Estimation Method,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,analyte
 Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
-Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],inferred,shared,,
+Analytical Mode,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
 Analytical Precision,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
 Background Correction Method,Basic,Editable,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied,
 Background Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
@@ -49,16 +49,16 @@ Coarse Milling Conditions,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedB
 Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:defaultValue,authored,,"data-reduction step parameter, following geochronTAPP",
 Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:value,authored,,"data-reduction step parameter, following geochronTAPP",
 Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,sample > sampling unit x reported property
-Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target,inferred,shared,,
-Coupled Procedure DOI,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledProcedure'].schema:target.schema:url,inferred,shared,,
-Coupled Technique(s),Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,shared,dual-home decision: protocol default,
-Coupled Technique(s),Advanced,Editable,Controlled list / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,shared,dual-home decision: analysis-tier value,
-Coupling Description,Advanced,Editable,Text (free),$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: protocol default,
-Coupling Description,Advanced,Editable,Text (free),$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: analysis-tier value,
+Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
+Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by Module Core,
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,,module,shared,placement owned by Module Core,
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,,module,shared,placement owned by Module Core,
+Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
+Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
 Crystal Structure Database,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Crystal Structure Database'].schema:defaultValue,authored,,triage decision (reviewer),
 Crystal Structure Database,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Crystal Structure Database'].schema:value,authored,,triage decision (reviewer),
-Data Processing Software(s),Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: protocol default,
-Data Processing Software(s),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value,
+Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Detection Limit,Advanced,Basic,Text (free),$MethodDefinition.schema:variableMeasured[schema:name='Detection Limit'].schema:defaultValue,keyed,shared,,reported property
 Detection Limit,Advanced,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Detection Limit'].schema:value,keyed,shared,,reported property
 Detection Limit Method,Basic,Read-Only,Text (free),$MethodDefinition.schema:variableMeasured[schema:name='Detection Limit Method'].schema:defaultValue,keyed,shared,,reported property
@@ -91,9 +91,9 @@ Fine Polishing Conditions,Basic,Editable,Text (free),$MethodDefinition.schema:ac
 Fine Polishing Conditions,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fine Polishing Conditions'].schema.value,authored,,new in this revision (needs mapping),
 Foil Thickness,Basic,Editable,Numeric + unit,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].ada:foilThicknessDefault,authored,,,
 Foil Thickness,Basic,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Foil Thickness'].schema:value,authored,,new in this revision (needs mapping),
-Funding Source for Analysis,N/A,Basic,Text (free),$Dataset.schema:funding,inferred,shared,,
-Funding Source for Procedure Development,Advanced,Read-Only,Text (free),$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name,inferred,shared,,
-Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Goodness-of-Fit or Dispersion Statistic'].schema:value,keyed,,,reported property
+Funding Source for Analysis,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
+Funding Source for Procedure Development,Advanced,Read-Only,Text (free),,module,shared,placement owned by Module Core,
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
 Halogen Correction on Oxygen,Advanced,Editable,Boolean,$MethodDefinition.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:defaultValue,inferred,shared,,
 Halogen Correction on Oxygen,Advanced,Editable,Boolean,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy,
 Image Pixel Size,Advanced,Basic,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Image Pixel Size'].schema:defaultValue,authored,,,
@@ -107,10 +107,10 @@ Interfering Elements,Advanced,Read-Only,Text (free),$MethodDefinition.ada:analyt
 Ion Beam Source,Basic,Read-Only,Controlled list,$MethodDefinition.ada:IonBeamSource,authored,,new in this revision (needs mapping),
 Ion Milling Conditions (3D Tomography),Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Ion Milling'].schema:description,authored,,,
 Ion Milling Conditions (3D Tomography),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Ion Milling'].schema:description,authored,,new in this revision (needs mapping),
-Laboratory,Basic,Editable,Text (free),$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:name,authored,shared,dual-home decision: protocol default,
-Laboratory,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:name,authored,shared,dual-home decision: analysis-tier value,
-Laboratory ID,Advanced,Editable,URI / DOI,$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:identifier,authored,shared,dual-home decision: protocol default,
-Laboratory ID,Advanced,Editable,URI / DOI,$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:identifier,authored,shared,dual-home decision: analysis-tier value,
+Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
+Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
 Lift-out Method,Basic,Read-Only,Controlled list,$MethodDefinition.ada:liftOutMethod,authored,,new in this revision (needs mapping),
 Map Area,N/A,Basic,Numeric + unit,$Dataset.schema:additionalProperty[schema:name='Map Area'].schema:value,authored,,analysis-instance (needs mapping),
 Mass Absorption Coefficients (MACs),Basic,Read-Only,Controlled list,$MethodDefinition.ada:massAbsorptionCoefficients,inferred,shared,,
@@ -121,34 +121,34 @@ Peak Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:channelTempl
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:value,keyed,,,sample
 Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,divergent,,analyte
 Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Procedural Blank Level'].schema:value,authored,,new in this revision (needs mapping),
-Procedure Author,Basic,Read-Only,Text (free),$MethodDefinition.schema:creator.schema:name,inferred,shared,,
-Procedure DOI,N/A,Basic,URI / DOI,$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier,inferred,shared,,
-Procedure Name,Basic,Read-Only,Text (free),$MethodDefinition.schema:name,inferred,shared,,
-Procedure Reference(s),Advanced,Read-Only,URI / DOI,$MethodDefinition.schema:relatedLink[schema:linkRelationship='techniquePublication'].schema:target.schema:name,inferred,shared,,
-Procedure Start Date,Basic,Read-Only,Date,$MethodDefinition.schema:datePublished,inferred,shared,,
+Procedure Author,Basic,Read-Only,Text (free),,module,shared,placement owned by Module Core,
+Procedure DOI,N/A,Basic,URI / DOI,,module,shared,placement owned by Module Core,
+Procedure Name,Basic,Read-Only,Text (free),,module,shared,placement owned by Module Core,
+Procedure Reference(s),Advanced,Read-Only,URI / DOI,,module,shared,placement owned by Module Core,
+Procedure Start Date,Basic,Read-Only,Date,,module,shared,placement owned by Module Core,
 Proportional Counter / Detector,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
 Protective Coating Deposition,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:protectiveCoatingDeposition,authored,,,
 Protective Coating Deposition,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Protective Coating Deposition'].schema.value,authored,,new in this revision (needs mapping),
-Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedProperties[],keyed,,,defines: reported property
-Sample Name,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name,keyed,shared,,defines: sample
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier,keyed,shared,triage decision (reviewer),sample
+Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
+Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
+Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Sample Preparation Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:description,authored,divergent,dual-home decision: protocol default,
 Sample Preparation Method,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:description,authored,divergent,dual-home decision: analysis-tier value,
 Sample Tilt Angle,Basic,Read-Only,Numeric (degrees),$MethodDefinition.ada:sampleTiltAngle,authored,,new in this revision (needs mapping),
-Sampling Unit,Basic,Basic,Controlled list / Text,$MethodDefinition.ada:samplingUnit,keyed,,,defines: sampling unit
+Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
 SE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.ada:SEDetectorType,authored,,new in this revision (needs mapping),
 Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,defines: standard per analyte
 Sequence,Advanced,Read-Only,Integer,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
-Session Identifier,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:identifier,authored,,new in this revision (needs mapping),
+Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 Slice Thickness,Basic,Editable,Numeric (nm),$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].ada:sliceThicknessDefault,authored,,,
 Slice Thickness,Basic,Editable,Numeric (nm),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Slice Thickness'].schema:value,authored,,new in this revision (needs mapping),
 Stage Scan vs. Beam Scan,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Stage Scan vs Beam Scan'].schema:value,inferred,shared,,
 Step Size / Pixel Size,Basic,Editable,Numeric + unit,$MethodDefinition.ada:stepSizePixelSizeDefault,authored,shared,divergence decision applied,
 Step Size / Pixel Size,Basic,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Step Size / Pixel Size'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],inferred,shared,,
-Target Selection Criteria,Basic,Editable,Text (free),$MethodDefinition.ada:targetSelectionCriteriaDefault,authored,,new in this revision (needs mapping),
+Target Selection Criteria,Basic,Editable,Text (free),,module,,placement owned by Module TargetSelection,
 Target Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Target Selection Criteria'].schema:value,authored,,tier rule: added the missing per-analysis value,
-Technique,Basic,Read-Only,Controlled list,$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode,inferred,shared,,
+Technique,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
 Technique per Analyte,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,,,analyte
 Time-Dependent Intensity Correction,Advanced,Editable,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,analyte
 Voxel Size and Image Stack Dimensions,N/A,Basic,Text (free),$Dataset.ada:voxelSize,authored,,new in this revision (needs mapping),

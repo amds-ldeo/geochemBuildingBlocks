@@ -1,23 +1,23 @@
 ﻿Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes,Key by
-Ablation Cell Type,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:name,authored,shared,path from owning module,
+Ablation Cell Type,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
 Ablation Duration per Spot,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Duration per Spot'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
-Ablation Duration per Spot,Basic,Editable,Numeric (s),$MethodDefinition.ada:ablationSpotDurationDefault,authored,shared,dual-home decision: protocol default | path from owning module,
+Ablation Duration per Spot,Basic,Editable,Numeric (s),,module,shared,placement owned by Module LaserAblation,
 Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Pit Depth and Ablation Rate'].schema:value,inferred,,tier rule: session parameter is an additionalProperty on the analysis,
-Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),$MethodDefinition.ada:ablationPitDepthRateDefault,inferred,,path from owning module,
-Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: protocol default,
-Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value,
-Additional Notes,Advanced,Advanced,Text (free),$MethodDefinition.schema:description,authored,shared,dual-home decision: protocol default,
-Additional Notes,Advanced,Advanced,Text (free),$Dataset.prov:wasGeneratedBy.schema:description,authored,shared,dual-home decision: analysis-tier value,
-Analysis End Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:endDate,authored,shared,path from owning module,
+Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
+Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
+Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
+Analysis End Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:value,inferred,,path from owning module,
 Analysis Location/Spot Coordinates,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Mapped area description'].schema:value,authored,shared,path from owning module,sample > sampling unit
 Analysis Sequence,Basic,Editable,Text (free),$MethodDefinition.ada:analysisSequenceDefault,authored,divergent,dual-home decision: protocol default,
 Analysis Sequence,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Analysis Sequence'].schema:value,authored,divergent,tier rule: session parameter is an additionalProperty on the analysis,
-Analysis Start Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:startDate,authored,shared,path from owning module,
-Analyst,N/A,Basic,Text (free),$Dataset.schema:contributor[schema:roleName='analyst'].schema:name,authored,shared,path from owning module,
-Analyte,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[],authored,shared,,defines: analyte
+Analysis Start Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
+Analyst,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
+Analyte,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: analyte
 Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyticalAccuracy,authored,shared,,standard x reported property
-Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],authored,shared,,
+Analytical Mode,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
 Auxiliary Gas Flow Rate,Basic,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Auxiliary Gas Flow Rate'].schema:defaultValue,authored,shared,,
 Auxiliary Gas Flow Rate,Basic,Editable,Numeric (L/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Auxiliary Gas Flow Rate'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
 Background Count Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:backgroundCountTimeDefault,authored,,dual-home decision: protocol default,
@@ -43,14 +43,14 @@ Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition
 Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Constants and Reference Values Used'].schema:value,inferred,,,
 Coolant (Plasma) Gas Flow Rate,Basic,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Coolant Plasma Gas Flow Rate'].schema:defaultValue,authored,shared,,
 Coolant (Plasma) Gas Flow Rate,Basic,Editable,Numeric (L/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Coolant Plasma Gas Flow Rate'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
-Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target,authored,shared,path from owning module,
-Coupled Procedure DOI,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledProcedure'].schema:target.schema:url,inferred,,path from owning module,
-Coupled Technique(s),Advanced,Editable,Controlled list / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,shared,dual-home decision: protocol default | path from owning module,
-Coupled Technique(s),Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,shared,dual-home decision: protocol default | path from owning module,
-Coupling Description,Advanced,Editable,Text (free),$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: protocol default | path from owning module,
-Coupling Description,Advanced,Editable,Text (free),$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: protocol default | path from owning module,
-Data Processing Software(s),Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: protocol default,
-Data Processing Software(s),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value,
+Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
+Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,,placement owned by Module Core,
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,,module,shared,placement owned by Module Core,
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,,module,shared,placement owned by Module Core,
+Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
+Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
+Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,reported property
 Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$Dataset.schema:variableMeasured[schema:name='Detection Limit'].schema:value,authored,,,reported property
 Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.schema:variableMeasured[schema:name='Detection Limit'].schema:defaultValue,authored,,,reported property
@@ -69,14 +69,14 @@ Elemental Fractionation Correction,Basic,Read-Only,Text (free),$MethodDefinition
 Faraday Cup Amplifier Resistor Values,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],inferred,,path from owning module,channel
 Faraday Cup Array Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].schema:additionalProperty[schema:name='Faraday Cup Array Configuration'].schema:value,inferred,,path from owning module,
 Faraday Cup Gain Calibration Method,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],inferred,,path from owning module,channel
-Funding Source for Analysis,N/A,Basic,Text (free),$Dataset.schema:funding,authored,shared,path from owning module,
-Funding Source for Procedure Development,Advanced,Read-Only,Text (free),$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name,inferred,,path from owning module,
+Funding Source for Analysis,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
+Funding Source for Procedure Development,Advanced,Read-Only,Text (free),,module,,placement owned by Module Core,
 Fusion Flux and Dilution Ratio,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fusion Flux and Dilution Ratio'].schema:defaultValue,authored,,dual-home decision: protocol default,
 Fusion Flux and Dilution Ratio,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fusion Flux and Dilution Ratio'].schema:value,authored,,dual-home decision: analysis-tier value,
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Dispersion Statistic'].dqv:value,flagged,,analysis-instance (needs mapping) | path from owning module,reported property
-Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Goodness-of-Fit or Dispersion Statistic'].schema:value,authored,,,reported property
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$MethodDefinition.schema:variableMeasured[schema:name='Goodness-of-Fit or Dispersion Statistic'].schema:defaultValue,authored,,,reported property
-Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Goodness-of-Fit'].dqv:value,flagged,,analysis-instance (needs mapping) | path from owning module,reported property
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
 Guard Electrode,Basic,Read-Only,Controlled list,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data acquisition'].schema:additionalProperty[schema:name='Guard Electrode'].schema:value,authored,shared,,
 ICP Tuning,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='ICP Tuning'].schema:defaultValue,authored,shared,divergence decision applied,
 ICP Tuning,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='ICP Tuning'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
@@ -90,30 +90,30 @@ Integration Time per Cycle,Basic,Editable,Numeric (s),$MethodDefinition.schema:i
 Interface Cone Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Interface Cone'].schema:additionalProperty[schema:name='Configuration'].schema:value,authored,shared,,
 Interference Correction Method,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],authored,shared,,channel
 Interfering Species,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],authored,shared,,channel
-Internal Normalization Element and Isotope Ratio,Basic,Read-Only,Text (free),$MethodDefinition.ada:internalNormalizationElementAndIsotopeRatio,inferred,,path from owning module,
+Internal Normalization Element and Isotope Ratio,Basic,Read-Only,Text (free),,module,,placement owned by Module MCICPMS,
 Internal Standard Approach,Basic,Read-Only,Text (free),$MethodDefinition.ada:internalStandardApproach,authored,shared,,
 Internal Standard Element,Basic,Read-Only,Text (free),$MethodDefinition.ada:internalStandardElement,authored,shared,,
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],authored,,,channel
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],authored,,,channel
 Isobaric Interference Corrections Applied,Basic,Read-Only,Boolean,$MethodDefinition.ada:isobaricInterferenceCorrectionsApplied,authored,shared,,
 Isotope Dilution Data Reduction Method,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Isotope Dilution Data Reduction Method'].schema:value,authored,shared,divergence decision applied,
-Laboratory,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:name,authored,shared,dual-home decision: protocol default | path from owning module,
-Laboratory,Basic,Editable,Text (free),$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:name,authored,shared,dual-home decision: protocol default | path from owning module,
-Laboratory ID,Advanced,Editable,URI / DOI,$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:identifier,authored,shared,dual-home decision: protocol default | path from owning module,
-Laboratory ID,Advanced,Editable,URI / DOI,$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:identifier,authored,shared,dual-home decision: protocol default | path from owning module,
+Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
+Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
 Laser Beam Energy Profile,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Beam Energy Profile'].schema:value,authored,shared,path from owning module,
 Laser Energy,Advanced,Editable,Numeric (mJ),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Energy'].schema:value,authored,,path from owning module,
 Laser Energy,Advanced,Editable,Numeric (mJ),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Energy'].schema:defaultValue,authored,,path from owning module,
-Laser Fluence (Energy Density),Basic,Editable,Numeric (J cm⁻²),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='Laser Ablation System'].ada:laserFluence,authored,shared,dual-home decision: protocol default | path from owning module,
-Laser Fluence (Energy Density),Basic,Editable,Numeric (J cm⁻²),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].ada:laserFluenceDefault,authored,shared,dual-home decision: protocol default | path from owning module,
-Laser Manufacturer & Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:model.schema:name,authored,shared,path from owning module,
+Laser Fluence (Energy Density),Basic,Editable,Numeric (J cm⁻²),,module,shared,placement owned by Module LaserAblation,
+Laser Fluence (Energy Density),Basic,Editable,Numeric (J cm⁻²),,module,shared,placement owned by Module LaserAblation,
+Laser Manufacturer & Model,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
 Laser Pulse Duration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].ada:laserPulseDuration,authored,shared,path from owning module,
-Laser Repetition Rate,Basic,Editable,Numeric (Hz),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='Laser Ablation System'].ada:laserRepetitionRate,authored,shared,dual-home decision: protocol default | path from owning module,
-Laser Repetition Rate,Basic,Editable,Numeric (Hz),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].ada:laserRepetitionRateDefault,authored,shared,dual-home decision: protocol default | path from owning module,
-Laser Spot Geometry,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='Laser Ablation System'].ada:laserSpotGeometry,authored,,dual-home decision: protocol default | path from owning module,
-Laser Spot Geometry,Basic,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].ada:laserSpotGeometryDefault,authored,,dual-home decision: protocol default | path from owning module,
-Laser Spot Path / Ablation Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:ablationSamplingMode[],authored,shared,path from owning module,
-Laser Wavelength and Type,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].ada:laserType,authored,shared,path from owning module,
+Laser Repetition Rate,Basic,Editable,Numeric (Hz),,module,shared,placement owned by Module LaserAblation,
+Laser Repetition Rate,Basic,Editable,Numeric (Hz),,module,shared,placement owned by Module LaserAblation,
+Laser Spot Geometry,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
+Laser Spot Geometry,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
+Laser Spot Path / Ablation Mode,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module LaserAblation,
+Laser Wavelength and Type,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
 Limit of Quantification (LOQ) Method,Advanced,Basic,Text / URI,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,reported property
 Limit of Quantification (LOQ) Method,Advanced,Basic,Text / URI,$Dataset.schema:variableMeasured[schema:name='Limit of Quantification (LOQ) Method'].schema:value,authored,authored,,reported property
 Limit of Quantification (LOQ) Method,Advanced,Basic,Text / URI,$MethodDefinition.schema:variableMeasured[schema:name='Limit of Quantification (LOQ) Method'].schema:defaultValue,authored,authored,,reported property
@@ -139,7 +139,7 @@ Number of Cycles per Block,Basic,Editable,Integer,$MethodDefinition.schema:addit
 Number of Replicates,Advanced,Basic,Integer,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Number of Replicates'].schema:value,authored,shared,,
 Oxide Production,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Oxide production ratio'].dqv:value,authored,shared,,
 Oxide Production Method and Threshold,Basic,Read-Only,Text (free),$MethodDefinition.ada:oxideProductionMethodAndThreshold,authored,shared,,
-Peak Flatness,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Peak Flatness'].dqv:value,flagged,,analysis-instance (needs mapping) | path from owning module,
+Peak Flatness,N/A,Basic,Text (free),,module,,placement owned by Module MCICPMS,
 Peak Flatness Method and Threshold,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Peak Flatness Method and Threshold'].schema:value,inferred,,path from owning module,
 Per-Analyte Calibration Strategy,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,analyte
 Make-up Gas and Flow Rate,Advanced,Editable,Numeric (L/min) / Text,$MethodDefinition.schema:additionalProperty[schema:name='Make-up Gas and Flow Rate'].schema:defaultValue,authored,,,
@@ -152,14 +152,14 @@ Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$MethodDefiniti
 Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:primaryStandardNameDefault,authored,divergent,dual-home decision: protocol default,
 Primary Calibration Standard Name,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.prov:reagent[ada:reagentRole='primaryStandard'].schema:name,authored,divergent,dual-home decision: analysis-tier value,
 Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Procedural Blank Level'].schema:value,flagged,,analysis-instance (needs mapping) | path from owning module,
-Procedure Author,Basic,Read-Only,Text (free),$MethodDefinition.schema:creator.schema:name,inferred,,path from owning module,
-Procedure DOI,N/A,Basic,URI / DOI,$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier,inferred,,path from owning module,
-Procedure Name,Basic,Read-Only,Text (free),$MethodDefinition.schema:name,inferred,,path from owning module,
+Procedure Author,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
+Procedure DOI,N/A,Basic,URI / DOI,,module,,placement owned by Module Core,
+Procedure Name,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
 Procedure Reference(s),Advanced,Read-Only,URI / DOI,$MethodDefinition.prov:wasDerivedFrom,inferred,,path from owning module,
-Procedure Start Date,Basic,Read-Only,Date,$MethodDefinition.schema:datePublished,inferred,,path from owning module,
-Procedure Reference(s),Advanced,Read-Only,URI / DOI,$MethodDefinition.schema:relatedLink[schema:linkRelationship='techniquePublication'].schema:target.schema:name,authored,shared,[not in current workbook],
+Procedure Start Date,Basic,Read-Only,Date,,module,,placement owned by Module Core,
+Procedure Reference(s),Advanced,Read-Only,URI / DOI,,module,shared,placement owned by Module Core,
 Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Raster Line Spacing (Mapping Only)'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,
-Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),$MethodDefinition.ada:rasterLineSpacingDefault,authored,,dual-home decision: protocol default | path from owning module,
+Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 Reaction Gas Flow Rate,Advanced,Editable,Numeric (mL/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
 Reaction Gas Flow Rate,Advanced,Editable,Numeric (mL/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:value,authored,shared,dual-home decision: analysis-tier value,
 Reaction Gas Type,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Type'].schema:value,authored,shared,,channel
@@ -169,27 +169,27 @@ RF Power,Basic,Editable,Numeric (W),$Dataset.prov:wasGeneratedBy.prov:used.schem
 Sample Form / Analytical Substrate,Basic,Editable,Controlled list,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Form Analytical Substrate'].schema:defaultValue,authored,,dual-home decision: protocol default,
 Sample Form / Analytical Substrate,Basic,Editable,Controlled list,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Form Analytical Substrate'].schema:value,authored,,dual-home decision: analysis-tier value,
 Sample Introduction,Basic,Read-Only,Text (free),$MethodDefinition.ada:sampleIntroduction,inferred,,,
-Sample Name,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name,authored,shared,,defines: sample
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier,authored,shared,,sample
+Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
+Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Sample Preparation Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:description,authored,divergent,dual-home decision: protocol default,
 Sample Preparation Method,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:description,authored,divergent,dual-home decision: analysis-tier value,
 Sampler and Skimmer Cone Material,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Interface Cone'].schema:additionalProperty[schema:name='Sampler and Skimmer Cone Material'].schema:value,authored,shared,,
-Sampling Unit,Basic,Basic,Controlled list / Text,$MethodDefinition.ada:samplingUnit,inferred,,,defines: sampling unit
+Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
 Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:secondaryReferenceMaterialDefault[],authored,divergent,dual-home decision: protocol default,defines: standard
 Secondary Reference Materials,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.prov:reagent[ada:reagentRole='referenceMaterial'].schema:name,authored,divergent,dual-home decision: analysis-tier value,defines: standard
 Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,,analysis-instance (needs mapping),channel
-Session Identifier,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:identifier,flagged,,analysis-instance (needs mapping) | path from owning module,
+Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 Signal Integration Interval Method,Basic,Read-Only,Text (free),$MethodDefinition.ada:signalIntegrationIntervalMethod,authored,shared,,
 Signal Integration Time,N/A,Basic,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value,authored,shared,,
 Signal Smoothing,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Signal Smoothing'].schema:defaultValue,authored,shared,divergence decision applied,
 Signal Smoothing,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Signal Smoothing'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
 Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Filtering Approach'].schema:defaultValue,authored,shared,divergence decision applied,
 Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Filtering Approach'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
-Spot Diameter (Measured),N/A,Basic,Numeric (µm),$Dataset.ada:spotDiameterMeasured,flagged,,analysis-instance (needs mapping) | path from owning module,
+Spot Diameter (Measured),N/A,Basic,Numeric (µm),,module,,placement owned by Module LaserAblation,
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[].schema:name,authored,shared,,
 Target Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Target Selection Criteria'].schema:value,inferred,,path from owning module,
-Target Selection Criteria,Basic,Editable,Text (free),$MethodDefinition.ada:targetSelectionCriteriaDefault,inferred,,path from owning module,
-Technique,Basic,Read-Only,Controlled list,$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode,authored,shared,path from owning module,
+Target Selection Criteria,Basic,Editable,Text (free),,module,,placement owned by Module TargetSelection,
+Technique,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
 Torch Depth,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Torch'].schema:additionalProperty[schema:name='Torch Depth'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
 Torch Depth,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Torch'].schema:additionalProperty[schema:name='Torch Depth'].schema:value,authored,shared,dual-home decision: analysis-tier value,
 Torch Type,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Torch'].schema:name,authored,shared,,

@@ -1,32 +1,32 @@
 ﻿Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes,Key by
-Procedure Name,Basic,Read-Only,Text (free),$MethodDefinition.schema:name,inferred,,path from owning module,
-Technique,Basic,Read-Only,Controlled list,$MethodDefinition.schema:measurementTechnique.schema:DefinedTerm.schema:termCode,authored,shared,path from owning module,
-Procedure Author,Basic,Read-Only,Text (free),$MethodDefinition.schema:creator.schema:name,inferred,,path from owning module,
-Laboratory,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:name,authored,shared,dual-home decision: protocol default | path from owning module,
-Laboratory,Basic,Editable,Text (free),$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:name,authored,shared,dual-home decision: protocol default | path from owning module,
-Laboratory ID,Advanced,Editable,URI / DOI,$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='Laboratory'].schema:identifier,authored,shared,dual-home decision: protocol default | path from owning module,
-Laboratory ID,Advanced,Editable,URI / DOI,$MethodDefinition.schema:location.schema:Place[schema:additionalType='Default Laboratory'].schema:identifier,authored,shared,dual-home decision: protocol default | path from owning module,
-Procedure Start Date,Basic,Read-Only,Date,$MethodDefinition.schema:datePublished,inferred,,path from owning module,
-Funding Source for Procedure Development,Advanced,Read-Only,Text (free),$MethodDefinition.schema:funding[].schema:MonetaryGrant.schema:name,inferred,,path from owning module,
-Procedure Reference(s),Advanced,Read-Only,URI / DOI,$MethodDefinition.schema:relatedLink[schema:linkRelationship='techniquePublication'].schema:target.schema:name,inferred,,path from owning module,
-Procedure DOI,N/A,Basic,URI / DOI,$Dataset.schema:measurementTechnique.schema:DefinedTerm.schema:identifier,inferred,,path from owning module,
-Session Identifier,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:identifier,flagged,,analysis-instance (needs mapping) | path from owning module,
-Analyst,N/A,Basic,Text (free),$Dataset.schema:contributor[schema:roleName='analyst'].schema:name,authored,shared,path from owning module,
-Analysis Start Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:startDate,authored,shared,path from owning module,
-Analysis End Date,N/A,Basic,Date,$Dataset.prov:wasGeneratedBy.schema:endDate,authored,shared,path from owning module,
-Funding Source for Analysis,N/A,Basic,Text (free),$Dataset.schema:funding,authored,shared,path from owning module,
-Coupled Technique(s),Advanced,Editable,Controlled list / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,shared,dual-home decision: protocol default | path from owning module,
-Coupled Technique(s),Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:name,authored,shared,dual-home decision: protocol default | path from owning module,
-Coupling Description,Advanced,Editable,Text (free),$Dataset.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: protocol default | path from owning module,
-Coupling Description,Advanced,Editable,Text (free),$MethodDefinition.schema:relatedLink[schema:linkRelationship='coupledTechnique'].schema:target.schema:description,authored,shared,dual-home decision: protocol default | path from owning module,
-Coupled Procedure DOI,N/A,Advanced,URI / DOI,$Dataset.schema:relatedLink[schema:linkRelationship='coupledProcedure'].schema:target.schema:url,inferred,,path from owning module,
-Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,$Dataset.schema:relatedLink[schema:linkRelationship='coupledDataset'].schema:target,authored,shared,path from owning module,
+Procedure Name,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
+Technique,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
+Procedure Author,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
+Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
+Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
+Procedure Start Date,Basic,Read-Only,Date,,module,,placement owned by Module Core,
+Funding Source for Procedure Development,Advanced,Read-Only,Text (free),,module,,placement owned by Module Core,
+Procedure Reference(s),Advanced,Read-Only,URI / DOI,,module,,placement owned by Module Core,
+Procedure DOI,N/A,Basic,URI / DOI,,module,,placement owned by Module Core,
+Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
+Analyst,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
+Analysis Start Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
+Analysis End Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
+Funding Source for Analysis,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,,module,shared,placement owned by Module Core,
+Coupled Technique(s),Advanced,Editable,Controlled list / Text,,module,shared,placement owned by Module Core,
+Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
+Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
+Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,,placement owned by Module Core,
+Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],authored,shared,,
 Sample Form / Analytical Substrate,Basic,Editable,Controlled list,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Form Analytical Substrate'].schema:defaultValue,authored,,dual-home decision: protocol default,
 Sample Form / Analytical Substrate,Basic,Editable,Controlled list,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Form Analytical Substrate'].schema:value,authored,,dual-home decision: analysis-tier value,
-Sample Name,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:name,authored,shared,,defines: sample
-Sampling Unit,Basic,Basic,Controlled list / Text,$MethodDefinition.ada:samplingUnit,inferred,,,defines: sampling unit
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:identifier,authored,shared,,sample
+Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
+Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
+Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Fusion Flux and Dilution Ratio,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fusion Flux and Dilution Ratio'].schema:defaultValue,authored,,dual-home decision: protocol default,
 Fusion Flux and Dilution Ratio,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fusion Flux and Dilution Ratio'].schema:value,authored,,dual-home decision: analysis-tier value,
 Sample Preparation Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:description,authored,divergent,dual-home decision: protocol default,
@@ -34,11 +34,11 @@ Sample Preparation Method,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedB
 Pre-Ablation Surface Treatment,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Pre Ablation Surface Treatment'].schema:value,authored,shared,dual-home decision: protocol default | path from owning module,
 Pre-Ablation Surface Treatment,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Pre Ablation Surface Treatment'].schema:defaultValue,authored,shared,dual-home decision: protocol default | path from owning module,
 Target Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Target Selection Criteria'].schema:value,inferred,,path from owning module,
-Target Selection Criteria,Basic,Editable,Text (free),$MethodDefinition.ada:targetSelectionCriteriaDefault,inferred,,path from owning module,
+Target Selection Criteria,Basic,Editable,Text (free),,module,,placement owned by Module TargetSelection,
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:value,inferred,,path from owning module,sample
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:defaultValue,inferred,,path from owning module,sample
-Chemical Abrasion Conditions,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:chemicalAbrasionConditions,inferred,,path from owning module,
-Laser Manufacturer & Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:model.schema:name,authored,shared,path from owning module,
+Chemical Abrasion Conditions,Basic,Read-Only,Text (free),,module,,placement owned by Module UPb,
+Laser Manufacturer & Model,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
 Instrument Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:model.schema:name,authored,shared,,
 ICP-MS Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalType,authored,shared,,
 Instrument Serial Number or Lab Identifier,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Instrument Serial Number or Lab Identifier'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
@@ -53,34 +53,34 @@ Mass Resolution Setting,Basic,Read-Only,Text (free),$MethodDefinition.schema:ins
 Mass Resolution Setting,Basic,Read-Only,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Mass Resolution Setting'].schema:value,authored,divergent,dual-home decision: analysis-tier value,
 Detector Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Detector Configuration'].schema:value,authored,shared,,
 Collision/Reaction Cell (CRC) Configuration,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:name,authored,shared,,channel
-Laser Wavelength and Type,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].ada:laserType,authored,shared,path from owning module,
-Acquisition Software,Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: protocol default,
-Acquisition Software,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='acquisition'].schema:name,authored,shared,dual-home decision: analysis-tier value,
-Data Processing Software(s),Basic,Editable,Text (free),$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: protocol default,
-Data Processing Software(s),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name,authored,shared,dual-home decision: analysis-tier value,
-Ablation Cell Type,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:name,authored,shared,path from owning module,
+Laser Wavelength and Type,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
+Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Ablation Cell Type,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
 Sample Introduction,Basic,Read-Only,Text (free),$MethodDefinition.ada:sampleIntroduction,inferred,,,
-Analytical Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyticalMode[],authored,shared,,
-Laser Spot Geometry,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='Laser Ablation System'].ada:laserSpotGeometry,authored,,dual-home decision: protocol default | path from owning module,
-Laser Spot Geometry,Basic,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].ada:laserSpotGeometryDefault,authored,,dual-home decision: protocol default | path from owning module,
-Spot Diameter (Measured),N/A,Basic,Numeric (µm),$Dataset.ada:spotDiameterMeasured,authored,,path from owning module,
-Laser Spot Path / Ablation Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:ablationSamplingMode[],authored,shared,path from owning module,
+Analytical Mode,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
+Laser Spot Geometry,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
+Laser Spot Geometry,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
+Spot Diameter (Measured),N/A,Basic,Numeric (µm),,module,,placement owned by Module LaserAblation,
+Laser Spot Path / Ablation Mode,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module LaserAblation,
 Laser Energy,Advanced,Editable,Numeric (mJ),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Energy'].schema:value,authored,,path from owning module,
 Laser Energy,Advanced,Editable,Numeric (mJ),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Energy'].schema:defaultValue,authored,,path from owning module,
-Laser Fluence (Energy Density),Basic,Editable,Numeric (J cm⁻²),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='Laser Ablation System'].ada:laserFluence,authored,shared,dual-home decision: protocol default | path from owning module,
-Laser Fluence (Energy Density),Basic,Editable,Numeric (J cm⁻²),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].ada:laserFluenceDefault,authored,shared,dual-home decision: protocol default | path from owning module,
+Laser Fluence (Energy Density),Basic,Editable,Numeric (J cm⁻²),,module,shared,placement owned by Module LaserAblation,
+Laser Fluence (Energy Density),Basic,Editable,Numeric (J cm⁻²),,module,shared,placement owned by Module LaserAblation,
 Laser Beam Energy Profile,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Beam Energy Profile'].schema:value,authored,shared,path from owning module,
-Laser Repetition Rate,Basic,Editable,Numeric (Hz),$Dataset.prov:wasGeneratedBy.prov:used[schema:additionalType='Laser Ablation System'].ada:laserRepetitionRate,authored,shared,dual-home decision: protocol default | path from owning module,
-Laser Repetition Rate,Basic,Editable,Numeric (Hz),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].ada:laserRepetitionRateDefault,authored,shared,dual-home decision: protocol default | path from owning module,
+Laser Repetition Rate,Basic,Editable,Numeric (Hz),,module,shared,placement owned by Module LaserAblation,
+Laser Repetition Rate,Basic,Editable,Numeric (Hz),,module,shared,placement owned by Module LaserAblation,
 Laser Pulse Duration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Pulse Duration'].schema:value,authored,shared,path from owning module,
 Ablation Duration per Spot,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Duration per Spot'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
-Ablation Duration per Spot,Basic,Editable,Numeric (s),$MethodDefinition.ada:ablationSpotDurationDefault,authored,shared,dual-home decision: protocol default | path from owning module,
+Ablation Duration per Spot,Basic,Editable,Numeric (s),,module,shared,placement owned by Module LaserAblation,
 Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Pit Depth and Ablation Rate'].schema:value,inferred,,tier rule: session parameter is an additionalProperty on the analysis,
-Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),$MethodDefinition.ada:ablationPitDepthRateDefault,inferred,,path from owning module,
+Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 "Transect Rate, Mapping Rate or Step Size",Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:value,authored,,path from owning module,
 "Transect Rate, Mapping Rate or Step Size",Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:defaultValue,authored,,path from owning module,
 Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Raster Line Spacing (Mapping Only)'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,
-Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),$MethodDefinition.ada:rasterLineSpacingDefault,authored,,dual-home decision: protocol default | path from owning module,
+Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 Carrier Gas and Flow Rate,Basic,Editable,Text (free),$MethodDefinition.ada:carrierGasFlowRateDefault,authored,shared,dual-home decision: protocol default,
 Carrier Gas and Flow Rate,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Carrier Gas and Flow Rate'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
 Make-up Gas and Flow Rate,Advanced,Editable,Numeric (L/min) / Text,$MethodDefinition.schema:additionalProperty[schema:name='Make-up Gas and Flow Rate'].schema:defaultValue,authored,,,
@@ -106,7 +106,7 @@ Doubly-Charged Species Production,Advanced,Editable,Text (free),$MethodDefinitio
 Instrument Warm-up / Session Duration Limit,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Instrument Warm up Session Duration Limit'].schema:value,authored,shared,,
 Analysis Sequence,Basic,Editable,Text (free),$MethodDefinition.ada:analysisSequenceDefault,authored,divergent,dual-home decision: protocol default,
 Analysis Sequence,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Analysis Sequence'].schema:value,authored,divergent,tier rule: session parameter is an additionalProperty on the analysis,
-Analyte,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[],authored,shared,,defines: analyte
+Analyte,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: analyte
 Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,defines: channel per analyte
 Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,,Keyed By: reported property (pilot),defines: reported property
 Signal Collection Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:signalCollectionMode,authored,shared,,
@@ -155,13 +155,13 @@ Calibration Factor and Determination Method,Basic,Editable,Text (free),$Dataset.
 Calibration Factor and Determination Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Calibration Factor and Determination Method'].schema:defaultValue,inferred,,path from owning module,reported property
 Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Procedural Blank Level'].schema:value,flagged,,analysis-instance (needs mapping) | path from owning module,
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:value,inferred,,path from owning module,
-Age Calculation Method,Basic,Read-Only,Text (free),$MethodDefinition.ada:ageCalculationMethod[],inferred,,path from owning module,reported property
+Age Calculation Method,Basic,Read-Only,Text (free),,module,,placement owned by Module Geochronology,reported property
 Reported Date Type,Basic,Editable,Controlled list,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Reported Date Type'].schema:value,inferred,,tier rule: session parameter is an additionalProperty on the analysis,reported property
-Reported Date Type,Basic,Editable,Controlled list,$MethodDefinition.ada:reportedDateType[],inferred,,path from owning module,reported property
-Inherited or Initial Signal Correction,Basic,Editable,Text (free),$MethodDefinition.ada:inheritedOrInitialSignalCorrectionDefault,inferred,,,reported property
+Reported Date Type,Basic,Editable,Controlled list,,module,,placement owned by Module Geochronology,reported property
+Inherited or Initial Signal Correction,Basic,Editable,Text (free),,module,,placement owned by Module Geochronology,reported property
 Inherited or Initial Signal Correction,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Inherited or Initial Signal Correction'].schema:value,inferred,,,reported property
 Radiogenic Fraction of Measured Signal,N/A,Basic,Text (free),,flagged,,analysis-instance (needs mapping),reported property
-Age Model,Basic,Editable,Text (free),$MethodDefinition.ada:ageModelDefault,inferred,,,reported property
+Age Model,Basic,Editable,Text (free),,module,,placement owned by Module Geochronology,reported property
 Age Model,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Age Model'].schema:value,inferred,,,reported property
 Age Datum / Reference Epoch,Advanced,Basic,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Age Datum / Reference Epoch'].schema:defaultValue,inferred,,,reported property
 Age Datum / Reference Epoch,Advanced,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Age Datum / Reference Epoch'].schema:value,inferred,,,reported property
@@ -183,9 +183,9 @@ Within-Session Analytical Precision and Assessment Method,Basic,Basic,Text (free
 Between-Session (Long-Term) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
 Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Dispersion Statistic'].dqv:value,flagged,,analysis-instance (needs mapping) | path from owning module,reported property
-Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Goodness-of-Fit'].dqv:value,flagged,,analysis-instance (needs mapping) | path from owning module,reported property
-Additional Notes,Advanced,Advanced,Text (free),$MethodDefinition.schema:description,authored,shared,dual-home decision: protocol default,
-Additional Notes,Advanced,Advanced,Text (free),$Dataset.prov:wasGeneratedBy.schema:description,authored,shared,dual-home decision: analysis-tier value,
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
+Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
+Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:massesMeasuredDefault,authored,,dual-home decision: protocol default [not in current workbook],defines: channel per analyte
 Monitored Masses,Basic,Read-Only,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Monitored Masses'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,defines: channel per analyte
 Total Integration Time per Output Data Point,Basic,Editable,Numeric (s),$MethodDefinition.ada:totalIntegrationTimePerOutputDataPointDefault,authored,,dual-home decision: protocol default [not in current workbook],
