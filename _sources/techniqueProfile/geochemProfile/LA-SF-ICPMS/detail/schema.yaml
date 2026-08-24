@@ -5,6 +5,7 @@ description: Dataset-level analysis-instance detail for LA-SF-ICP-MS, reusing CD
 allOf:
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/AnalysisIdentification
+- $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
@@ -253,7 +254,32 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
+                            - &id007
+                              title: Normalization / Standards-Based Correction
+                              description: Any post-acquisition normalization applied to correct for systematic
+                                biases identified from secondary reference materials, or stoichiometric
+                                normalization applied per pixel in mapping. Distinct from the primary
+                                internal standard approach captured in Internal Standard Approach.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/laSficpmsTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/laSficpmsTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
                           allOf:
                           - contains: *id003
                             minContains: 0
@@ -267,8 +293,7 @@ allOf:
                           - contains: *id006
                             minContains: 0
                             maxContains: 1
-                          - contains:
-                              $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
+                          - contains: *id007
                             minContains: 0
                             maxContains: 1
                 allOf:
@@ -278,12 +303,6 @@ allOf:
                         const: Sample preparation
                     required:
                     - schema:name
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Data reduction
-                    required:
-                    - schema:name
           schema:additionalProperty:
             type: array
             items:
@@ -291,7 +310,7 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
               - $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
               - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize
-              - &id007
+              - &id008
                 title: Carrier Gas and Flow Rate
                 description: Gas used to transport ablated aerosol from the ablation cell to the ICP-MS
                   torch, with the procedure-registered target flow rate(s). Helium is standard for most
@@ -317,7 +336,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id008
+              - &id009
                 title: Make-up Gas and Flow Rate
                 description: Supplementary gas added to the sample-carrying stream between the sample
                   introduction system and the plasma, with its identity and the procedure-registered target
@@ -352,7 +371,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id009
+              - &id010
                 title: Analysis Sequence
                 description: Repeating order of primary calibration standard(s), quality control standard(s),
                   and unknown analyses within a measurement session. Editable to allow minor adjustments
@@ -377,7 +396,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id010
+              - &id011
                 title: Ion Counter Dead Time
                 description: Dead time of each ion-counting detector channel, used in the dead-time correction
                   applied to high count rates. Distinct from pulse/analog cross-calibration, which relates
@@ -408,7 +427,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id011
+              - &id012
                 title: Total Integration Time per Output Data Point
                 description: Total duty-cycle time for one complete mass-scan sweep — the sum of all per-isotope
                   dwell times plus inter-mass settling times. Sets the time resolution of the downhole
@@ -440,7 +459,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id012
+              - &id013
                 title: Background Count Time
                 description: Total time spent measuring gas blank (background signal with laser off or
                   shutter closed) before each ablation event, in seconds. For spot and transect analysis,
@@ -472,7 +491,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id013
+              - &id014
                 title: Number of Replicates
                 description: Number of replicate measurements performed on the same sample, or on the
                   same nominal location where the technique is spatially resolved. For spot analysis this
@@ -504,7 +523,7 @@ allOf:
                 - schema:name
                 - schema:value
               - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectLength
-              - &id014
+              - &id015
                 title: Mapping Area
                 description: Total area covered by the 2D raster map, expressed as width × height in µm
                   or as total area in µm² or mm². This is an analysis-level parameter because it depends
@@ -531,7 +550,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id015
+              - &id016
                 title: Signal Integration Time
                 description: 'Actual integration time used for the ablation signal in this analysis, in
                   seconds. This is an analysis-level outcome determined during data reduction by applying
@@ -565,8 +584,38 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
               - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+              - &id017
+                title: Detection Limit
+                description: Session detection limit, one per reported concentration variable (one per
+                  analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate.
+                  Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit
+                  concentrations. The calculation method is captured separately in Detection Limit Method.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laSficpmsTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laSficpmsTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
             allOf:
             - contains:
                 $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
@@ -578,9 +627,6 @@ allOf:
               maxContains: 1
             - contains:
                 $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize
-              minContains: 0
-              maxContains: 1
-            - contains: *id007
               minContains: 0
               maxContains: 1
             - contains: *id008
@@ -601,22 +647,24 @@ allOf:
             - contains: *id013
               minContains: 0
               maxContains: 1
-            - contains:
-                $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectLength
+            - contains: *id014
               minContains: 0
               maxContains: 1
-            - contains: *id014
+            - contains:
+                $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectLength
               minContains: 0
               maxContains: 1
             - contains: *id015
               minContains: 0
               maxContains: 1
-            - contains:
-                $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+            - contains: *id016
               minContains: 0
               maxContains: 1
             - contains:
                 $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+              minContains: 0
+              maxContains: 1
+            - contains: *id017
               minContains: 0
               maxContains: 1
           prov:used:
@@ -672,7 +720,7 @@ allOf:
                                         properties:
                                           schema:additionalProperty:
                                             type: array
-                                            items: &id016
+                                            items: &id018
                                               title: Torch Depth
                                               description: Distance between the load coil and the sampling
                                                 cone tip (mm), also called injector depth or torch position
@@ -702,7 +750,7 @@ allOf:
                                               - schema:name
                                               - schema:value
                                             allOf:
-                                            - contains: *id016
+                                            - contains: *id018
                                               minContains: 0
                                               maxContains: 1
                                     - if:
@@ -719,7 +767,7 @@ allOf:
                                             type: array
                                             items:
                                               anyOf:
-                                              - &id017
+                                              - &id019
                                                 title: Coolant (Plasma) Gas Flow Rate
                                                 description: Flow rate of the outer (coolant/plasma) argon
                                                   gas stream that sustains the ICP plasma, in L/min. Determines
@@ -750,7 +798,7 @@ allOf:
                                                 - schema:name
                                                 - schema:value
                                                 - schema:unitText
-                                              - &id018
+                                              - &id020
                                                 title: Auxiliary Gas Flow Rate
                                                 description: Flow rate of the intermediate (auxiliary)
                                                   argon gas stream that positions the plasma relative
@@ -783,7 +831,7 @@ allOf:
                                                 - schema:name
                                                 - schema:value
                                                 - schema:unitText
-                                              - &id019
+                                              - &id021
                                                 title: RF Power
                                                 description: ICP radiofrequency forward power in watts.
                                                   Affects plasma temperature, ionisation efficiency, oxide
@@ -817,13 +865,13 @@ allOf:
                                                 - schema:value
                                                 - schema:unitText
                                             allOf:
-                                            - contains: *id017
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains: *id018
-                                              minContains: 0
-                                              maxContains: 1
                                             - contains: *id019
+                                              minContains: 0
+                                              maxContains: 1
+                                            - contains: *id020
+                                              minContains: 0
+                                              maxContains: 1
+                                            - contains: *id021
                                               minContains: 0
                                               maxContains: 1
                                   allOf:
@@ -839,7 +887,7 @@ allOf:
                                   type: array
                                   items:
                                     anyOf:
-                                    - &id020
+                                    - &id022
                                       title: Mass Resolution Setting
                                       description: Operating mass resolution of the mass analyser. The
                                         analyst selects low, medium, or high resolution to balance sensitivity
@@ -864,7 +912,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id021
+                                    - &id023
                                       title: ICP Tuning
                                       description: Description of the approach used to optimise ICP plasma
                                         conditions prior to analysis, including the reference material
@@ -890,7 +938,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id022
+                                    - &id024
                                       title: Doubly-Charged Species Monitor
                                       description: The mass ratio monitored to estimate doubly-charged
                                         ion (M²⁺) formation during instrument tuning. Doubly-charged ions
@@ -918,7 +966,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id023
+                                    - &id025
                                       title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged ion production
                                         for the monitored species at the time of instrument tuning. The
@@ -945,7 +993,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id024
+                                    - &id026
                                       title: Memory Effect Mitigation
                                       description: Procedure applied to identify and minimise memory effects
                                         from high-concentration elements in the previous sample or standard
@@ -975,12 +1023,6 @@ allOf:
                                       - schema:name
                                       - schema:value
                                   allOf:
-                                  - contains: *id020
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains: *id021
-                                    minContains: 0
-                                    maxContains: 1
                                   - contains: *id022
                                     minContains: 0
                                     maxContains: 1
@@ -988,6 +1030,12 @@ allOf:
                                     minContains: 0
                                     maxContains: 1
                                   - contains: *id024
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains: *id025
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains: *id026
                                     minContains: 0
                                     maxContains: 1
                           - if:
@@ -1070,6 +1118,14 @@ allOf:
                                       type: string
                           required:
                           - ada:reagentRole
+          ada:proceduralBlankLevel:
+            description: 'The measured level of the analytical blank in the session, and — where the reported
+              quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
+              result unless its own composition is known. Companion to the blank correction method, which
+              is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement
+              split the library applies wherever a procedure sets a threshold and an analysis reports
+              a value against it.'
+            type: string
     dqv:hasQualityMeasurement:
       type: array
       items:
@@ -1099,3 +1155,115 @@ allOf:
               const: Oxide production ratio
           required:
           - dqv:isMeasurementOf
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the procedure's declared
+            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
+            branches above are permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - &id027
+          title: Normalization / Standards-Based Correction
+          description: Any post-acquisition normalization applied to correct for systematic biases identified
+            from secondary reference materials, or stoichiometric normalization applied per pixel in mapping.
+            Distinct from the primary internal standard approach captured in Internal Standard Approach.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsTAPP/normalizationStandardsBasedCorrection
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laSficpmsTAPP/normalizationStandardsBasedCorrection
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - &id028
+          title: Detection Limit
+          description: Session detection limit, one per reported concentration variable (one per analyte,
+            these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at
+            analysis level to demonstrate the reliability of reported near-detection-limit concentrations.
+            The calculation method is captured separately in Detection Limit Method.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsTAPP/detectionLimit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laSficpmsTAPP/detectionLimit
+            schema:name:
+              const: Detection Limit
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+        - &id029
+          title: Detection Limit Method
+          description: Reference or description of the method used to calculate session detection limits.
+            Mandatory at analysis level. Must be consistent with the method applied to generate the Detection
+            Limit values reported above.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laSficpmsTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+      allOf:
+      - contains: *id027
+        minContains: 0
+        maxContains: 1
+      - contains: *id028
+        minContains: 0
+        maxContains: 1
+      - contains: *id029
+        minContains: 0
+        maxContains: 1

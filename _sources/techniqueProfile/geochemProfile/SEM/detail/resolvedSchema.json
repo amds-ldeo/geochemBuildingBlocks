@@ -426,6 +426,51 @@
       }
     },
     {
+      "title": "CalibrationFactor on the analysis",
+      "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
+      "type": "object",
+      "properties": {
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Calibration Factor and Determination Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:value": {
+                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
       "title": "Aggregation on the analysis",
       "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
       "type": "object",
@@ -827,6 +872,41 @@
                       ]
                     },
                     {
+                      "title": "Detection Limit",
+                      "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semTAPP/detectionLimit"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semTAPP/detectionLimit"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Detection Limit"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    {
                       "title": "Drift Correction",
                       "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals. Particularly relevant for long mapping runs and high-magnification sessions where positional accuracy affects data quality.",
                       "type": "object",
@@ -1113,41 +1193,6 @@
                         "schema:name",
                         "schema:value",
                         "schema:unitText"
-                      ]
-                    },
-                    {
-                      "title": "Procedural Blank Level",
-                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Procedural Blank Level"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
                       ]
                     },
                     {
@@ -1588,6 +1633,45 @@
                   },
                   {
                     "contains": {
+                      "title": "Detection Limit",
+                      "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semTAPP/detectionLimit"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semTAPP/detectionLimit"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Detection Limit"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
                       "title": "Drift Correction",
                       "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals. Particularly relevant for long mapping runs and high-magnification sessions where positional accuracy affects data quality.",
                       "type": "object",
@@ -1898,45 +1982,6 @@
                         "schema:name",
                         "schema:value",
                         "schema:unitText"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "Procedural Blank Level",
-                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Procedural Blank Level"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
                       ]
                     },
                     "minContains": 0,
@@ -4347,6 +4392,41 @@
                                         "schema:name",
                                         "schema:value"
                                       ]
+                                    },
+                                    {
+                                      "title": "Normalization / Standards-Based Correction",
+                                      "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Normalization / Standards-Based Correction"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
                                     }
                                   ]
                                 },
@@ -4413,6 +4493,45 @@
                                         },
                                         "schema:name": {
                                           "const": "Crystal Structure Database"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
+                                      "title": "Normalization / Standards-Based Correction",
+                                      "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Normalization / Standards-Based Correction"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -4507,18 +4626,7 @@
                   }
                 }
               },
-              "ada:ebsdIndexingRate": {
-                "description": "Fraction of EBSD map points successfully indexed, expressed as a percentage of total map points. Low indexing rate may indicate surface damage, amorphisation, severe deformation, or phase misidentification.",
-                "anyOf": [
-                  {
-                    "type": "number"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
-              },
-              "ada:deadTime": {
+              "ada:edsDeadTime": {
                 "description": "Percent dead time reported by the EDS detector during the session — the fraction of total acquisition time the detector spent processing rather than counting. EDS dead time correction is managed automatically by the detector electronics; this field documents the resulting percentage as a session QC metric. Values above ~40% indicate excessive count rate and may degrade spectral quality and quantitative accuracy. Unlike WDS dead time (see WDS Dead Time Correction), no user-selectable correction algorithm is required.",
                 "anyOf": [
                   {
@@ -4845,6 +4953,10 @@
                     }
                   }
                 ]
+              },
+              "ada:proceduralBlankLevel": {
+                "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                "type": "string"
               }
             }
           }
@@ -4871,42 +4983,6 @@
                     }
                   }
                 }
-              },
-              {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
               },
               {
                 "title": "Detection Limit",
@@ -5019,46 +5095,6 @@
             ]
           },
           "allOf": [
-            {
-              "contains": {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
             {
               "contains": {
                 "title": "Detection Limit",
@@ -5190,7 +5226,61 @@
                 "if": {
                   "properties": {
                     "dqv:isMeasurementOf": {
+                      "const": "EBSD Indexing Rate"
+                    }
+                  },
+                  "required": [
+                    "dqv:isMeasurementOf"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "dqv:value": {
+                      "description": "Fraction of EBSD map points successfully indexed, expressed as a percentage of total map points. Low indexing rate may indicate surface damage, amorphisation, severe deformation, or phase misidentification.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "dqv:isMeasurementOf": {
                       "const": "EBSD Mean Angular Deviation"
+                    }
+                  },
+                  "required": [
+                    "dqv:isMeasurementOf"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "dqv:value": {
+                      "description": "Mean angular deviation (MAD) of the EBSD pattern indexing solution in degrees. MAD quantifies the misfit between experimental Kikuchi band positions and the best-fit crystal orientation. Values above ~1.5 degrees typically indicate unreliable indexing.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "dqv:isMeasurementOf": {
+                      "const": "EBSD Pattern Quality Threshold"
                     }
                   },
                   "required": [
@@ -5219,6 +5309,18 @@
             ]
           },
           "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "dqv:isMeasurementOf": {
+                    "const": "EBSD Indexing Rate"
+                  }
+                },
+                "required": [
+                  "dqv:isMeasurementOf"
+                ]
+              }
+            },
             {
               "contains": {
                 "properties": {
@@ -11659,10 +11761,13 @@
                 ]
               },
               "dqv:value": {
-                "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
                 "anyOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "type": "number"
                   },
                   {
                     "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",

@@ -1,44 +1,32 @@
-- title: CalibrationFactor published parameter (Param_Analysis_calibrationFactorAndDeterminationMethod)
-  content: 'A parameter the CalibrationFactor module publishes for the analysis side. The module places
-    no root fields, so its parameters are what it contributes: a consuming TAPP unions this branch into
-    its own additionalProperty anyOf.'
+- title: CalibrationFactor composed into a procedure (ProcedureIdentification)
+  content: The procedure half of the CalibrationFactor module, with every property populated. Generated
+    from the schema, so it tracks the sidecar.
   prefixes:
     schema: http://schema.org/
   snippets:
   - language: json
     code: |-
       {
-        "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod",
-        "@type": [
-          "schema:PropertyValue"
-        ],
-        "schema:propertyID": [
+        "schema:variableMeasured": [
           {
-            "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
+            "schema:name": "Calibration Factor and Determination Method",
+            "schema:defaultValue": "example value"
           }
-        ],
-        "schema:name": "Calibration Factor and Determination Method",
-        "schema:value": "example value"
+        ]
       }
-- title: CalibrationFactor published parameter (Param_Procedure_calibrationFactorAndDeterminationMethod)
-  content: 'A parameter the CalibrationFactor module publishes for the procedure side. The module places
-    no root fields, so its parameters are what it contributes: a consuming TAPP unions this branch into
-    its own additionalProperty anyOf.'
+- title: CalibrationFactor composed into an analysis (AnalysisIdentification)
+  content: The analysis half of the CalibrationFactor module, with every property populated. Generated
+    from the schema, so it tracks the sidecar.
   prefixes:
-    ada: https://ada.astromat.org/metadata/
     schema: http://schema.org/
   snippets:
   - language: json
     code: |-
       {
-        "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "calibrationFactorAndDeterminationMethodDefault",
-        "schema:name": "Calibration Factor and Determination Method",
-        "ada:dataType": "string",
-        "ada:fieldScope": "session",
-        "schema:readonlyValue": false,
-        "ada:tier": "R"
+        "schema:variableMeasured": [
+          {
+            "schema:name": "Calibration Factor and Determination Method",
+            "schema:value": "example value"
+          }
+        ]
       }

@@ -106,6 +106,20 @@
           "schema:value": "example value"
         },
         {
+          "@id": "ada:parameter/laMcicpmsTAPP/detectionLimit",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laMcicpmsTAPP/detectionLimit"
+            }
+          ],
+          "schema:name": "Detection Limit",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
           "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio",
           "@type": [
             "schema:PropertyValue"
@@ -195,19 +209,6 @@
             }
           ],
           "schema:name": "Pre-Analysis Imaging and Screening",
-          "schema:value": "example value"
-        },
-        {
-          "@id": "ada:parameter/module/Blank/proceduralBlankLevel",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
-            }
-          ],
-          "schema:name": "Procedural Blank Level",
           "schema:value": "example value"
         },
         {
@@ -575,19 +576,51 @@
       "schema:actionProcess": {
         "schema:step": [
           {
-            "schema:name": "Data reduction",
+            "schema:name": "Sample preparation",
             "schema:additionalProperty": [
               {
-                "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod",
+                "@id": "ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio",
                 "@type": [
                   "schema:PropertyValue"
                 ],
                 "schema:propertyID": [
                   {
-                    "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
+                    "@id": "ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio"
                   }
                 ],
-                "schema:name": "Calibration Factor and Determination Method",
+                "schema:name": "Fusion Flux and Dilution Ratio",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatment",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatment"
+                  }
+                ],
+                "schema:name": "Pre Ablation Surface Treatment",
+                "schema:value": "example value"
+              }
+            ],
+            "schema:description": "example samplePreparationMethod"
+          },
+          {
+            "schema:name": "Data reduction",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                  }
+                ],
+                "schema:name": "Normalization / Standards-Based Correction",
                 "schema:value": "example value"
               },
               {
@@ -630,41 +663,10 @@
                 "schema:value": "example value"
               }
             ]
-          },
-          {
-            "schema:name": "Sample preparation",
-            "schema:additionalProperty": [
-              {
-                "@id": "ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio"
-                  }
-                ],
-                "schema:name": "Fusion Flux and Dilution Ratio",
-                "schema:value": "example value"
-              },
-              {
-                "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatment",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatment"
-                  }
-                ],
-                "schema:name": "Pre Ablation Surface Treatment",
-                "schema:value": "example value"
-              }
-            ],
-            "schema:description": "example samplePreparationMethod"
           }
         ]
       },
+      "ada:proceduralBlankLevel": "example proceduralBlankLevel",
       "schema:location": {
         "@type": [
           "schema:Place"

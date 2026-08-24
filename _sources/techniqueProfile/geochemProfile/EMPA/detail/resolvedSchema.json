@@ -426,6 +426,51 @@
       }
     },
     {
+      "title": "CalibrationFactor on the analysis",
+      "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
+      "type": "object",
+      "properties": {
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Calibration Factor and Determination Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:value": {
+                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
       "title": "Aggregation on the analysis",
       "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
       "type": "object",
@@ -2539,6 +2584,41 @@
                       ]
                     },
                     {
+                      "title": "Detection Limit",
+                      "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/empaTAPP/detectionLimit"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/empaTAPP/detectionLimit"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Detection Limit"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    {
                       "title": "Drift Correction",
                       "description": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.",
                       "type": "object",
@@ -2722,41 +2802,6 @@
                         },
                         "schema:name": {
                           "const": "Target Selection Criteria"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
-                      ]
-                    },
-                    {
-                      "title": "Procedural Blank Level",
-                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Procedural Blank Level"
                         },
                         "schema:value": {
                           "type": "string"
@@ -2864,6 +2909,45 @@
                   },
                   {
                     "contains": {
+                      "title": "Detection Limit",
+                      "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/empaTAPP/detectionLimit"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/empaTAPP/detectionLimit"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Detection Limit"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
                       "title": "Drift Correction",
                       "description": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.",
                       "type": "object",
@@ -3063,45 +3147,6 @@
                         },
                         "schema:name": {
                           "const": "Target Selection Criteria"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "Procedural Blank Level",
-                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Procedural Blank Level"
                         },
                         "schema:value": {
                           "type": "string"
@@ -3237,36 +3282,6 @@
                           "if": {
                             "properties": {
                               "schema:name": {
-                                "const": "Sample preparation"
-                              }
-                            },
-                            "required": [
-                              "schema:name"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "schema:description": {
-                                "description": "Description of how samples were prepared for analysis under this procedure (mounting, polishing, coating). Analysts may document session-specific variations from the procedure standard.",
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    }
-                                  }
-                                ]
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "if": {
-                            "properties": {
-                              "schema:name": {
                                 "const": "Data reduction"
                               }
                             },
@@ -3281,12 +3296,12 @@
                                 "items": {
                                   "anyOf": [
                                     {
-                                      "title": "Calibration Factor and Determination Method",
-                                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                                      "title": "Normalization / Standards-Based Correction",
+                                      "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
+                                          "const": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection"
                                         },
                                         "@type": {
                                           "const": [
@@ -3296,12 +3311,12 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
+                                              "@id": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection"
                                             }
                                           ]
                                         },
                                         "schema:name": {
-                                          "const": "Calibration Factor and Determination Method"
+                                          "const": "Normalization / Standards-Based Correction"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -3355,12 +3370,12 @@
                                 "allOf": [
                                   {
                                     "contains": {
-                                      "title": "Calibration Factor and Determination Method",
-                                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                                      "title": "Normalization / Standards-Based Correction",
+                                      "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
+                                          "const": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection"
                                         },
                                         "@type": {
                                           "const": [
@@ -3370,12 +3385,12 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
+                                              "@id": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection"
                                             }
                                           ]
                                         },
                                         "schema:name": {
-                                          "const": "Calibration Factor and Determination Method"
+                                          "const": "Normalization / Standards-Based Correction"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -3435,6 +3450,36 @@
                               }
                             }
                           }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "schema:name": {
+                                "const": "Sample preparation"
+                              }
+                            },
+                            "required": [
+                              "schema:name"
+                            ]
+                          },
+                          "then": {
+                            "properties": {
+                              "schema:description": {
+                                "description": "Description of how samples were prepared for analysis under this procedure (mounting, polishing, coating). Analysts may document session-specific variations from the procedure standard.",
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          }
                         }
                       ]
                     },
@@ -3443,7 +3488,7 @@
                         "contains": {
                           "properties": {
                             "schema:name": {
-                              "const": "Sample preparation"
+                              "const": "Data reduction"
                             }
                           },
                           "required": [
@@ -3455,7 +3500,7 @@
                         "contains": {
                           "properties": {
                             "schema:name": {
-                              "const": "Data reduction"
+                              "const": "Sample preparation"
                             }
                           },
                           "required": [
@@ -3477,6 +3522,10 @@
                     "type": "string"
                   }
                 ]
+              },
+              "ada:proceduralBlankLevel": {
+                "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                "type": "string"
               }
             }
           }
@@ -3541,6 +3590,42 @@
                 ]
               },
               {
+                "title": "Detection Limit Method",
+                "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/detectionLimitMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/empaTAPP/detectionLimitMethod"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit Method"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
                 "title": "Normalization / Standards-Based Correction",
                 "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
                 "type": "object",
@@ -3563,42 +3648,6 @@
                   },
                   "schema:name": {
                     "const": "Normalization / Standards-Based Correction"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
                   },
                   "schema:value": {
                     "type": "string"
@@ -3657,6 +3706,46 @@
             },
             {
               "contains": {
+                "title": "Detection Limit Method",
+                "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/detectionLimitMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/empaTAPP/detectionLimitMethod"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit Method"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "title": "Normalization / Standards-Based Correction",
                 "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
                 "type": "object",
@@ -3679,46 +3768,6 @@
                   },
                   "schema:name": {
                     "const": "Normalization / Standards-Based Correction"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
                   },
                   "schema:value": {
                     "type": "string"
@@ -10239,10 +10288,13 @@
                 ]
               },
               "dqv:value": {
-                "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
                 "anyOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "type": "number"
                   },
                   {
                     "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",

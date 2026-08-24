@@ -4,6 +4,7 @@ description: Dataset-level analysis-instance detail for EPMA/EMPA, reusing CDIF/
   schema:Dataset root.
 allOf:
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
@@ -180,6 +181,31 @@ allOf:
                 - schema:value
                 - schema:unitText
               - &id005
+                title: Detection Limit
+                description: Method detection limit at 99% confidence (3-sigma), one per reported concentration
+                  variable (one per analyte, these being the same set), derived from counting statistics
+                  on peak and background. Include the method and the resulting value for each.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+              - &id006
                 title: Drift Correction
                 description: Method used to monitor and correct for instrument drift (beam current drift,
                   spectrometer drift) during the analytical session.
@@ -203,7 +229,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id006
+              - &id007
                 title: EDS Live Time per Point or Pixel
                 description: EDS spectral acquisition live time per analysis point in seconds. Previously
                   referred to as "EDS Acquisition Time" in this TAPP and commonly used under that name
@@ -235,7 +261,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id007
+              - &id008
                 title: Halogen Correction on Oxygen
                 description: Whether oxygen content was adjusted to account for halogen substitution (F
                   and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica,
@@ -260,7 +286,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id008
+              - &id009
                 title: Step Size / Pixel Size
                 description: Distance between adjacent measurement points in the X-ray map in micrometers,
                   defining the spatial resolution. Report both X and Y step if they differ.
@@ -290,7 +316,6 @@ allOf:
                 - schema:value
                 - schema:unitText
               - $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
-              - $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
             allOf:
             - contains: *id003
               minContains: 0
@@ -310,12 +335,11 @@ allOf:
             - contains: *id008
               minContains: 0
               maxContains: 1
-            - contains:
-                $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+            - contains: *id009
               minContains: 0
               maxContains: 1
             - contains:
-                $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+                $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
               minContains: 0
               maxContains: 1
           schema:object:
@@ -352,6 +376,51 @@ allOf:
                   - if:
                       properties:
                         schema:name:
+                          const: Data reduction
+                      required:
+                      - schema:name
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            anyOf:
+                            - &id010
+                              title: Normalization / Standards-Based Correction
+                              description: Post-acquisition normalization applied using secondary reference
+                                materials to correct for session-to-session calibration drift.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                          allOf:
+                          - contains: *id010
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                            minContains: 0
+                            maxContains: 1
+                  - if:
+                      properties:
+                        schema:name:
                           const: Sample preparation
                       required:
                       - schema:name
@@ -366,40 +435,17 @@ allOf:
                           - type: array
                             items:
                               type: string
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Data reduction
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            anyOf:
-                            - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
-                            - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
-                          allOf:
-                          - contains:
-                              $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
-                            minContains: 0
-                            maxContains: 1
                 allOf:
                 - contains:
                     properties:
                       schema:name:
-                        const: Sample preparation
+                        const: Data reduction
                     required:
                     - schema:name
                 - contains:
                     properties:
                       schema:name:
-                        const: Data reduction
+                        const: Sample preparation
                     required:
                     - schema:name
           ada:deadTime:
@@ -412,6 +458,14 @@ allOf:
             anyOf:
             - type: number
             - type: string
+          ada:proceduralBlankLevel:
+            description: 'The measured level of the analytical blank in the session, and — where the reported
+              quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
+              result unless its own composition is known. Companion to the blank correction method, which
+              is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement
+              split the library applies wherever a procedure sets a threshold and an analysis reports
+              a value against it.'
+            type: string
     schema:variableMeasured:
       type: array
       items:
@@ -430,7 +484,7 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - &id009
+        - &id011
           title: Detection Limit
           description: Method detection limit at 99% confidence (3-sigma), one per reported concentration
             variable (one per analyte, these being the same set), derived from counting statistics on
@@ -456,7 +510,33 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id010
+        - &id012
+          title: Detection Limit Method
+          description: Formula or approach used to calculate detection limits. Reference method publication
+            if applicable. When the procedure does not specify a method, the analyst should complete this
+            field.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - &id013
           title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference materials to correct
             for session-to-session calibration drift.
@@ -481,50 +561,21 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id011
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured quantity into the reported
-            quantity, how it was determined, and its uncertainty. Applies where the conversion depends
-            on a factor calibrated against a reference of independently known value, rather than on the
-            instrument response alone. Distinct from the fields that name the calibration material and
-            that state which approach applies to which analyte, where the technique has them: this field
-            records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
       allOf:
-      - contains: *id009
-        minContains: 0
-        maxContains: 1
-      - contains: *id010
-        minContains: 0
-        maxContains: 1
       - contains: *id011
+        minContains: 0
+        maxContains: 1
+      - contains: *id012
+        minContains: 0
+        maxContains: 1
+      - contains: *id013
         minContains: 0
         maxContains: 1
     schema:additionalProperty:
       type: array
       items:
         anyOf:
-        - &id012
+        - &id014
           title: Map Area
           description: Physical dimensions of the mapped region in micrometers (X x Y). Determined at
             analysis time based on the sample feature or region of interest.
@@ -553,7 +604,7 @@ allOf:
           - schema:name
           - schema:value
           - schema:unitText
-        - &id013
+        - &id015
           title: Map Dimensions
           description: Number of pixels in the X-ray map in the X and Y directions. Determined at analysis
             time based on the area of interest and selected step size.
@@ -583,9 +634,9 @@ allOf:
           - schema:value
           - schema:unitText
       allOf:
-      - contains: *id012
+      - contains: *id014
         minContains: 0
         maxContains: 1
-      - contains: *id013
+      - contains: *id015
         minContains: 0
         maxContains: 1
