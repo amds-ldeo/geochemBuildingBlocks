@@ -153,6 +153,16 @@ def _parse_segment(seg: str) -> Segment:
     curie = seg if i == -1 else seg[:i]
     if not re.fullmatch(_CURIE, curie):
         raise SchemaPathError(f"bad curie {curie!r} in segment {seg!r}")
+    # An UpperCamel localname is the @type-assertion syntax (schema:DefinedTerm, schema:Place).
+    # In the ada: namespace that is never intended: ada: names PROPERTIES, and there are no ada:
+    # @type assertions in any path. Left unchecked, `ada:IonBeamSource` parses clean, sets the
+    # node's @type instead of navigating to a property, and contributes NO schema -- so the row
+    # passes every validation while silently placing nothing. SCHEMA_PATH_GRAMMAR.md said these
+    # were rejected; they were not, and two shipped in SEM_TAPP_v22.
+    if curie.startswith("ada:") and curie.split(":", 1)[1][:1].isupper():
+        raise SchemaPathError(
+            f"UpperCamel ada: segment {curie!r} in {seg!r} -- ada: names properties, so this "
+            f"parses as a @type assertion and emits nothing; use lowerCamel")
     is_array, selector = False, None
     for b in ([] if i == -1 else _bracket_groups(seg[i:])):
         if b == "":
