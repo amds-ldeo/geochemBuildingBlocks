@@ -695,6 +695,39 @@ def load_sidecar():
     return {}
 
 
+def mode_columns(rows):
+    """Indices of the analytical-mode Y/N columns — the block between 'Keyed By' and 'Literature
+    Assessment'. Their headers ARE the ada:analyticalMode enum options.
+
+    The span starts at 'Keyed By', which is where the mode block begins in every current table.
+    'Comments'/'Last Update' are the fallbacks for a table that predates the Keyed By column;
+    starting there sweeps two guidance columns into the span, which the all-cells-in-{Y,N}
+    filter then has to reject on content rather than position. The filter stays regardless — it
+    is what lets this read a raw Drive workbook (no guidance columns) identically."""
+    hdr = rows[0]
+    H = [norm(v).lower() for v in hdr]
+    lit = next((i for i, v in enumerate(H) if v == "literature assessment"), None)
+    start = next((i for i, v in enumerate(H) if v == "keyed by"), None)
+    if start is None:
+        start = next((i for i, v in enumerate(H)
+                      if v.startswith("last update") or v.startswith("comment")), None)
+    boundary = lit if lit is not None else len(hdr)
+    cols = []
+    if start is not None:
+        for i in range(start + 1, boundary):
+            vals = [norm(rr[i]).upper() for rr in rows[1:] if i < len(rr) and norm(rr[i])]
+            if vals and all(v in ("Y", "N") for v in vals):
+                cols.append(i)
+    return cols
+
+
+def mode_names(xlsx=None):
+    """The mode columns' HEADERS — this technique's ada:analyticalMode enum options. Empty for a
+    single-mode technique (the Solution trio declares no mode columns at all)."""
+    rows = tapp_source.rows(xlsx or XLSX)
+    return [norm(rows[0][i]) for i in mode_columns(rows)]
+
+
 def route():
     import _tapp_lib as _L
     from collections import OrderedDict
@@ -705,16 +738,7 @@ def route():
     comment_col = next((i for i, v in enumerate(H) if v.startswith("comment")), None)
     boundary = lit if lit is not None else len(hdr)
     cov_start = (lit + 1) if lit is not None else len(hdr)
-    # Mode columns: the Y/N boolean columns between 'comment' and 'Literature Assessment'
-    # (their headers are the ada:analyticalMode enum options). Any leftover guidance columns
-    # in that span are text, so the all-cells-in-{Y,N} filter excludes them; this works on a
-    # raw Drive workbook (no guidance columns) identically.
-    mode_cols = []
-    if comment_col is not None:
-        for i in range(comment_col + 1, boundary):
-            vals = [norm(rr[i]).upper() for rr in rows[1:] if i < len(rr) and norm(rr[i])]
-            if vals and all(v in ("Y", "N") for v in vals):
-                mode_cols.append(i)
+    mode_cols = mode_columns(rows)
     mode_names = [norm(hdr[i]) for i in mode_cols]
     R = {"tapp_prop": [], "method_param": [], "method_value": [], "detail_req": [], "detail_addl": [],
          "analyte_cols": [], "analyte_defs": OrderedDict(), "vocab": [], "mode_names": mode_names}

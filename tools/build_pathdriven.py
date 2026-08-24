@@ -227,6 +227,18 @@ def build_pathdriven(tapp, write_registries=True):
     # BLOCK, so a technique takes only the blocks that apply to it — see docs/REPORTINGCORE_BLOCKS.md.
     import module_composition as mc
     _refs, _ = mc.plan(b.XLSX)
+    # ada:analyticalMode is PLACED by the core module — one shared $def across all 16
+    # techniques — but its options are this technique's own mode columns (the Y/N block
+    # between 'Keyed By' and 'Literature Assessment'). The enum therefore cannot live in the
+    # module, and the technique contributes it as a NARROWING: wrap() puts the overlay in its
+    # own allOf branch, so {items: {enum: ...}} intersects with the module's unconstrained
+    # array rather than redefining it. Without this a procedure may declare any mode string,
+    # including one its own table does not define. Skipped for a single-mode technique (the
+    # Solution trio has no mode columns): an empty enum would admit nothing at all.
+    _modes = b.mode_names()
+    if _modes:
+        md.setdefault("properties", {})["ada:analyticalMode"] = {
+            "type": "array", "items": {"type": "string", "enum": _modes}}
     tapp_schema = e.wrap("MethodDefinition", md, required["MethodDefinition"],
                          title=b.CFG.get("title"), description=b.CFG.get("description"),
                          module_refs=mc.ref_objects(_refs, "MethodDefinition"))

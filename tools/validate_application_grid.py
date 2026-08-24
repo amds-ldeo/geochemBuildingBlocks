@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Validate the application Y/N grid in the TAPP workbooks.
 
-Each workbook carries a block of application columns between `Last Update` and the first of
-`schema path` / `Literature Assessment` — the sub-types a protocol can serve (SE Imaging, EBSD,
-Spot, Transect, …). A Y means the row's property applies to that application; an N means it is NOT
-APPLICABLE, i.e. the generated schema will require the property to be ABSENT.
+Each table carries a block of application columns between `Keyed By` and `Literature Assessment`
+— the sub-types a protocol can serve (SE Imaging, EBSD, Spot, Transect, …). A Y means the row's
+property applies to that application; an N means it is NOT APPLICABLE.
+
+The span is read POSITIONALLY here, unlike `build_tapp.mode_columns`, which additionally requires
+every cell in a column to be Y or N. That filter protects the generator from mistaking a stray
+text column for a mode; applying it here would defeat the purpose, since a column holding one bad
+value would silently vanish from the grid instead of being reported. What the generator skips,
+this flags.
 
 That prohibition is what makes the grid load-bearing. A mis-entered N does not merely relax a
 requirement — it invalidates any instance carrying the property. So the grid needs checking before
@@ -30,12 +35,13 @@ Usage:
 """
 import argparse
 import collections
-import glob
 import os
 import re
 import sys
 
-import openpyxl
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import build_tapp as b
+import tapp_source
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -44,19 +50,17 @@ END_HEADERS = ("schema path", "literature assessment")
 SECTION_RE = re.compile(r"^\d+\.\s")
 
 
-def read_grid(xlsx):
+def read_grid(path):
     """(applications, [(item, [values...]), ...]) — data rows only, section headers dropped."""
-    wb = openpyxl.load_workbook(xlsx, read_only=True, data_only=True)
-    if "TAPP" not in wb.sheetnames:
-        wb.close()
-        return None, None
-    rows = list(wb["TAPP"].iter_rows(values_only=True))
-    wb.close()
+    rows = tapp_source.rows(path)
     if not rows:
         return None, None
 
     hdr = [(str(c).strip() if c is not None else "") for c in rows[0]]
-    start = next((i + 1 for i, h in enumerate(hdr) if h.lower().startswith("last update")), None)
+    start = next((i + 1 for i, h in enumerate(hdr) if h.lower() == "keyed by"), None)
+    if start is None:   # a table predating the Keyed By column
+        start = next((i + 1 for i, h in enumerate(hdr)
+                      if h.lower().startswith("last update")), None)
     end = next((i for i, h in enumerate(hdr) if h.lower() in END_HEADERS), None)
     if start is None or end is None or end <= start:
         return [], []            # no detectable application block
@@ -73,11 +77,11 @@ def read_grid(xlsx):
     return apps, out
 
 
-def check(xlsx, verbose=False):
-    apps, rows = read_grid(xlsx)
-    name = os.path.basename(xlsx)
+def check(path, verbose=False):
+    apps, rows = read_grid(path)
+    name = os.path.basename(path)
     if apps is None:
-        print(f"{name:<44s} no TAPP sheet — skipped")
+        print(f"{name:<44s} empty table — skipped")
         return 0
     if not apps:
         print(f"{name:<44s} no application columns (unconditional technique)")
@@ -88,7 +92,7 @@ def check(xlsx, verbose=False):
     # (BASIC / READ-ONLY / EDITABLE), which would otherwise report as ~90 bad values. If nothing in
     # the block is Y or N, it is not a grid — say so once instead of flagging every cell.
     if not any(v in ("Y", "N") for _, vals in rows for v in vals):
-        print(f"{name:<44s} block after 'Last Update' holds no Y/N — not an application grid "
+        print(f"{name:<44s} block after 'Keyed By' holds no Y/N — not an application grid "
               f"({', '.join(apps)!r}); skipped")
         return 0
 
@@ -137,20 +141,27 @@ def check(xlsx, verbose=False):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("workbook", nargs="?", help="one workbook (default: all TAPP workbooks)")
+    ap.add_argument("table", nargs="?",
+                    help="one table, or a TAPP name; default: every wired technique")
     ap.add_argument("--verbose", action="store_true", help="list each conditional row")
     args = ap.parse_args()
 
-    if args.workbook:
-        targets = [args.workbook if os.path.isabs(args.workbook)
-                   else os.path.join(ROOT, args.workbook)]
+    # The tables are the CSVs the wired techniques actually build from — resolved through
+    # TAPP_CONFIGS, so this checks the same revision the generator reads and never a superseded
+    # one. It previously globbed docs/*.xlsx; those workbooks are gone, so it silently checked
+    # NOTHING and reported a clean grid.
+    if args.table and args.table in b.TAPP_CONFIGS:
+        b.configure(args.table)
+        targets = [b.XLSX]
+    elif args.table:
+        targets = [args.table if os.path.isabs(args.table)
+                   else os.path.join(ROOT, args.table)]
     else:
-        targets = sorted(set(glob.glob(os.path.join(ROOT, "docs", "*_TAPP_*.xlsx"))) |
-                         set(glob.glob(os.path.join(ROOT, "docs", "TAPP_*.xlsx"))))
-        targets = [t for t in targets
-                   if not os.path.basename(t).startswith("~$")      # Excel lock file
-                   and "template" not in os.path.basename(t).lower()
-                   and "interp" not in os.path.basename(t).lower()]
+        targets = []
+        for _t in sorted(b.TAPP_CONFIGS):
+            b.configure(_t)
+            if b.XLSX not in targets:
+                targets.append(b.XLSX)
 
     total = 0
     for t in targets:
