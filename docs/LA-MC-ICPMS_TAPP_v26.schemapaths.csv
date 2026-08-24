@@ -51,11 +51,12 @@ Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owne
 Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
 Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
-Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,reported property
-Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$Dataset.schema:variableMeasured[schema:name='Detection Limit'].schema:value,authored,,,reported property
-Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.schema:variableMeasured[schema:name='Detection Limit'].schema:defaultValue,authored,,,reported property
-Detection Limit Method,Basic,Read-Only,Text / URI,$MethodDefinition.ada:detectionLimitMethod,authored,shared,,reported property
-Detection Limit Method,Basic,Read-Only,Text / URI,$MethodDefinition.schema:variableMeasured[schema:name='Detection Limit Method'].schema:value,authored,,,reported property
+Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.schema:additionalProperty[schema:name='Detection Limit'].schema:defaultValue,,shared,aligned to SEM_TAPP_v22,
+Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Detection Limit'].schema:value,,shared,aligned to SEM_TAPP_v22,
+Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.schema:variableMeasured[schema:name='Detection Limit'].schema:defaultValue,keyed,shared,aligned to SEM_TAPP_v22,reported property
+Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$Dataset.schema:variableMeasured[schema:name='Detection Limit'].schema:value,keyed,shared,aligned to SEM_TAPP_v22,reported property
+Detection Limit Method,Basic,Read-Only,Text / URI,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].ada:detectionLimitMethod,keyed,shared,aligned to SEM_TAPP_v22,
+Detection Limit Method,Basic,Read-Only,Text / URI,$Dataset.schema:variableMeasured[schema:name='Detection Limit Method'].schema:value,keyed,shared,aligned to SEM_TAPP_v22,reported property
 Detector Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Detector Configuration'].schema:value,authored,shared,,
 Double-Spike Inversion Algorithm,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Double-Spike Inversion Algorithm'].schema:value,inferred,,path from owning module,
 Double-Spike Isotope Pair,Basic,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Double Spike Isotope Pair'].schema:value,inferred,,path from owning module,
@@ -129,9 +130,10 @@ Memory Effect Mitigation,Advanced,Editable,Text (free),$Dataset.prov:wasGenerate
 Memory Effect Mitigation,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:defaultValue,authored,shared,,
 Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,analyte
 Multi-Run Sequential Analysis Design,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Multi Run Sequential Analysis Design'].schema:value,authored,shared,,
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied,reported property
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$Dataset.schema:variableMeasured[schema:name='Normalization / Standards-Based Correction'].schema:value,authored,,,reported property
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:variableMeasured[schema:name='Normalization / Standards-Based Correction'].schema:defaultValue,authored,,,reported property
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Normalization / Standards-Based Correction'].schema:defaultValue,keyed,shared,aligned to SEM_TAPP_v22,
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Normalization / Standards-Based Correction'].schema:value,keyed,shared,aligned to SEM_TAPP_v22,
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:variableMeasured[schema:name='Normalization / Standards-Based Correction'].schema:defaultValue,keyed,shared,aligned to SEM_TAPP_v22,reported property
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$Dataset.schema:variableMeasured[schema:name='Normalization / Standards-Based Correction'].schema:value,keyed,shared,aligned to SEM_TAPP_v22,reported property
 Number of Blocks per Measurement,Basic,Editable,Integer,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Number of Blocks per Measurement'].schema:value,inferred,,path from owning module,
 Number of Blocks per Measurement,Basic,Editable,Integer,$MethodDefinition.schema:additionalProperty[schema:name='Number of Blocks per Measurement'].schema:defaultValue,inferred,,path from owning module,
 Number of Cycles per Block,Basic,Editable,Integer,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Number of Cycles per Block'].schema:value,inferred,,path from owning module,
@@ -151,7 +153,7 @@ Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:w
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:defaultValue,inferred,,path from owning module,sample
 Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:primaryStandardNameDefault,authored,divergent,dual-home decision: protocol default,
 Primary Calibration Standard Name,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.prov:reagent[ada:reagentRole='primaryStandard'].schema:name,authored,divergent,dual-home decision: analysis-tier value,
-Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Procedural Blank Level'].schema:value,flagged,,analysis-instance (needs mapping) | path from owning module,
+Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:proceduralBlankLevel,authored,,analysis-instance (needs mapping) | path from owning module,
 Procedure Author,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
 Procedure DOI,N/A,Basic,URI / DOI,,module,,placement owned by Module Core,
 Procedure Name,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
@@ -202,6 +204,6 @@ Uncertainty Propagation Method,Advanced,Editable,Text (free),$MethodDefinition.s
 Within-Session Analytical Precision and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:withinSessionPrecision,authored,shared,,standard x reported property
 Uncertainty Propagation Method,Advanced,Editable,Text (free),$Dataset.schema:variableMeasured[schema:name='Uncertainty Propagation Method'].schema:value,authored,,,reported property
 Uncertainty Propagation Method,Advanced,Editable,Text (free),$MethodDefinition.schema:variableMeasured[schema:name='Uncertainty Propagation Method'].schema:defaultValue,authored,,,reported property
-Instrument Manufacturer,Basic,Read-Only,Controlled list,,flagged,,new in this revision (needs mapping),
+Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:manufacturer.schema:name,authored,,new in this revision (needs mapping),
 Counting Statistics Error,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property
 Internal (Within-Measurement) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property
