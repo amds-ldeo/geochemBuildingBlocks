@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Izawa2010",
-  "schema:description": "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates",
+  "schema:description": "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis",
   "schema:object": [
     {
       "@type": [
@@ -33,36 +33,6 @@
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -72,31 +42,32 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Hitachi",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "S-2500C",
+        "schema:name": "Leo 440",
         "@type": [
           "schema:ProductModel"
         ]
       },
+      "schema:description": "Standard SEM",
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron Source",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Tungsten (W)",
+          "schema:description": "Gresham light element detector; Quartz XOne EDX analysis system (full spectral imaging)",
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "@id": "ex:instrument/SEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -105,13 +76,13 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDS Detector",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/EDS-Detector"
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -128,9 +99,6 @@
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "schema:description": "Standard SEM",
-      "ada:acceleratingVoltageDefault": "15–20 kV",
-      "ada:workingDistanceDefault": "~10 mm",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -139,30 +107,32 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:edsAcquisitionMode": "Map",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/semCompositionTAPP/chamberPressureDefault",
+      "@id": "ada:parameter/semCompositionTAPP/detectionLimitDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
       "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "High vacuum"
+      "schema:defaultValue": 0.5,
+      "schema:description": "~0.5 wt% for most elements"
     }
   ],
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "Zircon and Accessory Phase Laboratory, University of Western Ontario"
+    "schema:name": "Surface Science Western"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)"
+        "schema:name": "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -170,18 +140,8 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Gatan DigitalMicrograph (CL image assembly)"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Gatan DigitalMicrograph"
-    }
-  ],
   "ada:analyticalMode": [
-    "CL"
+    "EDS Mapping"
   ],
   "schema:measurementTechnique": [
     {
@@ -192,7 +152,35 @@
       "schema:termCode": "semComposition"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",

@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol — Zega2025",
-  "schema:description": "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²",
+  "schema:description": "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75",
   "schema:object": [
     {
       "@type": [
@@ -27,7 +27,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); hummocky and angular particles"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); fine-grained matrix areas"
           ]
         }
       ]
@@ -37,7 +37,21 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "schema:description": "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "protectiveCoatingDepositionDefault",
+            "schema:name": "Protective Coating Deposition",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas"
+          }
+        ],
+        "ada:coarseMillingConditionsDefault": "Standard stair step; 30 keV, currents 2.5 to 0.8 nA",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -59,11 +73,26 @@
         "schema:position": 2
       },
       {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+              }
+            ],
+            "schema:name": "Lift-out Method",
+            "schema:value": "In-situ lift-out (standard stair step)"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -83,13 +112,13 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "JEOL",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "7600F",
+        "schema:name": "Helios G3",
         "@type": [
           "schema:ProductModel"
         ]
@@ -139,7 +168,8 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "ada:acceleratingVoltageDefault": "15 kV",
+      "schema:description": "N/A",
+      "ada:acceleratingVoltageDefault": "30 keV (FIB milling and thinning)",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -182,13 +212,13 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
+        "schema:name": "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -196,14 +226,8 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford AZtec (Point & ID programme)"
-    }
-  ],
   "ada:analyticalMode": [
-    "Low-angle backscattered electron (BSE) imaging"
+    "TEM Sample Preparation"
   ],
   "schema:measurementTechnique": [
     {

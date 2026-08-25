@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)",
-  "description": "Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v30.csv via the path-driven pipeline.",
+  "description": "Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v31.csv via the path-driven pipeline.",
   "properties": {
     "@context": {
       "type": "object",
@@ -4272,30 +4272,20 @@
                               "type": "string",
                               "enum": [
                                 "3σ blank",
+                                "3σ background",
+                                "3σ counting statistics",
                                 "3× blank mean",
                                 "Poisson statistics",
                                 "N/A",
                                 "None",
                                 "missing"
-                              ],
-                              "readOnly": true
+                              ]
                             },
                             {
-                              "type": "array",
-                              "items": {
-                                "type": "string",
-                                "enum": [
-                                  "3σ blank",
-                                  "3× blank mean",
-                                  "Poisson statistics",
-                                  "N/A",
-                                  "None",
-                                  "missing"
-                                ],
-                                "readOnly": true
-                              }
+                              "type": "string"
                             }
-                          ]
+                          ],
+                          "readOnly": true
                         }
                       }
                     }

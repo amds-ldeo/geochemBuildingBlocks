@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol — Zega2025-2",
-  "schema:description": "semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_FIBSEM_TAPP_v14.csv).",
+  "schema:description": "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography",
   "schema:object": [
     {
       "@type": [
@@ -37,7 +37,8 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "schema:description": "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated",
+        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 16–30 keV (coarse milling)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -59,11 +60,36 @@
         "schema:position": 2
       },
       {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "finePolishingConditionsDefault",
+            "schema:name": "Fine Polishing Conditions",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Various voltages down to 1 keV (polishing)"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "foilThicknessDefault",
+            "schema:name": "Foil Thickness",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 100,
+            "schema:description": "<100 to 600 nm (variable, depending on targeted experiment)"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -83,13 +109,13 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "JEOL",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "7600F",
+        "schema:name": "Helios G4 UX",
         "@type": [
           "schema:ProductModel"
         ]
@@ -139,7 +165,8 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "ada:acceleratingVoltageDefault": "15 kV",
+      "schema:description": "N/A",
+      "ada:acceleratingVoltageDefault": "16 to 30 keV (coarse milling); down to 1 keV (polishing)",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -148,47 +175,47 @@
       "schema:name": "example instrumentName"
     },
     {
-      "@id": "ex:instrument/FIBSEM",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
       "schema:additionalType": [
         "FIBSEM",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
-      "schema:name": "missing",
       "schema:hasPart": [
         {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
           "schema:additionalType": [
             "Ion Beam Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:name": "N/A",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ]
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/FIBSEM",
+      "schema:name": "example instrumentName"
     }
   ],
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
+    "schema:name": "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
+        "schema:name": "Synchrotron XANES (ALS, Berkeley); TEM analysis"
       },
       "@type": [
         "schema:CreativeWork"
@@ -196,18 +223,8 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford AZtec (Point & ID programme)"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Oxford AZtec"
-    }
-  ],
   "ada:analyticalMode": [
-    "Point spectra (spot analysis, Point & ID)"
+    "TEM Sample Preparation"
   ],
   "schema:measurementTechnique": [
     {

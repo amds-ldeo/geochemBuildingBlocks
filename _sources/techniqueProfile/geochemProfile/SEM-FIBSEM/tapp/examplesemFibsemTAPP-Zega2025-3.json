@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol — Zega2025-3",
-  "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated",
+  "schema:description": "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids",
   "schema:object": [
     {
       "@type": [
@@ -27,7 +27,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return)"
           ]
         }
       ]
@@ -37,7 +37,21 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "schema:description": "Particles dispersed on conductive carbon dots on Al SEM pin mounts",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "protectiveCoatingDepositionDefault",
+            "schema:name": "Protective Coating Deposition",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Electron-beam deposited carbon (~0.5–1 µm); followed by ion beam-deposited carbon (~2–3 µm capping layer)"
+          }
+        ],
+        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -59,11 +73,49 @@
         "schema:position": 2
       },
       {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "finePolishingConditionsDefault",
+            "schema:name": "Fine Polishing Conditions",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "foilThicknessDefault",
+            "schema:name": "Foil Thickness",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 100,
+            "schema:description": "~100 nm"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+              }
+            ],
+            "schema:name": "Lift-out Method",
+            "schema:value": "In-situ lift-out; ion beam-deposited Pt weld to Cu half grids"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -83,13 +135,13 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Hitachi",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "S-4800",
+        "schema:name": "Quanta 3D 600",
         "@type": [
           "schema:ProductModel"
         ]
@@ -139,6 +191,8 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
+      "schema:description": "N/A",
+      "ada:acceleratingVoltageDefault": "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -147,53 +201,56 @@
       "schema:name": "example instrumentName"
     },
     {
-      "@id": "ex:instrument/FIBSEM",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
       "schema:additionalType": [
         "FIBSEM",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
-      "schema:name": "missing",
       "schema:hasPart": [
         {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
           "schema:additionalType": [
             "Ion Beam Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:name": "N/A",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ]
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/FIBSEM",
+      "schema:name": "example instrumentName"
     }
   ],
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
+        "schema:name": "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)"
       },
       "@type": [
         "schema:CreativeWork"
       ],
       "schema:url": "https://ada.astromat.org/missing"
     }
+  ],
+  "ada:analyticalMode": [
+    "TEM Sample Preparation"
   ],
   "schema:measurementTechnique": [
     {

@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Zega2025-4",
-  "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated",
+  "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging.",
   "schema:object": [
     {
       "@type": [
@@ -27,7 +27,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); olivine and carbonate grains"
           ]
         }
       ]
@@ -37,7 +37,7 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -72,13 +72,13 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Hitachi",
+        "schema:name": "JEOL",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "S-4800",
+        "schema:name": "JSM-7000F",
         "@type": [
           "schema:ProductModel"
         ]
@@ -128,6 +128,22 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
+            }
+          ],
+          "schema:name": "CL Detector Configuration",
+          "schema:value": "MonoCL4 GATAN monochromator; high-sensitivity array detector and photomultiplier; paraboloidal mirror collection (CRHEA Valbonne, France)"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "5 keV",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -136,23 +152,27 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:clAcquisitionMode": "Panchromatic",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
+    "schema:name": "Université Côte d'Azur / Observatoire de la Côte d'Azur, Valbonne, France"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
+        "schema:name": "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)"
       },
       "@type": [
         "schema:CreativeWork"
       ],
       "schema:url": "https://ada.astromat.org/missing"
     }
+  ],
+  "ada:analyticalMode": [
+    "CL Mapping"
   ],
   "schema:measurementTechnique": [
     {
@@ -163,7 +183,6 @@
       "schema:termCode": "semImaging"
     }
   ],
-  "ada:clAcquisitionMode": "missing",
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,

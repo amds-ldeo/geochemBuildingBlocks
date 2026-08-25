@@ -18175,7 +18175,7 @@
                       },
                       "then": {
                         "title": "LA-Q-ICP-MS Technique-Aligned Procedure Profile (laQicpmsTAPP)",
-                        "description": "Laser-ablation quadrupole ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-Q-ICP-MS_TAPP_v29.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+                        "description": "Laser-ablation quadrupole ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-Q-ICP-MS_TAPP_v30.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
                         "allOf": [
                           {
                             "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
@@ -20971,16 +20971,22 @@
                                                 "anyOf": [
                                                   {
                                                     "type": "string",
-                                                    "readOnly": true
+                                                    "enum": [
+                                                      "3σ blank",
+                                                      "3σ background",
+                                                      "3σ counting statistics",
+                                                      "3× blank mean",
+                                                      "Poisson statistics",
+                                                      "N/A",
+                                                      "None",
+                                                      "missing"
+                                                    ]
                                                   },
                                                   {
-                                                    "type": "array",
-                                                    "items": {
-                                                      "type": "string",
-                                                      "readOnly": true
-                                                    }
+                                                    "type": "string"
                                                   }
-                                                ]
+                                                ],
+                                                "readOnly": true
                                               }
                                             }
                                           }
@@ -21339,7 +21345,7 @@
                                           "const": "R"
                                         },
                                         "schema:unitText": {
-                                          "const": "ppm or wt%"
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -21690,7 +21696,7 @@
                                           "const": "R"
                                         },
                                         "schema:unitText": {
-                                          "const": "ppm or wt%"
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -24929,7 +24935,7 @@
                                           "const": "R"
                                         },
                                         "schema:unitText": {
-                                          "const": "ppm or wt%"
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -25022,7 +25028,7 @@
                                           "const": "R"
                                         },
                                         "schema:unitText": {
-                                          "const": "ppm or wt%"
+                                          "type": "string"
                                         }
                                       },
                                       "required": [

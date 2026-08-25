@@ -10878,6 +10878,16 @@
                           "const": "Detection Limit"
                         },
                         "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
                       },
@@ -10886,7 +10896,8 @@
                         "@type",
                         "schema:propertyID",
                         "schema:name",
-                        "schema:value"
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     }
                   ]
@@ -11273,6 +11284,16 @@
                           "const": "Detection Limit"
                         },
                         "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
                       },
@@ -11281,7 +11302,8 @@
                         "@type",
                         "schema:propertyID",
                         "schema:name",
-                        "schema:value"
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
                     "minContains": 0,
@@ -13727,6 +13749,16 @@
                     "const": "Detection Limit"
                   },
                   "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
                     "type": "string"
                   }
                 },
@@ -13735,7 +13767,8 @@
                   "@type",
                   "schema:propertyID",
                   "schema:name",
-                  "schema:value"
+                  "schema:value",
+                  "schema:unitText"
                 ]
               },
               {
@@ -13845,6 +13878,16 @@
                 "const": "Detection Limit"
               },
               "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "schema:unitText": {
                 "type": "string"
               }
             },
@@ -13853,7 +13896,8 @@
               "@type",
               "schema:propertyID",
               "schema:name",
-              "schema:value"
+              "schema:value",
+              "schema:unitText"
             ]
           },
           "minContains": 0,
@@ -15897,7 +15941,7 @@
                       },
                       "then": {
                         "title": "SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)",
-                        "description": "Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v22.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+                        "description": "Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v24.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
                         "allOf": [
                           {
                             "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
@@ -17929,16 +17973,22 @@
                                                 "anyOf": [
                                                   {
                                                     "type": "string",
-                                                    "readOnly": true
+                                                    "enum": [
+                                                      "3σ blank",
+                                                      "3σ background",
+                                                      "3σ counting statistics",
+                                                      "3× blank mean",
+                                                      "Poisson statistics",
+                                                      "N/A",
+                                                      "None",
+                                                      "missing"
+                                                    ]
                                                   },
                                                   {
-                                                    "type": "array",
-                                                    "items": {
-                                                      "type": "string",
-                                                      "readOnly": true
-                                                    }
+                                                    "type": "string"
                                                   }
-                                                ]
+                                                ],
+                                                "readOnly": true
                                               }
                                             }
                                           }
@@ -19909,7 +19959,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -19919,6 +19969,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -20265,7 +20318,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -20275,6 +20328,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -21519,7 +21575,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -21529,6 +21585,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -21650,7 +21709,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -21660,6 +21719,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [

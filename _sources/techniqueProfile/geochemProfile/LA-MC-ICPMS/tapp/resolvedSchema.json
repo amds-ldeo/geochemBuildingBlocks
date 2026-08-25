@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)",
-  "description": "Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v26.csv via the path-driven pipeline.",
+  "description": "Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v27.csv via the path-driven pipeline.",
   "properties": {
     "@context": {
       "type": "object",
@@ -3949,16 +3949,22 @@
                           "anyOf": [
                             {
                               "type": "string",
-                              "readOnly": true
+                              "enum": [
+                                "3σ blank",
+                                "3σ background",
+                                "3σ counting statistics",
+                                "3× blank mean",
+                                "Poisson statistics",
+                                "N/A",
+                                "None",
+                                "missing"
+                              ]
                             },
                             {
-                              "type": "array",
-                              "items": {
-                                "type": "string",
-                                "readOnly": true
-                              }
+                              "type": "string"
                             }
-                          ]
+                          ],
+                          "readOnly": true
                         }
                       }
                     }
@@ -7487,7 +7493,7 @@
                     "const": "R"
                   },
                   "schema:unitText": {
-                    "const": "ppm or wt%"
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -8060,7 +8066,7 @@
                     "const": "R"
                   },
                   "schema:unitText": {
-                    "const": "ppm or wt%"
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -8682,7 +8688,7 @@
                     "const": "R"
                   },
                   "schema:unitText": {
-                    "const": "ppm or wt%"
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -8894,7 +8900,7 @@
                     "const": "R"
                   },
                   "schema:unitText": {
-                    "const": "ppm or wt%"
+                    "type": "string"
                   }
                 },
                 "required": [

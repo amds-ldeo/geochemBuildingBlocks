@@ -473,11 +473,17 @@ allOf:
                       to generate the Detection Limit values reported above.
                     anyOf:
                     - type: string
-                      readOnly: true
-                    - type: array
-                      items:
-                        type: string
-                        readOnly: true
+                      enum:
+                      - 3σ blank
+                      - 3σ background
+                      - 3σ counting statistics
+                      - 3× blank mean
+                      - Poisson statistics
+                      - N/A
+                      - None
+                      - missing
+                    - type: string
+                    readOnly: true
           allOf:
           - contains:
               properties:
@@ -799,7 +805,7 @@ allOf:
             ada:tier:
               const: R
             schema:unitText:
-              const: ppm or wt%
+              type: string
           required:
           - '@id'
           - '@type'

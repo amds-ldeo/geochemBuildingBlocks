@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Zega2025-2",
-  "schema:description": "semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Imaging_TAPP_v14.csv).",
+  "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated",
   "schema:object": [
     {
       "@type": [
@@ -27,7 +27,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return)"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
           ]
         }
       ]
@@ -37,7 +37,7 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -72,13 +72,13 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "JEOL",
+        "schema:name": "Hitachi",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "7600F",
+        "schema:name": "S-4800",
         "@type": [
           "schema:ProductModel"
         ]
@@ -128,7 +128,6 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "ada:acceleratingVoltageDefault": "15 kV",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -141,13 +140,13 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
+        "schema:name": "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -155,18 +154,8 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford AZtec (Point & ID programme)"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Oxford AZtec"
-    }
-  ],
   "ada:analyticalMode": [
-    "Point spectra (spot analysis, Point & ID)"
+    "SE Imaging"
   ],
   "schema:measurementTechnique": [
     {
